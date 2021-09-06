@@ -1,0 +1,367 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(flair)
+library(tidyverse)
+
+
+broadway <- read_csv(
+  "https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv",
+  guess_max = 10000)
+
+```
+
+# mean, median, sd, lm, and summary
+
+*Written by Mariam Walaa.*
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Use `mean()`, `median()`, and `sd()` to compute summary statistics 
+- Use `summary()` to compute summary statistics for numeric variables in a data frame
+- Use `lm()` to build linear regression models
+
+Prerequisite skills include:
+
+- Installing packages
+- Loading packages
+- Importing data
+
+Highlights:
+
+- 1-dimensional data can be summarized with `mean()`, `median()`, `sd()`
+- n-dimensional data can be summarized with `summary()`
+- `lm()` can be used to build linear regression models
+
+## Arguments
+
+### `mean()`
+
+The `mean()` function takes the following as arguments:
+
+| Argument | Parameter | Details                                                 |
+|----------|-----------|---------------------------------------------------------|
+| x        | column    | this is the set of values to compute the average of     |
+| na.rm    | Boolean   | this is to indicate whether NA values should be ignored |
+
+You can read more about the arguments in the `mean()` function's documentation
+[here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean).
+
+### `median()`
+
+The `median()` function takes the following as arguments:
+
+| Argument | Parameter | Details                                                 |
+|----------|-----------|---------------------------------------------------------|
+| x        | column    | this is the set of values to compute the median of      |
+| na.rm    | Boolean   | this is to indicate whether NA values should be ignored |
+
+You can read more about the arguments in the `median()` function's documentation
+[here](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/median).
+
+### `sd()`
+
+The `sd()` function takes the following as arguments:
+
+| Argument | Parameter | Details                                                           |
+|----------|-----------|-------------------------------------------------------------------|
+| x        | column    | this is the set of values to compute the standard deviation of    |
+| na.rm    | Boolean   | this is to indicate whether NA values should be ignored           |
+
+You can read more about the arguments in the `sd()` function's documentation
+[here](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/sd).
+
+### `summary()`
+
+The `summary()` function takes the following as arguments:
+
+| Argument | Parameter | Details                                                |
+|----------|-----------|--------------------------------------------------------|
+| object   | data      | this is the data to summarize (typically a data frame) |
+
+You can read more about the arguments in the `summary()` function's documentation
+[here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary).
+
+### `lm()`
+
+The `lm()` function takes the following as arguments:
+
+| Argument | Parameter       | Details                                                       |
+|----------|-----------------|---------------------------------------------------------------|
+| formula  | Y ~ X1 + … + Xn | equation of linear regression model                           |
+| data     | data frame      | data frame containing variables for the model                 |
+| subset   | condition       | condition to filter data frame by prior to building the model |
+
+You can read more about the arguments in the `lm()` function's documentation
+[here](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm).
+
+## Overview
+
+This section will demonstrate how to use the `lm()` function to build simple and multiple
+linear regression models. We will be looking at a subset of the Broadway Grosses data set
+provided by Alex Cookson in [the dataset
+repository](https://github.com/tacookson/data/tree/master/broadway-grosses)provided on
+GitHub. The Broadway Grosses data set comprises data on revenue and attendance figures for
+theaters that are part of The Broadway League.
+
+```{r summary-statistics-1}
+glimpse(broadway)
+```
+
+### summary()
+
+We can print a summary of the variables in this data using the `summary()` function as
+follows.
+
+```{r summary-statistics-2}
+summary(broadway)
+```
+
+You'll notice the following about the output provided by `summary()`:
+
+* The only column of type `character` does not have a numeric summary. Instead, the length
+and class of the column is provided.
+* The remaining columns are of type `integer` and `double`, and all have a numeric
+summary. The numeric summary provides:
+  * Minimum, 1st Quantile, Median, Mean, 3rd Quantile, Maximum
+
+### mean(), median(), and sd()
+
+We can also compute the mean, median, and standard deviation for 1-dimensional data, such
+as any numeric variable in the data set.
+
+```{r summary-statistics-3}
+mean(broadway$avg_ticket_price)
+```
+
+```{r summary-statistics-4}
+median(broadway$avg_ticket_price)
+```
+
+```{r summary-statistics-5}
+sd(broadway$avg_ticket_price)
+```
+
+Be careful with the type of values an object contains when you pass it to these functions.
+If the values include NAs, you will need to add `na.rm = TRUE`. If the values aren't
+numeric, you will need to convert them to numeric. You can take a look at the Data Types
+tutorial for more information on how to do this.
+
+### lm()
+
+If we want to predict the number of seats sold in a week, there are several variables
+in the data set that may be helpful for making this prediction, such as the average ticket
+price, the number of performances taking place that week, and the theater's seat capacity.
+We can build a _multiple_ linear regression to make this prediction with this data.
+
+Before we build the regression model, let's take note of the components that this model
+will need to consist of:
+
+  1. The dependent variable that we want to predict (Highlighted in blue)
+  2. The independent variables that we want to make predictions with (Highlighted in pink)
+  3. The data frame that contains all of these variables (Highlighted in orange)
+
+```{r lm-multiple, include = FALSE}
+multiple_regression <- lm(formula = seats_sold ~
+                            avg_ticket_price + performances + seats_in_theatre,
+                          data = broadway)
+```
+```{r lm-multiple-1, echo = FALSE}
+decorate("lm-multiple") %>%
+  flair("broadway", color = "orange") %>%
+  flair("seats_sold", color = "cornflowerblue") %>%
+  flair("avg_ticket_price + performances + seats_in_theatre", color = "deeppink") %>%
+  knit_print.with_flair()
+```
+
+To view the results from this model, we can use the `summary()` function as follows:
+
+```{r summary-statistics-6}
+summary(multiple_regression)
+```
+
+We can also do a _simple_ linear regression with only one independent variable as follows:
+
+```{r lm-simple, include = FALSE}
+simple_regression <- lm(formula = seats_sold ~
+                          pct_capacity,
+                        data = broadway)
+```
+```{r lm-simple-1, echo = FALSE}
+decorate("lm-simple") %>%
+  flair("broadway", color = "orange") %>%
+  flair("seats_sold", color = "cornflowerblue") %>%
+  flair("pct_capacity", color = "deeppink") %>%
+  knit_print.with_flair()
+```
+
+We can view the results from the model again using `summary()`.
+
+```{r summary-statistics-7}
+summary(simple_regression)
+```
+
+### Example: Combining `mean()`, `median()`, and `lm()`
+
+We can even use `mean()` and `median()` together with `lm()`. For example, we can make
+predictions for the mean and median value of an independent variable.
+
+```{r mean-lm, include = FALSE}
+predict(simple_regression,
+        data.frame(pct_capacity = mean(broadway$pct_capacity),
+                   na.rm = TRUE))
+```
+
+```{r mean-lm-1, echo = FALSE}
+decorate("mean-lm") %>%
+  flair("mean") %>%
+  knit_print.with_flair()
+```
+
+```{r median-lm, include = FALSE}
+predict(simple_regression,
+        data.frame(pct_capacity = median(broadway$pct_capacity),
+                   na.rm = TRUE))
+```
+```{r median-lm-1, echo = FALSE}
+decorate("median-lm") %>%
+  flair("median") %>%
+  knit_print.with_flair()
+```
+
+Notice that this code uses the `predict()` function which is not covered in this tutorial,
+but you can learn more about it in the documentation provided
+[here](https://www.rdocumentation.org/packages/raster/versions/3.4-5/topics/predict).
+
+## Exercises
+
+This section will ask you to complete exercises based on what you've learned from the
+previous section.
+
+### Exercise 1
+
+We want to predict the number of seats sold `seats_sold` based on the number of
+performances `performances`. Fill in the blanks for the code below to create a simple
+linear regression model.
+
+```{r fill-in-lm, include = FALSE, results = FALSE}
+lm(formula = seats_sold ~ performances,
+   data = broadway)
+```
+```{r fill-in-lm-1, echo = FALSE}
+decorate("fill-in-lm") %>%
+  mask("lm") %>%
+  mask("seats_sold") %>%
+  mask("~") %>%
+  mask("performances") %>%
+  mask("broadway") %>%
+  knit_print.with_flair()
+```
+
+You'll notice that there are 5 blanks in total that you'll need to fill.
+
+<!-- ```{r summary-fill-in-blanks, echo = FALSE} -->
+<!-- quiz(question("What should the first blank be?", -->
+<!--               answer("summary"), -->
+<!--               answer("predict"), -->
+<!--               answer("lm", correct = TRUE), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the second blank be?", -->
+<!--               answer("pct_capacity"), -->
+<!--               answer("seats_sold", correct = TRUE), -->
+<!--               answer("formula"), -->
+<!--               answer("performances"),  -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the third blank be?", -->
+<!--               answer("~", correct = TRUE), -->
+<!--               answer(" = "), -->
+<!--               answer("\\-"), -->
+<!--               answer("+"), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the fourth blank be?", -->
+<!--               answer("pct_capacity"), -->
+<!--               answer("seats_sold"), -->
+<!--               answer("formula"), -->
+<!--               answer("performances", correct = TRUE), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the fifth blank be?", -->
+<!--               answer("df"), -->
+<!--               answer("data"), -->
+<!--               answer("broadway", correct = TRUE), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE)) -->
+<!-- ``` -->
+
+
+### Exercise 2
+
+If we want to create a simple linear regression model for a _subset_ of the
+data, we will need to add another argument to `lm()` to let it know which subset we want.
+For example, we may want to create a regression for observations that have less than 12
+performances.
+
+Use the code from above in addition to the `subset` parameter to do this.
+
+
+<!-- ```{r summary-statistics-exercise-2, exercise = TRUE} -->
+
+<!-- ``` -->
+
+<!-- ```{r summary-statistics-exercise-2-solution, exercise = FALSE} -->
+<!-- lm(formula = seats_sold ~ performances, -->
+<!--    data = broadway, -->
+<!--    subset = performances < 12) -->
+<!-- ``` -->
+
+
+<!-- ```{r summary-statistics-exercise-2-code-check} -->
+<!-- ??grade_code() -->
+<!-- ``` -->
+
+
+### Exercise 3
+
+
+
+<!-- ```{r summary-statistics-true-statements, echo = FALSE} -->
+<!-- question("Which of these are true? Check all true statements.", -->
+<!--          answer(paste("It is possible to create a model for only a subset of the ", -->
+<!--          "observations using lm()."), correct = TRUE), -->
+<!--          answer(paste("It is possible to include multiple independent variables ", -->
+<!--           "in the formula within lm()."), correct = TRUE), -->
+<!--          answer("mean(), median(), and sd() exclude NAs from the calculation by default.", -->
+<!--                 message = paste("mean(), median(), and sd() do not exclude NAs from ", -->
+<!--                                 "the calculation by default. You need to let R know ", -->
+<!--                                 "that you may have NA values in your data.")), -->
+<!--          answer("summary() does not provide any summary for non-numeric variables.", -->
+<!--                 message = paste("summary() provides a non-numeric summary for non-numeric ", -->
+<!--                                 "variables, which includes the variable class and length.")), -->
+<!--          allow_retry = TRUE, -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
+
+## Common mistakes & errors
+
+Here are some common mistakes and errors you may come across:
+
+- You try to create a formula within the `lm()` function without using the appropriate
+operators (i.e., `~` to separate the dependent variable from the independent variable(s),
+or `+` to separate the independent variables)
+- You might be specifying the dependent variable in place of the independent variables, and vice versa. Be sure to follow the `Y ~ X1 + X2 + ... + Xn` formatting.
+
+## Next steps
+
+If you would like to read more about these functions, here are some additional resources
+you may find helpful:
+
+- [R for Data Science - Chapter 24: Model
+building](https://r4ds.had.co.nz/model-building.html).
+

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 42 mean, median, sd, lm, and summary | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Mariam Walaa.  42.1 Introduction In this lesson, you will learn how to: Use mean(), median(), and sd() to compute summary statistics Use summary() to compute summary statistics for...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 42 mean, median, sd, lm, and summary | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Mariam Walaa.  42.1 Introduction In this lesson, you will learn how to: Use mean(), median(), and sd() to compute summary statistics Use summary() to compute summary statistics for...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 42 mean, median, sd, lm, and summary | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Mariam Walaa.  42.1 Introduction In this lesson, you will learn how to: Use mean(), median(), and sd() to compute summary statistics Use summary() to compute summary statistics for...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-6.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-12.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-22.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-1.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-36.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="active" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="glm.html"><span class="header-section-number">43</span> glm</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">44</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">45</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">46</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">47</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">48</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-lapply.html"><span class="header-section-number">49</span> apply sapply lapply</a></li>
+<li><a class="" href="basename-etc.html"><span class="header-section-number">50</span> basename etc</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">51</span> sum round etc</a></li>
+<li><a class="" href="isna-which-unique-identical.html"><span class="header-section-number">52</span> isna which unique identical</a></li>
+<li><a class="" href="rownames-and-colnames.html"><span class="header-section-number">53</span> rownames and colnames</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">54</span> floor ceiling round and abs</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-43.html"><span class="header-section-number">55</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">56</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">57</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">58</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">59</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">60</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">61</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">68</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">69</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-59.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">74</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">75</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">76</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">77</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">78</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">79</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">80</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">81</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-65.html"><span class="header-section-number">82</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">83</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">84</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">85</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">86</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">87</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">88</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">89</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-73.html"><span class="header-section-number">90</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">91</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">92</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">93</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">94</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">95</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">96</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-79.html"><span class="header-section-number">97</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">98</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">99</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">100</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">101</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">102</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">103</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">104</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">105</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">106</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">107</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">108</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">109</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">110</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">111</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">112</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">113</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">114</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">115</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">116</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">117</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">118</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">119</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">120</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="mean-median-sd-lm-and-summary" class="section level1" number="42">
+<h1>
+<span class="header-section-number">42</span> mean, median, sd, lm, and summary<a class="anchor" aria-label="anchor" href="#mean-median-sd-lm-and-summary"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Mariam Walaa.</em></p>
+<div id="introduction-37" class="section level2" number="42.1">
+<h2>
+<span class="header-section-number">42.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-37"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Use <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, and <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> to compute summary statistics</li>
+<li>Use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> to compute summary statistics for numeric variables in a data frame</li>
+<li>Use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> to build linear regression models</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Installing packages</li>
+<li>Loading packages</li>
+<li>Importing data</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>1-dimensional data can be summarized with <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>
+</li>
+<li>n-dimensional data can be summarized with <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>
+</li>
+<li>
+<code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> can be used to build linear regression models</li>
+</ul>
+</div>
+<div id="arguments-7" class="section level2" number="42.2">
+<h2>
+<span class="header-section-number">42.2</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"><i class="fas fa-link"></i></a>
+</h2>
+<div id="mean" class="section level3" number="42.2.1">
+<h3>
+<span class="header-section-number">42.2.1</span> <code>mean()</code><a class="anchor" aria-label="anchor" href="#mean"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function takes the following as arguments:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>column</td>
+<td>this is the set of values to compute the average of</td>
+</tr>
+<tr class="even">
+<td>na.rm</td>
+<td>Boolean</td>
+<td>this is to indicate whether NA values should be ignored</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can read more about the arguments in the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function’s documentation
+<a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean">here</a>.</p>
+</div>
+<div id="median" class="section level3" number="42.2.2">
+<h3>
+<span class="header-section-number">42.2.2</span> <code>median()</code><a class="anchor" aria-label="anchor" href="#median"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> function takes the following as arguments:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>column</td>
+<td>this is the set of values to compute the median of</td>
+</tr>
+<tr class="even">
+<td>na.rm</td>
+<td>Boolean</td>
+<td>this is to indicate whether NA values should be ignored</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can read more about the arguments in the <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> function’s documentation
+<a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/median">here</a>.</p>
+</div>
+<div id="sd" class="section level3" number="42.2.3">
+<h3>
+<span class="header-section-number">42.2.3</span> <code>sd()</code><a class="anchor" aria-label="anchor" href="#sd"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> function takes the following as arguments:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>column</td>
+<td>this is the set of values to compute the standard deviation of</td>
+</tr>
+<tr class="even">
+<td>na.rm</td>
+<td>Boolean</td>
+<td>this is to indicate whether NA values should be ignored</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can read more about the arguments in the <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> function’s documentation
+<a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/sd">here</a>.</p>
+</div>
+<div id="summary-1" class="section level3" number="42.2.4">
+<h3>
+<span class="header-section-number">42.2.4</span> <code>summary()</code><a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function takes the following as arguments:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>object</td>
+<td>data</td>
+<td>this is the data to summarize (typically a data frame)</td>
+</tr></tbody>
+</table></div>
+<p>You can read more about the arguments in the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function’s documentation
+<a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary">here</a>.</p>
+</div>
+<div id="lm" class="section level3" number="42.2.5">
+<h3>
+<span class="header-section-number">42.2.5</span> <code>lm()</code><a class="anchor" aria-label="anchor" href="#lm"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function takes the following as arguments:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="11%">
+<col width="18%">
+<col width="70%">
+</colgroup>
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>formula</td>
+<td>Y ~ X1 + … + Xn</td>
+<td>equation of linear regression model</td>
+</tr>
+<tr class="even">
+<td>data</td>
+<td>data frame</td>
+<td>data frame containing variables for the model</td>
+</tr>
+<tr class="odd">
+<td>subset</td>
+<td>condition</td>
+<td>condition to filter data frame by prior to building the model</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can read more about the arguments in the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function’s documentation
+<a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">here</a>.</p>
+</div>
+</div>
+<div id="overview-6" class="section level2" number="42.3">
+<h2>
+<span class="header-section-number">42.3</span> Overview<a class="anchor" aria-label="anchor" href="#overview-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>This section will demonstrate how to use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function to build simple and multiple
+linear regression models. We will be looking at a subset of the Broadway Grosses data set
+provided by Alex Cookson in <a href="https://github.com/tacookson/data/tree/master/broadway-grosses">the dataset
+repository</a>provided on
+GitHub. The Broadway Grosses data set comprises data on revenue and attendance figures for
+theaters that are part of The Broadway League.</p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">broadway</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 47,524</span>
+<span class="co">#&gt; Columns: 14</span>
+<span class="co">#&gt; $ week_ending          &lt;date&gt; 1985-06-09, 1985-06-09, 1985…</span>
+<span class="co">#&gt; $ week_number          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
+<span class="co">#&gt; $ weekly_gross_overall &lt;dbl&gt; 3915937, 3915937, 3915937, 39…</span>
+<span class="co">#&gt; $ show                 &lt;chr&gt; "42nd Street", "A Chorus Line…</span>
+<span class="co">#&gt; $ theatre              &lt;chr&gt; "St. James Theatre", "Sam S. …</span>
+<span class="co">#&gt; $ weekly_gross         &lt;dbl&gt; 282368, 222584, 249272, 95688…</span>
+<span class="co">#&gt; $ potential_gross      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class="co">#&gt; $ avg_ticket_price     &lt;dbl&gt; 30.42, 27.25, 33.75, 20.87, 2…</span>
+<span class="co">#&gt; $ top_ticket_price     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span class="co">#&gt; $ seats_sold           &lt;dbl&gt; 9281, 8167, 7386, 4586, 2938,…</span>
+<span class="co">#&gt; $ seats_in_theatre     &lt;dbl&gt; 1655, 1472, 1088, 682, 684, 1…</span>
+<span class="co">#&gt; $ pct_capacity         &lt;dbl&gt; 0.7010, 0.6935, 0.8486, 0.840…</span>
+<span class="co">#&gt; $ performances         &lt;dbl&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,…</span>
+<span class="co">#&gt; $ previews             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span></code></pre></div>
+<div id="summary-2" class="section level3" number="42.3.1">
+<h3>
+<span class="header-section-number">42.3.1</span> summary()<a class="anchor" aria-label="anchor" href="#summary-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can print a summary of the variables in this data using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function as
+follows.</p>
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">broadway</span><span class="op">)</span>
+<span class="co">#&gt;   week_ending          week_number    weekly_gross_overall</span>
+<span class="co">#&gt;  Min.   :1985-06-09   Min.   : 1.00   Min.   : 2474396    </span>
+<span class="co">#&gt;  1st Qu.:1996-10-20   1st Qu.:14.00   1st Qu.: 9093031    </span>
+<span class="co">#&gt;  Median :2005-01-02   Median :28.00   Median :15060671    </span>
+<span class="co">#&gt;  Mean   :2004-05-22   Mean   :27.37   Mean   :16693026    </span>
+<span class="co">#&gt;  3rd Qu.:2012-09-30   3rd Qu.:41.00   3rd Qu.:22897588    </span>
+<span class="co">#&gt;  Max.   :2020-03-01   Max.   :53.00   Max.   :57807272    </span>
+<span class="co">#&gt;                                                           </span>
+<span class="co">#&gt;      show             theatre           weekly_gross    </span>
+<span class="co">#&gt;  Length:47524       Length:47524       Min.   :      0  </span>
+<span class="co">#&gt;  Class :character   Class :character   1st Qu.: 262229  </span>
+<span class="co">#&gt;  Mode  :character   Mode  :character   Median : 470064  </span>
+<span class="co">#&gt;                                        Mean   : 574487  </span>
+<span class="co">#&gt;                                        3rd Qu.: 758438  </span>
+<span class="co">#&gt;                                        Max.   :4041493  </span>
+<span class="co">#&gt;                                                         </span>
+<span class="co">#&gt;  potential_gross   avg_ticket_price top_ticket_price</span>
+<span class="co">#&gt;  Min.   :   7754   Min.   :  0.00   Min.   :  4.0   </span>
+<span class="co">#&gt;  1st Qu.: 629523   1st Qu.: 43.37   1st Qu.: 85.0   </span>
+<span class="co">#&gt;  Median : 903150   Median : 60.23   Median :200.0   </span>
+<span class="co">#&gt;  Mean   : 939598   Mean   : 67.91   Mean   :189.7   </span>
+<span class="co">#&gt;  3rd Qu.:1190502   3rd Qu.: 84.65   3rd Qu.:250.0   </span>
+<span class="co">#&gt;  Max.   :3559306   Max.   :511.58   Max.   :998.0   </span>
+<span class="co">#&gt;  NA's   :12613                      NA's   :11357   </span>
+<span class="co">#&gt;    seats_sold    seats_in_theatre  pct_capacity   </span>
+<span class="co">#&gt;  Min.   :    0   Min.   :   0     Min.   :0.0000  </span>
+<span class="co">#&gt;  1st Qu.: 5442   1st Qu.:1021     1st Qu.:0.6914  </span>
+<span class="co">#&gt;  Median : 7736   Median :1181     Median :0.8330  </span>
+<span class="co">#&gt;  Mean   : 7893   Mean   :1238     Mean   :0.8028  </span>
+<span class="co">#&gt;  3rd Qu.:10187   3rd Qu.:1509     3rd Qu.:0.9538  </span>
+<span class="co">#&gt;  Max.   :24305   Max.   :1969     Max.   :1.5536  </span>
+<span class="co">#&gt;                                                   </span>
+<span class="co">#&gt;   performances       previews      </span>
+<span class="co">#&gt;  Min.   : 0.000   Min.   : 0.0000  </span>
+<span class="co">#&gt;  1st Qu.: 8.000   1st Qu.: 0.0000  </span>
+<span class="co">#&gt;  Median : 8.000   Median : 0.0000  </span>
+<span class="co">#&gt;  Mean   : 7.238   Mean   : 0.5837  </span>
+<span class="co">#&gt;  3rd Qu.: 8.000   3rd Qu.: 0.0000  </span>
+<span class="co">#&gt;  Max.   :17.000   Max.   :16.0000  </span>
+<span class="co">#&gt; </span></code></pre></div>
+<p>You’ll notice the following about the output provided by <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
+<ul>
+<li>The only column of type <code>character</code> does not have a numeric summary. Instead, the length
+and class of the column is provided.</li>
+<li>The remaining columns are of type <code>integer</code> and <code>double</code>, and all have a numeric
+summary. The numeric summary provides:
+<ul>
+<li>Minimum, 1st Quantile, Median, Mean, 3rd Quantile, Maximum</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="mean-median-and-sd" class="section level3" number="42.3.2">
+<h3>
+<span class="header-section-number">42.3.2</span> mean(), median(), and sd()<a class="anchor" aria-label="anchor" href="#mean-median-and-sd"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can also compute the mean, median, and standard deviation for 1-dimensional data, such
+as any numeric variable in the data set.</p>
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">broadway</span><span class="op">$</span><span class="va">avg_ticket_price</span><span class="op">)</span>
+<span class="co">#&gt; [1] 67.91474</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">broadway</span><span class="op">$</span><span class="va">avg_ticket_price</span><span class="op">)</span>
+<span class="co">#&gt; [1] 60.235</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">broadway</span><span class="op">$</span><span class="va">avg_ticket_price</span><span class="op">)</span>
+<span class="co">#&gt; [1] 38.58942</span></code></pre></div>
+<p>Be careful with the type of values an object contains when you pass it to these functions.
+If the values include NAs, you will need to add <code>na.rm = TRUE</code>. If the values aren’t
+numeric, you will need to convert them to numeric. You can take a look at the Data Types
+tutorial for more information on how to do this.</p>
+</div>
+<div id="lm-1" class="section level3" number="42.3.3">
+<h3>
+<span class="header-section-number">42.3.3</span> lm()<a class="anchor" aria-label="anchor" href="#lm-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>If we want to predict the number of seats sold in a week, there are several variables
+in the data set that may be helpful for making this prediction, such as the average ticket
+price, the number of performances taking place that week, and the theater’s seat capacity.
+We can build a <em>multiple</em> linear regression to make this prediction with this data.</p>
+<p>Before we build the regression model, let’s take note of the components that this model
+will need to consist of:</p>
+<ol style="list-style-type: decimal">
+<li>The dependent variable that we want to predict (Highlighted in blue)</li>
+<li>The independent variables that we want to make predictions with (Highlighted in pink)</li>
+<li>The data frame that contains all of these variables (Highlighted in orange)</li>
+</ol>
+<pre><code class="language-r"><code>multiple_regression seats_sold ~<br>                            <span style="color:deeppink">avg_ticket_price + performances + seats_in_theatre</span>,<br>                          data = <span style="color:orange">broadway</span>)</code></code></pre>
+<p>To view the results from this model, we can use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function as follows:</p>
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">multiple_regression</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Call:</span>
+<span class="co">#&gt; lm(formula = seats_sold ~ avg_ticket_price + performances + seats_in_theatre, </span>
+<span class="co">#&gt;     data = broadway)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Residuals:</span>
+<span class="co">#&gt;      Min       1Q   Median       3Q      Max </span>
+<span class="co">#&gt; -11449.0   -962.5    214.0   1162.6  13054.3 </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Coefficients:</span>
+<span class="co">#&gt;                    Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="co">#&gt; (Intercept)      -2.849e+03  3.597e+01  -79.20   &lt;2e-16 ***</span>
+<span class="co">#&gt; avg_ticket_price  1.655e+01  2.040e-01   81.11   &lt;2e-16 ***</span>
+<span class="co">#&gt; performances      1.637e+02  3.556e+00   46.05   &lt;2e-16 ***</span>
+<span class="co">#&gt; seats_in_theatre  6.813e+00  2.222e-02  306.66   &lt;2e-16 ***</span>
+<span class="co">#&gt; ---</span>
+<span class="co">#&gt; Signif. codes:  </span>
+<span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Residual standard error: 1697 on 47520 degrees of freedom</span>
+<span class="co">#&gt; Multiple R-squared:  0.7164, Adjusted R-squared:  0.7164 </span>
+<span class="co">#&gt; F-statistic: 4.002e+04 on 3 and 47520 DF,  p-value: &lt; 2.2e-16</span></code></pre></div>
+<p>We can also do a <em>simple</em> linear regression with only one independent variable as follows:</p>
+<pre><code class="language-r"><code>simple_regression seats_sold ~<br>                          <span style="color:deeppink">pct_capacity</span>,<br>                        data = <span style="color:orange">broadway</span>)</code></code></pre>
+<p>We can view the results from the model again using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">simple_regression</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Call:</span>
+<span class="co">#&gt; lm(formula = seats_sold ~ pct_capacity, data = broadway)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Residuals:</span>
+<span class="co">#&gt;     Min      1Q  Median      3Q     Max </span>
+<span class="co">#&gt; -9555.8 -1611.3  -178.6  1829.4 15925.8 </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Coefficients:</span>
+<span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="co">#&gt; (Intercept)  -1228.73      52.92  -23.22   &lt;2e-16 ***</span>
+<span class="co">#&gt; pct_capacity 11363.63      64.39  176.49   &lt;2e-16 ***</span>
+<span class="co">#&gt; ---</span>
+<span class="co">#&gt; Signif. codes:  </span>
+<span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Residual standard error: 2476 on 47522 degrees of freedom</span>
+<span class="co">#&gt; Multiple R-squared:  0.3959, Adjusted R-squared:  0.3959 </span>
+<span class="co">#&gt; F-statistic: 3.115e+04 on 1 and 47522 DF,  p-value: &lt; 2.2e-16</span></code></pre></div>
+</div>
+<div id="example-combining-mean-median-and-lm" class="section level3" number="42.3.4">
+<h3>
+<span class="header-section-number">42.3.4</span> Example: Combining <code>mean()</code>, <code>median()</code>, and <code>lm()</code><a class="anchor" aria-label="anchor" href="#example-combining-mean-median-and-lm"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can even use <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> and <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> together with <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>. For example, we can make
+predictions for the mean and median value of an independent variable.</p>
+<pre><code class="language-r"><code>predict(simple_regression,<br>        data.frame(pct_capacity = <span style="background-color:#ffff7f">mean</span>(broadway$pct_capacity),<br>                   na.rm = TRUE))<br>#&gt;       1 <br>#&gt; 7893.45</code></code></pre>
+<pre><code class="language-r"><code>predict(simple_regression,<br>        data.frame(pct_capacity = <span style="background-color:#ffff7f">median</span>(broadway$pct_capacity),<br>                   na.rm = TRUE))<br>#&gt;       1 <br>#&gt; 8237.17</code></code></pre>
+<p>Notice that this code uses the <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> function which is not covered in this tutorial,
+but you can learn more about it in the documentation provided
+<a href="https://www.rdocumentation.org/packages/raster/versions/3.4-5/topics/predict">here</a>.</p>
+</div>
+</div>
+<div id="exercises-20" class="section level2" number="42.4">
+<h2>
+<span class="header-section-number">42.4</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-20"><i class="fas fa-link"></i></a>
+</h2>
+<p>This section will ask you to complete exercises based on what you’ve learned from the
+previous section.</p>
+<div id="exercise-1-9" class="section level3" number="42.4.1">
+<h3>
+<span class="header-section-number">42.4.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-9"><i class="fas fa-link"></i></a>
+</h3>
+<p>We want to predict the number of seats sold <code>seats_sold</code> based on the number of
+performances <code>performances</code>. Fill in the blanks for the code below to create a simple
+linear regression model.</p>
+<pre><code class="language-r"><code><span style="background-color:#ffff7f">  </span>(formula = <span style="background-color:#ffff7f">          </span> <span style="background-color:#ffff7f"> </span> <span style="background-color:#ffff7f">            </span>,<br>   data = <span style="background-color:#ffff7f">        </span>)</code></code></pre>
+<p>You’ll notice that there are 5 blanks in total that you’ll need to fill.</p>
+<!-- ```{r summary-fill-in-blanks, echo = FALSE} -->
+<!-- quiz(question("What should the first blank be?", -->
+<!--               answer("summary"), -->
+<!--               answer("predict"), -->
+<!--               answer("lm", correct = TRUE), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the second blank be?", -->
+<!--               answer("pct_capacity"), -->
+<!--               answer("seats_sold", correct = TRUE), -->
+<!--               answer("formula"), -->
+<!--               answer("performances"),  -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the third blank be?", -->
+<!--               answer("~", correct = TRUE), -->
+<!--               answer(" = "), -->
+<!--               answer("\\-"), -->
+<!--               answer("+"), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the fourth blank be?", -->
+<!--               answer("pct_capacity"), -->
+<!--               answer("seats_sold"), -->
+<!--               answer("formula"), -->
+<!--               answer("performances", correct = TRUE), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE), -->
+<!--      question("What should the fifth blank be?", -->
+<!--               answer("df"), -->
+<!--               answer("data"), -->
+<!--               answer("broadway", correct = TRUE), -->
+<!--               random_answer_order = TRUE, -->
+<!--               allow_retry = TRUE)) -->
+<!-- ``` -->
+</div>
+<div id="exercise-2-7" class="section level3" number="42.4.2">
+<h3>
+<span class="header-section-number">42.4.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-7"><i class="fas fa-link"></i></a>
+</h3>
+<p>If we want to create a simple linear regression model for a <em>subset</em> of the
+data, we will need to add another argument to <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> to let it know which subset we want.
+For example, we may want to create a regression for observations that have less than 12
+performances.</p>
+<p>Use the code from above in addition to the <code>subset</code> parameter to do this.</p>
+<!-- ```{r summary-statistics-exercise-2, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r summary-statistics-exercise-2-solution, exercise = FALSE} -->
+<!-- lm(formula = seats_sold ~ performances, -->
+<!--    data = broadway, -->
+<!--    subset = performances < 12) -->
+<!-- ``` -->
+<!-- ```{r summary-statistics-exercise-2-code-check} -->
+<!-- ??grade_code() -->
+<!-- ``` -->
+</div>
+<div id="exercise-3-3" class="section level3" number="42.4.3">
+<h3>
+<span class="header-section-number">42.4.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-3"><i class="fas fa-link"></i></a>
+</h3>
+<!-- ```{r summary-statistics-true-statements, echo = FALSE} -->
+<!-- question("Which of these are true? Check all true statements.", -->
+<!--          answer(paste("It is possible to create a model for only a subset of the ", -->
+<!--          "observations using lm()."), correct = TRUE), -->
+<!--          answer(paste("It is possible to include multiple independent variables ", -->
+<!--           "in the formula within lm()."), correct = TRUE), -->
+<!--          answer("mean(), median(), and sd() exclude NAs from the calculation by default.", -->
+<!--                 message = paste("mean(), median(), and sd() do not exclude NAs from ", -->
+<!--                                 "the calculation by default. You need to let R know ", -->
+<!--                                 "that you may have NA values in your data.")), -->
+<!--          answer("summary() does not provide any summary for non-numeric variables.", -->
+<!--                 message = paste("summary() provides a non-numeric summary for non-numeric ", -->
+<!--                                 "variables, which includes the variable class and length.")), -->
+<!--          allow_retry = TRUE, -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="common-mistakes-errors-13" class="section level2" number="42.5">
+<h2>
+<span class="header-section-number">42.5</span> Common mistakes &amp; errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-13"><i class="fas fa-link"></i></a>
+</h2>
+<p>Here are some common mistakes and errors you may come across:</p>
+<ul>
+<li>You try to create a formula within the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function without using the appropriate
+operators (i.e., <code><a href="https://rdrr.io/r/base/tilde.html">~</a></code> to separate the dependent variable from the independent variable(s),
+or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> to separate the independent variables)</li>
+<li>You might be specifying the dependent variable in place of the independent variables, and vice versa. Be sure to follow the <code>Y ~ X1 + X2 + ... + Xn</code> formatting.</li>
+</ul>
+</div>
+<div id="next-steps-22" class="section level2" number="42.6">
+<h2>
+<span class="header-section-number">42.6</span> Next steps<a class="anchor" aria-label="anchor" href="#next-steps-22"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you would like to read more about these functions, here are some additional resources
+you may find helpful:</p>
+<ul>
+<li>
+<a href="https://r4ds.had.co.nz/model-building.html">R for Data Science - Chapter 24: Model
+building</a>.</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="introduction-36.html"><span class="header-section-number">41</span> Introduction</a></div>
+<div class="next"><a href="glm.html"><span class="header-section-number">43</span> glm</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mean-median-sd-lm-and-summary"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="nav-link" href="#introduction-37"><span class="header-section-number">42.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#arguments-7"><span class="header-section-number">42.2</span> Arguments</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mean"><span class="header-section-number">42.2.1</span> mean()</a></li>
+<li><a class="nav-link" href="#median"><span class="header-section-number">42.2.2</span> median()</a></li>
+<li><a class="nav-link" href="#sd"><span class="header-section-number">42.2.3</span> sd()</a></li>
+<li><a class="nav-link" href="#summary-1"><span class="header-section-number">42.2.4</span> summary()</a></li>
+<li><a class="nav-link" href="#lm"><span class="header-section-number">42.2.5</span> lm()</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#overview-6"><span class="header-section-number">42.3</span> Overview</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#summary-2"><span class="header-section-number">42.3.1</span> summary()</a></li>
+<li><a class="nav-link" href="#mean-median-and-sd"><span class="header-section-number">42.3.2</span> mean(), median(), and sd()</a></li>
+<li><a class="nav-link" href="#lm-1"><span class="header-section-number">42.3.3</span> lm()</a></li>
+<li><a class="nav-link" href="#example-combining-mean-median-and-lm"><span class="header-section-number">42.3.4</span> Example: Combining mean(), median(), and lm()</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#exercises-20"><span class="header-section-number">42.4</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-9"><span class="header-section-number">42.4.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-7"><span class="header-section-number">42.4.2</span> Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-3"><span class="header-section-number">42.4.3</span> Exercise 3</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-13"><span class="header-section-number">42.5</span> Common mistakes &amp; errors</a></li>
+<li><a class="nav-link" href="#next-steps-22"><span class="header-section-number">42.6</span> Next steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/042-totally_addicted_to_base-mean_median_sd_lm_summary.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/042-totally_addicted_to_base-mean_median_sd_lm_summary.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

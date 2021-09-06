@@ -1,0 +1,386 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(flair)
+library(glue)
+library(stringr)
+library(palmerpenguins)
+```
+
+
+# forcats and factors
+
+*Written by Matthew Wankiewicz.*
+
+```{r forcats-tidyverse, echo=FALSE}
+library(tidyverse)
+```
+
+```{r forcats-data-readin, echo=F, warning=F, message=F}
+expeditions <- read_csv("https://raw.githubusercontent.com/tacookson/data/master/himalayan-expeditions/expeditions.csv")
+```
+
+
+## Introduction
+
+In this lesson, you will learn about:
+
+- Factors in R, how they work, what they do.
+- The `forcats` package.
+
+Highlights:
+
+- Factors are a way of storing data in R. Instead of having many different combinations like a list of names or numbers, factors are usually created to represent a fixed number of values, such as levels (high, low, medium) or times (early, late, on-time). In other words, factors represent categorical data in R.
+- `forcats` contains many functions that allow you to work with factors for plotting or further data analysis.
+
+
+## The Content
+
+Factors represent categorical variables in R. Factors are stored as integer levels in R, meaning that each level of a factor will be represented by an integer so R knows which one represents the maximum and minimum. Factors can be comprised of both integers and characters but the levels of these factors will be displayed as characters. The `factor` function can be used to create factors in R, it takes a vector of data and will turn it into a factor. This function can be used on columns in datasets to convert a column of data from numeric/character to a factor. 
+
+`forcats` is a package that contains various functions to manipulate factors, it exists as its own package but is also included in the `tidyverse` package as well. The main goals of these functions are to help reorder and change factor levels, this is done by changing which levels appear at the front/back and also combining levels into other ones. 
+
+A helpful cheatsheet for `forcats` can be found [here.](https://github.com/rstudio/cheatsheets/blob/master/factors.pdf)
+
+## Factors
+
+The `factor` function allows you to take a vector and turn it into a factor. The vector used can be made up of characters or integers. Its main argument is the vector that you want to turn into a factor. An example of this is shown below. 
+
+```{r factor-ex1}
+factor_vector <- c(1,2,3)
+factor(x = factor_vector)
+```
+
+In addition to the main argument, `factor` also has some optional arguments. These include `levels`, `labels` and `exclude`. `levels` tells R what the order of the levels are of your factor (which is highest/lowest), if you leave it empty it will make the levels in alphabetical order or increasing order for integers. `labels` will create labels for your factor and will set the order of your factor. `exclude` will take out a level that appears in your factor and replace those values with `<NA>`. 
+
+We can change the levels of our `factor_vector` from earlier using the `levels` argument.
+```{r factor-levels}
+factor_vector <- c(1,2,3)
+factor(x = factor_vector, levels = c(2,1,3)) ## set levels to 2,1,3
+```
+
+
+Using the `labels` argument, we can rename the levels of `factor_vector`. This will rename 1 to 'one', 2 to 'two' and 3 to 'three'.
+```{r factor-labels}
+factor_vector <- c(1,2,3)
+factor(x = factor_vector, labels = c('one', 'two', 'three')) ## set labels to 'one', 'two', 'three'
+```
+
+Using `exclude` we can exclude the number two from our factor.
+```{r factor-exclude}
+factor_vector <- c(1,2,3)
+factor(x = factor_vector, exclude = 2)
+```
+
+If you want to test if a column or set of data is a factor, you can use `is.factor`.
+
+```{r is-factor}
+factor_vector <- c(1,2,3)
+new_factor <- factor(x = factor_vector, exclude = 2)
+
+is.factor(x = new_factor)
+```
+
+You can also check the levels of a factor using `levels`
+
+```{r factor-levels-func}
+factor_vector <- c(1,2,3)
+new_factor <- factor(x = factor_vector)
+
+levels(x = new_factor)
+```
+
+
+## Forcats
+
+There are many useful functions in the `forcats` library but this lesson will mainly focus on `fct_relevel` and `fct_reorder` while also looking briefly at `fct_count`, `fct_c` and `fct_lump`.
+
+### `fct_count`
+
+This function can be used to count the number of values in each level of your factor. It takes one main argument, the factor you want to count. The other optional arguments (`sort`, `prop`) sort the most common levels to the top and can compute the proportion of the levels represented.
+
+```{r fct-count}
+random_factor <- factor(x = c(1,1,1,2,3,4,2,3,2,1,4,3,3,3,2,1))
+fct_count(random_factor)
+
+fct_count(random_factor, sort = TRUE)
+
+fct_count(random_factor, sort = TRUE, prop = TRUE)
+```
+
+### `fct_c` 
+
+This function takes factors with different levels and can combine them into one factor with the levels from the other factors. The only argument it takes are the factors you want to combine. We see that when using it on factors with levels 'a' and 'b' it will combine them into one factor with levels 'a' and 'b'. 
+
+```{r fct-c}
+factor_a <- factor(x = "a")
+factor_b <- factor(x = "b")
+
+fct_c(factor_a, factor_b)
+```
+
+### `fct_lump` functions
+
+This group of functions takes levels and brings them together to form a level called "other". The functions include:
+
+  - `fct_lump_min:` This function takes a factor and a number which tells R whether to include the level in other. An optional argument is called `other_level`, this will change the name of the "other" level.
+  - `fct_lump_prop:` This function will lump levels that appear less than a certain proportion of times. For example, you can lump functions that make up less than 15% of your data. 
+  - `fct_lump_n:` This function lumps all of the levels except the n most frequent ones.
+  
+```{r fct-lump}
+random_factor <- factor(x = c(1,1,1,2,3,4,2,3,2,1,4,3,3,3,2,1,1))
+
+fct_lump_n(random_factor, n = 2) # keep the 2 most frequent levels
+fct_lump_prop(random_factor, prop = .25) # lump levels which appear less than 25 % of time
+fct_lump_min(random_factor, min = 3) # lump levels which appear less than 3 times
+```
+
+
+### `fct_reorder` 
+This function is useful when working with factors because it allows you to reorder a factor you are working with by another variable. For example, you can reorder a factor with levels of different sports by the average height for the sports listed. The first argument for this function is the factor/variable you plan to re-order and the second will be the variable you are sorting the factor by.
+
+Using the `expeditions` data which looks at Himalayan expeditions, we can reorder the levels of the seasons by the average peak height for each season. As you can see, by adding the `mutate` line we can change the order of the levels depending on the mean height reached that season.
+```{r reorder-expedition}
+data_ex <- expeditions %>% 
+  group_by(season) %>% 
+  summarise(mean_height = mean(highpoint_metres, na.rm = T))
+
+data_ex %>% 
+  ggplot(aes(x = season, y = mean_height)) +
+  geom_col() +
+  labs(title = "Plot without fct_reorder")
+
+data_ex %>% 
+  mutate(season = fct_reorder(season, mean_height)) %>% 
+  ggplot(aes(x = season, y = mean_height)) +
+  geom_col() +
+  labs(title = "Plot with fct_reorder")
+
+data_sorted <- data_ex %>% 
+  mutate(season = fct_reorder(season, desc(mean_height)))
+
+levels(as.factor(data_ex$season))
+levels(data_sorted$season)
+```
+We can see that the original order was alphabetical while the new sorted one is not.
+
+
+`fct_reorder` can also be used to sort factors in descending order. We will use the same dataset, but this time we will order the levels of seasons decreasing by number of staff hired
+```{r fct-reorder-desc}
+crew_group <-expeditions %>% 
+  group_by(season) %>% 
+  summarise(mean_staff = mean(hired_staff, na.rm = T))
+
+crew_group %>% 
+  ggplot(aes(x = season, y = mean_staff)) +
+  geom_col() +
+  labs(title = "Plot without fct_reorder")
+
+crew_group %>% 
+  mutate(season = fct_reorder(season, desc(mean_staff))) %>% 
+  ggplot(aes(x = season, y = mean_staff)) +
+  geom_col() +
+  labs(title = "Plot with fct_reorder")
+
+data_sorted <- crew_group %>% 
+  mutate(season = fct_reorder(season, desc(mean_staff)))
+
+levels(as.factor(crew_group$season))
+levels(data_sorted$season)
+```
+Once again we see that the order of levels has switched from alphabetical to a different order.
+
+
+
+### `fct_relevel`
+
+This function is used to change the levels of a factor. When R deals with levels in a factor, it sorts the levels of the factor in alphabetical order. This means that if your factor includes temperatures like "hot", "cold" and "medium", R will make the levels "cold", "hot", "medium". This can be tricky when classifying the factor because you may want it in increasing temperature or certain order. 
+
+  - `fct_relevel` takes three arguments: the factor you want to relevel, the new order of the levels and `after` which tells R where you want the new order to occur (you can set `after=Inf` to bring your order to the end.)
+  
+If you have a factor with levels "hot", "cold" and "medium", R will sort the levels alphabetically, meaning the order will be "cold", "hot" and then "medium". `fct_relevel` is one way to put the levels in the correct order. There are many ways to change the order, you can either write the order yourself or just move hot to the end using `after = Inf`.
+
+```{r fct-relevel}
+temperatures <- factor(x = c("hot", "cold", "medium"))
+levels(x = temperatures)
+
+# use fct_relevel
+
+fct_relevel(temperatures, "hot", after = Inf)
+```
+
+Another example of using `fct_relevel` is with the expedition data. We can use it to change the levels of the `termination_reason` to place Successful expeditions at the top of the levels.
+```{r relevel-example}
+termination_levels <- levels(as.factor(expeditions$termination_reason))
+reordered_levels <- fct_relevel(termination_levels, "Success (claimed)", "Success (main peak)",
+            "Success (subpeak)")
+
+levels(x = reordered_levels)
+```
+Now we have successes at the top.
+
+You can also include a function in `fct_relevel` to change up the order of your levels. You can use functions like `sample`, `sort` or `rev` to change the order. 
+```{r relevel-rev}
+termination_levels <- levels(as.factor(expeditions$termination_reason))
+# use sample to make the order of levels randomized
+
+levels(fct_relevel(termination_levels, sample))
+```
+
+
+## Exercises
+
+These next exercises will use a dataset which looks at the various countries who have given gifts to the United States, along with the monetary value of these gifts. While the original dataset has almost every country in the world, we will focus on a smaller portion of the countries. 
+
+```{r read-in-countries, echo=FALSE, message=FALSE}
+gifts <- read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv")
+
+plot_countries <- c("Australia", "Canada", "Mexico", "Brazil", "Germany", "Italy", 
+         "France", "Spain", "England")
+
+gifts <- gifts %>% 
+  filter(donor_country %in% plot_countries)
+
+glimpse(gifts)
+```
+
+
+Using `fct_reorder` change the order of the `donor_country` levels to be in order of `mean_value`.
+
+```{r forcats-test-1, exercise = TRUE}
+gifts_grouped <- gifts %>% 
+  group_by(donor_country) %>% 
+  summarise(mean_value = mean(value_usd, na.rm = T))
+## Enter solution below
+
+```
+
+```{r forcats-test-1-solution}
+gifts_grouped <- gifts %>% 
+  group_by(donor_country) %>% 
+  summarise(mean_value = mean(value_usd, na.rm = T))
+## Enter solution below
+fct_reorder(gifts_grouped$donor_country, gifts_grouped$mean_value)
+```
+
+Now, using `fct_reorder` change the order of the `donor_country` levels to be decreasing by `mean_value`. (Bonus: use the new order to make a plot, steps are very similar to the earlier examples) 
+
+```{r forcats-test-2, exercise = TRUE}
+gifts_grouped <- gifts %>% 
+  group_by(donor_country) %>% 
+  summarise(mean_value = mean(value_usd, na.rm = T))
+## Enter solution below
+
+```
+
+```{r forcats-test-2-solution}
+gifts_grouped <- gifts %>% 
+  group_by(donor_country) %>% 
+  summarise(mean_value = mean(value_usd, na.rm = T))
+## Enter solution below
+fct_reorder(gifts_grouped$donor_country, desc(gifts_grouped$mean_value))
+
+## BONUS
+gifts_grouped %>% 
+  mutate(donor_country = fct_reorder(donor_country, desc(mean_value))) %>% 
+  ggplot(aes(donor_country, mean_value)) +
+  geom_col()
+```
+
+
+Using `fct_relevel`, change the order of the levels for `gifts$donor_country` to be randomly sampled.
+
+```{r forcats-test-3, exercise = TRUE}
+
+```
+
+```{r forcats-test-3-solution}
+fct_relevel(gifts$donor_country, sample)
+```
+
+This final exercise will combine the uses of different `forcats` functions and will still use the `gifts` data. 
+Using one of the `fct_lump_` functions, lump all but 5 of the `donor_country` levels into other (save it under `gifts_lumped`). Next, using `fct_relevel` change the order to be in a random order (save under `gifts_lumped` again). Finally, using a `forcats` function count how many entries are in each level.
+
+```{r forcats-test-4, exercise = TRUE}
+
+```
+
+```{r forcats-test-4-solution}
+gifts_lumped <- fct_lump_n(gifts$donor_country, 5)
+gifts_lumped <- fct_relevel(gifts_lumped, rev)
+fct_count(gifts_lumped)
+```
+
+
+
+```{r forcats-mult-choice, results = "hide"}
+factor_example <- factor(c(rep("dog", 20), rep("cat", 19), 
+                    rep("fish", 12), rep("cow", 9),
+                    rep("bird", 24)))
+
+fct_relevel(factor_example, "fish", "dog") 
+
+fct_lump_n(factor_example, 2)
+```
+
+
+<!-- ```{r forcats-mult-choice-1, echo=F} -->
+<!-- question("What is the order of the levels before we run `fct_relevel`?", -->
+<!--          answer("dog, cat, fish, cow, bird"), -->
+<!--          answer("bird, cat, cow, dog, fish", correct = TRUE), -->
+<!--          answer("bird, dog, cat, fish, cow"), -->
+<!--          answer("The order is random"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+
+<!-- ```{r forcats-mult-choice-2, echo=F} -->
+<!-- question("After running `fct_relevel` what is the new order of the levels?", -->
+<!--          answer("fish, dog, bird, cat, cow", correct = TRUE), -->
+<!--          answer("bird, cat, cow, dog, fish"), -->
+<!--          answer("fish, dog, other"), -->
+<!--          answer("The order is still random"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+
+<!-- ```{r forcats-mult-choice-3, echo=F} -->
+<!-- question("After running `fct_lump_n`, which 2 levels are kept out of other?", -->
+<!--          answer("bird", correct = TRUE), -->
+<!--          answer("cat"), -->
+<!--          answer("cow"), -->
+<!--          answer("dog", correct = TRUE), -->
+<!--          answer("fish"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+
+
+## Common Mistakes & Errors
+
+- `Error: "f" must be a factor (or character vector).`
+  - This error will occur if you try to call `forcats` functions on non-factors. To fix this, ensure you are using a factor. 
+  
+- `argument ".x" is missing, with no default`
+  - This error will occur if you are missing an argument in your function call. Double check that you have filled out all arguments.
+
+## Next Steps
+
+Now that you're familiar with the `forcats` package, here are some additional resources to help continue your learning:
+
+- The `forcats` website which includes more examples and information about the most important functions: https://forcats.tidyverse.org/
+
+- R for Data Science's chapter about factors. This chapter gives another lesson on factors and also uses the `forcats` package to work with factors: https://r4ds.had.co.nz/factors.html
+
+- The factors chapter from Jenny Bryan's STAT 545 book: https://stat545.com/factors-boss.html
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,184 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+# library(learnr)
+library(flair)
+# tutorial_options(exercise.eval = FALSE)
+# library(gradethis)
+# gradethis::gradethis_setup()
+library(palmerpenguins)
+```
+
+
+# rename
+
+Written by Mariam Walaa.
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Rename columns in a data frame
+
+Prerequisite skills include:
+
+- Using the pipe %>% operator
+
+Highlights:
+
+- We can rename multiple columns in a dataframe at once using `rename()`.
+- It is helpful to rename columns into something simpler and clearer.
+- We can name columns that do not already have a name using `rename()`.
+
+## Arguments
+
+The `rename()` function takes the following as arguments:
+
+| Argument | Parameter | Details                                                           |
+|----------|-----------|-------------------------------------------------------------------|
+| x        | object    | this is the data with variables to rename (typically a data frame)|
+| replace  | vector    | this takes a vector as c(new_name = old_name)                     |
+
+You can read more about the arguments in the `rename()` function documentation
+[here](https://www.rdocumentation.org/packages/plyr/versions/1.8.6/topics/rename).
+
+## Overview
+
+Sometimes we have to work with data sets with columns that are difficult to understand or
+work with. In this case, we can rename the columns using the `rename()` function.
+In this tutorial, we will be using a data set about fictional character personalities for
+reference. This data set already consists of simple, clear, and well-named variables, but
+we are going to try to simplify them even further using `rename()`.
+
+We will start by loading the data from GitHub.
+
+```{r load-tidyverse-yet-again}
+library(tidyverse)
+```
+
+We will also load the personalities dataset.
+
+```{r rename-hidden-load, echo = FALSE, message = FALSE}
+personalities <- read_tsv(
+  "https://raw.githubusercontent.com/tacookson/data/master/fictional-character-personalities/personalities.txt")
+```
+```{r rename-exercise-load, exercise = TRUE}
+personalities <- read_tsv(
+  "https://raw.githubusercontent.com/tacookson/data/master/fictional-character-personalities/personalities.txt")
+```
+
+
+Here is the dataset. This data consists of 213,600 rows, each representing a fictional 
+character, and 11 columns describing the character and their personality.
+
+```{r rename-1}
+glimpse(personalities)
+```
+
+We can see that the first three columns are about the character unique ID, the fictional
+work that they are from, and their name. To demonstrate the use of the rename function, 
+we will rename each of these three variables to one word each.
+
+```{r rename-2}
+personalities <- personalities %>%
+  rename(id = character_code,
+         work = fictional_work,
+         name = character_name)
+```
+
+We have renamed 3 columns in the data frame and re-assigned it to `personalities`.
+
+```{r rename-3}
+glimpse(personalities)
+```
+
+Now we have a data frame with renamed columns.
+
+What if we have a column that does not have a name? We can still name it by indexing the
+column using base R function `names()`.
+
+```{r rename-4}
+personalities %>%
+  rename(fictional_work = names(.)[2])
+```
+
+Here, we change the work column back to fictional_work simply by indexing the second
+column in the personalities data frame. This column already had a name, but if it did not,
+this method would have still successfully named it to fictional_work.
+
+## Exercises
+
+### Exercise 1
+
+Rename the `personalities` data back to its original column names.
+
+<!-- ```{r rename-exercise-1, exercise = TRUE} -->
+
+<!-- ``` -->
+
+<!-- ```{r rename-exercise-1-hint-1} -->
+<!-- # You don't have to assign it to an object -->
+<!-- ``` -->
+
+<!-- ```{r rename-exercise-1-sol, echo = FALSE} -->
+<!-- rename_ex_sol <- personalities %>% -->
+<!--   rename(character_code = id, -->
+<!--          fictional_work = work, -->
+<!--          character_name = name) -->
+<!-- ``` -->
+
+
+<!-- ```{r rename-exercise-1-check} -->
+<!-- grade_result(pass_if(~identical(.result, rename_ex_sol))) -->
+<!-- ``` -->
+
+### Exercise 2
+
+<!-- ```{r rename-exercise-2, echo = FALSE} -->
+<!-- question("Which of these are true? Check all true statements.", -->
+<!--          answer("You can rename multiple columns using `rename()`.", correct = TRUE), -->
+<!--          answer(paste("When you use `rename()`, you pass column name pairs as follows: ", -->
+<!--          "`c(old_name = new_name)`"), message = "You pass the new column name first."), -->
+<!--          answer("The `rename()` function is used to rename data frames.", -->
+<!--                 message = "The `rename()` function is used to rename columns in a data frame."), -->
+<!--          answer("The `rename()` function renames columns by name.", correct = TRUE), -->
+<!--          allow_retry = TRUE, -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
+
+## Common Mistakes & Errors
+
+Below are some common mistakes and errors you may come across:
+
+- You pass the old name first instead of the new name. The syntax requires passing the new 
+column name, followed by an equal sign, and then the old column name.
+- You are not correctly typing the name.
+- You are not using the correct quotation marks. For example, if you have whitespace 
+between words in the column name, you need to use `` as opposed to the other quotation
+marks.
+
+If you have other issues, check that you have loaded tidyverse or dplyr into your session!
+Remember that a lot of issues can come from not loading the required packages.
+
+## Next Steps
+
+If you would like to read more about the `rename()` function, here are some additional
+resources you may find helpful:
+
+- [R Documentation for
+`rename()`](https://www.rdocumentation.org/packages/plyr/versions/1.8.6/topics/rename)
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,272 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+# library(learnr)
+# tutorial_options(exercise.eval = FALSE)
+library(flair)
+# library(gradethis)
+# gradethis::gradethis_setup()
+library(here)
+```
+
+
+# Tables: kable, kableextra, and gt
+
+*Written by Yena Joo.*
+
+
+## Introduction
+In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when the R file is converted into PDF or HTML. To make nice and beautiful tables, we are going to learn how to use `kable` and `kableextra`.  
+
+
+In this lesson, you will learn how to:  
+
+- Create Tables In LaTeX, HTML, Markdown   
+- build common complex tables and manipulate table styles using `kableExtra`  
+
+
+Prerequisite skills include:  
+
+- manipulate dataset  
+- You don't need much prerequisite for this chapter :)  
+ 
+ 
+Highlights:  
+
+- How to create tables for HTML and PDF.  
+- `kable`, `kableExtra`, `gt`  
+
+
+
+### Packages  
+Packages `knitr` and `kableExtra` are needed. For the gt Table, `gt` package is needed.  
+```{r, warning = F, message = F}
+library(knitr)
+library(kableExtra)
+library(gt)
+```
+
+
+## Kable()
+
+`kable()` function in `knitr` package is a table generator.  
+  
+### Arguments of `kable()`
+```
+kable(x, format, digits = getOption("digits"), row.names = NA, 
+  col.names = NA, align, caption = NULL, label = NULL, 
+  format.args = list(), escape = TRUE, ...)
+``` 
+  
+Here are some important arguments of `kable()`:   
+
+- `x`: put the data frame of your choice.   
+- `format`: possible values are "latex", "html", "simple", "pipe", "rst".   
+- `digit`: maximum number of digits for numeric columns.  
+- `row.names` & `col.names`: column names and row names.      
+
+If you want the full descriptions of each argument, click [here](https://www.rdocumentation.org/packages/knitr/versions/1.33/topics/kable) or type `help("kable")` into your console.   
+
+First, let's use a built-in dataset `mtcars` as an example. We simply put the dataset name as the argument x of the function `kbl` or `kable`. Then, it creates the most basic table output as follows. Note that for R Markdown documents, the function uses the format "pipe" by default.        
+
+```{r}
+kable(x = head(mtcars))
+```
+  
+
+### Formatting of `kable`  
+
+There are several arguments you can customize the tables.  
+For example, you can set the format of the table using `format = "html"`.
+You can also add a title to the table using `caption = ""` argument. 
+`digits = ` allows you to round and format the numbers in the table.   
+
+
+Let's try to create an HTML table with a caption. 
+
+```{r}
+dt <- head(mtcars[1:3,])
+kable(x = dt, format = "html", caption = "Title of the table")
+```
+  
+However, the basic HTML output of `kable` does not look so pretty, since it is just a plain HTML table without any styling.     
+  
+We can also change the column names or row names using `col.names` or `row.names`. Let's customize the table above into the format "simple", as well as with changed column names.  
+
+```{r}
+kable(x = dt, format = "simple", caption = "Title of the table", col.names = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))
+```
+  
+Note that only the `pipe` and `simple` formats work in any output document format. Formats such as `latex` or `html` only work on the specific format of the document output.   
+
+## `kableExtra`
+The `kableExtra` package allows you to add a lot more features and options to your simple table you made using the function `kable()`. The package features the pipe operator, `%>%`, so you can pipe the table to add more features.  
+
+### `kable_styling()`  
+
+To make the plain HTML table we just created look prettier, you can always apply themes using `kable_styling()` from the package `kableExtra` to make the tables look more fancy and neat. 
+
+The function has the following arguments:  
+```
+kable_styling(
+  kable_input,
+  bootstrap_options = "basic",
+  latex_options = "basic",
+  full_width = NULL,
+  position = "center",
+  font_size = NULL,....
+```  
+Details of the arguments can be found [here](https://www.rdocumentation.org/packages/kableExtra/versions/1.3.4/topics/kable_styling).  
+
+First, let's just try using the function without any argument. `kable_styling()` will automatically apply Twitter bootstrap theme to the table.  
+
+```{r}
+kable(x = head(mtcars[1:3,]))  %>%
+  kable_styling()
+```
+  
+As you can see, it creates a nice and simple table.  
+
+Using `kable_styling`, you can also adjust the size and position of the table, font sizes, etc. as the following:   
+
+```{r}
+kable(x = dt, format = "html") %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left", font_size = 10)
+```
+  
+You can try various options using the function `kable_styling`. [Here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) are some more nice and detailed examples for a reference.   
+
+### How to put multiple tables side by side
+You can pass a list of dataframes to `kable()` which generates side-by-side tables. 
+Here, I will split `mtcars` dataset into two tables, and put them side by side using `kable(list(datasets))`.  
+```{r}
+data1 <- head(mtcars[1:3, 1:3])
+data2 <- head(mtcars[, 4:7])
+knitr::kable(
+  x = list(data1, data2), format = "html",
+  caption = 'Tables side by side.',
+  booktabs = TRUE, valign = 't'
+) %>% kable_styling(bootstrap_options = "striped")
+```
+This feature only works for html and pdf output. 
+
+Another way to put tables side by side is to use `kables()`. 
+```{r}
+kables(list(
+  kable(data1, caption = "first table") %>% kable_styling(bootstrap_options = "striped"), 
+  kable(data2, caption= "second table") %>% kable_styling(bootstrap_options = "striped"))) 
+```
+By using `kables` function, you can pass the list of `kable()` objects to it. You can also set different titles for each table.   
+
+
+## GT Table
+The gt package is used to produce nice-looking display tables. Here, we distinguish between data tables(tibbles, dataframes, etc) and the display tables easily found in articles, and web pages. 
+
+In order to produce the gt table, gt package is needed.  
+```{r}
+library("gt")
+```
+
+Given that `data` is a tibble which we have a suitable input for gt.
+
+We use `gt()` function. If we pass the tibble to the gt() function, we’ll get a gt Table as an output.  
+
+```{r}
+mt = tibble(head(mtcars))
+mt_table = gt(data = mt)
+
+# Show the gt Table
+mt_table
+```
+
+  
+### Add parts to the gt Table
+You can add titles and labels for various levels on the gt Tables.
+The picture below shows the parts you can put the title/labels at.  
+
+![](https://gt.rstudio.com/reference/figures/gt_parts_of_a_table.svg)  
+
+To add a title, you used the `tab_header` function to add labels or titles.  
+```{r}
+mt_table <- 
+mt_table %>%
+  tab_header(
+    title = "This is a title",
+    subtitle = "This is a subtitle"
+  ) 
+mt_table
+```
+
+## Exercises
+
+### Question 1
+Create a table that has a title "This is a table", bootstrap options being `stripe`, and having full width, with a `right` position, using the dataset `data`. 
+```{r q1_kable, exercise.eval = TRUE, exercise=TRUE}
+data <- head(mtcars)
+```
+
+```{r q1_kable-solution}
+data <- head(mtcars)
+kable(x = data, caption = "This is a table", position = "right", full_width = T)
+```
+
+### Question 2
+Now, use `kable_styling()` to create the same table, but with `striped` bootstrap option.  
+
+```{r q2_kable, exercise.eval = TRUE, exercise=TRUE}
+data <- head(mtcars)
+```
+
+```{r q2_kable-solution}
+data <- head(mtcars)
+kable(x = data, caption = "This is a table", position = "right", full_width = T) %>% kable_styling(bootstrap_options = 'striped')
+```
+
+### Question 3
+
+Put the following data frames side by side, with the title "Tables are side by side". Drop the decimal places using the argument `digits`. 
+```{r q3_kable, exercise.eval = TRUE, exercise=TRUE}
+data_1 <- head(mtcars[1:2, 1:2])
+data_2 <- head(mtcars[, 5:7])
+
+```
+
+```{r q3_kable-solution}
+kable(
+  x = list(data_1, data_2),
+  caption = 'Tables are side by side.', digits = 0
+)
+```
+
+## Common Mistakes & Errors  
+
+You might get the following error message sometimes:  
+```
+Error in dimnames(x) <- dn : length of 'dimnames' [2] not equal to array extent
+```
+This error message will pop up if you are trying to change the column names with different length of the vector than the number of columns. Make sure the length of the vector in your `col.names` argument matches the number of the columns in the dataset.  
+
+Also, make sure to choose the right format of kable that matches the format of the document. If you choose to put `format = "pdf"` in a HTML document output, you will get the following error:  
+```
+could not find function "kable_pdf"
+```  
+So be careful not to make these mistakes.  
+
+
+
+
+## Next Steps
+Create some fancy tables using kable & kableExtra :)
+
+## Reference  
+
+- [advanced information on kableextra()](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)   
+- [kableextra()](https://bookdown.org/yihui/rmarkdown-cookbook/kableextra.html)  
+- [more information on kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)  
+- [more information on gt Tables](https://gt.rstudio.com/articles/intro-creating-gt-tables.html)
+
+
+
+

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 24 Read CSVs | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Marija Pejcinovska.  24.1 Introduction In this lesson, you will learn how to: read-in comma-delimited data files using the read_csv() function in the readr package. Prerequisite skills...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 24 Read CSVs | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Marija Pejcinovska.  24.1 Introduction In this lesson, you will learn how to: read-in comma-delimited data files using the read_csv() function in the readr package. Prerequisite skills...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 24 Read CSVs | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Marija Pejcinovska.  24.1 Introduction In this lesson, you will learn how to: read-in comma-delimited data files using the read_csv() function in the readr package. Prerequisite skills...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-6.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-12.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="active" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-22.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-1.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-36.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="glm.html"><span class="header-section-number">43</span> glm</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">44</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">45</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">46</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">47</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">48</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-lapply.html"><span class="header-section-number">49</span> apply sapply lapply</a></li>
+<li><a class="" href="basename-etc.html"><span class="header-section-number">50</span> basename etc</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">51</span> sum round etc</a></li>
+<li><a class="" href="isna-which-unique-identical.html"><span class="header-section-number">52</span> isna which unique identical</a></li>
+<li><a class="" href="rownames-and-colnames.html"><span class="header-section-number">53</span> rownames and colnames</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">54</span> floor ceiling round and abs</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-43.html"><span class="header-section-number">55</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">56</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">57</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">58</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">59</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">60</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">61</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">68</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">69</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-59.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">74</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">75</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">76</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">77</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">78</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">79</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">80</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">81</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-65.html"><span class="header-section-number">82</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">83</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">84</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">85</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">86</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">87</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">88</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">89</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-73.html"><span class="header-section-number">90</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">91</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">92</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">93</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">94</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">95</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">96</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-79.html"><span class="header-section-number">97</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">98</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">99</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">100</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">101</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">102</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">103</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">104</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">105</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">106</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">107</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">108</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">109</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">110</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">111</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">112</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">113</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">114</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">115</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">116</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">117</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">118</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">119</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">120</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="read-csvs" class="section level1" number="24">
+<h1>
+<span class="header-section-number">24</span> Read CSVs<a class="anchor" aria-label="anchor" href="#read-csvs"><i class="fas fa-link"></i></a>
+</h1>
+<p>Written by Marija Pejcinovska.</p>
+<div id="introduction-20" class="section level2" number="24.1">
+<h2>
+<span class="header-section-number">24.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-20"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>read-in comma-delimited data files using the <code>read_csv()</code> function in the <code>readr</code> package.</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Installing packages, calling libraries.</li>
+</ul>
+</div>
+<div id="delimited-data-files-in-r" class="section level2" number="24.2">
+<h2>
+<span class="header-section-number">24.2</span> Delimited data files in R<a class="anchor" aria-label="anchor" href="#delimited-data-files-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Text and .csv files are common file formats for saving various types of data. R allows you to read in such delimited text files in a number of ways.</p>
+<p>In this tutorial we will focus specifically on the <code>read_csv()</code> function.
+The function is part of the <code>readr</code> package, which itself if part of the <code>tidyverse</code> ecosystem of packages.</p>
+<p>Note: you can get the <code>readr</code> package by installing the whole <code>tidyverse</code> (install.packages(“tidyverse”)) or by installing <code>readr</code> directly. To load the package you’ll need to use <code><a href="https://readr.tidyverse.org">library(readr)</a></code>; alternatively it will be loaded automatically when you load the <code>tidyverse</code>.</p>
+<p>As the name suggest the <code>read_csv()</code> function is best suited for reading in <code>.csv</code> type files. “<strong>csv</strong>” stands for <strong>c</strong>omma-<strong>s</strong>eparated <strong>v</strong>alues, which means that data entries are separated (or delimited) by commas (in the case where values are separated by semicolons instead, use the function<code>read_csv2()</code>). Each row in a csv file is initiated by a newline (or rather a newline character <code>\n</code>).</p>
+<p>To begin, let’s create our own small (csv looking) text data that we’ll read in with the <code>read_csv()</code> function. We’ll call this object <code>my_data</code></p>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Make sure that each row in the data starts on a new line</span>
+
+<span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"studendID,test1,test2,grade 
+         student1,90,85,A
+         student2,30,46,F
+         student3,70,80,B
+         student4, NA,68,C
+         student5,NA,NA,F"</span><span class="op">)</span> </code></pre></div>
+<p>We’ll read the data by putting <code>my_data</code> as an argument inside our function as shown below. If instead <code>my_data</code> was a <code>.csv</code> file somewhere on your computer you would need to provide the location (path) of your file which should look something like <code>read_csv("my_folder/my_subfolder/my_data_file.csv")</code>. Run the code below to get a quick sense of what the data looks like once we’ve called the <code>read_csv()</code> function.</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Read in my_data and save it as an object called my_first_csv_file</span>
+<span class="va">my_first_csv_file</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="va">my_data</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 5 Columns: 4</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (2): studendID, grade</span>
+<span class="co">#&gt; dbl (2): test1, test2</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="va">my_first_csv_file</span>
+<span class="co">#&gt; # A tibble: 5 × 4</span>
+<span class="co">#&gt;   studendID test1 test2 grade</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;</span>
+<span class="co">#&gt; 1 student1     90    85 A    </span>
+<span class="co">#&gt; 2 student2     30    46 F    </span>
+<span class="co">#&gt; 3 student3     70    80 B    </span>
+<span class="co">#&gt; 4 student4     NA    68 C    </span>
+<span class="co">#&gt; 5 student5     NA    NA F</span></code></pre></div>
+</div>
+<div id="a-closer-look-at-read_csv" class="section level2" number="24.3">
+<h2>
+<span class="header-section-number">24.3</span> A closer look at <code>read_csv()</code><a class="anchor" aria-label="anchor" href="#a-closer-look-at-read_csv"><i class="fas fa-link"></i></a>
+</h2>
+<p>To see all the arguments of <code>read_csv()</code> you can call <code>?read_csv()</code> from your console, and among the many things in the help file you’ll notice the following usage description.</p>
+<div class="line-block">read_csv(<br>
+      file,<br>
+      col_names = TRUE,<br>
+      col_types = NULL,<br>
+      locale = default_locale(),<br>
+      na = c("“,”NA"),<br>
+      quoted_na = TRUE,<br>
+      quote = """,<br>
+      comment = "",<br>
+      trim_ws = TRUE,<br>
+      skip = 0,<br>
+      n_max = Inf,<br>
+      guess_max = min(1000, n_max),<br>
+      progress = show_progress(),<br>
+      skip_empty_rows = TRUE<br>
+)</div>
+<p>Here we’ll focus on a few of the arguments you are most likely to use:</p>
+<ul>
+<li>
+<code>file</code><br>
+</li>
+<li><code>col_names</code></li>
+<li><code>skip</code></li>
+<li><code>n_max</code></li>
+<li><code>na</code></li>
+</ul>
+</div>
+<div id="arguments-of-read_csv" class="section level2" number="24.4">
+<h2>
+<span class="header-section-number">24.4</span> Arguments of <code>read_csv()</code><a class="anchor" aria-label="anchor" href="#arguments-of-read_csv"><i class="fas fa-link"></i></a>
+</h2>
+<p>The argument <code>file</code>, as one would expect, indicates the file name you are reading in. In our previous example this was the object <code>my_data</code>; we’ll see a different example in the exercises.</p>
+<p><code>col_names</code> can either take a logical value, TRUE or FALSE, or a character vector.<br>
+Use TRUE/FALSE to indicate whether the file you are reading in contains column names or not.</p>
+<p>Let’s see how this works.</p>
+<p>By default read_csv() sets <code>col_names = TRUE</code>, which works great for our particular example since in our data file <code>my_data</code> we specified column names.<br>
+What happens if we set <code>col_names = FALSE</code> for our file?</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_csv</span><span class="op">(</span><span class="va">my_data</span>, col_names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  
+<span class="co">#&gt; Rows: 6 Columns: 4</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (4): X1, X2, X3, X4</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; # A tibble: 6 × 4</span>
+<span class="co">#&gt;   X1        X2    X3    X4   </span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
+<span class="co">#&gt; 1 studendID test1 test2 grade</span>
+<span class="co">#&gt; 2 student1  90    85    A    </span>
+<span class="co">#&gt; 3 student2  30    46    F    </span>
+<span class="co">#&gt; 4 student3  70    80    B    </span>
+<span class="co">#&gt; 5 student4  &lt;NA&gt;  68    C    </span>
+<span class="co">#&gt; 6 student5  &lt;NA&gt;  &lt;NA&gt;  F</span></code></pre></div>
+<p>You’ll notice that R assigns generic variable names. In this case, the columns (or variables) are named <code>X1</code> through <code>X4</code>.</p>
+<p>But what else do you notice?</p>
+<p>R also assumed that our actual column names (i.e. the very first row of our data) were just part of the data, consequently making all variables of type <em>character</em> (since we now have a mix of character and numeric values - visit the tutorial on object types if you need a refresher on this).
+By now you are probably seeing that you should use <code>col_names</code> as a logical value only to indicate to R that the data you are reading in does not have a line of column names.<br>
+If you data file does not contain variable names you could specify those using <code>col_names</code>, but instead of providing a logical value, you should provide a vector with the variable names; for example, <code>col_names = c("First Var Name, "Second Var Name")</code>. This, however, becomes cumbersome for data with too many variables and there might be better solution to manipulate the names.</p>
+<p>The argument <code>skip</code> can be used to indicate how many lines should be skipped before reading in data entries. For instance, setting <code>skip = 4</code> will skip the first 4 lines of the file.</p>
+<p>The argument <code>n_max</code>, on the other hand, allows you to control the maximum number of lines read. For instance, setting <code>n_max=1</code> would indicate to R to only read a single line of the data file. Note, however, that if <code>col_names = TRUE</code> the header of the data file (i.e. the column names) are not counted towards the <code>n_max</code> total. For example, setting <code>n_max=0</code> will initiate a tibble(data frame) with no entries read, but with the names of the columns preserved.</p>
+<p>Let’s see <code>skip</code> and <code>n_max</code> in action.
+Suppose we modified our <code>my_data</code> object and added a few irrelevant entries at the beginning and the end of the object.</p>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">my_data_modified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Hello, this text is, irrelevant
+As is this line
+studendID,test1,test2,grade 
+student1,90,85,A
+student2,30,46,F
+student3,70,80,B
+student4, NA,68,C
+student5,NA,NA,F
+student6,LWD,LWD,LWD"</span><span class="op">)</span></code></pre></div>
+<p>Run the following code to read in the data by skipping the first 2 lines and the last (sixth) entry in <code>my_data_modified</code></p>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu">read_csv</span><span class="op">(</span><span class="va">my_data_modified</span>, skip <span class="op">=</span> <span class="fl">2</span>, n_max <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 5 Columns: 4</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (2): studendID, grade</span>
+<span class="co">#&gt; dbl (2): test1, test2</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; # A tibble: 5 × 4</span>
+<span class="co">#&gt;   studendID test1 test2 grade</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;</span>
+<span class="co">#&gt; 1 student1     90    85 A    </span>
+<span class="co">#&gt; 2 student2     30    46 F    </span>
+<span class="co">#&gt; 3 student3     70    80 B    </span>
+<span class="co">#&gt; 4 student4     NA    68 C    </span>
+<span class="co">#&gt; 5 student5     NA    NA F</span></code></pre></div>
+<p>Finally, the argument <code>na</code> allows you to indicate whether any special values have been used to encode NAs (i.e. missing values). By default, the function assumes that NAs are defined either by blank spaces or the string NA (see the help file for <code>?read_csv()</code>). However, if a data file you are reading in encodes missing values as <code>-99</code> or blank spaces, you could just specify that by setting <code>na=c("-99", "")</code> in the arguments of the function.</p>
+</div>
+<div id="exercises-9" class="section level2" number="24.5">
+<h2>
+<span class="header-section-number">24.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-9"><i class="fas fa-link"></i></a>
+</h2>
+<div id="exercise-1-5" class="section level3" number="24.5.1">
+<h3>
+<span class="header-section-number">24.5.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s try a slightly more complicated setting using a variation of our <code>my_data_modified</code> object. Suppose your data file has an extra line of records which may have been helpful in the data collection process but is not relevant to your data analysis. Consider the file <code>my_new_data</code> below where the additional clarification is provided for each variable but, unlike our earlier example, it is neither at the beginning nor the end of the data file.</p>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">my_new_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"studendID,test1,test2,grade
+(textID),(points out of 100),(points out of 100),(letter grade)
+student1,90,85,A
+student2,30,46,F
+student3,70,80,B
+student4, NA,68,C
+student5,NA,NA,F"</span><span class="op">)</span></code></pre></div>
+<p>How would you read in the data to retain everything other than the second line of entries?
+You might need to do this in a few steps. Follow the suggestions in the comments to finish the code below (make sure you uncomment the appropriate lines of code)</p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">##  Start by isolating the column names using the function names()(to see what the function does . You can do this by reading in the my_new_data object and using the n_max argument.</span>
+
+<span class="co">#my_columns &lt;- names(read_csv( , n_max=))</span>
+
+<span class="co">##  Then, finish the task by reading in the data using the appropriate skip= and col_names= arguments</span>
+
+<span class="co">#read_csv( , skip= , col_names = )</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">my_columns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu">read_csv</span><span class="op">(</span><span class="va">my_new_data</span>, n_max<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 0 Columns: 4</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (4): studendID, test1, test2, grade</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+
+<span class="fu">read_csv</span><span class="op">(</span><span class="va">my_new_data</span>, skip<span class="op">=</span><span class="fl">2</span>, col_names <span class="op">=</span> <span class="va">my_columns</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 5 Columns: 4</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (2): studendID, grade</span>
+<span class="co">#&gt; dbl (2): test1, test2</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; # A tibble: 5 × 4</span>
+<span class="co">#&gt;   studendID test1 test2 grade</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;</span>
+<span class="co">#&gt; 1 student1     90    85 A    </span>
+<span class="co">#&gt; 2 student2     30    46 F    </span>
+<span class="co">#&gt; 3 student3     70    80 B    </span>
+<span class="co">#&gt; 4 student4     NA    68 C    </span>
+<span class="co">#&gt; 5 student5     NA    NA F</span></code></pre></div>
+</div>
+<div id="exercise-2-3" class="section level3" number="24.5.2">
+<h3>
+<span class="header-section-number">24.5.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s look at a another data file, this time one that lives online.<br>
+Consider the following data about gifts given between 1999 and 2018 to U.S. federal employees from foreign government sources. The raw data can be found at <a href="https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv" class="uri">https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv</a> . We’ll use the URL to read it in.</p>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv"</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 8,392 × 10</span>
+<span class="co">#&gt;       id recipient agency_name year_received date_received</span>
+<span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt; &lt;date&gt;       </span>
+<span class="co">#&gt;  1     1 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  2     2 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  3     3 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  4     4 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  5     5 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  6     6 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  7     7 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  8     8 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt;  9     9 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt; 10    10 President &lt;NA&gt;                 1999 NA           </span>
+<span class="co">#&gt; # … with 8,382 more rows, and 5 more variables:</span>
+<span class="co">#&gt; #   donor &lt;chr&gt;, donor_country &lt;chr&gt;,</span>
+<span class="co">#&gt; #   gift_description &lt;chr&gt;, value_usd &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   justification &lt;chr&gt;</span></code></pre></div>
+<p><strong>Part A</strong>
+Using the appropriate arguments, read in only the first 100 records of these data</p>
+<!-- ```{r csv_ex2_gifts1, exercise=TRUE, message = FALSE, exercise.timelimit=240} -->
+<!-- ``` -->
+<!-- ```{r csv_ex2_gifts1-solution, message = FALSE} -->
+<!-- read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv", n_max=100) -->
+<!-- ``` -->
+<p><strong>PART B</strong>
+Suppose we only want to read the records starting with the year 2000 and we know that the first 330 (not including column names) entries are from the 90s. Use the appropriate arguments to read in the data in this case.</p>
+<!-- ```{r csv_ex2_gifts2, exercise=TRUE, message = FALSE, exercise.timelimit=240} -->
+<!-- ``` -->
+<!-- ```{r csv_ex2_gifts2-solution, message = FALSE} -->
+<!-- my_cols <- names(read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv", n_max=0)) -->
+<!-- read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv", skip=331, col_names=my_cols) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="common-mistakes-errors-5" class="section level2" number="24.6">
+<h2>
+<span class="header-section-number">24.6</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-5"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>When importing your data using <code>read_csv()</code> make sure that the path to the file to be read is correctly specified and that, in addition, no spelling mistakes have been made.</p></li>
+<li><p>Make sure that the data file is really missing column names before you proceed to change the <code>col_names</code> argument.</p></li>
+</ul>
+</div>
+<div id="next-steps-13" class="section level2" number="24.7">
+<h2>
+<span class="header-section-number">24.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-13"><i class="fas fa-link"></i></a>
+</h2>
+<p>So far you’ve learned how to import a basic delimited data file in R using <code>read_csv()</code>. In the next tutorial you will see how to load other types of data and import more complicated data formats.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></div>
+<div class="next"><a href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#read-csvs"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="nav-link" href="#introduction-20"><span class="header-section-number">24.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#delimited-data-files-in-r"><span class="header-section-number">24.2</span> Delimited data files in R</a></li>
+<li><a class="nav-link" href="#a-closer-look-at-read_csv"><span class="header-section-number">24.3</span> A closer look at read_csv()</a></li>
+<li><a class="nav-link" href="#arguments-of-read_csv"><span class="header-section-number">24.4</span> Arguments of read_csv()</a></li>
+<li>
+<a class="nav-link" href="#exercises-9"><span class="header-section-number">24.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-5"><span class="header-section-number">24.5.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-3"><span class="header-section-number">24.5.2</span> Exercise 2</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-5"><span class="header-section-number">24.6</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-13"><span class="header-section-number">24.7</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/023-holding_the_chaos_at_bay-read_csv.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/023-holding_the_chaos_at_bay-read_csv.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

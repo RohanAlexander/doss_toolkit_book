@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 77 Various useful options | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Yena Joo.  77.1 Introduction We learned how to create plots so far, now we are going to learn how to apply some additional functions to the graph to give them some changes....">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 77 Various useful options | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Yena Joo.  77.1 Introduction We learned how to create plots so far, now we are going to learn how to apply some additional functions to the graph to give them some changes....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 77 Various useful options | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Yena Joo.  77.1 Introduction We learned how to create plots so far, now we are going to learn how to apply some additional functions to the graph to give them some changes....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-6.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-12.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-22.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-1.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-36.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="glm.html"><span class="header-section-number">43</span> glm</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">44</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">45</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">46</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">47</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">48</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-lapply.html"><span class="header-section-number">49</span> apply sapply lapply</a></li>
+<li><a class="" href="basename-etc.html"><span class="header-section-number">50</span> basename etc</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">51</span> sum round etc</a></li>
+<li><a class="" href="isna-which-unique-identical.html"><span class="header-section-number">52</span> isna which unique identical</a></li>
+<li><a class="" href="rownames-and-colnames.html"><span class="header-section-number">53</span> rownames and colnames</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">54</span> floor ceiling round and abs</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-43.html"><span class="header-section-number">55</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">56</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">57</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">58</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">59</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">60</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">61</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">68</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">69</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-59.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">74</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">75</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">76</span> Scatter plots</a></li>
+<li><a class="active" href="various-useful-options.html"><span class="header-section-number">77</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">78</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">79</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">80</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">81</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-65.html"><span class="header-section-number">82</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">83</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">84</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">85</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">86</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">87</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">88</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">89</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-73.html"><span class="header-section-number">90</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">91</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">92</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">93</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">94</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">95</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">96</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-79.html"><span class="header-section-number">97</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">98</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">99</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">100</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">101</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">102</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">103</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">104</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">105</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">106</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">107</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">108</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">109</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">110</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">111</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">112</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">113</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">114</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">115</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">116</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">117</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">118</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">119</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">120</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="various-useful-options" class="section level1" number="77">
+<h1>
+<span class="header-section-number">77</span> Various useful options<a class="anchor" aria-label="anchor" href="#various-useful-options"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Yena Joo.</em></p>
+<div id="introduction-63" class="section level2" number="77.1">
+<h2>
+<span class="header-section-number">77.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-63"><i class="fas fa-link"></i></a>
+</h2>
+<p>We learned how to create plots so far, now we are going to learn how to apply some additional functions to the graph to give them some changes. Visualization plays a very important role when using data analysis results.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>facet plots<br>
+</li>
+<li>label plots<br>
+</li>
+<li>change colors of the plots<br>
+</li>
+<li>function <code><a href="https://scales.r-lib.org/reference/breaks_pretty.html">breaks_pretty()</a></code>
+</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>You should be familiar with <code>ggplot</code> now.<br>
+</li>
+<li>You also should be able to read and manipulate datasets.</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>Everything about how to make plots prettier!!</li>
+</ul>
+<div id="packages-1" class="section level3" number="77.1.1">
+<h3>
+<span class="header-section-number">77.1.1</span> Packages<a class="anchor" aria-label="anchor" href="#packages-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="faceting" class="section level2" number="77.2">
+<h2>
+<span class="header-section-number">77.2</span> Faceting<a class="anchor" aria-label="anchor" href="#faceting"><i class="fas fa-link"></i></a>
+</h2>
+<p>Faceting allows you to construct multi-panel plots and monitor how the scales of one panel compare to the scales of another. Which means, it partitions a plot into multiple panels. Each panel shows a different subset of the data.</p>
+<p>In other words, it is sometimes necessary to create a graph for each group in data by splitting one plot into multiple plots. In this case, you can use the <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code> functions. These functions have the advantage of noticing the distribution of data by group easily.</p>
+<p>There are two main functions for faceting :</p>
+<ul>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code>: produces a 2d grid of panels defined by variables which form the rows and columns.<br>
+</li>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>: “wraps” a 1d ribbon of panels into 2d.</li>
+</ul>
+<div id="facet_grid" class="section level3" number="77.2.1">
+<h3>
+<span class="header-section-number">77.2.1</span> <code>facet_grid()</code><a class="anchor" aria-label="anchor" href="#facet_grid"><i class="fas fa-link"></i></a>
+</h3>
+<p>facet_grid(x ~ y) will display x*y plots even if some plots are empty. This function defines the shape feature of the panel. When used with ggplot, the x-axis and y-axis are kept as they are, and displayed divided by the variables you specify inside the argument. For example, <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid(. ~ Variable)</a></code> changes the plot vertically.</p>
+<div id="arguments-20" class="section level4" number="77.2.1.1">
+<h4>
+<span class="header-section-number">77.2.1.1</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-20"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid( rows = NULL, cols = NULL, scales = "fixed", space = "fixed", shrink = TRUE, labeller = "label_value", as.table = TRUE, switch = NULL, drop = TRUE, margins = FALSE, facets = NULL)</a></code></pre>
+<ul>
+<li>rows, cols: A set of variables quoted by <code><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars()</a></code>. It can also be displayed <code>(variable ~ variable)</code>.</li>
+<li>scales: scales shared across all facets. (<code>"fixed"</code>, <code>"free_x"</code>, <code>"free_y"</code>, <code>"free"</code>).</li>
+</ul>
+<p>For more information, click <a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">here</a>.</p>
+<p><strong>Facet with one variable</strong></p>
+<p>Here, I am using a dataset that contains the information of members who climbed the mountain Himalaya. Let’s say, I would like to see the distribution of the sex of the members.</p>
+<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">members</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/members.csv'</span><span class="op">)</span>
+<span class="va">hist_p</span> <span class="op">&lt;-</span> <span class="va">members</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"light blue"</span>, bins <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+
+<span class="co"># Split in vertical direction</span>
+<span class="va">hist_p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">~</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Split in horizontal direction</span>
+<span class="va">hist_p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">.</span> <span class="op">~</span> <span class="va">sex</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-2-2.png" width="672"></div>
+<p>Splitting in vertical direction can be done with putting whichever variable you want to facet on the left, <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid(variable ~ .)</a></code>. Putting the variable on the right side would split horizontally.</p>
+<p><strong>Facet with two variables</strong><br>
+You can also facet with two variables. Here, I will facet with variables <code>success</code> and <code>injured</code>. Since they are both type boolean, it would be better to label the categories using <code>labeller = label_both</code>.</p>
+<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">hist_p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">success</span> <span class="op">~</span> <span class="va">injured</span>, labeller<span class="op">=</span><span class="va">label_both</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+</div>
+</div>
+<div id="facet_wrap" class="section level3" number="77.2.2">
+<h3>
+<span class="header-section-number">77.2.2</span> <code>facet_wrap()</code><a class="anchor" aria-label="anchor" href="#facet_wrap"><i class="fas fa-link"></i></a>
+</h3>
+<p><code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> wraps a 1d sequence of panels into 2d. It is easy to understand by comparing the distribution of data by group(category).</p>
+<p>This function partitions the plot based on a categorical variable, and according to the factor of this column, the plot for each group is divided into subplots.</p>
+<div id="arguments-21" class="section level4" number="77.2.2.1">
+<h4>
+<span class="header-section-number">77.2.2.1</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-21"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap(facets, nrow = NULL, ncol = NULL, scales = "fixed", shrink = TRUE, labeller = "label_value", as.table = TRUE, switch = NULL, drop = TRUE, dir = "h", strip.position = "top") </a></code></pre>
+<ul>
+<li>facets: set of variables. defines faceting groups on the rows or columns dimension.<br>
+</li>
+<li>nrow, ncol: Number of rows and columns.<br>
+</li>
+<li>scales: Specifies whether the x-axis and y-axis of each subplot are fixed.<br>
+Note that the column, which is passed to this function, must be a factor, discrete variable.</li>
+</ul>
+<p>Here is an <a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">additional information on the arguments and examples</a> you may find helpful.</p>
+<p>Facets can be placed side by side using the function facet_wrap() as follows:</p>
+<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">hist_p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">sex</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+<p><code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap(x ~ y)</a></code>displays only the plots having actual values. The function displays plots for every combination of the selected variables.</p>
+<p>However, so far we don’t see much of a difference between <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>, since the selected data is simple. Let’s try to use a rather complex plot to see the difference between the two functions.</p>
+</div>
+</div>
+<div id="facet_grid-vs-facet_wrap" class="section level3" number="77.2.3">
+<h3>
+<span class="header-section-number">77.2.3</span> <code>facet_grid()</code> vs <code>facet_wrap()</code><a class="anchor" aria-label="anchor" href="#facet_grid-vs-facet_wrap"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will use a built-in dataset <code>mpg</code>. First, create a scatter plot with variables <code>hwy</code> and <code>displ</code>. Then, I will use the variable <code>manufacturer</code> to facet the plot, using both <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>.</p>
+<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">hwy</span>, <span class="va">displ</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">manufacturer</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">manufacturer</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-5-2.png" width="672"></div>
+<p>Now you can clearly see the difference between the two functions with the default arguments.</p>
+</div>
+</div>
+<div id="labelling-ggplot" class="section level2" number="77.3">
+<h2>
+<span class="header-section-number">77.3</span> Labelling ggplot<a class="anchor" aria-label="anchor" href="#labelling-ggplot"><i class="fas fa-link"></i></a>
+</h2>
+<p>ggplots can be labeled using <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>as follow:</p>
+<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">japanese_blooming</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/sakura-flowering/temperatures-modern.csv"</span><span class="op">)</span>
+<span class="va">japanese_blooming</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">mean_temp_c</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"pink"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"This is a title"</span>,
+  subtitle <span class="op">=</span> <span class="st">"This is a subtitle"</span>,
+  caption <span class="op">=</span> <span class="st">"This is a caption"</span>,
+  tag <span class="op">=</span> <span class="st">"This is a tag"</span>, 
+  x <span class="op">=</span> <span class="st">"This is a x-axis label"</span>,
+  y<span class="op">=</span> <span class="st">"This is an y-axis label"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
+<div id="arguments-for-labs" class="section level3" number="77.3.1">
+<h3>
+<span class="header-section-number">77.3.1</span> Arguments for <code>labs()</code><a class="anchor" aria-label="anchor" href="#arguments-for-labs"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>title: The text for the title.<br>
+</li>
+<li>subtitle: The text for the subtitle for the plot which will be displayed below the title.<br>
+</li>
+<li>caption: The text for the caption which will be displayed in the bottom-right of the plot by default.<br>
+</li>
+<li>tag: The text for the tag label which will be displayed at the top-left of the plot by default.<br>
+</li>
+<li>label: The title of the respective axis (for xlab() or ylab()) or of the plot (for ggtitle()).<br>
+</li>
+<li>x: x-axis label<br>
+</li>
+<li>y: y-axis label</li>
+</ul>
+</div>
+<div id="labeling-without-using-labs" class="section level3" number="77.3.2">
+<h3>
+<span class="header-section-number">77.3.2</span> Labeling without using <code>labs()</code><a class="anchor" aria-label="anchor" href="#labeling-without-using-labs"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab()</a></code> adds the x-axis and y-axis labels.<br>
+</li>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle("title", subtitle = "subtitle")</a></code> adds a title and a subtitle.</li>
+</ul>
+<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">japanese_blooming</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">mean_temp_c</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"pink"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"another way to add x-axis label"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"another way to add y-axis label"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Another way to add a title"</span>, subtitle <span class="op">=</span> <span class="st">"Another way to add a subtitle"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+</div>
+</div>
+<div id="how-to-change-colors-of-ggplot" class="section level2" number="77.4">
+<h2>
+<span class="header-section-number">77.4</span> How to change colors of ggplot<a class="anchor" aria-label="anchor" href="#how-to-change-colors-of-ggplot"><i class="fas fa-link"></i></a>
+</h2>
+<div id="change-to-a-single-color" class="section level3" number="77.4.1">
+<h3>
+<span class="header-section-number">77.4.1</span> Change to a single color<a class="anchor" aria-label="anchor" href="#change-to-a-single-color"><i class="fas fa-link"></i></a>
+</h3>
+<p>For plots such as boxplots and histogram, you can choose what color you want to “fill” and what color you want as an outline of the graph. When making ggplots, you just add <code>geom_PLOTTYPE(fill = "color", color = "color")</code>.</p>
+<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># box plot</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group<span class="op">=</span><span class="va">vs</span>, y<span class="op">=</span><span class="va">wt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>fill<span class="op">=</span><span class="st">'pink'</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># scatter plot</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">wt</span>, y<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">"dark red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-8-2.png" width="672"></div>
+</div>
+<div id="change-color-by-groups" class="section level3" number="77.4.2">
+<h3>
+<span class="header-section-number">77.4.2</span> Change color by groups<a class="anchor" aria-label="anchor" href="#change-color-by-groups"><i class="fas fa-link"></i></a>
+</h3>
+<p>Also, you can set the color by groups of variable. It automatically sets up a legend of changing colors depending on the variable value, using <code>fill</code> or <code>color</code> <code>= VARIABLE NAME</code>.</p>
+<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Box plot</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">vs</span>, y <span class="op">=</span> <span class="va">wt</span>, fill <span class="op">=</span> <span class="va">vs</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Scatter plot</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span>, color <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
+</div>
+<div id="basic-theme-changing" class="section level3" number="77.4.3">
+<h3>
+<span class="header-section-number">77.4.3</span> basic theme changing<a class="anchor" aria-label="anchor" href="#basic-theme-changing"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>theme_gray</code> : gray background color and white grid lines<br><code>theme_bw</code> : white background and gray grid lines<br><code>theme_linedraw</code> : black lines around the plot<br><code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_dark()</a></code>: Dark background designed to make colours pop out</p>
+<p><em>Note that, the function theme_set() changes the theme for the entire session.</em><br>
+(The detailed information of the basic theme changing can be found <a href="http://www.sthda.com/english/wiki/ggplot2-themes-and-background-colors-the-3-elements">here</a></p>
+</div>
+</div>
+<div id="pretty_breaks-or-breaks_pretty" class="section level2" number="77.5">
+<h2>
+<span class="header-section-number">77.5</span> <code>pretty_breaks()</code> or <code>breaks_pretty()</code><a class="anchor" aria-label="anchor" href="#pretty_breaks-or-breaks_pretty"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://scales.r-lib.org/reference/breaks_pretty.html">breaks_pretty()</a></code> uses default R break algorithm as implemented in pretty(). This is used often for splitting date/times. For example, when you want to divide 24 hours into 10 blocks, you would use the function <code>breaks_pretty</code> to split the time.</p>
+<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html">pretty_breaks</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html">breaks_pretty</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Important argument:</p>
+<ul>
+<li>n: desired number of breaks<br>
+</li>
+<li>
+<a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/pretty">other arguments</a> passed on <code>pretty</code>
+</li>
+</ul>
+<p>Here is an example of using the function:</p>
+<p>Inside the parameter, you put the desired number of breaks. However, you may get slightly more or less breaks than what you put.
+For example, I can request to break number from 1 to 10 into 5 parts.</p>
+<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html">breaks_pretty</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
+<span class="va">a</span>
+<span class="co">#&gt; [1]  0  2  4  6  8 10</span></code></pre></div>
+<p>Then it returns 6 parts, which is slightly more than what I requested in the argument.</p>
+<p>Another example is to break dates into multiple parts using <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code>.</p>
+<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html">pretty_breaks</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">12</span><span class="op">)</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2020-01-01"</span>, <span class="st">"2021-01-01"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">b</span>
+<span class="co">#&gt;     Jan 2020     Feb 2020     Mar 2020     Apr 2020 </span>
+<span class="co">#&gt; "2020-01-01" "2020-02-01" "2020-03-01" "2020-04-01" </span>
+<span class="co">#&gt;     May 2020     Jun 2020     Jul 2020     Aug 2020 </span>
+<span class="co">#&gt; "2020-05-01" "2020-06-01" "2020-07-01" "2020-08-01" </span>
+<span class="co">#&gt;     Sep 2020     Oct 2020     Nov 2020     Dec 2020 </span>
+<span class="co">#&gt; "2020-09-01" "2020-10-01" "2020-11-01" "2020-12-01" </span>
+<span class="co">#&gt;     Jan 2021 </span>
+<span class="co">#&gt; "2021-01-01"</span></code></pre></div>
+<p>This would automatically return the broken down scale of the date for you.</p>
+<p>These are the basics of the function <code><a href="https://scales.r-lib.org/reference/breaks_pretty.html">breaks_pretty()</a></code> or <code><a href="https://scales.r-lib.org/reference/breaks_pretty.html">pretty_breaks()</a></code> (they are interchangeable). If you would like to learn more about how to use these scales in a graph and visualize them, the information could be found <a href="https://bookdown.org/Maxine/ggplot2-maps/posts/2019-11-27-using-scales-package-to-modify-ggplot2-scale/">here</a></p>
+</div>
+<div id="exercises-40" class="section level2" number="77.6">
+<h2>
+<span class="header-section-number">77.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-40"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-7" class="section level3" number="77.6.1">
+<h3>
+<span class="header-section-number">77.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-7"><i class="fas fa-link"></i></a>
+</h3>
+<p>using <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code>, divide the plot below by variable <code>vs</code>.</p>
+<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">mpg</span>, x <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/q1_usefuloptions-1.png" width="672"></div>
+<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">mpg</span>, x <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">vs</span> <span class="op">~</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/q1_usefuloptions-solution-1.png" width="672"></div>
+</div>
+<div id="question-2-6" class="section level3" number="77.6.2">
+<h3>
+<span class="header-section-number">77.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Label the following graph. Title should be ‘scatter plot of mtcars,’ x-axis should be ‘wt’ and y-axis should be ‘mpg.’</p>
+<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span>, color <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/q2_usefuloptions-1.png" width="672"></div>
+<div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span>, color <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/q2_usefuloptions-solution-1.png" width="672"></div>
+</div>
+<div id="question-3-6" class="section level3" number="77.6.3">
+<h3>
+<span class="header-section-number">77.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Change the color of the scatter plot to ‘pink.’</p>
+<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/q3_usefuloptions-1.png" width="672"></div>
+<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'pink'</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="077-to_ggplot_or_not_to_ggplot-various_options_files/figure-html/q3_usefuloptions-solution-1.png" width="672"></div>
+</div>
+</div>
+<div id="next-steps-43" class="section level2" number="77.7">
+<h2>
+<span class="header-section-number">77.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-43"><i class="fas fa-link"></i></a>
+</h2>
+<p>Good visualizations can help the audience/readers remember the information or the message the plot contains. Try to make plots using useful options to make the graph readable &amp; attractive.</p>
+</div>
+<div id="references-3" class="section level2" number="77.8">
+<h2>
+<span class="header-section-number">77.8</span> References<a class="anchor" aria-label="anchor" href="#references-3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="http://www.sthda.com/english/wiki/ggplot2-facet-split-a-plot-into-a-matrix-of-panels">ggplot facet</a><br>
+</li>
+<li>
+<a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.3.3/topics/labs">labs()</a><br>
+</li>
+<li>
+<a href="http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually">ggplot colours</a><br>
+</li>
+<li><a href="https://www.rdocumentation.org/packages/scales/versions/0.4.1/topics/pretty_breaks">pretty_breaks()</a></li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="scatter-plots.html"><span class="header-section-number">76</span> Scatter plots</a></div>
+<div class="next"><a href="saving-graphs.html"><span class="header-section-number">78</span> Saving graphs</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#various-useful-options"><span class="header-section-number">77</span> Various useful options</a></li>
+<li>
+<a class="nav-link" href="#introduction-63"><span class="header-section-number">77.1</span> Introduction</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#packages-1"><span class="header-section-number">77.1.1</span> Packages</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#faceting"><span class="header-section-number">77.2</span> Faceting</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#facet_grid"><span class="header-section-number">77.2.1</span> facet_grid()</a></li>
+<li><a class="nav-link" href="#facet_wrap"><span class="header-section-number">77.2.2</span> facet_wrap()</a></li>
+<li><a class="nav-link" href="#facet_grid-vs-facet_wrap"><span class="header-section-number">77.2.3</span> facet_grid() vs facet_wrap()</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#labelling-ggplot"><span class="header-section-number">77.3</span> Labelling ggplot</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#arguments-for-labs"><span class="header-section-number">77.3.1</span> Arguments for labs()</a></li>
+<li><a class="nav-link" href="#labeling-without-using-labs"><span class="header-section-number">77.3.2</span> Labeling without using labs()</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#how-to-change-colors-of-ggplot"><span class="header-section-number">77.4</span> How to change colors of ggplot</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#change-to-a-single-color"><span class="header-section-number">77.4.1</span> Change to a single color</a></li>
+<li><a class="nav-link" href="#change-color-by-groups"><span class="header-section-number">77.4.2</span> Change color by groups</a></li>
+<li><a class="nav-link" href="#basic-theme-changing"><span class="header-section-number">77.4.3</span> basic theme changing</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#pretty_breaks-or-breaks_pretty"><span class="header-section-number">77.5</span> pretty_breaks() or breaks_pretty()</a></li>
+<li>
+<a class="nav-link" href="#exercises-40"><span class="header-section-number">77.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-7"><span class="header-section-number">77.6.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-6"><span class="header-section-number">77.6.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-6"><span class="header-section-number">77.6.3</span> Question 3</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#next-steps-43"><span class="header-section-number">77.7</span> Next Steps</a></li>
+<li><a class="nav-link" href="#references-3"><span class="header-section-number">77.8</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/077-to_ggplot_or_not_to_ggplot-various_options.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/077-to_ggplot_or_not_to_ggplot-various_options.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

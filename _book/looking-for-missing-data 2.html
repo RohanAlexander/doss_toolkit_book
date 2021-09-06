@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 48 Looking for missing data | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 48 Looking for missing data | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 48 Looking for missing data | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="looking-for-missing-data" class="section level1" number="48">
+<h1><span class="header-section-number">Chapter 48</span> Looking for missing data</h1>
+<p><em>Written by Mariam Walaa.</em></p>
+<div id="introduction-44" class="section level2" number="48.1">
+<h2><span class="header-section-number">48.1</span> Introduction</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Find implicit missing data</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Using the pipe operator %&gt;%</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>Use complete() and fill() to find implicit missing data</li>
+</ul>
+</div>
+<div id="overview-6" class="section level2" number="48.2">
+<h2><span class="header-section-number">48.2</span> Overview</h2>
+<p>When we think of looking for missing data, we may think of looking for missing values,
+but there is also another type of missing data that is implicit which we can look for.
+For example, are there missing variables or observations in the data? We can answer this
+question by looking at combinations of values and seeing if all the possible combinations
+exist.</p>
+<div id="example-3" class="section level3" number="48.2.1">
+<h3><span class="header-section-number">48.2.1</span> Example</h3>
+<p>Suppose we have a data set representing student grades for a collection of required first
+year courses for the statistics major: STA130, CSC108, MAT137, at the end of their first
+year. However, some students have not finished all three courses and may be taking some in
+the summer.</p>
+<p>Lets start by loading the tidyverse.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="looking-for-missing-data.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Here is our hypothetical data of courses and grades.</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="looking-for-missing-data.html#cb317-1" aria-hidden="true" tabindex="-1"></a>first_year</span>
+<span id="cb317-2"><a href="looking-for-missing-data.html#cb317-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 12 × 3</span></span>
+<span id="cb317-3"><a href="looking-for-missing-data.html#cb317-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    student_id course grade</span></span>
+<span id="cb317-4"><a href="looking-for-missing-data.html#cb317-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;</span></span>
+<span id="cb317-5"><a href="looking-for-missing-data.html#cb317-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1          1 STA130    76</span></span>
+<span id="cb317-6"><a href="looking-for-missing-data.html#cb317-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2          1 CSC108    75</span></span>
+<span id="cb317-7"><a href="looking-for-missing-data.html#cb317-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3          1 MAT137    79</span></span>
+<span id="cb317-8"><a href="looking-for-missing-data.html#cb317-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4          2 STA130    81</span></span>
+<span id="cb317-9"><a href="looking-for-missing-data.html#cb317-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5          2 CSC108    83</span></span>
+<span id="cb317-10"><a href="looking-for-missing-data.html#cb317-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6          3 STA130    83</span></span>
+<span id="cb317-11"><a href="looking-for-missing-data.html#cb317-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7          4 STA130    78</span></span>
+<span id="cb317-12"><a href="looking-for-missing-data.html#cb317-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8          4 CSC108    79</span></span>
+<span id="cb317-13"><a href="looking-for-missing-data.html#cb317-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9          4 MAT137    76</span></span>
+<span id="cb317-14"><a href="looking-for-missing-data.html#cb317-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10          5 STA130    80</span></span>
+<span id="cb317-15"><a href="looking-for-missing-data.html#cb317-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11          5 MAT137    81</span></span>
+<span id="cb317-16"><a href="looking-for-missing-data.html#cb317-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12          6 MAT137    83</span></span></code></pre></div>
+<p>As you can see, our data is missing some rows that would correspond to courses that
+students have yet to complete. Suppose, for some reason, that you want to count the number
+of courses that are left for all students to take until they have completed all their
+requirements, or maybe you want to try predicting the grades a student will get on their
+remaining courses. Regardless, you will need to “manipulate” this data set to make it so
+that you can see which courses students have yet to complete. The <code>complete()</code> function is
+right tool to do this and we can do this as follows.</p>
+<pre><code class='language-r'><code>first_year %>%<br>&nbsp;&nbsp;<span style='color:hotpink'>complete</span>(student_id, course)<br>#> # A tibble: 18 × 3<br>#> &nbsp;&nbsp;&nbsp;student_id course grade<br>#> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<dbl> <chr> &nbsp;<dbl><br>#> &nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 CSC108 &nbsp;&nbsp;&nbsp;75<br>#> &nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 MAT137 &nbsp;&nbsp;&nbsp;79<br>#> &nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 STA130 &nbsp;&nbsp;&nbsp;76<br>#> &nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 CSC108 &nbsp;&nbsp;&nbsp;83<br>#> &nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 MAT137 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 STA130 &nbsp;&nbsp;&nbsp;81<br>#> &nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 MAT137 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 STA130 &nbsp;&nbsp;&nbsp;83<br>#> 10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 CSC108 &nbsp;&nbsp;&nbsp;79<br>#> 11 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 MAT137 &nbsp;&nbsp;&nbsp;76<br>#> 12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 STA130 &nbsp;&nbsp;&nbsp;78<br>#> 13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 MAT137 &nbsp;&nbsp;&nbsp;81<br>#> 15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 STA130 &nbsp;&nbsp;&nbsp;80<br>#> 16 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> 17 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 MAT137 &nbsp;&nbsp;&nbsp;83<br>#> 18 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 STA130 &nbsp;&nbsp;&nbsp;NA</code></code></pre>
+<p>This function gives us rows that represent courses students still haven’t completed,
+which we don’t have their grades for.</p>
+</div>
+</div>
+<div id="video-2" class="section level2" number="48.3">
+<h2><span class="header-section-number">48.3</span> Video</h2>
+<p><img src="https://youtu.be/1zowsiffKHg" /></p>
+</div>
+<div id="arguments-8" class="section level2" number="48.4">
+<h2><span class="header-section-number">48.4</span> Arguments</h2>
+</div>
+<div id="complete" class="section level2" number="48.5">
+<h2><span class="header-section-number">48.5</span> complete()</h2>
+<p>The <code>complete()</code> function takes the following as arguments:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data</td>
+<td>input data frame</td>
+<td>data whose columns we’ll use to find missing data</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>vector</td>
+<td>columns to find and complete all combinations for</td>
+</tr>
+<tr class="odd">
+<td>fill</td>
+<td>named list</td>
+<td>values to fill the cells for newly added rows</td>
+</tr>
+</tbody>
+</table>
+<p>You can read more about the arguments in the <code>complete()</code> function reference
+<a href="https://tidyr.tidyverse.org/reference/complete.html">here</a> or with <code>?complete</code>.</p>
+</div>
+<div id="fill" class="section level2" number="48.6">
+<h2><span class="header-section-number">48.6</span> fill()</h2>
+<p>The <code>fill()</code> function takes the following as arguments:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data</td>
+<td>input data frame</td>
+<td>dataframe whose columns we use to fill missing data</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>vector</td>
+<td>columns to find and complete all combinations for</td>
+</tr>
+<tr class="odd">
+<td>.direction</td>
+<td>string</td>
+<td>‘up,’ ‘down,’ ‘downup’ for direction to fill values</td>
+</tr>
+</tbody>
+</table>
+<p>You can read more about the arguments in the <code>fill()</code> function reference
+<a href="https://tidyr.tidyverse.org/reference/fill.html">here</a> or with <code>?fill</code>.</p>
+</div>
+<div id="exercises-25" class="section level2" number="48.7">
+<h2><span class="header-section-number">48.7</span> Exercises</h2>
+<p>There are many ways to fill the data we got above. If, for some reason, we wanted to fill
+it based on the past or the next value, we can use the fill() function. If, however, we
+wanted to fill all the empty values with a specific number, we could use the fill
+parameter within the complete() function.</p>
+<div id="exercise-1-13" class="section level3" number="48.7.1">
+<h3><span class="header-section-number">48.7.1</span> Exercise 1</h3>
+<p>Referencing the Arguments section, try to fill it based on the <em>past</em> value using the
+fill() function.</p>
+</div>
+<div id="exercise-2-9" class="section level3" number="48.7.2">
+<h3><span class="header-section-number">48.7.2</span> Exercise 2</h3>
+<p>Referencing the Arguments section, try to fill all the empty values with a specific number
+0 and using the fill parameter within the complete() function.</p>
+</div>
+</div>
+<div id="next-steps-27" class="section level2" number="48.8">
+<h2><span class="header-section-number">48.8</span> Next Steps</h2>
+<p>If you would like to learn more about the complete() and fill() functions, you will find
+these resources from tidyr very helpful:</p>
+<ul>
+<li><a href="https://tidyr.tidyverse.org/reference/complete.html">tidyr: Complete a data frame with missing combinations of data</a></li>
+<li><a href="https://tidyr.tidyverse.org/reference/fill.html">tidyr: Fill in missing values with previous or next
+value</a></li>
+</ul>
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+
+
+
+
+# (PART\*) Operating in an error prone world {-}
+
+
+# Introduction
+
+Written by Rohan Alexander.
+
+Welcome to a module about getting help. While it may seem odd to start with this, one of the key skills when using R is being able to work yourself out of problems.
+
+The good news is that after you spend time learning R those problems that you had at the start go away. The bad news is that they are replaced with new problems. It's not just you - everyone's code is always full of errors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/82ogkkY7qeQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

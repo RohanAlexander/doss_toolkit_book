@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 46 c, seq, seq along, and rep | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Matthew Wankiewicz.  46.1 Introduction In this lesson, you will learn how to: Learn how to make vectors/lists using c(). Create sequences using the seq() and seq_along() functions....">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 46 c, seq, seq along, and rep | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Matthew Wankiewicz.  46.1 Introduction In this lesson, you will learn how to: Learn how to make vectors/lists using c(). Create sequences using the seq() and seq_along() functions....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 46 c, seq, seq along, and rep | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz.  46.1 Introduction In this lesson, you will learn how to: Learn how to make vectors/lists using c(). Create sequences using the seq() and seq_along() functions....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="grouping-and-ungrouping.html"><span class="header-section-number">31</span> Grouping and ungrouping</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="active" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">49</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">50</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">51</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">52</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">53</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">54</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">55</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">56</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">57</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">58</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">59</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">60</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">61</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">62</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">63</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">64</span> tidyr package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="c-seq-seq-along-and-rep" class="section level1" number="46">
+<h1>
+<span class="header-section-number">46</span> c, seq, seq along, and rep<a class="anchor" aria-label="anchor" href="#c-seq-seq-along-and-rep"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Matthew Wankiewicz.</em></p>
+<div id="introduction-42" class="section level2" number="46.1">
+<h2>
+<span class="header-section-number">46.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-42"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Learn how to make vectors/lists using <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</li>
+<li>Create sequences using the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> and <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> functions.</li>
+<li>Replicate values in a vector using <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code>.</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>General knowledge of using vectors in R.</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/c.html">c()</a></code> is useful for making vectors quickly.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> can help create sequences of numbers.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> can give you the position of a value in a vector.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> can create a vector with a repeated value.</li>
+</ul>
+</div>
+<div id="the-content-3" class="section level2" number="46.2">
+<h2>
+<span class="header-section-number">46.2</span> The content<a class="anchor" aria-label="anchor" href="#the-content-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>As you continue using to use R, you will find that making vectors will be something you use a lot. The <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function is amazing tool to help us create vectors. The <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function can make vectors from sets of numbers, letters, or both!</p>
+<p>Sometimes, you may find that you want to create different sequences of numbers, either for categorizing variables or just getting a list of random numbers. The <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function is one of the best ways to achieve this. The <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function gives us a list of numbers usually from 1 to the number you choose. You can also decide if the function skips numbers.</p>
+<p>The <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> function is useful for finding the index position of parts of a vector. Sometimes, you will have a vector will different values, and <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> is useful for finding which position the value is in.</p>
+<p>Another thing you may attempt to do in R is repeat values. Often times, you will repeat values when you want to make an “empty” vector which will store the results of simulations. The <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function allows us to repeat strings or numbers a certain amount of times, which we can then save as a vector.</p>
+</div>
+<div id="arguments-8" class="section level2" number="46.3">
+<h2>
+<span class="header-section-number">46.3</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-8"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p><strong><code><a href="https://rdrr.io/r/base/c.html">c()</a></code>:</strong> The <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function takes one main argument and includes optional arguments. The main argument for <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> are the values that you want to save as a vector. The arguments used can be any set of numbers or words, or both. For example we would use an entry could be: <code>test &lt;- c("This", "is", "example", 1)</code>.</p></li>
+<li><p><strong><code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>:</strong> The <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function can take 1 to 3 entries, depending on how specific you want your set of numbers to be. If you want a list of numbers from 1 to any number, you can simply use <code><a href="https://rdrr.io/r/base/seq.html">seq(n)</a></code> where n is the number you want to stop at (if you do <code><a href="https://rdrr.io/r/base/seq.html">seq(2)</a></code>, it will return the numbers 1 and 2.). If you want to specify where to start or stop, you can use the arguments <code>from =</code> and <code>to =</code>, which tells R where it should start and end. Lastly, if you want to change the increment of your sequence, you can use the <code>by =</code> argument.</p></li>
+<li><p><strong><code>seq_along():</code></strong> The <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> function takes one argument. The argument it takes is a vector for which it will give the index position of a data point. For example, if we use the <code>test</code> vector from the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> example above, the output of <code><a href="https://rdrr.io/r/base/seq.html">seq_along(test)</a></code> would be 1 2 3 4.</p></li>
+<li><p><strong><code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code>:</strong> The <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function takes two main arguments. The first argument is <code>x =</code>, or the vector/value you plan to repeat. The second argument is <code>times =</code>, the number of times you want to repeat the vector (if you don’t enter a value it defaults to 1). If we use our <code>test</code> variable with the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function, we can repeat the values of the vector as many times as we want.</p></li>
+</ul>
+</div>
+<div id="other-optional-arguments-2" class="section level2" number="46.4">
+<h2>
+<span class="header-section-number">46.4</span> Other Optional Arguments<a class="anchor" aria-label="anchor" href="#other-optional-arguments-2"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p><strong><code><a href="https://rdrr.io/r/base/c.html">c()</a></code>:</strong> The optional arguments for <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> are <code>recursive =</code> and <code>use.names =</code>. The recursive function is useful when the items you are vectoring includes a list. If you set <code>recursive = TRUE</code> it breaks down the list and converts it into a vector. If <code>recursive = FALSE</code> the vector is saved as a list (by default, <code>recursive = FALSE</code>, and it usually stays that way). The argument <code>use.names =</code> tells R whether or not to keep the names of the lists present when the vector is saved.</p></li>
+<li><p><strong><code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>:</strong> The optional arguments for <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> are <code>length.out</code> and <code>along.with</code>. <code>length.out</code> tells R how many numbers you want to be present in the sequence of numbers. For example, if you set <code>length.out = 3</code> R will return 3 numbers, split up in even increments. <code>along.with =</code> is similar to length out, it takes a vector and returns the same amount of numbers as the length of that vector. If <code>along.with = 1:3</code>, it will return 3 numbers, split up in equal increments.</p></li>
+<li><p><strong><code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code>:</strong> The optional argument for <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> are <code>length.out</code> and <code>each</code>. <code>length.out</code> tells R how long it wants the output vector to be, similar to the main argument <code>times</code>. <code>each</code> only applies when you plan to repeat a vector. <code>each()</code> tells R how many times the first element of the vector should be repeated before it moves on to repeating the second element.</p></li>
+</ul>
+</div>
+<div id="questions-and-exercises-1" class="section level2" number="46.5">
+<h2>
+<span class="header-section-number">46.5</span> Questions and Exercises<a class="anchor" aria-label="anchor" href="#questions-and-exercises-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="c" class="section level3" number="46.5.1">
+<h3>
+<span class="header-section-number">46.5.1</span> <code>c()</code><a class="anchor" aria-label="anchor" href="#c"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>1.</strong></p>
+<!-- ```{r q1cFunction, echo=F} -->
+<!-- question_checkbox( -->
+<!--   "What does the c() function do? (Select all that apply)", -->
+<!--   answer("Creates a vector", correct = TRUE), -->
+<!--   answer("Plots a graph", message = "Incorrect"), -->
+<!--   answer("Repeats a certain value", message = "Incorrect."), -->
+<!--   answer("Returns a sequence of numbers", message = "Incorrect."), -->
+<!--   allow_retry = T, -->
+<!--   random_answer_order = T -->
+<!-- ) -->
+<!-- ``` -->
+<p><strong>2. Using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function, save a vector with the numbers 21, 31, and 42 in it. (Add the c() function beside the arrow.)</strong></p>
+<!-- ```{r q2cFunction, exercise = TRUE} -->
+<!-- ## Enter code below -->
+<!-- vector <-  -->
+<!-- vector -->
+<!-- ``` -->
+<!-- ```{r q2cFunction-solution} -->
+<!-- vector <- c(21, 31, 42) -->
+<!-- vector -->
+<!-- ``` -->
+<p>The <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function can save numbers but can also save words with numbers, try it out in the next exercise.</p>
+<p><strong>3. Save a vector with the numbers 21 and 31 along with the words “Statistics” and “Data”</strong></p>
+<!-- ```{r q3cFunction, exercise = TRUE} -->
+<!-- ## Enter code below -->
+<!-- vector <-  -->
+<!-- vector -->
+<!-- ``` -->
+<!-- ```{r q3cFunction-solution} -->
+<!-- vector <- c(21, 31, "Statistics", "Data") -->
+<!-- ``` -->
+</div>
+<div id="seq" class="section level3" number="46.5.2">
+<h3>
+<span class="header-section-number">46.5.2</span> <code>seq()</code><a class="anchor" aria-label="anchor" href="#seq"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>1. Using the seq() function, return the sequence of numbers starting at 2 and ending at 20, increasing by 2’s</strong></p>
+<!-- ```{r q1seqFunc, exercise = TRUE} -->
+<!-- ## Enter code below -->
+<!-- ``` -->
+<!-- ```{r q1seqFunc-solution} -->
+<!-- seq(from = 2, to = 20, by = 2) -->
+<!-- ``` -->
+<p><strong>2.</strong></p>
+<!-- ```{r q2seqFunc, echo=F} -->
+<!-- question_checkbox( -->
+<!--   "Which functions only returns a sequence of numbers? (Select all that apply.)", -->
+<!--   answer("seq()", correct = TRUE), -->
+<!--   answer("seq_along()", correct = TRUE), -->
+<!--   answer("c()", message = "Incorrect."), -->
+<!--   answer("rep()", message = "Although rep() does repeat values, it can repeat values that are not numbers."), -->
+<!--   allow_retry = T, -->
+<!--   random_answer_order = T -->
+<!-- ) -->
+<!-- ``` -->
+<p><strong>3. Using the <code>length.out</code> argument in the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function, return the sequence of FOUR numbers starting at 25 and ending at 100.</strong></p>
+<!-- ```{r q3seqFunc, exercise = TRUE} -->
+<!-- ## Enter code below -->
+<!-- ``` -->
+<!-- ```{r q3seqFunc-solution} -->
+<!-- seq(from = 25, to = 100, length.out = 4) -->
+<!-- ``` -->
+</div>
+<div id="seq_along" class="section level3" number="46.5.3">
+<h3>
+<span class="header-section-number">46.5.3</span> <code>seq_along()</code><a class="anchor" aria-label="anchor" href="#seq_along"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>You can use the <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> function to find the index position of elements in a vector, run the code chunk below to see how it works</strong></p>
+<!-- ```{r seq-alongExample1, exercise = TRUE} -->
+<!-- vector <- c("dog", "cat", "fish", "cow") -->
+<!-- vector -->
+<!-- seq_along(vector) -->
+<!-- ``` -->
+<p><strong>1. Now, create a vector containing the words “stats,” “science,” “math,” “R” and use the <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> function to find the index positions of each word.</strong></p>
+<!-- ```{r seq-alongExercise1, exercise = TRUE} -->
+<!-- vector <- c("stats") -->
+<!-- seq_along(vector) -->
+<!-- ``` -->
+<!-- ```{r seq-alongExercise1-solution} -->
+<!-- vector <- c("stats", "science", "math", "R") -->
+<!-- seq_along(vector) -->
+<!-- ``` -->
+</div>
+<div id="rep" class="section level3" number="46.5.4">
+<h3>
+<span class="header-section-number">46.5.4</span> <code>rep()</code><a class="anchor" aria-label="anchor" href="#rep"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>1. Using the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function, repeat the word “dog” 7 times.</strong></p>
+<!-- ```{r q1repFunc, exercise = TRUE} -->
+<!-- ## Enter code below -->
+<!-- ``` -->
+<!-- ```{r q1repFunc-solution} -->
+<!-- rep(x = "dog", times = 7)  -->
+<!-- ## OR -->
+<!-- rep("dog", 7) -->
+<!-- ``` -->
+<p><strong>2. Save a vector with the words: “University,” “of,” and “Toronto.” Once that vector is saved, use the <code>each</code> argument in the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function and repeat each word 3 times.</strong></p>
+<!-- ```{r q2repFunc, exercise = TRUE} -->
+<!-- ## Enter code below -->
+<!-- vector <- c("College", "and", "school") -->
+<!-- ``` -->
+<!-- ```{r q2repFunc-solution} -->
+<!-- vector <- c("University", "of", "Toronto") -->
+<!-- rep(x = vector, each = 3) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="common-mistakes-errors-17" class="section level2" number="46.6">
+<h2>
+<span class="header-section-number">46.6</span> Common mistakes &amp; errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-17"><i class="fas fa-link"></i></a>
+</h2>
+<p>Here are some common errors that can occur for each of the functions discussed in this section:</p>
+<p><strong><code><a href="https://rdrr.io/r/base/c.html">c()</a></code>:</strong></p>
+<ul>
+<li>Error: object ‘string’ not found
+This means that R thinks you’re trying to save an existing vector under the name ‘string’ (will likely be different). To fix this, add quotations marks around the word that R is having an issue with. If that doesn’t work, there may be a typo.</li>
+</ul>
+<p><strong><code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>:</strong></p>
+<ul>
+<li>Some functions in R can work without specifically defining arguments (<code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot(aes(x, y))</a></code> is the same as <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot(aes(x = x, y = y))</a></code>). The <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function needs each argument to be written out if you plan to use more arguments than <code>from</code> and <code>to</code>.</li>
+</ul>
+<p><strong><code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code></strong></p>
+<ul>
+<li>Error: object ‘string’ not found
+In this case, it means that the vector that R is trying to find does not exist. This likely means that there was a typo.</li>
+</ul>
+<p><strong><code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code></strong></p>
+<ul>
+<li>Error: object ‘string’ not found
+As mentioned above, R does not recognize an object entered into the function. You likely have a typo or you should put quotation marks around the string you want to repeat.</li>
+</ul>
+</div>
+<div id="next-steps-26" class="section level2" number="46.7">
+<h2>
+<span class="header-section-number">46.7</span> Next steps<a class="anchor" aria-label="anchor" href="#next-steps-26"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some next steps include:</p>
+<ul>
+<li><p>Looking at more examples of <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> and <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> in action: <a href="https://bookdown.org/ndphillips/YaRrr/vectors.html" class="uri">https://bookdown.org/ndphillips/YaRrr/vectors.html</a></p></li>
+<li><p>R4DS’s explanation of using iteration (include the <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> function): <a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a></p></li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></div>
+<div class="next"><a href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#c-seq-seq-along-and-rep"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="nav-link" href="#introduction-42"><span class="header-section-number">46.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#the-content-3"><span class="header-section-number">46.2</span> The content</a></li>
+<li><a class="nav-link" href="#arguments-8"><span class="header-section-number">46.3</span> Arguments</a></li>
+<li><a class="nav-link" href="#other-optional-arguments-2"><span class="header-section-number">46.4</span> Other Optional Arguments</a></li>
+<li>
+<a class="nav-link" href="#questions-and-exercises-1"><span class="header-section-number">46.5</span> Questions and Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#c"><span class="header-section-number">46.5.1</span> c()</a></li>
+<li><a class="nav-link" href="#seq"><span class="header-section-number">46.5.2</span> seq()</a></li>
+<li><a class="nav-link" href="#seq_along"><span class="header-section-number">46.5.3</span> seq_along()</a></li>
+<li><a class="nav-link" href="#rep"><span class="header-section-number">46.5.4</span> rep()</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-17"><span class="header-section-number">46.6</span> Common mistakes &amp; errors</a></li>
+<li><a class="nav-link" href="#next-steps-26"><span class="header-section-number">46.7</span> Next steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/055-totally_addicted_to_base-c_seq_seqalong_rep.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/055-totally_addicted_to_base-c_seq_seqalong_rep.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

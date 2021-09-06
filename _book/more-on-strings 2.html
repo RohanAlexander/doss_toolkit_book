@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 55 More on strings | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 55 More on strings | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 55 More on strings | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="more-on-strings" class="section level1" number="55">
+<h1><span class="header-section-number">Chapter 55</span> More on strings</h1>
+<p><em>Written by Annie Collins.</em></p>
+<div id="more-on-strings-1" class="section level2" number="55.1">
+<h2><span class="header-section-number">55.1</span> More on strings</h2>
+<p><em>Written by Annie Collins.</em></p>
+<div id="introduction-51" class="section level3" number="55.1.1">
+<h3><span class="header-section-number">55.1.1</span> Introduction</h3>
+<p>In this lesson, we will be covering some additional functions that will help us work with text data. If you have not already done so, please feel free to look through the previous lesson “Strings with paste and glue and stringr” for more functions and examples of working with strings that might help your understanding of this lesson’s content.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Expand deliminated text data in a data frame using <code>separate()</code> and<code>separate_rows()</code>; and,</li>
+<li>Extract and manipulate text data in character vectors using <code>str_match()</code>, and <code>str_remove()</code></li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Some knowledge from the previous strings lesson in this module, as well as the <code>stringr</code> and <code>tidyr</code> packages.</li>
+</ul>
+</div>
+<div id="separate-text-based-data-frames-using-separate-and-separate_rows" class="section level3" number="55.1.2">
+<h3><span class="header-section-number">55.1.2</span> Separate text-based data frames using separate() and separate_rows()</h3>
+<p><code>separate()</code> and <code>separate_rows()</code> allow you to split up a single column of text data in different ways.</p>
+<p><code>separate()</code> divides a single column of text data into multiple columns. There are several arguments that allow you to specify how this is done. We will focus on a the most significant ones to start:</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="15%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data</td>
+<td>data frame</td>
+<td>A data frame</td>
+</tr>
+<tr class="even">
+<td>col</td>
+<td>number OR string</td>
+<td>The name or position of the column containing the data to be separated</td>
+</tr>
+<tr class="odd">
+<td>into</td>
+<td>vector</td>
+<td>A character vector of the names you wish to give to the newly created columns. You can omit columns by putting <code>NA</code> in the corresponding place within this vector. The length of your input must match the largest number of columns produced by separating one of the cells in <code>col</code>, otherwise the excess columns will be omitted</td>
+</tr>
+<tr class="even">
+<td>sep</td>
+<td>number OR string</td>
+<td>Indicates how text will be separated. Defaults to splitting at any non-alpha numeric characters. If you use a number, the column will split at the specified position within each string. If you use a character, the text will split at every instance of that character and the character will be omitted from the outputted columns.</td>
+</tr>
+</tbody>
+</table>
+<p>To see <code>separate()</code> in action, let’s look at the following data frame called <code>dinner_party</code> which contains a list of guests for a dinner party and their food choices for a three course meal consisting of soup, salad, and a main course.</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="more-on-strings.html#cb369-1" aria-hidden="true" tabindex="-1"></a>guest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Annie&quot;</span>, <span class="st">&quot;Mariam&quot;</span>, <span class="st">&quot;Haoluan&quot;</span>, <span class="st">&quot;Shirley&quot;</span>, <span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Sam&quot;</span>)</span>
+<span id="cb369-2"><a href="more-on-strings.html#cb369-2" aria-hidden="true" tabindex="-1"></a>food <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;butternut squash, ceasar, lasagna&quot;</span>, <span class="st">&quot;italian wedding, garden, chicken&quot;</span>, <span class="st">&quot;italian wedding, ceasar, lasagna&quot;</span>, <span class="st">&quot;italian wedding, ceasar, lasagna&quot;</span>, <span class="st">&quot;butternut squash, garden, chicken&quot;</span>, <span class="st">&quot;butternut squash, garden, lasagna&quot;</span>)</span>
+<span id="cb369-3"><a href="more-on-strings.html#cb369-3" aria-hidden="true" tabindex="-1"></a>dinner_party <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(guest, food)</span>
+<span id="cb369-4"><a href="more-on-strings.html#cb369-4" aria-hidden="true" tabindex="-1"></a>dinner_party</span>
+<span id="cb369-5"><a href="more-on-strings.html#cb369-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     guest                              food</span></span>
+<span id="cb369-6"><a href="more-on-strings.html#cb369-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   Annie butternut squash, ceasar, lasagna</span></span>
+<span id="cb369-7"><a href="more-on-strings.html#cb369-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  Mariam  italian wedding, garden, chicken</span></span>
+<span id="cb369-8"><a href="more-on-strings.html#cb369-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Haoluan  italian wedding, ceasar, lasagna</span></span>
+<span id="cb369-9"><a href="more-on-strings.html#cb369-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Shirley  italian wedding, ceasar, lasagna</span></span>
+<span id="cb369-10"><a href="more-on-strings.html#cb369-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   Rohan butternut squash, garden, chicken</span></span>
+<span id="cb369-11"><a href="more-on-strings.html#cb369-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6     Sam butternut squash, garden, lasagna</span></span></code></pre></div>
+<p>Right now the guests’ orders are listed together in the column called <code>food</code>, but the data might be easier to read if each person’s order for each course was in its own column. Run the code below to see how this can be accomplished.</p>
+<pre><code>#&gt;     guest             soup   salad main course
+#&gt; 1   Annie butternut squash  ceasar     lasagna
+#&gt; 2  Mariam  italian wedding  garden     chicken
+#&gt; 3 Haoluan  italian wedding  ceasar     lasagna
+#&gt; 4 Shirley  italian wedding  ceasar     lasagna
+#&gt; 5   Rohan butternut squash  garden     chicken
+#&gt; 6     Sam butternut squash  garden     lasagna</code></pre>
+<p>Using <code>separate()</code>, we now can see each course as its own column and all the commas have been removed. Note that it’s important to specify <code>sep = ","</code> in this case, since the default option would separate by spaces as well and split soup orders into separate columns which is not what we intended.</p>
+<p>We can split up the information contained in the <code>food</code> column in a different way using <code>separate_rows()</code>. As the name might suggest, this function will split each string into distinct rows instead of columns. The syntax and arguments are similar to <code>separate()</code>:</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="15%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data</td>
+<td>data frame</td>
+<td>A data frame</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>string</td>
+<td>The name(s) of the column(s) containing the data to be separated. Multiple columns can be inputted if their lengths are compatible (i.e. the same number of new rows will be created once they are separated). Otherwise, an error will be raised.</td>
+</tr>
+<tr class="odd">
+<td>sep</td>
+<td>number OR string</td>
+<td>Character between values to be separated. Defaults to any non-alpha-numeric characters.</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that we don’t need to worry about the name or number of new columns since none will be created. Once the data in the indicated column(s) has separated into additional rows, the data from accompanying columns will be duplicated to fill in the new row’s remaining cells.</p>
+<p>Run the code below and observe the difference between <code>separate()</code> and <code>separate_rows()</code>.</p>
+<pre><code>#&gt; # A tibble: 18 × 2
+#&gt;    guest   food              
+#&gt;    &lt;chr&gt;   &lt;chr&gt;             
+#&gt;  1 Annie   &quot;butternut squash&quot;
+#&gt;  2 Annie   &quot; ceasar&quot;         
+#&gt;  3 Annie   &quot; lasagna&quot;        
+#&gt;  4 Mariam  &quot;italian wedding&quot; 
+#&gt;  5 Mariam  &quot; garden&quot;         
+#&gt;  6 Mariam  &quot; chicken&quot;        
+#&gt;  7 Haoluan &quot;italian wedding&quot; 
+#&gt;  8 Haoluan &quot; ceasar&quot;         
+#&gt;  9 Haoluan &quot; lasagna&quot;        
+#&gt; 10 Shirley &quot;italian wedding&quot; 
+#&gt; 11 Shirley &quot; ceasar&quot;         
+#&gt; 12 Shirley &quot; lasagna&quot;        
+#&gt; 13 Rohan   &quot;butternut squash&quot;
+#&gt; 14 Rohan   &quot; garden&quot;         
+#&gt; 15 Rohan   &quot; chicken&quot;        
+#&gt; 16 Sam     &quot;butternut squash&quot;
+#&gt; 17 Sam     &quot; garden&quot;         
+#&gt; 18 Sam     &quot; lasagna&quot;</code></pre>
+</div>
+<div id="trouble-shooting-separate" class="section level3" number="55.1.3">
+<h3><span class="header-section-number">55.1.3</span> Trouble Shooting separate()</h3>
+<p>Sometimes it is hard to know exactly how many columns your data will create when using <code>separate()</code>, which can lead to errors or unintended results when specifying the <code>into</code> argument. The function comes with a few <em>additional</em> arguments to help you control what happens in these scenarios. Note that this applies only when <code>sep</code> is a string, since if <code>sep</code> is numeric the column in question is always separated into two columns at the indicated location.</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="15%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>extra</td>
+<td>string</td>
+<td>Used to control what happens if there are extra columns created once all the names from <code>sep</code> are used. There are two options (not including the default, “warn”): <strong>“drop”</strong>, which will exclude any additional columns created, or <strong>“merge”</strong>, which will split the text at most <code>length(into)</code> times (so the last column indicated by <code>into</code> will contain unseparated data).</td>
+</tr>
+<tr class="even">
+<td>fill</td>
+<td>string</td>
+<td>Used to control what happens if there are not enough columns created to match the names indicated in <code>into</code>. There are two options (not including the default, “warn”): <strong>“right”</strong>, which fills the data frame with missing values on the right, and <strong>“left”</strong>, which fills the data frame with missing values on the left of the actual data.</td>
+</tr>
+</tbody>
+</table>
+<p>Run and edit the code below and observe the difference between the scenarios.</p>
+<!-- ```{r separate-exercise-3, exercise=TRUE} -->
+<!-- letters <- data.frame(x = c("a.b", "a.b.c", "a.b.c.d")) -->
+<!-- letters -->
+<!-- # Too many columns created - try "drop" and "merge" in place of "warn" -->
+<!-- separate(letters, x, c("A", "B"), extra = "warn") -->
+<!-- # Not enough columns created - try "left" and "right" in place of "warn" -->
+<!-- separate(letters, x, c("A", "B", "C", "D"), fill = "warn") -->
+<!-- ``` -->
+</div>
+<div id="working-with-text-data-using-str_match-and-str_remove" class="section level3" number="55.1.4">
+<h3><span class="header-section-number">55.1.4</span> Working with text data using str_match() and str_remove()</h3>
+<p><code>str_match()</code> and <code>str_remove()</code> are functions from the <code>stringr</code> package that can be used to manipulate character vectors in different ways.</p>
+<p><code>str_match()</code> identifies the first instance of a given pattern within each element of a character vector by returning a new vector indicating the string found that matches the pattern. This is particularly useful for data that follows a set structure, such as phone numbers or postal codes. <code>str_match()</code> returns a character matrix, in which the first column contains the complete match and subsequent columns contain any matching sub-groups within the full match.</p>
+<p><code>str_remove()</code> removes the first instance of a given pattern within each string in a character vector, returning an updated character vector.</p>
+<p>Both functions take the same two arguments:</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="15%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>string</td>
+<td>vector</td>
+<td>Your character vector</td>
+</tr>
+<tr class="even">
+<td>pattern</td>
+<td>string</td>
+<td>The pattern to look for in <code>string</code> (either a general pattern or a specific string).</td>
+</tr>
+</tbody>
+</table>
+<p>Consider this vector called <code>postal_codes</code> containing 30 Toronto postal codes.</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="more-on-strings.html#cb372-1" aria-hidden="true" tabindex="-1"></a>postal_codes</span>
+<span id="cb372-2"><a href="more-on-strings.html#cb372-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;M5S2W8&quot; &quot;M5S5G5&quot; &quot;M4W3X2&quot; &quot;M5T3T3&quot; &quot;M4V9F6&quot; &quot;M4V6V9&quot;</span></span>
+<span id="cb372-3"><a href="more-on-strings.html#cb372-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;M4V5K4&quot; &quot;M5T8U1&quot; &quot;M4V1V6&quot; &quot;M5R6X1&quot; &quot;M4Y7R8&quot; &quot;M5S5R9&quot;</span></span>
+<span id="cb372-4"><a href="more-on-strings.html#cb372-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;M4Y7N6&quot; &quot;M4W2S9&quot; &quot;M5S5X9&quot; &quot;M4V8K3&quot; &quot;M4V8K1&quot; &quot;M5T3B9&quot;</span></span>
+<span id="cb372-5"><a href="more-on-strings.html#cb372-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;M5S2Q7&quot; &quot;M5S5A4&quot; &quot;M4V5S4&quot; &quot;M5T1V4&quot; &quot;M5S5E2&quot; &quot;M4V9U6&quot;</span></span>
+<span id="cb372-6"><a href="more-on-strings.html#cb372-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;M5R8B8&quot; &quot;M4Y2K9&quot; &quot;M5R7T9&quot; &quot;M4W8M8&quot; &quot;M4Y8T7&quot; &quot;M5T7D1&quot;</span></span></code></pre></div>
+<p>Suppose we want to identify the postal codes in this vector from areas surrounding the University of Toronto, which begin with “M5S.” We can use the code below to do so.</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="more-on-strings.html#cb373-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb373-2"><a href="more-on-strings.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_match</span>(postal_codes, <span class="st">&quot;M5S[1-9][A-Z][1-9]&quot;</span>) </span>
+<span id="cb373-3"><a href="more-on-strings.html#cb373-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       [,1]    </span></span>
+<span id="cb373-4"><a href="more-on-strings.html#cb373-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1,] &quot;M5S2W8&quot;</span></span>
+<span id="cb373-5"><a href="more-on-strings.html#cb373-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [2,] &quot;M5S5G5&quot;</span></span>
+<span id="cb373-6"><a href="more-on-strings.html#cb373-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [3,] NA      </span></span>
+<span id="cb373-7"><a href="more-on-strings.html#cb373-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4,] NA      </span></span>
+<span id="cb373-8"><a href="more-on-strings.html#cb373-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5,] NA      </span></span>
+<span id="cb373-9"><a href="more-on-strings.html#cb373-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6,] NA      </span></span>
+<span id="cb373-10"><a href="more-on-strings.html#cb373-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7,] NA      </span></span>
+<span id="cb373-11"><a href="more-on-strings.html#cb373-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8,] NA      </span></span>
+<span id="cb373-12"><a href="more-on-strings.html#cb373-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9,] NA      </span></span>
+<span id="cb373-13"><a href="more-on-strings.html#cb373-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10,] NA      </span></span>
+<span id="cb373-14"><a href="more-on-strings.html#cb373-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11,] NA      </span></span>
+<span id="cb373-15"><a href="more-on-strings.html#cb373-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [12,] &quot;M5S5R9&quot;</span></span>
+<span id="cb373-16"><a href="more-on-strings.html#cb373-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13,] NA      </span></span>
+<span id="cb373-17"><a href="more-on-strings.html#cb373-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [14,] NA      </span></span>
+<span id="cb373-18"><a href="more-on-strings.html#cb373-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15,] &quot;M5S5X9&quot;</span></span>
+<span id="cb373-19"><a href="more-on-strings.html#cb373-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16,] NA      </span></span>
+<span id="cb373-20"><a href="more-on-strings.html#cb373-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17,] NA      </span></span>
+<span id="cb373-21"><a href="more-on-strings.html#cb373-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [18,] NA      </span></span>
+<span id="cb373-22"><a href="more-on-strings.html#cb373-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19,] &quot;M5S2Q7&quot;</span></span>
+<span id="cb373-23"><a href="more-on-strings.html#cb373-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [20,] &quot;M5S5A4&quot;</span></span>
+<span id="cb373-24"><a href="more-on-strings.html#cb373-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [21,] NA      </span></span>
+<span id="cb373-25"><a href="more-on-strings.html#cb373-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [22,] NA      </span></span>
+<span id="cb373-26"><a href="more-on-strings.html#cb373-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [23,] &quot;M5S5E2&quot;</span></span>
+<span id="cb373-27"><a href="more-on-strings.html#cb373-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [24,] NA      </span></span>
+<span id="cb373-28"><a href="more-on-strings.html#cb373-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25,] NA      </span></span>
+<span id="cb373-29"><a href="more-on-strings.html#cb373-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26,] NA      </span></span>
+<span id="cb373-30"><a href="more-on-strings.html#cb373-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [27,] NA      </span></span>
+<span id="cb373-31"><a href="more-on-strings.html#cb373-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [28,] NA      </span></span>
+<span id="cb373-32"><a href="more-on-strings.html#cb373-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29,] NA      </span></span>
+<span id="cb373-33"><a href="more-on-strings.html#cb373-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [30,] NA</span></span>
+<span id="cb373-34"><a href="more-on-strings.html#cb373-34" aria-hidden="true" tabindex="-1"></a><span class="co"># The input for pattern here essentially means &quot;M5S followed by any combination of the format number-letter-number&quot;</span></span></code></pre></div>
+<p>We now have a vector containing only the postal codes of interest, and we could manipulate it further to remove the NA’s if desired. Now suppose we actually wanted to remove these postal codes from the original data. This is where we could use <code>str_remove()</code>.</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="more-on-strings.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_remove</span>(postal_codes, <span class="st">&quot;M5S[1-9][A-Z][1-9]&quot;</span>)</span>
+<span id="cb374-2"><a href="more-on-strings.html#cb374-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;&quot;       &quot;&quot;       &quot;M4W3X2&quot; &quot;M5T3T3&quot; &quot;M4V9F6&quot; &quot;M4V6V9&quot;</span></span>
+<span id="cb374-3"><a href="more-on-strings.html#cb374-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;M4V5K4&quot; &quot;M5T8U1&quot; &quot;M4V1V6&quot; &quot;M5R6X1&quot; &quot;M4Y7R8&quot; &quot;&quot;      </span></span>
+<span id="cb374-4"><a href="more-on-strings.html#cb374-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;M4Y7N6&quot; &quot;M4W2S9&quot; &quot;&quot;       &quot;M4V8K3&quot; &quot;M4V8K1&quot; &quot;M5T3B9&quot;</span></span>
+<span id="cb374-5"><a href="more-on-strings.html#cb374-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;&quot;       &quot;&quot;       &quot;M4V5S4&quot; &quot;M5T1V4&quot; &quot;&quot;       &quot;M4V9U6&quot;</span></span>
+<span id="cb374-6"><a href="more-on-strings.html#cb374-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;M5R8B8&quot; &quot;M4Y2K9&quot; &quot;M5R7T9&quot; &quot;M4W8M8&quot; &quot;M4Y8T7&quot; &quot;M5T7D1&quot;</span></span></code></pre></div>
+<p>We now have a vector with blank strings instead of postal codes that begin with “M5S.”</p>
+<p>It is important to note that <code>str_match()</code> and <code>str_detect()</code> only operate on the first instance of the indicated pattern within each element of a string (this isn’t so obvious in our postal code example since each string is rather simple and short). Both <code>str_match()</code> and <code>str_remove()</code> have accompanying functions <code>str_match_all()</code> and <code>str_remove_all()</code> which apply their functionality to <em>every</em> instance of the inputted pattern within the inputted character vector. Run the code below on a simpler vector to examine the difference.</p>
+<!-- ```{r all-exercise-, exercise = TRUE} -->
+<!-- # Match -->
+<!-- rhyme <- c("she", "sells", "sea", "shells") -->
+<!-- str_match(rhyme, "s") -->
+<!-- str_match_all(rhyme, "s") -->
+<!-- ``` -->
+<!-- ```{r all-exercise-2, exercise = TRUE} -->
+<!-- # Remove -->
+<!-- rhyme <- c("she", "sells", "sea", "shells") -->
+<!-- str_remove(rhyme, "s") -->
+<!-- str_remove_all(rhyme, "s") -->
+<!-- ``` -->
+</div>
+<div id="questions-7" class="section level3" number="55.1.5">
+<h3><span class="header-section-number">55.1.5</span> Questions</h3>
+<p>These questions will refer to the following data set called <code>groceries</code>.</p>
+<pre><code>#&gt;                                   food
+#&gt; 1 bananas,apples,rice,pasta,tofu,pizza
+#&gt;                  drinks
+#&gt; 1 tea,coffee,juice,wine</code></pre>
+<!-- ```{r separate-q-1, echo=FALSE} -->
+<!-- question("How many rows will the output of \"separate_rows(groceries, drinks)\" have?", -->
+<!--          answer("4", correct=TRUE), -->
+<!--          answer("5"), -->
+<!--          answer("6"), -->
+<!--          answer("Error")) -->
+<!-- ``` -->
+<!-- ```{r separate-q-2, echo=FALSE} -->
+<!-- question("How many rows will the output of \"separate_rows(groceries, food, drinks)\" have?", -->
+<!--          answer("4"), -->
+<!--          answer("5"), -->
+<!--          answer("6"), -->
+<!--          answer("Error", correct = TRUE), -->
+<!--          correct = "Correct! Given the default \"sep\" value, \"drinks\" would separate into four new rows while \"food\" would separate into six, causing an error to be raised") -->
+<!-- ``` -->
+<!-- ```{r separate-q-3, echo=FALSE} -->
+<!-- question("Suppose I execute \"separate(groceries, drinks, into=c(\"A\", \"B\", \"C\", \"D\", \"E\"), fill=\"left\")\". What will the second column of the outputted data frame contain?", -->
+<!--          answer("bananas,apples,rice,pasta,tofu,pizza"), -->
+<!--          answer("tea"), -->
+<!--          answer("NA", correct = TRUE), -->
+<!--          answer("Error") -->
+<!--          ) -->
+<!-- ``` -->
+<!-- ```{r separate-q-4, echo=FALSE} -->
+<!-- question("Suppose I execute \"separate(groceries, drinks, into=c(\"A\", \"B\", \"C\"), extra=\"merge\")\". What will the final column of the outputted data frame contain?", -->
+<!--          answer("juice"), -->
+<!--          answer("wine"), -->
+<!--          answer("juice,wine", correct = TRUE), -->
+<!--          answer("Error") -->
+<!--          ) -->
+<!-- ``` -->
+</div>
+<div id="exercises-30" class="section level3" number="55.1.6">
+<h3><span class="header-section-number">55.1.6</span> Exercises</h3>
+<div id="exercise-1-17" class="section level4" number="55.1.6.1">
+<h4><span class="header-section-number">55.1.6.1</span> Exercise 1</h4>
+<p>Replicate the following data set, beginning with <code>groceries</code> as above.</p>
+<pre><code>#&gt; # A tibble: 6 × 5
+#&gt;   food    `1`   `2`    `3`   `4`  
+#&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 bananas tea   coffee juice wine 
+#&gt; 2 apples  tea   coffee juice wine 
+#&gt; 3 rice    tea   coffee juice wine 
+#&gt; 4 pasta   tea   coffee juice wine 
+#&gt; 5 tofu    tea   coffee juice wine 
+#&gt; 6 pizza   tea   coffee juice wine</code></pre>
+<!-- ```{r separate-exercise-1, exercise=TRUE} -->
+<!-- ``` -->
+<!-- ```{r separate-exercise-1-solution} -->
+<!-- groceries %>% separate(drinks, into=c("1", "2", "3", "4")) %>% separate_rows(food) -->
+<!-- # Can switch order of the functions for the same result -->
+<!-- ``` -->
+</div>
+<div id="exercise-3-9" class="section level4" number="55.1.6.2">
+<h4><span class="header-section-number">55.1.6.2</span> Exercise 3</h4>
+<p>Using the <code>postal_codes</code> data from previous examples, remove every number from the data.</p>
+<!-- ```{r remove-exercise-1, exercise=TRUE} -->
+<!-- ``` -->
+<!-- ```{r remove-exercise-1-solution} -->
+<!-- postal_codes %>% str_remove_all("[1-9]") -->
+<!-- ``` -->
+</div>
+<div id="exercise-2-13" class="section level4" number="55.1.6.3">
+<h4><span class="header-section-number">55.1.6.3</span> Exercise 2</h4>
+<p>Using the <code>postal_codes</code> data from previous examples, create a vector that contains only the last three characters of all postal codes beginning with “M5S.”</p>
+<!-- ```{r remove-exercise-2, exercise=TRUE} -->
+<!-- ``` -->
+<!-- ```{r remove-exercise-2-solution} -->
+<!-- postal_codes %>% str_match("M5S[1-9][A-Z][1-9]") %>% str_remove("M5S") -->
+<!-- ``` -->
+</div>
+</div>
+<div id="next-steps-33" class="section level3" number="55.1.7">
+<h3><span class="header-section-number">55.1.7</span> Next Steps</h3>
+<p>Now that you are familiar with some functions that work with strings, you are well set up to explore other features that <code>stringr</code> has to offer. A good place to start is the <code>stringr</code> <a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf">cheatsheet</a> which outlines a myriad of tools for working with strings and text-based data in R.</p>
+</div>
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

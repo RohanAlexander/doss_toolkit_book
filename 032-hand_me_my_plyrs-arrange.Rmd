@@ -1,0 +1,162 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+# library(learnr)
+library(flair)
+# tutorial_options(exercise.eval = FALSE)
+# library(gradethis)
+# gradethis::gradethis_setup()
+library(palmerpenguins)
+```
+
+
+# arrange
+
+Written by Isaac Ehrlich.
+
+
+## Introduction
+
+Sometimes, you may want to view a dataset in a specific order. Data sets will often be displayed in the order the data were input, but you may want to view it sorted by a different variable. You can use the tidyverse `arrange()` function, to order a data set by a specific column.
+
+## arrange()
+
+The `arrange()` function takes in a data frame and columns to sort by as its input, and will output the re-ordered data frame. `arrange()` does not modify any values in your data, it only changes the presentation.
+
+Let's take a look at a simple example using R's `mtcars` data set:
+
+```{r}
+head(mtcars)
+```
+
+There's a lot of information in this data, like miles per gallon, number of cylinders, and displacement, but it doesn't seem to be ordered in any way.
+
+Supposing we want to order the data frame by miles per gallon (i.e. see cars with lowest mpg at the top and highest mpg at the bottom), we can pass the following function:
+
+```{r}
+head(arrange(mtcars, mtcars$mpg))
+```
+
+Note, `arrange()` by default sorts in ascending order. If we want to sort in descending order, we can pass `desc()` to the column names:
+
+```{r}
+head(arrange(mtcars, desc(mtcars$mpg)))
+```
+
+## Additional Examples
+
+### Characters
+
+`arrange()` can also sort by character vectors. In this case, `arrange()` by default will sort alphabetically. Let's take a look at R's `HairEyeColor` data set ordered by hair color:
+
+```{r}
+HairEyeColor <- data.frame(HairEyeColor)
+head(arrange(HairEyeColor, HairEyeColor$Hair))
+```
+
+### Multiple Arguments
+
+If you pass multiple columns into arrange, it will order by columns in the order they are passed. For example, in the code below, we order the `HairEyeColor` first by hair color and then by frequency.
+
+```{r}
+head(arrange(HairEyeColor, HairEyeColor$Hair, HairEyeColor$Freq))
+```
+
+We can see that the data was first ordered alphabetically by hair color, followed by frequency.
+
+
+## Practice Questions
+
+For the following questions, please refer to R's `quakes` data set:
+
+```{r}
+head(quakes)
+```
+
+<!-- ```{r arrangeq1, echo = FALSE} -->
+<!-- question("arrange() by default sorts in descending order", -->
+<!-- answer("True"), -->
+<!-- answer("False", correct = TRUE), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+
+<!-- ```{r arrangeq2, echo = FALSE} -->
+<!-- question("Select the correct code to sort 'quakes' by magnitude in descending order", -->
+<!-- answer("arrange(quakes, quakes$mag)", -->
+<!--        message = "Remember the default!"), -->
+<!-- answer("arrange(quakes, quakes$stations, desc(quakes$mag))", -->
+<!--        message = "Keep in mind what you want to sort by!"), -->
+<!-- answer("arrange(quakes, desc(quakes$mag)", correct = TRUE), -->
+<!-- answer("arrange(desc(quakes), quakes$mag)", -->
+<!--        message = "Remember what you apply 'desc()' to!"), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+
+<!-- ```{r arrangeq3, echo = FALSE} -->
+<!-- question("Select the correct code to sort 'quakes' by magnitude and then by depth", -->
+<!-- answer("arrange(quakes, quakes$mag, quakes$depth)", correct = TRUE), -->
+<!-- answer("arrange(quakes, quakes$depth, quakes$mag))", -->
+<!--        message = "Keep in mind the order you want to sort by!"), -->
+<!-- answer("arrange(quakes$mag, quakes$depth)", -->
+<!--        message = "Don't forget the first argument!"), -->
+<!-- answer("arrange(quakes, c(quakes$mag, quakes$depth))", -->
+<!--        message = "Keep in mind how to pass multiple arguments!"), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+
+## Practice Coding
+
+The following questions will ask you to use the arrange function on your own.
+For these questions, please refer to R's `quakes` data set:
+
+```{r}
+head(quakes)
+```
+
+1. Arrange the data in quakes so that it is ordered by magnitude and then by stations, both in descending order
+
+<!-- ```{r arrangeq4, exercise = TRUE} -->
+
+<!-- ``` -->
+
+## Special Cases and Common Errors
+
+### NA Values
+
+Regardless of if you are sorting in ascending or descending order, NA values will be sent to the bottom of your reordered data frame.
+
+### Common Errors
+
+1. The first input to arrange must be of type "data.frame," it cannot be applied to objects that are tables or matrices. Make sure to convert to a data frame using `as.data.frame()` if needed.
+
+2. Make sure you are properly calling your column names to order by. There are several ways to do this - the expressions below all output the same result.
+* `arrange(quakes, quakes$mag)`
+* `arrange(quakes, col = mag)`
+* `quakes %>% arrange(mag)`
+
+Other errors are bound to pop up. Remember that Stack Overflow is your best friend!
+
+## Overview
+
+`arrange()` is a useful function for reorganizing the structure of your data set. While it does not change any values, it may be useful if you need to order you data by a certain variable, or even just for easier viewing.
+
+The following video summarizes what we have gone over in this tutorial: ![](https://www.youtube.com/watch?v=Ni6_PEzqLGQ&ab_channel=DOSSToolkit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

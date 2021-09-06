@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 69 Working with dates | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 69 Working with dates | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 69 Working with dates | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="working-with-dates-1" class="section level1" number="69">
+<h1><span class="header-section-number">Chapter 69</span> Working with dates</h1>
+<p><em>Written by Mariam Walaa.</em></p>
+<div id="introduction-63" class="section level2" number="69.1">
+<h2><span class="header-section-number">69.1</span> Introduction</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Work with dates using the <code>lubridate</code> library</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Installing and loading packages</li>
+<li>Using <code>mutate()</code> and <code>summarise()</code></li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>Loading the <code>lubridate</code> library separately from <code>tidyverse</code></li>
+<li>Using the <code>today()</code> and <code>now()</code> functions</li>
+<li>Learning how to extract information from a date-time column</li>
+</ul>
+</div>
+<div id="overview-15" class="section level2" number="69.2">
+<h2><span class="header-section-number">69.2</span> Overview</h2>
+<p>Let’s start by loading the <code>tidyverse</code>.</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="working-with-dates-1.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Notice that <code>lubridate</code> is not listed as one of the libraries loaded into your R session
+when you load <code>tidyverse</code> (which you can view in your output on your own RStudio), and
+this is because it is not part of the core <code>tidyverse</code> so it will need to be loaded
+separately.</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="working-with-dates-1.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb498-2"><a href="working-with-dates-1.html#cb498-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb498-3"><a href="working-with-dates-1.html#cb498-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;lubridate&#39;</span></span>
+<span id="cb498-4"><a href="working-with-dates-1.html#cb498-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
+<span id="cb498-5"><a href="working-with-dates-1.html#cb498-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb498-6"><a href="working-with-dates-1.html#cb498-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     date, intersect, setdiff, union</span></span></code></pre></div>
+<p>Two of the functions the <code>lubridate</code> library will give us is <code>today()</code> and <code>now()</code>, which
+we can immediately start to use, without data or parameters.</p>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="working-with-dates-1.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span>
+<span id="cb499-2"><a href="working-with-dates-1.html#cb499-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-09-06&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="working-with-dates-1.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span>
+<span id="cb500-2"><a href="working-with-dates-1.html#cb500-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-09-06 11:19:26 EDT&quot;</span></span></code></pre></div>
+<p>You may want to use these functions today() and now() for various reasons, such as
+including the date and time in a file name. You can do that as follows.</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="working-with-dates-1.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">today</span>(), <span class="st">&quot;_datafile.csv&quot;</span>)</span>
+<span id="cb501-2"><a href="working-with-dates-1.html#cb501-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-09-06_datafile.csv&quot;</span></span></code></pre></div>
+<div id="example-17" class="section level3" number="69.2.1">
+<h3><span class="header-section-number">69.2.1</span> Example</h3>
+<p>We will look at Caribou data from Alex Cooksons dataset repository for this tutorial.</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="working-with-dates-1.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(caribou)</span>
+<span id="cb502-2"><a href="working-with-dates-1.html#cb502-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 249,450</span></span>
+<span id="cb502-3"><a href="working-with-dates-1.html#cb502-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 7</span></span>
+<span id="cb502-4"><a href="working-with-dates-1.html#cb502-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ event_id   &lt;dbl&gt; 2259197332, 2259197333, 2259197334, 225…</span></span>
+<span id="cb502-5"><a href="working-with-dates-1.html#cb502-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ animal_id  &lt;chr&gt; &quot;GR_C01&quot;, &quot;GR_C01&quot;, &quot;GR_C01&quot;, &quot;GR_C01&quot;,…</span></span>
+<span id="cb502-6"><a href="working-with-dates-1.html#cb502-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ study_site &lt;chr&gt; &quot;Graham&quot;, &quot;Graham&quot;, &quot;Graham&quot;, &quot;Graham&quot;,…</span></span>
+<span id="cb502-7"><a href="working-with-dates-1.html#cb502-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ season     &lt;chr&gt; &quot;Winter&quot;, &quot;Winter&quot;, &quot;Winter&quot;, &quot;Winter&quot;,…</span></span>
+<span id="cb502-8"><a href="working-with-dates-1.html#cb502-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ timestamp  &lt;dttm&gt; 2001-02-21 05:00:00, 2001-02-21 09:00:…</span></span>
+<span id="cb502-9"><a href="working-with-dates-1.html#cb502-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ longitude  &lt;dbl&gt; -122.5200, -122.5224, -122.5232, -122.5…</span></span>
+<span id="cb502-10"><a href="working-with-dates-1.html#cb502-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ latitude   &lt;dbl&gt; 56.23950, 56.23985, 56.24000, 56.23187,…</span></span></code></pre></div>
+<p>We can see that the timestamp column has an associated data type ‘dttm.’ This stands for
+datetime. Given that this is already the correct data type, we can extract a lot of
+information from it using <code>lubridate</code> functions.</p>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="working-with-dates-1.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting year</span></span>
+<span id="cb503-2"><a href="working-with-dates-1.html#cb503-2" aria-hidden="true" tabindex="-1"></a>caribou <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(timestamp))</span>
+<span id="cb503-3"><a href="working-with-dates-1.html#cb503-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 249,450 × 8</span></span>
+<span id="cb503-4"><a href="working-with-dates-1.html#cb503-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      event_id animal_id study_site season timestamp          </span></span>
+<span id="cb503-5"><a href="working-with-dates-1.html#cb503-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;dttm&gt;             </span></span>
+<span id="cb503-6"><a href="working-with-dates-1.html#cb503-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 2259197332 GR_C01    Graham     Winter 2001-02-21 05:00:00</span></span>
+<span id="cb503-7"><a href="working-with-dates-1.html#cb503-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2259197333 GR_C01    Graham     Winter 2001-02-21 09:00:00</span></span>
+<span id="cb503-8"><a href="working-with-dates-1.html#cb503-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 2259197334 GR_C01    Graham     Winter 2001-02-21 13:00:00</span></span>
+<span id="cb503-9"><a href="working-with-dates-1.html#cb503-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 2259197335 GR_C01    Graham     Winter 2001-02-21 17:01:00</span></span>
+<span id="cb503-10"><a href="working-with-dates-1.html#cb503-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2259197336 GR_C01    Graham     Winter 2001-02-21 21:00:00</span></span>
+<span id="cb503-11"><a href="working-with-dates-1.html#cb503-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 2259197337 GR_C01    Graham     Winter 2001-02-22 01:00:00</span></span>
+<span id="cb503-12"><a href="working-with-dates-1.html#cb503-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 2259197338 GR_C01    Graham     Winter 2001-02-22 05:00:00</span></span>
+<span id="cb503-13"><a href="working-with-dates-1.html#cb503-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 2259197339 GR_C01    Graham     Winter 2001-02-22 09:00:00</span></span>
+<span id="cb503-14"><a href="working-with-dates-1.html#cb503-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2259197340 GR_C01    Graham     Winter 2001-02-22 13:00:00</span></span>
+<span id="cb503-15"><a href="working-with-dates-1.html#cb503-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2259197341 GR_C01    Graham     Winter 2001-02-22 17:00:00</span></span>
+<span id="cb503-16"><a href="working-with-dates-1.html#cb503-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 249,440 more rows, and 3 more variables:</span></span>
+<span id="cb503-17"><a href="working-with-dates-1.html#cb503-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, year &lt;dbl&gt;</span></span>
+<span id="cb503-18"><a href="working-with-dates-1.html#cb503-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb503-19"><a href="working-with-dates-1.html#cb503-19" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting week day</span></span>
+<span id="cb503-20"><a href="working-with-dates-1.html#cb503-20" aria-hidden="true" tabindex="-1"></a>caribou <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">week_day =</span> <span class="fu">wday</span>(timestamp))</span>
+<span id="cb503-21"><a href="working-with-dates-1.html#cb503-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 249,450 × 8</span></span>
+<span id="cb503-22"><a href="working-with-dates-1.html#cb503-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      event_id animal_id study_site season timestamp          </span></span>
+<span id="cb503-23"><a href="working-with-dates-1.html#cb503-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;dttm&gt;             </span></span>
+<span id="cb503-24"><a href="working-with-dates-1.html#cb503-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 2259197332 GR_C01    Graham     Winter 2001-02-21 05:00:00</span></span>
+<span id="cb503-25"><a href="working-with-dates-1.html#cb503-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2259197333 GR_C01    Graham     Winter 2001-02-21 09:00:00</span></span>
+<span id="cb503-26"><a href="working-with-dates-1.html#cb503-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 2259197334 GR_C01    Graham     Winter 2001-02-21 13:00:00</span></span>
+<span id="cb503-27"><a href="working-with-dates-1.html#cb503-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 2259197335 GR_C01    Graham     Winter 2001-02-21 17:01:00</span></span>
+<span id="cb503-28"><a href="working-with-dates-1.html#cb503-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2259197336 GR_C01    Graham     Winter 2001-02-21 21:00:00</span></span>
+<span id="cb503-29"><a href="working-with-dates-1.html#cb503-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 2259197337 GR_C01    Graham     Winter 2001-02-22 01:00:00</span></span>
+<span id="cb503-30"><a href="working-with-dates-1.html#cb503-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 2259197338 GR_C01    Graham     Winter 2001-02-22 05:00:00</span></span>
+<span id="cb503-31"><a href="working-with-dates-1.html#cb503-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 2259197339 GR_C01    Graham     Winter 2001-02-22 09:00:00</span></span>
+<span id="cb503-32"><a href="working-with-dates-1.html#cb503-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2259197340 GR_C01    Graham     Winter 2001-02-22 13:00:00</span></span>
+<span id="cb503-33"><a href="working-with-dates-1.html#cb503-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2259197341 GR_C01    Graham     Winter 2001-02-22 17:00:00</span></span>
+<span id="cb503-34"><a href="working-with-dates-1.html#cb503-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 249,440 more rows, and 3 more variables:</span></span>
+<span id="cb503-35"><a href="working-with-dates-1.html#cb503-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, week_day &lt;dbl&gt;</span></span>
+<span id="cb503-36"><a href="working-with-dates-1.html#cb503-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb503-37"><a href="working-with-dates-1.html#cb503-37" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting whether it&#39;s a leap year!</span></span>
+<span id="cb503-38"><a href="working-with-dates-1.html#cb503-38" aria-hidden="true" tabindex="-1"></a>caribou <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">leap_year =</span> <span class="fu">leap_year</span>(timestamp))</span>
+<span id="cb503-39"><a href="working-with-dates-1.html#cb503-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 249,450 × 8</span></span>
+<span id="cb503-40"><a href="working-with-dates-1.html#cb503-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      event_id animal_id study_site season timestamp          </span></span>
+<span id="cb503-41"><a href="working-with-dates-1.html#cb503-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;dttm&gt;             </span></span>
+<span id="cb503-42"><a href="working-with-dates-1.html#cb503-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 2259197332 GR_C01    Graham     Winter 2001-02-21 05:00:00</span></span>
+<span id="cb503-43"><a href="working-with-dates-1.html#cb503-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2259197333 GR_C01    Graham     Winter 2001-02-21 09:00:00</span></span>
+<span id="cb503-44"><a href="working-with-dates-1.html#cb503-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 2259197334 GR_C01    Graham     Winter 2001-02-21 13:00:00</span></span>
+<span id="cb503-45"><a href="working-with-dates-1.html#cb503-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 2259197335 GR_C01    Graham     Winter 2001-02-21 17:01:00</span></span>
+<span id="cb503-46"><a href="working-with-dates-1.html#cb503-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2259197336 GR_C01    Graham     Winter 2001-02-21 21:00:00</span></span>
+<span id="cb503-47"><a href="working-with-dates-1.html#cb503-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 2259197337 GR_C01    Graham     Winter 2001-02-22 01:00:00</span></span>
+<span id="cb503-48"><a href="working-with-dates-1.html#cb503-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 2259197338 GR_C01    Graham     Winter 2001-02-22 05:00:00</span></span>
+<span id="cb503-49"><a href="working-with-dates-1.html#cb503-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 2259197339 GR_C01    Graham     Winter 2001-02-22 09:00:00</span></span>
+<span id="cb503-50"><a href="working-with-dates-1.html#cb503-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2259197340 GR_C01    Graham     Winter 2001-02-22 13:00:00</span></span>
+<span id="cb503-51"><a href="working-with-dates-1.html#cb503-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2259197341 GR_C01    Graham     Winter 2001-02-22 17:00:00</span></span>
+<span id="cb503-52"><a href="working-with-dates-1.html#cb503-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 249,440 more rows, and 3 more variables:</span></span>
+<span id="cb503-53"><a href="working-with-dates-1.html#cb503-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, leap_year &lt;lgl&gt;</span></span></code></pre></div>
+<p>You can see there are many additional variables we can extract with the <code>lubridate</code>
+package. You can check out the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/lubridate.pdf">lubridate
+cheatsheet</a> to
+learn more.</p>
+</div>
+</div>
+<div id="exercises-40" class="section level2" number="69.3">
+<h2><span class="header-section-number">69.3</span> Exercises</h2>
+<div id="exercise-1-26" class="section level3" number="69.3.1">
+<h3><span class="header-section-number">69.3.1</span> Exercise 1</h3>
+<p>Extract month, day, and year into separate columns at the same time using mutate.</p>
+</div>
+<div id="exercise-2-21" class="section level3" number="69.3.2">
+<h3><span class="header-section-number">69.3.2</span> Exercise 2</h3>
+<p>Find the earliest and latest dates in the timestamp column.</p>
+<p><strong>Hint</strong>: Remember the summary functions you learned in <code>summarize()</code> tutorial!</p>
+</div>
+</div>
+<div id="common-mistakes-errors-21" class="section level2" number="69.4">
+<h2><span class="header-section-number">69.4</span> Common Mistakes &amp; Errors</h2>
+<ul>
+<li>You might try to apply <code>lubridate</code> functions on to a column that looks like a timestamp
+column, but it may still not be of the appropriate data type, which is either ‘dt,’ ‘tm,’
+or ‘dttm.’ Be sure to convert to the proper data type first!</li>
+</ul>
+</div>
+<div id="next-steps-44" class="section level2" number="69.5">
+<h2><span class="header-section-number">69.5</span> Next Steps</h2>
+<p>If you would like to learn more about handling dates and times in R, as well as the
+<code>lubridate</code> package, please read the following:</p>
+<ul>
+<li><a href="https://r4ds.had.co.nz/dates-and-times.html">R For Data Science: 16 Dates and times</a></li>
+<li><a href="https://lubridate.tidyverse.org/">Lubridate Package Documentation</a></li>
+</ul>
+
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 58 pull, pluck and unnest | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Isaac Ehrlich.  58.1 Introduction Indexing, manipulating, or handling data frames and tibbles can be messy and tricky, especially when these objects are organized in complex data...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 58 pull, pluck and unnest | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Isaac Ehrlich.  58.1 Introduction Indexing, manipulating, or handling data frames and tibbles can be messy and tricky, especially when these objects are organized in complex data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 58 pull, pluck and unnest | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Isaac Ehrlich.  58.1 Introduction Indexing, manipulating, or handling data frames and tibbles can be messy and tricky, especially when these objects are organized in complex data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="grouping-and-ungrouping.html"><span class="header-section-number">31</span> Grouping and ungrouping</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">49</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">50</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">51</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">52</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">53</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">54</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">55</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">56</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">57</span> Tidying up datasets</a></li>
+<li><a class="active" href="pull-pluck-and-unnest.html"><span class="header-section-number">58</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">59</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">60</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">61</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">62</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">63</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">64</span> tidyr package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pull-pluck-and-unnest" class="section level1" number="58">
+<h1>
+<span class="header-section-number">58</span> pull, pluck and unnest<a class="anchor" aria-label="anchor" href="#pull-pluck-and-unnest"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Isaac Ehrlich.</em></p>
+<div id="introduction-54" class="section level2" number="58.1">
+<h2>
+<span class="header-section-number">58.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-54"><i class="fas fa-link"></i></a>
+</h2>
+<p>Indexing, manipulating, or handling data frames and tibbles can be messy and tricky, especially when these objects are organized in complex data structures. Tidyverse functions <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code>, <code>pluck()</code>, and, <code>unnest()</code> can make dealing with these data structures easier and neater.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Use <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> to access a single column of a data frame</li>
+<li>Use <code>pluck()</code> for deep indexing and to access elements of data structures</li>
+<li>Use <code>unnest()</code> to flatten data frames</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Knowledge of tibbles and other data structures</li>
+<li>Knowledge of indexing using special characters such as <code>[]</code> and <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>
+</li>
+</ul>
+</div>
+<div id="pull" class="section level2" number="58.2">
+<h2>
+<span class="header-section-number">58.2</span> pull()<a class="anchor" aria-label="anchor" href="#pull"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> is essentially the <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> indexing operator formatted as a function, allowing for neat indexing of data frames. As input, <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> takes the data frame, as well as <code>var</code>, which is information on the element you want to extract. <code>var</code> can either be the name of the column or an index. If the index is negative, <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> will count the indices from the right side (i.e. <code>var = 1</code> will pull the first column and <code>var = -1</code> will pull the last).</p>
+<p>Let’s take a look at some examples using a Caribou Location Tracking data set.</p>
+<div id="examples-7" class="section level3" number="58.2.1">
+<h3>
+<span class="header-section-number">58.2.1</span> Examples<a class="anchor" aria-label="anchor" href="#examples-7"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Load csv file</span>
+<span class="va">locations</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/caribou-location-tracking/locations.csv"</span>, n_max <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+
+<span class="co"># Extract the 'event_id' column</span>
+<span class="va">event_id_col</span> <span class="op">&lt;-</span> <span class="va">locations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span>var <span class="op">=</span> <span class="st">"event_id"</span><span class="op">)</span>
+
+<span class="co"># We can do this with positive and negative indexing as well</span>
+<span class="co"># event_id is the first column out of 7</span>
+<span class="va">event_id_pos_idx</span> <span class="op">&lt;-</span> <span class="va">locations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">event_id_neg_idx</span> <span class="op">&lt;-</span> <span class="va">locations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span>var <span class="op">=</span> <span class="op">-</span><span class="fl">7</span><span class="op">)</span>
+
+<span class="co"># Verify positive and negative indexing returned the same column using 'table()'</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">event_id_pos_idx</span> <span class="op">==</span> <span class="va">event_id_neg_idx</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; TRUE </span>
+<span class="co">#&gt; 1000</span></code></pre></div>
+</div>
+</div>
+<div id="pluck" class="section level2" number="58.3">
+<h2>
+<span class="header-section-number">58.3</span> pluck()<a class="anchor" aria-label="anchor" href="#pluck"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>pluck()</code> is similar to <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code>, but is more robust, and can handle complex data structures, such as lists of data frames. While <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> takes only one input to specify a column, <code>pluck()</code> can accept multiple, and therefore also allows for neat and flexible indexing of deep data structures. Similar to <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code>, the output of <code>pluck</code> can also be achieved using traditional indexing, but <code>pluck()</code> is often simpler to use, and may make your code more readable.</p>
+<p>The main arguments of <code>pluck()</code> are the data structure that contains the elements you want to access, and then the elements themselves. If the element does not exist, <code>pluck()</code> by default will return <code>NULL</code>, though this can be changed by adjusting the <code>.default</code> argument.</p>
+<p>Let’s take a look at some examples using multiple data sets on Broadway Weekly Grosses.</p>
+<div id="examples-8" class="section level3" number="58.3.1">
+<h3>
+<span class="header-section-number">58.3.1</span> Examples<a class="anchor" aria-label="anchor" href="#examples-8"><i class="fas fa-link"></i></a>
+</h3>
+<p>The simplest use of <code>pluck()</code> is in place of <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> - to extract a single column from a data frame object. Without using <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code>, <code>[]</code>, or <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> to index, let’s extract the <code>weekly_gross</code> column from the following file.</p>
+<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Load data</span>
+<span class="va">grosses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv"</span>, n_max <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+
+<span class="co"># Use 'pluck()' to access a single column</span>
+<span class="va">weekly_gross_col</span> <span class="op">&lt;-</span> <span class="va">grosses</span> <span class="op">%&gt;%</span> <span class="fu">pluck</span><span class="op">(</span><span class="st">"weekly_gross"</span><span class="op">)</span>
+
+<span class="co"># This can also be done using indices rather than column names</span>
+<span class="va">weekly_gross_idx</span> <span class="op">&lt;-</span> <span class="va">grosses</span> <span class="op">%&gt;%</span> <span class="fu">pluck</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span>
+
+<span class="co"># Use 'table()' to verify the outputs are the same</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">weekly_gross_col</span> <span class="op">==</span> <span class="va">weekly_gross_idx</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; TRUE </span>
+<span class="co">#&gt; 1000</span></code></pre></div>
+<p><code>pluck()</code> can similarly use indices to grab elements of vectors and lists.</p>
+<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create list and grab the fourth element</span>
+<span class="va">letters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span><span class="op">)</span>
+<span class="va">element</span> <span class="op">&lt;-</span> <span class="va">letters</span> <span class="op">%&gt;%</span> <span class="fu">pluck</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
+<span class="va">element</span>
+<span class="co">#&gt; [1] "d"</span></code></pre></div>
+<p>However, because <code>pluck()</code> can take multiple arguments, it is also capable extracting columns from more complex data structures, such as a list of data frames. This is often referred to as “deep indexing” - indexing that requires multiple index calls, brackets, or elements. Let’s download a few more data frames and see how this works.</p>
+<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Load data</span>
+<span class="va">grosses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv"</span>, n_max <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+<span class="va">early_starts</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/pre-1985-starts.csv"</span>, n_max <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+<span class="va">synopses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/synopses.csv"</span>, n_max <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+
+<span class="co"># Create list of data frames</span>
+<span class="va">broadway_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">grosses</span>, <span class="va">early_starts</span>, <span class="va">synopses</span><span class="op">)</span>
+
+<span class="co"># Select `synopsis` column from `synopses` table</span>
+<span class="va">synopsis_col</span> <span class="op">&lt;-</span> <span class="va">broadway_data</span> <span class="op">%&gt;%</span> <span class="fu">pluck</span><span class="op">(</span><span class="fl">3</span>, <span class="st">"synopsis"</span><span class="op">)</span>
+
+<span class="co"># Use table() to verify the output is correct</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">synopsis_col</span> <span class="op">==</span> <span class="va">broadway_data</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; TRUE </span>
+<span class="co">#&gt;  835</span></code></pre></div>
+<p>Similarly, <code>pluck()</code> can be used for other data structures like lists of lists as well.</p>
+</div>
+</div>
+<div id="unnest" class="section level2" number="58.4">
+<h2>
+<span class="header-section-number">58.4</span> <code>unnest()</code><a class="anchor" aria-label="anchor" href="#unnest"><i class="fas fa-link"></i></a>
+</h2>
+<p>The main purpose of <code>unnest()</code> is to flatten existing data frames. Like <code>pluck()</code>, <code>unnest()</code> handles complex data structures, but these complex structures are now made up of lists (or other structures) contained within a single data frame (known as list-columns). In other words, if a column of a data frame contains other data structures, such as other tibbles, <code>unnest()</code> can flatten the data frame to remove these structures.</p>
+<p>The arguments that <code>unnest()</code> takes are the data frame, as well as the columns to flatten, or unnest. For additional arguments, see documentation.</p>
+<p>Let’s construct some toy data frames and take look at some examples.</p>
+<div id="examples-9" class="section level3" number="58.4.1">
+<h3>
+<span class="header-section-number">58.4.1</span> Examples<a class="anchor" aria-label="anchor" href="#examples-9"><i class="fas fa-link"></i></a>
+</h3>
+<p>Even without nesting tibbles within tibbles, <code>unnest()</code> can be used in cases such as flattening long strings using <code><a href="https://rdrr.io/r/base/strsplit.html">strsplit()</a></code> or other functions.</p>
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create toy data</span>
+<span class="co"># Even though the 'color' and 'shades' column are of the same length, we can see that two entries in the 'shades' column contain elements separated by a comma</span>
+<span class="va">color_shades</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span><span class="op">)</span>, shades <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red,cherry,scarlet"</span>, <span class="st">"orange,apricot"</span>, <span class="st">"yellow"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">color_shades</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 3 × 2</span>
+<span class="co">#&gt;   color  shades            </span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;             </span>
+<span class="co">#&gt; 1 red    red,cherry,scarlet</span>
+<span class="co">#&gt; 2 orange orange,apricot    </span>
+<span class="co">#&gt; 3 yellow yellow</span>
+
+
+<span class="co"># We can use 'strsplit()' to unnest the elements in the shades column</span>
+<span class="va">color_shades</span> <span class="op">&lt;-</span> <span class="va">color_shades</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span>shades <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">shades</span>, <span class="st">","</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">color_shades</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 2</span>
+<span class="co">#&gt;   color  shades </span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;  </span>
+<span class="co">#&gt; 1 red    red    </span>
+<span class="co">#&gt; 2 red    cherry </span>
+<span class="co">#&gt; 3 red    scarlet</span>
+<span class="co">#&gt; 4 orange orange </span>
+<span class="co">#&gt; 5 orange apricot</span>
+<span class="co">#&gt; 6 yellow yellow</span></code></pre></div>
+<p>However, <code>unnest()</code> is typically meant to be used with lists-columns held within data frames.</p>
+<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create toy data</span>
+<span class="co"># 'rgb' column is a list of tibbles containing rgb values</span>
+<span class="va">color_rgb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span><span class="op">)</span>,
+  rgb <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">70</span>, b <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">255</span>, b <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">color_rgb</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 3 × 2</span>
+<span class="co">#&gt;   color  rgb             </span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;list&gt;          </span>
+<span class="co">#&gt; 1 red    &lt;tibble [1 × 3]&gt;</span>
+<span class="co">#&gt; 2 orange &lt;tibble [1 × 3]&gt;</span>
+<span class="co">#&gt; 3 yellow &lt;tibble [1 × 3]&gt;</span>
+
+<span class="co"># Flatten the 'rgb' column to create a column for each color component</span>
+<span class="va">color_rgb</span> <span class="op">&lt;-</span> <span class="va">color_rgb</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">rgb</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">color_rgb</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 3 × 4</span>
+<span class="co">#&gt;   color      r     g     b</span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 red      255     0     0</span>
+<span class="co">#&gt; 2 orange   255    70     0</span>
+<span class="co">#&gt; 3 yellow   255   255     0</span></code></pre></div>
+<p>We can see that once the rgb column is unnested, it is easier to read and grab each component individually.</p>
+</div>
+</div>
+<div id="practice-questions-1" class="section level2" number="58.5">
+<h2>
+<span class="header-section-number">58.5</span> Practice questions<a class="anchor" aria-label="anchor" href="#practice-questions-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- ```{r pullq1, echo = FALSE} -->
+<!-- question("Using a negative index in 'pull()' will", -->
+<!-- answer("return an error"), -->
+<!-- answer("create a new column"), -->
+<!-- answer("return NULL"), -->
+<!-- answer("index from the right side instead of the left", correct = TRUE), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+<!-- ```{r pullq2, echo = FALSE} -->
+<!-- question("'pull()' and 'pluck()' perform functions no other operators in R are capable of", -->
+<!-- answer("True", message = "Remember there are many ways to index!"), -->
+<!-- answer("False", correct = TRUE, message = "Correct! Using 'pull()' and 'pluck()' is mostly a stylistic choice, but they are great for pipes and can definitely make your code neater!"), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+<!-- ```{r pullq3, echo = FALSE} -->
+<!-- question("Which of the following are true?", -->
+<!-- answer("'pluck()' is a robust alternative to 'pull()' - it can handle complex data structures", correct = TRUE), -->
+<!-- answer("'pull()' is a robust alternative to 'pluck()' - it can handle complex data structures"), -->
+<!-- answer("'pull()' takes in one index argument ('var') as input", correct = TRUE), -->
+<!-- answer("'pluck()' can take multiple index arguments as input", correct = TRUE), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+</div>
+<div id="practice-coding-1" class="section level2" number="58.6">
+<h2>
+<span class="header-section-number">58.6</span> Practice coding<a class="anchor" aria-label="anchor" href="#practice-coding-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>It’s your turn to try! In the code below, we’ve created a complex data structure, where <code>colors</code> is a list of the data frames <code>red</code>, <code>orange</code>, and <code>yellow</code>, where <code>yellow</code> also has nested data frames. See if you can complete the following questions!</p>
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">red</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>shade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"brick"</span>, <span class="st">"bright"</span>, <span class="st">"burgundy"</span>, <span class="st">"cardinal"</span>, <span class="st">"cherry"</span><span class="op">)</span>,
+              r <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">170</span>, <span class="fl">238</span>, <span class="fl">128</span>, <span class="fl">196</span>, <span class="fl">210</span><span class="op">)</span>,
+              g <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">74</span>, <span class="fl">75</span>, <span class="fl">0</span>, <span class="fl">30</span>, <span class="fl">4</span><span class="op">)</span>,
+              b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">68</span>, <span class="fl">43</span>, <span class="fl">32</span>, <span class="fl">58</span>, <span class="fl">45</span><span class="op">)</span><span class="op">)</span>
+<span class="va">orange</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>shade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"papaya"</span>, <span class="st">"coral"</span>, <span class="st">"dark"</span>, <span class="st">"apricot"</span>, <span class="st">"topaz"</span><span class="op">)</span>,
+              r <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">255</span>, <span class="fl">255</span>, <span class="fl">255</span>, <span class="fl">251</span>, <span class="fl">255</span><span class="op">)</span>,
+              g <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">239</span>, <span class="fl">127</span>, <span class="fl">140</span>, <span class="fl">206</span>, <span class="fl">200</span><span class="op">)</span>,
+              b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">213</span>, <span class="fl">80</span>, <span class="fl">0</span>, <span class="fl">177</span>, <span class="fl">124</span><span class="op">)</span><span class="op">)</span>
+<span class="va">yellow</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>shade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"amber"</span>, <span class="st">"brass"</span>, <span class="st">"bright"</span>, <span class="st">"canary"</span>, <span class="st">"cream"</span><span class="op">)</span>,
+                 rgb <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">191</span>, b <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
+                            <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">225</span>, g <span class="op">=</span> <span class="fl">193</span>, b <span class="op">=</span> <span class="fl">110</span><span class="op">)</span>,
+                            <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">234</span>, b <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
+                            <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">255</span>, b <span class="op">=</span> <span class="fl">143</span><span class="op">)</span>,
+                            <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">255</span>, g <span class="op">=</span> <span class="fl">253</span>, b <span class="op">=</span> <span class="fl">208</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+
+<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">red</span>, <span class="va">orange</span>, <span class="va">yellow</span><span class="op">)</span></code></pre></div>
+<p><strong>1. Use <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> to extract the <code>shade</code> column from the <code>red</code> data frame</strong></p>
+<!-- ```{r pull-coding1, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r pull-coding1-solution} -->
+<!-- red %>% pull(shade) -->
+<!-- # OR -->
+<!-- red %>% pull(1) -->
+<!-- # OR -->
+<!-- red %>% pull(-4) -->
+<!-- ``` -->
+<!-- **2. Use `pluck()` to extract the `shade` column from the `red` data frame from within the `colors` list** -->
+<!-- ```{r pull-coding2, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r pull-coding2-solution} -->
+<!-- colors %>% pluck(1, "shade") -->
+<!-- ``` -->
+<!-- **3. Use `pluck()` to extract the yellow data frame, and then use `pull()` to grab just the `b` column. Remember that the `yellow` data frame has a nested tibble so you may have to use `unnest()`! -->
+<!-- ```{r pull-coding3, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r pull-coding3-solution} -->
+<!-- colors %>% pluck(3) %>% unnest(rgb) %>% pull(b) -->
+<!-- ``` -->
+</div>
+<div id="overview-and-next-steps-3" class="section level2" number="58.7">
+<h2>
+<span class="header-section-number">58.7</span> Overview and Next Steps<a class="anchor" aria-label="anchor" href="#overview-and-next-steps-3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> allows for a simple way to extract single columns from data frames</li>
+<li>
+<code>pluck()</code> performs similar functions as <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> but is also capable of handling complex data structures, such as lists of data frames (and lists of lists of data frames, and lists of lists of lists of data frames and…)</li>
+<li>Although the use of <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> and <code>pluck()</code> is generally a stylistic choice, these functions let you avoid multiple special characters like <code>[[]]</code> and <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> and can make your code neater too!</li>
+<li>
+<code>unnest()</code> flattens data frames that contain other lists or data frames (known as list-columns)</li>
+</ul>
+<p>In the next lesson, we will continue looking into different ways of storing and handling data in R - this time with factors!</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="tidying-up-datasets.html"><span class="header-section-number">57</span> Tidying up datasets</a></div>
+<div class="next"><a href="forcats-and-factors.html"><span class="header-section-number">59</span> forcats and factors</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pull-pluck-and-unnest"><span class="header-section-number">58</span> pull, pluck and unnest</a></li>
+<li><a class="nav-link" href="#introduction-54"><span class="header-section-number">58.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#pull"><span class="header-section-number">58.2</span> pull()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#examples-7"><span class="header-section-number">58.2.1</span> Examples</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#pluck"><span class="header-section-number">58.3</span> pluck()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#examples-8"><span class="header-section-number">58.3.1</span> Examples</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#unnest"><span class="header-section-number">58.4</span> unnest()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#examples-9"><span class="header-section-number">58.4.1</span> Examples</a></li></ul>
+</li>
+<li><a class="nav-link" href="#practice-questions-1"><span class="header-section-number">58.5</span> Practice questions</a></li>
+<li><a class="nav-link" href="#practice-coding-1"><span class="header-section-number">58.6</span> Practice coding</a></li>
+<li><a class="nav-link" href="#overview-and-next-steps-3"><span class="header-section-number">58.7</span> Overview and Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/080-he_was_a_d8er_boi-pull_pluck_unnest.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/080-he_was_a_d8er_boi-pull_pluck_unnest.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

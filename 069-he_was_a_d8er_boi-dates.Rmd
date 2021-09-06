@@ -1,0 +1,159 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(flair)
+library(glue)
+library(stringr)
+library(palmerpenguins)
+```
+
+# Working with dates
+
+*Written by Mariam Walaa.*
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Work with dates using the `lubridate` library
+
+Prerequisite skills include:
+
+- Installing and loading packages
+- Using `mutate()` and `summarise()`
+
+Highlights:
+
+- Loading the `lubridate` library separately from `tidyverse`
+- Using the `today()` and `now()` functions
+- Learning how to extract information from a date-time column
+
+
+## Overview
+
+Let's start by loading the `tidyverse`.
+
+```{r dates-1, eval = TRUE}
+library(tidyverse)
+```
+
+Notice that `lubridate` is not listed as one of the libraries loaded into your R session
+when you load `tidyverse` (which you can view in your output on your own RStudio), and
+this is because it is not part of the core `tidyverse` so it will need to be loaded
+separately.
+
+```{r dates-2}
+library(lubridate)
+```
+
+Two of the functions the `lubridate` library will give us is `today()` and `now()`, which
+we can immediately start to use, without data or parameters.
+
+```{r dates-3}
+today()
+```
+
+```{r dates-4}
+now()
+```
+
+You may want to use these functions today() and now() for various reasons, such as 
+including the date and time in a file name. You can do that as follows.
+
+```{r}
+paste0(today(), "_datafile.csv")
+```
+
+### Example
+
+We will look at Caribou data from Alex Cooksons dataset repository for this tutorial.
+
+```{r dates-5, include = FALSE}
+caribou <-
+  read_csv("https://raw.githubusercontent.com/tacookson/data/master/caribou-location-tracking/locations.csv")
+```
+
+```{r dates-6}
+glimpse(caribou)
+```
+
+We can see that the timestamp column has an associated data type 'dttm.' This stands for
+datetime. Given that this is already the correct data type, we can extract a lot of
+information from it using `lubridate` functions.
+
+```{r dates-7}
+# extracting year
+caribou %>% mutate(year = year(timestamp))
+
+# extracting week day
+caribou %>% mutate(week_day = wday(timestamp))
+
+# extracting whether it's a leap year!
+caribou %>% mutate(leap_year = leap_year(timestamp))
+```
+
+You can see there are many additional variables we can extract with the `lubridate` 
+package. You can check out the [lubridate
+cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/lubridate.pdf) to
+learn more.
+
+## Exercises
+
+### Exercise 1
+
+Extract month, day, and year into separate columns at the same time using mutate.
+
+```{r dates-exercise-1, exercise = TRUE}
+
+```
+
+```{r dates-exercise-1-sol, echo = FALSE}
+dates_ex1_sol <- caribou %>% mutate(month = month(timestamp),
+                              day = day(timestamp),
+                              year = year(timestamp))
+```
+
+
+### Exercise 2
+
+Find the earliest and latest dates in the timestamp column.
+
+```{r dates-exercise-2, exercise = TRUE}
+
+```
+
+```{r dates-exercise-2-sol, echo = FALSE}
+dates_ex2_sol <- caribou %>% summarise(min(timestamp), max(timestamp))
+```
+
+
+**Hint**: Remember the summary functions you learned in `summarize()` tutorial!
+
+## Common Mistakes & Errors
+
+- You might try to apply `lubridate` functions on to a column that looks like a timestamp
+column, but it may still not be of the appropriate data type, which is either 'dt', 'tm',
+or 'dttm'. Be sure to convert to the proper data type first!
+
+## Next Steps
+
+If you would like to learn more about handling dates and times in R, as well as the
+`lubridate` package, please read the following:
+
+- [R For Data Science:  16 Dates and times](https://r4ds.had.co.nz/dates-and-times.html)
+- [Lubridate Package Documentation](https://lubridate.tidyverse.org/)
+
+
+
+
+
+
+
+
+
+
+
+
+

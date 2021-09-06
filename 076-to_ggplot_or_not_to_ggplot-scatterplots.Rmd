@@ -1,0 +1,213 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+# library(learnr)
+library(flair)
+# tutorial_options(exercise.eval = FALSE)
+# library(gradethis)
+# gradethis::gradethis_setup()
+# library(palmerpenguins)
+library(knitr)
+```
+
+# Scatter plots
+
+*Written by Haoluan Chen.*
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Create a scatter plot in R using ggplot2 package
+- Customize your scatter plot
+
+Prerequisite skills include:
+
+- Install and load ggplot2 packages
+
+- Basics of using ggplot2: e.g. `ggplot()`, `aes()`.
+
+Highlights:
+
+- Create and customize a scatter-plot
+
+
+## The content
+
+## What is a Scatter plot?
+
+A scatter plot is a visual representation of two numerical variables. It allows you to see the correlation between the variables. 
+
+Here, we have a dataset `mtcars` extracted from the 1974 Motor Trend US magazine.
+
+```{r scatter1}
+head(mtcars)
+```
+
+`wt` is the weight (1000lbs), `mpg` is the miles per gallon for the car. Now we are interested in the relationship between these variables among 32 different cars.
+
+Using the following code, we can create our basic scatter plot in R!
+
+```{r scatter2}
+# Basic scatter plot
+ggplot(data = mtcars, mapping = aes(x=wt, y=mpg)) +
+  geom_point()
+```
+
+In this plot, each dot shows one car's miles per gallon versus its weight. We can see a decreasing trend among the weight and the miles per gallon for the car.
+
+
+## Arguments
+
+### Basic scatter plot
+- The size and the shape of points can be changed using the function geom_point() as follow :
+
+geom_point(size, shape)
+
+```{r scatter3}
+# Change the point size
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(size=2)
+# Change the point shape
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(shape=23)
+```
+
+From the above figures, we know that we can change different sizes and shapes by changing parameters in `geom_point()`.
+
+- The size of the points can be controlled by the values of a continuous variable as in the example below.
+
+
+`cyl` is the number of cylinders of the car.
+
+```{r scatter4}
+# Change the point size by the values of cyl
+ggplot(mtcars, aes(x=wt, y=mpg)) + 
+  geom_point(aes(size=cyl))
+```
+
+## Change the appearance of the point
+We can also change the color of the border of the point and filling of the point using the function geom_point() as follow :
+
+geom_point(color, fill)
+
+```{r scatter5}
+# change shape, color, size
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(shape=23, color="darkred",size=3)
+
+# change shape, color, fill, size
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(shape=23, fill="blue", size=3)
+
+```
+
+
+## Scatter plots with multiple groups
+
+We can also change the points, colors, and shapes based on a variable.
+In the R code below, point shapes, colors, and sizes are controlled by the levels of the factor variable cyl :
+
+**We are using as.factor here because cyl is a double data type in the dataset. Using as.factor() can transform cyl into factor data type**
+
+```{r scatter6}
+# Change point shapes by the levels of cyl
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(aes(shape=as.factor(cyl)))
+# Change point shapes and colors
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(aes(shape=as.factor(cyl), color=cyl))
+# change point shapes,  colors and sizes
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(aes(shape=as.factor(cyl), color=cyl, size=cyl))
+```
+
+
+
+
+## Exercises
+
+## Exercise 1 
+
+Create a scatter plot to see the correlation between the hp and wt in mtcars
+
+```{r scatter7}
+mtcars
+```
+
+```{r scatterplotex1, exercise=TRUE, exercise.lines = 5}
+
+```
+
+```{r scatterplotex1-solution}
+mtcars %>% ggplot(aes(hp, wt)) + geom_point()
+```
+
+## Exercise 2
+Set the size of the scatter plot in previous question to 5 
+
+```{r scatterplotex2, exercise=TRUE, exercise.lines = 5}
+
+```
+
+```{r scatterplotex2-solution}
+mtcars %>% ggplot(aes(hp, wt)) + geom_point(size = 5)
+```
+## Exercise 3
+Set the color of the scatter plot in previous question to blue
+
+```{r scatterplotex3, exercise=TRUE, exercise.lines = 5}
+
+```
+
+```{r scatterplotex3-solution}
+mtcars %>% ggplot(aes(hp, wt)) + geom_point(size = 5, col = "blue")
+```
+
+## Common Mistakes & Errors
+
+- If you want to change the colors and shapes based on a variable in your dataset, make sure it is a factor type dataset
+- connect ggplot() and geom_point() by using `+` not `%>%`
+
+
+## Next Steps
+
+You may use geom_smooth() function to add a regression line on your scatter plot to get a clear pattern of your data. 
+
+```{r scatternext}
+ggplot(data = mtcars, mapping = aes(x=wt, y=mpg)) +
+  geom_point() + 
+  geom_smooth(method='lm') 
+```
+
+
+Here is a guide for creating interesting scatter plots! http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
+
+
+You may also change the title, axis, theme of your scatter plot! 
+
+http://www.sthda.com/english/wiki/ggplot2-title-main-axis-and-legend-titles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

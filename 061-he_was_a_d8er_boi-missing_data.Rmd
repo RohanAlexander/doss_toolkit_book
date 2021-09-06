@@ -1,0 +1,179 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(flair)
+library(glue)
+library(stringr)
+library(palmerpenguins)
+```
+
+
+# Looking for missing data
+
+*Written by Mariam Walaa.*
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Find implicit missing data
+
+Prerequisite skills include:
+
+- Using the pipe operator %>%
+
+Highlights:
+
+- Use complete() and fill() to find implicit missing data
+
+## Overview
+
+When we think of looking for missing data, we may think of looking for missing values, 
+but there is also another type of missing data that is implicit which we can look for.
+For example, are there missing variables or observations in the data? We can answer this
+question by looking at combinations of values and seeing if all the possible combinations
+exist.
+
+### Example
+
+Suppose we have a data set representing student grades for a collection of required first
+year courses for the statistics major: STA130, CSC108, MAT137, at the end of their first
+year. However, some students have not finished all three courses and may be taking some in
+the summer.
+
+Lets start by loading the tidyverse.
+
+```{r missing-data-1}
+library(tidyverse)
+```
+
+Here is our hypothetical data of courses and grades.
+
+```{r missing-data-2, include = FALSE}
+first_year <- tibble(student_id = c(1, 1, 1, 2, 2, 3, 4, 4, 4, 5, 5, 6),
+                     course = c("STA130", "CSC108", "MAT137",
+                                "STA130", "CSC108", "STA130",
+                                "STA130", "CSC108", "MAT137",
+                                "STA130", "MAT137", "MAT137"),
+                     grade = round(rnorm(n = 12, mean = 80, sd = 4)))
+```
+
+```{r missing-data-3}
+first_year
+```
+
+As you can see, our data is missing some rows that would correspond to courses that 
+students have yet to complete. Suppose, for some reason, that you want to count the number 
+of courses that are left for all students to take until they have completed all their 
+requirements, or maybe you want to try predicting the grades a student will get on their 
+remaining courses. Regardless, you will need to "manipulate" this data set to make it so 
+that you can see which courses students have yet to complete. The `complete()` function is 
+right tool to do this and we can do this as follows.
+
+```{r missing-data-4, include = FALSE}
+first_year %>%
+  complete(student_id, course)
+```
+```{r missing-data-4-flair, echo = FALSE}
+decorate("missing-data-4") %>%
+  flair("complete", color = "hotpink") %>%
+  knit_print.with_flair()
+```
+
+This function gives us rows that represent courses students still haven't completed,
+which we don't have their grades for.
+
+## Video
+
+![](https://youtu.be/1zowsiffKHg)
+
+## Arguments
+
+## complete()
+
+The `complete()` function takes the following as arguments:
+
+| Argument | Parameter        | Details                                           |
+| -------- | ---------------- | ------------------------------------------------- |
+| data     | input data frame | data whose columns we'll use to find missing data |
+| …        | vector           | columns to find and complete all combinations for |
+| fill     | named list       | values to fill the cells for newly added rows     |
+
+You can read more about the arguments in the `complete()` function reference
+[here](https://tidyr.tidyverse.org/reference/complete.html) or with `?complete`.
+
+## fill()
+
+The `fill()` function takes the following as arguments:
+
+| Argument   | Parameter        | Details                                               |
+| ---------- | ---------------- | ----------------------------------------------------- |
+| data       | input data frame | dataframe whose columns we use to fill missing data   |
+| …          | vector           | columns to find and complete all combinations for     |
+| .direction | string           | 'up', 'down', 'downup' for direction to fill values   |
+
+You can read more about the arguments in the `fill()` function reference
+[here](https://tidyr.tidyverse.org/reference/fill.html) or with `?fill`.
+
+## Exercises
+
+There are many ways to fill the data we got above. If, for some reason, we wanted to fill
+it based on the past or the next value, we can use the fill() function. If, however, we 
+wanted to fill all the empty values with a specific number, we could use the fill 
+parameter within the complete() function.
+
+### Exercise 1
+
+Referencing the Arguments section, try to fill it based on the _past_ value using the
+fill() function.
+
+```{r missing-data-exercise-1, exercise = TRUE}
+
+```
+
+```{r missing-data-exercise-1-sol, echo = FALSE}
+missing_data_ex1_sol <- first_year %>%
+  complete(student_id, course) %>%
+  fill(grade, .direction = 'down')
+```
+
+
+### Exercise 2
+
+Referencing the Arguments section, try to fill all the empty values with a specific number
+0 and using the fill parameter within the complete() function.
+
+```{r missing-data-exercise-2, exercise = TRUE}
+
+```
+
+```{r missing-data-exercise-2-sol, echo = FALSE}
+missing_data_ex2_sol <- first_year %>%
+  complete(student_id, course, fill = list(grade = 0))
+```
+
+
+## Next Steps
+
+If you would like to learn more about the complete() and fill() functions, you will find
+these resources from tidyr very helpful:
+
+- [tidyr: Complete a data frame with missing combinations of data](https://tidyr.tidyverse.org/reference/complete.html)
+- [tidyr: Fill in missing values with previous or next
+value](https://tidyr.tidyverse.org/reference/fill.html)
+
+
+
+
+
+
+
+
+
+
+
+
+

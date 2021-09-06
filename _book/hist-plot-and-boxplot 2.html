@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 47 hist, plot and boxplot | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 47 hist, plot and boxplot | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 47 hist, plot and boxplot | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="hist-plot-and-boxplot" class="section level1" number="47">
+<h1><span class="header-section-number">Chapter 47</span> hist, plot and boxplot</h1>
+<p><em>Written by Yena Joo.</em></p>
+<div id="introduction-43" class="section level2" number="47.1">
+<h2><span class="header-section-number">47.1</span> Introduction</h2>
+<p>R has various functions to produce a wide range of graphics to visualize data. Visualizing data is the first step of any analysis, since it provides you the broad idea and distribution of data that helps you build your hypothesis, so it is important to know how to plot base graphs using R. With the basic functions that R provides, we can easily and quickly make different types of graphs within seconds.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>create a histogram using <code>hist()</code> using various arguments.</li>
+<li>other base graphing options such as scatterplots and boxplots.</li>
+<li>export the created base graphs.</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Import dataset</li>
+<li>materials from the previous modules</li>
+<li>choosing the right variables to plot</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li><code>hist()</code></li>
+<li><code>plot()</code></li>
+<li><code>boxplot()</code></li>
+<li><code>export_type(file = filename)</code></li>
+</ul>
+</div>
+<div id="histogram-hist" class="section level2" number="47.2">
+<h2><span class="header-section-number">47.2</span> Histogram: <code>hist()</code></h2>
+<p>A histogram is a graph using bars of different heights, which shows the number of elements in each bin/category. It can also be called a frequency graph, where the y-axis is the frequency of the variable, and x is the range of the variable.</p>
+<p>You can create a histogram using the <code>hist()</code> function. The function has many arguments to control things such as bin size, title, labels, colours, etc.</p>
+<p>The function is composed of:</p>
+<pre><code>hist(x, breaks = &quot;Sturges&quot;, freq = NULL, probability = !freq, include.lowest = TRUE, right = TRUE, density = NULL, angle = 45, col = NULL, border = NULL, main = paste(&quot;Histogram of&quot; , xname), xlim = range(breaks), ylim = NULL, xlab = xname, ylab, axes = TRUE, plot = TRUE, labels = FALSE, nclass = NULL, warn.unused = TRUE, …)</code></pre>
+<ul>
+<li>x: a vector of values (ig. a column in a dataset).<br />
+</li>
+<li>breaks: number, vector, function of breakpoints between histogram cells.<br />
+</li>
+<li>main, xlab, ylab: title and axis labels.</li>
+</ul>
+<p>Here is an <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist">additional information about the arguments</a> you may find helpful.</p>
+<p>Let’s work with an example with the built-in dataset called <code>mtcars</code>. Here are the first 6 observations of the dataset.</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="hist-plot-and-boxplot.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
+<span id="cb282-2"><a href="hist-plot-and-boxplot.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                    mpg cyl disp  hp drat    wt  qsec vs am</span></span>
+<span id="cb282-3"><a href="hist-plot-and-boxplot.html#cb282-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1</span></span>
+<span id="cb282-4"><a href="hist-plot-and-boxplot.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1</span></span>
+<span id="cb282-5"><a href="hist-plot-and-boxplot.html#cb282-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1</span></span>
+<span id="cb282-6"><a href="hist-plot-and-boxplot.html#cb282-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0</span></span>
+<span id="cb282-7"><a href="hist-plot-and-boxplot.html#cb282-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0</span></span>
+<span id="cb282-8"><a href="hist-plot-and-boxplot.html#cb282-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0</span></span>
+<span id="cb282-9"><a href="hist-plot-and-boxplot.html#cb282-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   gear carb</span></span>
+<span id="cb282-10"><a href="hist-plot-and-boxplot.html#cb282-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4            4    4</span></span>
+<span id="cb282-11"><a href="hist-plot-and-boxplot.html#cb282-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4 Wag        4    4</span></span>
+<span id="cb282-12"><a href="hist-plot-and-boxplot.html#cb282-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Datsun 710           4    1</span></span>
+<span id="cb282-13"><a href="hist-plot-and-boxplot.html#cb282-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Hornet 4 Drive       3    1</span></span>
+<span id="cb282-14"><a href="hist-plot-and-boxplot.html#cb282-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Hornet Sportabout    3    2</span></span>
+<span id="cb282-15"><a href="hist-plot-and-boxplot.html#cb282-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Valiant              3    1</span></span></code></pre></div>
+<p>Now let’s create the histogram using <code>hist()</code> function above.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="hist-plot-and-boxplot.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="number-of-bins" class="section level3" number="47.2.1">
+<h3><span class="header-section-number">47.2.1</span> Number of Bins</h3>
+<p>You can change the number of bins to create a more accurate histogram since a large number of bins could hide important details about distribution which could make an error in the interpretation of the graph. To make a smaller number of bins, change the value of the argument <code>breaks =</code> into how many bins you want to set in the histogram.</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="hist-plot-and-boxplot.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb284-2"><a href="hist-plot-and-boxplot.html#cb284-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Another way is to put the exact break points in the argument.</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="hist-plot-and-boxplot.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb285-2"><a href="hist-plot-and-boxplot.html#cb285-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>))</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="colour-of-the-histogram" class="section level3" number="47.2.2">
+<h3><span class="header-section-number">47.2.2</span> Colour of the histogram</h3>
+<p>To change the colour of the histogram, use <code>col =</code> argument, such as <code>col = "pink"</code>. The colour of the border of the bars could also be changed with the argument <code>border =</code>.</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="hist-plot-and-boxplot.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb286-2"><a href="hist-plot-and-boxplot.html#cb286-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
+<span id="cb286-3"><a href="hist-plot-and-boxplot.html#cb286-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;pink&quot;</span>, </span>
+<span id="cb286-4"><a href="hist-plot-and-boxplot.html#cb286-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="title-and-axis" class="section level3" number="47.2.3">
+<h3><span class="header-section-number">47.2.3</span> Title and Axis</h3>
+<p>Once you are done fine-tuning the histogram, you can add your own title and axis labels using <code>main</code>, <code>xlab</code>, and <code>ylab</code> arguments.</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="hist-plot-and-boxplot.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb287-2"><a href="hist-plot-and-boxplot.html#cb287-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
+<span id="cb287-3"><a href="hist-plot-and-boxplot.html#cb287-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;This is a title&quot;</span>, </span>
+<span id="cb287-4"><a href="hist-plot-and-boxplot.html#cb287-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;This is x-axis&quot;</span>,</span>
+<span id="cb287-5"><a href="hist-plot-and-boxplot.html#cb287-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;This is y-axis&quot;</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>For more specific arguments, you can always run <code>help("hist")</code> in the console to find more about the function.</p>
+</div>
+</div>
+<div id="other-base-graphing-options" class="section level2" number="47.3">
+<h2><span class="header-section-number">47.3</span> Other base graphing options</h2>
+<div id="scatterplot" class="section level3" number="47.3.1">
+<h3><span class="header-section-number">47.3.1</span> Scatterplot</h3>
+<p>A Scatter plot is another good way to visualize the data. There are many ways to create a scatterplot in R, but this is the most basic and the easiest way to create a scatterplot, using the function <code>plot(x, y)</code>. <code>x</code> and <code>y</code> arguments should be numerical values denoting (x,y) points. Using the same dataset, we can plot the scatterplot of <code>mpg</code> and <code>disp</code> as follows:</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="hist-plot-and-boxplot.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, <span class="at">y =</span> mtcars<span class="sc">$</span>disp)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>To define the colour of the plot, you can use the argument <code>col =</code>.
+The arguments are basically the same as when we create a histogram.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="hist-plot-and-boxplot.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, <span class="at">y =</span> mtcars<span class="sc">$</span>disp,</span>
+<span id="cb289-2"><a href="hist-plot-and-boxplot.html#cb289-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;pink&quot;</span>, </span>
+<span id="cb289-3"><a href="hist-plot-and-boxplot.html#cb289-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;This is a title&quot;</span>, </span>
+<span id="cb289-4"><a href="hist-plot-and-boxplot.html#cb289-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;This is x-axis&quot;</span>,</span>
+<span id="cb289-5"><a href="hist-plot-and-boxplot.html#cb289-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;This is y-axis&quot;</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Detailed descriptions of the arguments could be found <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot">here</a> or type <code>help("plot")</code> in your console.</p>
+</div>
+<div id="boxplot" class="section level3" number="47.3.2">
+<h3><span class="header-section-number">47.3.2</span> Boxplot</h3>
+<p>Boxplot is good for depicting groups of numerical data through their quartiles. The boxplot presents information such as median, minimum and maximum score, lower and upper quartile, and IQR. Boxplots also allow you to visualize the outliers and compare multiple distributions.</p>
+<p>To create a boxplot, simply use the function <code>boxplot()</code>.</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="hist-plot-and-boxplot.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> mpg<span class="sc">~</span>cyl, <span class="at">data =</span> mtcars)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Changing the colour, or labeling a title and axes is easy, the same as how we did for histograms and scatter plots. Also, you can use <code>horizontal=TRUE</code> to reverse the axis orientation.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="hist-plot-and-boxplot.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> mpg<span class="sc">~</span>cyl, <span class="at">data =</span> mtcars,</span>
+<span id="cb291-2"><a href="hist-plot-and-boxplot.html#cb291-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;pink&quot;</span>, </span>
+<span id="cb291-3"><a href="hist-plot-and-boxplot.html#cb291-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;This is a title&quot;</span>, </span>
+<span id="cb291-4"><a href="hist-plot-and-boxplot.html#cb291-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;This is x-axis&quot;</span>,</span>
+<span id="cb291-5"><a href="hist-plot-and-boxplot.html#cb291-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;This is y-axis&quot;</span>, </span>
+<span id="cb291-6"><a href="hist-plot-and-boxplot.html#cb291-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Detailed descriptions of the arguments could be found <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/boxplot">here</a> or type <code>help("boxplot")</code> in your console.</p>
+</div>
+</div>
+<div id="exporting-base-graphs" class="section level2" number="47.4">
+<h2><span class="header-section-number">47.4</span> exporting base graphs</h2>
+<p>Once you created a nice graph, you might want to save or export the graph. Set the file name for the plot you are going to save using the function <code>jpeg(file = filename.jpeg)</code>, if you want to save it as a jpeg image.<br />
+For pdf files, use <code>pdf(file = filename.pdf)</code>.<br />
+For png files , use <code>png(file = filename.png)</code>.<br />
+We need to call the function <code>dev.off()</code> after plotting, which will return control to the screen.</p>
+<p>We can set the resolution we want using the <code>width</code> and <code>height</code> arguments or set the full local path of the file we want to save if we don’t want to save it in the current directory.</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="hist-plot-and-boxplot.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">file =</span> <span class="st">&quot;scatterplot.png&quot;</span>, <span class="at">width =</span> <span class="dv">500</span>, <span class="at">height =</span> <span class="dv">300</span>)</span>
+<span id="cb292-2"><a href="hist-plot-and-boxplot.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>mpg, <span class="at">y =</span> mtcars<span class="sc">$</span>disp)</span>
+<span id="cb292-3"><a href="hist-plot-and-boxplot.html#cb292-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb292-4"><a href="hist-plot-and-boxplot.html#cb292-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; quartz_off_screen </span></span>
+<span id="cb292-5"><a href="hist-plot-and-boxplot.html#cb292-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 2</span></span></code></pre></div>
+</div>
+<div id="exercises-24" class="section level2" number="47.5">
+<h2><span class="header-section-number">47.5</span> Exercises</h2>
+<div id="question-1-4" class="section level3" number="47.5.1">
+<h3><span class="header-section-number">47.5.1</span> Question 1</h3>
+<p>Using the given dataset <code>USArrests</code>, create a histogram that depicts the distribution of assaults, set the bar colour to “blue” and set it to 15 bins. The title of the plot should be “Histogram of Assaults,” with the x-axis “Assaults.”</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="hist-plot-and-boxplot.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(USArrests)</span>
+<span id="cb293-2"><a href="hist-plot-and-boxplot.html#cb293-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Murder Assault UrbanPop Rape</span></span>
+<span id="cb293-3"><a href="hist-plot-and-boxplot.html#cb293-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama      13.2     236       58 21.2</span></span>
+<span id="cb293-4"><a href="hist-plot-and-boxplot.html#cb293-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska       10.0     263       48 44.5</span></span>
+<span id="cb293-5"><a href="hist-plot-and-boxplot.html#cb293-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona       8.1     294       80 31.0</span></span>
+<span id="cb293-6"><a href="hist-plot-and-boxplot.html#cb293-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas      8.8     190       50 19.5</span></span>
+<span id="cb293-7"><a href="hist-plot-and-boxplot.html#cb293-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California    9.0     276       91 40.6</span></span>
+<span id="cb293-8"><a href="hist-plot-and-boxplot.html#cb293-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado      7.9     204       78 38.7</span></span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="hist-plot-and-boxplot.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> USArrests<span class="sc">$</span>Assault, </span>
+<span id="cb294-2"><a href="hist-plot-and-boxplot.html#cb294-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb294-3"><a href="hist-plot-and-boxplot.html#cb294-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of Assaults&quot;</span>, </span>
+<span id="cb294-4"><a href="hist-plot-and-boxplot.html#cb294-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Assaults&quot;</span>, </span>
+<span id="cb294-5"><a href="hist-plot-and-boxplot.html#cb294-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">15</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/q1_hist-solution-1.png" width="672" />
+### Question 2</p>
+<p>Save the plot you created in Question 1 as png file. The file name should be <code>answer2</code>.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="hist-plot-and-boxplot.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">file =</span> <span class="st">&quot;answer2.png&quot;</span>)</span>
+<span id="cb295-2"><a href="hist-plot-and-boxplot.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> USArrests<span class="sc">$</span>Assault, </span>
+<span id="cb295-3"><a href="hist-plot-and-boxplot.html#cb295-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb295-4"><a href="hist-plot-and-boxplot.html#cb295-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of Assaults&quot;</span>, </span>
+<span id="cb295-5"><a href="hist-plot-and-boxplot.html#cb295-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Assaults&quot;</span>, </span>
+<span id="cb295-6"><a href="hist-plot-and-boxplot.html#cb295-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">15</span>)</span>
+<span id="cb295-7"><a href="hist-plot-and-boxplot.html#cb295-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb295-8"><a href="hist-plot-and-boxplot.html#cb295-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; quartz_off_screen </span></span>
+<span id="cb295-9"><a href="hist-plot-and-boxplot.html#cb295-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 2</span></span></code></pre></div>
+</div>
+<div id="question-3-4" class="section level3" number="47.5.2">
+<h3><span class="header-section-number">47.5.2</span> Question 3</h3>
+<p>Create a scatter plot that depicts how the number of murders affects the number of rapes. Set the colour to pink, and the title of the plot should be “Scatterplot.” X and y axes should be labeled as the variable name.</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="hist-plot-and-boxplot.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> USArrests<span class="sc">$</span>Murder, <span class="at">y =</span> USArrests<span class="sc">$</span>Rape,</span>
+<span id="cb296-2"><a href="hist-plot-and-boxplot.html#cb296-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;pink&quot;</span>, </span>
+<span id="cb296-3"><a href="hist-plot-and-boxplot.html#cb296-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Scatterplot&quot;</span>, </span>
+<span id="cb296-4"><a href="hist-plot-and-boxplot.html#cb296-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Murder&quot;</span>,</span>
+<span id="cb296-5"><a href="hist-plot-and-boxplot.html#cb296-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Rape&quot;</span>)</span></code></pre></div>
+<p><img src="056-totally_addicted_to_base-hist_plot_boxplot_files/figure-html/q3_hist-solution-1.png" width="672" /></p>
+</div>
+</div>
+<div id="common-mistakes-errors-18" class="section level2" number="47.6">
+<h2><span class="header-section-number">47.6</span> Common mistakes &amp; errors</h2>
+<p>Here are some common mistakes and errors you may come across:</p>
+<ul>
+<li>Do not confound histogram with a barplot. They are different plots, where histograms visualize the frequency of numerical data, and bar charts visualize categorical data.<br />
+</li>
+<li>Bin size is important. Make sure you are using the right bin size.</li>
+</ul>
+<div id="overview-and-next-steps-2" class="section level3" number="47.6.1">
+<h3><span class="header-section-number">47.6.1</span> Overview and Next steps</h3>
+<p>This is the last lecture of the module “Totally addicted to base.”
+With the functions we have learned today as well as in the previous lectures, you can create well-made base graphs and export them to present in your projects or papers.</p>
+</div>
+</div>
+<div id="references-2" class="section level2" number="47.7">
+<h2><span class="header-section-number">47.7</span> References</h2>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist">hist() function</a></li>
+<li><a href="https://www.statmethods.net/graphs/scatterplot.html">scatterplots</a></li>
+<li><a href="https://www.statmethods.net/graphs/boxplot.html">boxplot() function</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

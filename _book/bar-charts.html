@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 74 Bar charts | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Matthew Wankiewicz.  74.1 Introduction In this lesson, you will learn how to: Plot bar charts using the ggplot package Customize bar charts with ggplot Prerequisite skills include:...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 74 Bar charts | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Matthew Wankiewicz.  74.1 Introduction In this lesson, you will learn how to: Plot bar charts using the ggplot package Customize bar charts with ggplot Prerequisite skills include:...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 74 Bar charts | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz.  74.1 Introduction In this lesson, you will learn how to: Plot bar charts using the ggplot package Customize bar charts with ggplot Prerequisite skills include:...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-6.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-12.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-22.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-1.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-36.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="glm.html"><span class="header-section-number">43</span> glm</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">44</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">45</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">46</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">47</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">48</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-lapply.html"><span class="header-section-number">49</span> apply sapply lapply</a></li>
+<li><a class="" href="basename-etc.html"><span class="header-section-number">50</span> basename etc</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">51</span> sum round etc</a></li>
+<li><a class="" href="isna-which-unique-identical.html"><span class="header-section-number">52</span> isna which unique identical</a></li>
+<li><a class="" href="rownames-and-colnames.html"><span class="header-section-number">53</span> rownames and colnames</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">54</span> floor ceiling round and abs</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-43.html"><span class="header-section-number">55</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">56</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">57</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">58</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">59</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">60</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">61</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">68</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">69</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-59.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="active" href="bar-charts.html"><span class="header-section-number">74</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">75</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">76</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">77</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">78</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">79</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">80</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">81</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-65.html"><span class="header-section-number">82</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">83</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">84</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">85</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">86</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">87</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">88</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">89</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-73.html"><span class="header-section-number">90</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">91</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">92</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">93</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">94</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">95</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">96</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-79.html"><span class="header-section-number">97</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">98</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">99</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">100</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">101</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">102</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">103</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">104</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">105</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">106</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">107</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">108</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">109</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">110</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">111</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">112</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">113</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">114</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">115</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">116</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">117</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">118</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">119</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">120</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="bar-charts" class="section level1" number="74">
+<h1>
+<span class="header-section-number">74</span> Bar charts<a class="anchor" aria-label="anchor" href="#bar-charts"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Matthew Wankiewicz.</em></p>
+<div id="introduction-60" class="section level2" number="74.1">
+<h2>
+<span class="header-section-number">74.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-60"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Plot bar charts using the <code>ggplot</code> package</li>
+<li>Customize bar charts with <code>ggplot</code>
+</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Having <code>ggplot</code> installed and loaded</li>
+<li>Basic familiarity with <code>ggplot</code>
+</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>Bar charts are the best way to display categorical data.</li>
+<li>The <code>ggplot</code> function allows you to customize your bar graphs.</li>
+</ul>
+</div>
+<div id="the-content-6" class="section level2" number="74.2">
+<h2>
+<span class="header-section-number">74.2</span> The content<a class="anchor" aria-label="anchor" href="#the-content-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you encounter a dataset that does not include numerical data, the best way to visualize what you are working with is a bar chart. Generally, bar charts will have the categorical variable on the x-axis, and the count/percentage on the y-axis.</p>
+<p>Bar charts are different from graphs like histograms because histograms display numerical variables while bar charts work best for categorical.</p>
+<p>Bar charts are useful for getting a view of how your data looks and seeing which groups appear the most.</p>
+</div>
+<div id="arguments-18" class="section level2" number="74.3">
+<h2>
+<span class="header-section-number">74.3</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-18"><i class="fas fa-link"></i></a>
+</h2>
+<p>The main arguments for making bar charts is part of the <code>ggplot</code> function:</p>
+<ul>
+<li>
+<strong>data:</strong> This represents the dataset you plan to use. You can either write <code>data = dataframe</code> or you can pipe the dataset into <code>ggplot</code>.</li>
+<li>
+<strong><code>aes():</code></strong> This is where you place the argument that decides which variable you are focusing on.
+<ul>
+<li>
+<code>x = variable:</code> This is the variable you want to display.</li>
+<li>
+<code>fill = variable:</code> This can change the fill of your bar depending on the different options in your variable.</li>
+</ul>
+</li>
+<li>
+<strong><code>geom_bar():</code></strong> This is where you put any arguments to change the looks of your graph, whether it’s colour or size of the bars.
+<ul>
+<li>
+<strong><code>fill:</code></strong> This argument decides the colour of the inside of the bars.</li>
+<li>
+<strong><code>colour:</code></strong> This argument decides the colour of the outline of the bars.</li>
+</ul>
+</li>
+<li>The <code>labs</code> function is useful for adding titles and subtitles to your graph.</li>
+</ul>
+</div>
+<div id="other-optional-arguments-3" class="section level2" number="74.4">
+<h2>
+<span class="header-section-number">74.4</span> Other Optional Arguments<a class="anchor" aria-label="anchor" href="#other-optional-arguments-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some optional arguments for the <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> function include:</p>
+<ul>
+<li>
+<strong><code>width:</code></strong> This argument changes the width of the bars, it defaults at 0.9.</li>
+<li>
+<strong><code>alpha:</code></strong> Changes the transparency of the bars.</li>
+</ul>
+</div>
+<div id="questions-8" class="section level2" number="74.5">
+<h2>
+<span class="header-section-number">74.5</span> Questions<a class="anchor" aria-label="anchor" href="#questions-8"><i class="fas fa-link"></i></a>
+</h2>
+<p>For this module, we will be using lemur data from Alex Cookson, <a href="https://github.com/tacookson/data/tree/master/duke-lemur-center" class="uri">https://github.com/tacookson/data/tree/master/duke-lemur-center</a>.</p>
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu">read_tsv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/duke-lemur-center/animals.txt"</span><span class="op">)</span></code></pre></div>
+<p>Let’s start with plotting a simple bar chart of the sex of the animals in the dataset. We will see that R names the x and y axis but does not add a title.</p>
+<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-1-1.png" width="672"></div>
+<p>We can also change the colours of the inside of the bars, using the fill argument. If we set it equal to green, we will get green bars.</p>
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-fill-1.png" width="672"></div>
+<p>Similarly, we can also change the colour of the outline of the bars. If we set it to red, the outline of the bars will be red.</p>
+<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-colour-1.png" width="672"></div>
+<p>Both the fill and colour arguments can be combined in the same call of the <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> function</p>
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span>, colour <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-fill-col-1.png" width="672"></div>
+<p>You can also change the colour/fill by adding the argument to the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> expression. Doing this will give a specific colour for each value in your fill variable.</p>
+<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">birth_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-fill-aes-1.png" width="672"></div>
+<div id="optional-arguments" class="section level3" number="74.5.1">
+<h3>
+<span class="header-section-number">74.5.1</span> Optional Arguments<a class="anchor" aria-label="anchor" href="#optional-arguments"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using the same data, we can change the width of the bars. Using a width greater than 0.9 will make the bars wider, and using a width smaller than 0.9 will make them thinner.</p>
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span>, colour <span class="op">=</span> <span class="st">"red"</span>, 
+           width <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-width-1.png" width="672"></div>
+</div>
+<div id="adding-labels-to-your-bar-charts" class="section level3" number="74.5.2">
+<h3>
+<span class="header-section-number">74.5.2</span> Adding labels to your bar charts<a class="anchor" aria-label="anchor" href="#adding-labels-to-your-bar-charts"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>labs</code> function helps add labels such as titles, subtitles, and labels for the x and y axis.</p>
+<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span>, colour <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"My bar chart's title"</span>,
+       subtitle <span class="op">=</span> <span class="st">"Using animal data"</span>,
+       x <span class="op">=</span> <span class="st">"Sex"</span>,
+       y <span class="op">=</span> <span class="st">"Count"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-title-1.png" width="672"></div>
+<p>For the most part, you won’t really need to change the y-axis as it just gives the count, but make sure to change the x-axis if it is a confusing variable name.</p>
+</div>
+<div id="plotting-numeric-variables" class="section level3" number="74.5.3">
+<h3>
+<span class="header-section-number">74.5.3</span> Plotting numeric variables<a class="anchor" aria-label="anchor" href="#plotting-numeric-variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can still create bar charts using numeric variables, provided that there aren’t too many different numbers present.</p>
+<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">litter_size</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Distribution of Litter Sizes"</span>,
+       x <span class="op">=</span> <span class="st">"Litter Size"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-numeric-1.png" width="672"></div>
+</div>
+<div id="rotating-your-bar-chart" class="section level3" number="74.5.4">
+<h3>
+<span class="header-section-number">74.5.4</span> Rotating your bar chart<a class="anchor" aria-label="anchor" href="#rotating-your-bar-chart"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>coord_flip</code> function works to rotate the bar chart, giving a different view of the data. It also helps display the labels on the x-axis if they are overlapped. For this example, we can rotate the graph that was plotted above.</p>
+<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">litter_size</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Distribution of Litter Sizes"</span>,
+       x <span class="op">=</span> <span class="st">"Litter Size"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-graph-coord-flip-1.png" width="672"></div>
+</div>
+</div>
+<div id="exercises-37" class="section level2" number="74.6">
+<h2>
+<span class="header-section-number">74.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-37"><i class="fas fa-link"></i></a>
+</h2>
+<div id="plot-a-simple-bar-chart" class="section level3" number="74.6.1">
+<h3>
+<span class="header-section-number">74.6.1</span> Plot a Simple Bar Chart<a class="anchor" aria-label="anchor" href="#plot-a-simple-bar-chart"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a bar chart of the type of birth for the lemurs in the <code>animals</code> dataset. (Hint: the variable for type of birth is <code>birth_type</code>)</p>
+<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Enter code below</span>
+<span class="va">animals</span>
+<span class="co">#&gt; # A tibble: 3,749 × 20</span>
+<span class="co">#&gt;    animal_id studbook_id name   taxonomic_code species sex  </span>
+<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;</span>
+<span class="co">#&gt;  1 0001      &lt;NA&gt;        White… OGG            Northe… F    </span>
+<span class="co">#&gt;  2 0002      &lt;NA&gt;        Bruis… OGG            Northe… M    </span>
+<span class="co">#&gt;  3 0003      &lt;NA&gt;        George OGG            Northe… M    </span>
+<span class="co">#&gt;  4 0004      &lt;NA&gt;        Tigger OGG            Northe… M    </span>
+<span class="co">#&gt;  5 0005      &lt;NA&gt;        Kanga  OGG            Northe… M    </span>
+<span class="co">#&gt;  6 0006      &lt;NA&gt;        Roo    OGG            Northe… F    </span>
+<span class="co">#&gt;  7 0007      &lt;NA&gt;        Hermit OGG            Northe… M    </span>
+<span class="co">#&gt;  8 0008      &lt;NA&gt;        Pigle… OGG            Northe… F    </span>
+<span class="co">#&gt;  9 0009      &lt;NA&gt;        Pooh … OGG            Northe… M    </span>
+<span class="co">#&gt; 10 0010      &lt;NA&gt;        Eeyore OGG            Northe… M    </span>
+<span class="co">#&gt; # … with 3,739 more rows, and 14 more variables:</span>
+<span class="co">#&gt; #   birth_date &lt;date&gt;, birth_type &lt;chr&gt;, litter_size &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   death_date &lt;date&gt;, mother_id &lt;chr&gt;, mother_name &lt;chr&gt;,</span>
+<span class="co">#&gt; #   mother_taxonomic_code &lt;chr&gt;, mother_species &lt;chr&gt;,</span>
+<span class="co">#&gt; #   mother_birth_date &lt;date&gt;, father_id &lt;chr&gt;,</span>
+<span class="co">#&gt; #   father_name &lt;chr&gt;, father_taxonomic_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   father_species &lt;chr&gt;, father_birth_date &lt;date&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">birth_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-q1-solution-1.png" width="672"></div>
+</div>
+<div id="making-your-bar-chart-a-little-more-interesting" class="section level3" number="74.6.2">
+<h3>
+<span class="header-section-number">74.6.2</span> Making your bar chart a little more interesting<a class="anchor" aria-label="anchor" href="#making-your-bar-chart-a-little-more-interesting"><i class="fas fa-link"></i></a>
+</h3>
+<p>For this exercise, pick any colour to fill the bars of the bar chart and another colour for the outline. This time, plot the different types of species present in the dataset (don’t worry about the labels overlapping, we’ll address that later.)</p>
+<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Enter code below, choose any colour you want</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"blue"</span>, colour <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-q2-solution-1.png" width="672"></div>
+<p>Since there were so many unique names in the species variable, it causes the x-axis labels to overlap. We can fix this using <code>coord_flip</code>, try it out for yourself! Plot the same graph as above, but use the <code>coord_flip</code> function</p>
+<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Enter solution below</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"blue"</span>, colour <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-q2-2-solution-1.png" width="672"></div>
+</div>
+<div id="using-the-aes-fill-option" class="section level3" number="74.6.3">
+<h3>
+<span class="header-section-number">74.6.3</span> Using the <code>aes()</code> fill option<a class="anchor" aria-label="anchor" href="#using-the-aes-fill-option"><i class="fas fa-link"></i></a>
+</h3>
+<p>For this exercise, plot the distribution of species of Lemur present in the dataset. Then, fill each bar depending on the sex of the lemur.</p>
+<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-q3-1.png" width="672"></div>
+<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-q3-solution-1.png" width="672"></div>
+</div>
+<div id="check-your-understanding" class="section level3" number="74.6.4">
+<h3>
+<span class="header-section-number">74.6.4</span> Check your understanding<a class="anchor" aria-label="anchor" href="#check-your-understanding"><i class="fas fa-link"></i></a>
+</h3>
+<p>The next questions will focus on the plot below</p>
+<div class="inline-figure"><img src="074-to_ggplot_or_not_to_ggplot-barcharts_files/figure-html/bar-chart-quiz-1.png" width="672"></div>
+<!-- ```{r bar-chart-quiz-1, echo=FALSE} -->
+<!-- question("Select the functions that it looks like were used to make this bar chart.", -->
+<!--          answer("ggplot", correct = T), -->
+<!--          answer("coord_flip", correct = T), -->
+<!--          answer("geom_bar", correct = T), -->
+<!--          answer("geom_point", correct = F), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ```{r bar-chart-quiz-2, echo=FALSE} -->
+<!-- question("If I wanted to change the colour of the **inside** of the bars, which argument would I need to use?", -->
+<!--          answer("fill = colour", correct = T), -->
+<!--          answer("colour = colour", correct = F), -->
+<!--          answer("inside = colour", correct = F), -->
+<!--          answer("bar_colour = colour", correct = F), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ```{r bar-chart-quiz-3, echo=FALSE} -->
+<!-- question("What code chunk would make a plot identical to the plot above. (Feel free to copy these into your own R file)", -->
+<!--   answer("animals %>%  -->
+<!--   ggplot(aes(taxonomic_code)) + -->
+<!--   geom_bar() + -->
+<!--   labs(title = 'Distribution of Taxonomic Codes', -->
+<!--        x = 'Taxonomic Code')", correct = F), -->
+<!--   answer("animals %>%  -->
+<!--   ggplot(aes(taxonomic_code)) + -->
+<!--   geom_bar()", correct = FALSE), -->
+<!--   answer("animals %>%  -->
+<!--   ggplot(aes(taxonomic_code)) + -->
+<!--   geom_bar() +  -->
+<!--   coord_flip() + -->
+<!--   labs(title = 'Distribution of Taxonomic Codes', -->
+<!--        x = 'Taxonomic Code')", correct = T), -->
+<!--   answer("animals %>%  -->
+<!--   ggplot(aes(taxonomic_code)) + -->
+<!--   geom_bar() +  -->
+<!--   coord_flip()", correct = FALSE), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="common-mistakes-errors-24" class="section level2" number="74.7">
+<h2>
+<span class="header-section-number">74.7</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-24"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>If the outline for graphs shows up but there are no bars present, it likely occurred because you didn’t add <code>geom_bar</code> to your expression.</p></li>
+<li><p>If your labels appear to overlap, you can try using <code>coord_flip</code> to space them out a bit. If that doesn’t work, you can add the <code>theme</code> function and change the size, and angle of the text. For example, <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme(axis.text.x = element_text(angle=90))</a></code> puts the text at a 90 degree angle.</p></li>
+<li><p>When connecting <code>ggplot</code> to <code>geom_bar</code> make sure you use a plus sign (+) instead of the pipe operator.</p></li>
+<li><p>If you get an error saying “object not found,” it means that you may have missed a quotation mark around a colour or made a typo when referencing a variable.</p></li>
+</ul>
+</div>
+<div id="next-steps-40" class="section level2" number="74.8">
+<h2>
+<span class="header-section-number">74.8</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-40"><i class="fas fa-link"></i></a>
+</h2>
+<p>For more information on bar charts in R you can look at <a href="http://www.sthda.com/english/wiki/ggplot2-barplots-quick-start-guide-r-software-and-data-visualization" class="uri">http://www.sthda.com/english/wiki/ggplot2-barplots-quick-start-guide-r-software-and-data-visualization</a></p>
+<p>Another great resource for the different type of bar charts you can make in R is <a href="https://www.learnbyexample.org/r-bar-plot-ggplot2/" class="uri">https://www.learnbyexample.org/r-bar-plot-ggplot2/</a></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></div>
+<div class="next"><a href="histograms.html"><span class="header-section-number">75</span> Histograms</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#bar-charts"><span class="header-section-number">74</span> Bar charts</a></li>
+<li><a class="nav-link" href="#introduction-60"><span class="header-section-number">74.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#the-content-6"><span class="header-section-number">74.2</span> The content</a></li>
+<li><a class="nav-link" href="#arguments-18"><span class="header-section-number">74.3</span> Arguments</a></li>
+<li><a class="nav-link" href="#other-optional-arguments-3"><span class="header-section-number">74.4</span> Other Optional Arguments</a></li>
+<li>
+<a class="nav-link" href="#questions-8"><span class="header-section-number">74.5</span> Questions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#optional-arguments"><span class="header-section-number">74.5.1</span> Optional Arguments</a></li>
+<li><a class="nav-link" href="#adding-labels-to-your-bar-charts"><span class="header-section-number">74.5.2</span> Adding labels to your bar charts</a></li>
+<li><a class="nav-link" href="#plotting-numeric-variables"><span class="header-section-number">74.5.3</span> Plotting numeric variables</a></li>
+<li><a class="nav-link" href="#rotating-your-bar-chart"><span class="header-section-number">74.5.4</span> Rotating your bar chart</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#exercises-37"><span class="header-section-number">74.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#plot-a-simple-bar-chart"><span class="header-section-number">74.6.1</span> Plot a Simple Bar Chart</a></li>
+<li><a class="nav-link" href="#making-your-bar-chart-a-little-more-interesting"><span class="header-section-number">74.6.2</span> Making your bar chart a little more interesting</a></li>
+<li><a class="nav-link" href="#using-the-aes-fill-option"><span class="header-section-number">74.6.3</span> Using the aes() fill option</a></li>
+<li><a class="nav-link" href="#check-your-understanding"><span class="header-section-number">74.6.4</span> Check your understanding</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-24"><span class="header-section-number">74.7</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-40"><span class="header-section-number">74.8</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/074-to_ggplot_or_not_to_ggplot-barcharts.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/074-to_ggplot_or_not_to_ggplot-barcharts.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

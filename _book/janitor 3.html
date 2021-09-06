@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 71 janitor | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 71 janitor | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 71 janitor | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="janitor" class="section level1" number="71">
+<h1><span class="header-section-number">Chapter 71</span> janitor</h1>
+<p><em>Written by Mariam Walaa.</em></p>
+<div id="introduction-65" class="section level2" number="71.1">
+<h2><span class="header-section-number">71.1</span> Introduction</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Tidy up variable names that are in your dataset</li>
+<li>Deal with duplicate or partially duplicate data</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Installing and loading packages</li>
+<li>Understanding duplicate data</li>
+<li>Working with column names, such as <code>names()</code> and <code>rename()</code></li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>You can make column names cleaner using janitors clean_names() function</li>
+<li>You can handle duplicate or partially duplicate data using janitors get_dupes() function</li>
+</ul>
+</div>
+<div id="overview-16" class="section level2" number="71.2">
+<h2><span class="header-section-number">71.2</span> Overview</h2>
+<blockquote>
+<p>“The <a href="https://garthtarr.github.io/meatR/janitor.html">janitor</a> package is a R package
+that has simple functions for examining and cleaning dirty data. The main janitor
+functions: perfectly format data frame column names; isolate partially-duplicate records;
+and provide quick tabulations (i.e., frequency tables and crosstabs).”</p>
+</blockquote>
+<p>As the description says, the <code>janitor</code> package will help you with cleaning your data.
+It is not part of the <code>tidyverse</code> so you will have to install it and then load it
+separately as follows.</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="janitor.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb511-2"><a href="janitor.html#cb511-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb511-3"><a href="janitor.html#cb511-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;janitor&#39;</span></span>
+<span id="cb511-4"><a href="janitor.html#cb511-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
+<span id="cb511-5"><a href="janitor.html#cb511-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb511-6"><a href="janitor.html#cb511-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     chisq.test, fisher.test</span></span></code></pre></div>
+<p>In data analysis, you will frequently across across the issue of duplication, as well as
+the issue of having difficult column names to work with. One way to deal with difficult
+column names is to rename them using <code>rename()</code> but you can also use the janitor package
+to perform multiple cleaning steps on the column names.</p>
+</div>
+<div id="arguments-23" class="section level2" number="71.3">
+<h2><span class="header-section-number">71.3</span> Arguments</h2>
+</div>
+<div id="clean_names-1" class="section level2" number="71.4">
+<h2><span class="header-section-number">71.4</span> <code>clean_names()</code></h2>
+<p>The <code>clean_names()</code> function takes the following as arguments:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dat*</td>
+<td>input data frame</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>case</td>
+<td>‘title’ for big caps</td>
+<td>default is ‘snake’; see to_any_case for detail</td>
+</tr>
+</tbody>
+</table>
+<p>You can read more about the arguments in the <code>clean_names()</code> function documentation
+<a href="https://garthtarr.github.io/meatR/janitor.html#clean_names()">here</a>.</p>
+</div>
+<div id="get_dupes-1" class="section level2" number="71.5">
+<h2><span class="header-section-number">71.5</span> <code>get_dupes()</code></h2>
+<p>The <code>get_dupes()</code> function takes the following as arguments:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dat*</td>
+<td>input data frame</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>vector</td>
+<td>vector containing column names we want to check</td>
+</tr>
+</tbody>
+</table>
+<p>You can read more about the arguments in the <code>get_dupes()</code> function documentation
+<a href="https://garthtarr.github.io/meatR/janitor.html#get_dupes()">here</a>.</p>
+</div>
+<div id="exercises-42" class="section level2" number="71.6">
+<h2><span class="header-section-number">71.6</span> Exercises</h2>
+<p>Lets start by loading <code>tidyverse</code> since we will be using the pipe %&gt;% operator and more.</p>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="janitor.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Consider this small dataset of grades.</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="janitor.html#cb513-1" aria-hidden="true" tabindex="-1"></a>grades</span>
+<span id="cb513-2"><a href="janitor.html#cb513-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 4</span></span>
+<span id="cb513-3"><a href="janitor.html#cb513-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   `Student Initials` `Grade Midterm 1` `Grade Midterm 2`</span></span>
+<span id="cb513-4"><a href="janitor.html#cb513-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;                          &lt;dbl&gt;             &lt;dbl&gt;</span></span>
+<span id="cb513-5"><a href="janitor.html#cb513-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 AH                               100                90</span></span>
+<span id="cb513-6"><a href="janitor.html#cb513-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 AE                                86                83</span></span>
+<span id="cb513-7"><a href="janitor.html#cb513-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 HS                                90                79</span></span>
+<span id="cb513-8"><a href="janitor.html#cb513-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 ES                                64                64</span></span>
+<span id="cb513-9"><a href="janitor.html#cb513-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 BT                               100                90</span></span>
+<span id="cb513-10"><a href="janitor.html#cb513-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1 more variable: Final Grade % &lt;dbl&gt;</span></span></code></pre></div>
+<p>Using the <code>clean_names()</code> function from janitor, we get:</p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="janitor.html#cb514-1" aria-hidden="true" tabindex="-1"></a>grades <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>()</span>
+<span id="cb514-2"><a href="janitor.html#cb514-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 4</span></span>
+<span id="cb514-3"><a href="janitor.html#cb514-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   student_initials grade_midterm_1 grade_midterm_2</span></span>
+<span id="cb514-4"><a href="janitor.html#cb514-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;                      &lt;dbl&gt;           &lt;dbl&gt;</span></span>
+<span id="cb514-5"><a href="janitor.html#cb514-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 AH                           100              90</span></span>
+<span id="cb514-6"><a href="janitor.html#cb514-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 AE                            86              83</span></span>
+<span id="cb514-7"><a href="janitor.html#cb514-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 HS                            90              79</span></span>
+<span id="cb514-8"><a href="janitor.html#cb514-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 ES                            64              64</span></span>
+<span id="cb514-9"><a href="janitor.html#cb514-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 BT                           100              90</span></span>
+<span id="cb514-10"><a href="janitor.html#cb514-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1 more variable: final_grade_percent &lt;dbl&gt;</span></span></code></pre></div>
+<p>Notice how now everything is lowercased with _ as a separator, and any special characters
+like % are converted to words to retain their meaning. <code>clean_names()</code> would also handle
+column names that are duplicated, but that is not demonstrated here since we already had
+unique columns.</p>
+<div id="exercise-1-27" class="section level3" number="71.6.1">
+<h3><span class="header-section-number">71.6.1</span> Exercise 1</h3>
+<p>If, for some reason, you wanted to preserve some existing columns from being cleaned, how
+would you use the <code>clean_names()</code> function on only the columns you want to clean? For
+example, supposed you wanted to keep the Final Grade % column as is. As a hint, you will
+need to use functions outside of the janitor package to help with this. Remember the
+<code>dplyr</code> functions.</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="janitor.html#cb515-1" aria-hidden="true" tabindex="-1"></a>grades <span class="sc">%&gt;%</span></span>
+<span id="cb515-2"><a href="janitor.html#cb515-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Final Grade %</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb515-3"><a href="janitor.html#cb515-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb515-4"><a href="janitor.html#cb515-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 3</span></span>
+<span id="cb515-5"><a href="janitor.html#cb515-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   student_initials grade_midterm_1 grade_midterm_2</span></span>
+<span id="cb515-6"><a href="janitor.html#cb515-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;                      &lt;dbl&gt;           &lt;dbl&gt;</span></span>
+<span id="cb515-7"><a href="janitor.html#cb515-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 AH                           100              90</span></span>
+<span id="cb515-8"><a href="janitor.html#cb515-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 AE                            86              83</span></span>
+<span id="cb515-9"><a href="janitor.html#cb515-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 HS                            90              79</span></span>
+<span id="cb515-10"><a href="janitor.html#cb515-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 ES                            64              64</span></span>
+<span id="cb515-11"><a href="janitor.html#cb515-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 BT                           100              90</span></span></code></pre></div>
+</div>
+<div id="exercise-2-22" class="section level3" number="71.6.2">
+<h3><span class="header-section-number">71.6.2</span> Exercise 2</h3>
+<p>If you wanted to restore the upper casing for some columns, how would you do that? As a
+tip, take a look at the Arguments section and see what you can use. Make sure you store
+the cleaned data from above in an object called clean, and then apply the new cleaning
+step to it.</p>
+<!-- ```{r janitor-exercise-2, exercise = TRUE} -->
+<!-- clean <-  -->
+<!-- clean %>% -->
+<!-- ``` -->
+<!-- ```{r janitor-exercise-2-solution, exercise = FALSE} -->
+<!-- clean <- grades %>% clean_names() -->
+<!-- clean %>% clean_names(case = "title") -->
+<!-- ``` -->
+</div>
+<div id="exercise-3-14" class="section level3" number="71.6.3">
+<h3><span class="header-section-number">71.6.3</span> Exercise 3</h3>
+<p>Try using the <code>get_dupes()</code> function to get duplicate rows from the cleaned grades data
+<code>clean</code>.</p>
+<!-- ```{r janitor-exercise-3, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r janitor-exercise-3-solution, exercise = FALSE} -->
+<!-- clean %>% get_dupes() -->
+<!-- ``` -->
+<p>What was the result? Did you get anything?</p>
+</div>
+<div id="exercise-4-5" class="section level3" number="71.6.4">
+<h3><span class="header-section-number">71.6.4</span> Exercise 4</h3>
+<p>Look at the data above and try to see why you did not get anything even though it looks
+like two rows are very similar. How can you modify the function call so that you get the
+<em>partially</em> duplicate data?</p>
+<!-- ```{r janitor-exercise-4, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r janitor-exercise-4-solution, exercise = FALSE} -->
+<!-- clean %>% get_dupes(c("grade_midterm_1", "grade_midterm_2", "final_grade_percent")) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="next-steps-46" class="section level2" number="71.7">
+<h2><span class="header-section-number">71.7</span> Next Steps</h2>
+<p>If you would like to learn more, please read about the janitor package in its
+documentation <a href="https://garthtarr.github.io/meatR/janitor.html">here</a>.</p>
+
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

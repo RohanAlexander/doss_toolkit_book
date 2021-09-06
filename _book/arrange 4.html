@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 33 arrange | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Isaac Ehrlich.  33.1 Introduction Sometimes, you may want to view a dataset in a specific order. Data sets will often be displayed in the order the data were input, but you may want to...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 33 arrange | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Isaac Ehrlich.  33.1 Introduction Sometimes, you may want to view a dataset in a specific order. Data sets will often be displayed in the order the data were input, but you may want to...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 33 arrange | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Isaac Ehrlich.  33.1 Introduction Sometimes, you may want to view a dataset in a specific order. Data sets will often be displayed in the order the data were input, but you may want to...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="grouping-and-ungrouping.html"><span class="header-section-number">31</span> Grouping and ungrouping</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="active" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">42</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">43</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">44</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">45</span> Looking for missing data</a></li>
+<li><a class="" href="set.seed-runif-rnorm-and-sample.html"><span class="header-section-number">46</span> set.seed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">47</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">48</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">49</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">50</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">51</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">52</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">53</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">54</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">55</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">56</span> tidyr package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="arrange" class="section level1" number="33">
+<h1>
+<span class="header-section-number">33</span> arrange<a class="anchor" aria-label="anchor" href="#arrange"><i class="fas fa-link"></i></a>
+</h1>
+<p>Written by Isaac Ehrlich.</p>
+<div id="introduction-29" class="section level2" number="33.1">
+<h2>
+<span class="header-section-number">33.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-29"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes, you may want to view a dataset in a specific order. Data sets will often be displayed in the order the data were input, but you may want to view it sorted by a different variable. You can use the tidyverse <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function, to order a data set by a specific column.</p>
+</div>
+<div id="arrange-1" class="section level2" number="33.2">
+<h2>
+<span class="header-section-number">33.2</span> arrange()<a class="anchor" aria-label="anchor" href="#arrange-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function takes in a data frame and columns to sort by as its input, and will output the re-ordered data frame. <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> does not modify any values in your data, it only changes the presentation.</p>
+<p>Let’s take a look at a simple example using R’s <code>mtcars</code> data set:</p>
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
+<span class="co">#&gt;                    mpg cyl disp  hp drat    wt  qsec vs am</span>
+<span class="co">#&gt; Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1</span>
+<span class="co">#&gt; Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1</span>
+<span class="co">#&gt; Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1</span>
+<span class="co">#&gt; Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0</span>
+<span class="co">#&gt; Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0</span>
+<span class="co">#&gt; Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0</span>
+<span class="co">#&gt;                   gear carb</span>
+<span class="co">#&gt; Mazda RX4            4    4</span>
+<span class="co">#&gt; Mazda RX4 Wag        4    4</span>
+<span class="co">#&gt; Datsun 710           4    1</span>
+<span class="co">#&gt; Hornet 4 Drive       3    1</span>
+<span class="co">#&gt; Hornet Sportabout    3    2</span>
+<span class="co">#&gt; Valiant              3    1</span></code></pre></div>
+<p>There’s a lot of information in this data, like miles per gallon, number of cylinders, and displacement, but it doesn’t seem to be ordered in any way.</p>
+<p>Supposing we want to order the data frame by miles per gallon (i.e. see cars with lowest mpg at the top and highest mpg at the bottom), we can pass the following function:</p>
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;                      mpg cyl disp  hp drat    wt  qsec vs</span>
+<span class="co">#&gt; Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0</span>
+<span class="co">#&gt; Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0</span>
+<span class="co">#&gt; Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0</span>
+<span class="co">#&gt; Duster 360          14.3   8  360 245 3.21 3.570 15.84  0</span>
+<span class="co">#&gt; Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0</span>
+<span class="co">#&gt; Maserati Bora       15.0   8  301 335 3.54 3.570 14.60  0</span>
+<span class="co">#&gt;                     am gear carb</span>
+<span class="co">#&gt; Cadillac Fleetwood   0    3    4</span>
+<span class="co">#&gt; Lincoln Continental  0    3    4</span>
+<span class="co">#&gt; Camaro Z28           0    3    4</span>
+<span class="co">#&gt; Duster 360           0    3    4</span>
+<span class="co">#&gt; Chrysler Imperial    0    3    4</span>
+<span class="co">#&gt; Maserati Bora        1    5    8</span></code></pre></div>
+<p>Note, <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> by default sorts in ascending order. If we want to sort in descending order, we can pass <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> to the column names:</p>
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;                 mpg cyl  disp  hp drat    wt  qsec vs am</span>
+<span class="co">#&gt; Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1</span>
+<span class="co">#&gt; Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1</span>
+<span class="co">#&gt; Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1</span>
+<span class="co">#&gt; Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1</span>
+<span class="co">#&gt; Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1</span>
+<span class="co">#&gt; Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1</span>
+<span class="co">#&gt;                gear carb</span>
+<span class="co">#&gt; Toyota Corolla    4    1</span>
+<span class="co">#&gt; Fiat 128          4    1</span>
+<span class="co">#&gt; Honda Civic       4    2</span>
+<span class="co">#&gt; Lotus Europa      5    2</span>
+<span class="co">#&gt; Fiat X1-9         4    1</span>
+<span class="co">#&gt; Porsche 914-2     5    2</span></code></pre></div>
+</div>
+<div id="additional-examples" class="section level2" number="33.3">
+<h2>
+<span class="header-section-number">33.3</span> Additional Examples<a class="anchor" aria-label="anchor" href="#additional-examples"><i class="fas fa-link"></i></a>
+</h2>
+<div id="characters" class="section level3" number="33.3.1">
+<h3>
+<span class="header-section-number">33.3.1</span> Characters<a class="anchor" aria-label="anchor" href="#characters"><i class="fas fa-link"></i></a>
+</h3>
+<p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> can also sort by character vectors. In this case, <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> by default will sort alphabetically. Let’s take a look at R’s <code>HairEyeColor</code> data set ordered by hair color:</p>
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">HairEyeColor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">HairEyeColor</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">HairEyeColor</span>, <span class="va">HairEyeColor</span><span class="op">$</span><span class="va">Hair</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;    Hair   Eye    Sex Freq</span>
+<span class="co">#&gt; 1 Black Brown   Male   32</span>
+<span class="co">#&gt; 2 Black  Blue   Male   11</span>
+<span class="co">#&gt; 3 Black Hazel   Male   10</span>
+<span class="co">#&gt; 4 Black Green   Male    3</span>
+<span class="co">#&gt; 5 Black Brown Female   36</span>
+<span class="co">#&gt; 6 Black  Blue Female    9</span></code></pre></div>
+</div>
+<div id="multiple-arguments" class="section level3" number="33.3.2">
+<h3>
+<span class="header-section-number">33.3.2</span> Multiple Arguments<a class="anchor" aria-label="anchor" href="#multiple-arguments"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you pass multiple columns into arrange, it will order by columns in the order they are passed. For example, in the code below, we order the <code>HairEyeColor</code> first by hair color and then by frequency.</p>
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">HairEyeColor</span>, <span class="va">HairEyeColor</span><span class="op">$</span><span class="va">Hair</span>, <span class="va">HairEyeColor</span><span class="op">$</span><span class="va">Freq</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;    Hair   Eye    Sex Freq</span>
+<span class="co">#&gt; 1 Black Green Female    2</span>
+<span class="co">#&gt; 2 Black Green   Male    3</span>
+<span class="co">#&gt; 3 Black Hazel Female    5</span>
+<span class="co">#&gt; 4 Black  Blue Female    9</span>
+<span class="co">#&gt; 5 Black Hazel   Male   10</span>
+<span class="co">#&gt; 6 Black  Blue   Male   11</span></code></pre></div>
+<p>We can see that the data was first ordered alphabetically by hair color, followed by frequency.</p>
+</div>
+</div>
+<div id="practice-questions" class="section level2" number="33.4">
+<h2>
+<span class="header-section-number">33.4</span> Practice Questions<a class="anchor" aria-label="anchor" href="#practice-questions"><i class="fas fa-link"></i></a>
+</h2>
+<p>For the following questions, please refer to R’s <code>quakes</code> data set:</p>
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">quakes</span><span class="op">)</span>
+<span class="co">#&gt;      lat   long depth mag stations</span>
+<span class="co">#&gt; 1 -20.42 181.62   562 4.8       41</span>
+<span class="co">#&gt; 2 -20.62 181.03   650 4.2       15</span>
+<span class="co">#&gt; 3 -26.00 184.10    42 5.4       43</span>
+<span class="co">#&gt; 4 -17.97 181.66   626 4.1       19</span>
+<span class="co">#&gt; 5 -20.42 181.96   649 4.0       11</span>
+<span class="co">#&gt; 6 -19.68 184.31   195 4.0       12</span></code></pre></div>
+<!-- ```{r arrangeq1, echo = FALSE} -->
+<!-- question("arrange() by default sorts in descending order", -->
+<!-- answer("True"), -->
+<!-- answer("False", correct = TRUE), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+<!-- ```{r arrangeq2, echo = FALSE} -->
+<!-- question("Select the correct code to sort 'quakes' by magnitude in descending order", -->
+<!-- answer("arrange(quakes, quakes$mag)", -->
+<!--        message = "Remember the default!"), -->
+<!-- answer("arrange(quakes, quakes$stations, desc(quakes$mag))", -->
+<!--        message = "Keep in mind what you want to sort by!"), -->
+<!-- answer("arrange(quakes, desc(quakes$mag)", correct = TRUE), -->
+<!-- answer("arrange(desc(quakes), quakes$mag)", -->
+<!--        message = "Remember what you apply 'desc()' to!"), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+<!-- ```{r arrangeq3, echo = FALSE} -->
+<!-- question("Select the correct code to sort 'quakes' by magnitude and then by depth", -->
+<!-- answer("arrange(quakes, quakes$mag, quakes$depth)", correct = TRUE), -->
+<!-- answer("arrange(quakes, quakes$depth, quakes$mag))", -->
+<!--        message = "Keep in mind the order you want to sort by!"), -->
+<!-- answer("arrange(quakes$mag, quakes$depth)", -->
+<!--        message = "Don't forget the first argument!"), -->
+<!-- answer("arrange(quakes, c(quakes$mag, quakes$depth))", -->
+<!--        message = "Keep in mind how to pass multiple arguments!"), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+</div>
+<div id="practice-coding" class="section level2" number="33.5">
+<h2>
+<span class="header-section-number">33.5</span> Practice Coding<a class="anchor" aria-label="anchor" href="#practice-coding"><i class="fas fa-link"></i></a>
+</h2>
+<p>The following questions will ask you to use the arrange function on your own.
+For these questions, please refer to R’s <code>quakes</code> data set:</p>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">quakes</span><span class="op">)</span>
+<span class="co">#&gt;      lat   long depth mag stations</span>
+<span class="co">#&gt; 1 -20.42 181.62   562 4.8       41</span>
+<span class="co">#&gt; 2 -20.62 181.03   650 4.2       15</span>
+<span class="co">#&gt; 3 -26.00 184.10    42 5.4       43</span>
+<span class="co">#&gt; 4 -17.97 181.66   626 4.1       19</span>
+<span class="co">#&gt; 5 -20.42 181.96   649 4.0       11</span>
+<span class="co">#&gt; 6 -19.68 184.31   195 4.0       12</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Arrange the data in quakes so that it is ordered by magnitude and then by stations, both in descending order</li>
+</ol>
+<!-- ```{r arrangeq4, exercise = TRUE} --><!-- ``` -->
+</div>
+<div id="special-cases-and-common-errors" class="section level2" number="33.6">
+<h2>
+<span class="header-section-number">33.6</span> Special Cases and Common Errors<a class="anchor" aria-label="anchor" href="#special-cases-and-common-errors"><i class="fas fa-link"></i></a>
+</h2>
+<div id="na-values" class="section level3" number="33.6.1">
+<h3>
+<span class="header-section-number">33.6.1</span> NA Values<a class="anchor" aria-label="anchor" href="#na-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Regardless of if you are sorting in ascending or descending order, NA values will be sent to the bottom of your reordered data frame.</p>
+</div>
+<div id="common-errors" class="section level3" number="33.6.2">
+<h3>
+<span class="header-section-number">33.6.2</span> Common Errors<a class="anchor" aria-label="anchor" href="#common-errors"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>The first input to arrange must be of type “data.frame,” it cannot be applied to objects that are tables or matrices. Make sure to convert to a data frame using <code><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame()</a></code> if needed.</p></li>
+<li><p>Make sure you are properly calling your column names to order by. There are several ways to do this - the expressions below all output the same result.</p></li>
+</ol>
+<ul>
+<li><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange(quakes, quakes$mag)</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange(quakes, col = mag)</a></code></li>
+<li><code>quakes %&gt;% arrange(mag)</code></li>
+</ul>
+<p>Other errors are bound to pop up. Remember that Stack Overflow is your best friend!</p>
+</div>
+</div>
+<div id="overview-4" class="section level2" number="33.7">
+<h2>
+<span class="header-section-number">33.7</span> Overview<a class="anchor" aria-label="anchor" href="#overview-4"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> is a useful function for reorganizing the structure of your data set. While it does not change any values, it may be useful if you need to order you data by a certain variable, or even just for easier viewing.</p>
+<div class="inline-figure">The following video summarizes what we have gone over in this tutorial: <img src="https://www.youtube.com/watch?v=Ni6_PEzqLGQ&amp;ab_channel=DOSSToolkit">
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="summarise.html"><span class="header-section-number">32</span> summarise</a></div>
+<div class="next"><a href="mutate.html"><span class="header-section-number">34</span> mutate</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#arrange"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="nav-link" href="#introduction-29"><span class="header-section-number">33.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#arrange-1"><span class="header-section-number">33.2</span> arrange()</a></li>
+<li>
+<a class="nav-link" href="#additional-examples"><span class="header-section-number">33.3</span> Additional Examples</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#characters"><span class="header-section-number">33.3.1</span> Characters</a></li>
+<li><a class="nav-link" href="#multiple-arguments"><span class="header-section-number">33.3.2</span> Multiple Arguments</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#practice-questions"><span class="header-section-number">33.4</span> Practice Questions</a></li>
+<li><a class="nav-link" href="#practice-coding"><span class="header-section-number">33.5</span> Practice Coding</a></li>
+<li>
+<a class="nav-link" href="#special-cases-and-common-errors"><span class="header-section-number">33.6</span> Special Cases and Common Errors</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#na-values"><span class="header-section-number">33.6.1</span> NA Values</a></li>
+<li><a class="nav-link" href="#common-errors"><span class="header-section-number">33.6.2</span> Common Errors</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#overview-4"><span class="header-section-number">33.7</span> Overview</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/037-hand_me_my_plyrs-arrange.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/037-hand_me_my_plyrs-arrange.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

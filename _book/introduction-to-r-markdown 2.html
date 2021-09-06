@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 73 Introduction to R Markdown | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Shirley Deng.  73.1 Introduction Have you ever found yourself typing up a report in Microsoft Word and tried to insert code, code output, images or math? It can be pretty cumbersome!...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 73 Introduction to R Markdown | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Shirley Deng.  73.1 Introduction Have you ever found yourself typing up a report in Microsoft Word and tried to insert code, code output, images or math? It can be pretty cumbersome!...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 73 Introduction to R Markdown | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Shirley Deng.  73.1 Introduction Have you ever found yourself typing up a report in Microsoft Word and tried to insert code, code output, images or math? It can be pretty cumbersome!...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-45.html"><span class="header-section-number">49</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">50</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">51</span> Overview of ggplot2</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">52</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">53</span> Bar charts</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">54</span> names, rbind and cbind</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">55</span> Histograms</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">56</span> Joins</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">57</span> Scatter plots</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">58</span> Looking for missing data</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">59</span> Various useful options</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">60</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">61</span> Saving graphs</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">68</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-66.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="active" href="introduction-to-r-markdown.html"><span class="header-section-number">73</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">74</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">75</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">76</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">77</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">78</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">79</span> here and filepaths</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-r-markdown" class="section level1" number="73">
+<h1>
+<span class="header-section-number">73</span> Introduction to R Markdown<a class="anchor" aria-label="anchor" href="#introduction-to-r-markdown"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Shirley Deng.</em></p>
+<div id="introduction-67" class="section level2" number="73.1">
+<h2>
+<span class="header-section-number">73.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-67"><i class="fas fa-link"></i></a>
+</h2>
+<p>Have you ever found yourself typing up a report in Microsoft Word and tried to insert code, code output, images or math? It can be pretty cumbersome!</p>
+<p>But it’s <em>not a problem anymore</em>…</p>
+<p>R Markdown documents allow you to not only type up reports, as you would in a Word document, but allow you to embed R, Python and SQL code with (hopefully) a little less fuss.</p>
+<div id="why-use-r-markdown" class="section level3" number="73.1.1">
+<h3>
+<span class="header-section-number">73.1.1</span> Why use R Markdown?<a class="anchor" aria-label="anchor" href="#why-use-r-markdown"><i class="fas fa-link"></i></a>
+</h3>
+<p>R Markdown allows for our files to be reproducible - if you or someone else finds an error in your code, or there’s a figure you want to fix, or there’s just a typo with a symbol - there’s no need to remake a new document from scratch.</p>
+<p>Instead, you can edit the .Rmd file and “knit” (or compile) it to make your new html, .pdf or Word document. You can think of R Markdown as writing reports with code.</p>
+</div>
+</div>
+<div id="creating-a-r-markdown-file" class="section level2" number="73.2">
+<h2>
+<span class="header-section-number">73.2</span> Creating a R Markdown file<a class="anchor" aria-label="anchor" href="#creating-a-r-markdown-file"><i class="fas fa-link"></i></a>
+</h2>
+<p>To start a .Rmd file in RStudio, click <em>File</em>, then <em>New File</em>, and select <em>R Markdown…</em></p>
+<p>From there, we can select if we want our report to be in the form of an <strong>HTML page</strong>, <strong>pdf</strong>, or <strong>Word document</strong>, and give our report a title and author name.</p>
+<p>RStudio will then generate a .Rmd file with a little template for us</p>
+<div id="yaml-header-chunk" class="section level3" number="73.2.1">
+<h3>
+<span class="header-section-number">73.2.1</span> YAML Header Chunk<a class="anchor" aria-label="anchor" href="#yaml-header-chunk"><i class="fas fa-link"></i></a>
+</h3>
+<p>We notice that the template starts off with something like the following chunk:</p>
+<pre><code>---
+title: "A Good, Creative Title"
+author: "Shirley Deng"
+date: "01/01/2021"
+output: pdf_document
+---</code></pre>
+<p>As you might guess, this creates a header for your report with the title, author and date specified.</p>
+<p>We can also change the output option if we have a change of heart and would prefer an HTML page or Word document:</p>
+<ul>
+<li><code>output: pdf_document</code></li>
+<li><code>output: word_document</code></li>
+</ul>
+</div>
+</div>
+<div id="markdown" class="section level2" number="73.3">
+<h2>
+<span class="header-section-number">73.3</span> Markdown<a class="anchor" aria-label="anchor" href="#markdown"><i class="fas fa-link"></i></a>
+</h2>
+<p>Following the header chunk, we see a little section on R Markdown.</p>
+<p>Markdown is a way for us to format our report text, and the sections below will outline how to use it.</p>
+<div id="sections" class="section level3" number="73.3.1">
+<h3>
+<span class="header-section-number">73.3.1</span> Sections<a class="anchor" aria-label="anchor" href="#sections"><i class="fas fa-link"></i></a>
+</h3>
+<p>The two pound signs, <code>#</code>, in front of <em>R Markdown</em> indicate that that line of text will be a header.</p>
+<p>Whenever we use the pound sign to denote a header, this also creates a section in our final report document. We can view these sections by toggling the document outline with the following keyboard shortcuts:</p>
+<ul>
+<li>
+<code>Cmd+Shift+O</code> on Mac</li>
+<li>
+<code>Ctrl+Shift+O</code> on Windows and Linux</li>
+</ul>
+<p>For each <code>#</code>, the smaller the header. We can use smaller headers to denote subsections.</p>
+</div>
+<div id="paragraphs" class="section level3" number="73.3.2">
+<h3>
+<span class="header-section-number">73.3.2</span> Paragraphs<a class="anchor" aria-label="anchor" href="#paragraphs"><i class="fas fa-link"></i></a>
+</h3>
+<p>To indicate a new paragraph, place two spaces at the end of the line.</p>
+<p>For example, this line ends with two spaces…<code></code><br>
+And this text follows it.</p>
+<div id="note" class="section level4" number="73.3.2.1">
+<h4>
+<span class="header-section-number">73.3.2.1</span> Note<a class="anchor" aria-label="anchor" href="#note"><i class="fas fa-link"></i></a>
+</h4>
+<p>Pressing the tabulator key, <code>Tab</code> on your keyboard, will <em>not</em> indent a paragraph!</p>
+</div>
+</div>
+<div id="bold-text" class="section level3" number="73.3.3">
+<h3>
+<span class="header-section-number">73.3.3</span> Bold Text<a class="anchor" aria-label="anchor" href="#bold-text"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can bold text by putting a pair of asterisks, <code>**</code>, around it.</p>
+<p>For example, we can write <strong>bold</strong> with <code>**bold**</code>.</p>
+</div>
+<div id="italicized-text" class="section level3" number="73.3.4">
+<h3>
+<span class="header-section-number">73.3.4</span> Italicized Text<a class="anchor" aria-label="anchor" href="#italicized-text"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can make text italicized by either using a single asterisk, <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>, around it.</p>
+<p>Alternatively, we can also use an underscore, <code>_</code>, instead of the asterisk.</p>
+<p>For example, we can write <em>italics</em> with <code>*italics*</code> or <code>_italics_</code>.</p>
+</div>
+<div id="superscript" class="section level3" number="73.3.5">
+<h3>
+<span class="header-section-number">73.3.5</span> Superscript<a class="anchor" aria-label="anchor" href="#superscript"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can make superscript by using a caret, <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code>, around it.</p>
+<p>For example, we can write this s<sup>uperscript</sup> with <code>s^uperscript^</code>.</p>
+</div>
+<div id="subscript" class="section level3" number="73.3.6">
+<h3>
+<span class="header-section-number">73.3.6</span> Subscript<a class="anchor" aria-label="anchor" href="#subscript"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can make subscript the same way we make superscript, except with a tilde, <code><a href="https://rdrr.io/r/base/tilde.html">~</a></code>, instead of a caret.</p>
+<p>For example, we can write this s<sub>ubscript</sub> with <code>s~ubscript~</code>.</p>
+</div>
+<div id="lists" class="section level3" number="73.3.7">
+<h3>
+<span class="header-section-number">73.3.7</span> Lists<a class="anchor" aria-label="anchor" href="#lists"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can make lists by either using thr asterisk, <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>, dash, <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, or plus sign, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, as bullets.</p>
+<p>For example…</p>
+<pre><code>* this
+* would
+* make</code></pre>
+<p>the following list:</p>
+<ul>
+<li>this</li>
+<li>would</li>
+<li>make</li>
+</ul>
+<p>And,</p>
+<pre><code>- this  
+- also   
+- makes</code></pre>
+<p>this list:</p>
+<ul>
+<li>this</li>
+<li>also</li>
+<li>makes</li>
+</ul>
+<p>And,</p>
+<pre><code>+ so  
++ does  
++ this</code></pre>
+<p>this list:</p>
+<ul>
+<li>so<br>
+</li>
+<li>does<br>
+</li>
+<li>this</li>
+</ul>
+</div>
+<div id="sublists" class="section level3" number="73.3.8">
+<h3>
+<span class="header-section-number">73.3.8</span> Sublists<a class="anchor" aria-label="anchor" href="#sublists"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can also use an indent to create a sublist.</p>
+<p>For example,</p>
+<pre><code>- this
+  - makes a sublist</code></pre>
+<p>like so:</p>
+<ul>
+<li>this
+<ul>
+<li>makes a sublist</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="ordered-lists" class="section level3" number="73.3.9">
+<h3>
+<span class="header-section-number">73.3.9</span> Ordered lists<a class="anchor" aria-label="anchor" href="#ordered-lists"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can also makew numbered lists, simply by numbering each item.</p>
+<p>For example,</p>
+<pre><code>1. this
+2. is
+3. numbered</code></pre>
+<p>Like this:</p>
+<ol style="list-style-type: decimal">
+<li>this</li>
+<li>is</li>
+<li>numbered</li>
+</ol>
+</div>
+<div id="hyperlinks" class="section level3" number="73.3.10">
+<h3>
+<span class="header-section-number">73.3.10</span> Hyperlinks<a class="anchor" aria-label="anchor" href="#hyperlinks"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can make a hyperlink by using the syntax <code>[text here](link url here)</code></p>
+<p>For example,</p>
+<pre><code>[this makes a link to the RStudio website](https://www.rstudio.com/)</code></pre>
+<p>like this:</p>
+<p><a href="https://www.rstudio.com/">this makes a link to the RStudio website</a></p>
+</div>
+<div id="images" class="section level3" number="73.3.11">
+<h3>
+<span class="header-section-number">73.3.11</span> Images<a class="anchor" aria-label="anchor" href="#images"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can embed images (with caption!) similar to how we make hyperlinks.</p>
+<p>We just add an exclaimation point, <code><a href="https://rdrr.io/r/base/Logic.html">!</a></code>, in front of the hyperlink syntax.</p>
+<p>For example,</p>
+<pre><code>![this embeds a picture of the RStudio icon like so](https://d33wubrfki0l68.cloudfront.net/521a038ed009b97bf73eb0a653b1cb7e66645231/8e3fd/assets/img/rstudio-icon.png)</code></pre>
+<p>like this:</p>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/521a038ed009b97bf73eb0a653b1cb7e66645231/8e3fd/assets/img/rstudio-icon.png" alt=""><p class="caption">this embeds a picture of the RStudio icon like so</p>
+</div>
+</div>
+<div id="hyperlinked-images" class="section level3" number="73.3.12">
+<h3>
+<span class="header-section-number">73.3.12</span> Hyperlinked images<a class="anchor" aria-label="anchor" href="#hyperlinked-images"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you want to get <em>real</em> fancy, we can hyperlink images using a combination of the syntax we introduced above.</p>
+<p>For example,</p>
+<pre><code>[![this embeds a clickable picture of the RStudio icon](https://d33wubrfki0l68.cloudfront.net/521a038ed009b97bf73eb0a653b1cb7e66645231/8e3fd/assets/img/rstudio-icon.png)](https://d33wubrfki0l68.cloudfront.net/521a038ed009b97bf73eb0a653b1cb7e66645231/8e3fd/assets/img/rstudio-icon.png)</code></pre>
+<p><a href="https://d33wubrfki0l68.cloudfront.net/521a038ed009b97bf73eb0a653b1cb7e66645231/8e3fd/assets/img/rstudio-icon.png"><img src="https://d33wubrfki0l68.cloudfront.net/521a038ed009b97bf73eb0a653b1cb7e66645231/8e3fd/assets/img/rstudio-icon.png" alt="this embeds a clickable picture of the RStudio icon"></a></p>
+</div>
+<div id="escapes" class="section level3" number="73.3.13">
+<h3>
+<span class="header-section-number">73.3.13</span> Escapes<a class="anchor" aria-label="anchor" href="#escapes"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are some special characters, called <strong>metacharacters</strong>, that need an <strong>escape</strong> (a backslash, <code>\</code>), in order to display properly. For example,</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>In order to write this…</th>
+<th>we’d have to write this</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>$</td>
+<td><code>\$</code></td>
+</tr>
+<tr class="even">
+<td>&amp;</td>
+<td><code>\&amp;</code></td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td><code>\%</code></td>
+</tr>
+<tr class="even">
+<td>##</td>
+<td><code>\#</code></td>
+</tr>
+<tr class="odd">
+<td>_</td>
+<td><code>\_</code></td>
+</tr>
+<tr class="even">
+<td>{</td>
+<td><code>\{</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="math-environments" class="section level2" number="73.4">
+<h2>
+<span class="header-section-number">73.4</span> Math environments<a class="anchor" aria-label="anchor" href="#math-environments"><i class="fas fa-link"></i></a>
+</h2>
+<p>Writing math in R Markdown is probably one of its best features. To do so, we use another format - LaTeX.</p>
+<p>Like how R Markdown can be likened to writing reports with code, we can liken LaTeX to writing mathematical equations with code.</p>
+<div id="delimiters" class="section level3" number="73.4.1">
+<h3>
+<span class="header-section-number">73.4.1</span> Delimiters<a class="anchor" aria-label="anchor" href="#delimiters"><i class="fas fa-link"></i></a>
+</h3>
+<p>Say we wanted to write the Pythagorean theorem, <span class="math inline">\(x^2 + y^2 = z^2\)</span>.</p>
+<p>We need to work in a math environment, or <strong>math mode</strong>, in order to write math using LaTeX.</p>
+<div id="inline" class="section level4" number="73.4.1.1">
+<h4>
+<span class="header-section-number">73.4.1.1</span> Inline<a class="anchor" aria-label="anchor" href="#inline"><i class="fas fa-link"></i></a>
+</h4>
+<p>Sometimes we want to write a little bit of math in the middle of some text. In this case, we’d want our math <em>in line</em> with the rest of our text.</p>
+<p>If we want our Pythagorean theorem inline, like above, we can write it as this: <code>\(x^2 + y^2 = z^2 \)</code></p>
+<p>to get this: <span class="math inline">\(x^2 + y^2 = z^2\)</span></p>
+</div>
+<div id="centred-display" class="section level4" number="73.4.1.2">
+<h4>
+<span class="header-section-number">73.4.1.2</span> Centred Display<a class="anchor" aria-label="anchor" href="#centred-display"><i class="fas fa-link"></i></a>
+</h4>
+<p>But sometimes we want to showcase our math. Say, in the case we’re introducing an important equation.</p>
+<p>If we have some math we’d like on its own line and centred, we can write this: <code>\[ x^2 + y^2 = z^2 \]</code></p>
+<p>to get this: <span class="math display">\[ x^2 + y^2 = z^2 \]</span></p>
+<p>Alternatively, we can also write this: <code>$$ x^2 + y^2 = z^2 $$</code></p>
+<p>to get this too: <span class="math display">\[ x^2 + y^2 = z^2 \]</span></p>
+</div>
+<div id="aligned" class="section level4" number="73.4.1.3">
+<h4>
+<span class="header-section-number">73.4.1.3</span> Aligned<a class="anchor" aria-label="anchor" href="#aligned"><i class="fas fa-link"></i></a>
+</h4>
+<p>What if we have multiple lines of math that we want to showcase? Like this:</p>
+<span class="math display">\[\begin{aligned}
+a = 1 \\  
+b = 2
+\end{aligned}\]</span>
+<p>It would be pretty inconvenient to type $$ around every line:</p>
+<pre><code>$$ a = 1 $$  
+$$ b = 2 $$</code></pre>
+<p>Instead, we can use the <code>aligned</code> delimiters around our math, using <code>\\</code> to end each line.</p>
+<pre><code>\begin{aligned}
+a = 1 \\  
+b = 2
+\end{aligned}</code></pre>
+<p>However, it’s not neccessary to end the last line with <code>\\</code>.</p>
+<p>This:</p>
+<pre><code>\begin{aligned}
+a = 1 \\  
+b = 2 \\
+\end{aligned}  </code></pre>
+Can yield this:<br><span class="math display">\[\begin{aligned}
+a = 1 \\  
+b = 2 \\
+\end{aligned}\]</span>
+<p>Too.</p>
+</div>
+</div>
+<div id="superscript-1" class="section level3" number="73.4.2">
+<h3>
+<span class="header-section-number">73.4.2</span> Superscript<a class="anchor" aria-label="anchor" href="#superscript-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Recall from our Markdown section that we use carets, <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code>, for superscript.</p>
+<p>For example, we can write this s<sup>uperscript</sup> with <code>s^uperscript^</code>.</p>
+<p>We also use carets when we want superscript <strong>in math environments</strong>, albeit <em>slightly</em> differently.</p>
+<p>Instead of wrapping the superscripted text with the carets, we use a single caret, followed with the text wrapped in curly brackets, <code>{}</code>.</p>
+<p>For example, let’s try using the inline delimiters <code>\(\)</code> to write <span class="math inline">\(s^{uperscript}\)</span>:</p>
+<p><code>\(s^{uperscript}\)</code> yields <span class="math inline">\(s^{uperscript}\)</span></p>
+<div id="note-remember-to-use-the-curly-brackets" class="section level4" number="73.4.2.1">
+<h4>
+<span class="header-section-number">73.4.2.1</span> Note: Remember to use the curly brackets!<a class="anchor" aria-label="anchor" href="#note-remember-to-use-the-curly-brackets"><i class="fas fa-link"></i></a>
+</h4>
+<p>Notice that <code>\( s^uperscript \)</code> yields <span class="math inline">\(s^uperscript\)</span>.</p>
+<p>Without curly brackets, only the <strong>first character</strong> that follows the caret is superscripted.</p>
+</div>
+</div>
+<div id="subscript-1" class="section level3" number="73.4.3">
+<h3>
+<span class="header-section-number">73.4.3</span> Subscript<a class="anchor" aria-label="anchor" href="#subscript-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The same way superscripts and subscripts are paralled in Markdown applies to math environments.</p>
+<p>For example, <code>\(s_{uperscript}\)</code> yields <span class="math inline">\(s_{uperscript}\)</span>,</p>
+<p>And without curly brackets, <code>\( s_uperscript \)</code> yields <span class="math inline">\(s_uperscript\)</span></p>
+</div>
+<div id="math-escapes-brackets-and-dolla-dolla-bill-ignz" class="section level3" number="73.4.4">
+<h3>
+<span class="header-section-number">73.4.4</span> Math escapes: brackets and dolla dolla bill $ignz<a class="anchor" aria-label="anchor" href="#math-escapes-brackets-and-dolla-dolla-bill-ignz"><i class="fas fa-link"></i></a>
+</h3>
+<p>What happens when we want to use brackets <em>in</em> math environments?</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>In order to write this…</th>
+<th>we’d have to write this</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\$\)</span></td>
+<td><code>\$</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\&amp;\)</span></td>
+<td><code>\&amp;</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\%\)</span></td>
+<td><code>\%</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\##\)</span></td>
+<td><code>\##</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\_\)</span></td>
+<td><code>\_</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\{\)</span></td>
+<td><code>\{</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>For example, we can write a spicy <span class="math inline">\(\$pi\_c\)</span> by using <code>\( \$pi\_c \)</code>.</p>
+<div id="exceptions" class="section level4" number="73.4.4.1">
+<h4>
+<span class="header-section-number">73.4.4.1</span> Exceptions?<a class="anchor" aria-label="anchor" href="#exceptions"><i class="fas fa-link"></i></a>
+</h4>
+<p>What are some circumstances we <em>shouldn’t</em> use an escape?</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>In order to write this…</th>
+<th>we can just write this</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\([\)</span></td>
+<td><code><a href="https://rdrr.io/r/base/Extract.html">[</a></code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\((\)</span></td>
+<td><code>(</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="other-syntax" class="section level3" number="73.4.5">
+<h3>
+<span class="header-section-number">73.4.5</span> Other syntax<a class="anchor" aria-label="anchor" href="#other-syntax"><i class="fas fa-link"></i></a>
+</h3>
+<p>There’s specific syntax for a lot of the more complex mathematical symbols we might find ourselves using!</p>
+<div id="note-for-the-rest-of-the-math-environments-section-we-will-be-making-use-of-the-inline-delimiters-unless-otherwise-specified." class="section level4" number="73.4.5.1">
+<h4>
+<span class="header-section-number">73.4.5.1</span> Note: For the rest of the <em>Math environments</em> section, we will be making use of the inline delimiters <code>\( \)</code> <strong>unless</strong> otherwise specified.<a class="anchor" aria-label="anchor" href="#note-for-the-rest-of-the-math-environments-section-we-will-be-making-use-of-the-inline-delimiters-unless-otherwise-specified."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="fractions" class="section level4" number="73.4.5.2">
+<h4>
+<span class="header-section-number">73.4.5.2</span> Fractions:<a class="anchor" aria-label="anchor" href="#fractions"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can use <code>\frac{numerator}{denominator}</code> to get <span class="math inline">\(\frac{numerator}{denominator}\)</span>.</p>
+</div>
+<div id="binomials" class="section level4" number="73.4.5.3">
+<h4>
+<span class="header-section-number">73.4.5.3</span> Binomials:<a class="anchor" aria-label="anchor" href="#binomials"><i class="fas fa-link"></i></a>
+</h4>
+<p>We often see <span class="math inline">\({n \choose k}\)</span> when working in combinatorics or probability.</p>
+<p>Similar to the fraction syntax, we can use <code>\binom{top}{bottom}</code> to get <span class="math inline">\(\binom{top}{bottom}\)</span>.</p>
+<p>Alternatively, we can use <code>{top \choose bottom}</code> to get <span class="math inline">\({top \choose bottom}\)</span> as well.</p>
+</div>
+<div id="integrals" class="section level4" number="73.4.5.4">
+<h4>
+<span class="header-section-number">73.4.5.4</span> Integrals<a class="anchor" aria-label="anchor" href="#integrals"><i class="fas fa-link"></i></a>
+</h4>
+<div id="indefinite" class="section level5" number="73.4.5.4.1">
+<h5>
+<span class="header-section-number">73.4.5.4.1</span> Indefinite<a class="anchor" aria-label="anchor" href="#indefinite"><i class="fas fa-link"></i></a>
+</h5>
+<p>To get a plain Jane, indefinite integral, we can simply use <code>\int</code> to get <span class="math inline">\(\int\)</span>.</p>
+<p>If we have multiple integrals, we just add an <code>i</code> for each additional one, as so:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>In order to write this…</th>
+<th>we can write this</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\int\)</span></td>
+<td><code>\int</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\iint\)</span></td>
+<td><code>\iint</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\iiint\)</span></td>
+<td><code>\iiint</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\iiiint\)</span></td>
+<td><code>\iiiint</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>What if we wanted more space between our integrals? Then simply use <code>\int</code> multiple times.</p>
+<p>For example, <code>\int\int</code> would give us <span class="math inline">\(\int\int\)</span>.</p>
+</div>
+<div id="definite" class="section level5" number="73.4.5.4.2">
+<h5>
+<span class="header-section-number">73.4.5.4.2</span> Definite<a class="anchor" aria-label="anchor" href="#definite"><i class="fas fa-link"></i></a>
+</h5>
+<p>We can make use of the superscript and subscript syntax in order to make our indefinite integrals into definite integrals.</p>
+<p>For example, <code>\int_a^b</code> would give us <span class="math inline">\(\int_a^b\)</span>.</p>
+<p>What if we had something more complex, like <span class="math inline">\(\int_{a+b}^{c-d}\)</span>? We could use curly brackets, like so: <code>\int_{a+b}^{c-d}</code></p>
+</div>
+</div>
+<div id="sums" class="section level4" number="73.4.5.5">
+<h4>
+<span class="header-section-number">73.4.5.5</span> Sums<a class="anchor" aria-label="anchor" href="#sums"><i class="fas fa-link"></i></a>
+</h4>
+<p>Like with integrals, we can get <em>just</em> the sigma for summation, <span class="math inline">\(\sum\)</span>, with <code>\sum</code>.</p>
+<p>To get the indices, once again we make use of the syntax we’ve learned already.</p>
+<p>For example, <code>\sum_{i=1}^{n}</code> would give us <span class="math inline">\(\sum_{i=1}^{n}\)</span>.</p>
+</div>
+<div id="limits" class="section level4" number="73.4.5.6">
+<h4>
+<span class="header-section-number">73.4.5.6</span> Limits<a class="anchor" aria-label="anchor" href="#limits"><i class="fas fa-link"></i></a>
+</h4>
+<p>This is getting repetitive!</p>
+<p>To get <span class="math inline">\(\lim_{n \rightarrow \infty}\)</span>, we can use <code>\lim_{n \rightarrow \infty}</code></p>
+</div>
+<div id="note-more-resources-on-latex-math-syntax-can-be-found-in-the-resources-and-references-section" class="section level4" number="73.4.5.7">
+<h4>
+<span class="header-section-number">73.4.5.7</span> Note: More resources on LaTeX math syntax can be found in the <em>Resources and references</em> section :^)<a class="anchor" aria-label="anchor" href="#note-more-resources-on-latex-math-syntax-can-be-found-in-the-resources-and-references-section"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="spaces" class="section level3" number="73.4.6">
+<h3>
+<span class="header-section-number">73.4.6</span> Spaces<a class="anchor" aria-label="anchor" href="#spaces"><i class="fas fa-link"></i></a>
+</h3>
+<p>Spaces created by pressing the space bar don’t really work in math mode!</p>
+<p>Instead, we have several options for writing spaces in math environments.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>We see that this…</th>
+<th>will give us this</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>poo poo</code></td>
+<td><span class="math inline">\(poo poo\)</span></td>
+</tr>
+<tr class="even">
+<td><code>poo \; poo</code></td>
+<td><span class="math inline">\(poo \; poo\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>poo \: poo</code></td>
+<td><span class="math inline">\(poo \: poo\)</span></td>
+</tr>
+<tr class="even">
+<td><code>poo \, poo</code></td>
+<td><span class="math inline">\(poo \, poo\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>poo \! poo</code></td>
+<td><span class="math inline">\(poo \! poo\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="code-1" class="section level2" number="73.5">
+<h2>
+<span class="header-section-number">73.5</span> Code<a class="anchor" aria-label="anchor" href="#code-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Another handy feature of R Markdown is that we can <strong>display and run</strong> code in its own <em>code-y</em> font.</p>
+<div id="displaying" class="section level3" number="73.5.1">
+<h3>
+<span class="header-section-number">73.5.1</span> Displaying<a class="anchor" aria-label="anchor" href="#displaying"><i class="fas fa-link"></i></a>
+</h3>
+<div id="inline-1" class="section level4" number="73.5.1.1">
+<h4>
+<span class="header-section-number">73.5.1.1</span> Inline<a class="anchor" aria-label="anchor" href="#inline-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Say we just want to indicate that something is code, without actually providing the full section it came from, let alone run it.</p>
+<p>To display a bit of code inline with the rest of our text, we can wrap the code with a pair of backticks, <code>``</code>.</p>
+<p>For example, we can write <code>this</code> with `this`</p>
+</div>
+<div id="blocks-1" class="section level4" number="73.5.1.2">
+<h4>
+<span class="header-section-number">73.5.1.2</span> Blocks<a class="anchor" aria-label="anchor" href="#blocks-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>But what if we have a whole block of code we want to show?</p>
+<p>We can wrap the code using <strong>three or more</strong> backticks instead.</p>
+<p>For example:</p>
+<pre><code>this is a whole lot of code</code></pre>
+<p>created with,</p>
+<pre><code>```
+this is a whole lot of code
+``` </code></pre>
+<div id="readability" class="section level5" number="73.5.1.2.1">
+<h5>
+<span class="header-section-number">73.5.1.2.1</span> Readability<a class="anchor" aria-label="anchor" href="#readability"><i class="fas fa-link"></i></a>
+</h5>
+<p>While we could write this all in a single line, like this:</p>
+<pre><code>``` this is a whole lot of code ```</code></pre>
+<p>It’s much easier on the eyes to keep the backticks on their own lines.</p>
+<div class="figure">
+<img src="https://www.youtube.com/watch?v=Qn977W9HjWM" alt=""><p class="caption">MY EYES</p>
+</div>
+</div>
+</div>
+</div>
+<div id="running" class="section level3" number="73.5.2">
+<h3>
+<span class="header-section-number">73.5.2</span> Running<a class="anchor" aria-label="anchor" href="#running"><i class="fas fa-link"></i></a>
+</h3>
+<p>To <em>run</em> R code in our R Markdown file, we need to insert a code chunk.</p>
+<p>We can do so with the following keyboard shortcuts:</p>
+<ul>
+<li>
+<code>Cmd+Option+I</code> on Mac</li>
+<li>
+<code>Ctrl+Alt+I</code> on Windows and Linux</li>
+</ul>
+<p>From there, we can fill the code chunk with our code.</p>
+<p>For example,</p>
+<p>This:</p>
+<p>```{r}<br>
+x &lt;- 1<br>
+```</p>
+<p>Yields this:</p>
+<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span></code></pre></div>
+</div>
+<div id="chunk-options" class="section level3" number="73.5.3">
+<h3>
+<span class="header-section-number">73.5.3</span> Chunk options<a class="anchor" aria-label="anchor" href="#chunk-options"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are some commong chunk options we make use of to adjust what we want to happen when we compile, or <em>knit</em>, our R Markdown documents.</p>
+<p>By default, any output from our code chunks will be shown in the document once knit. What if we <em>don’t</em> want the code itself to show, only the output? Then we can use the <code>echo</code> option.</p>
+<p>For example, this:</p>
+<p>```{r, echo=F}<br>
+x &lt;- 1<br>
+x<br>
+```</p>
+<p>Yields this:</p>
+<pre><code>#&gt; [1] 1</code></pre>
+<p>We can also have <em>only</em> the code show, but no output, using the <code>eval</code> option.</p>
+<p>For example, this:</p>
+<p>```{r, eval=F}<br>
+x &lt;- 1<br>
+x<br>
+```</p>
+<p>Yields this:</p>
+<div class="sourceCode" id="cb552"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="va">x</span></code></pre></div>
+<p>More code chunk options can be found <a href="https://rmarkdown.rstudio.com/lesson-3.html">here</a>.</p>
+</div>
+</div>
+<div id="resources-and-references-1" class="section level2" number="73.6">
+<h2>
+<span class="header-section-number">73.6</span> Resources and references<a class="anchor" aria-label="anchor" href="#resources-and-references-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="introductory" class="section level3" number="73.6.1">
+<h3>
+<span class="header-section-number">73.6.1</span> Introductory<a class="anchor" aria-label="anchor" href="#introductory"><i class="fas fa-link"></i></a>
+</h3>
+<div id="from-rstudio" class="section level4" number="73.6.1.1">
+<h4>
+<span class="header-section-number">73.6.1.1</span> From RStudio<a class="anchor" aria-label="anchor" href="#from-rstudio"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">Introductory R Markdown guide</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown quick reference guide PDF</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown <strong>cheatsheet</strong></a></li>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">R Markdown <strong>keyboard shortcuts</strong></a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/"><strong>R Markdown: The Definitive Guide</strong></a></li>
+</ul>
+</div>
+<div id="from-other-sources" class="section level4" number="73.6.1.2">
+<h4>
+<span class="header-section-number">73.6.1.2</span> From other sources<a class="anchor" aria-label="anchor" href="#from-other-sources"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><a href="https://kbroman.org/datacarpentry_R_2018-06-04/04-rmarkdown.html">Karl Broman’s “Reproducible reports with R Markdown” guide</a></li>
+<li><a href="https://ourcodingclub.github.io/tutorials/rmarkdown/">Our Coding Club’s “Getting Started with R Markdown” guide</a></li>
+<li><a href="https://cran.r-project.org/web/packages/stationery/vignettes/Rmarkdown.pdf">University of Kansas’ “R Markdown Basics” guide</a></li>
+</ul>
+</div>
+</div>
+<div id="latex" class="section level3" number="73.6.2">
+<h3>
+<span class="header-section-number">73.6.2</span> LaTeX<a class="anchor" aria-label="anchor" href="#latex"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><a href="https://www.overleaf.com/learn">Overleaf guides</a></li>
+<li><a href="https://faculty.math.illinois.edu/~hildebr/tex/course/intro2.html">“Introduction to LaTeX: 2. Typing Math” guide from the University of Illinois at Urbana-Champaign</a></li>
+<li><a href="https://math.meta.stackexchange.com/questions/4497/how-to-show-the-integral-symbol-on-this-site/">More on integrals</a></li>
+<li><a href="http://www.emerson.emory.edu/services/latex/latex_119.html">Spacing</a></li>
+<li><a href="https://tex.stackexchange.com/questions/34580/escape-character-in-latex">Escape character</a></li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="introduction-66.html"><span class="header-section-number">72</span> Introduction</a></div>
+<div class="next"><a href="top-matter-title-date-author-abstract.html"><span class="header-section-number">74</span> Top Matter: Title, Date, Author, Abstract</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-to-r-markdown"><span class="header-section-number">73</span> Introduction to R Markdown</a></li>
+<li>
+<a class="nav-link" href="#introduction-67"><span class="header-section-number">73.1</span> Introduction</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#why-use-r-markdown"><span class="header-section-number">73.1.1</span> Why use R Markdown?</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#creating-a-r-markdown-file"><span class="header-section-number">73.2</span> Creating a R Markdown file</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#yaml-header-chunk"><span class="header-section-number">73.2.1</span> YAML Header Chunk</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#markdown"><span class="header-section-number">73.3</span> Markdown</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sections"><span class="header-section-number">73.3.1</span> Sections</a></li>
+<li><a class="nav-link" href="#paragraphs"><span class="header-section-number">73.3.2</span> Paragraphs</a></li>
+<li><a class="nav-link" href="#bold-text"><span class="header-section-number">73.3.3</span> Bold Text</a></li>
+<li><a class="nav-link" href="#italicized-text"><span class="header-section-number">73.3.4</span> Italicized Text</a></li>
+<li><a class="nav-link" href="#superscript"><span class="header-section-number">73.3.5</span> Superscript</a></li>
+<li><a class="nav-link" href="#subscript"><span class="header-section-number">73.3.6</span> Subscript</a></li>
+<li><a class="nav-link" href="#lists"><span class="header-section-number">73.3.7</span> Lists</a></li>
+<li><a class="nav-link" href="#sublists"><span class="header-section-number">73.3.8</span> Sublists</a></li>
+<li><a class="nav-link" href="#ordered-lists"><span class="header-section-number">73.3.9</span> Ordered lists</a></li>
+<li><a class="nav-link" href="#hyperlinks"><span class="header-section-number">73.3.10</span> Hyperlinks</a></li>
+<li><a class="nav-link" href="#images"><span class="header-section-number">73.3.11</span> Images</a></li>
+<li><a class="nav-link" href="#hyperlinked-images"><span class="header-section-number">73.3.12</span> Hyperlinked images</a></li>
+<li><a class="nav-link" href="#escapes"><span class="header-section-number">73.3.13</span> Escapes</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#math-environments"><span class="header-section-number">73.4</span> Math environments</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#delimiters"><span class="header-section-number">73.4.1</span> Delimiters</a></li>
+<li><a class="nav-link" href="#superscript-1"><span class="header-section-number">73.4.2</span> Superscript</a></li>
+<li><a class="nav-link" href="#subscript-1"><span class="header-section-number">73.4.3</span> Subscript</a></li>
+<li><a class="nav-link" href="#math-escapes-brackets-and-dolla-dolla-bill-ignz"><span class="header-section-number">73.4.4</span> Math escapes: brackets and dolla dolla bill $ignz</a></li>
+<li><a class="nav-link" href="#other-syntax"><span class="header-section-number">73.4.5</span> Other syntax</a></li>
+<li><a class="nav-link" href="#spaces"><span class="header-section-number">73.4.6</span> Spaces</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#code-1"><span class="header-section-number">73.5</span> Code</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#displaying"><span class="header-section-number">73.5.1</span> Displaying</a></li>
+<li><a class="nav-link" href="#running"><span class="header-section-number">73.5.2</span> Running</a></li>
+<li><a class="nav-link" href="#chunk-options"><span class="header-section-number">73.5.3</span> Chunk options</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#resources-and-references-1"><span class="header-section-number">73.6</span> Resources and references</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introductory"><span class="header-section-number">73.6.1</span> Introductory</a></li>
+<li><a class="nav-link" href="#latex"><span class="header-section-number">73.6.2</span> LaTeX</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/091-r_marky_markdown-introduction.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/091-r_marky_markdown-introduction.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

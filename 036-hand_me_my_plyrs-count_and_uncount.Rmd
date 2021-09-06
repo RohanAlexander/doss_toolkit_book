@@ -1,0 +1,232 @@
+
+# counting
+
+
+
+```{r setup-again, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+# library(learnr)
+```
+
+
+
+
+Written by Annie Collins.
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Use `count()` to summarize a data set.
+- Use `uncount()` to produce a full data set from a table containing values and counts.
+
+This lesson is a yellow level skill and is part of "Tidyverse Essentials". Prerequisite skills include:
+
+- Installing packages
+- Calling libraries
+- Importing data
+
+## Video Tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zPqeJPjYc48" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## count()
+
+`count()` is a function that can be used to summarize a data set in terms of the number of unique values of a certain variable or combination of variables.
+
+Using `count()` on a data set produces a new table including each unique value or combination of values along with an integer value representing the number of times it appears in the data.
+
+## Using count()
+
+The data set below (`starwars`) contains information on characters in the the *Star Wars* film franchise. There are 30 unique characters in the data with five characteristics/measurements recorded for each.
+
+```{r starwars, echo=FALSE}
+starwars <- 
+  starwars %>% 
+  select(name, hair_color, skin_color, eye_color, homeworld, species)
+
+starwars <- 
+  filter(starwars, homeworld %in% c("Naboo", "Tatooine", "Alderaan", "Coruscant", "Kamino"))
+
+starwars
+```
+
+Although each character is unique and only appears once in the data, there are several variables where multiple characters have the same characteristic, and we may want to know how many characters share each characteristic.
+
+For example, we may want to examine how many characters came from each home world.
+
+```{r count-example1, echo=TRUE}
+count(starwars, homeworld)
+```
+
+We can also sort this table to see which home worlds appear in the data most frequently.
+
+```{r count-example2, echo=TRUE}
+count(starwars, homeworld, sort=TRUE)
+```
+Here, we see that Naboo is the most common home world, with 11 characters in the data set from this world.
+
+If we wish to get even more specific, we could look at unique species-homeworld combinations amongst characters in the data.
+
+```{r count-example3, echo=TRUE}
+count(starwars, species, homeworld, sort=TRUE)
+```
+The outputted table shows that there are eight characters in the `starwars` data set that are humans from Tatooine, five that are humans from Naboo, and so on.
+
+## count() Arguments
+
+`count(data, variables, sort = FALSE, name = NULL)`
+
+- **data**: the data frame you are counting from.
+- **variables**: the variables in **data** you are counting, inputted by individual column name. This could be one or multiple variables to be counted in combination. If none are entered, `count()` will return a count of the total number of rows in **data**.
+- **sort = ...**: FALSE by default (if omitted). If sort = TRUE, `count()` will sort the outputted table in descending order of the count column, otherwise it will be sorted in alphabetical order by the first column (with NA values last).
+- **name = "..."**: NULL (empty) by default. This argument indicates the name you wish to give the column containing the count values, inputted in the form of a string. If omitted, the count column will be titled **n**.
+
+## uncount()
+
+`uncount()` is a function that can be used to produce a full length table from a table containing variables and counts (for example, one that was produced using the `count()` function). The function duplicates each unique variable according to the value in the count column indicated. You may think of it as the inverse of `count()`.
+
+### Arguments
+
+`uncount()` takes two required arguments and two optional arguments:
+
+`uncount(data, weights, .remove = TRUE, .id = NULL)`
+
+- **data**: the data frame containing variables and counts.
+- **weights**: the name of the column in **data** containing the counts for each variable(s). You can also use a constant or expression if you wish all variables to be duplicated the same number of times, or if an appropriate column does not exist in **data**.
+
+**Optional**:
+
+- **.remove = ...**: TRUE by default. If **weights** is a column in **data**, this argument indicates whether or not you want the **weights** values to remain in the outputted table. If .remove = TRUE (default), the outputted table will only contain the duplicated variables. If .return = FALSE, the outputted table will contain the duplicated variables along with their total count present in an additional column. If **weights** is a value or expression, then **.remove** does not apply and the column containing counts (if it exists) will be included in the outputted table.
+- **.id = "..."**: NULL (empty) by default. This argument allows you to input a string as the title for a new column that will automatically generate a unique ID for each duplicated variable. This may be useful if you still want to distinguish between variables once they have been repeated.
+
+## Using uncount()
+
+To help visualize the use of `uncount()`, we will use this small data set called `colours`.
+
+```{r colours, echo=FALSE}
+colours <- data.frame()
+colour <- c("red", "yellow", "blue")
+n <- c(1, 2, 3)
+colours <- cbind(colour, n)
+colours <- as.data.frame(colours)
+colours$n <- as.numeric(colours$n)
+colours
+```
+ `colours` indicates that red occurs once, yellow occurs twice, and blue occurs three times in some data, for a total of six observations.
+
+If we want to observe all the data in its uncounted form, we can use `uncount()`.
+
+```{r uncount-example1, echo=TRUE}
+uncount(colours, n)
+```
+Our output includes only one column (no count values) with each colour repeated the number of times indicated in the **n** column in `colours`. `uncount()` also automatically generates a new version of the row number according to the number of times each row was duplicated.
+
+If we wish to duplicate each colour (regardless of the value in column **n**), we can substitute **2** in place of **n** in the function. Note that in the outputted table, the values from **n** are still present since we did not input a column for the **weights** argument.
+
+```{r uncount-example2, echo=TRUE}
+uncount(colours, 2)
+```
+Using the optional arguments **.remove** and **.id**, we can uncount `colours` according to column **n** while still keeping the values from **n** in the output *and* assign a unique ID number to each repeated colour.
+
+```{r uncount-example3, echo=TRUE}
+uncount(colours, n, .remove = FALSE, .id = "id")
+```
+Now we can distinguish between different yellow and blue rows in the column (for instance, yellow 1 and yellow 2 according to the **id** column).
+
+Note that this does not change if there are multiple combinations of variables in `colours` we wish to uncount.
+
+Updated `colours`:
+```{r colours-meaning, echo=FALSE}
+temp <- c("warm","warm", "cool")
+colours <- cbind(colour, temp, n)
+colours <- as.data.frame(colours)
+colours$n <- as.numeric(colours$n)
+colours
+```
+```{r uncount-example4, echo=TRUE}
+uncount(colours, n, .remove = FALSE, .id = "id")
+```
+## Questions & Exercises
+
+### Exercises
+
+For the following two exercises, manipulate the `starwars` data set to match the output displayed. The original is included below for reference.
+
+```{r starwars2, echo=FALSE}
+starwars
+```
+
+**Exercise 1**
+
+```{r countexercise1-reference, echo=FALSE}
+count(starwars, skin_color, eye_color, sort=TRUE)
+```
+```{r countexercise1, exercise=TRUE}
+
+```
+```{r countexercise1-solution}
+count(starwars, skin_color, eye_color, sort=TRUE)
+```
+
+**Exercise 2**
+
+```{r countexercise2-reference, echo=FALSE}
+count(starwars, name, name="unique")
+```
+```{r countexercise2, exercise=TRUE}
+
+```
+```{r countexercise2-solution}
+count(starwars, name, name="unique")
+```
+
+### Questions
+
+Below is the first five rows of output from **Exercise 1**, assigned the name `features`. Please use this data set as reference for the following questions.
+
+```{r features, echo=FALSE}
+features <- count(starwars, skin_color, eye_color, sort=TRUE) %>% slice(1:5)
+features
+```
+
+<!-- ```{r uncount-question1, echo=FALSE} -->
+<!-- question("In the output of `uncount(features, n)`, how many times will the word \"brown\" appear?", -->
+<!-- answer("2"), -->
+<!-- answer("3"), -->
+<!-- answer("7"), -->
+<!-- answer("12", correct=TRUE) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r uncount-question2, echo=FALSE} -->
+<!-- question("How many rows does the output of `uncount(features, 2)` have (not including the header)?", -->
+<!-- answer("5"), -->
+<!-- answer("10", correct=TRUE), -->
+<!-- answer("21"), -->
+<!-- answer("42") -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r uncount-question3, echo=FALSE} -->
+<!-- question("How many columns does the output of `uncount(features, 2)` have?", -->
+<!-- answer("1"), -->
+<!-- answer("2"), -->
+<!-- answer("3", correct=TRUE), -->
+<!-- answer("4") -->
+<!-- ) -->
+<!-- ``` -->
+
+
+
+
+
+
+
+
+
+
+

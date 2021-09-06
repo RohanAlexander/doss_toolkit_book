@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 28 The pipe | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Mariam Walaa.  28.1 Introduction In this lesson, you will learn how to: Load the package required to use the pipe %&gt;% Use the pipe %&gt;% Prerequisite skills include: Loading packages...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 28 The pipe | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Mariam Walaa.  28.1 Introduction In this lesson, you will learn how to: Load the package required to use the pipe %&gt;% Use the pipe %&gt;% Prerequisite skills include: Loading packages...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 28 The pipe | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Mariam Walaa.  28.1 Introduction In this lesson, you will learn how to: Load the package required to use the pipe %&gt;% Use the pipe %&gt;% Prerequisite skills include: Loading packages...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="active" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="grouping-and-ungrouping.html"><span class="header-section-number">31</span> Grouping and ungrouping</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">49</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">50</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">51</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">52</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">53</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">54</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">55</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">56</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">57</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">58</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">59</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">60</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">61</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">62</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">63</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">64</span> tidyr package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-pipe" class="section level1" number="28">
+<h1>
+<span class="header-section-number">28</span> The pipe<a class="anchor" aria-label="anchor" href="#the-pipe"><i class="fas fa-link"></i></a>
+</h1>
+<p>Written by Mariam Walaa.</p>
+<div id="introduction-25" class="section level2" number="28.1">
+<h2>
+<span class="header-section-number">28.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-25"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Load the package required to use the pipe <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>
+</li>
+<li>Use the pipe <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>
+</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Loading packages</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>The pipe <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> is used to keep code clean and concise.</li>
+<li>The pipe <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> works by piping data into a function.</li>
+<li>The pipe <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> can pipe data into functions repeatedly.</li>
+</ul>
+</div>
+<div id="overview-2" class="section level2" number="28.2">
+<h2>
+<span class="header-section-number">28.2</span> Overview<a class="anchor" aria-label="anchor" href="#overview-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>The pipe is helpful for keeping your code clean when you have to apply multiple
+transformations to your data. You can start using the pipe after you have loaded the
+<code>magrittr</code> package. The <code>magrittr</code> package is also part of <code>tidyverse</code>, so if you have
+already loaded <code>tidyverse</code> then you will be able to start using the pipe.</p>
+<p>In this tutorial, we will be using the <code>penguins</code> data to present the uses of the pipe. This
+data contains records on measurements for penguin species, including their size, sex, and
+where they live. There are 344 rows and 8 columns in this data set.</p>
+<div class="inline-figure"><img src="images/32_penguins.png" width="75%"></div>
+<p>Figure: The Palmer Penguins
+Credits: Allison Horst</p>
+<p>Lets start with loading the tidyverse.</p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<p>Here is an example using base R <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function, without using the pipe.</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span>
+<span class="co">#&gt;       species          island    bill_length_mm </span>
+<span class="co">#&gt;  Adelie   :152   Biscoe   :168   Min.   :32.10  </span>
+<span class="co">#&gt;  Chinstrap: 68   Dream    :124   1st Qu.:39.23  </span>
+<span class="co">#&gt;  Gentoo   :124   Torgersen: 52   Median :44.45  </span>
+<span class="co">#&gt;                                  Mean   :43.92  </span>
+<span class="co">#&gt;                                  3rd Qu.:48.50  </span>
+<span class="co">#&gt;                                  Max.   :59.60  </span>
+<span class="co">#&gt;                                  NA's   :2      </span>
+<span class="co">#&gt;  bill_depth_mm   flipper_length_mm  body_mass_g  </span>
+<span class="co">#&gt;  Min.   :13.10   Min.   :172.0     Min.   :2700  </span>
+<span class="co">#&gt;  1st Qu.:15.60   1st Qu.:190.0     1st Qu.:3550  </span>
+<span class="co">#&gt;  Median :17.30   Median :197.0     Median :4050  </span>
+<span class="co">#&gt;  Mean   :17.15   Mean   :200.9     Mean   :4202  </span>
+<span class="co">#&gt;  3rd Qu.:18.70   3rd Qu.:213.0     3rd Qu.:4750  </span>
+<span class="co">#&gt;  Max.   :21.50   Max.   :231.0     Max.   :6300  </span>
+<span class="co">#&gt;  NA's   :2       NA's   :2         NA's   :2     </span>
+<span class="co">#&gt;      sex           year     </span>
+<span class="co">#&gt;  female:165   Min.   :2007  </span>
+<span class="co">#&gt;  male  :168   1st Qu.:2007  </span>
+<span class="co">#&gt;  NA's  : 11   Median :2008  </span>
+<span class="co">#&gt;               Mean   :2008  </span>
+<span class="co">#&gt;               3rd Qu.:2009  </span>
+<span class="co">#&gt;               Max.   :2009  </span>
+<span class="co">#&gt; </span></code></pre></div>
+<p>Here is code providing the same output using the pipe.</p>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;       species          island    bill_length_mm </span>
+<span class="co">#&gt;  Adelie   :152   Biscoe   :168   Min.   :32.10  </span>
+<span class="co">#&gt;  Chinstrap: 68   Dream    :124   1st Qu.:39.23  </span>
+<span class="co">#&gt;  Gentoo   :124   Torgersen: 52   Median :44.45  </span>
+<span class="co">#&gt;                                  Mean   :43.92  </span>
+<span class="co">#&gt;                                  3rd Qu.:48.50  </span>
+<span class="co">#&gt;                                  Max.   :59.60  </span>
+<span class="co">#&gt;                                  NA's   :2      </span>
+<span class="co">#&gt;  bill_depth_mm   flipper_length_mm  body_mass_g  </span>
+<span class="co">#&gt;  Min.   :13.10   Min.   :172.0     Min.   :2700  </span>
+<span class="co">#&gt;  1st Qu.:15.60   1st Qu.:190.0     1st Qu.:3550  </span>
+<span class="co">#&gt;  Median :17.30   Median :197.0     Median :4050  </span>
+<span class="co">#&gt;  Mean   :17.15   Mean   :200.9     Mean   :4202  </span>
+<span class="co">#&gt;  3rd Qu.:18.70   3rd Qu.:213.0     3rd Qu.:4750  </span>
+<span class="co">#&gt;  Max.   :21.50   Max.   :231.0     Max.   :6300  </span>
+<span class="co">#&gt;  NA's   :2       NA's   :2         NA's   :2     </span>
+<span class="co">#&gt;      sex           year     </span>
+<span class="co">#&gt;  female:165   Min.   :2007  </span>
+<span class="co">#&gt;  male  :168   1st Qu.:2007  </span>
+<span class="co">#&gt;  NA's  : 11   Median :2008  </span>
+<span class="co">#&gt;               Mean   :2008  </span>
+<span class="co">#&gt;               3rd Qu.:2009  </span>
+<span class="co">#&gt;               Max.   :2009  </span>
+<span class="co">#&gt; </span></code></pre></div>
+<p>As you can see, the pipe <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> operator takes the <code>penguins</code> data frame and pipes it into
+the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function, so you do not need to pass <code>penguins</code> as a parameter to
+<code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
+<p>In this example, it is hard to see why using the pipe makes the code clean and
+concise, but when you have multiple transformations that you want to apply to your data,
+it becomes clearer why using the pipe makes your code cleaner, more concise, and easier to
+read.</p>
+<p>Here is a similar example without the pipe, but this time we will also filter the data
+before we summarize it using the summary function.</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">adelie</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">adelie</span><span class="op">)</span>
+<span class="co">#&gt;       species          island   bill_length_mm </span>
+<span class="co">#&gt;  Adelie   :152   Biscoe   :44   Min.   :32.10  </span>
+<span class="co">#&gt;  Chinstrap:  0   Dream    :56   1st Qu.:36.75  </span>
+<span class="co">#&gt;  Gentoo   :  0   Torgersen:52   Median :38.80  </span>
+<span class="co">#&gt;                                 Mean   :38.79  </span>
+<span class="co">#&gt;                                 3rd Qu.:40.75  </span>
+<span class="co">#&gt;                                 Max.   :46.00  </span>
+<span class="co">#&gt;                                 NA's   :1      </span>
+<span class="co">#&gt;  bill_depth_mm   flipper_length_mm  body_mass_g  </span>
+<span class="co">#&gt;  Min.   :15.50   Min.   :172       Min.   :2850  </span>
+<span class="co">#&gt;  1st Qu.:17.50   1st Qu.:186       1st Qu.:3350  </span>
+<span class="co">#&gt;  Median :18.40   Median :190       Median :3700  </span>
+<span class="co">#&gt;  Mean   :18.35   Mean   :190       Mean   :3701  </span>
+<span class="co">#&gt;  3rd Qu.:19.00   3rd Qu.:195       3rd Qu.:4000  </span>
+<span class="co">#&gt;  Max.   :21.50   Max.   :210       Max.   :4775  </span>
+<span class="co">#&gt;  NA's   :1       NA's   :1         NA's   :1     </span>
+<span class="co">#&gt;      sex          year     </span>
+<span class="co">#&gt;  female:73   Min.   :2007  </span>
+<span class="co">#&gt;  male  :73   1st Qu.:2007  </span>
+<span class="co">#&gt;  NA's  : 6   Median :2008  </span>
+<span class="co">#&gt;              Mean   :2008  </span>
+<span class="co">#&gt;              3rd Qu.:2009  </span>
+<span class="co">#&gt;              Max.   :2009  </span>
+<span class="co">#&gt; </span></code></pre></div>
+<p>Equivalently, here is code providing the same output, using the pipe instead.</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;       species          island   bill_length_mm </span>
+<span class="co">#&gt;  Adelie   :152   Biscoe   :44   Min.   :32.10  </span>
+<span class="co">#&gt;  Chinstrap:  0   Dream    :56   1st Qu.:36.75  </span>
+<span class="co">#&gt;  Gentoo   :  0   Torgersen:52   Median :38.80  </span>
+<span class="co">#&gt;                                 Mean   :38.79  </span>
+<span class="co">#&gt;                                 3rd Qu.:40.75  </span>
+<span class="co">#&gt;                                 Max.   :46.00  </span>
+<span class="co">#&gt;                                 NA's   :1      </span>
+<span class="co">#&gt;  bill_depth_mm   flipper_length_mm  body_mass_g  </span>
+<span class="co">#&gt;  Min.   :15.50   Min.   :172       Min.   :2850  </span>
+<span class="co">#&gt;  1st Qu.:17.50   1st Qu.:186       1st Qu.:3350  </span>
+<span class="co">#&gt;  Median :18.40   Median :190       Median :3700  </span>
+<span class="co">#&gt;  Mean   :18.35   Mean   :190       Mean   :3701  </span>
+<span class="co">#&gt;  3rd Qu.:19.00   3rd Qu.:195       3rd Qu.:4000  </span>
+<span class="co">#&gt;  Max.   :21.50   Max.   :210       Max.   :4775  </span>
+<span class="co">#&gt;  NA's   :1       NA's   :1         NA's   :1     </span>
+<span class="co">#&gt;      sex          year     </span>
+<span class="co">#&gt;  female:73   Min.   :2007  </span>
+<span class="co">#&gt;  male  :73   1st Qu.:2007  </span>
+<span class="co">#&gt;  NA's  : 6   Median :2008  </span>
+<span class="co">#&gt;              Mean   :2008  </span>
+<span class="co">#&gt;              3rd Qu.:2009  </span>
+<span class="co">#&gt;              Max.   :2009  </span>
+<span class="co">#&gt; </span></code></pre></div>
+<p>The code looks a lot cleaner, and we did not have to separate the process into two
+different steps or assign the filtered data to an object.</p>
+</div>
+<div id="exercises-10" class="section level2" number="28.3">
+<h2>
+<span class="header-section-number">28.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-10"><i class="fas fa-link"></i></a>
+</h2>
+<p>You can learn more about the penguin characteristics and what they describe through this
+illustration by Allison Horst.</p>
+<div class="inline-figure"><img src="images/32_culmen_depth.png" width="75%"></div>
+<p>Figure: The Palmer Penguins
+Credits: Allison Horst</p>
+<div id="exercise-1-6" class="section level3" number="28.3.1">
+<h3>
+<span class="header-section-number">28.3.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here is some code that filters the data first by species and then by sex, and summarizes
+the data using the summary function from above.</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">adelie</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span>
+<span class="va">female_adelie</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">adelie</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">female_adelie</span><span class="op">)</span>
+<span class="co">#&gt;       species         island   bill_length_mm </span>
+<span class="co">#&gt;  Adelie   :73   Biscoe   :22   Min.   :32.10  </span>
+<span class="co">#&gt;  Chinstrap: 0   Dream    :27   1st Qu.:35.90  </span>
+<span class="co">#&gt;  Gentoo   : 0   Torgersen:24   Median :37.00  </span>
+<span class="co">#&gt;                                Mean   :37.26  </span>
+<span class="co">#&gt;                                3rd Qu.:38.80  </span>
+<span class="co">#&gt;                                Max.   :42.20  </span>
+<span class="co">#&gt;  bill_depth_mm   flipper_length_mm  body_mass_g  </span>
+<span class="co">#&gt;  Min.   :15.50   Min.   :172.0     Min.   :2850  </span>
+<span class="co">#&gt;  1st Qu.:17.00   1st Qu.:185.0     1st Qu.:3175  </span>
+<span class="co">#&gt;  Median :17.60   Median :188.0     Median :3400  </span>
+<span class="co">#&gt;  Mean   :17.62   Mean   :187.8     Mean   :3369  </span>
+<span class="co">#&gt;  3rd Qu.:18.30   3rd Qu.:191.0     3rd Qu.:3550  </span>
+<span class="co">#&gt;  Max.   :20.70   Max.   :202.0     Max.   :3900  </span>
+<span class="co">#&gt;      sex          year     </span>
+<span class="co">#&gt;  female:73   Min.   :2007  </span>
+<span class="co">#&gt;  male  : 0   1st Qu.:2007  </span>
+<span class="co">#&gt;              Median :2008  </span>
+<span class="co">#&gt;              Mean   :2008  </span>
+<span class="co">#&gt;              3rd Qu.:2009  </span>
+<span class="co">#&gt;              Max.   :2009</span></code></pre></div>
+<p>As an exercise, try to convert the code above into equivalent code using the pipe.</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># You don't have to assign it to an object</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># You can filter multiple times within filter()</span></code></pre></div>
+<!-- ```{r pipe-exercise-1-check} -->
+<!-- grade_result(pass_if(~identical(.result, pipe_ex1_sol))) -->
+<!-- ``` -->
+</div>
+<div id="exercise-2-4" class="section level3" number="28.3.2">
+<h3>
+<span class="header-section-number">28.3.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here is some code that filters the data, first by sex and then by year of study, and
+counts the number of penguins using the count function.</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">females</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span>
+<span class="va">females_2007</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">females</span>, <span class="va">year</span> <span class="op">==</span> <span class="st">"2007"</span><span class="op">)</span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">females_2007</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 1 × 1</span>
+<span class="co">#&gt;       n</span>
+<span class="co">#&gt;   &lt;int&gt;</span>
+<span class="co">#&gt; 1    51</span></code></pre></div>
+<p>As another exericse, try to convert the code above into equivalent code using the pipe.</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># You don't have to assign it to an object</span></code></pre></div>
+<!-- ```{r pipe-exercise-2-check} -->
+<!-- grade_result(pass_if(~identical(.result, pipe_ex2_sol))) -->
+<!-- ``` -->
+</div>
+<div id="exercise-3-1" class="section level3" number="28.3.3">
+<h3>
+<span class="header-section-number">28.3.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-1"><i class="fas fa-link"></i></a>
+</h3>
+<!-- ```{r pipe-exercise-3, echo = FALSE} -->
+<!-- question("Which of these are true? Check all true statements.", -->
+<!--          answer(paste("The pipe is not a required operator in your code, but it's helpful", -->
+<!--          " to have because it makes code cleaner."), correct = TRUE), -->
+<!--          answer(paste("The pipe makes your code look cleaner by expressing multiple ", -->
+<!--          "transformations in one line of code."), correct = TRUE), -->
+<!--          answer(paste("The pipe can take 'pipe' both data frames and functions into ", -->
+<!--          "other functions."), message = "The pipe only 'pipes' data into functions."), -->
+<!--          allow_retry = TRUE, -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="common-mistakes-errors-6" class="section level2" number="28.4">
+<h2>
+<span class="header-section-number">28.4</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below are some common mistakes and errors you may come across:</p>
+<ul>
+<li>You might type the wrong operator. The pipe operator is as follows: <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>
+</li>
+<li>You might try to pipe something into a function other than data.</li>
+</ul>
+</div>
+<div id="next-steps-14" class="section level2" number="28.5">
+<h2>
+<span class="header-section-number">28.5</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-14"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you would like to read more about the pipe operator, here are some additional
+resources that you may find helpful:</p>
+<ul>
+<li><a href="https://r4ds.had.co.nz/pipes.html">R For Data Science: Chapter 18 - Pipes</a></li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></div>
+<div class="next"><a href="select.html"><span class="header-section-number">29</span> select</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-pipe"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="nav-link" href="#introduction-25"><span class="header-section-number">28.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#overview-2"><span class="header-section-number">28.2</span> Overview</a></li>
+<li>
+<a class="nav-link" href="#exercises-10"><span class="header-section-number">28.3</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-6"><span class="header-section-number">28.3.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-4"><span class="header-section-number">28.3.2</span> Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-1"><span class="header-section-number">28.3.3</span> Exercise 3</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-6"><span class="header-section-number">28.4</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-14"><span class="header-section-number">28.5</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/032-hand_me_my_plyrs-pipe.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/032-hand_me_my_plyrs-pipe.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

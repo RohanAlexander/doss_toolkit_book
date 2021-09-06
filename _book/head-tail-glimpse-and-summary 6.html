@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 49 head, tail, glimpse and summary | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 49 head, tail, glimpse and summary | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 49 head, tail, glimpse and summary | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="head-tail-glimpse-and-summary" class="section level1" number="49">
+<h1><span class="header-section-number">Chapter 49</span> head, tail, glimpse and summary</h1>
+<p><em>Written by Haoluan Chen.</em></p>
+<div id="introduction-45" class="section level2" number="49.1">
+<h2><span class="header-section-number">49.1</span> Introduction</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Get an overview of your dataset using <code>head()</code>, <code>tail()</code>, <code>glimpse()</code>, and <code>summary()</code></li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>setup RStudio</li>
+<li>run R code in the console</li>
+<li>Install and load packages</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>Using <code>head()</code>, <code>tail()</code>, <code>glance()</code>, and <code>summary()</code> to understand your dataset</li>
+</ul>
+<p>After you load your dataset into R, you should start looking into the data to see what kinds of data you are working with.</p>
+<p>Here are some useful functions that can help you to understand your dataset.</p>
+</div>
+<div id="head" class="section level2" number="49.2">
+<h2><span class="header-section-number">49.2</span> <code>head()</code></h2>
+<p>The <code>head()</code> function takes in two parameters. The first parameter is the data frame, and the second parameter is the first number of rows you want to look at. (The “head” of your dataset.)</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="head-tail-glimpse-and-summary.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb297-2"><a href="head-tail-glimpse-and-summary.html#cb297-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                mpg cyl disp  hp drat    wt  qsec vs am gear</span></span>
+<span id="cb297-3"><a href="head-tail-glimpse-and-summary.html#cb297-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4</span></span>
+<span id="cb297-4"><a href="head-tail-glimpse-and-summary.html#cb297-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4</span></span>
+<span id="cb297-5"><a href="head-tail-glimpse-and-summary.html#cb297-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4</span></span>
+<span id="cb297-6"><a href="head-tail-glimpse-and-summary.html#cb297-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               carb</span></span>
+<span id="cb297-7"><a href="head-tail-glimpse-and-summary.html#cb297-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4        4</span></span>
+<span id="cb297-8"><a href="head-tail-glimpse-and-summary.html#cb297-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Mazda RX4 Wag    4</span></span>
+<span id="cb297-9"><a href="head-tail-glimpse-and-summary.html#cb297-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Datsun 710       1</span></span></code></pre></div>
+<p>Here I have set ‘n’ to 3, so we are looking at the first three rows of the mtcars dataset.</p>
+</div>
+<div id="tail" class="section level2" number="49.3">
+<h2><span class="header-section-number">49.3</span> <code>tail()</code></h2>
+<p>The <code>tail()</code> function also takes in two parameters. The first parameter is the data frame, and the second parameter is the last number of rows you want to look at. (The “tail” of your dataset.)</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="head-tail-glimpse-and-summary.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb298-2"><a href="head-tail-glimpse-and-summary.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                mpg cyl disp  hp drat   wt qsec vs am gear</span></span>
+<span id="cb298-3"><a href="head-tail-glimpse-and-summary.html#cb298-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Ferrari Dino  19.7   6  145 175 3.62 2.77 15.5  0  1    5</span></span>
+<span id="cb298-4"><a href="head-tail-glimpse-and-summary.html#cb298-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maserati Bora 15.0   8  301 335 3.54 3.57 14.6  0  1    5</span></span>
+<span id="cb298-5"><a href="head-tail-glimpse-and-summary.html#cb298-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Volvo 142E    21.4   4  121 109 4.11 2.78 18.6  1  1    4</span></span>
+<span id="cb298-6"><a href="head-tail-glimpse-and-summary.html#cb298-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               carb</span></span>
+<span id="cb298-7"><a href="head-tail-glimpse-and-summary.html#cb298-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Ferrari Dino     6</span></span>
+<span id="cb298-8"><a href="head-tail-glimpse-and-summary.html#cb298-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maserati Bora    8</span></span>
+<span id="cb298-9"><a href="head-tail-glimpse-and-summary.html#cb298-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Volvo 142E       2</span></span></code></pre></div>
+<p>Here I have set ‘n’ to 3, so we are looking at the last three row of the mtcars dataset.</p>
+</div>
+<div id="glimpse" class="section level2" number="49.4">
+<h2><span class="header-section-number">49.4</span> <code>glimpse()</code></h2>
+<p>The <code>glimpse()</code> function takes in one parameter, which is the data frame. This function can tell you the number of rows and columns for your dataset. Additionally, you can get the name, data type, and first few observations of each variable.</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="head-tail-glimpse-and-summary.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars)</span>
+<span id="cb299-2"><a href="head-tail-glimpse-and-summary.html#cb299-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 32</span></span>
+<span id="cb299-3"><a href="head-tail-glimpse-and-summary.html#cb299-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 11</span></span>
+<span id="cb299-4"><a href="head-tail-glimpse-and-summary.html#cb299-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.…</span></span>
+<span id="cb299-5"><a href="head-tail-glimpse-and-summary.html#cb299-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, …</span></span>
+<span id="cb299-6"><a href="head-tail-glimpse-and-summary.html#cb299-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360…</span></span>
+<span id="cb299-7"><a href="head-tail-glimpse-and-summary.html#cb299-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123…</span></span>
+<span id="cb299-8"><a href="head-tail-glimpse-and-summary.html#cb299-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.6…</span></span>
+<span id="cb299-9"><a href="head-tail-glimpse-and-summary.html#cb299-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.5…</span></span>
+<span id="cb299-10"><a href="head-tail-glimpse-and-summary.html#cb299-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.…</span></span>
+<span id="cb299-11"><a href="head-tail-glimpse-and-summary.html#cb299-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, …</span></span>
+<span id="cb299-12"><a href="head-tail-glimpse-and-summary.html#cb299-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span></span>
+<span id="cb299-13"><a href="head-tail-glimpse-and-summary.html#cb299-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, …</span></span>
+<span id="cb299-14"><a href="head-tail-glimpse-and-summary.html#cb299-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, …</span></span></code></pre></div>
+<p>Here, we see that the table mtcars contains 32 rows and 11 columns of data. All of the variables in this table are double-precision floating-point number, because <dbl> represents the double data type.</p>
+</div>
+<div id="summary-3" class="section level2" number="49.5">
+<h2><span class="header-section-number">49.5</span> <code>summary()</code></h2>
+<p>Next, you may want to look at the summary statistics of your data set. The function summary can produce the following summary statistics for each of the variables.</p>
+<ul>
+<li>Min. : minimum value of the variable</li>
+<li>1st.Qu. : the first quartile of the variable</li>
+<li>Median: median of the variable</li>
+<li>Mean: mean of the variable</li>
+<li>3rd Qu. : the third quartile of the variable</li>
+<li>Max. maximum value of the variable</li>
+</ul>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="head-tail-glimpse-and-summary.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
+<span id="cb300-2"><a href="head-tail-glimpse-and-summary.html#cb300-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       mpg             cyl             disp      </span></span>
+<span id="cb300-3"><a href="head-tail-glimpse-and-summary.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :10.40   Min.   :4.000   Min.   : 71.1  </span></span>
+<span id="cb300-4"><a href="head-tail-glimpse-and-summary.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8  </span></span>
+<span id="cb300-5"><a href="head-tail-glimpse-and-summary.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :19.20   Median :6.000   Median :196.3  </span></span>
+<span id="cb300-6"><a href="head-tail-glimpse-and-summary.html#cb300-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :20.09   Mean   :6.188   Mean   :230.7  </span></span>
+<span id="cb300-7"><a href="head-tail-glimpse-and-summary.html#cb300-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0  </span></span>
+<span id="cb300-8"><a href="head-tail-glimpse-and-summary.html#cb300-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :33.90   Max.   :8.000   Max.   :472.0  </span></span>
+<span id="cb300-9"><a href="head-tail-glimpse-and-summary.html#cb300-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        hp             drat             wt       </span></span>
+<span id="cb300-10"><a href="head-tail-glimpse-and-summary.html#cb300-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   : 52.0   Min.   :2.760   Min.   :1.513  </span></span>
+<span id="cb300-11"><a href="head-tail-glimpse-and-summary.html#cb300-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.: 96.5   1st Qu.:3.080   1st Qu.:2.581  </span></span>
+<span id="cb300-12"><a href="head-tail-glimpse-and-summary.html#cb300-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :123.0   Median :3.695   Median :3.325  </span></span>
+<span id="cb300-13"><a href="head-tail-glimpse-and-summary.html#cb300-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :146.7   Mean   :3.597   Mean   :3.217  </span></span>
+<span id="cb300-14"><a href="head-tail-glimpse-and-summary.html#cb300-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:180.0   3rd Qu.:3.920   3rd Qu.:3.610  </span></span>
+<span id="cb300-15"><a href="head-tail-glimpse-and-summary.html#cb300-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :335.0   Max.   :4.930   Max.   :5.424  </span></span>
+<span id="cb300-16"><a href="head-tail-glimpse-and-summary.html#cb300-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       qsec             vs               am        </span></span>
+<span id="cb300-17"><a href="head-tail-glimpse-and-summary.html#cb300-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :14.50   Min.   :0.0000   Min.   :0.0000  </span></span>
+<span id="cb300-18"><a href="head-tail-glimpse-and-summary.html#cb300-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:16.89   1st Qu.:0.0000   1st Qu.:0.0000  </span></span>
+<span id="cb300-19"><a href="head-tail-glimpse-and-summary.html#cb300-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :17.71   Median :0.0000   Median :0.0000  </span></span>
+<span id="cb300-20"><a href="head-tail-glimpse-and-summary.html#cb300-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :17.85   Mean   :0.4375   Mean   :0.4062  </span></span>
+<span id="cb300-21"><a href="head-tail-glimpse-and-summary.html#cb300-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:18.90   3rd Qu.:1.0000   3rd Qu.:1.0000  </span></span>
+<span id="cb300-22"><a href="head-tail-glimpse-and-summary.html#cb300-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :22.90   Max.   :1.0000   Max.   :1.0000  </span></span>
+<span id="cb300-23"><a href="head-tail-glimpse-and-summary.html#cb300-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       gear            carb      </span></span>
+<span id="cb300-24"><a href="head-tail-glimpse-and-summary.html#cb300-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :3.000   Min.   :1.000  </span></span>
+<span id="cb300-25"><a href="head-tail-glimpse-and-summary.html#cb300-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:3.000   1st Qu.:2.000  </span></span>
+<span id="cb300-26"><a href="head-tail-glimpse-and-summary.html#cb300-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :4.000   Median :2.000  </span></span>
+<span id="cb300-27"><a href="head-tail-glimpse-and-summary.html#cb300-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :3.688   Mean   :2.812  </span></span>
+<span id="cb300-28"><a href="head-tail-glimpse-and-summary.html#cb300-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:4.000   3rd Qu.:4.000  </span></span>
+<span id="cb300-29"><a href="head-tail-glimpse-and-summary.html#cb300-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :5.000   Max.   :8.000</span></span></code></pre></div>
+<p>What happens if you have other data types in your dataset? Here is a dataset called scores. It contains three variables student_ID, gender, and test_score.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="head-tail-glimpse-and-summary.html#cb301-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">student_ID =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>),</span>
+<span id="cb301-2"><a href="head-tail-glimpse-and-summary.html#cb301-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">gender =</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>)),</span>
+<span id="cb301-3"><a href="head-tail-glimpse-and-summary.html#cb301-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">test_score =</span> <span class="fu">c</span>(<span class="dv">87</span>, <span class="dv">76</span>, <span class="dv">61</span>, <span class="dv">80</span>, <span class="dv">72</span>, <span class="dv">69</span>),</span>
+<span id="cb301-4"><a href="head-tail-glimpse-and-summary.html#cb301-4" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb301-5"><a href="head-tail-glimpse-and-summary.html#cb301-5" aria-hidden="true" tabindex="-1"></a>scores</span>
+<span id="cb301-6"><a href="head-tail-glimpse-and-summary.html#cb301-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 3</span></span>
+<span id="cb301-7"><a href="head-tail-glimpse-and-summary.html#cb301-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   student_ID gender test_score</span></span>
+<span id="cb301-8"><a href="head-tail-glimpse-and-summary.html#cb301-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;      &lt;fct&gt;       &lt;dbl&gt;</span></span>
+<span id="cb301-9"><a href="head-tail-glimpse-and-summary.html#cb301-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1          male           87</span></span>
+<span id="cb301-10"><a href="head-tail-glimpse-and-summary.html#cb301-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2          male           76</span></span>
+<span id="cb301-11"><a href="head-tail-glimpse-and-summary.html#cb301-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3          male           61</span></span>
+<span id="cb301-12"><a href="head-tail-glimpse-and-summary.html#cb301-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 4          female         80</span></span>
+<span id="cb301-13"><a href="head-tail-glimpse-and-summary.html#cb301-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 5          female         72</span></span>
+<span id="cb301-14"><a href="head-tail-glimpse-and-summary.html#cb301-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 6          female         69</span></span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="head-tail-glimpse-and-summary.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scores)</span>
+<span id="cb302-2"><a href="head-tail-glimpse-and-summary.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 6</span></span>
+<span id="cb302-3"><a href="head-tail-glimpse-and-summary.html#cb302-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 3</span></span>
+<span id="cb302-4"><a href="head-tail-glimpse-and-summary.html#cb302-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ student_ID &lt;chr&gt; &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;</span></span>
+<span id="cb302-5"><a href="head-tail-glimpse-and-summary.html#cb302-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ gender     &lt;fct&gt; male, male, male, female, female, female</span></span>
+<span id="cb302-6"><a href="head-tail-glimpse-and-summary.html#cb302-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ test_score &lt;dbl&gt; 87, 76, 61, 80, 72, 69</span></span></code></pre></div>
+<p>Using the glimpse function, we know that student_ID is a character data type, gender is a factor data type, and test_score is a double data type.</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="head-tail-glimpse-and-summary.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(scores)</span>
+<span id="cb303-2"><a href="head-tail-glimpse-and-summary.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   student_ID           gender    test_score   </span></span>
+<span id="cb303-3"><a href="head-tail-glimpse-and-summary.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Length:6           female:3   Min.   :61.00  </span></span>
+<span id="cb303-4"><a href="head-tail-glimpse-and-summary.html#cb303-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Class :character   male  :3   1st Qu.:69.75  </span></span>
+<span id="cb303-5"><a href="head-tail-glimpse-and-summary.html#cb303-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mode  :character              Median :74.00  </span></span>
+<span id="cb303-6"><a href="head-tail-glimpse-and-summary.html#cb303-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                Mean   :74.17  </span></span>
+<span id="cb303-7"><a href="head-tail-glimpse-and-summary.html#cb303-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                3rd Qu.:79.00  </span></span>
+<span id="cb303-8"><a href="head-tail-glimpse-and-summary.html#cb303-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                Max.   :87.00</span></span></code></pre></div>
+<p>For character data type (student_ID), we see the length, class, and Mode of this variable. Length tells us the number of observations, class, and Mode tells us the data type.</p>
+<p>For factor data type(gender), we have the count of each factor. In this dataset, there are three female students and three male students.</p>
+<p>For double data type(test_score), we have the summary statistics as we have seen before.</p>
+</div>
+<div id="exercises-25" class="section level2" number="49.6">
+<h2><span class="header-section-number">49.6</span> Exercises</h2>
+<div id="exercise-1-11" class="section level3" number="49.6.1">
+<h3><span class="header-section-number">49.6.1</span> Exercise 1</h3>
+<!-- ```{r headex2, echo = FALSE} -->
+<!-- question("If you want to look at the first 5 rows of the mtcars dataset, which code should you use?", -->
+<!--           answer("head(mtcars,3)", correct = TRUE), -->
+<!--           answer("tail(mtcars, 3)"), -->
+<!--           answer("glimpse(mtcars)"), -->
+<!--           answer("summary(mtcars)"), -->
+<!--           allow_retry = TRUE) -->
+<!-- ```  -->
+<!-- ### Exercise 2 -->
+<!-- ```{r summaryex, echo = FALSE} -->
+<!-- question("What is the output of summary() function for factor data type?", -->
+<!--           answer("Summary statistics such as min and max"), -->
+<!--           answer("Data type"), -->
+<!--           answer("Count of each factor", correct = TRUE), -->
+<!--           answer("Number of factors in the variable"), -->
+<!--           allow_retry = TRUE) -->
+<!-- ```  -->
+</div>
+<div id="exercise-3-5" class="section level3" number="49.6.2">
+<h3><span class="header-section-number">49.6.2</span> Exercise 3</h3>
+<p>Here, we have a book dataset from Alex Cookson. This dataset contains 9,000 children’s books that have been rated from 1-5 stars. Run the following code to your R and use the functions you learned in this tutorial to explore this dataset!</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="head-tail-glimpse-and-summary.html#cb304-1" aria-hidden="true" tabindex="-1"></a>books <span class="ot">&lt;-</span> </span>
+<span id="cb304-2"><a href="head-tail-glimpse-and-summary.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_tsv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tacookson/data/master/childrens-book-ratings/childrens-books.txt&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="next-steps-27" class="section level2" number="49.7">
+<h2><span class="header-section-number">49.7</span> Next Steps</h2>
+<p>Once you have fully understood the dataset you are working with you may start using plots to get a graphical representation of your dataset. You may like to read this chapter for more information: <a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a>.</p>
+
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

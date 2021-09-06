@@ -1,0 +1,243 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(flair)
+library(glue)
+library(stringr)
+library(palmerpenguins)
+
+broadway <- read_csv(
+  "https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv",
+  guess_max = 10000)
+
+broadway <- broadway %>%
+  select(week_ending, show, theatre, weekly_gross, avg_ticket_price,
+         top_ticket_price, performances, previews)
+
+```
+
+
+# Conditional mutating and summarising
+
+*Written by Mariam Walaa.*
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Use `across()` with `summarise()` 
+- Use `mutate_if()` 
+- Use `if_else()` and `na_if()` 
+
+Prerequisite skills include:
+
+- Familiarity with `summarize()` and `mutate()`
+- Familiarity with conditional statements `if_else()`
+
+Highlights:
+
+- Use `across()` to summarize across a defined selection of columns
+- Mutate column types based on conditions using `mutate_if()`
+- Mutate columns based on conditions using `if_else()` and `na_if()` within `mutate()`
+
+## Overview
+
+This section will demonstrate how to use the `summarise()` function with `across()` to 
+summarize variables and groups within a variable in a data set. We will be looking at a
+data set of Broadway shows with variables about the performances, attendance, and revenue
+for theaters that are part of The Broadway League. You can learn more about the data set
+provided by Alex Cookson in [the dataset repository](https://github.com/tacookson/data) as
+well as this corresponding [blog
+post](https://www.alexcookson.com/post/most-successful-broadway-show-of-all-time/).
+
+### Video
+
+![](https://youtu.be/3mmbPjgzzeY)
+
+## Questions
+
+Lets start with loading the tidyverse and looking at the data.
+
+```{r load-tidyverse}
+library(tidyverse)
+```
+
+```{r across-2}
+broadway
+```
+
+### Question 1
+
+What is the minimum and maximum number of performances _and_ previews per week? We can use
+`across()` to select specific columns to summarize them with multiple summary functions.
+
+```{r across-3, include = FALSE}
+broadway %>%
+  group_by(week_ending) %>%
+  summarise(across(.cols = c("performances", "previews"),
+                   .fns = list(min = min, max = max)),
+            .groups = 'drop')
+```
+```{r across-4, echo = FALSE}
+decorate("across-3") %>%
+  flair("across", color = "blue") %>%
+  flair(".cols", color = "deeppink") %>%
+  flair(".fns", color = "orange") %>%
+  knit_print.with_flair()
+```
+
+Here is what the above chunk of code does:
+
+* Groups the data by week using `group_by()` 
+* Selects columns to summarize by passing a vector to `.cols` in `across()` (Highlighted in pink) 
+* Defines summary functions by passing a list to `.fns` in `across()` (Highlighted in orange)
+
+You can also learn more about `across()` by running `?across` in your console.
+
+### Question 2
+
+How do we provide a numeric summary for every show happening in a particular week?
+
+```{r across-5}
+broadway %>%
+  group_by(week_ending, show) %>%
+  summarise(across(where(is.numeric), mean, na.rm = TRUE),
+            .groups = 'drop')
+```
+
+This chunk of code summarizes every show happening in some particular week by every
+numeric variable that is available in the data set. This helps us compute things like
+the average ticket price and the number of performances each show had in a particular
+week.
+
+### Question 3
+
+We can use mutate() and if_else() to change values within a column. For example, here
+is what we would write if we wanted to change all rows with theatre Studio 54 to be 
+called Studio 54 Theatre.
+
+```{r across-6}
+broadway %>% 
+    mutate(theatre = if_else(theatre == "Studio 54", "Studio 54 Theatre", theatre))
+```
+
+We can confirm this by filtering for these theatre names.
+
+```{r across-7}
+broadway %>%
+  mutate(theatre = if_else(theatre == "Studio 54", "Studio 54 Theatre", theatre)) %>%
+  filter(theatre %in% c("Studio 54", "Studio 54 Theatre"))
+```
+
+Notice that we did not save the initial modified data frame. We are also using a new
+operator %in% which checks for the value Studio 54 in a vector of values including
+Studio 54 and Studio 54 Theatre.
+
+## Arguments
+
+### `across()`
+
+The `across()` function takes the following as arguments:
+
+| Argument | Parameter | Details                                           |
+| -------- | --------- | ------------------------------------------------- |
+| .fns     |           | can pass a list of functions or a single function |
+| .cols    | vector    | vector with column names to apply functions to    |
+
+You can read more about the arguments in the `across()` function documentation
+[here](https://dplyr.tidyverse.org/reference/across.html). Please note that the arguments 
+for across() will also depend on your use case.
+
+### `mutate_if()`
+
+The `mutate_if()` function takes the following as arguments:
+
+| Argument  | Details                                            |
+| --------- | -------------------------------------------------- |
+| selection | selection of variables by type, i.e., is.character |
+| function  |  function to apply to the selection of variables   |
+
+You can read more about the arguments in the `mutate_if()` function documentation
+[here](https://dplyr.tidyverse.org/reference/mutate_all.html). 
+
+### `na_if()`
+
+The `na_if()` function takes the following as arguments:
+
+| Argument  | Details                                            |
+| --------- | -------------------------------------------------- |
+| vector    | vector to look for values we want to change        |
+| value     | value in the vector that we want to change to NA   |
+
+You can read more about the arguments in the `na_if()` function documentation
+[here](https://dplyr.tidyverse.org/reference/na_if.html).
+
+You can read more about `if_else()` in the corresponding tutorial on conditional
+statements.
+
+## Exercises
+
+### Exercise 1
+
+Count the number of distinct shows and distinct theatres using summarise() and across().
+As a tip, try to use the data type for shows and theatres columns.
+
+```{r across-exercise-1, exercise = TRUE}
+
+```
+
+```{r across-exercise-1-sol, echo = FALSE}
+across_ex1_sol <- broadway %>%
+  summarise(across(where(is.character), n_distinct),
+            .groups = 'drop')
+```
+
+### Exercise 2
+
+Use the mutate_if() function to select all the variables of type double and convert them
+to character.
+
+```{r across-exercise-2, exercise = TRUE}
+
+```
+
+```{r across-exercise-2-sol, echo = FALSE}
+across_ex1_sol <- broadway %>% mutate_if(is.double, as.character)
+```
+
+### Exercise 3
+
+There are some shows with a value of [title of show] under the show column. Use the
+na_if() conditional statement within mutate() to convert this to NA.
+
+```{r across-exercise-3, exercise = TRUE}
+
+```
+
+```{r across-exercise-3-sol, echo = FALSE}
+across_ex1_sol <- broadway %>%
+    mutate(show = na_if(show, "[title of show]"))
+```
+
+
+## Next Steps
+
+If you would like to learn more about the functions in this tutorial, you may find the
+following resource helpful:
+
+- [dplyr: Apply a function (or functions) across multiple
+columns](https://dplyr.tidyverse.org/reference/across.html)
+- [Mutate multiple columns](https://dplyr.tidyverse.org/reference/mutate_all.html)
+- [Convert values to NA](https://dplyr.tidyverse.org/reference/na_if.html)
+
+
+
+
+
+
+
+
+
+

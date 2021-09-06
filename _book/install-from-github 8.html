@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 21 Install from GitHub | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Haoluan Chen.  21.1 Introduction In this lesson, you will learn how to: Installing package from GitHub Prerequisite skills include: setup RStudio run R code in the console Install...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 21 Install from GitHub | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Haoluan Chen.  21.1 Introduction In this lesson, you will learn how to: Installing package from GitHub Prerequisite skills include: setup RStudio run R code in the console Install...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 21 Install from GitHub | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Haoluan Chen.  21.1 Introduction In this lesson, you will learn how to: Installing package from GitHub Prerequisite skills include: setup RStudio run R code in the console Install...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="active" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-45.html"><span class="header-section-number">49</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">50</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">51</span> Overview of ggplot2</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">52</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">53</span> Bar charts</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">54</span> names, rbind and cbind</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">55</span> Histograms</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">56</span> Joins</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">57</span> Scatter plots</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">58</span> Looking for missing data</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">59</span> Various useful options</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">60</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">61</span> Saving graphs</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">68</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-66.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">73</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">74</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">75</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">76</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">77</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">78</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">79</span> here and filepaths</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="install-from-github" class="section level1" number="21">
+<h1>
+<span class="header-section-number">21</span> Install from GitHub<a class="anchor" aria-label="anchor" href="#install-from-github"><i class="fas fa-link"></i></a>
+</h1>
+<p>Written by Haoluan Chen.</p>
+<div id="introduction-18" class="section level2" number="21.1">
+<h2>
+<span class="header-section-number">21.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-18"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Installing package from GitHub</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>setup RStudio</li>
+<li>run R code in the console</li>
+<li>Install package from CRAN</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>Install packages from GitHub</li>
+</ul>
+</div>
+<div id="what-is-github" class="section level2" number="21.2">
+<h2>
+<span class="header-section-number">21.2</span> What is GitHub?<a class="anchor" aria-label="anchor" href="#what-is-github"><i class="fas fa-link"></i></a>
+</h2>
+<p>GitHub is a popular repository for open-source projects. Many developers can share and collaborate their work with the world. Sometimes, you may need to use the package from GitHub for a specific task.</p>
+<p>Note: Unlike the packages from CRAN, there is no review process for GitHub packages, so you may encounter bugs or errors when using them.</p>
+</div>
+<div id="install-packages-from-github" class="section level2" number="21.3">
+<h2>
+<span class="header-section-number">21.3</span> Install packages from GitHub<a class="anchor" aria-label="anchor" href="#install-packages-from-github"><i class="fas fa-link"></i></a>
+</h2>
+<p>To install the package from GitHub, you will need the function <code>install_github()</code> in the <code>devtools</code> package. <code>devtools</code> contains tools for package developers to build and test their packages.</p>
+<p>So, you need to first install <code>devtools</code> package and load the package in order to use the <code>install_github</code> function. However, a faster way to do that is to run the following code in the r chunk or the console: <code><a href="https://devtools.r-lib.org//reference/remote-reexports.html">devtools::install_github("developer name/package name")</a></code>. The developer name and package name can be found on the top left side of the GitHub repository</p>
+<p>This code means that you want to call the <code>devtools</code> package and use the function <code>install_github()</code>. This way, you do not have to install and load the <code>devtools</code> package.</p>
+</div>
+<div id="example" class="section level2" number="21.4">
+<h2>
+<span class="header-section-number">21.4</span> Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="https://github.com/sharlagelfand/dmc" class="uri">https://github.com/sharlagelfand/dmc</a></p>
+<p>The goal of <code>dmc</code> package is to allow you to find the closest DMC embroidery floss colour(s) for a given colour, as well as access colour (hex, RGB) information about DMC colours.</p>
+<p>You can run the following code on your console to install this package:</p>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"sharlagelfand/dmc"</span><span class="op">)</span></code></pre></div>
+<p>After running this code, you will receive some message on the console and it will start installing the package (this may take a few minutes depending on your system). Then it will tell you if you successfully installed the package.</p>
+<p>Note: for some packages, it may ask you to input something in the console to complete the installation. For <code>dmc</code> package, you will see “These packages have more recent versions available. Which would you like to update?” and “Enter one or more numbers, or an empty line to skip updates:”</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hDQKBBWu98k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="exercises-6" class="section level2" number="21.5">
+<h2>
+<span class="header-section-number">21.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-6"><i class="fas fa-link"></i></a>
+</h2>
+<div id="exercise-1-2" class="section level3" number="21.5.1">
+<h3>
+<span class="header-section-number">21.5.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Please install the following package on your RStudio and answer the question</p>
+<p><a href="https://github.com/RohanAlexander/AustralianPoliticians" class="uri">https://github.com/RohanAlexander/AustralianPoliticians</a></p>
+<!-- ```{r githubex1, echo = FALSE} -->
+<!-- question("Which code can install above package?", -->
+<!--           answer("devtools::install_github('RohanAlexander/AustralianPoliticians')", correct = TRUE), -->
+<!--           answer("devtools::install('RohanAlexander/AustralianPoliticians')"), -->
+<!--           answer("install_github('RohanAlexander/AustralianPoliticians')"), -->
+<!--           answer("devtools::install_github('AustralianPoliticians')"), -->
+<!--           answer("devtools::install_github('RohanAlexander')"), -->
+<!--           allow_retry = TRUE) -->
+<!-- ``` -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WlnawRIELzY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+<div id="common-mistakes-errors-2" class="section level2" number="21.6">
+<h2>
+<span class="header-section-number">21.6</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-2"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Pay attention to R console, it may ask you to input something</li>
+<li>Make sure the repository is a R package</li>
+<li>Make sure the spelling of the developer name and package name are correct</li>
+<li>Make sure spelling of the function is correctly called devtools::install_github(“developer name/package name”)</li>
+</ul>
+</div>
+<div id="next-steps-10" class="section level2" number="21.7">
+<h2>
+<span class="header-section-number">21.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-10"><i class="fas fa-link"></i></a>
+</h2>
+<p>For next step, you can install the package from GitHub and start using them for your projects!</p>
+<p>In the future, you may want to build your own R package!</p>
+<p>R Packages is a book that gives a comprehensive treatment of all common parts of package development and uses <code>devtools</code> throughout. The first edition is available at ‘<a href="http://r-pkgs.had.co.nz" class="uri">http://r-pkgs.had.co.nz</a>,’ but note that it has grown somewhat out of sync with the current version of <code>devtools</code>.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></div>
+<div class="next"><a href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#install-from-github"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="nav-link" href="#introduction-18"><span class="header-section-number">21.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#what-is-github"><span class="header-section-number">21.2</span> What is GitHub?</a></li>
+<li><a class="nav-link" href="#install-packages-from-github"><span class="header-section-number">21.3</span> Install packages from GitHub</a></li>
+<li><a class="nav-link" href="#example"><span class="header-section-number">21.4</span> Example</a></li>
+<li>
+<a class="nav-link" href="#exercises-6"><span class="header-section-number">21.5</span> Exercises</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-2"><span class="header-section-number">21.5.1</span> Exercise 1</a></li></ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-2"><span class="header-section-number">21.6</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-10"><span class="header-section-number">21.7</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/025-holding_the_chaos_at_bay-install_github.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/025-holding_the_chaos_at_bay-install_github.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

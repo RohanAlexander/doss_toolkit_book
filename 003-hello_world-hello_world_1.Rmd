@@ -1,0 +1,154 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE)
+# library(learnr)
+library(tidyverse)
+```
+
+
+# Hello World! 
+
+*Written by Annie Collins.*
+
+## Introduction
+
+The purpose of this module is to give you an overview of a task you will be able to accomplish on your own once you gain some more experience using R. You do not need to understand the code; simply follow along and take note of any functions that seem interesting or useful to you!
+
+In this scenario, let's assume we're working for Toronto Public Health and we're looking at data about COVID-19 cases in Toronto throughout the pandemic. Specifically, we want to look at daily case numbers from different sources of infection - community spread, travel, outbreaks, etc. We have data collected by our front-line colleagues at the individual level, but it is slightly messy and contains more information than is relevant for our purposes.
+
+First we need to clean this data - make it as simple as possible and easy to work with - and then we can look into summarizing and examining different variables to draw conclusions about case numbers from different sources of infection.
+
+## Video Walk Through
+
+This video provides a quick walkthrough of the process outlined in the following steps.
+
+![](https://youtu.be/w_IOsVVg_QI)
+
+The following pages give a closer look at the individual functions and logic behind the loading, cleaning, and summarizing steps taken.
+
+## Load Data
+
+Before we can even access our data, we need to load our R libraries You will learn more about what this actually means later, but for now, think of loading libraries as us telling the computer which tools we need for our upcoming tasks.
+
+```{r libraries, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(opendatatoronto)
+```
+
+
+Now we will load our data. Since our data is from Toronto Public Health, we are pulling it from the Toronto Open Data Portal and labeling it "covid_data". 
+
+```{r load-data, eval = FALSE, include = TRUE}
+covid_data <- 
+  list_package_resources("https://open.toronto.ca/dataset/covid-19-cases-in-toronto/") %>% 
+  get_resource()
+```
+
+```{r, eval = TRUE, include = FALSE}
+# Use beow code for package (had to change in order to work with draft repo)
+covid_data <- read_csv(system.file("extdata", "covid_data.csv", package = "DoSStoolkit", mustWork = TRUE))
+
+# covid_data <- read_csv("covid_data.csv")
+```
+
+To get an initial idea of the variables (columns) we're working with, we can load the first 20 rows of data and examine its contents and parameters. In R, this takes a form similar to a spreadsheet.
+
+```{r}
+head(covid_data, 20)
+```
+
+
+
+
+Once all our data is loaded, we can start the cleaning process.
+
+## Clean Existing Data
+
+The first step we will take is changing the "Episode Date" and "Reported Date" columns to a date format instead of a character format. This will allow us to use functions and operations with this data as if it were a date instead of as a string of characters.
+```{r date-cleaning}
+covid_data$`Episode Date` <- as.Date(covid_data$`Episode Date`)
+covid_data$`Reported Date` <- as.Date(covid_data$`Reported Date`)
+```
+
+Since we're looking at source of infection, we don't really care about the outcomes of individual cases. We also don't need the "Outbreak Associated" column, since this data is contained (with more detail) in the "Source of Infection" column. To remove these unnecessary rows from our data, we can select only the rows we wish to keep.
+
+```{r remove-columns}
+covid_data <- select(covid_data, `Age Group`:Outcome)
+```
+
+
+```{r sounces-infection}
+unique(covid_data$`Source of Infection`)
+```
+If we look at the classifications (unique values) for "Source of Infection", we notice that "N/A - Outbreak associated" is a bit out of place given we have removed the "Outbreak Associated" column. We can replace this classification to more simply read "Outbreak associated".
+```{r reassign-outbreak}
+covid_data$`Source of Infection`[covid_data$`Source of Infection` == "N/A - Outbreak associated"] <- "Outbreak associated"
+```
+
+
+Given the nature of this data, it is likely that the most recent date's COVID-19 case data has not been recorded in its entirety and is inaccurate or an outlier to some extent, so we will also filter this data out of our data set.
+```{r remove-last-date}
+covid_data <- filter(covid_data, `Reported Date` < max(covid_data$`Reported Date`))
+```
+
+
+
+```{r}
+head(covid_data, 20)
+```
+
+Looking at our data as a whole, we can see that we've restricted the data to only the variables we want to work with, have reassigned the date columns to have type `<date>`, and have renamed an awkward variable classification in "Source of Infection". Now we can summarize our data!
+
+## Summarize Data
+
+In our data, there are generally multiple cases reported per day, and we want to gain a better understanding of our variables across *all* cases reported on a given day. To do so, we will create a summary table from our original data listing the number of cases per source of infection, along with the total number of cases, for each day in our data.
+
+```{r daily-sum}
+covid_daily_stats <- 
+  covid_data %>% 
+  group_by(`Reported Date`) %>% 
+  summarise(
+    travel = sum(`Source of Infection` == "Travel"),
+    healthcare = sum(`Source of Infection` == "Healthcare"),
+    outbreak = sum(`Source of Infection` == "Outbreak associated"),
+    contact = sum(`Source of Infection` == "Close contact"),
+    community = sum(`Source of Infection` == "Community"),
+    unknown = sum(`Source of Infection` == "Unknown/Missing"),
+    institutional = sum(`Source of Infection` == "Institutional"),
+    pending = sum(`Source of Infection` == "Pending"),
+    total = n()
+    )
+head(covid_daily_stats, 30)
+```
+
+From this table, we can look at the daily summaries holistically or summarize further, for instance by looking at some summary statistics for daily COVID-19 case totals.
+
+```{r summary-stats}
+summary(covid_daily_stats$total)
+sum(covid_daily_stats$total)
+sum(covid_daily_stats$unknown)/sum(covid_daily_stats$total)
+```
+
+Now we know that the highest number of cases observed on a single day in the pandemic thus far is 1605, and that at least half of the recorded dates have seen over 154 cases. We can also see from the second and third calculations that there have been 83,403 in Toronto in total since the beginning of the pandemic, and that cases of unknown origin make up just over 42 percent of all cases. If we wanted to, we could go on to create graphs from this summary, like total cases per day over time or number of cases per source of infection.
+
+```{r plot}
+colors <- c("Outbreak associated" = "red", "Close contact" = "blue", "Community spread" = "purple")
+covid_daily_stats %>% 
+  ggplot(aes(x=`Reported Date`)) + 
+  geom_line(aes(y=outbreak, color = "Outbreak associated"), group=1) +
+  geom_line(aes(y=contact, color = "Close contact"), group=1) +
+  geom_line(aes(y=community, color = "Community spread"), group=1) +
+  labs(x="Reported Date", y="Number of Cases", color="Source of Infection") +
+  ggtitle("COVID-19 Cases in Toronto") +
+  scale_color_manual(values = colors)
+```
+
+## Next Steps
+
+This may all seem very complex and unattainable right now, but when it's broken down step by step (or function by function) it will gradually become easier to see how you can use R to produce your desired statistics, graphics, and analyses.
+
+As you proceed through the following lessons, remember the process outlined here and take note of how powerful simple, individual functions can be when used together in the right context. You may also find it helpful to refer back to this module as an example of different functions used in context, or to see if you can use your new knowledge to reproduce the same results on your own. Good luck!
+
+
+
+

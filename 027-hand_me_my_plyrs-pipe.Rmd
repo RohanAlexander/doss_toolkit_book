@@ -1,0 +1,223 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+# library(learnr)
+library(flair)
+# tutorial_options(exercise.eval = FALSE)
+# library(gradethis)
+# gradethis::gradethis_setup()
+library(palmerpenguins)
+
+```
+
+
+
+# The pipe
+
+Written by Mariam Walaa.
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Load the package required to use the pipe `%>%`
+- Use the pipe `%>%`
+
+Prerequisite skills include:
+
+- Loading packages
+
+Highlights:
+
+- The pipe `%>%` is used to keep code clean and concise.
+- The pipe `%>%` works by piping data into a function.
+- The pipe `%>%` can pipe data into functions repeatedly.
+
+## Overview
+
+The pipe is helpful for keeping your code clean when you have to apply multiple
+transformations to your data. You can start using the pipe after you have loaded the
+`magrittr` package. The `magrittr` package is also part of `tidyverse`, so if you have
+already loaded `tidyverse` then you will be able to start using the pipe.
+
+In this tutorial, we will be using the `penguins` data to present the uses of the pipe. This
+data contains records on measurements for penguin species, including their size, sex, and
+where they live. There are 344 rows and 8 columns in this data set.
+
+```{r pipe-image-1, echo = FALSE, out.width="75%"}
+knitr::include_graphics("images/32_penguins.png")
+```
+
+Figure: The Palmer Penguins
+Credits: Allison Horst
+
+Lets start with loading the tidyverse.
+
+```{r load-tidyverse}
+library(tidyverse)
+```
+
+Here is an example using base R `summary()` function, without using the pipe.
+
+```{r pipe}
+summary(penguins)
+```
+
+Here is code providing the same output using the pipe.
+
+```{r pipe-1}
+penguins %>% summary()
+```
+
+As you can see, the pipe `%>%` operator takes the `penguins` data frame and pipes it into
+the `summary()` function, so you do not need to pass `penguins` as a parameter to
+`summary()`.
+
+In this example, it is hard to see why using the pipe makes the code clean and
+concise, but when you have multiple transformations that you want to apply to your data,
+it becomes clearer why using the pipe makes your code cleaner, more concise, and easier to
+read.
+
+Here is a similar example without the pipe, but this time we will also filter the data 
+before we summarize it using the summary function.
+
+```{r pipe-2}
+adelie <- filter(penguins, species == "Adelie")
+summary(adelie)
+```
+
+Equivalently, here is code providing the same output, using the pipe instead.
+
+```{r pipe-3}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summary()
+```
+
+The code looks a lot cleaner, and we did not have to separate the process into two
+different steps or assign the filtered data to an object.
+
+## Exercises
+
+You can learn more about the penguin characteristics and what they describe through this
+illustration by Allison Horst.
+
+```{r pipe-image-2, echo = FALSE, out.width="75%"}
+knitr::include_graphics("images/32_culmen_depth.png")
+```
+
+Figure: The Palmer Penguins
+Credits: Allison Horst
+
+### Exercise 1
+
+Here is some code that filters the data first by species and then by sex, and summarizes 
+the data using the summary function from above.
+
+```{r pipe-4}
+adelie <- filter(penguins, species == "Adelie")
+female_adelie <- filter(adelie, sex == "female")
+summary(female_adelie)
+```
+
+As an exercise, try to convert the code above into equivalent code using the pipe.
+
+```{r pipe-exercise-1, exercise = TRUE}
+
+```
+
+```{r pipe-exercise-1-hint-1}
+# You don't have to assign it to an object
+```
+```{r pipe-exercise-1-hint-2}
+# You can filter multiple times within filter()
+```
+
+```{r pipe-5-exercise-1-solution, echo = FALSE}
+pipe_ex1_sol <- penguins %>% 
+  filter(species == "Adelie",
+         sex == "female") %>%
+  summary()
+```
+
+
+<!-- ```{r pipe-exercise-1-check} -->
+<!-- grade_result(pass_if(~identical(.result, pipe_ex1_sol))) -->
+<!-- ``` -->
+
+### Exercise 2
+
+Here is some code that filters the data, first by sex and then by year of study, and 
+counts the number of penguins using the count function.
+
+```{r pipe-6}
+females <- filter(penguins, sex == "female")
+females_2007 <- filter(females, year == "2007")
+count(females_2007)
+```
+
+As another exericse, try to convert the code above into equivalent code using the pipe.
+
+```{r pipe-exercise-2, exercise = TRUE}
+
+```
+
+```{r pipe-exercise-2-hint-1}
+# You don't have to assign it to an object
+```
+
+```{r pipe-6-exercise-2-solution, echo = FALSE}
+pipe_ex2_sol <- penguins %>% 
+  filter(sex == "female",
+         year == "2007") %>%
+  count()
+```
+
+
+<!-- ```{r pipe-exercise-2-check} -->
+<!-- grade_result(pass_if(~identical(.result, pipe_ex2_sol))) -->
+<!-- ``` -->
+
+### Exercise 3
+
+<!-- ```{r pipe-exercise-3, echo = FALSE} -->
+<!-- question("Which of these are true? Check all true statements.", -->
+<!--          answer(paste("The pipe is not a required operator in your code, but it's helpful", -->
+<!--          " to have because it makes code cleaner."), correct = TRUE), -->
+<!--          answer(paste("The pipe makes your code look cleaner by expressing multiple ", -->
+<!--          "transformations in one line of code."), correct = TRUE), -->
+<!--          answer(paste("The pipe can take 'pipe' both data frames and functions into ", -->
+<!--          "other functions."), message = "The pipe only 'pipes' data into functions."), -->
+<!--          allow_retry = TRUE, -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
+
+## Common Mistakes & Errors
+
+Below are some common mistakes and errors you may come across:
+
+- You might type the wrong operator. The pipe operator is as follows: `%>%`
+- You might try to pipe something into a function other than data. 
+
+## Next Steps
+
+If you would like to read more about the pipe operator, here are some additional
+resources that you may find helpful:
+
+- [R For Data Science: Chapter 18 - Pipes](https://r4ds.had.co.nz/pipes.html)
+
+
+
+
+
+
+
+
+
+
+
+
+

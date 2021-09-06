@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 65 pull, pluck and unnest | DoSS Toolkit</title>
+
+    <meta name="author" content="Various authors" />
+  
+   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 65 pull, pluck and unnest | DoSS Toolkit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 65 pull, pluck and unnest | DoSS Toolkit" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="pull-pluck-and-unnest-1" class="section level1" number="65">
+<h1><span class="header-section-number">Chapter 65</span> pull, pluck and unnest</h1>
+<p><em>Written by Isaac Ehrlich.</em></p>
+<div id="introduction-60" class="section level2" number="65.1">
+<h2><span class="header-section-number">65.1</span> Introduction</h2>
+<p>Indexing, manipulating, or handling data frames and tibbles can be messy and tricky, especially when these objects are organized in complex data structures. Tidyverse functions <code>pull()</code>, <code>pluck()</code>, and, <code>unnest()</code> can make dealing with these data structures easier and neater.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Use <code>pull()</code> to access a single column of a data frame</li>
+<li>Use <code>pluck()</code> for deep indexing and to access elements of data structures</li>
+<li>Use <code>unnest()</code> to flatten data frames</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Knowledge of tibbles and other data structures</li>
+<li>Knowledge of indexing using special characters such as <code>[]</code> and <code>$</code></li>
+</ul>
+</div>
+<div id="pull-1" class="section level2" number="65.2">
+<h2><span class="header-section-number">65.2</span> pull()</h2>
+<p><code>pull()</code> is essentially the <code>$</code> indexing operator formatted as a function, allowing for neat indexing of data frames. As input, <code>pull()</code> takes the data frame, as well as <code>var</code>, which is information on the element you want to extract. <code>var</code> can either be the name of the column or an index. If the index is negative, <code>pull()</code> will count the indices from the right side (i.e. <code>var = 1</code> will pull the first column and <code>var = -1</code> will pull the last).</p>
+<p>Let’s take a look at some examples using a Caribou Location Tracking data set.</p>
+<div id="examples-9" class="section level3" number="65.2.1">
+<h3><span class="header-section-number">65.2.1</span> Examples</h3>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="pull-pluck-and-unnest-1.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load csv file</span></span>
+<span id="cb436-2"><a href="pull-pluck-and-unnest-1.html#cb436-2" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tacookson/data/master/caribou-location-tracking/locations.csv&quot;</span>, <span class="at">n_max =</span> <span class="dv">1000</span>)</span>
+<span id="cb436-3"><a href="pull-pluck-and-unnest-1.html#cb436-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb436-4"><a href="pull-pluck-and-unnest-1.html#cb436-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the &#39;event_id&#39; column</span></span>
+<span id="cb436-5"><a href="pull-pluck-and-unnest-1.html#cb436-5" aria-hidden="true" tabindex="-1"></a>event_id_col <span class="ot">&lt;-</span> locations <span class="sc">%&gt;%</span> <span class="fu">pull</span>(<span class="at">var =</span> <span class="st">&quot;event_id&quot;</span>)</span>
+<span id="cb436-6"><a href="pull-pluck-and-unnest-1.html#cb436-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb436-7"><a href="pull-pluck-and-unnest-1.html#cb436-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We can do this with positive and negative indexing as well</span></span>
+<span id="cb436-8"><a href="pull-pluck-and-unnest-1.html#cb436-8" aria-hidden="true" tabindex="-1"></a><span class="co"># event_id is the first column out of 7</span></span>
+<span id="cb436-9"><a href="pull-pluck-and-unnest-1.html#cb436-9" aria-hidden="true" tabindex="-1"></a>event_id_pos_idx <span class="ot">&lt;-</span> locations <span class="sc">%&gt;%</span> <span class="fu">pull</span>(<span class="at">var =</span> <span class="dv">1</span>)</span>
+<span id="cb436-10"><a href="pull-pluck-and-unnest-1.html#cb436-10" aria-hidden="true" tabindex="-1"></a>event_id_neg_idx <span class="ot">&lt;-</span> locations <span class="sc">%&gt;%</span> <span class="fu">pull</span>(<span class="at">var =</span> <span class="sc">-</span><span class="dv">7</span>)</span>
+<span id="cb436-11"><a href="pull-pluck-and-unnest-1.html#cb436-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb436-12"><a href="pull-pluck-and-unnest-1.html#cb436-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify positive and negative indexing returned the same column using &#39;table()&#39;</span></span>
+<span id="cb436-13"><a href="pull-pluck-and-unnest-1.html#cb436-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(event_id_pos_idx <span class="sc">==</span> event_id_neg_idx)</span>
+<span id="cb436-14"><a href="pull-pluck-and-unnest-1.html#cb436-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb436-15"><a href="pull-pluck-and-unnest-1.html#cb436-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TRUE </span></span>
+<span id="cb436-16"><a href="pull-pluck-and-unnest-1.html#cb436-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1000</span></span></code></pre></div>
+</div>
+</div>
+<div id="pluck-1" class="section level2" number="65.3">
+<h2><span class="header-section-number">65.3</span> pluck()</h2>
+<p><code>pluck()</code> is similar to <code>pull()</code>, but is more robust, and can handle complex data structures, such as lists of data frames. While <code>pull()</code> takes only one input to specify a column, <code>pluck()</code> can accept multiple, and therefore also allows for neat and flexible indexing of deep data structures. Similar to <code>pull()</code>, the output of <code>pluck</code> can also be achieved using traditional indexing, but <code>pluck()</code> is often simpler to use, and may make your code more readable.</p>
+<p>The main arguments of <code>pluck()</code> are the data structure that contains the elements you want to access, and then the elements themselves. If the element does not exist, <code>pluck()</code> by default will return <code>NULL</code>, though this can be changed by adjusting the <code>.default</code> argument.</p>
+<p>Let’s take a look at some examples using multiple data sets on Broadway Weekly Grosses.</p>
+<div id="examples-10" class="section level3" number="65.3.1">
+<h3><span class="header-section-number">65.3.1</span> Examples</h3>
+<p>The simplest use of <code>pluck()</code> is in place of <code>pull()</code> - to extract a single column from a data frame object. Without using <code>pull()</code>, <code>[]</code>, or <code>$</code> to index, let’s extract the <code>weekly_gross</code> column from the following file.</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="pull-pluck-and-unnest-1.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb437-2"><a href="pull-pluck-and-unnest-1.html#cb437-2" aria-hidden="true" tabindex="-1"></a>grosses <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv&quot;</span>, <span class="at">n_max =</span> <span class="dv">1000</span>)</span>
+<span id="cb437-3"><a href="pull-pluck-and-unnest-1.html#cb437-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-4"><a href="pull-pluck-and-unnest-1.html#cb437-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use &#39;pluck()&#39; to access a single column</span></span>
+<span id="cb437-5"><a href="pull-pluck-and-unnest-1.html#cb437-5" aria-hidden="true" tabindex="-1"></a>weekly_gross_col <span class="ot">&lt;-</span> grosses <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="st">&quot;weekly_gross&quot;</span>)</span>
+<span id="cb437-6"><a href="pull-pluck-and-unnest-1.html#cb437-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-7"><a href="pull-pluck-and-unnest-1.html#cb437-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This can also be done using indices rather than column names</span></span>
+<span id="cb437-8"><a href="pull-pluck-and-unnest-1.html#cb437-8" aria-hidden="true" tabindex="-1"></a>weekly_gross_idx <span class="ot">&lt;-</span> grosses <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="dv">6</span>)</span>
+<span id="cb437-9"><a href="pull-pluck-and-unnest-1.html#cb437-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-10"><a href="pull-pluck-and-unnest-1.html#cb437-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use &#39;table()&#39; to verify the outputs are the same</span></span>
+<span id="cb437-11"><a href="pull-pluck-and-unnest-1.html#cb437-11" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(weekly_gross_col <span class="sc">==</span> weekly_gross_idx)</span>
+<span id="cb437-12"><a href="pull-pluck-and-unnest-1.html#cb437-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb437-13"><a href="pull-pluck-and-unnest-1.html#cb437-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TRUE </span></span>
+<span id="cb437-14"><a href="pull-pluck-and-unnest-1.html#cb437-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1000</span></span></code></pre></div>
+<p><code>pluck()</code> can similarly use indices to grab elements of vectors and lists.</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="pull-pluck-and-unnest-1.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create list and grab the fourth element</span></span>
+<span id="cb438-2"><a href="pull-pluck-and-unnest-1.html#cb438-2" aria-hidden="true" tabindex="-1"></a>letters <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>)</span>
+<span id="cb438-3"><a href="pull-pluck-and-unnest-1.html#cb438-3" aria-hidden="true" tabindex="-1"></a>element <span class="ot">&lt;-</span> letters <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="dv">4</span>)</span>
+<span id="cb438-4"><a href="pull-pluck-and-unnest-1.html#cb438-4" aria-hidden="true" tabindex="-1"></a>element</span>
+<span id="cb438-5"><a href="pull-pluck-and-unnest-1.html#cb438-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;d&quot;</span></span></code></pre></div>
+<p>However, because <code>pluck()</code> can take multiple arguments, it is also capable extracting columns from more complex data structures, such as a list of data frames. This is often referred to as “deep indexing” - indexing that requires multiple index calls, brackets, or elements. Let’s download a few more data frames and see how this works.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="pull-pluck-and-unnest-1.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb439-2"><a href="pull-pluck-and-unnest-1.html#cb439-2" aria-hidden="true" tabindex="-1"></a>grosses <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv&quot;</span>, <span class="at">n_max =</span> <span class="dv">1000</span>)</span>
+<span id="cb439-3"><a href="pull-pluck-and-unnest-1.html#cb439-3" aria-hidden="true" tabindex="-1"></a>early_starts <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/pre-1985-starts.csv&quot;</span>, <span class="at">n_max =</span> <span class="dv">1000</span>)</span>
+<span id="cb439-4"><a href="pull-pluck-and-unnest-1.html#cb439-4" aria-hidden="true" tabindex="-1"></a>synopses <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/synopses.csv&quot;</span>, <span class="at">n_max =</span> <span class="dv">1000</span>)</span>
+<span id="cb439-5"><a href="pull-pluck-and-unnest-1.html#cb439-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb439-6"><a href="pull-pluck-and-unnest-1.html#cb439-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create list of data frames</span></span>
+<span id="cb439-7"><a href="pull-pluck-and-unnest-1.html#cb439-7" aria-hidden="true" tabindex="-1"></a>broadway_data <span class="ot">&lt;-</span> <span class="fu">list</span>(grosses, early_starts, synopses)</span>
+<span id="cb439-8"><a href="pull-pluck-and-unnest-1.html#cb439-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb439-9"><a href="pull-pluck-and-unnest-1.html#cb439-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Select `synopsis` column from `synopses` table</span></span>
+<span id="cb439-10"><a href="pull-pluck-and-unnest-1.html#cb439-10" aria-hidden="true" tabindex="-1"></a>synopsis_col <span class="ot">&lt;-</span> broadway_data <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="dv">3</span>, <span class="st">&quot;synopsis&quot;</span>)</span>
+<span id="cb439-11"><a href="pull-pluck-and-unnest-1.html#cb439-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb439-12"><a href="pull-pluck-and-unnest-1.html#cb439-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Use table() to verify the output is correct</span></span>
+<span id="cb439-13"><a href="pull-pluck-and-unnest-1.html#cb439-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(synopsis_col <span class="sc">==</span> broadway_data[[<span class="dv">3</span>]][,<span class="dv">2</span>])</span>
+<span id="cb439-14"><a href="pull-pluck-and-unnest-1.html#cb439-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb439-15"><a href="pull-pluck-and-unnest-1.html#cb439-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TRUE </span></span>
+<span id="cb439-16"><a href="pull-pluck-and-unnest-1.html#cb439-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  835</span></span></code></pre></div>
+<p>Similarly, <code>pluck()</code> can be used for other data structures like lists of lists as well.</p>
+</div>
+</div>
+<div id="unnest-1" class="section level2" number="65.4">
+<h2><span class="header-section-number">65.4</span> <code>unnest()</code></h2>
+<p>The main purpose of <code>unnest()</code> is to flatten existing data frames. Like <code>pluck()</code>, <code>unnest()</code> handles complex data structures, but these complex structures are now made up of lists (or other structures) contained within a single data frame (known as list-columns). In other words, if a column of a data frame contains other data structures, such as other tibbles, <code>unnest()</code> can flatten the data frame to remove these structures.</p>
+<p>The arguments that <code>unnest()</code> takes are the data frame, as well as the columns to flatten, or unnest. For additional arguments, see documentation.</p>
+<p>Let’s construct some toy data frames and take look at some examples.</p>
+<div id="examples-11" class="section level3" number="65.4.1">
+<h3><span class="header-section-number">65.4.1</span> Examples</h3>
+<p>Even without nesting tibbles within tibbles, <code>unnest()</code> can be used in cases such as flattening long strings using <code>strsplit()</code> or other functions.</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="pull-pluck-and-unnest-1.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create toy data</span></span>
+<span id="cb440-2"><a href="pull-pluck-and-unnest-1.html#cb440-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Even though the &#39;color&#39; and &#39;shades&#39; column are of the same length, we can see that two entries in the &#39;shades&#39; column contain elements separated by a comma</span></span>
+<span id="cb440-3"><a href="pull-pluck-and-unnest-1.html#cb440-3" aria-hidden="true" tabindex="-1"></a>color_shades <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>), <span class="at">shades =</span> <span class="fu">c</span>(<span class="st">&quot;red,cherry,scarlet&quot;</span>, <span class="st">&quot;orange,apricot&quot;</span>, <span class="st">&quot;yellow&quot;</span>))</span>
+<span id="cb440-4"><a href="pull-pluck-and-unnest-1.html#cb440-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(color_shades)</span>
+<span id="cb440-5"><a href="pull-pluck-and-unnest-1.html#cb440-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span id="cb440-6"><a href="pull-pluck-and-unnest-1.html#cb440-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   color  shades            </span></span>
+<span id="cb440-7"><a href="pull-pluck-and-unnest-1.html#cb440-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;             </span></span>
+<span id="cb440-8"><a href="pull-pluck-and-unnest-1.html#cb440-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 red    red,cherry,scarlet</span></span>
+<span id="cb440-9"><a href="pull-pluck-and-unnest-1.html#cb440-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 orange orange,apricot    </span></span>
+<span id="cb440-10"><a href="pull-pluck-and-unnest-1.html#cb440-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 yellow yellow</span></span>
+<span id="cb440-11"><a href="pull-pluck-and-unnest-1.html#cb440-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb440-12"><a href="pull-pluck-and-unnest-1.html#cb440-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb440-13"><a href="pull-pluck-and-unnest-1.html#cb440-13" aria-hidden="true" tabindex="-1"></a><span class="co"># We can use &#39;strsplit()&#39; to unnest the elements in the shades column</span></span>
+<span id="cb440-14"><a href="pull-pluck-and-unnest-1.html#cb440-14" aria-hidden="true" tabindex="-1"></a>color_shades <span class="ot">&lt;-</span> color_shades <span class="sc">%&gt;%</span> <span class="fu">unnest</span>(<span class="at">shades =</span> <span class="fu">strsplit</span>(shades, <span class="st">&quot;,&quot;</span>))</span>
+<span id="cb440-15"><a href="pull-pluck-and-unnest-1.html#cb440-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(color_shades)</span>
+<span id="cb440-16"><a href="pull-pluck-and-unnest-1.html#cb440-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 2</span></span>
+<span id="cb440-17"><a href="pull-pluck-and-unnest-1.html#cb440-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   color  shades </span></span>
+<span id="cb440-18"><a href="pull-pluck-and-unnest-1.html#cb440-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;  </span></span>
+<span id="cb440-19"><a href="pull-pluck-and-unnest-1.html#cb440-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 red    red    </span></span>
+<span id="cb440-20"><a href="pull-pluck-and-unnest-1.html#cb440-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 red    cherry </span></span>
+<span id="cb440-21"><a href="pull-pluck-and-unnest-1.html#cb440-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 red    scarlet</span></span>
+<span id="cb440-22"><a href="pull-pluck-and-unnest-1.html#cb440-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 orange orange </span></span>
+<span id="cb440-23"><a href="pull-pluck-and-unnest-1.html#cb440-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 orange apricot</span></span>
+<span id="cb440-24"><a href="pull-pluck-and-unnest-1.html#cb440-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 yellow yellow</span></span></code></pre></div>
+<p>However, <code>unnest()</code> is typically meant to be used with lists-columns held within data frames.</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="pull-pluck-and-unnest-1.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create toy data</span></span>
+<span id="cb441-2"><a href="pull-pluck-and-unnest-1.html#cb441-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;rgb&#39; column is a list of tibbles containing rgb values</span></span>
+<span id="cb441-3"><a href="pull-pluck-and-unnest-1.html#cb441-3" aria-hidden="true" tabindex="-1"></a>color_rgb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb441-4"><a href="pull-pluck-and-unnest-1.html#cb441-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
+<span id="cb441-5"><a href="pull-pluck-and-unnest-1.html#cb441-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">rgb =</span> <span class="fu">list</span>(</span>
+<span id="cb441-6"><a href="pull-pluck-and-unnest-1.html#cb441-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>),</span>
+<span id="cb441-7"><a href="pull-pluck-and-unnest-1.html#cb441-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">70</span>, <span class="at">b =</span> <span class="dv">0</span>),</span>
+<span id="cb441-8"><a href="pull-pluck-and-unnest-1.html#cb441-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">255</span>, <span class="at">b =</span> <span class="dv">0</span>)</span>
+<span id="cb441-9"><a href="pull-pluck-and-unnest-1.html#cb441-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb441-10"><a href="pull-pluck-and-unnest-1.html#cb441-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb441-11"><a href="pull-pluck-and-unnest-1.html#cb441-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(color_rgb)</span>
+<span id="cb441-12"><a href="pull-pluck-and-unnest-1.html#cb441-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span id="cb441-13"><a href="pull-pluck-and-unnest-1.html#cb441-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   color  rgb             </span></span>
+<span id="cb441-14"><a href="pull-pluck-and-unnest-1.html#cb441-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;list&gt;          </span></span>
+<span id="cb441-15"><a href="pull-pluck-and-unnest-1.html#cb441-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 red    &lt;tibble [1 × 3]&gt;</span></span>
+<span id="cb441-16"><a href="pull-pluck-and-unnest-1.html#cb441-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 orange &lt;tibble [1 × 3]&gt;</span></span>
+<span id="cb441-17"><a href="pull-pluck-and-unnest-1.html#cb441-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 yellow &lt;tibble [1 × 3]&gt;</span></span>
+<span id="cb441-18"><a href="pull-pluck-and-unnest-1.html#cb441-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb441-19"><a href="pull-pluck-and-unnest-1.html#cb441-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Flatten the &#39;rgb&#39; column to create a column for each color component</span></span>
+<span id="cb441-20"><a href="pull-pluck-and-unnest-1.html#cb441-20" aria-hidden="true" tabindex="-1"></a>color_rgb <span class="ot">&lt;-</span> color_rgb <span class="sc">%&gt;%</span> <span class="fu">unnest</span>(rgb)</span>
+<span id="cb441-21"><a href="pull-pluck-and-unnest-1.html#cb441-21" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(color_rgb)</span>
+<span id="cb441-22"><a href="pull-pluck-and-unnest-1.html#cb441-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 4</span></span>
+<span id="cb441-23"><a href="pull-pluck-and-unnest-1.html#cb441-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   color      r     g     b</span></span>
+<span id="cb441-24"><a href="pull-pluck-and-unnest-1.html#cb441-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb441-25"><a href="pull-pluck-and-unnest-1.html#cb441-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 red      255     0     0</span></span>
+<span id="cb441-26"><a href="pull-pluck-and-unnest-1.html#cb441-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 orange   255    70     0</span></span>
+<span id="cb441-27"><a href="pull-pluck-and-unnest-1.html#cb441-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 yellow   255   255     0</span></span></code></pre></div>
+<p>We can see that once the rgb column is unnested, it is easier to read and grab each component individually.</p>
+</div>
+</div>
+<div id="practice-questions-2" class="section level2" number="65.5">
+<h2><span class="header-section-number">65.5</span> Practice questions</h2>
+<!-- ```{r pullq1, echo = FALSE} -->
+<!-- question("Using a negative index in 'pull()' will", -->
+<!-- answer("return an error"), -->
+<!-- answer("create a new column"), -->
+<!-- answer("return NULL"), -->
+<!-- answer("index from the right side instead of the left", correct = TRUE), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+<!-- ```{r pullq2, echo = FALSE} -->
+<!-- question("'pull()' and 'pluck()' perform functions no other operators in R are capable of", -->
+<!-- answer("True", message = "Remember there are many ways to index!"), -->
+<!-- answer("False", correct = TRUE, message = "Correct! Using 'pull()' and 'pluck()' is mostly a stylistic choice, but they are great for pipes and can definitely make your code neater!"), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+<!-- ```{r pullq3, echo = FALSE} -->
+<!-- question("Which of the following are true?", -->
+<!-- answer("'pluck()' is a robust alternative to 'pull()' - it can handle complex data structures", correct = TRUE), -->
+<!-- answer("'pull()' is a robust alternative to 'pluck()' - it can handle complex data structures"), -->
+<!-- answer("'pull()' takes in one index argument ('var') as input", correct = TRUE), -->
+<!-- answer("'pluck()' can take multiple index arguments as input", correct = TRUE), -->
+<!-- allow_retry = TRUE) -->
+<!-- ``` -->
+</div>
+<div id="practice-coding-2" class="section level2" number="65.6">
+<h2><span class="header-section-number">65.6</span> Practice coding</h2>
+<p>It’s your turn to try! In the code below, we’ve created a complex data structure, where <code>colors</code> is a list of the data frames <code>red</code>, <code>orange</code>, and <code>yellow</code>, where <code>yellow</code> also has nested data frames. See if you can complete the following questions!</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="pull-pluck-and-unnest-1.html#cb442-1" aria-hidden="true" tabindex="-1"></a>red <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">shade =</span> <span class="fu">c</span>(<span class="st">&quot;brick&quot;</span>, <span class="st">&quot;bright&quot;</span>, <span class="st">&quot;burgundy&quot;</span>, <span class="st">&quot;cardinal&quot;</span>, <span class="st">&quot;cherry&quot;</span>),</span>
+<span id="cb442-2"><a href="pull-pluck-and-unnest-1.html#cb442-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">r =</span> <span class="fu">c</span>(<span class="dv">170</span>, <span class="dv">238</span>, <span class="dv">128</span>, <span class="dv">196</span>, <span class="dv">210</span>),</span>
+<span id="cb442-3"><a href="pull-pluck-and-unnest-1.html#cb442-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">g =</span> <span class="fu">c</span>(<span class="dv">74</span>, <span class="dv">75</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">4</span>),</span>
+<span id="cb442-4"><a href="pull-pluck-and-unnest-1.html#cb442-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">68</span>, <span class="dv">43</span>, <span class="dv">32</span>, <span class="dv">58</span>, <span class="dv">45</span>))</span>
+<span id="cb442-5"><a href="pull-pluck-and-unnest-1.html#cb442-5" aria-hidden="true" tabindex="-1"></a>orange <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">shade =</span> <span class="fu">c</span>(<span class="st">&quot;papaya&quot;</span>, <span class="st">&quot;coral&quot;</span>, <span class="st">&quot;dark&quot;</span>, <span class="st">&quot;apricot&quot;</span>, <span class="st">&quot;topaz&quot;</span>),</span>
+<span id="cb442-6"><a href="pull-pluck-and-unnest-1.html#cb442-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">r =</span> <span class="fu">c</span>(<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">251</span>, <span class="dv">255</span>),</span>
+<span id="cb442-7"><a href="pull-pluck-and-unnest-1.html#cb442-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">g =</span> <span class="fu">c</span>(<span class="dv">239</span>, <span class="dv">127</span>, <span class="dv">140</span>, <span class="dv">206</span>, <span class="dv">200</span>),</span>
+<span id="cb442-8"><a href="pull-pluck-and-unnest-1.html#cb442-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">213</span>, <span class="dv">80</span>, <span class="dv">0</span>, <span class="dv">177</span>, <span class="dv">124</span>))</span>
+<span id="cb442-9"><a href="pull-pluck-and-unnest-1.html#cb442-9" aria-hidden="true" tabindex="-1"></a>yellow <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">shade =</span> <span class="fu">c</span>(<span class="st">&quot;amber&quot;</span>, <span class="st">&quot;brass&quot;</span>, <span class="st">&quot;bright&quot;</span>, <span class="st">&quot;canary&quot;</span>, <span class="st">&quot;cream&quot;</span>),</span>
+<span id="cb442-10"><a href="pull-pluck-and-unnest-1.html#cb442-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rgb =</span> <span class="fu">list</span>(<span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">191</span>, <span class="at">b =</span> <span class="dv">0</span>),</span>
+<span id="cb442-11"><a href="pull-pluck-and-unnest-1.html#cb442-11" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">225</span>, <span class="at">g =</span> <span class="dv">193</span>, <span class="at">b =</span> <span class="dv">110</span>),</span>
+<span id="cb442-12"><a href="pull-pluck-and-unnest-1.html#cb442-12" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">234</span>, <span class="at">b =</span> <span class="dv">0</span>),</span>
+<span id="cb442-13"><a href="pull-pluck-and-unnest-1.html#cb442-13" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">255</span>, <span class="at">b =</span> <span class="dv">143</span>),</span>
+<span id="cb442-14"><a href="pull-pluck-and-unnest-1.html#cb442-14" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">tibble</span>(<span class="at">r =</span> <span class="dv">255</span>, <span class="at">g =</span> <span class="dv">253</span>, <span class="at">b =</span> <span class="dv">208</span>)))</span>
+<span id="cb442-15"><a href="pull-pluck-and-unnest-1.html#cb442-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb442-16"><a href="pull-pluck-and-unnest-1.html#cb442-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb442-17"><a href="pull-pluck-and-unnest-1.html#cb442-17" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">list</span>(red, orange, yellow)</span></code></pre></div>
+<p><strong>1. Use <code>pull()</code> to extract the <code>shade</code> column from the <code>red</code> data frame</strong></p>
+<!-- ```{r pull-coding1, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r pull-coding1-solution} -->
+<!-- red %>% pull(shade) -->
+<!-- # OR -->
+<!-- red %>% pull(1) -->
+<!-- # OR -->
+<!-- red %>% pull(-4) -->
+<!-- ``` -->
+<!-- **2. Use `pluck()` to extract the `shade` column from the `red` data frame from within the `colors` list** -->
+<!-- ```{r pull-coding2, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r pull-coding2-solution} -->
+<!-- colors %>% pluck(1, "shade") -->
+<!-- ``` -->
+<!-- **3. Use `pluck()` to extract the yellow data frame, and then use `pull()` to grab just the `b` column. Remember that the `yellow` data frame has a nested tibble so you may have to use `unnest()`! -->
+<!-- ```{r pull-coding3, exercise = TRUE} -->
+<!-- ``` -->
+<!-- ```{r pull-coding3-solution} -->
+<!-- colors %>% pluck(3) %>% unnest(rgb) %>% pull(b) -->
+<!-- ``` -->
+</div>
+<div id="overview-and-next-steps-3" class="section level2" number="65.7">
+<h2><span class="header-section-number">65.7</span> Overview and Next Steps</h2>
+<ul>
+<li><code>pull()</code> allows for a simple way to extract single columns from data frames</li>
+<li><code>pluck()</code> performs similar functions as <code>pull()</code> but is also capable of handling complex data structures, such as lists of data frames (and lists of lists of data frames, and lists of lists of lists of data frames and…)</li>
+<li>Although the use of <code>pull()</code> and <code>pluck()</code> is generally a stylistic choice, these functions let you avoid multiple special characters like <code>[[]]</code> and <code>$</code> and can make your code neater too!</li>
+<li><code>unnest()</code> flattens data frames that contain other lists or data frames (known as list-columns)</li>
+</ul>
+<p>In the next lesson, we will continue looking into different ways of storing and handling data in R - this time with factors!</p>
+
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

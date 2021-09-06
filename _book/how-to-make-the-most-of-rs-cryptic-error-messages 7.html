@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 How to make the most of R’s cryptic error messages | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Shirley Deng.  15.1 Decrypting the cryptic More often than not, R will spit out errors that give us very little information on what they actually are. We have two options here: Try to...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 15 How to make the most of R’s cryptic error messages | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Shirley Deng.  15.1 Decrypting the cryptic More often than not, R will spit out errors that give us very little information on what they actually are. We have two options here: Try to...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 How to make the most of R’s cryptic error messages | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Shirley Deng.  15.1 Decrypting the cryptic More often than not, R will spit out errors that give us very little information on what they actually are. We have two options here: Try to...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="active" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="grouping-and-ungrouping.html"><span class="header-section-number">31</span> Grouping and ungrouping</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">49</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">50</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">51</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">52</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">53</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">54</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">55</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">56</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">57</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">58</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">59</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">60</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">61</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">62</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">63</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">64</span> tidyr package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="how-to-make-the-most-of-rs-cryptic-error-messages" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> How to make the most of R’s cryptic error messages<a class="anchor" aria-label="anchor" href="#how-to-make-the-most-of-rs-cryptic-error-messages"><i class="fas fa-link"></i></a>
+</h1>
+<p>Written by Shirley Deng.</p>
+<div id="decrypting-the-cryptic" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> Decrypting the cryptic<a class="anchor" aria-label="anchor" href="#decrypting-the-cryptic"><i class="fas fa-link"></i></a>
+</h2>
+<p>More often than not, R will spit out errors that give us very little information on <em>what</em> they actually are.</p>
+<p>We have two options here:</p>
+<ol style="list-style-type: decimal">
+<li>Try to <strong><em>get rid of</em></strong> the error</li>
+<li>Try to <strong><em>fix</em></strong> the error</li>
+</ol>
+<p>While getting rid of error messages can bring us momentary relief, we’re likely to encounter more issues along the way using hastily developed “solutions.”</p>
+<div id="shootin-the-troubles" class="section level3" number="15.1.1">
+<h3>
+<span class="header-section-number">15.1.1</span> Shootin’ the troubles<a class="anchor" aria-label="anchor" href="#shootin-the-troubles"><i class="fas fa-link"></i></a>
+</h3>
+<div id="package-inputenc-error" class="section level4" number="15.1.1.1">
+<h4>
+<span class="header-section-number">15.1.1.1</span> Package inputenc Error<a class="anchor" aria-label="anchor" href="#package-inputenc-error"><i class="fas fa-link"></i></a>
+</h4>
+<p>While TAing an introductory data science course, one of the most common errors students encountered while working with R Markdown looked like this:</p>
+<div id="example-1" class="section level5" number="15.1.1.1.1">
+<h5>
+<span class="header-section-number">15.1.1.1.1</span> Example 1<a class="anchor" aria-label="anchor" href="#example-1"><i class="fas fa-link"></i></a>
+</h5>
+<pre><code>! Package inputenc Error: Unicode character μ (U+03BC)
+(inputenc)                not set up for use with LaTeX.
+
+Try other LaTeX engines instead (e.g., xelatex) if you are using pdflatex. See https://bookdown.org/yihui/rmarkdown-cookbook/latex-unicode.html
+
+Error: LaTeX failed to compile ProblemSet.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See ProblemSet.log for more info.
+Execution halted</code></pre>
+<p>One way to get around this error would be to follow the suggestion and use <code>xelatex</code> as our LaTeX engine. For a PDF document, this would mean using the following in the header chunk:</p>
+<pre><code>output:
+  pdf_document:
+    latex_engine: xelatex</code></pre>
+<p>But what if we need to use a different LaTeX engine? What if using <code>xelatex</code> doesn’t get rid of the <code>Package inputenc Error</code>? Are there other ways to deal with this error?</p>
+<p>One student suggested that we make an exemption for the <code>μ</code> character by adding the following to the header chunk:</p>
+<pre><code>header-includes:
+  - \DeclareUnicodeCharacter{03BC}{μ}</code></pre>
+<p>Now, another common error was this here:</p>
+</div>
+<div id="example-2" class="section level5" number="15.1.1.1.2">
+<h5>
+<span class="header-section-number">15.1.1.1.2</span> Example 2<a class="anchor" aria-label="anchor" href="#example-2"><i class="fas fa-link"></i></a>
+</h5>
+<pre><code>! Package inputenc Error: Unicode character ， (U+FF0C)
+(inputenc)                not set up for use with LaTeX.
+
+Try other LaTeX engines instead (e.g., xelatex) if you are using pdflatex. See https://bookdown.org/yihui/rmarkdown-cookbook/latex-unicode.html</code></pre>
+<p>This is the the same <em>type</em> of error as Example 1, but with a different character specified - the Chinese full-width comma.</p>
+<p>If we simply made an exemption for the <code>μ</code> character as the student suggested, then we’d still encounter the same error for other characters, like the <code>，</code>.</p>
+<p>Recall that LaTeX is <em>designed</em> to use commands to generate symbols.</p>
+<p>We notice that this error specifically tells us that there may be an issue with a given unicode character. In the Example 1, <code>μ</code>.</p>
+<p>So we can try searching the document to see where <code>μ</code> may appear. If we find any <code>μ</code>’s, great! Then we just need to avoid using <code>μ</code> in order to get our document to knit.</p>
+<p>Then one fix for this error would be to replace all occurences of <code>μ</code> with <code>\mu</code>, the laTeX command for the character.</p>
+<p>In Example 2, we could try replacing all occurences of <code>，</code> with <code>,</code>, a regular degular comma generated by an English language keyboard, to allow us to knit our document.</p>
+<p>But is there a way for us to <strong><em>prevent</em></strong> errors like these from popping up again?</p>
+<p>After all of our trials and tribulations, we find that LaTeX probably doesn’t like when we generate the symbols ourselves. After all, there are only a handful of symbols that don’t need an escape or any sort of special handling to ensure that they show up properly in our knitted document.</p>
+<p>Moving forward, it may be a good idea to try to <strong>use LaTeX commands for special characters or symbols whenever possible</strong>.</p>
+<p>Ultimately, this was the solution that allowed most students to knit their R Markdown documents!</p>
+</div>
+</div>
+<div id="its-one-thing-to-get-our-code-to-work-but-another-thing-to-make-sure-we-dont-have-to-work-our-code." class="section level4" number="15.1.1.2">
+<h4>
+<span class="header-section-number">15.1.1.2</span> It’s one thing to get our code to <em>work</em>, but another thing to make sure we don’t have to work our code.<a class="anchor" aria-label="anchor" href="#its-one-thing-to-get-our-code-to-work-but-another-thing-to-make-sure-we-dont-have-to-work-our-code."><i class="fas fa-link"></i></a>
+</h4>
+<p>For the rest of this section on R’s <em>cryptic</em> error messages, we’ll be going over some common errors and how we can get around them.</p>
+</div>
+</div>
+</div>
+<div id="knitting-makes-a-great-pastime" class="section level2" number="15.2">
+<h2>
+<span class="header-section-number">15.2</span> Knitting makes a great pastime<a class="anchor" aria-label="anchor" href="#knitting-makes-a-great-pastime"><i class="fas fa-link"></i></a>
+</h2>
+<p>The best way to minimize dealing with R Markdown errors in the first place is to knit often.</p>
+<p>If we knit periodically as we work, then if or when we encounter an error, we’ll know which bit of code it came from.</p>
+<p>Often times, one “mistake” can cause multiple error messages. In the case of Example 1, the <code>μ</code> character not only caused R to spit out <code>! Package inputenc Error</code>, but <code>Error: LaTeX failed to compile</code> as well.</p>
+<p>It’s much easier to deal with errors one by one than to deal with them all at once in a tangled mess.</p>
+<div id="parm-for-your-copypasta" class="section level3" number="15.2.1">
+<h3>
+<span class="header-section-number">15.2.1</span> Parm for your copypasta?<a class="anchor" aria-label="anchor" href="#parm-for-your-copypasta"><i class="fas fa-link"></i></a>
+</h3>
+<p>This also applies when we need to copy and paste bits into our documents.</p>
+<p>As we saw in Example 2, it’s not easy to spot the difference between <code>，</code> and <code>,</code>. This is especially the case when we have a whole wall of text written up (i.e., the entire R Markdown document) to look through.</p>
+<p>When copying and pasting, it’s best to <strong>copy small sections at a time, knitting in between each</strong>. This will allow us to isolate any issues like the <em>Package inputenc Error</em>.</p>
+</div>
+<div id="code" class="section level3" number="15.2.2">
+<h3>
+<span class="header-section-number">15.2.2</span> Code<a class="anchor" aria-label="anchor" href="#code"><i class="fas fa-link"></i></a>
+</h3>
+<p>When it comes to code, we can run code <em>without</em> knitting the entire file, be it R or R Markdown.</p>
+<p>This is especially handy when our R code uses a lot of memory and takes a long time to compile or knit. Rather than having to run the entire document, including all the bits we already know work, we can just test run an isolated part.</p>
+<p>Simply select the desired code, and use the appropriate keyboard shortcut to run:</p>
+<ul>
+<li>
+<code>Cmd+Return</code> on Mac</li>
+<li>
+<code>Ctrl+Enter</code> on Windows and Linux</li>
+</ul>
+<div id="note-a-list-of-rstudio-keyboard-shortcuts-can-be-found-here" class="section level4" number="15.2.2.1">
+<h4>
+<span class="header-section-number">15.2.2.1</span> Note: A list of RStudio keyboard shortcuts can be found <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a><a class="anchor" aria-label="anchor" href="#note-a-list-of-rstudio-keyboard-shortcuts-can-be-found-here"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="knittings-not-for-me" class="section level3" number="15.2.3">
+<h3>
+<span class="header-section-number">15.2.3</span> Knitting’s not for me<a class="anchor" aria-label="anchor" href="#knittings-not-for-me"><i class="fas fa-link"></i></a>
+</h3>
+<p>A fair amount of students have encountered the following error:</p>
+<pre><code>Error in contrib.url(repos, type) : 
+  trying to use CRAN without setting a mirror</code></pre>
+<p>If we do a little search…</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="op">?</span><span class="va">contrib.url</span></code></pre></div>
+<p>We get the impression that we had some issues installing a package.</p>
+<p>Keep in mind that we install packages for our R sessions, but only need to load them when we knit our R Markdown documents.</p>
+<p>In other words, don’t use <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> in any of your R Markdown document code chunks!</p>
+<p>Instead, you can either:</p>
+<ul>
+<li>click on the “Install” button in the yellow bar near the RStudio toolbar,</li>
+<li>or run <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> in the console instead.</li>
+</ul>
+</div>
+</div>
+<div id="have-you-tried-turning-it-off-and-on-again" class="section level2" number="15.3">
+<h2>
+<span class="header-section-number">15.3</span> Have you tried turning it off and on again?<a class="anchor" aria-label="anchor" href="#have-you-tried-turning-it-off-and-on-again"><i class="fas fa-link"></i></a>
+</h2>
+<p>This may sound like we’re trying to <strong>get rid of</strong> the error instead of <strong>fixing</strong> it, but rest assured, we’ll see how it can be quite insightful at times.</p>
+<div id="time-waits-for-no-man" class="section level3" number="15.3.1">
+<h3>
+<span class="header-section-number">15.3.1</span> Time waits for no man<a class="anchor" aria-label="anchor" href="#time-waits-for-no-man"><i class="fas fa-link"></i></a>
+</h3>
+<p>To make debugging easier, some instructors may choose to have their students use RStudio on <a href="https://jupyter.org/hub">JupyterHub</a> or <a href="https://rstudio.cloud/">RStudio Cloud</a>, instead of a local installation.</p>
+<p>JupyterHub and RStudio Cloud will automtically use the latest versions of R and RStudio available, so we don’t have to manually update our local installations.</p>
+<p><em>This is great for when we need to use packages that aren’t configured for our OS. Hem hem, I’m speaking to you, <code>rstan</code> and <code>brms</code> on macOS.</em></p>
+<p>However, using RStudio on the cloud often brings about a new problem: <code>Status code 403 returned</code>.</p>
+<p>This often happens due to long (or sometimes even short) periods of inactivity. <a href="https://community.rstudio.com/t/status-code-403/16110">The RStudio team has not found a best solution for it yet</a>, but the old <em>turn it off and back on</em> trick seems to fix it.</p>
+<p>Some people suggest <a href="https://community.rstudio.com/t/status-code-403-tonight-08-05/75540/4">logging out and logging back in</a>, while others suggest <a href="https://community.rstudio.com/t/status-code-403/16110/4">refreshing the page</a>.</p>
+<div id="note-keep-in-mind-that-you-have-to-install-packages-again-each-time-you-start-a-new-rstudio-session-on-jupyterhub." class="section level4" number="15.3.1.1">
+<h4>
+<span class="header-section-number">15.3.1.1</span> Note: Keep in mind that you have to install packages again <em>each time you start a new RStudio session on JupyterHub</em>.<a class="anchor" aria-label="anchor" href="#note-keep-in-mind-that-you-have-to-install-packages-again-each-time-you-start-a-new-rstudio-session-on-jupyterhub."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="getting-back-on-track-when-we-run" class="section level3" number="15.3.2">
+<h3>
+<span class="header-section-number">15.3.2</span> Getting back on track when we run<a class="anchor" aria-label="anchor" href="#getting-back-on-track-when-we-run"><i class="fas fa-link"></i></a>
+</h3>
+<p>Remember that note up there about installing packages for every new RStudio session on JupyterHub? Yes, the one three lines above this.</p>
+<p>A number of students posted on their course discussion board about getting a <code>Could not find function "glimpse"</code> error.</p>
+<p>Why would R not be able to find <code>glimpse()</code>?</p>
+<p>Recall that <code>glimpse()</code>, like the pipe <code><a href="https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html">%&gt;%</a></code> and like <code>tibble()</code>, aren’t base R. Rather, we can access them by installing and loading the <code>dlpyr</code> or <code>tidyverse</code> packages.</p>
+<p>If we don’t load the package, we can’t use the function.</p>
+<p>Sometimes we might forget whether a line’s been run or not, or that we restarted a new R session, and mistakenly forget to install or load a package before attempting to run our code.</p>
+<div id="example-4" class="section level4" number="15.3.2.1">
+<h4>
+<span class="header-section-number">15.3.2.1</span> Example 4<a class="anchor" aria-label="anchor" href="#example-4"><i class="fas fa-link"></i></a>
+</h4>
+<p>Suppose we mistakenly run the same line of code it twice.</p>
+<p>Try running the following code and see what happens:</p>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"> <span class="co"># Uncomment it first</span>
+ <span class="co"># mtcars &lt;- mtcars %&gt;% select(-mpg)</span>
+ <span class="co"># mtcars &lt;- mtcars %&gt;% select(-mpg)</span></code></pre></div>
+<p>We get an error! <code>Error: Must subset columns with a valid subscript vector.</code></p>
+<p>Now, this error message doesn’t give us much information about what’s wrong with our code.</p>
+<p>But, when we restart our R session it works fine again:</p>
+<!-- ```{r errors-selectagain, exercise=TRUE} -->
+<!-- .rs.restartR() -->
+<!-- mtcars <- mtcars %>% select(-mpg) -->
+<!-- ``` -->
+<p>Let’s take a closer look at what the line <code>mtcars &lt;- mtcars %&gt;% select(-mpg)</code> is doing, and why running it twice causes us issues.</p>
+<!-- ```{r errors-glimpse, eval = FALSE} -->
+<!-- .rs.restartR() -->
+<!-- glimpse(mtcars) -->
+<!-- mtcars <- mtcars %>% select(-mpg) -->
+<!-- glimpse(mtcars) -->
+<!-- ``` -->
+<p>We see that the line <code>.mtcars &lt;- mtcars %&gt;% select(-mpg)</code> removes the variable <code>mpg</code> from <code>mtcars</code>. Hence, if we run it once, there is no <code>mpg</code> left to be removed the second time.</p>
+<p>Sometimes we just have code that won’t work if we run it more than once, and this is a situation where the old <em>turn it off and back on</em> trick helps us <strong>solve</strong> our problems, rather than just get rid of them.</p>
+<p>Similarly, sometimes we run code in the console but <em>don’t</em> have it written in any chunks of our R Markdown document - maybe it was accidentally removed. If you were able to run the code before knitting, these are plausible situations. As a result, we may run into errors when R tries to knit our document.</p>
+<p>All in all, when in doubt, you can start fresh by <a href="https://stackoverflow.com/questions/6313079/quit-and-restart-a-clean-r-session-from-within-r">quitting and restarting your R session</a>.</p>
+</div>
+<div id="note-this-can-especially-be-an-issue-if-weve-used-set.seed.-forgetting-to-set-a-seed-when-creating-simulations-of-random-objects-can-drastically-change-our-results" class="section level4" number="15.3.2.2">
+<h4>
+<span class="header-section-number">15.3.2.2</span> Note: This can especially be an issue if we’ve used <code>set.seed()</code>. Forgetting to set a seed when creating simulations of random objects can drastically change our results!<a class="anchor" aria-label="anchor" href="#note-this-can-especially-be-an-issue-if-weve-used-set.seed.-forgetting-to-set-a-seed-when-creating-simulations-of-random-objects-can-drastically-change-our-results"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="note-if-there-are-any-helper-files-left-behind-from-a-r-markdown-document-that-couldnt-knit-like-.aux-delete-them-before-trying-to-knit-again." class="section level4" number="15.3.2.3">
+<h4>
+<span class="header-section-number">15.3.2.3</span> Note: If there are any helper files left behind from a R Markdown document that couldn’t knit, like <code>.aux</code>, delete them before trying to knit again.<a class="anchor" aria-label="anchor" href="#note-if-there-are-any-helper-files-left-behind-from-a-r-markdown-document-that-couldnt-knit-like-.aux-delete-them-before-trying-to-knit-again."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="clopening" class="section level2" number="15.4">
+<h2>
+<span class="header-section-number">15.4</span> Clopening<a class="anchor" aria-label="anchor" href="#clopening"><i class="fas fa-link"></i></a>
+</h2>
+<p>Encounter something like <code>! Package amsmath Error: \hat allowed only in math mode.</code>?</p>
+<p>This can be a little cryptic if we only have <code>\hat{\beta}</code> in our R Markdown document, and it appears fine as <span class="math inline">\(\hat{\beta}\)</span> before knitting. It shows up, so we must be in math mode. What’s the problem?</p>
+<p>It’s likely that there are open brackets, braces, parantheses, etc. - i.e. an extra one was either added or removed.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>So whenever you use one of these…</th>
+<th>make sure it comes with one of these</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>\(</code></td>
+<td><code>\)</code></td>
+</tr>
+<tr class="even">
+<td><code>\[</code></td>
+<td><code>\]</code></td>
+</tr>
+<tr class="odd">
+<td><code>$$</code></td>
+<td><code>$$</code></td>
+</tr>
+<tr class="even">
+<td><code>\begin{aligned}</code></td>
+<td><code>\end{aligned}</code></td>
+</tr>
+<tr class="odd">
+<td><code>{</code></td>
+<td><code>}</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="warnings-not-errors" class="section level2" number="15.5">
+<h2>
+<span class="header-section-number">15.5</span> Warnings, not errors<a class="anchor" aria-label="anchor" href="#warnings-not-errors"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes we see some scary red text after knitting or compiling, and we worry that we have some cumbersome errors to deal with. However, red text is not always indicative of errors.</p>
+<p>R also colours their <strong>warnings</strong> in red, too.</p>
+<div id="example-5" class="section level3" number="15.5.1">
+<h3>
+<span class="header-section-number">15.5.1</span> Example 5<a class="anchor" aria-label="anchor" href="#example-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Run the following code, and see what R tells us in response.</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars</span> <span class="op">%&gt;%</span>
+   <span class="fu">group_by</span><span class="op">(</span><span class="va">gear</span><span class="op">)</span> <span class="op">%&gt;%</span>
+   <span class="fu">summarise</span><span class="op">(</span>qs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">disp</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; `summarise()` has grouped output by 'gear'. You can override using the `.groups` argument.</span>
+<span class="co">#&gt; # A tibble: 6 × 3</span>
+<span class="co">#&gt; # Groups:   gear [3]</span>
+<span class="co">#&gt;    gear    qs  prob</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     3 276.   0.25</span>
+<span class="co">#&gt; 2     3 380    0.75</span>
+<span class="co">#&gt; 3     4  78.9  0.25</span>
+<span class="co">#&gt; 4     4 160    0.75</span>
+<span class="co">#&gt; 5     5 120.   0.25</span>
+<span class="co">#&gt; 6     5 301    0.75</span></code></pre></div>
+<p>We see that we get the following:</p>
+<pre><code>`summarise()` has grouped output by 'gear'. You can override using the `.groups` argument.</code></pre>
+<p>This is not an error, but a warning.</p>
+<p>If we want to get rid of warnings for just one code chunk, we can put <code>warning=FALSE</code> or <code>warning=F</code> in the little knitr chunk options, like this:</p>
+<p>```{r, warning=FALSE}<br>
+# your code here<br>
+```</p>
+<p>Alternatively, if we want to “turn off” warnings for our <em>entire</em> document, we can put this at the beginning of our R Markdown document, right after the YAML header chunk:</p>
+<p>```{r, include=FALSE}<br>
+knitr::opts_chunk$set(warning = FALSE)<br>
+```</p>
+<div id="note-more-information-on-chunk-options-can-be-found-here" class="section level5" number="15.5.1.0.1">
+<h5>
+<span class="header-section-number">15.5.1.0.1</span> Note: More information on chunk options can be found <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">here</a><a class="anchor" aria-label="anchor" href="#note-more-information-on-chunk-options-can-be-found-here"><i class="fas fa-link"></i></a>
+</h5>
+<p>With that said, this specific warning can be resolved exactly as it suggests: using the <code>.groups</code> argument, as below.</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars</span> <span class="op">%&gt;%</span>
+   <span class="fu">group_by</span><span class="op">(</span><span class="va">gear</span><span class="op">)</span> <span class="op">%&gt;%</span>
+   <span class="fu">summarise</span><span class="op">(</span>qs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">disp</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.75</span><span class="op">)</span>, 
+             .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 3</span>
+<span class="co">#&gt;    gear    qs  prob</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     3 276.   0.25</span>
+<span class="co">#&gt; 2     3 380    0.75</span>
+<span class="co">#&gt; 3     4  78.9  0.25</span>
+<span class="co">#&gt; 4     4 160    0.75</span>
+<span class="co">#&gt; 5     5 120.   0.25</span>
+<span class="co">#&gt; 6     5 301    0.75</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="resources-and-references" class="section level2" number="15.6">
+<h2>
+<span class="header-section-number">15.6</span> Resources and references<a class="anchor" aria-label="anchor" href="#resources-and-references"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://jupyter.org/hub">JupyterHub</a></li>
+<li><a href="https://rstudio.cloud/">RStudio Cloud</a></li>
+<li>
+<code>Status code 403 returned</code>
+<ul>
+<li><a href="https://community.rstudio.com/t/status-code-403/16110">Refreshing the page</a></li>
+<li><a href="https://community.rstudio.com/t/status-code-403-tonight-08-05/75540/4">Logging out and in</a></li>
+</ul>
+</li>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">RStudio keyboard shortcuts</a></li>
+<li><a href="https://stackoverflow.com/questions/6313079/quit-and-restart-a-clean-r-session-from-within-r">Quit and restart a clean R session from within R</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">knitr code chunk options</a></li>
+</ul>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></div>
+<div class="next"><a href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#how-to-make-the-most-of-rs-cryptic-error-messages"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li>
+<a class="nav-link" href="#decrypting-the-cryptic"><span class="header-section-number">15.1</span> Decrypting the cryptic</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#shootin-the-troubles"><span class="header-section-number">15.1.1</span> Shootin’ the troubles</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#knitting-makes-a-great-pastime"><span class="header-section-number">15.2</span> Knitting makes a great pastime</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#parm-for-your-copypasta"><span class="header-section-number">15.2.1</span> Parm for your copypasta?</a></li>
+<li><a class="nav-link" href="#code"><span class="header-section-number">15.2.2</span> Code</a></li>
+<li><a class="nav-link" href="#knittings-not-for-me"><span class="header-section-number">15.2.3</span> Knitting’s not for me</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#have-you-tried-turning-it-off-and-on-again"><span class="header-section-number">15.3</span> Have you tried turning it off and on again?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#time-waits-for-no-man"><span class="header-section-number">15.3.1</span> Time waits for no man</a></li>
+<li><a class="nav-link" href="#getting-back-on-track-when-we-run"><span class="header-section-number">15.3.2</span> Getting back on track when we run</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#clopening"><span class="header-section-number">15.4</span> Clopening</a></li>
+<li>
+<a class="nav-link" href="#warnings-not-errors"><span class="header-section-number">15.5</span> Warnings, not errors</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example-5"><span class="header-section-number">15.5.1</span> Example 5</a></li></ul>
+</li>
+<li><a class="nav-link" href="#resources-and-references"><span class="header-section-number">15.6</span> Resources and references</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/016-operating_in_an-making_the_most.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/016-operating_in_an-making_the_most.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

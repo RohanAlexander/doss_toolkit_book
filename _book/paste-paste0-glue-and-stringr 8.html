@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 52 paste, paste0, glue and stringr | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Marija Pejcinovska  52.1 Introduction In this lesson we’ll cover a couple of ways in which you can paste strings to your data. We’ll use the paste() and paste0() functions, both of...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 52 paste, paste0, glue and stringr | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Marija Pejcinovska  52.1 Introduction In this lesson we’ll cover a couple of ways in which you can paste strings to your data. We’ll use the paste() and paste0() functions, both of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 52 paste, paste0, glue and stringr | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Marija Pejcinovska  52.1 Introduction In this lesson we’ll cover a couple of ways in which you can paste strings to your data. We’ll use the paste() and paste0() functions, both of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">43</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">44</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">45</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">46</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">47</span> hist, plot and boxplot</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-44.html"><span class="header-section-number">48</span> Introduction</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-45.html"><span class="header-section-number">49</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">50</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">51</span> Overview of ggplot2</a></li>
+<li><a class="active" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">52</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">53</span> Bar charts</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">54</span> names, rbind and cbind</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">55</span> Histograms</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">56</span> Joins</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">57</span> Scatter plots</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">58</span> Looking for missing data</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">59</span> Various useful options</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">60</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">61</span> Saving graphs</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">62</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">63</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">64</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">65</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">66</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">67</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">68</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">70</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">71</span> tidyr package</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-66.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">73</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">74</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">75</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">76</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">77</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">78</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">79</span> here and filepaths</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="paste-paste0-glue-and-stringr" class="section level1" number="52">
+<h1>
+<span class="header-section-number">52</span> paste, paste0, glue and stringr<a class="anchor" aria-label="anchor" href="#paste-paste0-glue-and-stringr"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Marija Pejcinovska</em></p>
+<div id="introduction-47" class="section level2" number="52.1">
+<h2>
+<span class="header-section-number">52.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-47"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson we’ll cover a couple of ways in which you can paste strings to your data. We’ll use the <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> and <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> functions, both of which are part of base R, as well as the <code>glue()</code> function in the <code>glue</code> package. As part of this tutorial, you will also get a first taste of the <code>stringr</code> package, which is a wonderful tool for handling strings.</p>
+<p>Prerequisite skills:</p>
+<ul>
+<li>Exposure to most of the material in the yellow-level tutorials would be helpful.</li>
+</ul>
+</div>
+<div id="paste-strings-and-data-with-paste-and-paste0" class="section level2" number="52.2">
+<h2>
+<span class="header-section-number">52.2</span> Paste strings and data with <code>paste()</code> and <code>paste0()</code><a class="anchor" aria-label="anchor" href="#paste-strings-and-data-with-paste-and-paste0"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> and <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> are handy R functions used for concatenating strings and/or data. One of the main difference between the two is the default setting in their arguments, specifically the argument used to denote the way in which results should be separated. Both <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> and <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> convert all passed objects to character vectors.</p>
+<p>Both functions have the following two arguments: <code>sep =</code> and <code>collapse =</code>.</p>
+<p>Let’s see <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> in action first.</p>
+<p>You can pass individual objects to <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code></p>
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1 a b"</span></code></pre></div>
+<p>or pass vectors.</p>
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1 a" "2 b" "3 c"</span></code></pre></div>
+<p>Notice that when the arguments passed are vectors, the concatenation happens term-by-term. Vector arguments are recycled as necessary.<br>
+For instance, note the difference between</p>
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1 a b c" "2 a b c"</span></code></pre></div>
+<p>and</p>
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1 a" "2 b" "1 c"</span></code></pre></div>
+<p>You can see that in the latter example the concatenation is term-by-term and the sequence <code>1:2</code> is getting recycled (i.e. restarted) to match the length of <code><a href="https://rdrr.io/r/base/c.html">c("a", "b", "c")</a></code>.</p>
+<p>The argument <code>sep =</code> in the function controls which character string is used to separate the terms. By default, the <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> function sets <code>sep = " "</code>, meaning concatenated terms are separated by empty space. We can set the separator to be any string character we’d like.</p>
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Leaving no space</span>
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1a" "2b" "1c"</span>
+
+<span class="co">## Concatenating with a dash</span>
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1-a" "2-b" "1-c"</span>
+
+<span class="co">## Concatenating with a random letter</span>
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1Ya" "2Yb" "1Yc"</span>
+
+<span class="co">##..and so on</span></code></pre></div>
+<p>If a value is specified for the argument <code>collapse =</code>, the elements in the result are then turned into a single string, with the components being separated by the character string provided in <code>collapse</code>. For instance, we can turn</p>
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1-a" "2-b" "1-c"</span></code></pre></div>
+<p>into a single string as</p>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"-"</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1-a, 2-b, 1-c"</span></code></pre></div>
+<p>where we’ve used <code>,</code> <code></code> (comma with a blank space) as a separator.</p>
+<p>The most preferred separator tends to be the “no space” one. This is the default setting of <code>paste0</code>.</p>
+<p>Run the following code to see the difference between <code>paste</code> and <code>paste0</code></p>
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"I"</span>, <span class="st">"Love"</span>, <span class="st">"R"</span>,<span class="st">"!"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "I Love R !"</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"I"</span>, <span class="st">"Love"</span>, <span class="st">"R"</span>, <span class="st">"!"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "ILoveR!"</span></code></pre></div>
+<p>Of course, you might be interested in a more sophisticated collection of objects to paste. For instance, suppose you needed to work with a combination of character strings and existing R objects.</p>
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">student</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Monica"</span><span class="op">)</span>
+<span class="va">badges</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span>
+<span class="va">term</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fall"</span>, <span class="st">"Spring"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">student</span>, <span class="st">"collected"</span>, <span class="va">badges</span>, <span class="st">"DoSS toolkit badges in the"</span>, <span class="va">term</span> <span class="op">)</span>
+<span class="co">#&gt; [1] "Rohan collected 2 DoSS toolkit badges in the Fall"   </span>
+<span class="co">#&gt; [2] "Monica collected 4 DoSS toolkit badges in the Spring"</span></code></pre></div>
+</div>
+<div id="gluing-your-data-with-the-glue-package" class="section level2" number="52.3">
+<h2>
+<span class="header-section-number">52.3</span> “Gluing” your data with the <code>glue</code> package<a class="anchor" aria-label="anchor" href="#gluing-your-data-with-the-glue-package"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code>glue</code> package is designed to make it easier to “stitch” or interpolate (or “glue”) your data into strings. Its main function is quite similar in flavor to <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> (and <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code>), but a bit easier to use (this is especially true when compared to <code><a href="https://rdrr.io/r/base/sprintf.html">sprintf()</a></code>; a function that we have not discussed here, but can similarly be used to concatenate strings and data).</p>
+<p>You can download <code>glue</code> the usual way you would install all your other packages, that is, by calling <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("glue")</a></code>.</p>
+<div id="the-functions-of-glue" class="section level3" number="52.3.1">
+<h3>
+<span class="header-section-number">52.3.1</span> The functions of <code>glue</code><a class="anchor" aria-label="anchor" href="#the-functions-of-glue"><i class="fas fa-link"></i></a>
+</h3>
+<p>The glue package has three primary functions, <code>glue()</code>, <code>glue_data()</code> and <code>glue_collapse()</code>.</p>
+<p>The <strong><code>glue()</code> function</strong> works a bit like the <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> function. In the case of <code>glue()</code>, however, we use <code>{}</code> to wrap the R code we wish to reference inside the string. This makes it a bit more manageable compared to all the quotation marks, commas, and separators we need to keep track of when using <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code>.</p>
+<p>Let’s refer back to our example from earlier and check out the syntax for <code>glue()</code>. Note that now everything is placed inside a single set of quotation marks and R objects are referenced within the string by wrapping them up in curly brackets.</p>
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">student</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Monica"</span><span class="op">)</span>
+<span class="va">badges</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span>
+<span class="va">term</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fall"</span>, <span class="st">"Spring"</span><span class="op">)</span>
+
+<span class="fu">glue</span><span class="op">(</span><span class="st">"{student} collected {badges} DoSS toolkit badges in {term}"</span><span class="op">)</span>
+<span class="co">#&gt; Rohan collected 2 DoSS toolkit badges in Fall</span>
+<span class="co">#&gt; Monica collected 4 DoSS toolkit badges in Spring</span></code></pre></div>
+<p>Here we’ve called the R objects <code>student</code>, <code>badges</code>, and <code>term</code> by wrapping them up in <code>{}</code>.</p>
+<p>If you wish to use something other than <code>{}</code>, you can specify different opening and closing delimiters by using the <code>.open =</code> and <code>.close =</code> arguments in the <code>glue</code> function. For instance, let’s surround the code we wish to evaluate by <code><a href="https://rdrr.io/r/base/Comparison.html">&lt;</a></code> at the beginning and <code>]</code> at the end.</p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">student</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Owen"</span>, <span class="st">"Monica"</span><span class="op">)</span>
+<span class="va">badges</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span>
+<span class="va">term</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fall"</span>, <span class="st">"Spring"</span><span class="op">)</span>
+
+<span class="fu">glue</span><span class="op">(</span><span class="st">"&lt;student] collected &lt;badges] DoSS toolkit badges in &lt;term]"</span>, .open <span class="op">=</span> <span class="st">"&lt;"</span>, .close <span class="op">=</span> <span class="st">"]"</span><span class="op">)</span>
+<span class="co">#&gt; Owen collected 2 DoSS toolkit badges in Fall</span>
+<span class="co">#&gt; Monica collected 4 DoSS toolkit badges in Spring</span></code></pre></div>
+<p>The function <strong><code>glue_data()</code></strong> works much like <code>glue()</code> but it is designed to be used in piped chains (recall the pipe operator, <code><a href="https://rpkgs.datanovia.com/ggpubr/reference/pipe.html">%&gt;%</a></code>). What’s important to note here is that inside the curly braces we pass the column names of the columns in our data we wish to glue in some way (and not the name of the variables or R objects as we did with <code>glue()</code>).</p>
+<p>As an example run the following code. See what happens if you change <code>glue_data()</code> below with <code>glue()</code>.</p>
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span>
+<span class="co"># Check the data out</span>
+<span class="va">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 8</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 4 Adelie  Torgersen           NA            NA  </span>
+<span class="co">#&gt; 5 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt; 6 Adelie  Torgersen           39.3          20.6</span>
+<span class="co">#&gt; # … with 4 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span>
+
+<span class="co"># "Glue" some data elements together</span>
+<span class="va">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">glue_data</span><span class="op">(</span><span class="st">"This {species} penguin living on {island} \\
+            island has flipper length {flipper_length_mm} mm"</span><span class="op">)</span> 
+<span class="co">#&gt; This Adelie penguin living on Torgersen island has flipper length 181 mm</span>
+<span class="co">#&gt; This Adelie penguin living on Torgersen island has flipper length 186 mm</span>
+<span class="co">#&gt; This Adelie penguin living on Torgersen island has flipper length 195 mm</span>
+<span class="co">#&gt; This Adelie penguin living on Torgersen island has flipper length NA mm</span>
+
+<span class="co"># note: the "\\" symbol in the string code above is simply to force the string to appear as one line. </span></code></pre></div>
+<p>Finally, the <strong><code>glue_collapse()</code> function</strong> concatenates multiple values into one. This function has a particularly clever and useful argument called <code>last</code> which allows you to change the separator for the last value (a feature not available in <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code>).</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">glue_collapse</span><span class="op">(</span><span class="op">{</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">}</span>, sep <span class="op">=</span> <span class="st">", "</span>, last <span class="op">=</span> <span class="st">", and "</span><span class="op">)</span>
+<span class="co">#&gt; a, b, and c</span></code></pre></div>
+</div>
+</div>
+<div id="first-taste-of-the-stringr-package" class="section level2" number="52.4">
+<h2>
+<span class="header-section-number">52.4</span> First taste of the <code>stringr</code> package<a class="anchor" aria-label="anchor" href="#first-taste-of-the-stringr-package"><i class="fas fa-link"></i></a>
+</h2>
+<p>As a budding data scientist, you may have discovered that data analysis tasks usually involve spending an outsize portion of your time cleaning and processing data (it’s a very special tax you have to pay before you get to the “fun” data scienc-y bits and pieces!!).</p>
+<p>On occasion your data may contain lots of text or strings. The <code>stringr</code> package, which is part of the core <em>tidyverse</em>, is a wonderful collection of functions that make string manipulation easier.</p>
+<p>This section is intended to get you started with the <code>stringr</code> package and involves just a brief introduction to the <code>str_detect()</code> and <code>str_replace()</code> functions in <code>stringr</code>.</p>
+<p>All functions in this package begin with the <code>str_</code> prefix and have easy to remember, intuitive names.</p>
+<p>For instance, <code>str_detect()</code> allows you to check whether a vector of characters contains a particular pattern, in other words, it allows you to <em>detect</em> a pattern in a string. The function returns a logical vector of the same length as the input, where <code>TRUE</code> indicates the pattern has been matched in that index.</p>
+<p>Let’s check this out.</p>
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"R"</span>, <span class="st">"I love R"</span>, <span class="st">"why?"</span>, <span class="st">"what is this?"</span><span class="op">)</span>
+
+<span class="va">my_vec</span> <span class="op">%&gt;%</span> 
+  <span class="fu">str_detect</span><span class="op">(</span><span class="st">"r"</span><span class="op">)</span>
+<span class="co">#&gt; [1]  TRUE FALSE FALSE FALSE FALSE</span>
+
+<span class="va">my_vec</span> <span class="op">%&gt;%</span> 
+  <span class="fu">str_detect</span><span class="op">(</span><span class="st">"wh"</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE FALSE FALSE  TRUE  TRUE</span></code></pre></div>
+<p>Note that the pattern detection is case sensitive.</p>
+<p><code>str_replace()</code>, on the other hand, allows you to replace a matched pattern with an entirely new string (or an empty string, if what you wish to do is remove the pattern; see also <code>str_remove()</code>).</p>
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_vec</span> 
+<span class="co">#&gt; [1] "r"             "R"             "I love R"     </span>
+<span class="co">#&gt; [4] "why?"          "what is this?"</span>
+
+<span class="va">my_vec</span> <span class="op">%&gt;%</span> 
+  <span class="fu">str_replace</span><span class="op">(</span><span class="st">"\\?"</span>, <span class="st">" code"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "r"                 "R"                </span>
+<span class="co">#&gt; [3] "I love R"          "why code"         </span>
+<span class="co">#&gt; [5] "what is this code"</span></code></pre></div>
+<p>The first argument is the pattern we are trying to find a match for (note that since ? is a special character we need to escape it by placing <code>\\</code> before <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code>). The second argument here is the string we wish to replace our matched pattern with (in our case that’s the string “code”).</p>
+<p>Let’s see the <code>str_replace()</code> function applied to our penguins data. We’ll use the function to slightly modify the name of an island</p>
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>new_island <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">island</span>, <span class="st">"Tor"</span>, <span class="st">"Mor"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 4 × 9</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 4 Adelie  Torgersen           NA            NA  </span>
+<span class="co">#&gt; # … with 5 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;,</span>
+<span class="co">#&gt; #   new_island &lt;chr&gt;</span></code></pre></div>
+<p>This is just a small slice of what the <code>stringr</code> package has to offer. Be on the lookout for future tutorials with more on strings and regular expressions.</p>
+</div>
+<div id="exercises-26" class="section level2" number="52.5">
+<h2>
+<span class="header-section-number">52.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-26"><i class="fas fa-link"></i></a>
+</h2>
+<p>Consider the first few rows of the penguin data we saw in an example earlier. For this exercise we’ll call the sliced data <code>small-penguins</code>. To refresh your memory of what the data frame looks like it’s been reproduced here (use the arrows to navigate left and right through the columns).</p>
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">small_penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
+<span class="va">small_penguins</span>
+<span class="co">#&gt; # A tibble: 10 × 8</span>
+<span class="co">#&gt;    species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt;  2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt;  3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt;  4 Adelie  Torgersen           NA            NA  </span>
+<span class="co">#&gt;  5 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt;  6 Adelie  Torgersen           39.3          20.6</span>
+<span class="co">#&gt;  7 Adelie  Torgersen           38.9          17.8</span>
+<span class="co">#&gt;  8 Adelie  Torgersen           39.2          19.6</span>
+<span class="co">#&gt;  9 Adelie  Torgersen           34.1          18.1</span>
+<span class="co">#&gt; 10 Adelie  Torgersen           42            20.2</span>
+<span class="co">#&gt; # … with 4 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">small_penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>
+<span class="va">small_penguins</span>
+<span class="co">#&gt; # A tibble: 7 × 8</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 4 Adelie  Torgersen           NA            NA  </span>
+<span class="co">#&gt; 5 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt; 6 Adelie  Torgersen           39.3          20.6</span>
+<span class="co">#&gt; 7 Adelie  Torgersen           38.9          17.8</span>
+<span class="co">#&gt; # … with 4 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></code></pre></div>
+<div id="exercise-1-13" class="section level3" number="52.5.1">
+<h3>
+<span class="header-section-number">52.5.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-13"><i class="fas fa-link"></i></a>
+</h3>
+<p>Change this function from the <code>glue</code> package to produce the following string “This penguin is of the species XXX from island XXX and has body mass of XXX g” describing the 6th penguin in <code>small_penguins</code>, where the three XXX should be species, island name, and body mass respectively.</p>
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">small_penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">glue_data</span><span class="op">(</span><span class="st">"This penguin is of the species {island} from island {body_mass_g} and has body mass of {species} g"</span> <span class="op">)</span>
+<span class="co">#&gt; This penguin is of the species Torgersen from island 3650 and has body mass of Adelie g</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">small_penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">glue_data</span><span class="op">(</span><span class="st">"This penguin is of the species {species} from island {island} and has body mass of {body_mass_g} g"</span> <span class="op">)</span>
+<span class="co">#&gt; This penguin is of the species Adelie from island Torgersen and has body mass of 3650 g</span></code></pre></div>
+</div>
+<div id="exercise-2-9" class="section level3" number="52.5.2">
+<h3>
+<span class="header-section-number">52.5.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-9"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using <code>glue()</code> and <code>glue_collapse()</code> manipulate the vectors <code>quant</code> and <code>food</code> below to get the following single string “1 sushi roll, 2 tacos, and 3 cakes”</p>
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">quant</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>
+<span class="va">food</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sushi roll"</span>, <span class="st">"tacos"</span>, <span class="st">"cakes"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">quant</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>
+<span class="va">food</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sushi roll"</span>, <span class="st">"tacos"</span>, <span class="st">"cakes"</span><span class="op">)</span>
+
+<span class="fu">glue_collapse</span><span class="op">(</span><span class="op">(</span><span class="fu">glue</span><span class="op">(</span><span class="st">"{quant} {food}"</span><span class="op">)</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">", "</span>, last <span class="op">=</span> <span class="st">", and "</span><span class="op">)</span>
+<span class="co">#&gt; 1 sushi roll, 2 tacos, and 3 cakes</span>
+
+<span class="co"># Or alternatively with the piping syntax</span>
+<span class="fu">glue</span><span class="op">(</span><span class="st">"{quant} {food}"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">glue_collapse</span><span class="op">(</span><span class="va">.</span>,sep <span class="op">=</span> <span class="st">", "</span>, last <span class="op">=</span> <span class="st">", and"</span><span class="op">)</span>
+<span class="co">#&gt; 1 sushi roll, 2 tacos, and3 cakes</span></code></pre></div>
+</div>
+<div id="exercise-3-6" class="section level3" number="52.5.3">
+<h3>
+<span class="header-section-number">52.5.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Back to our <code>small_penguins</code> data from Exercise 1.</p>
+<p>Use <code>str_detect()</code> and <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to subset the <code>small_penguins</code> data to include only female penguins.</p>
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">small_penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu">str_detect</span><span class="op">(</span><span class="va">sex</span>, <span class="st">"male"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 8</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 4 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt; 5 Adelie  Torgersen           39.3          20.6</span>
+<span class="co">#&gt; 6 Adelie  Torgersen           38.9          17.8</span>
+<span class="co">#&gt; # … with 4 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">small_penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu">str_detect</span><span class="op">(</span><span class="va">sex</span>, <span class="st">"fe"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 4 × 8</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 3 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt; 4 Adelie  Torgersen           38.9          17.8</span>
+<span class="co">#&gt; # … with 4 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></code></pre></div>
+</div>
+<div id="exercise-4-3" class="section level3" number="52.5.4">
+<h3>
+<span class="header-section-number">52.5.4</span> Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> to create a new variable <code>island_short</code> where with the help of <code>str_replace</code> you remove the pattern “ersen” from the island name.</p>
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+ <span class="va">small_penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>island_short <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">island</span>, pattern <span class="op">=</span> <span class="st">"island"</span>, replacement <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 7 × 9</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 4 Adelie  Torgersen           NA            NA  </span>
+<span class="co">#&gt; 5 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt; 6 Adelie  Torgersen           39.3          20.6</span>
+<span class="co">#&gt; 7 Adelie  Torgersen           38.9          17.8</span>
+<span class="co">#&gt; # … with 5 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;,</span>
+<span class="co">#&gt; #   island_short &lt;chr&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+ <span class="va">small_penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>island_short <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">island</span>, pattern <span class="op">=</span> <span class="st">"ersen"</span>, replacement <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 7 × 9</span>
+<span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torgersen           39.1          18.7</span>
+<span class="co">#&gt; 2 Adelie  Torgersen           39.5          17.4</span>
+<span class="co">#&gt; 3 Adelie  Torgersen           40.3          18  </span>
+<span class="co">#&gt; 4 Adelie  Torgersen           NA            NA  </span>
+<span class="co">#&gt; 5 Adelie  Torgersen           36.7          19.3</span>
+<span class="co">#&gt; 6 Adelie  Torgersen           39.3          20.6</span>
+<span class="co">#&gt; 7 Adelie  Torgersen           38.9          17.8</span>
+<span class="co">#&gt; # … with 5 more variables: flipper_length_mm &lt;int&gt;,</span>
+<span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;,</span>
+<span class="co">#&gt; #   island_short &lt;chr&gt;</span></code></pre></div>
+</div>
+</div>
+<div id="next-steps-28" class="section level2" number="52.6">
+<h2>
+<span class="header-section-number">52.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-28"><i class="fas fa-link"></i></a>
+</h2>
+<p>This tutorial only briefly introduced you to the capabilities of the <code>stringr</code> package. Future tutorials will revisit this package and dive deeper into some of its functions. In the meantime, you can learn more about this package in Hadley Wickham’s book <em>“R for Data Science”</em>. The link here takes you to the chapter on strings which also introduces you to regular expressions (regular expressions are a bit tedious, but you might learn to like them if you end up working with text data a lot). <a href="https://r4ds.had.co.nz/strings.html" class="uri">https://r4ds.had.co.nz/strings.html</a></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="overview-of-ggplot2.html"><span class="header-section-number">51</span> Overview of ggplot2</a></div>
+<div class="next"><a href="bar-charts.html"><span class="header-section-number">53</span> Bar charts</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#paste-paste0-glue-and-stringr"><span class="header-section-number">52</span> paste, paste0, glue and stringr</a></li>
+<li><a class="nav-link" href="#introduction-47"><span class="header-section-number">52.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#paste-strings-and-data-with-paste-and-paste0"><span class="header-section-number">52.2</span> Paste strings and data with paste() and paste0()</a></li>
+<li>
+<a class="nav-link" href="#gluing-your-data-with-the-glue-package"><span class="header-section-number">52.3</span> “Gluing” your data with the glue package</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-functions-of-glue"><span class="header-section-number">52.3.1</span> The functions of glue</a></li></ul>
+</li>
+<li><a class="nav-link" href="#first-taste-of-the-stringr-package"><span class="header-section-number">52.4</span> First taste of the stringr package</a></li>
+<li>
+<a class="nav-link" href="#exercises-26"><span class="header-section-number">52.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-13"><span class="header-section-number">52.5.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-9"><span class="header-section-number">52.5.2</span> Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-6"><span class="header-section-number">52.5.3</span> Exercise 3</a></li>
+<li><a class="nav-link" href="#exercise-4-3"><span class="header-section-number">52.5.4</span> Exercise 4</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#next-steps-28"><span class="header-section-number">52.6</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/072-he_was_a_d8er_boi-paste_glue_stringr.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/072-he_was_a_d8er_boi-paste_glue_stringr.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(flair)
+library(glue)
+library(stringr)
+library(palmerpenguins)
+```
+
+# head, tail, glimpse and summary
+
+*Written by Haoluan Chen.*
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- Get an overview of your dataset using `head()`, `tail()`, `glimpse()`, and `summary()`
+
+Prerequisite skills include:
+
+- setup RStudio
+- run R code in the console
+- Install and load packages
+
+Highlights:
+
+- Using `head()`, `tail()`, `glance()`, and `summary()` to understand your dataset
+
+After you load your dataset into R, you should start looking into the data to see what kinds of data you are working with.
+
+Here are some useful functions that can help you to understand your dataset. 
+
+
+## `head()`
+
+The `head()` function takes in two parameters. The first parameter is the data frame, and the second parameter is the first number of rows you want to look at. (The "head" of your dataset.)
+
+```{r headex}
+head(mtcars, n = 3)
+```
+
+Here I have set 'n' to 3, so we are looking at the first three rows of the mtcars dataset. 
+
+
+
+## `tail()`
+
+The `tail()` function also takes in two parameters. The first parameter is the data frame, and the second parameter is the last number of rows you want to look at. (The "tail" of your dataset.)
+
+
+```{r tailex}
+tail(mtcars, n = 3)
+```
+
+Here I have set 'n' to 3, so we are looking at the last three row of the mtcars dataset. 
+
+## `glimpse()`
+
+The `glimpse()` function takes in one parameter, which is the data frame. This function can tell you the number of rows and columns for your dataset. Additionally, you can get the name, data type, and first few observations of each variable.  
+
+```{r glimpseex}
+glimpse(mtcars)
+```
+
+Here, we see that the table mtcars contains 32 rows and 11 columns of data. All of the variables in this table are double-precision floating-point number, because <dbl> represents the double data type.
+
+## `summary()`
+
+Next, you may want to look at the summary statistics of your data set. The function summary can produce the following summary statistics for each of the variables. 
+
+- Min. : minimum value of the variable 
+- 1st.Qu. : the first quartile of the variable
+- Median: median of the variable
+- Mean: mean of the variable
+- 3rd Qu. : the third quartile of the variable
+- Max. maximum value of the variable
+
+
+```{r sumex}
+summary(mtcars)
+```
+
+What happens if you have other data types in your dataset? Here is a dataset called scores. It contains three variables student_ID, gender, and test_score. 
+
+
+```{r sumex2}
+scores <- tibble(student_ID = c("1", "2", "3", "4", "5", "6"),
+                 gender = as.factor(c("male", "male", "male","female","female","female")),
+               test_score = c(87, 76, 61, 80, 72, 69),
+               )
+scores
+```
+
+```{r sumex3}
+glimpse(scores)
+```
+
+Using the glimpse function, we know that student_ID is a character data type, gender is a factor data type, and test_score is a double data type.
+
+```{r sumex4}
+summary(scores)
+```
+
+For character data type (student_ID), we see the length, class, and Mode of this variable. Length tells us the number of observations, class, and Mode tells us the data type. 
+
+For factor data type(gender), we have the count of each factor. In this dataset, there are three female students and three male students. 
+
+For double data type(test_score), we have the summary statistics as we have seen before. 
+
+## Exercises
+
+### Exercise 1
+
+
+<!-- ```{r headex2, echo = FALSE} -->
+<!-- question("If you want to look at the first 5 rows of the mtcars dataset, which code should you use?", -->
+<!--           answer("head(mtcars,3)", correct = TRUE), -->
+<!--           answer("tail(mtcars, 3)"), -->
+<!--           answer("glimpse(mtcars)"), -->
+<!--           answer("summary(mtcars)"), -->
+<!--           allow_retry = TRUE) -->
+
+<!-- ```  -->
+
+<!-- ### Exercise 2 -->
+
+<!-- ```{r summaryex, echo = FALSE} -->
+<!-- question("What is the output of summary() function for factor data type?", -->
+<!--           answer("Summary statistics such as min and max"), -->
+<!--           answer("Data type"), -->
+<!--           answer("Count of each factor", correct = TRUE), -->
+<!--           answer("Number of factors in the variable"), -->
+<!--           allow_retry = TRUE) -->
+
+<!-- ```  -->
+
+### Exercise 3
+
+Here, we have a book dataset from Alex Cookson. This dataset contains 9,000 children's books that have been rated from 1-5 stars. Run the following code to your R and use the functions you learned in this tutorial to explore this dataset!
+
+```{r, eval = FALSE}
+books <- 
+  read_tsv("https://raw.githubusercontent.com/tacookson/data/master/childrens-book-ratings/childrens-books.txt")
+```
+
+
+## Next Steps
+
+Once you have fully understood the dataset you are working with you may start using plots to get a graphical representation of your dataset. You may like to read this chapter for more information: https://r4ds.had.co.nz/data-visualisation.html.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

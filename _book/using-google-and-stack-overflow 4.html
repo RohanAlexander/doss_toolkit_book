@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 11 Using Google and Stack Overflow | DoSS Toolkit</title>
+<meta name="author" content="Various authors">
+<meta name="description" content="Written by Michael Chong.  11.1 Introduction In this lesson, you will learn how to: search the web for help Prerequisite skills include: knowing how Web searches fit into the troubleshooting...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 11 Using Google and Stack Overflow | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Michael Chong.  11.1 Introduction In this lesson, you will learn how to: search the web for help Prerequisite skills include: knowing how Web searches fit into the troubleshooting...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 11 Using Google and Stack Overflow | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Michael Chong.  11.1 Introduction In this lesson, you will learn how to: search the web for help Prerequisite skills include: knowing how Web searches fit into the troubleshooting...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-again-1.html"><span class="header-section-number">7</span> Hello World, again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></li>
+<li><a class="active" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making Reproducible Examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">23</span> Updating packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="grouping-and-ungrouping.html"><span class="header-section-number">31</span> Grouping and ungrouping</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting.html"><span class="header-section-number">35</span> pivoting</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="data-2.html"><span class="header-section-number">39</span> data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">42</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">43</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">44</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">45</span> Looking for missing data</a></li>
+<li><a class="" href="set.seed-runif-rnorm-and-sample.html"><span class="header-section-number">46</span> set.seed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">47</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">48</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">49</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">50</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">51</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">52</span> More on strings</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">53</span> Regular expressions</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">54</span> Working with dates</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">55</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">56</span> tidyr package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="using-google-and-stack-overflow" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> Using Google and Stack Overflow<a class="anchor" aria-label="anchor" href="#using-google-and-stack-overflow"><i class="fas fa-link"></i></a>
+</h1>
+<p>Written by Michael Chong.</p>
+<div id="introduction-9" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-9"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>search the web for help</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>knowing how Web searches fit into the troubleshooting process</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>the date on web resources is very important!</li>
+<li>you can modify your Google search to give exact matches, specific date ranges, and specific websites</li>
+<li>Stack Overflow and Stack Exchange are a great place to look, but see how the</li>
+</ul>
+</div>
+<div id="wait-before-you-search-the-web" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Wait! Before you search the web…<a class="anchor" aria-label="anchor" href="#wait-before-you-search-the-web"><i class="fas fa-link"></i></a>
+</h2>
+<p>Did you try other, more reliable resources first? Answers you find “in the wild” might be out of date, or not be the best way to accomplish your task.</p>
+<p>Look to the <strong>When your code doesn’t work</strong> lesson on the left on where to look before you look on the Internet. In short, you might want to try:</p>
+<ol style="list-style-type: decimal">
+<li>the function’s help document (<code>?function_name</code>)</li>
+<li>looking in this toolkit</li>
+<li><a href="https://r4ds.had.co.nz/"><em>R for Data Science</em> by Hadley Wickham</a></li>
+</ol>
+</div>
+<div id="googling" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> Googling<a class="anchor" aria-label="anchor" href="#googling"><i class="fas fa-link"></i></a>
+</h2>
+<p>Googling (or searching with another search engine) is a key part of programming! The Internet collectively knows more about using R than any single person or resource. You just need to know how to search efficiently and effectively, and be careful with what solutions you use! Not every solution is reliable.</p>
+<p>You probably know how to use a search engine like Google or Bing. This subsection will teach you some tips (in Google) to narrow your search to get more relevant results.</p>
+<div id="include-r-in-your-search" class="section level3" number="11.3.1">
+<h3>
+<span class="header-section-number">11.3.1</span> Include “r” in your search!<a class="anchor" aria-label="anchor" href="#include-r-in-your-search"><i class="fas fa-link"></i></a>
+</h3>
+<p>Make sure you’re not getting other programming languages or software in your search. For example, search:</p>
+<pre><code>how to import data in R</code></pre>
+<p>instead of:</p>
+<pre><code>how to import data</code></pre>
+</div>
+<div id="include-tidyverse-or-the-package-name-in-your-search" class="section level3" number="11.3.2">
+<h3>
+<span class="header-section-number">11.3.2</span> Include <code>tidyverse</code> or the package name in your search<a class="anchor" aria-label="anchor" href="#include-tidyverse-or-the-package-name-in-your-search"><i class="fas fa-link"></i></a>
+</h3>
+<p>Because there are so many R packages, there are often several ways to do the same thing. We’re usually going to try using a <code>tidyverse</code> implementation to complete our tasks. So, for example, if we want to learn to “combine strings in R,” try:</p>
+<pre><code>combining strings in R tidyverse</code></pre>
+<p>instead of:</p>
+<pre><code>combining strings in R</code></pre>
+<p>The second search will bring up valid ways to combine strings, but usually with older syntax which may not be as fast, may not be compatible with newer functions, or with clunkier syntax that requires more memorization.</p>
+</div>
+<div id="exact-matching" class="section level3" number="11.3.3">
+<h3>
+<span class="header-section-number">11.3.3</span> Exact matching<a class="anchor" aria-label="anchor" href="#exact-matching"><i class="fas fa-link"></i></a>
+</h3>
+<p>Google results include things that are related to your search, but may not contain <em>exactly</em> what you’re looking for. This can be frustrating if you’re looking for something specific. Use quotation marks <code>""</code> to force exact matching. Then, the returned search results will include the phrase that you’ve quoted.</p>
+<p>For example, if you’re looking for help on <code>left_join()</code></p>
+</div>
+<div id="searching-a-specific-site" class="section level3" number="11.3.4">
+<h3>
+<span class="header-section-number">11.3.4</span> Searching a specific site<a class="anchor" aria-label="anchor" href="#searching-a-specific-site"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you want results from a specific website (e.g. StackExchange/StackOverflow) then you can use the <code>site:</code> modifier with your search. For example, if you want to search for how to deal with <code>dates</code> in the R for Data Science textbook, one way to do it is:</p>
+<pre><code>dates site:r4ds.had.co.nz</code></pre>
+</div>
+<div id="date-range" class="section level3" number="11.3.5">
+<h3>
+<span class="header-section-number">11.3.5</span> Date range<a class="anchor" aria-label="anchor" href="#date-range"><i class="fas fa-link"></i></a>
+</h3>
+<p>The R community moves fast! The <code>tidyverse</code> evolves quickly and is relatively new, so older results might no longer be relevant, or there might be better ways to do what you want to do.</p>
+<p>Personally, I would be a bit suspicious of results before approximately 2014(ish) if the solution seems more difficult than what you expect. Of course, this varies from case to case, but it’s something to keep in mind when you’re browsing!</p>
+<p>To narrow the date range on a Google search, use the “Tools” button:</p>
+<div class="inline-figure"><img src="images/07_google-tools.png" width="90%"></div>
+<p>then choose your date range:</p>
+<div class="inline-figure"><img src="images/07_google-dates.png" width="40%"></div>
+</div>
+</div>
+<div id="what-are-stack-overflow-and-stack-exchange" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> What are Stack Overflow and Stack Exchange?<a class="anchor" aria-label="anchor" href="#what-are-stack-overflow-and-stack-exchange"><i class="fas fa-link"></i></a>
+</h2>
+<p>These are online Q&amp;A communities focused around programming or other domain-specific knowledge. Chances are that, for most common problems, someone has asked about it on Stack Exchange!</p>
+<p>Some things to pay attention to in the answer:</p>
+<div class="inline-figure"><img src="images/07_stack-screenshot.png" width="90%"></div>
+<ol style="list-style-type: decimal">
+<li><p><strong>Answer score</strong> (left side). Users can “upvote” or “downvote” responses to the question. Higher scores generally mean better answers.</p></li>
+<li><p><strong>Answer accepted</strong> (indicated by green checkmark). The person who asked the question can mark a specific answer indicating that this solved their problem. This might not be the same as the answer with the highest score!</p></li>
+<li><p><strong>Date and time</strong> (after each post and comment). The date is <strong>very important!</strong> How people use R has changed dramatically over the past several years, and so there are often newer, better ways to do things. As a loose rule of thumb, I would consider solutions before 2014 as probably out of date. The solution still might work, but there may be an easier way to do it now.</p></li>
+<li><p><strong>Comments</strong> (following post). This is a good place to look for potential issues with the answer, or how to extend it to a related use case.</p></li>
+<li><p><strong>Author reputation</strong> (bottom right corner of answer). As users ask and answer more questions, they accumulate reputation from people voting on their answers. You can loosely think of people with higher scores being more trustworthy.</p></li>
+</ol>
+</div>
+<div id="questions" class="section level2" number="11.5">
+<h2>
+<span class="header-section-number">11.5</span> Questions<a class="anchor" aria-label="anchor" href="#questions"><i class="fas fa-link"></i></a>
+</h2>
+<!-- ```{r 07q1, exercise = FALSE, echo = FALSE} -->
+<!-- question( -->
+<!--   "Who can contribute solutions on Stack Exchange and Stack Overflow?", -->
+<!--   answer("anyone who makes an account.", correct = TRUE), -->
+<!--   answer("only certified programming experts and instructors"), -->
+<!--   answer("primarily Internet trolls and inexperienced users"), -->
+<!--   correct = "Correct! These are used by a wide range of people -- it can be a great resource, but be careful!", -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ```{r 07q2, exercise = FALSE, echo = FALSE} -->
+<!-- question( -->
+<!--   "Scenario: You've found two ways to do the same task. An answer from 2008, and an answer from 2018. They use different packages and functions. Which one should you use? ", -->
+<!--   answer("Old solutions are usually just as good as new solutions. Newer packages are usually unreliable."), -->
+<!--   answer("It's usually preferable to look for new(ish) solutions, since R packages are improved on frequently.", correct = TRUE), -->
+<!--   answer("Newer solutions are better if I'm doing something advanced, but for simple tasks it doesn't matter."), -->
+<!--   correct = "Since R is evolving so quickly, it's safer to go with newer resources if everything else is comparable. If you're trying something you haven't seen before, try to pick the package(s) that are better documented.", -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+</div>
+<div id="next-steps-4" class="section level2" number="11.6">
+<h2>
+<span class="header-section-number">11.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-4"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>If you’re troubleshooting, consider where would be most appropriate to look for help for your problem. A quick Google search rarely hurts, as long as you stay critical about what the information that’s out there.</li>
+<li>Continue with the lessons in this section to learn how to ask for help effectively!</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="getting-help-is-normal-learning-to-learn-r.html"><span class="header-section-number">10</span> Getting help is normal! – Learning to learn R</a></div>
+<div class="next"><a href="stack-overflow.html"><span class="header-section-number">12</span> Stack Overflow</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-google-and-stack-overflow"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="nav-link" href="#introduction-9"><span class="header-section-number">11.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#wait-before-you-search-the-web"><span class="header-section-number">11.2</span> Wait! Before you search the web…</a></li>
+<li>
+<a class="nav-link" href="#googling"><span class="header-section-number">11.3</span> Googling</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#include-r-in-your-search"><span class="header-section-number">11.3.1</span> Include “r” in your search!</a></li>
+<li><a class="nav-link" href="#include-tidyverse-or-the-package-name-in-your-search"><span class="header-section-number">11.3.2</span> Include tidyverse or the package name in your search</a></li>
+<li><a class="nav-link" href="#exact-matching"><span class="header-section-number">11.3.3</span> Exact matching</a></li>
+<li><a class="nav-link" href="#searching-a-specific-site"><span class="header-section-number">11.3.4</span> Searching a specific site</a></li>
+<li><a class="nav-link" href="#date-range"><span class="header-section-number">11.3.5</span> Date range</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#what-are-stack-overflow-and-stack-exchange"><span class="header-section-number">11.4</span> What are Stack Overflow and Stack Exchange?</a></li>
+<li><a class="nav-link" href="#questions"><span class="header-section-number">11.5</span> Questions</a></li>
+<li><a class="nav-link" href="#next-steps-4"><span class="header-section-number">11.6</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/012-operating_in_an-using_google_and_so.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/012-operating_in_an-using_google_and_so.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Various authors. It was last built on 2021-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

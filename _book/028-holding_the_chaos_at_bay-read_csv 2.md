@@ -1,0 +1,339 @@
+
+
+
+
+# Read CSVs
+
+Written by Marija Pejcinovska.
+
+
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- read-in comma-delimited data files using the `read_csv()` function in the `readr` package.
+
+Prerequisite skills include:
+
+- Installing packages, calling libraries.
+
+
+## Delimited data files in R
+
+Text and .csv files are common file formats for saving various types of data. R allows you to read in such delimited text files in a number of ways.    
+
+In this tutorial we will focus specifically on the `read_csv()` function. 
+The function is part of the `readr` package, which itself if part of the `tidyverse` ecosystem of packages.
+
+Note: you can get the `readr` package by installing the whole `tidyverse` (install.packages("tidyverse")) or by installing `readr` directly. To load the package you'll need to use `library(readr)`; alternatively it will be loaded automatically when you load the `tidyverse`. 
+
+As the name suggest the `read_csv()` function is best suited for reading in `.csv` type files. "**csv**" stands for **c**omma-**s**eparated **v**alues, which means that data entries are separated (or delimited) by commas (in the case where values are separated by semicolons instead, use the function`read_csv2()`). Each row in a csv file is initiated by a newline (or rather a newline character `\n`).   
+
+To begin, let's create our own small (csv looking) text data that we'll read in with the `read_csv()` function. We'll call this object `my_data`
+
+
+```r
+
+# Make sure that each row in the data starts on a new line
+
+my_data <- c("studendID,test1,test2,grade 
+         student1,90,85,A
+         student2,30,46,F
+         student3,70,80,B
+         student4, NA,68,C
+         student5,NA,NA,F") 
+```
+
+We'll read the data by putting `my_data` as an argument inside our function as shown below. If instead `my_data` was a `.csv` file somewhere on your computer you would need to provide the location (path) of your file which should look something like `read_csv("my_folder/my_subfolder/my_data_file.csv")`. Run the code below to get a quick sense of what the data looks like once we've called the `read_csv()` function.
+
+
+```r
+
+# Read in my_data and save it as an object called my_first_csv_file
+my_first_csv_file <- read_csv(my_data)
+#> Rows: 5 Columns: 4
+#> ── Column specification ────────────────────────────────────
+#> Delimiter: ","
+#> chr (2): studendID, grade
+#> dbl (2): test1, test2
+#> 
+#> ℹ Use `spec()` to retrieve the full column specification for this data.
+#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+my_first_csv_file
+#> # A tibble: 5 × 4
+#>   studendID test1 test2 grade
+#>   <chr>     <dbl> <dbl> <chr>
+#> 1 student1     90    85 A    
+#> 2 student2     30    46 F    
+#> 3 student3     70    80 B    
+#> 4 student4     NA    68 C    
+#> 5 student5     NA    NA F
+```
+
+## A closer look at `read_csv()`
+
+To see all the arguments of `read_csv()` you can call `?read_csv()` from your console, and among the many things in the help file you'll notice the following usage description.  
+
+| read_csv(  
+|       file,  
+|       col_names = TRUE,  
+|       col_types = NULL,  
+|       locale = default_locale(),  
+|       na = c("", "NA"),  
+|       quoted_na = TRUE,  
+|       quote = "\"\",  
+|       comment = "",  
+|       trim_ws = TRUE,  
+|       skip = 0,  
+|       n_max = Inf,    
+|       guess_max = min(1000, n_max),  
+|       progress = show_progress(),  
+|       skip_empty_rows = TRUE  
+| )
+
+
+Here we'll focus on a few of the arguments you are most likely to use:  
+
+- `file`  
+- `col_names` 
+- `skip`
+- `n_max` 
+- `na`
+
+## Arguments of `read_csv()`
+
+The argument `file`, as one would expect, indicates the file name you are reading in. In our previous example this was the object `my_data`; we'll see a different example in the exercises.  
+
+`col_names` can either take a logical value, TRUE or FALSE, or a character vector.   
+Use TRUE/FALSE to indicate whether the file you are reading in contains column names or not.  
+
+Let's see how this works.  
+
+By default read_csv() sets `col_names = TRUE`, which works great for our particular example since in our data file `my_data` we specified column names.  
+What happens if we set `col_names = FALSE` for our file?
+
+
+```r
+read_csv(my_data, col_names = FALSE)  
+#> Rows: 6 Columns: 4
+#> ── Column specification ────────────────────────────────────
+#> Delimiter: ","
+#> chr (4): X1, X2, X3, X4
+#> 
+#> ℹ Use `spec()` to retrieve the full column specification for this data.
+#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+#> # A tibble: 6 × 4
+#>   X1        X2    X3    X4   
+#>   <chr>     <chr> <chr> <chr>
+#> 1 studendID test1 test2 grade
+#> 2 student1  90    85    A    
+#> 3 student2  30    46    F    
+#> 4 student3  70    80    B    
+#> 5 student4  <NA>  68    C    
+#> 6 student5  <NA>  <NA>  F
+```
+
+You'll notice that R assigns generic variable names. In this case, the columns (or variables) are named `X1` through `X4`.   
+
+But what else do you notice?  
+
+R also assumed that our actual column names (i.e. the very first row of our data) were just part of the data, consequently making all variables of type *character* (since we now have a mix of character and numeric values - visit the tutorial on object types if you need a refresher on this). 
+By now you are probably seeing that you should use `col_names` as a logical value only to indicate to R that the data you are reading in does not have a line of column names.  
+If you data file does not contain variable names you could specify those using `col_names`, but instead of providing a logical value, you should provide a vector with the variable names; for example, `col_names = c("First Var Name, "Second Var Name")`. This, however, becomes cumbersome for data with too many variables and there might be better solution to manipulate the names. 
+
+The argument `skip` can be used to indicate how many lines should be skipped before reading in data entries. For instance, setting `skip = 4` will skip the first 4 lines of the file.  
+
+The argument `n_max`, on the other hand, allows you to control the maximum number of lines read. For instance, setting `n_max=1` would indicate to R to only read a single line of the data file. Note, however, that if `col_names = TRUE` the header of the data file (i.e. the column names) are not counted towards the `n_max` total. For example, setting `n_max=0` will initiate a tibble(data frame) with no entries read, but with the names of the columns preserved. 
+
+Let's see `skip` and `n_max` in action. 
+Suppose we modified our `my_data` object and added a few irrelevant entries at the beginning and the end of the object.
+
+
+```r
+
+my_data_modified <- c("Hello, this text is, irrelevant
+As is this line
+studendID,test1,test2,grade 
+student1,90,85,A
+student2,30,46,F
+student3,70,80,B
+student4, NA,68,C
+student5,NA,NA,F
+student6,LWD,LWD,LWD")
+
+```
+
+Run the following code to read in the data by skipping the first 2 lines and the last (sixth) entry in `my_data_modified`
+
+
+```r
+
+read_csv(my_data_modified, skip = 2, n_max = 5)
+#> Rows: 5 Columns: 4
+#> ── Column specification ────────────────────────────────────
+#> Delimiter: ","
+#> chr (2): studendID, grade
+#> dbl (2): test1, test2
+#> 
+#> ℹ Use `spec()` to retrieve the full column specification for this data.
+#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+#> # A tibble: 5 × 4
+#>   studendID test1 test2 grade
+#>   <chr>     <dbl> <dbl> <chr>
+#> 1 student1     90    85 A    
+#> 2 student2     30    46 F    
+#> 3 student3     70    80 B    
+#> 4 student4     NA    68 C    
+#> 5 student5     NA    NA F
+```
+
+Finally, the argument `na` allows you to indicate whether any special values have been used to encode NAs (i.e. missing values). By default, the function assumes that NAs are defined either by blank spaces or the string NA (see the help file for `?read_csv()`). However, if a data file you are reading in encodes missing values as `-99` or blank spaces, you could just specify that by setting `na=c("-99", "")` in the arguments of the function.
+
+
+
+## Exercises
+
+
+### Exercise 1 
+
+Let's try a slightly more complicated setting using a variation of our `my_data_modified` object. Suppose your data file has an extra line of records which may have been helpful in the data collection process but is not relevant to your data analysis. Consider the file `my_new_data` below where the additional clarification is provided for each variable but, unlike our earlier example, it is neither at the beginning nor the end of the data file. 
+
+
+```r
+
+my_new_data <- c("studendID,test1,test2,grade
+(textID),(points out of 100),(points out of 100),(letter grade)
+student1,90,85,A
+student2,30,46,F
+student3,70,80,B
+student4, NA,68,C
+student5,NA,NA,F")
+
+```
+
+
+How would you read in the data to retain everything other than the second line of entries? 
+You might need to do this in a few steps. Follow the suggestions in the comments to finish the code below (make sure you uncomment the appropriate lines of code)
+
+
+```r
+##  Start by isolating the column names using the function names()(to see what the function does . You can do this by reading in the my_new_data object and using the n_max argument.
+
+#my_columns <- names(read_csv( , n_max=))
+
+##  Then, finish the task by reading in the data using the appropriate skip= and col_names= arguments
+
+#read_csv( , skip= , col_names = )
+
+```
+
+
+```r
+
+my_columns <- names(read_csv(my_new_data, n_max=0))
+#> Rows: 0 Columns: 4
+#> ── Column specification ────────────────────────────────────
+#> Delimiter: ","
+#> chr (4): studendID, test1, test2, grade
+#> 
+#> ℹ Use `spec()` to retrieve the full column specification for this data.
+#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+read_csv(my_new_data, skip=2, col_names = my_columns)
+#> Rows: 5 Columns: 4
+#> ── Column specification ────────────────────────────────────
+#> Delimiter: ","
+#> chr (2): studendID, grade
+#> dbl (2): test1, test2
+#> 
+#> ℹ Use `spec()` to retrieve the full column specification for this data.
+#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+#> # A tibble: 5 × 4
+#>   studendID test1 test2 grade
+#>   <chr>     <dbl> <dbl> <chr>
+#> 1 student1     90    85 A    
+#> 2 student2     30    46 F    
+#> 3 student3     70    80 B    
+#> 4 student4     NA    68 C    
+#> 5 student5     NA    NA F
+```
+
+
+### Exercise 2
+
+Let's look at a another data file, this time one that lives online.  
+Consider the following data about gifts given between 1999 and 2018 to U.S. federal employees from foreign government sources. The raw data can be found at https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv . We'll use the URL to read it in. 
+
+
+
+```r
+read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv")
+#> # A tibble: 8,392 × 10
+#>       id recipient agency_name year_received date_received
+#>    <dbl> <chr>     <chr>               <dbl> <date>       
+#>  1     1 President <NA>                 1999 NA           
+#>  2     2 President <NA>                 1999 NA           
+#>  3     3 President <NA>                 1999 NA           
+#>  4     4 President <NA>                 1999 NA           
+#>  5     5 President <NA>                 1999 NA           
+#>  6     6 President <NA>                 1999 NA           
+#>  7     7 President <NA>                 1999 NA           
+#>  8     8 President <NA>                 1999 NA           
+#>  9     9 President <NA>                 1999 NA           
+#> 10    10 President <NA>                 1999 NA           
+#> # … with 8,382 more rows, and 5 more variables:
+#> #   donor <chr>, donor_country <chr>,
+#> #   gift_description <chr>, value_usd <dbl>,
+#> #   justification <chr>
+```
+
+
+**Part A**
+Using the appropriate arguments, read in only the first 100 records of these data
+
+<!-- ```{r csv_ex2_gifts1, exercise=TRUE, message = FALSE, exercise.timelimit=240} -->
+
+<!-- ``` -->
+
+
+<!-- ```{r csv_ex2_gifts1-solution, message = FALSE} -->
+<!-- read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv", n_max=100) -->
+<!-- ``` -->
+
+**PART B** 
+Suppose we only want to read the records starting with the year 2000 and we know that the first 330 (not including column names) entries are from the 90s. Use the appropriate arguments to read in the data in this case. 
+
+<!-- ```{r csv_ex2_gifts2, exercise=TRUE, message = FALSE, exercise.timelimit=240} -->
+
+<!-- ``` -->
+
+<!-- ```{r csv_ex2_gifts2-solution, message = FALSE} -->
+<!-- my_cols <- names(read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv", n_max=0)) -->
+<!-- read_csv("https://raw.githubusercontent.com/tacookson/data/master/us-government-gifts/gifts.csv", skip=331, col_names=my_cols) -->
+<!-- ``` -->
+
+
+## Common Mistakes & Errors
+
+- When importing your data using `read_csv()` make sure that the path to the file to be read is correctly specified and that, in addition, no spelling mistakes have been made.  
+
+- Make sure that the data file is really missing column names before you proceed to change the `col_names` argument. 
+
+
+## Next Steps
+
+So far you've learned how to import a basic delimited data file in R using `read_csv()`. In the next tutorial you will see how to load other types of data and import more complicated data formats.
+
+
+
+
+
+
+
+
+
+
+
+
+
