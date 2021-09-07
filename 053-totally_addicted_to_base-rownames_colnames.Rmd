@@ -5,6 +5,136 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
+# row.names() and colnames()
+
+Written by Leuven Wang
 
 
-# rownames and colnames
+
+## Introduction
+
+Data frames can be very well organized and if you're anything like me, you might sometimes even find them aesthetically pleasing in their clean simplicity. But sometimes, their rows and columns can be named with unintelligible or extremely long headings not meant for human review. This may be undesirable in cases where you need to present your data frame in tables or would like to understand them more intuitively during the analytics stage.
+
+In this lesson, you will learn how to:
+
+- Use `colnames()` to retrieve and set column names.
+- Use `row.names()` to retrieve and set row names.
+
+Prerequisites:
+
+- Basic understanding of vectors `c()`.
+- General knowledge of basic data frame structures i.e. what records and columns are.
+- Indexing and subsets of vectors and data frames.
+
+Let's stick with a dataset we're familiar with: `mtcars`. For simplicity, we will use only the first 5 columns of the dataset.
+
+```{r}
+data <- mtcars[1:5]
+head(data)
+```
+The column names are the headers at the top of the column. In this case they are mpg, cyl, disp, hp, and drat. The row names are the unique identifiers that head each record. It is important to know that row names do not exist under a column variable the same way that the rest of their record does. In this case, our row names are the models of cars: Mazda RX4, Mazda RX4 Wag, etc...
+
+
+## Using `colnames()`
+
+Now, if you work a lot with this dataset or you just happen to be a car aficionado you may know what these column headings mean. But for us mere plebes, this isn't so intuitive! A full description of the column variables can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html).
+
+Using `colnames` and a vector of names of length matching the number of columns, we can change each column's name. 
+
+```{r}
+colnames(data) <- c("Miles/Gallon", "Cylinders", "Displacement", "Horsepower", "Rear Axle Ratio")
+head(data)
+```
+Note that using the `colnames()` function on our `data` variable automatically changes the column names inside! If we use a vector with less elements than the the number of columns, the first few column names will change and the others will become nameless. Using a vector with a length that exceeds the number of columns results in an error.
+```{r}
+colnames(data) <- c("Miles/Gallon", "Cylinders")
+head(data)
+```
+If you want to change a single specific column's name, you can reference it by index and use characters instead of vectors:
+```{r}
+colnames(data)[3] <- "Displacement"
+head(data)
+```
+And of course, if you want to change a subset of column names, you can reference it with index and use vectors:
+```{r}
+colnames(data)[4:5] <- c("Horsepower","Rear Axle Ratio")
+head(data)
+```
+
+
+Conversely, if we wanted to retrieve the current column names in the table, we can also call upon `colnames()`:
+```{r}
+colnames(data)
+```
+The same can be done for singular or subsets of columns.
+
+`colnames()` also applies to tibbles:
+
+```{r}
+colnames(tibble(data))
+```
+
+## Using `row.names()`
+
+Similarly, `row.names()` is used to handle row names. Most of the time, row names are just unique ordered numbers. In the case of our dataset, our row names are car models. The problem with row names is that because they are not grouped under a column variable, they can't be subjected to the same `filter()`, `select()` or handling functions that the rest of the data is. This may be problematic at times.
+
+Let's say we need the car model names to be a column variable. We can first use `row.names()` to retrieve them:
+
+```{r}
+car_models <- row.names(data)
+car_models
+```
+
+As `car_models` preserves the same order as before, we can add easily add it to the rest of the data frame as a normal column:
+```{r}
+data <- cbind(car_models, data)
+#cbind() is used to combine columns and datasets together to form a new dataset. Other functions exist but for the purposes of our demonstration we shall use it here. It's not important for you to understand it thus far but it is useful.
+head(data)
+```
+The problem now is that we have the car models both within the table as a variable and outside of it as row names. We can now use `row.names()` to fix this redundancy and maintain a guaranteed unique identifier for rows. Using an empty vector numbers the row names in ascending order:
+```{r}
+row.names(data) <- c()
+head(data)
+```
+See how the rows are now numbered as their names? Of course, you can also customarily name your rows and use subsetting:
+```{r}
+row.names(data)[1:2] <- c("Hot Wheels","Not so Hot Wheels")
+head(data)
+```
+```{r include = FALSE}
+remove(data, car_models)
+```
+
+
+## Exercises
+
+### Question 1
+
+Given the dataset `iris`, change the column names such that the periods are replaced with spaces."
+
+```{r q1_colnames, exercise.eval = TRUE, exercise = TRUE}
+head(iris)
+```
+
+```{r q1_colnames-solution}
+colnames(iris) <- c("Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species")
+```
+### Question 2
+
+```{r q2_rowname, echo=FALSE}
+question("True or false: Just as with columns, setting row names using a vector of length shorter than the number of records results in any outstanding rows to have no name assigned.", 
+         answer("True"), 
+         answer("False", correct= TRUE, message = "Unlike with column names, setting row names with a vector shorter than the number of selected rows results in an error."))
+
+
+```
+
+## Common Mistakes and Errors
+
+- Incorrect indexing when working with specific or subsets of columns/rows. In R, indexing begins at 1.
+- Trying to set row names with a vector of length shorter than the number of rows you're changing.
+
+## References
+
+- [row.names()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/row.names)
+- [Row and Column Names](https://stat.ethz.ch/R-manual/R-devel/library/base/html/colnames.html)
