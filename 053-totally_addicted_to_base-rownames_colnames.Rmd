@@ -88,7 +88,7 @@ car_models
 As `car_models` preserves the same order as before, we can add easily add it to the rest of the data frame as a normal column:
 ```{r}
 data <- cbind(car_models, data)
-#cbind() is used to combine columns and datasets together to form a new dataset. Other functions exist but for the purposes of our demonstration we shall use it here. It's not important for you to understand it thus far but it is useful.
+#cbind() is used to combine columns and datasets together to form a new dataset. Other methods exist but for the purposes of our demonstration we shall use it here. It's not important for you to understand it thus far but it is useful.
 head(data)
 ```
 The problem now is that we have the car models both within the table as a variable and outside of it as row names. We can now use `row.names()` to fix this redundancy and maintain a guaranteed unique identifier for rows. Using an empty vector numbers the row names in ascending order:
@@ -104,6 +104,11 @@ head(data)
 ```{r include = FALSE}
 remove(data, car_models)
 ```
+
+## Common Mistakes and Errors
+
+- Incorrect indexing when working with specific or subsets of columns/rows. In R, indexing begins at 1.
+- Trying to set row names with a vector of length shorter than the number of rows you're changing.
 
 
 ## Exercises
@@ -125,14 +130,73 @@ colnames(iris) <- c("Sepal Length", "Sepal Width", "Petal Length", "Petal Width"
 question("True or false: Just as with columns, setting row names using a vector of length shorter than the number of records results in any outstanding rows to have no name assigned.", 
          answer("True"), 
          answer("False", correct= TRUE, message = "Unlike with column names, setting row names with a vector shorter than the number of selected rows results in an error."))
+```
+
+### Question 3
+
+```{r q3_rownames, echo = FALSE}
+question("True or false: `colname` can be used to retrieve and change the name of singular columns.",
+         answer("True", message = "There is no such thing as `colname`. "),
+         answer("False", correct= TRUE, message = "There is no such thing as `colname`. ")
+         )
 
 
 ```
 
-## Common Mistakes and Errors
+### Question 4
+```{r include=FALSE}
+iris <- og_iris
+```
 
-- Incorrect indexing when working with specific or subsets of columns/rows. In R, indexing begins at 1.
-- Trying to set row names with a vector of length shorter than the number of rows you're changing.
+
+
+Given an unmodified version of `iris`, fix the mistake in the code below such that it successfully changes the column of the first two columns to "Sepal Length" and "Sepal Width".
+```{r q4_colnames, exercise.eval = TRUE, exercise = TRUE}
+colnames(iris)[0:1] <- c("Sepal Length", "Sepal Width")
+head(iris)
+```
+
+```{r q4_colnames-solution}
+colnames(iris)[1:2] <- c("Sepal Length", "Sepal Width")
+```
+
+### Question 5
+For each car in `mtcars`, print a string which says "I want to drive the 'car_name'". Your final output should look something like this:
+
+I want to drive the Mazda RX4  
+I want to drive the Mazda Rx4 Wag  
+I want to drive the Datsun 710  
+...
+
+Tip: use `cat("I want to drive the ", car_name, "\n")` to print your outputs.
+```{r q5_rownames, exercise.eval = TRUE, exercise = TRUE}
+head(mtcars)
+```
+
+
+```{r q5_rownames-solution}
+car_names <- row.names(mtcars)
+
+for(car_name in car_names){
+  cat("I want to drive the", car_name, "\n")
+}
+```
+
+### Question 6
+
+Change the row name of the second record of `mtcars` to be the exact same as the first record without changing the first record. See what happens and read the message. Then, figure out a way to swap the two row names without prompting an error.
+
+
+```{r q6_rownames, exercise.eval = TRUE, exercise = TRUE}
+head(mtcars)
+```
+
+
+```{r q6_rownames-solution}
+a <- row.names(mtcars)[1]
+b <- row.names(mtcars)[2]
+row.names(mtcars)[1:2] <- c(b,a)
+```
 
 ## References
 
