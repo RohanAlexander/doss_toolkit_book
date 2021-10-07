@@ -3,18 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(here)
 ```
 
-
 # Tables: kable, kableextra, and gt
 
-*Written by Yena Joo.*
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 
 ## Introduction
@@ -268,5 +263,24 @@ Create some fancy tables using kable & kableExtra :)
 - [more information on gt Tables](https://gt.rstudio.com/articles/intro-creating-gt-tables.html)
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

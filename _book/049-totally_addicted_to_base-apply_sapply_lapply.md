@@ -1,6 +1,0 @@
-
-
-
-
-
-# apply sapply lapply

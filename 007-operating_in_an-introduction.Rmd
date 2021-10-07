@@ -1,23 +1,13 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
-# library(flair)
-# library(gradethis)
-# gradethis::gradethis_setup()
-# library(palmerpenguins)
 ```
-
 
 # (PART\*) Operating in an error prone world {-}
 
-
 # Introduction
 
-Written by Rohan Alexander.
+*Written by Rohan Alexander and last updated on 7 October 2021.*
 
 Welcome to a module about getting help. While it may seem odd to start with this, one of the key skills when using R is being able to work yourself out of problems.
 

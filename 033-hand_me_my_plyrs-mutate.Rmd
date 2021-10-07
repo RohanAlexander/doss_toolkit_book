@@ -3,19 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
 library(flair)
-# tutorial_options(exercise.eval = FALSE)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(palmerpenguins)
 ```
 
-
 # mutate
 
-*Written by Haoluan Chen.*
-
+*Written by Haoluan Chen and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -202,3 +196,25 @@ Vignettes(demonstration of how to use functions in dplyr including mutate()) for
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

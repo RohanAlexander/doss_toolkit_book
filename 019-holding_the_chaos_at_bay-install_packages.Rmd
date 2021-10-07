@@ -1,15 +1,12 @@
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
 library(tidyverse)
-
 ```
 
 # Installing packages
 
-*Written by Haoluan Chen.*
+*Written by Haoluan Chen and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -24,22 +21,20 @@ Highlights:
 
 - What is a package in R
 - What is CRAN
-- Install package from CRAN using **install.packages("package_name")** or **install.packages('package_name')**
+- Install package from CRAN using `install.packages("package_name")` or `install.packages('package_name')`
 - Install package in RStudio
-
 
 ## What is a package?
 
 R packages are collections of functions or datasets developed by the community. It is shared by the author and allows everyone to re-use. It increases and expands the tools we can use in R for various tasks, including graph generation, data manipulation, and statistical inference.
 
-## What is CRAN
+## What is CRAN?
 
 CRAN stands for Comprehensive R Archive Network. It is the official repository where the packages are located, and you can install them on your computer. All the package in CRAN needs to pass several tests that ensure the package is following CRAN policies. As of June 2019, there were over 14,000 packages available on the CRAN. 
 
-## How to install?
+## How to install a package?
 
 To install a package from CRAN, you can either run `install.package("**package_name**")` or manually install it in RStudio. 
-
 
 ## Using code
 
@@ -51,13 +46,11 @@ To install, you run the following code in the r chunk or the console:
 install.packages("ggplot2")
 ```
 
-
 After running this code, you will receive some message on the console, and it will start installing the package (this may take a few minutes depending on your system). Then it will tell you that you have successfully installed the package.
 
 Note that for some package it may ask you to input something in the console to complete the installation. You will see this in the installing package from GitHub tutorial.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c-8qOcLyxN4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 ## In RStudio 
 
@@ -86,14 +79,14 @@ Please install the `tidyverse` package on your computer.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/COFCB-MGaHw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-## Common Mistakes & Errors
+## Common mistakes and errors
 
 - You have misspelled the package name.
 - You missed the quotation mark around the package name.
 - You missed the s in the install_packages function.
 
 
-## Next Steps
+## Next steps
 
 For the next step, you can install the package from CRAN and start using them for your projects. 
 
@@ -109,19 +102,24 @@ Here is a list of useful packages you may be using:
 
 You can also create your own packages! 
 
-CRAN website: https://cran.r-project.org/
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
-
-
-
+### Question 10

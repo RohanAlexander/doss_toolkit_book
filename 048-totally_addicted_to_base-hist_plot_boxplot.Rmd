@@ -6,11 +6,9 @@ library(flair)
 library(tidyverse)
 ```
 
-
-
 # hist, plot and boxplot
 
-*Written by Yena Joo.*
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -243,3 +241,25 @@ With the functions we have learned today as well as in the previous lectures, yo
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

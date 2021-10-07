@@ -3,28 +3,19 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(here)
 ```
 
-
 # References and Bibtex
 
-*Written by Yena Joo.*
-
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 
 Citation is very important to include in your paper to provide a proper credit to the authors, and to avoid plagiarisms when it is publicly published. Of course we can manually cite and reference using citation maker online and copy and paste them, but we can also use some functions in R Markdown and use BibTeX to cite!    
 
-In this lesson, you will learn how to:   
-
-- cite the references!
-
+In this lesson, you will learn how to cite references!
 
 Highlights:  
 
@@ -119,17 +110,26 @@ print(citation("knitr"))
 - [another good resource](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html)  
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
+### Question 10
 
 

@@ -3,18 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
 library(flair)
-# tutorial_options(exercise.eval = FALSE)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(palmerpenguins)
 ```
 
-
 # arrange
 
-Written by Isaac Ehrlich.
+*Written by Isaac Ehrlich and last updated on 7 October 2021.*
 
 
 ## Introduction
@@ -160,3 +155,25 @@ The following video summarizes what we have gone over in this tutorial: ![](http
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

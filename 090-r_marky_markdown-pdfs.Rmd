@@ -3,17 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(here)
 ```
 
 # PDF outputs
 
-*Written by Yena Joo.*
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 So far, we learned almost everything to write a proper paper, and the content should be exported into pdf document. In this lecture, we are going to learn how to produce a PDF in R Markdown.   
@@ -150,15 +146,24 @@ Modify the metadata so it changes into the pdf document with table of contents w
 Using all the functions we learned so far, try to write a paper of your interest, cite the sources, and knit to PDF to create a perfect professional paper. 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
+### Question 10

@@ -11,7 +11,7 @@ library(palmerpenguins)
 
 # Regular expressions
 
-*Written by Shirley Deng.*
+*Written by Shirley Deng and last updated on 7 October 2021.*
 
 To use the `stringr` package, we can describe patterns in strings using regular expressions, or regex. This section will outline a variety of regex examples :\^)
 
@@ -270,11 +270,24 @@ Function   |   Use
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
+
+### Question 9
+
+### Question 10

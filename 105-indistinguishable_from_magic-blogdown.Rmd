@@ -3,19 +3,14 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
 library(sortable)
-# gradethis::gradethis_setup()
-# library(palmerpenguins)
 library(ggmap)
 ```
 
 # Getting started with Blogdown
 
-*Written by Annie Collins.*
+*Written by Annie Collins and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -129,11 +124,30 @@ Themes play a rather significant role in the functionality of a `blogdown` site.
 knitr::include_graphics("images/84-new_site_4.png")
 ```
 
-
 As mentioned previously, the best way to get to know your `blogdown` website is to play around with different files and configurations to discover what goes where and which set-up works best for you. As you build your website and try different themes, be sure to explore your *Files* tab and `config.yaml` file to get the most out of your new website.
 
 For a more in-depth look at all things `blogdown`, check out the `blogdown` [online book](https://bookdown.org/yihui/blogdown/) authored by Yihui Xie, Amber Thomas, and Alison Presmanes Hill outlining several more aspects of creating, updating, and maintaining `blogdown` websites.
 
+## Exercises
 
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
 
 

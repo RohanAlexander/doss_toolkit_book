@@ -3,19 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
 library(flair)
-# tutorial_options(exercise.eval = FALSE)
-# library(gradethis)
-# gradethis::gradethis_setup()
-# library(palmerpenguins)
 library(knitr)
 ```
 
 # Saving graphs
 
-*Written by Yena Joo.*
-
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 There are some situations where you may need pictures of the plots when writing on blogs or sending emails about the data you're analyzing. In that case, you would wonder how to save and upload the plots created in R.  
@@ -156,18 +150,24 @@ dev.off()
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
-
-
-
+### Question 10

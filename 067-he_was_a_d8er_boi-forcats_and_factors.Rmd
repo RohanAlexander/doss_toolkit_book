@@ -9,10 +9,9 @@ library(stringr)
 library(palmerpenguins)
 ```
 
-
 # forcats and factors
 
-*Written by Matthew Wankiewicz.*
+*Written by Matthew Wankiewicz and last updated on 7 October 2021.*
 
 ```{r forcats-tidyverse, echo=FALSE}
 library(tidyverse)
@@ -376,11 +375,24 @@ Now that you're familiar with the `forcats` package, here are some additional re
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
+
+### Question 9
+
+### Question 10

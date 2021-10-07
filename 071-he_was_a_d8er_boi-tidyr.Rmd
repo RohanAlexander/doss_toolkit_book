@@ -7,27 +7,11 @@ library(flair)
 library(glue)
 library(stringr)
 library(palmerpenguins)
-# 
-# 
-# broadway <- read_csv(
-#   "https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv",
-#   guess_max = 10000)
-# 
-# broadway <- broadway %>%
-#   select(week_ending, show, theatre, weekly_gross, avg_ticket_price,
-#          top_ticket_price, performances, previews)
-# 
-# winter_garden <- broadway %>%
-#   filter(week_number <= 2, theatre == "Winter Garden Theatre") %>%
-#   group_by(week_number) %>%
-#   select(week_number, show)
 ```
-
 
 # `tidyr` package
 
-*Written by Mariam Walaa.*
-
+*Written by Mariam Walaa and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -237,6 +221,24 @@ this tutorial, but if you are interested, then this might be helpful.
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

@@ -3,19 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(here)
 ```
 
-
-
 # Multiple plots with `patchwork`
 
-*Written by Michael Chong*
+*Written by Michael Chong and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -223,6 +217,28 @@ If you need more functionality, the `patchwork` package is capable of much more!
 If you still need more functionality to get those plots perfectly arranged, you can try the [`cowplot` package](https://wilkelab.org/cowplot/index.html). It's more powerful, but the syntax is a bit more difficult.
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
 
 
 

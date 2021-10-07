@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 54 row and column names | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Leuven Wang and last updated on 7 October 2021.  54.1 Introduction Data frames can be very well organized and if you’re anything like me, you might sometimes even find them...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 54 row and column names | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Leuven Wang and last updated on 7 October 2021.  54.1 Introduction Data frames can be very well organized and if you’re anything like me, you might sometimes even find them...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 54 row and column names | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Leuven Wang and last updated on 7 October 2021.  54.1 Introduction Data frames can be very well organized and if you’re anything like me, you might sometimes even find them...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="active" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="row-and-column-names" class="section level1" number="54">
+<h1>
+<span class="header-section-number">54</span> row and column names<a class="anchor" aria-label="anchor" href="#row-and-column-names"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Leuven Wang and last updated on 7 October 2021.</em></p>
+<div id="introduction-50" class="section level2" number="54.1">
+<h2>
+<span class="header-section-number">54.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-50"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data frames can be very well organized and if you’re anything like me, you might sometimes even find them aesthetically pleasing in their clean simplicity. But sometimes, their rows and columns can be named with unintelligible or extremely long headings not meant for human review. This may be undesirable in cases where you need to present your data frame in tables or would like to understand them more intuitively during the analytics stage.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Use <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> to retrieve and set column names.</li>
+<li>Use <code><a href="https://rdrr.io/r/base/row.names.html">row.names()</a></code> to retrieve and set row names.</li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li>Basic understanding of vectors <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</li>
+<li>General knowledge of basic data frame structures i.e. what records and columns are.</li>
+<li>Indexing and subsets of vectors and data frames.</li>
+</ul>
+<p>Let’s stick with a dataset we’re familiar with: <code>mtcars</code>. For simplicity, we will use only the first 5 columns of the dataset.</p>
+<div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                    mpg cyl disp  hp drat</span>
+<span class="co">#&gt; Mazda RX4         21.0   6  160 110 3.90</span>
+<span class="co">#&gt; Mazda RX4 Wag     21.0   6  160 110 3.90</span>
+<span class="co">#&gt; Datsun 710        22.8   4  108  93 3.85</span>
+<span class="co">#&gt; Hornet 4 Drive    21.4   6  258 110 3.08</span>
+<span class="co">#&gt; Hornet Sportabout 18.7   8  360 175 3.15</span>
+<span class="co">#&gt; Valiant           18.1   6  225 105 2.76</span></code></pre></div>
+<p>The column names are the headers at the top of the column. In this case they are mpg, cyl, disp, hp, and drat. The row names are the unique identifiers that head each record. It is important to know that row names do not exist under a column variable the same way that the rest of their record does. In this case, our row names are the models of cars: Mazda RX4, Mazda RX4 Wag, etc…</p>
+</div>
+<div id="using-colnames" class="section level2" number="54.2">
+<h2>
+<span class="header-section-number">54.2</span> Using <code>colnames()</code><a class="anchor" aria-label="anchor" href="#using-colnames"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now, if you work a lot with this dataset or you just happen to be a car aficionado you may know what these column headings mean. But for us mere plebes, this isn’t so intuitive! A full description of the column variables can be found <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html">here</a>.</p>
+<p>Using <code>colnames</code> and a vector of names of length matching the number of columns, we can change each column’s name.</p>
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Miles/Gallon"</span>, <span class="st">"Cylinders"</span>, <span class="st">"Displacement"</span>, <span class="st">"Horsepower"</span>, <span class="st">"Rear Axle Ratio"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                   Miles/Gallon Cylinders Displacement</span>
+<span class="co">#&gt; Mazda RX4                 21.0         6          160</span>
+<span class="co">#&gt; Mazda RX4 Wag             21.0         6          160</span>
+<span class="co">#&gt; Datsun 710                22.8         4          108</span>
+<span class="co">#&gt; Hornet 4 Drive            21.4         6          258</span>
+<span class="co">#&gt; Hornet Sportabout         18.7         8          360</span>
+<span class="co">#&gt; Valiant                   18.1         6          225</span>
+<span class="co">#&gt;                   Horsepower Rear Axle Ratio</span>
+<span class="co">#&gt; Mazda RX4                110            3.90</span>
+<span class="co">#&gt; Mazda RX4 Wag            110            3.90</span>
+<span class="co">#&gt; Datsun 710                93            3.85</span>
+<span class="co">#&gt; Hornet 4 Drive           110            3.08</span>
+<span class="co">#&gt; Hornet Sportabout        175            3.15</span>
+<span class="co">#&gt; Valiant                  105            2.76</span></code></pre></div>
+<p>Note that using the <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> function on our <code>data</code> variable automatically changes the column names inside! If we use a vector with less elements than the the number of columns, the first few column names will change and the others will become nameless. Using a vector with a length that exceeds the number of columns results in an error.</p>
+<div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Miles/Gallon"</span>, <span class="st">"Cylinders"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                   Miles/Gallon Cylinders  NA  NA   NA</span>
+<span class="co">#&gt; Mazda RX4                 21.0         6 160 110 3.90</span>
+<span class="co">#&gt; Mazda RX4 Wag             21.0         6 160 110 3.90</span>
+<span class="co">#&gt; Datsun 710                22.8         4 108  93 3.85</span>
+<span class="co">#&gt; Hornet 4 Drive            21.4         6 258 110 3.08</span>
+<span class="co">#&gt; Hornet Sportabout         18.7         8 360 175 3.15</span>
+<span class="co">#&gt; Valiant                   18.1         6 225 105 2.76</span></code></pre></div>
+<p>If you want to change a single specific column’s name, you can reference it by index and use characters instead of vectors:</p>
+<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Displacement"</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                   Miles/Gallon Cylinders Displacement  NA</span>
+<span class="co">#&gt; Mazda RX4                 21.0         6          160 110</span>
+<span class="co">#&gt; Mazda RX4 Wag             21.0         6          160 110</span>
+<span class="co">#&gt; Datsun 710                22.8         4          108  93</span>
+<span class="co">#&gt; Hornet 4 Drive            21.4         6          258 110</span>
+<span class="co">#&gt; Hornet Sportabout         18.7         8          360 175</span>
+<span class="co">#&gt; Valiant                   18.1         6          225 105</span>
+<span class="co">#&gt;                     NA</span>
+<span class="co">#&gt; Mazda RX4         3.90</span>
+<span class="co">#&gt; Mazda RX4 Wag     3.90</span>
+<span class="co">#&gt; Datsun 710        3.85</span>
+<span class="co">#&gt; Hornet 4 Drive    3.08</span>
+<span class="co">#&gt; Hornet Sportabout 3.15</span>
+<span class="co">#&gt; Valiant           2.76</span></code></pre></div>
+<p>And of course, if you want to change a subset of column names, you can reference it with index and use vectors:</p>
+<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Horsepower"</span>,<span class="st">"Rear Axle Ratio"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                   Miles/Gallon Cylinders Displacement</span>
+<span class="co">#&gt; Mazda RX4                 21.0         6          160</span>
+<span class="co">#&gt; Mazda RX4 Wag             21.0         6          160</span>
+<span class="co">#&gt; Datsun 710                22.8         4          108</span>
+<span class="co">#&gt; Hornet 4 Drive            21.4         6          258</span>
+<span class="co">#&gt; Hornet Sportabout         18.7         8          360</span>
+<span class="co">#&gt; Valiant                   18.1         6          225</span>
+<span class="co">#&gt;                   Horsepower Rear Axle Ratio</span>
+<span class="co">#&gt; Mazda RX4                110            3.90</span>
+<span class="co">#&gt; Mazda RX4 Wag            110            3.90</span>
+<span class="co">#&gt; Datsun 710                93            3.85</span>
+<span class="co">#&gt; Hornet 4 Drive           110            3.08</span>
+<span class="co">#&gt; Hornet Sportabout        175            3.15</span>
+<span class="co">#&gt; Valiant                  105            2.76</span></code></pre></div>
+<p>Conversely, if we wanted to retrieve the current column names in the table, we can also call upon <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>:</p>
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Miles/Gallon"    "Cylinders"       "Displacement"   </span>
+<span class="co">#&gt; [4] "Horsepower"      "Rear Axle Ratio"</span></code></pre></div>
+<p>The same can be done for singular or subsets of columns.</p>
+<p><code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> also applies to tibbles:</p>
+<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Miles/Gallon"    "Cylinders"       "Displacement"   </span>
+<span class="co">#&gt; [4] "Horsepower"      "Rear Axle Ratio"</span></code></pre></div>
+</div>
+<div id="using-row.names" class="section level2" number="54.3">
+<h2>
+<span class="header-section-number">54.3</span> Using <code>row.names()</code><a class="anchor" aria-label="anchor" href="#using-row.names"><i class="fas fa-link"></i></a>
+</h2>
+<p>Similarly, <code><a href="https://rdrr.io/r/base/row.names.html">row.names()</a></code> is used to handle row names. Most of the time, row names are just unique ordered numbers. In the case of our dataset, our row names are car models. The problem with row names is that because they are not grouped under a column variable, they can’t be subjected to the same <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> or handling functions that the rest of the data is. This may be problematic at times.</p>
+<p>Let’s say we need the car model names to be a column variable. We can first use <code><a href="https://rdrr.io/r/base/row.names.html">row.names()</a></code> to retrieve them:</p>
+<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">car_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="va">car_models</span>
+<span class="co">#&gt;  [1] "Mazda RX4"           "Mazda RX4 Wag"      </span>
+<span class="co">#&gt;  [3] "Datsun 710"          "Hornet 4 Drive"     </span>
+<span class="co">#&gt;  [5] "Hornet Sportabout"   "Valiant"            </span>
+<span class="co">#&gt;  [7] "Duster 360"          "Merc 240D"          </span>
+<span class="co">#&gt;  [9] "Merc 230"            "Merc 280"           </span>
+<span class="co">#&gt; [11] "Merc 280C"           "Merc 450SE"         </span>
+<span class="co">#&gt; [13] "Merc 450SL"          "Merc 450SLC"        </span>
+<span class="co">#&gt; [15] "Cadillac Fleetwood"  "Lincoln Continental"</span>
+<span class="co">#&gt; [17] "Chrysler Imperial"   "Fiat 128"           </span>
+<span class="co">#&gt; [19] "Honda Civic"         "Toyota Corolla"     </span>
+<span class="co">#&gt; [21] "Toyota Corona"       "Dodge Challenger"   </span>
+<span class="co">#&gt; [23] "AMC Javelin"         "Camaro Z28"         </span>
+<span class="co">#&gt; [25] "Pontiac Firebird"    "Fiat X1-9"          </span>
+<span class="co">#&gt; [27] "Porsche 914-2"       "Lotus Europa"       </span>
+<span class="co">#&gt; [29] "Ford Pantera L"      "Ferrari Dino"       </span>
+<span class="co">#&gt; [31] "Maserati Bora"       "Volvo 142E"</span></code></pre></div>
+<p>As <code>car_models</code> preserves the same order as before, we can add easily add it to the rest of the data frame as a normal column:</p>
+<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/cbind.html">cbind</a></span><span class="op">(</span><span class="va">car_models</span>, <span class="va">data</span><span class="op">)</span>
+<span class="co">#cbind() is used to combine columns and datasets together to form a new dataset. Other methods exist but for the purposes of our demonstration we shall use it here. It's not important for you to understand it thus far but it is useful.</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                          car_models Miles/Gallon Cylinders</span>
+<span class="co">#&gt; Mazda RX4                 Mazda RX4         21.0         6</span>
+<span class="co">#&gt; Mazda RX4 Wag         Mazda RX4 Wag         21.0         6</span>
+<span class="co">#&gt; Datsun 710               Datsun 710         22.8         4</span>
+<span class="co">#&gt; Hornet 4 Drive       Hornet 4 Drive         21.4         6</span>
+<span class="co">#&gt; Hornet Sportabout Hornet Sportabout         18.7         8</span>
+<span class="co">#&gt; Valiant                     Valiant         18.1         6</span>
+<span class="co">#&gt;                   Displacement Horsepower Rear Axle Ratio</span>
+<span class="co">#&gt; Mazda RX4                  160        110            3.90</span>
+<span class="co">#&gt; Mazda RX4 Wag              160        110            3.90</span>
+<span class="co">#&gt; Datsun 710                 108         93            3.85</span>
+<span class="co">#&gt; Hornet 4 Drive             258        110            3.08</span>
+<span class="co">#&gt; Hornet Sportabout          360        175            3.15</span>
+<span class="co">#&gt; Valiant                    225        105            2.76</span></code></pre></div>
+<p>The problem now is that we have the car models both within the table as a variable and outside of it as row names. We can now use <code><a href="https://rdrr.io/r/base/row.names.html">row.names()</a></code> to fix this redundancy and maintain a guaranteed unique identifier for rows. Using an empty vector numbers the row names in ascending order:</p>
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;          car_models Miles/Gallon Cylinders Displacement</span>
+<span class="co">#&gt; 1         Mazda RX4         21.0         6          160</span>
+<span class="co">#&gt; 2     Mazda RX4 Wag         21.0         6          160</span>
+<span class="co">#&gt; 3        Datsun 710         22.8         4          108</span>
+<span class="co">#&gt; 4    Hornet 4 Drive         21.4         6          258</span>
+<span class="co">#&gt; 5 Hornet Sportabout         18.7         8          360</span>
+<span class="co">#&gt; 6           Valiant         18.1         6          225</span>
+<span class="co">#&gt;   Horsepower Rear Axle Ratio</span>
+<span class="co">#&gt; 1        110            3.90</span>
+<span class="co">#&gt; 2        110            3.90</span>
+<span class="co">#&gt; 3         93            3.85</span>
+<span class="co">#&gt; 4        110            3.08</span>
+<span class="co">#&gt; 5        175            3.15</span>
+<span class="co">#&gt; 6        105            2.76</span></code></pre></div>
+<p>See how the rows are now numbered as their names? Of course, you can also customarily name your rows and use subsetting:</p>
+<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Hot Wheels"</span>,<span class="st">"Not so Hot Wheels"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;                          car_models Miles/Gallon Cylinders</span>
+<span class="co">#&gt; Hot Wheels                Mazda RX4         21.0         6</span>
+<span class="co">#&gt; Not so Hot Wheels     Mazda RX4 Wag         21.0         6</span>
+<span class="co">#&gt; 3                        Datsun 710         22.8         4</span>
+<span class="co">#&gt; 4                    Hornet 4 Drive         21.4         6</span>
+<span class="co">#&gt; 5                 Hornet Sportabout         18.7         8</span>
+<span class="co">#&gt; 6                           Valiant         18.1         6</span>
+<span class="co">#&gt;                   Displacement Horsepower Rear Axle Ratio</span>
+<span class="co">#&gt; Hot Wheels                 160        110            3.90</span>
+<span class="co">#&gt; Not so Hot Wheels          160        110            3.90</span>
+<span class="co">#&gt; 3                          108         93            3.85</span>
+<span class="co">#&gt; 4                          258        110            3.08</span>
+<span class="co">#&gt; 5                          360        175            3.15</span>
+<span class="co">#&gt; 6                          225        105            2.76</span></code></pre></div>
+</div>
+<div id="common-mistakes-and-errors-6" class="section level2" number="54.4">
+<h2>
+<span class="header-section-number">54.4</span> Common Mistakes and Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-and-errors-6"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Incorrect indexing when working with specific or subsets of columns/rows. In R, indexing begins at 1.</li>
+<li>Trying to set row names with a vector of length shorter than the number of rows you’re changing.</li>
+</ul>
+</div>
+<div id="exercises-69" class="section level2" number="54.5">
+<h2>
+<span class="header-section-number">54.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-69"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-47" class="section level3" number="54.5.1">
+<h3>
+<span class="header-section-number">54.5.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-47"><i class="fas fa-link"></i></a>
+</h3>
+<p>Given the dataset <code>iris</code>, change the column names such that the periods are replaced with spaces."</p>
+<!-- ```{r q1_colnames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- head(iris) -->
+<!-- ``` -->
+<!-- ```{r q1_colnames-solution} -->
+<!-- colnames(iris) <- c("Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species") -->
+<!-- ``` -->
+</div>
+<div id="question-2-46" class="section level3" number="54.5.2">
+<h3>
+<span class="header-section-number">54.5.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-46"><i class="fas fa-link"></i></a>
+</h3>
+<!-- ```{r q2_rowname, echo=FALSE} -->
+<!-- question("True or false: Just as with columns, setting row names using a vector of length shorter than the number of records results in any outstanding rows to have no name assigned.",  -->
+<!--          answer("True"),  -->
+<!--          answer("False", correct= TRUE, message = "Unlike with column names, setting row names with a vector shorter than the number of selected rows results in an error.")) -->
+<!-- ``` -->
+</div>
+<div id="question-3-46" class="section level3" number="54.5.3">
+<h3>
+<span class="header-section-number">54.5.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-46"><i class="fas fa-link"></i></a>
+</h3>
+<!-- ```{r q3_rownames, echo = FALSE} -->
+<!-- question("True or false: `colname` can be used to retrieve and change the name of singular columns.", -->
+<!--          answer("True", message = "There is no such thing as `colname`. "), -->
+<!--          answer("False", correct= TRUE, message = "There is no such thing as `colname`. ") -->
+<!--          ) -->
+<!-- ``` -->
+<!-- ### Question 4 -->
+<!-- ```{r include=FALSE} -->
+<!-- iris <- og_iris -->
+<!-- ``` -->
+<p>Given an unmodified version of <code>iris</code>, fix the mistake in the code below such that it successfully changes the column of the first two columns to “Sepal Length” and “Sepal Width.”</p>
+<!-- ```{r q4_colnames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- colnames(iris)[0:1] <- c("Sepal Length", "Sepal Width") -->
+<!-- head(iris) -->
+<!-- ``` -->
+<!-- ```{r q4_colnames-solution} -->
+<!-- colnames(iris)[1:2] <- c("Sepal Length", "Sepal Width") -->
+<!-- ``` -->
+</div>
+<div id="question-5-41" class="section level3" number="54.5.4">
+<h3>
+<span class="header-section-number">54.5.4</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-41"><i class="fas fa-link"></i></a>
+</h3>
+<p>For each car in <code>mtcars</code>, print a string which says “I want to drive the ‘car_name’.” Your final output should look something like this:</p>
+<p>I want to drive the Mazda RX4<br>
+I want to drive the Mazda Rx4 Wag<br>
+I want to drive the Datsun 710<br>
+…</p>
+<p>Tip: use <code><a href="https://rdrr.io/r/base/cat.html">cat("I want to drive the ", car_name, "\n")</a></code> to print your outputs.</p>
+<!-- ```{r q5_rownames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- head(mtcars) -->
+<!-- ``` -->
+<!-- ```{r q5_rownames-solution} -->
+<!-- car_names <- row.names(mtcars) -->
+<!-- for(car_name in car_names){ -->
+<!--   cat("I want to drive the", car_name, "\n") -->
+<!-- } -->
+<!-- ``` -->
+</div>
+<div id="question-6-41" class="section level3" number="54.5.5">
+<h3>
+<span class="header-section-number">54.5.5</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-41"><i class="fas fa-link"></i></a>
+</h3>
+<p>Change the row name of the second record of <code>mtcars</code> to be the exact same as the first record without changing the first record. See what happens and read the message. Then, figure out a way to swap the two row names without prompting an error.</p>
+<!-- ```{r q6_rownames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- head(mtcars) -->
+<!-- ``` -->
+<!-- ```{r q6_rownames-solution} -->
+<!-- a <- row.names(mtcars)[1] -->
+<!-- b <- row.names(mtcars)[2] -->
+<!-- row.names(mtcars)[1:2] <- c(b,a) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="references-4" class="section level2" number="54.6">
+<h2>
+<span class="header-section-number">54.6</span> References<a class="anchor" aria-label="anchor" href="#references-4"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/row.names">row.names()</a></li>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/colnames.html">Row and Column Names</a></li>
+</ul>
+</div>
+<div id="exercises-70" class="section level2" number="54.7">
+<h2>
+<span class="header-section-number">54.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-70"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-48" class="section level3" number="54.7.1">
+<h3>
+<span class="header-section-number">54.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-48"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-47" class="section level3" number="54.7.2">
+<h3>
+<span class="header-section-number">54.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-47"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-47" class="section level3" number="54.7.3">
+<h3>
+<span class="header-section-number">54.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-47"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-43" class="section level3" number="54.7.4">
+<h3>
+<span class="header-section-number">54.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-43"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-42" class="section level3" number="54.7.5">
+<h3>
+<span class="header-section-number">54.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-42"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-42" class="section level3" number="54.7.6">
+<h3>
+<span class="header-section-number">54.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-42"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-41" class="section level3" number="54.7.7">
+<h3>
+<span class="header-section-number">54.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-41"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-41" class="section level3" number="54.7.8">
+<h3>
+<span class="header-section-number">54.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-41"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-41" class="section level3" number="54.7.9">
+<h3>
+<span class="header-section-number">54.7.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-41"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-41" class="section level3" number="54.7.10">
+<h3>
+<span class="header-section-number">54.7.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-41"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></div>
+<div class="next"><a href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#row-and-column-names"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="nav-link" href="#introduction-50"><span class="header-section-number">54.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#using-colnames"><span class="header-section-number">54.2</span> Using colnames()</a></li>
+<li><a class="nav-link" href="#using-row.names"><span class="header-section-number">54.3</span> Using row.names()</a></li>
+<li><a class="nav-link" href="#common-mistakes-and-errors-6"><span class="header-section-number">54.4</span> Common Mistakes and Errors</a></li>
+<li>
+<a class="nav-link" href="#exercises-69"><span class="header-section-number">54.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-47"><span class="header-section-number">54.5.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-46"><span class="header-section-number">54.5.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-46"><span class="header-section-number">54.5.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-5-41"><span class="header-section-number">54.5.4</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-41"><span class="header-section-number">54.5.5</span> Question 6</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#references-4"><span class="header-section-number">54.6</span> References</a></li>
+<li>
+<a class="nav-link" href="#exercises-70"><span class="header-section-number">54.7</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-48"><span class="header-section-number">54.7.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-47"><span class="header-section-number">54.7.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-47"><span class="header-section-number">54.7.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-43"><span class="header-section-number">54.7.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-42"><span class="header-section-number">54.7.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-42"><span class="header-section-number">54.7.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-41"><span class="header-section-number">54.7.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-41"><span class="header-section-number">54.7.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-41"><span class="header-section-number">54.7.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-41"><span class="header-section-number">54.7.10</span> Question 10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/053-totally_addicted_to_base-rownames_colnames.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/053-totally_addicted_to_base-rownames_colnames.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

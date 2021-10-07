@@ -1,5 +1,4 @@
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -10,7 +9,7 @@ library(tidyverse)
 
 # Introduction
 
-*Written by Rohan Alexander.*
+*Written by Rohan Alexander and last updated on 7 October 2021.*
 
 When you first learn how to code in R, it can feel like you're in a battle to just get something working, without regard for what it looks like. That fine initially, but as you start to use R in more involved settings that approach will become a bit chaotic. This will result in you having to do more work in the long run. 
 

@@ -1,51 +1,13 @@
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# library(gradethis)
-# gradethis::gradethis_setup()
-
-# tutorial_options(exercise.eval = FALSE)
-
-## Pre-specify data at setup for learnr
-my_data <- 
-  c("studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
-
-my_data_modified <- 
-  c("Hello, this text is, irrelevant
-  As is this line
-  studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F
-  student6,LWD,LWD,LWD"
-  )
-
-my_new_data <- 
-  c("studendID,test1,test2,grade
-  (textID),(points out of 100),(points out of 100),(letter grade)
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
 ```
 
 # Reading tables dta and other data types
 
-Written by Isaac Ehrlich.
+*Written by Isaac Ehrlich and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -113,6 +75,24 @@ my_dta_dataset <-
 There are many different file types you may come across, but fortunately tidyverse has a fairly extensive set of functions to read in from as well. Happy reading!
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

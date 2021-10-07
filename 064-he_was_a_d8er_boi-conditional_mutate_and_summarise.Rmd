@@ -15,13 +15,11 @@ broadway <- read_csv(
 broadway <- broadway %>%
   select(week_ending, show, theatre, weekly_gross, avg_ticket_price,
          top_ticket_price, performances, previews)
-
 ```
-
 
 # Conditional mutating and summarising
 
-*Written by Mariam Walaa.*
+*Written by Mariam Walaa and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -234,10 +232,24 @@ columns](https://dplyr.tidyverse.org/reference/across.html)
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

@@ -3,19 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(here)
 ```
 
-
 # Top Matter: Title, Date, Author, Abstract
 
-*Written by Yena Joo.*
-
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -103,20 +97,33 @@ Then, get started on the abstract once you finished writing your entire paper.
 <!-- ``` -->
 
 ## Common Mistakes & Errors
+
 There is not much space to make a mistake here, but take your time to write your abstract. Do not include too much information in your abstract. Think of your abstract as an appetizer of the meal, it is to show the readers a big picture of your paper.  
 
 ## Next Steps
+
 You can now create a well-formatted first page of your paper. Try adding Introduction, Method, Analysis, Visualization, Discussion, and Conclusion parts to your paper, and have fun! In the next lecture, you will learn how to create a nice table that could be presented in papers. 
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
+### Question 10

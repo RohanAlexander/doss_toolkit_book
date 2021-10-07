@@ -1,19 +1,12 @@
 
-# counting
-
-
-
 ```{r setup-again, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-# library(learnr)
 ```
 
+# Counting
 
-
-
-Written by Annie Collins.
-
+*Written by Annie Collins and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -230,3 +223,25 @@ features
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

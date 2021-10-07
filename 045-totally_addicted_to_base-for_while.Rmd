@@ -6,11 +6,9 @@ library(flair)
 library(tidyverse)
 ```
 
-
-
 # for and while
 
-*Written by Yena Joo.*
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 
 ## Introduction
@@ -301,3 +299,25 @@ This happens since the length of the vector you are trying to replace does not m
 - [R for loop](https://www.datamentor.io/r-programming/for-loop/)
 - [R while loop](https://www.datamentor.io/r-programming/while-loop/)
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

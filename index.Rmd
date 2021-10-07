@@ -1,6 +1,6 @@
 --- 
 title: "DoSS Toolkit"
-author: "Various authors"
+author: "Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -8,209 +8,259 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  A collection of self-paced materials to help you learn and use R.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# About
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
-
-## Usage 
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
-```
-
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
-
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
-
-
-## Hello bookdown 
-
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
-
-### A section
-
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
-
-#### An unnumbered section {-}
-
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
-
-## Cross-references {#cross}
-
-Cross-references make it easier for your readers to find and link to elements in your book.
-
-### Chapters and sub-chapters
-
-There are two steps to cross-reference any heading:
-
-1. Label the heading: `# Hello world {#nice-label}`. 
-    - Leave the label off if you like the automated heading generated based on your heading title: for example, `# Hello world` = `# Hello world {#hello-world}`.
-    - To label an un-numbered heading, use: `# Hello world {-#nice-label}` or `{# Hello world .unnumbered}`.
-
-1. Next, reference the labeled heading anywhere in the text using `\@ref(nice-label)`; for example, please see Chapter \@ref(cross). 
-    - If you prefer text as the link instead of a numbered reference use: [any text you want can go here](#cross).
-
-### Captioned figures and tables
-
-Figures and tables *with captions* can also be cross-referenced from elsewhere in your book using `\@ref(fig:chunk-label)` and `\@ref(tag:chunk-label)`, respectively.
-
-See Figure \@ref(fig:nice-fig).
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
-
-Don't miss Table \@ref(tab:nice-tab).
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(pressure, 10), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-## Parts
-
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file. 
-
-Add a numbered part: `# (PART) Act one {-}` (followed by `# A chapter`)
-
-Add an unnumbered part: `# (PART\*) Act one {-}` (followed by `# A chapter`)
-
-Add an appendix as a special kind of un-numbered part: `# (APPENDIX) Other stuff {-}` (followed by `# A chapter`). Chapters in an appendix are prepended with letters instead of numbers.
-
-
-
-## Footnotes and citations 
-
-### Footnotes
-
-Footnotes are put inside the square brackets after a caret `^[]`. Like this one ^[This is a footnote.]. 
-
-### Citations
-
-Reference items in your bibliography file(s) using `@key`.
-
-For example, we are using the **bookdown** package [@R-bookdown] (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and **knitr** [@xie2015] (this citation was added manually in an external file book.bib). 
-Note that the `.bib` files need to be listed in the index.Rmd with the YAML `bibliography` key.
-
-
-The `bs4_book` theme makes footnotes appear inline when you click on them. In this example book, we added `csl: chicago-fullnote-bibliography.csl` to the `index.Rmd` YAML, and include the `.csl` file. To download a new style, we recommend: https://www.zotero.org/styles/
-
-
-The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
-
-## Blocks
-
-### Equations
-
-Here is an equation.
-
-\begin{equation} 
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  (\#eq:binom)
-\end{equation} 
-
-You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
-
-
-### Theorems and proofs
-
-Labeled theorems can be referenced in text using `\@ref(thm:tri)`, for example, check out this smart theorem \@ref(thm:tri).
-
-::: {.theorem #tri}
-For a right triangle, if $c$ denotes the *length* of the hypotenuse
-and $a$ and $b$ denote the lengths of the **other** two sides, we have
-$$a^2 + b^2 = c^2$$
-:::
-
-Read more here <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>.
-
-### Callout blocks
-
-
-The `bs4_book` theme also includes special callout blocks, like this `.rmdnote`.
-
-::: {.rmdnote}
-You can use **markdown** inside a block.
-
-```{r collapse=TRUE}
-head(beaver1, n = 5)
-```
-
-:::
-
-It is up to the user to define the appearance of these blocks for LaTeX output. 
-
-You may also use: `.rmdcaution`, `.rmdimportant`, `.rmdtip`, or `.rmdwarning` as the block name.
-
-
-The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
-
-## Sharing your book
-
-### Publishing
-
-HTML books can be published online, see: https://bookdown.org/yihui/bookdown/publishing.html
-
-### 404 pages
-
-By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a `_404.Rmd` or `_404.md` file to your project root and use code and/or Markdown syntax.
-
-### Metadata for sharing
-
-Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the `index.Rmd` YAML. To setup, set the `url` for your book and the path to your `cover-image` file. Your book's `title` and `description` are also used.
-
-
-This `bs4_book` provides enhanced metadata for social sharing, so that each chapter shared will have a unique description, auto-generated based on the content.
-
-Specify your book's source repository on GitHub as the `repo` in the `_output.yml` file, which allows users to view each chapter's source file or suggest an edit. Read more about the features of this output format here:
-
-https://pkgs.rstudio.com/bookdown/reference/bs4_book.html
-
-Or use:
-
-```{r eval=FALSE}
-?bookdown::bs4_book
-```
-
-
-
+# Preface
+
+*by Rohan Alexander*
+
+## DoSStoolkit <img src="images/stitches_hex_all.png" align="right" height="200" />
+
+The DoSS Toolkit is a collection of self-paced materials to help you learn and use R.
+
+We all know that R is a critical part of applied statistics and data science these days, but it can have a steep learning curve and be intimidating to get started with. 
+
+The [Department of Statistical Sciences](http://www.utstat.utoronto.ca/) (DoSS) toolkit is a free series of open source online modules by undergraduates, that their fellow students and the public can use to learn the essentials of R. 
+
+
+## Content
+
+There are eleven parts to this book: 
+
+- Hello world!
+- Operating in an error prone world.
+- Holding the chaos at bay.
+- Hand me my plyrs.
+- Totally addicted to base.
+- He was a d8er boi.
+- To ggplot or not to ggplot.
+- R Marky Markdown and the Funky Docs.
+- Git outta here.
+- Indistinguishable from magic.
+- Specialised topics.
+
+
+### Hello world!  <img src="images/stitches_white_hex.png" align="right" height="200" />
+
+- Introduction
+- Setting up RStudio, by Annie Collins.
+- Getting to know what is what, by Annie Collins.
+- A fun hello world exercise, by Annie Collins.
+- Another fun hello world exercise, by Shirley Deng.
+- Yet another fun hello world exercise that involves R Markdown, by Simone Collier.
+- The R community, by Annie Collins.
+
+### Operating in an error prone world <img src="images/stitches_yellow_hex.png" align="right" height="200" />
+
+- Introduction
+- Getting help is normal, by Michael Chong.
+- Using Google and Stack Overflow, by Michael Chong.
+- Even more on Stack Overflow, by Annie Collins.
+- How to problem solve when your code doesn't work, by Michael Chong.
+- Making reproducible examples, by Marija Pejcinovska.
+- How to make the most of R's cryptic error messages, by Shirley Deng.
+
+### Holding the chaos at bay
+
+- Introduction
+- R projects and the working directory, by Isaac Ehrlich.
+- Folder set-up, by Isaac Ehrlich.
+- Writing comments, by Isaac Ehrlich.
+- Installing packages from CRAN with `install.packages()`, by Haoluan Chen.
+- Installing packages from GitHub with `install_github()`, by Haoluan Chen.
+- Calling libraries with `library()`, by Mariam Walaa.
+- Updating libraries with `update.packages()`, by Mariam Walaa.
+- Getting data in with `read_csv()`, by Marija Pejcinovska.
+- Getting data in from other file types with `read_table()`, `read_dta()`, and others, by Isaac Ehrlich.
+
+
+### Hand me my plyrs 
+
+- Introduction
+- What is the tidyverse?, by Yena Joo.
+- The pipe, by Mariam Walaa.
+- Picking specific columns with `select()`, by Yena Joo.
+- Picking specific rows with `filter()`, by Shirley Deng.
+- `group_by()` and `ungroup()`, by Matthew Wankiewicz.
+- `summarise()`, by Mariam Walaa.
+- `arrange()`, by Isaac Ehrlich.
+- `mutate()`, by Haoluan Chen.
+- `pivot_wider()` and `pivot_longer()`, by Annie Collins.
+- `rename()`, by Mariam Walaa.
+- `count()` and `uncount()`, by Annie Collins.
+- `slice()`, by Annie Collins.
+- `c()`, `matrix()`, `data.frame()`, and `tibble()`, by Matthew Wankiewicz.
+- `length()`, `nrow()`, and `ncol()`, by Isaac Ehrlich.
+
+
+### Totally addicted to base
+
+- Introduction
+- `mean()`, `median()`, `sd()`, `lm()`, and `summary()`, by Mariam Walaa.
+- `glm()`,  by Ruijia Yang.
+- `lmer()`, by Yiqu Ding.
+- `function()`, by Haoluan Chen.
+- `for()` and `while()`, by Yena Joo.
+- `if()`, `if_else()` and `case_when()`, by Haoluan Chen.
+- `c()`, `seq()`, `seq_along()`, and `rep()`, by Matthew Wankiewicz.
+- `hist()`, `plot()`, and `boxplot()`, by Yena Joo.
+- `apply()`, `sapply()`, `lapply()`, by Ananya Jha.
+- `basename()`, `rm()`, `file.exists()`, `dir.create()`, `file.remove()`, `file.path()`, by Haoluan Chen.
+- `sum()`, `dim()`, `round()`, by Shirley Deng.
+- `is.na()`, `which()`, `unique()`, `identical()`, by Uzair Mirza.
+- `row.names()`, `colnames()`, by Leuven Wang.
+- `floor()`, `ceiling()`, round(), abs(), by José Casas.
+
+### He was a d8er boi  <img src="images/stitches_green_hex.png" align="right" height="200" />
+
+- `head()`, `tail()`, `glimpse()`, and `summary()`, by Haoluan Chen.
+- `paste()`, `paste0()`, `glue::glue()` and `stringr`, by Marija Pejcinovska
+- `names()`, `rbind()` and `cbind()`, by Isaac Ehrlich.
+- `left_join()`, `anti_join()`, `full_join()`, etc, by Haoluan Chen.
+- Looking for missing data, by Mariam Walaa.
+- `set.seed()`, `runif()`, `rnorm()`, and `sample()`, by Haoluan Chen.
+- Simulating datasets for regression, by Mariam Walaa.
+- Advanced mutating and summarising with `across()`, by Mariam Walaa.
+- Tidying up datasets, by Mariam Walaa.
+- `pull()`, `pluck()`, and `unnest()`, by Isaac Ehrlich.
+- `forcats` and factors, by Matthew Wankiewicz.
+- More on strings, by Annie Collins.
+- Regular expressions, by Shirley Deng.
+- Working with dates, by Mariam Walaa.
+- `janitor`, by Mariam Walaa.
+- `tidyr`, by Mariam Walaa.
+
+### To ggplot or not to ggplot <img src="images/stitches_hex_purple.png" align="right" height="200" />
+
+- `ggplot2::ggplot()`, by Shirley Deng.
+- Bar charts, by Matthew Wankiewicz.
+- Histograms, by Haoluan Chen.
+- Scatter plots, by Haoluan Chen.
+- Various useful options, by Yena Joo.
+- Saving graphs, by Yena Joo.
+- gganimate, by Matthew Wankiewicz.
+- (Coming soon) Other geoms I, by Ruijia Yang.
+- (Coming soon) Other geoms II, by Ananya Jha.
+
+### R Marky Markdown and the Funky Docs <img src="images/stitches_brown_hex.png" align="right" height="200" />
+
+- Introduction to R Markdown, by Shirley Deng.
+- Figure and cross-references, by Isaac Ehrlich.
+- Title, date, author, and abstract, by Yena Joo.
+- Making tables with `kable`, `kableextra`, and `gt`, by Yena Joo.
+- Formatting regression results with `modelsummary`, and `stargazer`, by Isaac Ehrlich.
+- Including multiple plots in fancy ways with `patchwork`, by Michael Chong.
+- References and Bibtex, by Yena Joo.
+- PDF outputs, by Yena Joo.
+- Using `here` and dealing with filepaths, by Matthew Wankiewicz.
+
+### Git outta here <img src="images/stitches_hex_blue.png" align="right" height="200" />
+
+- What is version control and GitHub?, by Mariam Walaa.
+- Git: pull, status, add, commit, push, by Mariam Walaa.
+- Branches in GitHub, by Matthew Wankiewicz.
+- Dealing with Conflicts, by Matthew Wankiewicz.
+- Putting (G)it All together in RStudio, by Matthew Wankiewicz.
+- (Coming soon) Projects, issues, and comment, by Ruijia Yang.
+
+### Indistinguishable from magic <img src="images/stitches_red_hex.png" align="right" height="200" />
+
+- Overview
+- (Coming soon) Iteration, by José Casas.
+- Coding style, by Marija Pejcinovska.
+- Static maps with `ggmap`, by Annie Collins.
+- Writing R Packages, by Matthew Wankiewicz.
+- (Coming soon) Using `pkgdown`, making vignettes, and testing, by Matthew Wankiewicz.
+- Getting started with `blogdown`, by Annie Collins.
+- (Coming soon) Using `distill` and `postcards`, by Annie Collins.
+- Getting started with `shiny`, by Matthew Wankiewicz.
+- (Coming soon) Writing a CV, by Shirley. Deng
+- (Coming soon) `tidymodels`, by Yena Joo.
+- (Coming soon) `leaflet`, by Isaac Ehrlich.
+- (Coming soon) `diagrammeR`, by Uzair Mirza.
+
+### Specialised topics <img src="images/stitches_black_hex.png" align="right" height="200" />
+
+- (Coming soon) Overview	
+- (Coming soon) Stan and essential Bayesian packages, by Marija Pejcinovska.
+- (Coming soon) `devtools`, by Ananya Jha.
+- (Coming soon) `usethis`, by Leuven Wang.
+- (Coming soon) `testthat`, by Matthew Wankiewicz.
+- (Coming soon) `tidytext` and NLP, by Haoluan.
+- (Coming soon) Object-orientated programming, by Annie Collins.
+- (Coming soon) Functional programming, by Leuven Wang.
+- (Coming soon) SQL and R, by	Yena Joo.
+- (Coming soon) Python and R, by Isaac Ehrlich.
+- (Coming soon) C++ and R, by Simone Collier.
+
+
+
+## Contributors
+
+- Annie Collins is an undergraduate student in the Department of Mathematics specializing in applied mathematics and statistics with a minor in history and philosophy of science. In her free time, she focuses her efforts on student governance, promoting women's representation in STEM, and working with data in the non-profit and charitable sector.
+- Haoluan Chen is an undergraduate student in the Department of Statistical Science specializing in applied statistics. He is interested in applying data science techniques, especially in NLP, to gain insight from the data.
+- Isaac Ehrlich is an undergraduate student in Statistics and Cognitive Science at the University of Toronto. He enjoys using R for everything from analysing trends in his recent movie-viewing history, to his past research building models on human categorization.
+- Leuven Wang is an undergraduate student at the University of Toronto majoring in statistics and minoring in political science and philosophy. He loves to combine quantitative and qualitative analyses to holistically understand social issues. When he's not working, he's probably thinking about politics, Star Wars, or Star Wars politics.
+- Mariam Walaa is an undergraduate student in the Department of Computer and Mathematical Sciences at University of Toronto Scarborough, majoring in Mathematics and minoring in GIS and statistics. Mariam enjoys learning about how to work with data such as spatial and text data to extract insights.
+- Marija Pejcinovska is a graduate student in the Department of Statistical Sciences. Her research is motivated by modelling challenges that arise with "complicated" data (sparse/highly biased/poor quality data), usually in the context of social or health inequalities.
+- Matthew Wankiewicz is an undergraduate student at the University of Toronto, majoring in Statistics and minoring in Mathematics and the History and Philosophy of Science.
+- Michael Chong is a graduate student in the Department of Statistical Sciences. His research aims to build statistical models for demographic estimation in contexts where high quality data are unavailable. There is almost always an active R session on his computer!
+- Paul Hodgetts is a Master of Information candidate concentrating in Human-Centred Data Science in the Faculty of Information, University of Toronto. He sincerely believes that Calvin and Hobbes is the greatest comic ever produced.
+- Rohan Alexander is an assistant professor in the Faculty of Information and the Department of Statistical Sciences. Some people convert to catholicism upon marriage, Rohan converted to R. His greatest professional achievement is probably getting a pull request accepted into R for Data Science (it was just fixing a minor typo but still).
+- Samantha-Jo Caetano is an assistant professor (teaching stream) in the Department of Statistical Sciences. She loves statistics, socializing, her family, and her dogs, not necessarily in that order.
+- Shirley Deng is an undergraduate student specializing in Statistics and majoring in Mathematics. Meticulous and soft-hearted, she often finds herself engrossed in new pastimes by the second at the influence of her peers. One of which that has remained a longtime constant---spending an excessive amount of time helping people debug their R code.
+- Yena Joo is an undergraduate student majoring in Economics and double minoring in Statistics and Computer Science.
+
+
+## Acknowledgements
+
+We gratefully acknowledge the support of Professor Bethany White, Chair Radu Craiu, and the U of T Faculty of Arts & Sciences Pedagogical Innovation and Experimentation Fund.
+
+We would like to acknowledge the help of:
+
+- Liza Bolton
+- Monica Alexander
+- Sabrina Sixta
+
+We'd like to thank Alex Cookson for his collection of datasets.
+
+This toolkit builds on, and complements, the work of many others, including:
+
+- Alex Stringer - https://github.com/awstringer1/course-materials 
+- Alison Gibbs, Jeff Rosenthal, Nathan Taback - https://stats.onlinelearning.utoronto.ca/
+- Bethany White and Jennifer Peter - https://rscidata.utoronto.ca/
+- Desirée De Leon and Alison Hill - https://rstudio4edu.github.io/rstudio4edu-book/
+- Hasse Walum and Desirée De Leon - https://tinystats.github.io/teacups-giraffes-and-statistics/index.html
+- Nathan Taback - https://ntaback.github.io/UofT_STA130/R_resources.html
+- Radford Neal - http://www.cs.utoronto.ca/~radford/csc121.S17/
+
+Rohan would like to thank Greg Wilson, for sharing his experience, thoughts, and leadership.
+
+We draw on the open-source statistical programming language R and a variety of packages. We are especially grateful for the work that we build on.
+
+## Citation
+
+If you use this resource, then please cite it in the same way you would any edited book. For instance, if you use the chapter on `select` then an appropriate citation would be:
+
+Yoo, Y, (2021). 'Select'. In R. Alexander and S Caetano (Eds.), *DoSS Toolkit*, as accessed 7 October 2021. 
+
+## How to contribute
+
+The best way to contribute fixes and minor typos is to make a pull request on GitHub. 
+
+If you are interested in contributing lessons or modules, then please contact Rohan Alexander. We are particularly interested in partnering with an institution where the language of instruction is French to develop a French language version.
+
+## Contact
+
+Please contact Rohan Alexander (rohan.alexander@utoronto.ca) with any questions, comments, and suggestions.
+
+## TODOs
+
+- Go through whole thing and deal with consistency.
+- Fix quiz questions.
+- Add more errors and their resolution.
+- Add referencing.
+- Get PDF working.

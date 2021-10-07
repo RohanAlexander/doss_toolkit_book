@@ -1,69 +1,23 @@
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# library(gradethis)
-# gradethis::gradethis_setup()
-
-# tutorial_options(exercise.eval = FALSE)
-
-## Pre-specify data at setup for learnr
-my_data <- 
-  c("studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
-
-my_data_modified <- 
-  c("Hello, this text is, irrelevant
-  As is this line
-  studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F
-  student6,LWD,LWD,LWD"
-  )
-
-my_new_data <- 
-  c("studendID,test1,test2,grade
-  (textID),(points out of 100),(points out of 100),(letter grade)
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
 ```
 
 # Install from GitHub
 
-Written by Haoluan Chen.
-
+*Written by Haoluan Chen and last updated on 7 October 2021.*
 
 ## Introduction
 
-In this lesson, you will learn how to:
-
-- Installing package from GitHub
+In this lesson, you will learn how to install package from GitHub.
 
 Prerequisite skills include:
 
-- setup RStudio
-- run R code in the console
-- Install package from CRAN
-
-Highlights:
-
-- Install packages from GitHub
-
+- Having RStudio set-up and working.
+- Comfort running R code in the console.
+- Comfort installing package from CRAN.
 
 ## What is GitHub?
 
@@ -71,8 +25,7 @@ GitHub is a popular repository for open-source projects. Many developers can sha
 
 Note: Unlike the packages from CRAN, there is no review process for GitHub packages, so you may encounter bugs or errors when using them.  
 
-
-## Install packages from GitHub
+## How to install packages from GitHub?
 
 To install the package from GitHub, you will need the function `install_github()` in the `devtools` package. `devtools` contains tools for package developers to build and test their packages. 
 
@@ -91,7 +44,6 @@ You can run the following code on your console to install this package:
 ```{r eval = FALSE}
 devtools::install_github("sharlagelfand/dmc")
 ```
-
 
 After running this code, you will receive some message on the console and it will start installing the package (this may take a few minutes depending on your system). Then it will tell you if you successfully installed the package.
 
@@ -121,14 +73,14 @@ https://github.com/RohanAlexander/AustralianPoliticians
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WlnawRIELzY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Common Mistakes & Errors
+## Common mistakes and errors
 
 - Pay attention to R console, it may ask you to input something
 - Make sure the repository is a R package
 - Make sure the spelling of the developer name and package name are correct
 - Make sure spelling of the function is correctly called devtools::install_github("developer name/package name")
 
-## Next Steps
+## Next steps
 
 For next step, you can install the package from GitHub and start using them for your projects!
 
@@ -136,14 +88,24 @@ In the future, you may want to build your own R package!
 
 R Packages is a book that gives a comprehensive treatment of all common parts of package development and uses `devtools` throughout. The first edition is available at 'http://r-pkgs.had.co.nz', but note that it has grown somewhat out of sync with the current version of `devtools`.
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
+### Question 10

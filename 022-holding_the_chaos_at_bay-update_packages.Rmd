@@ -1,64 +1,25 @@
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# library(gradethis)
-# gradethis::gradethis_setup()
-
-# tutorial_options(exercise.eval = FALSE)
-
-## Pre-specify data at setup for learnr
-my_data <- 
-  c("studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
-
-my_data_modified <- 
-  c("Hello, this text is, irrelevant
-  As is this line
-  studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F
-  student6,LWD,LWD,LWD"
-  )
-
-my_new_data <- 
-  c("studendID,test1,test2,grade
-  (textID),(points out of 100),(points out of 100),(letter grade)
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
 ```
 
+# How to update packages
 
-# Updating packages
-
-Written by Mariam Walaa.
+*Written by Mariam Walaa and last updated on 7 October 2021.*
 
 ## Introduction
 
 In this lesson, you will learn how to:
 
-- Update a package using `update.packages()`
-- Understand what R outputs when you run `update.packages()`
+- Update a package using `update.packages()`.
+- Understand what R outputs when you run `update.packages()`.
 
 Prerequisite skills include:
 
-- Installing packages
-- Loading packages
+- Being able to install packages.
+- Being able to load packages.
 
 Highlights:
 
@@ -82,7 +43,7 @@ You can read more about `update.packages()` in the function documentation
 
 ## Overview 
 
-It's important to update packages for the following reasons:
+It is important to update packages for the following reasons:
 
 - Stay up-to-date with the most recent version of the package.
 - Meet requirements of other packages we are installing.
@@ -90,13 +51,10 @@ It's important to update packages for the following reasons:
 
 You can check if any packages need to be updated in two ways:
 
-1. Go to Tools > Check for Package Updates
-2. Run `update.packages()` to get a list of all the packages that have new versions
-available.
+1. Go to Tools -> Check for Package Updates
+2. Run `update.packages()` to get a list of all the packages that have new versions available.
 
-When you run `update.packages()`, R will ask you if you want to update each of the
-packages currently installed one-by-one. Once it's done going through all of your
-packages, it will start updating the ones you asked to update. 
+When you run `update.packages()`, R will ask you if you want to update each of the packages currently installed one-by-one. Once it's done going through all of your packages, it will start updating the ones you asked to update. 
 
 ```{r updating-packages-img-1, echo = FALSE, out.width="90%"}
 knitr::include_graphics("images/20_updating-libraries-1.PNG")
@@ -141,7 +99,7 @@ update.packages()
 <!-- ) -->
 <!-- ``` -->
 
-## Common Mistakes & Errors
+## Common mistakes and errors
 
 Below are some common mistakes and errors that you may come across while updating packages:
 
@@ -155,7 +113,7 @@ Below are some common mistakes and errors that you may come across while updatin
 - You try to use a function that has been recently changed in a package update and your
 currently installed package is out-of-date.
 
-## Next Steps
+## Next steps
 
 If you would like to learn more about updating packages in R, here are some additional
 functions you may find helpful:
@@ -163,10 +121,24 @@ functions you may find helpful:
 - You can run `old.packages()` to see which of the packages you have are currently out of date.
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

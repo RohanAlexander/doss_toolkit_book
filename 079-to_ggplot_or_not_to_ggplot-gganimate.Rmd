@@ -7,7 +7,7 @@ library(tidyverse)
 
 # gganimate
 
-*Written by Matthew Wankiewicz.*
+*Written by Matthew Wankiewicz and last updated on 7 October 2021.*
 
 ```{r gganimate-load-packages, echo=FALSE}
 library(gganimate)
@@ -146,127 +146,127 @@ caribou_timeplot + transition_*(timestamp)
 ```
 
 
-```{r multiple-choice-gganimate-q1, echo=FALSE}
-question("What type of animation will we have if `transition_time` is used?",
-         answer("A line showing the coordinates of the caribou over time."),
-         answer("Single lines drawn for each moment in time (not continuous)", correct = T),
-         answer("No plot will occur"),
-         answer("A scatter plot showing the coordinates, changing over time"), 
-         random_answer_order = T, 
-         allow_retry = T)
-```
+<!-- ```{r multiple-choice-gganimate-q1, echo=FALSE} -->
+<!-- question("What type of animation will we have if `transition_time` is used?", -->
+<!--          answer("A line showing the coordinates of the caribou over time."), -->
+<!--          answer("Single lines drawn for each moment in time (not continuous)", correct = T), -->
+<!--          answer("No plot will occur"), -->
+<!--          answer("A scatter plot showing the coordinates, changing over time"),  -->
+<!--          random_answer_order = T,  -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-```{r gganimate-question-2, echo=FALSE}
-question("If we want to have a continuous line be drawn, which transition function should we use?",
-         answer("`transition_states`"),
-         answer("`transition_time`", 
-                message = "`transition_time` would not have a continous line for this plot."),
-         answer("`transition_reveal`", correct = T),
-         answer("Another transition function"), 
-         random_answer_order = T, 
-         allow_retry = T)
-```
+<!-- ```{r gganimate-question-2, echo=FALSE} -->
+<!-- question("If we want to have a continuous line be drawn, which transition function should we use?", -->
+<!--          answer("`transition_states`"), -->
+<!--          answer("`transition_time`",  -->
+<!--                 message = "`transition_time` would not have a continous line for this plot."), -->
+<!--          answer("`transition_reveal`", correct = T), -->
+<!--          answer("Another transition function"),  -->
+<!--          random_answer_order = T,  -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-```{r gganimate-question-3, echo=FALSE}
-question("Which `ggtitle` keyword should we use if we want a continuous 'drawn' line for our plot?",
-         answer("{closest_state}"),
-         answer("{frame_along}", correct = TRUE),
-         answer("{closest_filter}"),
-         answer("{frame_time}"),
-         allow_retry = TRUE, 
-         random_answer_order = TRUE)
-```
+<!-- ```{r gganimate-question-3, echo=FALSE} -->
+<!-- question("Which `ggtitle` keyword should we use if we want a continuous 'drawn' line for our plot?", -->
+<!--          answer("{closest_state}"), -->
+<!--          answer("{frame_along}", correct = TRUE), -->
+<!--          answer("{closest_filter}"), -->
+<!--          answer("{frame_time}"), -->
+<!--          allow_retry = TRUE,  -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
 
 
 
-```{r gganimate-q4-sorting, echo=FALSE}
-order <- c("Find a dataset", "Create a ggplot plot", 
-           "Use one of the transition functions to animate the plot", 
-           "Use an Enter/Exit/easing function to make your plot fancier (optional)", 
-           "Render and save the plot using `animate`")
-question_rank("What is the proper order for using `gganimate`?",
-              answer(order, correct = T),
-              answer(rev(order)), 
-              answer(c("Find a dataset", "Create a ggplot plot",
-                       "Render and save the plot using `animate`",
-                       "Use one of the transition functions to animate the plot", 
-                       "Use an Enter/Exit/easing function to make your plot fancier (optional)")),
-              answer(c("Find a dataset", "Create a ggplot plot",
-                       "Use an Enter/Exit/easing function to make your plot fancier (optional)",
-                       "Use one of the transition functions to animate the plot", 
-                       "Render and save the plot using `animate`")),
-              random_answer_order = T, allow_retry = T)
-```
+<!-- ```{r gganimate-q4-sorting, echo=FALSE} -->
+<!-- order <- c("Find a dataset", "Create a ggplot plot",  -->
+<!--            "Use one of the transition functions to animate the plot",  -->
+<!--            "Use an Enter/Exit/easing function to make your plot fancier (optional)",  -->
+<!--            "Render and save the plot using `animate`") -->
+<!-- question_rank("What is the proper order for using `gganimate`?", -->
+<!--               answer(order, correct = T), -->
+<!--               answer(rev(order)),  -->
+<!--               answer(c("Find a dataset", "Create a ggplot plot", -->
+<!--                        "Render and save the plot using `animate`", -->
+<!--                        "Use one of the transition functions to animate the plot",  -->
+<!--                        "Use an Enter/Exit/easing function to make your plot fancier (optional)")), -->
+<!--               answer(c("Find a dataset", "Create a ggplot plot", -->
+<!--                        "Use an Enter/Exit/easing function to make your plot fancier (optional)", -->
+<!--                        "Use one of the transition functions to animate the plot",  -->
+<!--                        "Render and save the plot using `animate`")), -->
+<!--               random_answer_order = T, allow_retry = T) -->
+<!-- ``` -->
 
-```{r gganimate-question-5, echo=FALSE}
-question("When you get an error saying 'transformr is required to tween paths and lines', what should you do?",
-         answer("install the `transformr` package", correct = T), 
-         answer("use a different function"), 
-         answer("re-install `gganimate`"), 
-         answer("restart your R session"), 
-         allow_retry = T, 
-         random_answer_order = T)
-```
+<!-- ```{r gganimate-question-5, echo=FALSE} -->
+<!-- question("When you get an error saying 'transformr is required to tween paths and lines', what should you do?", -->
+<!--          answer("install the `transformr` package", correct = T),  -->
+<!--          answer("use a different function"),  -->
+<!--          answer("re-install `gganimate`"),  -->
+<!--          answer("restart your R session"),  -->
+<!--          allow_retry = T,  -->
+<!--          random_answer_order = T) -->
+<!-- ``` -->
 
-```{r gganimate-question-6, echo=FALSE}
-question("If you get an 'Object Not Found' error, what is likely the issue and how do you fix it?",
-         answer("You are referencing a plot that doesn't exist, make sure you don't have any typos",
-                correct = T),
-         answer("`gganimate` is not loaded. Use `library('gganimate')` to fix the issue"),
-         answer("`gganimate` is not installed. Use `install.packages('gganimate')` to fix the issue"), 
-         answer("You are referencing a function that doesn't exist, make sure you are using the right function"),
-         allow_retry = T, 
-         random_answer_order = T)
-```
+<!-- ```{r gganimate-question-6, echo=FALSE} -->
+<!-- question("If you get an 'Object Not Found' error, what is likely the issue and how do you fix it?", -->
+<!--          answer("You are referencing a plot that doesn't exist, make sure you don't have any typos", -->
+<!--                 correct = T), -->
+<!--          answer("`gganimate` is not loaded. Use `library('gganimate')` to fix the issue"), -->
+<!--          answer("`gganimate` is not installed. Use `install.packages('gganimate')` to fix the issue"),  -->
+<!--          answer("You are referencing a function that doesn't exist, make sure you are using the right function"), -->
+<!--          allow_retry = T,  -->
+<!--          random_answer_order = T) -->
+<!-- ``` -->
 
-```{r gganimate-question-7, echo=FALSE}
-question("How do you fix the 'Provided file does not exist' error?",
-         answer("Re-run the function"),
-         answer("Use `labs` instead of `ggtitle`"),
-         answer("Change the keyword used in `ggtitle`", correct = TRUE),
-         answer("Re-install `gganimate` and `tidyverse`"),
-         allow_retry = TRUE, 
-         random_answer_order = TRUE)
-```
+<!-- ```{r gganimate-question-7, echo=FALSE} -->
+<!-- question("How do you fix the 'Provided file does not exist' error?", -->
+<!--          answer("Re-run the function"), -->
+<!--          answer("Use `labs` instead of `ggtitle`"), -->
+<!--          answer("Change the keyword used in `ggtitle`", correct = TRUE), -->
+<!--          answer("Re-install `gganimate` and `tidyverse`"), -->
+<!--          allow_retry = TRUE,  -->
+<!--          random_answer_order = TRUE) -->
+<!-- ``` -->
 
-Modify the code below to add a title that changes depending on the `Cyl`. (Hint: Check which transition function is being used.)
-```{r gganimate-question-8, exercise = TRUE}
-cars_plot <- mtcars %>% 
-  ggplot(aes(mpg)) +
-  geom_histogram(bins = 5)
+<!-- Modify the code below to add a title that changes depending on the `Cyl`. (Hint: Check which transition function is being used.) -->
+<!-- ```{r gganimate-question-8, exercise = TRUE} -->
+<!-- cars_plot <- mtcars %>%  -->
+<!--   ggplot(aes(mpg)) + -->
+<!--   geom_histogram(bins = 5) -->
 
-cars_plot + transition_states(cyl)
-```
+<!-- cars_plot + transition_states(cyl) -->
+<!-- ``` -->
 
-```{r gganimate-question-8-solution}
-cars_plot <- mtcars %>% 
-  ggplot(aes(mpg)) +
-  geom_histogram(bins = 5) +
-  ggtitle("Cyl: {closest_state}")
+<!-- ```{r gganimate-question-8-solution} -->
+<!-- cars_plot <- mtcars %>%  -->
+<!--   ggplot(aes(mpg)) + -->
+<!--   geom_histogram(bins = 5) + -->
+<!--   ggtitle("Cyl: {closest_state}") -->
 
-cars_plot + transition_states(cyl)
-```
+<!-- cars_plot + transition_states(cyl) -->
+<!-- ``` -->
 
-Modify the code below to display different states based on a filter. Filter for `mpg > 20`, `gear == 3` and `carb <= 5`. Also, set the transition length to 2 and the filter length to 3.
-```{r gganimate-question-9, exercise = TRUE}
-cars_plot <- mtcars %>% 
-  ggplot(aes(disp, qsec)) +
-  geom_point() +
-  ggtitle("Filter: {closest_filter}")
+<!-- Modify the code below to display different states based on a filter. Filter for `mpg > 20`, `gear == 3` and `carb <= 5`. Also, set the transition length to 2 and the filter length to 3. -->
+<!-- ```{r gganimate-question-9, exercise = TRUE} -->
+<!-- cars_plot <- mtcars %>%  -->
+<!--   ggplot(aes(disp, qsec)) + -->
+<!--   geom_point() + -->
+<!--   ggtitle("Filter: {closest_filter}") -->
 
-cars_plot + 
-```
+<!-- cars_plot +  -->
+<!-- ``` -->
 
-```{r gganimate-question-9-solution}
-cars_plot <- mtcars %>% 
-  ggplot(aes(disp, qsec)) +
-  geom_point() +
-  ggtitle("Filter: {closest_filter}")
+<!-- ```{r gganimate-question-9-solution} -->
+<!-- cars_plot <- mtcars %>%  -->
+<!--   ggplot(aes(disp, qsec)) + -->
+<!--   geom_point() + -->
+<!--   ggtitle("Filter: {closest_filter}") -->
 
-cars_plot + transition_filter(transition_length = 2,
-                              filter_length = 3, 
-                              mpg > 20, gear == 3, carb <= 5)
-```
+<!-- cars_plot + transition_filter(transition_length = 2, -->
+<!--                               filter_length = 3,  -->
+<!--                               mpg > 20, gear == 3, carb <= 5) -->
+<!-- ``` -->
 
 
 The final question will use the plot below:
@@ -283,34 +283,34 @@ ex_plot + transition_states(season)
 ```
 
 
-```{r gganimate-question-10, echo=FALSE}
-question("Which code chunk was used to create the plot above?", 
-         answer("ex_plot <- expeditions %>% 
-  ggplot(aes(highpoint_metres, members)) +
-  geom_point() +
-  ggtitle('Season: {closest_state}')
+<!-- ```{r gganimate-question-10, echo=FALSE} -->
+<!-- question("Which code chunk was used to create the plot above?",  -->
+<!--          answer("ex_plot <- expeditions %>%  -->
+<!--   ggplot(aes(highpoint_metres, members)) + -->
+<!--   geom_point() + -->
+<!--   ggtitle('Season: {closest_state}') -->
 
-ex_plot + transition_states(season)", correct = TRUE), 
-      answer("ex_plot <- expeditions %>% 
-  ggplot(aes(highpoint_metres, members)) +
-  geom_point() +
-  labs(title = 'Season')
+<!-- ex_plot + transition_states(season)", correct = TRUE),  -->
+<!--       answer("ex_plot <- expeditions %>%  -->
+<!--   ggplot(aes(highpoint_metres, members)) + -->
+<!--   geom_point() + -->
+<!--   labs(title = 'Season') -->
 
-ex_plot + transition_states(season)", message = "Hint: look at the title."),
-      answer("ex_plot <- expeditions %>% 
-  ggplot(aes(highpoint_metres, members)) +
-  geom_point() +
-  ggtitle('Season: {closest_state}')
+<!-- ex_plot + transition_states(season)", message = "Hint: look at the title."), -->
+<!--       answer("ex_plot <- expeditions %>%  -->
+<!--   ggplot(aes(highpoint_metres, members)) + -->
+<!--   geom_point() + -->
+<!--   ggtitle('Season: {closest_state}') -->
 
-ex_plot + transition_time(season)"), 
-answer("ex_plot <- expeditions %>% 
-  ggplot(aes(highpoint_metres, members)) +
-  geom_point() +
-  ggtitle('Season: {closest_state}')
+<!-- ex_plot + transition_time(season)"),  -->
+<!-- answer("ex_plot <- expeditions %>%  -->
+<!--   ggplot(aes(highpoint_metres, members)) + -->
+<!--   geom_point() + -->
+<!--   ggtitle('Season: {closest_state}') -->
 
-ex_plot + transition_filter(season)"),
-allow_retry = T, random_answer_order = T)
-```
+<!-- ex_plot + transition_filter(season)"), -->
+<!-- allow_retry = T, random_answer_order = T) -->
+<!-- ``` -->
 
 
 
@@ -323,3 +323,26 @@ Some helpful links include:
 - Katherine Goode's presentation on `gganimate`: https://goodekat.github.io/presentations/2019-isugg-gganimate-spooky/slides.html#1
 
 - The rOpenSci Labs github page for learning `gganimate`: https://github.com/ropensci-archive/learngganimate
+
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

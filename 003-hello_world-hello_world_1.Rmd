@@ -1,14 +1,12 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE)
-# library(learnr)
 library(tidyverse)
 ```
 
-
 # Hello World! 
 
-*Written by Annie Collins.*
+*Written by Annie Collins and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -16,9 +14,9 @@ The purpose of this module is to give you an overview of a task you will be able
 
 In this scenario, let's assume we're working for Toronto Public Health and we're looking at data about COVID-19 cases in Toronto throughout the pandemic. Specifically, we want to look at daily case numbers from different sources of infection - community spread, travel, outbreaks, etc. We have data collected by our front-line colleagues at the individual level, but it is slightly messy and contains more information than is relevant for our purposes.
 
-First we need to clean this data - make it as simple as possible and easy to work with - and then we can look into summarizing and examining different variables to draw conclusions about case numbers from different sources of infection.
+First, we need to clean this data - make it as simple as possible and easy to work with - and then we can look into summarizing and examining different variables to draw conclusions about case numbers from different sources of infection.
 
-## Video Walk Through
+## Video walk through
 
 This video provides a quick walkthrough of the process outlined in the following steps.
 
@@ -26,7 +24,7 @@ This video provides a quick walkthrough of the process outlined in the following
 
 The following pages give a closer look at the individual functions and logic behind the loading, cleaning, and summarizing steps taken.
 
-## Load Data
+## Load data
 
 Before we can even access our data, we need to load our R libraries You will learn more about what this actually means later, but for now, think of loading libraries as us telling the computer which tools we need for our upcoming tasks.
 
@@ -34,7 +32,6 @@ Before we can even access our data, we need to load our R libraries You will lea
 library(tidyverse)
 library(opendatatoronto)
 ```
-
 
 Now we will load our data. Since our data is from Toronto Public Health, we are pulling it from the Toronto Open Data Portal and labeling it "covid_data". 
 
@@ -57,12 +54,9 @@ To get an initial idea of the variables (columns) we're working with, we can loa
 head(covid_data, 20)
 ```
 
-
-
-
 Once all our data is loaded, we can start the cleaning process.
 
-## Clean Existing Data
+## Clean existing data
 
 The first step we will take is changing the "Episode Date" and "Reported Date" columns to a date format instead of a character format. This will allow us to use functions and operations with this data as if it were a date instead of as a string of characters.
 ```{r date-cleaning}
@@ -76,22 +70,21 @@ Since we're looking at source of infection, we don't really care about the outco
 covid_data <- select(covid_data, `Age Group`:Outcome)
 ```
 
-
 ```{r sounces-infection}
 unique(covid_data$`Source of Infection`)
 ```
+
 If we look at the classifications (unique values) for "Source of Infection", we notice that "N/A - Outbreak associated" is a bit out of place given we have removed the "Outbreak Associated" column. We can replace this classification to more simply read "Outbreak associated".
+
 ```{r reassign-outbreak}
 covid_data$`Source of Infection`[covid_data$`Source of Infection` == "N/A - Outbreak associated"] <- "Outbreak associated"
 ```
 
-
 Given the nature of this data, it is likely that the most recent date's COVID-19 case data has not been recorded in its entirety and is inaccurate or an outlier to some extent, so we will also filter this data out of our data set.
+
 ```{r remove-last-date}
 covid_data <- filter(covid_data, `Reported Date` < max(covid_data$`Reported Date`))
 ```
-
-
 
 ```{r}
 head(covid_data, 20)
@@ -99,7 +92,7 @@ head(covid_data, 20)
 
 Looking at our data as a whole, we can see that we've restricted the data to only the variables we want to work with, have reassigned the date columns to have type `<date>`, and have renamed an awkward variable classification in "Source of Infection". Now we can summarize our data!
 
-## Summarize Data
+## Summarize data
 
 In our data, there are generally multiple cases reported per day, and we want to gain a better understanding of our variables across *all* cases reported on a given day. To do so, we will create a summary table from our original data listing the number of cases per source of infection, along with the total number of cases, for each day in our data.
 
@@ -143,11 +136,11 @@ covid_daily_stats %>%
   scale_color_manual(values = colors)
 ```
 
-## Next Steps
+## Next steps
 
-This may all seem very complex and unattainable right now, but when it's broken down step by step (or function by function) it will gradually become easier to see how you can use R to produce your desired statistics, graphics, and analyses.
+This may all seem very complex and unattainable right now, but when it's broken-down step by step (or function by function) it will gradually become easier to see how you can use R to produce your desired statistics, graphics, and analyses.
 
-As you proceed through the following lessons, remember the process outlined here and take note of how powerful simple, individual functions can be when used together in the right context. You may also find it helpful to refer back to this module as an example of different functions used in context, or to see if you can use your new knowledge to reproduce the same results on your own. Good luck!
+As you proceed through the following lessons, remember the process outlined here and take note of how powerful simple, individual functions can be when used together in the right context. You may also find it helpful to refer to this module as an example of different functions used in context, or to see if you can use your new knowledge to reproduce the same results on your own. Good luck!
 
 
 

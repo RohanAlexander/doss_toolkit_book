@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 106 Getting started with Shiny | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  106.1 About Shiny apps are a great way to show the characteristics of a dataset interactively. Shiny apps are easy to create and...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 106 Getting started with Shiny | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  106.1 About Shiny apps are a great way to show the characteristics of a dataset interactively. Shiny apps are easy to create and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 106 Getting started with Shiny | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  106.1 About Shiny apps are a great way to show the characteristics of a dataset interactively. Shiny apps are easy to create and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
+<li><a class="active" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="getting-started-with-shiny" class="section level1" number="106">
+<h1>
+<span class="header-section-number">106</span> Getting started with Shiny<a class="anchor" aria-label="anchor" href="#getting-started-with-shiny"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Matthew Wankiewicz and last updated on 7 October 2021.</em></p>
+<div id="about" class="section level2" number="106.1">
+<h2>
+<span class="header-section-number">106.1</span> About<a class="anchor" aria-label="anchor" href="#about"><i class="fas fa-link"></i></a>
+</h2>
+<p>Shiny apps are a great way to show the characteristics of a dataset interactively. Shiny apps are easy to create and can exist as a standalone website, or can be included in R Markdown documents as well. Shiny apps can also be used to demonstrate how statistical processes work and can be used for teaching.</p>
+<p>Some amazing examples of Shiny apps include:</p>
+<ul>
+<li>
+<a href="https://danielrivera1.shinyapps.io/Regression2/?_ga=2.5896307.1991017896.1618937285-2097610576.1597102858" class="uri">https://danielrivera1.shinyapps.io/Regression2/?_ga=2.5896307.1991017896.1618937285-2097610576.1597102858</a>
+<ul>
+<li>This app looks at the steps at running linear regression on data collected from Colombia. The app goes step-by-step and then includes a quiz at the end.</li>
+</ul>
+</li>
+<li>
+<a href="https://cjteeter.shinyapps.io/MastersGolf/?_ga=2.1308913.1991017896.1618937285-2097610576.1597102858" class="uri">https://cjteeter.shinyapps.io/MastersGolf/?_ga=2.1308913.1991017896.1618937285-2097610576.1597102858</a>
+<ul>
+<li>This app collected data from the Masters golf tournament and shows the different scores players received over the years, along with a tab that looks at a player’s individual performance.</li>
+</ul>
+</li>
+<li>More examples of Shiny apps can be found at: <a href="https://shiny.rstudio.com/gallery/" class="uri">https://shiny.rstudio.com/gallery/</a>
+</li>
+</ul>
+</div>
+<div id="the-parts" class="section level2" number="106.2">
+<h2>
+<span class="header-section-number">106.2</span> The Parts<a class="anchor" aria-label="anchor" href="#the-parts"><i class="fas fa-link"></i></a>
+</h2>
+<p>The process for creating Shiny apps is fairly simple. First, you will want to install the <code>shiny</code> package in R, this package allows you to create your apps.</p>
+<p>Next, you can go to the top left in your RStudio window (same applies for RStudio cloud) and click on the blank page with a plus on it. After doing this, go down to “Shiny Web App…” and click on it. This will create a new folder where your Shiny App will be stored. This new file will already contain a default Shiny App which is a simple example of an app.</p>
+<ul>
+<li>The same can also be done by creating a new R project for a Shiny app.</li>
+</ul>
+</div>
+<div id="making-the-app" class="section level2" number="106.3">
+<h2>
+<span class="header-section-number">106.3</span> Making the App<a class="anchor" aria-label="anchor" href="#making-the-app"><i class="fas fa-link"></i></a>
+</h2>
+<p>Shiny apps have three main sections for code. We will briefly look at them now and then go more in depth in the next section.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong><code>ui</code></strong>:
+<ul>
+<li>The <code>ui</code> section will control what the person using your Shiny app will see. This includes things like what the title is, how many tabs will be included on the page and what type of inputs your app will include (sliders, dropdown menus, etc.)</li>
+</ul>
+</li>
+<li>
+<strong><code>server</code></strong>:
+<ul>
+<li>The <code>server</code> section will control what the viewer cannot see. The server section can be used to create predictions, plots or other calculations. You can also use the server section to include a text write-up below a plot.</li>
+</ul>
+</li>
+<li>
+<strong>Other things</strong>:
+<ul>
+<li>You can also write code before the <code>ui</code> and <code>server</code> sections. This can be used to create models, do data cleaning or call in other datasets after you have cleaned them in other R scripts.</li>
+</ul>
+</li>
+</ol>
+<p>After you have completed the three sections, you can run your app by either clicking the “Run App” in the top right corner or running the <code>shinyApp</code> function at the bottom of your R script.</p>
+</div>
+<div id="arguments-25" class="section level2" number="106.4">
+<h2>
+<span class="header-section-number">106.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-25"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong><code>ui</code>:</strong></p>
+<p>Your <code>ui</code> section will be usually be contained in the <code>fluidPage</code> function. This is where you will include things like your title, the headers for different tabs on the page and any filters or sliders you want to include on your page.</p>
+<ul>
+<li><p>To create a title, you can use the <code>titlePanel</code> function, you can simply write the function and then your title on the inside, for example: <code>titlePanel("My Shiny App")</code>.</p></li>
+<li>
+<p>Next, you will want to work on the main parts of the page, you can either use the <code>tabPanel</code> function if you plan on having multiple tabs, or the <code>sidebarPanel</code> function if you plan on having one tab/page.</p>
+<ul>
+<li>If you plan on having multiple tabs, the <code>tabPanel</code> function can be used with <code>sidebarPanel</code> to make your pages. The function’s arguments include a title and then you can move on to customizing the sidebar.</li>
+<li>To customize the sidebar, first call the <code>sidebarLayout</code> function, this will allow you to include side and main panels.</li>
+</ul>
+</li>
+<li>
+<p>Next, call <code>sidebarPanel</code> and include anything you want to filter your data by or anything you want to calculate. This can include picking teams to make a prediction of which team will win or picking a range of values to see what will fit into the option.</p>
+<ul>
+<li>The different options for filtering include slider inputs so the user can pick a range of values to include, numeric inputs so the user can pick an exact value, dropdown menus to select a specific option, checkboxes and many more!</li>
+<li>After you have edited the sidebar to your liking, you can add in the placeholder for the main panel, this will include things like tables, plots, text or maps that will change depending on what happens in the sidebar.
+<ul>
+<li>If you want to create a changing text box in your main panel, use the <code>textOutput</code> function to do so. Inside the function, write in a keyword that will be used in the server section to change the plot.</li>
+<li>If you want to create a table, use the <code>tableOutput</code> function and for plots use the <code>plotOutput</code> function.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><code>server</code>:</strong></p>
+<p>As we saw in the earlier section, the server part of a Shiny app will be used to write code that will change the app, but the viewer will not see it. When making the server, it will be written as <code>server &lt;- function(input, output) {}</code>. With your code being written inside the {}. The code written in this function will depend on what you want to show the viewer and what you have defined in <code>ui</code>.</p>
+<ul>
+<li>If you decided to include a text box in your Shiny app, you will need to use the <code>renderText</code> function. This is where you can write sentences and change them depending on what is selected in the sidebar. For example, if you wanted to say which animal was selected out of a list, your function will look like: <code>output$sentence &lt;- renderText({paste("you have selected", input$animal)})</code>
+<ul>
+<li>A few things to note, you must save each textbox, table or plot under output$keyword, where the keyword is the one you defined in the ui phase. Also, the use of <code>animal</code> after input was to represent what was selected in the sidebar.</li>
+</ul>
+</li>
+<li>The same idea goes for plots and tables, this time you will use the <code>renderPlot</code> and <code>renderTable</code> functions to create the outputs.</li>
+</ul>
+</div>
+<div id="live-coding-1" class="section level2" number="106.5">
+<h2>
+<span class="header-section-number">106.5</span> Live Coding<a class="anchor" aria-label="anchor" href="#live-coding-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Example 1:</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KlSG5y1zF04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<ul>
+<li>Example 2:</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/D5jAkxl8d5o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>To get your access token from GitHub use <code><a href="https://usethis.r-lib.org/reference/usethis-defunct.html">usethis::browse_github_token</a></code>, it will open up a new page and you can access a token from GitHub there. It will also tell you how to store your token after running the function. (This is also covered in the GitHub lessons.)</p>
+</div>
+<div id="after-you-code-your-app" class="section level2" number="106.6">
+<h2>
+<span class="header-section-number">106.6</span> After you code your app<a class="anchor" aria-label="anchor" href="#after-you-code-your-app"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once your code is completed and everything works properly, you can publish your app. Publishing the app requires an account but is free to do. To publish your app, click on the blue circle beside the “Run App” button on the header of app’s code. You will want to create your app using shinyapps.io, this is the free version of publishing your app. Once you do this you will likely have to create your shinyapp account and enter in your secret key for your account. After you’ve done this, your account should be connected and you can publish your app. The url for the app will likely be <code>username.shinyapps.io/file_name</code>. After your app is published you can share it with others.</p>
+<p>A video explaining how to publish your Shiny app can be found <a href="https://www.youtube.com/watch?v=g-BxlLF3XwU">here.</a></p>
+</div>
+<div id="exercises-146" class="section level2" number="106.7">
+<h2>
+<span class="header-section-number">106.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-146"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-103" class="section level3" number="106.7.1">
+<h3>
+<span class="header-section-number">106.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-103"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-101" class="section level3" number="106.7.2">
+<h3>
+<span class="header-section-number">106.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-101"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-99" class="section level3" number="106.7.3">
+<h3>
+<span class="header-section-number">106.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-99"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-91" class="section level3" number="106.7.4">
+<h3>
+<span class="header-section-number">106.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-91"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-90" class="section level3" number="106.7.5">
+<h3>
+<span class="header-section-number">106.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-90"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-90" class="section level3" number="106.7.6">
+<h3>
+<span class="header-section-number">106.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-90"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-89" class="section level3" number="106.7.7">
+<h3>
+<span class="header-section-number">106.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-89"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-89" class="section level3" number="106.7.8">
+<h3>
+<span class="header-section-number">106.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-89"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-89" class="section level3" number="106.7.9">
+<h3>
+<span class="header-section-number">106.7.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-89"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-89" class="section level3" number="106.7.10">
+<h3>
+<span class="header-section-number">106.7.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-89"><i class="fas fa-link"></i></a>
+</h3>
+<!-- ```{r shiny-test-understanding-1, echo=FALSE} -->
+<!-- question("What are the two fundamental parts of a Shiny app?", -->
+<!--          answer("ui", correct = T), -->
+<!--          answer("ggplot"), -->
+<!--          answer("server", correct = T), -->
+<!--          answer("GitHub"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ```{r shiny-test-understanding-2, echo=FALSE} -->
+<!-- question("What function should be used to output a table?", -->
+<!--          answer("`renderText`"), -->
+<!--          answer("`renderPlot`"), -->
+<!--          answer("`renderTab`"), -->
+<!--          answer("`renderTable`", correct = T), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ```{r shiny-test-understanding-3, echo=FALSE} -->
+<!-- question("Which function allows you to use multiple tabs on a Shiny app?", -->
+<!--          answer("`tabPanel`", correct = T), -->
+<!--          answer("`sidebarPanel`"), -->
+<!--          answer("`createTabs`"), -->
+<!--          answer("`insertTab`"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<p>The next two questions will use the Shiny app located at: <a href="https://yhejazi.shinyapps.io/tutorial/" class="uri">https://yhejazi.shinyapps.io/tutorial/</a></p>
+<div class="figure">
+<img src="https://miro.medium.com/max/3620/1*84g8LO1Oi3kvqjyNI1RonQ.png" style="width:70.0%" alt=""><p class="caption">Image of one page of the Shiny App, from Yasmine Hejazi</p>
+</div>
+<!-- ```{r shiny-test-understanding-4, echo=FALSE} -->
+<!-- question("Which code chunk would reproduce the Sidebar panel? (ui section)", -->
+<!--          answer("sidebar_content <- sidebarPanel( -->
+<!--          selectInput('y_var', -->
+<!--          label = 'Y Variable', -->
+<!--          choices = select_values, -->
+<!--          ))", correct = TRUE), -->
+<!--          answer("sidebar_content <- sidebarPanel( -->
+<!--          checkboxInput('y_var', -->
+<!--          label = 'Y Variable', -->
+<!--          choices = select_values, -->
+<!--          ))"), -->
+<!--          answer("sidebar_content <- tabPanel( -->
+<!--          checkboxInput('y_var', -->
+<!--          label = 'Y Variable', -->
+<!--          choices = select_values, -->
+<!--          ))"), -->
+<!--          answer("sidebar_content <- tabPanel( -->
+<!--          radioInput('y_var', -->
+<!--          label = 'Speed Variable', -->
+<!--          choices = select_values, -->
+<!--          ))"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ```{r shiny-test-understanding-5, echo=FALSE} -->
+<!-- question("What code was used to create the plot? (server section)", -->
+<!--          answer("function(input, output) {output$plot <- renderPlot({ -->
+<!--          ggplot(data=characters,  -->
+<!--          aes_string(x='Character', y=y_var, fill='Class')) -->
+<!--          + geom_bar()})"),  -->
+<!--          answer("function(input, output) {output$plot <- renderPlot({ -->
+<!--          ggplot(data=characters,  -->
+<!--          aes_string(x='Character', y=input$y_var, fill='Class')) -->
+<!--          + geom_point()})"), -->
+<!--          answer("ggplot(data=characters,  -->
+<!--          aes_string(x='Character', y=input$y_var, fill='Class')) -->
+<!--          + geom_point()"), -->
+<!--          answer("function(input, output) {output$plot <- renderPlot({ -->
+<!--          ggplot(data=characters,  -->
+<!--          aes_string(x='Character', y=input$y_var, fill='Class')) -->
+<!--          + geom_bar()})", correct = TRUE), -->
+<!--          allow_retry = T -->
+<!--          ) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="common-mistakes-errors-31" class="section level2" number="106.8">
+<h2>
+<span class="header-section-number">106.8</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-31"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the tough parts about Shiny apps is that after you compile the code into the app, there can still be errors which appear, but only after you test different combinations in your app. For example, if your app has a dropdown menu to filter options, there may be errors that occur for certain choices that you won’t see until the app has been made. The best way to test for errors in Shiny apps is to test out different combinations in your app once it has been made.</p>
+<p>Here are some common issues that occur when making Shiny apps.</p>
+<p><strong>Plots or Tables not Showing up</strong></p>
+<ul>
+<li><p>If you have a plot/table not showing up, one of the first things you should do is make sure that your <code>output$keyword</code> in the server section matches your <code>keyword</code> defined in the ui section. If you place a keyword which does not exist in the server section, R will not create any plots for that keyword. To fix this, check to make sure your keyword exists and matches the one defined in the ui section.</p></li>
+<li><p>This error can also occur if you try to reference an input which does not exist. Again, the fix for this is to make sure the keyword you are using exists and matches the one defined in <code>ui</code>.</p></li>
+</ul>
+<p><strong>Problem with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> input <code>..1</code></strong></p>
+<ul>
+<li>Errors like this will usually occur in the spot where your table or plot will be located. These errors are not exclusive to the <code>filter</code> function but can appear for any function. When these errors occur, it is usually because the function is being used incorrectly. For example, trying to filter data from a variable that doesn’t exist or using a <code>ggplot</code> argument which does not make sense.</li>
+</ul>
+<p>Some other common issues which can occur include:</p>
+<ul>
+<li>Missing/extra commas or brackets when defining different inputs on the <code>ui</code> section.
+<ul>
+<li>Usually shown by “argument is missing, with no default.”</li>
+</ul>
+</li>
+<li>Not using the proper <code>render</code> function to display your data. For example, using <code>renderPlot</code> when trying to display a table.
+<ul>
+<li>If you try to <code>ggplot</code> with <code>renderTable</code> you will get a “cannot coerce class ‘c(“gg,” “ggplot”)’ to a data.frame” error.</li>
+<li>If you try to display a table with <code>renderPlot</code> you will an error saying “invalid quartz() device size.”</li>
+</ul>
+</li>
+</ul>
+<p>A helpful link for debugging any issues that occur when making Shiny apps is <a href="https://shiny.rstudio.com/articles/debugging.html" class="uri">https://shiny.rstudio.com/articles/debugging.html</a>. This website goes through things like debugging and finding where your errors are happening.</p>
+</div>
+<div id="next-steps-63" class="section level2" number="106.9">
+<h2>
+<span class="header-section-number">106.9</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-63"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some helpful links for creating Shiny apps include:</p>
+<ul>
+<li><p>The Shiny website. This includes both written and video tutorials on creating Shiny apps. <a href="https://shiny.rstudio.com/tutorial/" class="uri">https://shiny.rstudio.com/tutorial/</a></p></li>
+<li><p>Mastering Shiny by Hadley Wickham. Similar to the Shiny website this online book teaches readers how to create Shiny apps and also shows the code used to create these apps. <a href="https://mastering-shiny.org/index.html" class="uri">https://mastering-shiny.org/index.html</a></p></li>
+<li><p>The Shiny cheat sheet created by R. <a href="https://shiny.rstudio.com/images/shiny-cheatsheet.pdf" class="uri">https://shiny.rstudio.com/images/shiny-cheatsheet.pdf</a></p></li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="postcards.html"><span class="header-section-number">105</span> postcards</a></div>
+<div class="next"><a href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#getting-started-with-shiny"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="nav-link" href="#about"><span class="header-section-number">106.1</span> About</a></li>
+<li><a class="nav-link" href="#the-parts"><span class="header-section-number">106.2</span> The Parts</a></li>
+<li><a class="nav-link" href="#making-the-app"><span class="header-section-number">106.3</span> Making the App</a></li>
+<li><a class="nav-link" href="#arguments-25"><span class="header-section-number">106.4</span> Arguments</a></li>
+<li><a class="nav-link" href="#live-coding-1"><span class="header-section-number">106.5</span> Live Coding</a></li>
+<li><a class="nav-link" href="#after-you-code-your-app"><span class="header-section-number">106.6</span> After you code your app</a></li>
+<li>
+<a class="nav-link" href="#exercises-146"><span class="header-section-number">106.7</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-103"><span class="header-section-number">106.7.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-101"><span class="header-section-number">106.7.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-99"><span class="header-section-number">106.7.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-91"><span class="header-section-number">106.7.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-90"><span class="header-section-number">106.7.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-90"><span class="header-section-number">106.7.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-89"><span class="header-section-number">106.7.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-89"><span class="header-section-number">106.7.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-89"><span class="header-section-number">106.7.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-89"><span class="header-section-number">106.7.10</span> Question 10</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-31"><span class="header-section-number">106.8</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-63"><span class="header-section-number">106.9</span> Next Steps</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/107-indistinguishable_from_magic-shiny.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/107-indistinguishable_from_magic-shiny.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

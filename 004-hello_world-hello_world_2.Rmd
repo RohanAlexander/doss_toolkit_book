@@ -1,16 +1,12 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE)
-# library(learnr)
 library(tidyverse)
 ```
 
-
-
-
 # Hello World, again! 
 
-*Written by Shirley Deng.*
+*Written by Shirley Deng and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -45,7 +41,7 @@ orders
 
 ## Favourites
 
-First, let's take a look at the restaurants we ordered from. We can visualize how many times we're eaten from each restaurant with a bar graph, and see which one was our favourite. There are a variety of ways to do this with R, but here we've made use of the `ggplot2` package's function `geom_bar()`. 
+First, let's look at the restaurants we ordered from. We can visualize how many times we're eaten from each restaurant with a bar graph, and see which one was our favourite. There are a variety of ways to do this with R, but here we've made use of the `ggplot2` package's function `geom_bar()`. 
 
 ```{r restaurant}
 orders %>% 
@@ -73,7 +69,7 @@ Our favourite cuisine category of the month so far seems to be Cantonese, althou
 
 ## Patterns
 
-We noted earlier that promo codes may infleunce our ordering habits. We can visualize the relationship between order totals and promo code % discounts with a scatterplot. Again, we make use of the `ggplot2` package, but this time using the function `geom_point()`.
+We noted earlier that promo codes may influence our ordering habits. We can visualize the relationship between order totals and promo code % discounts with a scatterplot. Again, we make use of the `ggplot2` package, but this time using the function `geom_point()`.
 
 ```{r scatter}
 scatter <- 
@@ -96,7 +92,3 @@ scatter + geom_smooth(method="lm")
 ```
 
 We get a horizontal line, so it seems there isn't any relationship between promo code discounts and order totals. We've only ordered nine times so far, so we just may not have enough data to see a pattern yet. For the sake of data, looks like we're going to have to make more SuperNoms orders!
-
-
-
-

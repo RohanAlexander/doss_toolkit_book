@@ -9,10 +9,9 @@ library(stringr)
 library(palmerpenguins)
 ```
 
-
 # Looking for missing data
 
-*Written by Mariam Walaa.*
+*Written by Mariam Walaa and last updated on 7 October 2021.*
 
 
 ## Introduction
@@ -168,12 +167,24 @@ value](https://tidyr.tidyverse.org/reference/fill.html)
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
+
+### Question 10

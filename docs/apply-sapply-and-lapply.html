@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 50 apply, sapply, and lapply | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Ananya Jha and last updated on 7 October 2021.  50.1 Introduction The apply family of functions is one of the most commonly used classes and is used to manipulate data (in the form of...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 50 apply, sapply, and lapply | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Ananya Jha and last updated on 7 October 2021.  50.1 Introduction The apply family of functions is one of the most commonly used classes and is used to manipulate data (in the form of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 50 apply, sapply, and lapply | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Ananya Jha and last updated on 7 October 2021.  50.1 Introduction The apply family of functions is one of the most commonly used classes and is used to manipulate data (in the form of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="active" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="apply-sapply-and-lapply" class="section level1" number="50">
+<h1>
+<span class="header-section-number">50</span> apply, sapply, and lapply<a class="anchor" aria-label="anchor" href="#apply-sapply-and-lapply"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Ananya Jha and last updated on 7 October 2021.</em></p>
+<div id="introduction-46" class="section level2" number="50.1">
+<h2>
+<span class="header-section-number">50.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-46"><i class="fas fa-link"></i></a>
+</h2>
+<p>The apply family of functions is one of the most commonly used classes and is used to manipulate data (in the form of matrices, arrays, dataframes, lists, etc.) repetitively. They are generally used to run a function on multiple chunks of data of an object.</p>
+<p>If you have programmed before, the functionality of apply functions can be thought of as a ‘for loop’ but they are considered more efficient.<br>
+In this lesson we will be covering apply, lapply and sapply. There is a huge variety of apply functions available, and while they work for different kinds of data, all of these have at least two common arguments- an object and a function (which can be either user-defined or built in) and we can “apply” the latter to the former. We will get into the details of the arguments and how to use them later.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li><p>Use apply, lapply and sapply (functions from the apply family)</p></li>
+<li><p>Use appropriate versions of the apply family of functions for the correct use cases</p></li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li>Basic understanding of lists, vectors, arrays, matrices, and data frames
+prerequisites</li>
+</ul>
+<div id="arguments-10" class="section level3" number="50.1.1">
+<h3>
+<span class="header-section-number">50.1.1</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-10"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s first take a look at what the R documentation has as the arguments for these functions:</p>
+<ul>
+<li><p>apply(X, MARGIN, FUN, …, simplify = TRUE)</p></li>
+<li><p>lapply(X, FUN, …)</p></li>
+<li><p>sapply(X, FUN, …, simplify = TRUE, USE.NAMES = TRUE)</p></li>
+</ul>
+<p>Where:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="13%">
+<col width="86%">
+</colgroup>
+<thead><tr class="header">
+<th>Argument</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>X</td>
+<td>The object to which we want to apply the function (can be array/matrix/list/vector/data frame)</td>
+</tr>
+<tr class="even">
+<td>MARGIN</td>
+<td>A vector to specify how the function is applied (1 for along row/2 for column)</td>
+</tr>
+<tr class="odd">
+<td>FUN</td>
+<td>The function (in-built or user defined) to be applied repeatedly to the elements of X</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>Optional arguments to FUN</td>
+</tr>
+<tr class="odd">
+<td>simplify</td>
+<td>Logical to pick simplified results (a matrix or vector when possible)</td>
+</tr>
+<tr class="even">
+<td>USE.NAMES</td>
+<td>Logical; set to TRUE X is character and want X as names for the result</td>
+</tr>
+</tbody>
+</table></div>
+<p>At first look these functions might all seem the same.</p>
+<div class="inline-figure"><img src="images/049-apply_sapply_lapply1.jpeg" width="50%" style="display: block; margin: auto;"></div>
+<p>Now let’s dive deeper into their differences to understand better.</p>
+</div>
+</div>
+<div id="apply" class="section level2" number="50.2">
+<h2>
+<span class="header-section-number">50.2</span> Apply<a class="anchor" aria-label="anchor" href="#apply"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s start with apply which is the most basic from the apply family of functions. It operates primarily on arrays and matrices, and can occasionally work with data frames but with restrictions (the data frame object type must be compatible as function arguments).</p>
+<p>This is the only function (out of the ones covered in this lesson) that requires margins to be specified in the arguments. For example in the case of a matrix, 1 would mean the function would be applied along the rows, 2 would be columns, and c(1,2) would be both rows and columns.</p>
+</div>
+<div id="lapply" class="section level2" number="50.3">
+<h2>
+<span class="header-section-number">50.3</span> Lapply<a class="anchor" aria-label="anchor" href="#lapply"><i class="fas fa-link"></i></a>
+</h2>
+<p>This is another member of the apply family of functions that operates on list, data frames, vectors. It has two main differences compared to apply-</p>
+<ol style="list-style-type: decimal">
+<li><p>It always returns a list the same length as the input list</p></li>
+<li><p>It does not require margin specification as it only applies the function to columns</p></li>
+</ol>
+</div>
+<div id="sapply" class="section level2" number="50.4">
+<h2>
+<span class="header-section-number">50.4</span> Sapply<a class="anchor" aria-label="anchor" href="#sapply"><i class="fas fa-link"></i></a>
+</h2>
+<p>The final apply function covered in this lesson is sapply.</p>
+<p>Just like lapply, sapply also operates on lists, data frames and vectors and does not need margin specification and just like in apply, we can use simplify = TRUE to simplify the results.</p>
+<p>Sapply is commonly known as “a user-friendly version of lapply.” In layman’s terms, sapply is a wrapper of lapply and the only difference is that it simplifies the output (when possible) and returns a vector instead of a list.</p>
+<p><strong>Note-</strong> sapply(x, f, simplify = FALSE, USE.NAMES = FALSE) would be the same as lapply(x, f)</p>
+</div>
+<div id="summary-of-differences-table" class="section level2" number="50.5">
+<h2>
+<span class="header-section-number">50.5</span> Summary of differences table<a class="anchor" aria-label="anchor" href="#summary-of-differences-table"><i class="fas fa-link"></i></a>
+</h2>
+<p>To summarize the differences between these functions, we can use this table:<br></p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Function</th>
+<th>Operates on</th>
+<th>Returns</th>
+<th>Margins to specify(yes/no)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Apply</td>
+<td>arrays and matrices</td>
+<td>a vector or array or list of values</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Lapply</td>
+<td>lists, data frames, vectors</td>
+<td>a list</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Sapply</td>
+<td>lists, data frames, vectors</td>
+<td>a vector</td>
+<td>No</td>
+</tr>
+</tbody>
+</table></div>
+<div id="examples-6" class="section level3" number="50.5.1">
+<h3>
+<span class="header-section-number">50.5.1</span> Examples<a class="anchor" aria-label="anchor" href="#examples-6"><i class="fas fa-link"></i></a>
+</h3>
+<div id="example-1-1" class="section level4" number="50.5.1.1">
+<h4>
+<span class="header-section-number">50.5.1.1</span> Example 1<a class="anchor" aria-label="anchor" href="#example-1-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>We will first work with the popular mtcars data set to understand how these functions work. Let’s take a quick look at it</p>
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">mtcars</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
+<span class="co">#&gt;                    mpg cyl disp  hp drat    wt  qsec vs am</span>
+<span class="co">#&gt; Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1</span>
+<span class="co">#&gt; Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1</span>
+<span class="co">#&gt; Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1</span>
+<span class="co">#&gt; Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0</span>
+<span class="co">#&gt; Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0</span>
+<span class="co">#&gt; Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0</span>
+<span class="co">#&gt;                   gear carb</span>
+<span class="co">#&gt; Mazda RX4            4    4</span>
+<span class="co">#&gt; Mazda RX4 Wag        4    4</span>
+<span class="co">#&gt; Datsun 710           4    1</span>
+<span class="co">#&gt; Hornet 4 Drive       3    1</span>
+<span class="co">#&gt; Hornet Sportabout    3    2</span>
+<span class="co">#&gt; Valiant              3    1</span></code></pre></div>
+<p>Let’s subset this dataset to fit our needs better and call it cars.</p>
+<p>We can now find the means of all columns:</p>
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span>
+<span class="co">#&gt;        hp        wt </span>
+<span class="co">#&gt; 146.68750   3.21725</span></code></pre></div>
+<p>We can also find the column quantiles using the quantile function</p>
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">2</span>, <span class="va">quantile</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>, <span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;        hp      wt</span>
+<span class="co">#&gt; 10%  66.0 1.95550</span>
+<span class="co">#&gt; 25%  96.5 2.58125</span>
+<span class="co">#&gt; 50% 123.0 3.32500</span>
+<span class="co">#&gt; 75% 180.0 3.61000</span>
+<span class="co">#&gt; 90% 243.5 4.04750</span></code></pre></div>
+<p>While it is not too relevant in this context, we can also compute the sum of rows like this:</p>
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">1</span>, <span class="va">sum</span><span class="op">)</span>
+<span class="co">#&gt;           Mazda RX4       Mazda RX4 Wag          Datsun 710 </span>
+<span class="co">#&gt;             112.620             112.875              95.320 </span>
+<span class="co">#&gt;      Hornet 4 Drive   Hornet Sportabout             Valiant </span>
+<span class="co">#&gt;             113.215             178.440             108.460 </span>
+<span class="co">#&gt;          Duster 360           Merc 240D            Merc 230 </span>
+<span class="co">#&gt;             248.570              65.190              98.150 </span>
+<span class="co">#&gt;            Merc 280           Merc 280C          Merc 450SE </span>
+<span class="co">#&gt;             126.440             126.440             184.070 </span>
+<span class="co">#&gt;          Merc 450SL         Merc 450SLC  Cadillac Fleetwood </span>
+<span class="co">#&gt;             183.730             183.780             210.250 </span>
+<span class="co">#&gt; Lincoln Continental   Chrysler Imperial            Fiat 128 </span>
+<span class="co">#&gt;             220.424             235.345              68.200 </span>
+<span class="co">#&gt;         Honda Civic      Toyota Corolla       Toyota Corona </span>
+<span class="co">#&gt;              53.615              66.835              99.465 </span>
+<span class="co">#&gt;    Dodge Challenger         AMC Javelin          Camaro Z28 </span>
+<span class="co">#&gt;             153.520             153.435             248.840 </span>
+<span class="co">#&gt;    Pontiac Firebird           Fiat X1-9       Porsche 914-2 </span>
+<span class="co">#&gt;             178.845              67.935              93.140 </span>
+<span class="co">#&gt;        Lotus Europa      Ford Pantera L        Ferrari Dino </span>
+<span class="co">#&gt;             114.513             267.170             177.770 </span>
+<span class="co">#&gt;       Maserati Bora          Volvo 142E </span>
+<span class="co">#&gt;             338.570             111.780</span></code></pre></div>
+</div>
+<div id="example-2-1" class="section level4" number="50.5.1.2">
+<h4>
+<span class="header-section-number">50.5.1.2</span> Example 2<a class="anchor" aria-label="anchor" href="#example-2-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>As mentioned before, we can also use a user-defined function with apply. Let’s first generate a random matrix.</p>
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<p>We can use either a user defined function inside the apply function. Here, we sum along the rows and add 5 to each element:</p>
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">mat</span>, <span class="fl">1</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 20 20 20 20</span></code></pre></div>
+<p>Or we can use the user-defined function as an argument:</p>
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">func</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">mat</span>, <span class="fl">1</span>, <span class="va">func</span><span class="op">)</span>
+<span class="co">#&gt; [1] 20 20 20 20</span></code></pre></div>
+</div>
+<div id="example-3-1" class="section level4" number="50.5.1.3">
+<h4>
+<span class="header-section-number">50.5.1.3</span> Example 3<a class="anchor" aria-label="anchor" href="#example-3-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can create a random list to test out the lapply and sapply functions.</p>
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">list_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>i1 <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, 
+             i2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>, 
+             i3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">1</span><span class="op">)</span>, 
+             i4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>
+<span class="va">list_i</span>
+<span class="co">#&gt; $i1</span>
+<span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $i2</span>
+<span class="co">#&gt;  [1]  0.15381364 -0.69693999  0.72041208  0.37261014</span>
+<span class="co">#&gt;  [5]  0.05606283  0.96654386  0.13606536 -0.45568911</span>
+<span class="co">#&gt;  [9]  1.20564088 -0.27711595 -0.64800165  0.66083435</span>
+<span class="co">#&gt; [13] -1.71617753  0.57116836 -1.06550130  0.08860368</span>
+<span class="co">#&gt; [17] -0.39218502 -0.64355218 -0.28212755 -1.23736399</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $i3</span>
+<span class="co">#&gt;  [1] -0.97638196  1.79164724  0.55506796  1.18614855</span>
+<span class="co">#&gt;  [5]  1.73633491  0.05457173 -0.82041090  2.75868949</span>
+<span class="co">#&gt;  [9]  1.40936118  0.20280778  0.91560770  0.04698224</span>
+<span class="co">#&gt; [13]  0.46942992 -0.20874767  2.05155483  0.15118871</span>
+<span class="co">#&gt; [17]  0.60344266  3.13423697  1.12784392  1.09831603</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $i4</span>
+<span class="co">#&gt;   [1] 4.828035 4.948769 5.417792 5.224515 3.379236 5.737661</span>
+<span class="co">#&gt;   [7] 4.332593 5.924854 4.997431 5.323091 4.932802 3.938601</span>
+<span class="co">#&gt;  [13] 5.544445 5.054802 4.440426 2.815160 5.329697 3.601186</span>
+<span class="co">#&gt;  [19] 5.593037 5.198026 4.530852 6.513729 5.104839 5.032969</span>
+<span class="co">#&gt;  [25] 6.416401 3.768042 3.974242 4.868119 4.274661 4.222627</span>
+<span class="co">#&gt;  [31] 3.426240 4.813757 4.281125 5.450987 6.429025 3.118096</span>
+<span class="co">#&gt;  [37] 3.878951 5.359202 4.292966 7.292357 4.113761 4.695622</span>
+<span class="co">#&gt;  [43] 4.448941 5.096859 5.554649 4.014806 4.453720 5.401951</span>
+<span class="co">#&gt;  [49] 4.554049 5.997388 4.473217 3.179252 5.294293 5.939532</span>
+<span class="co">#&gt;  [55] 3.353501 5.157278 4.421409 4.231790 5.569080 5.790731</span>
+<span class="co">#&gt;  [61] 3.937831 6.147968 4.456011 5.598575 4.321729 4.038193</span>
+<span class="co">#&gt;  [67] 3.278764 4.197260 5.036000 2.807386 6.049809 4.557337</span>
+<span class="co">#&gt;  [73] 6.049850 5.341004 5.514933 6.093618 5.288561 5.787614</span>
+<span class="co">#&gt;  [79] 4.325788 5.184406 4.245662 3.581264 5.419015 5.017495</span>
+<span class="co">#&gt;  [85] 3.174199 4.577404 5.666197 3.769284 5.979460 4.656197</span>
+<span class="co">#&gt;  [91] 4.444289 6.328714 6.289508 4.835657 4.906574 4.699113</span>
+<span class="co">#&gt;  [97] 7.003265 4.801568 8.345750 3.995385</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">list_i</span>, <span class="va">mean</span><span class="op">)</span>
+<span class="co">#&gt; $i1</span>
+<span class="co">#&gt; [1] 5.5</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $i2</span>
+<span class="co">#&gt; [1] -0.124145</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $i3</span>
+<span class="co">#&gt; [1] 0.8643846</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $i4</span>
+<span class="co">#&gt; [1] 4.891018</span>
+<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">list_i</span>, <span class="va">mean</span><span class="op">)</span>
+<span class="co">#&gt;         i1         i2         i3         i4 </span>
+<span class="co">#&gt;  5.5000000 -0.1241450  0.8643846  4.8910181</span></code></pre></div>
+<p>As you can see, lapply returns a more complicated vector output and sapply returns the same output in a list.</p>
+</div>
+</div>
+</div>
+<div id="exercises-62" class="section level2" number="50.6">
+<h2>
+<span class="header-section-number">50.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-62"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-42" class="section level3" number="50.6.1">
+<h3>
+<span class="header-section-number">50.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-42"><i class="fas fa-link"></i></a>
+</h3>
+<!-- ```{r letter-a, echo=FALSE}  -->
+<p>question(“What is the output of the lapply function?”
+answer(“a list,” correct = TRUE),
+answer(“an array”),
+answer(“a vector”)
+)</p>
+</div>
+<div id="question-2-41" class="section level3" number="50.6.2">
+<h3>
+<span class="header-section-number">50.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-41"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>2a)</strong> Use the numerical columns(columns 1-4) of the <code>iris</code> dataset to compute the minimum value of each column using apply, lapply and sapply and store the outputs.</p>
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>
+<span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
+<span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span>
+<span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span>
+<span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span>
+<span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span>
+<span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span>
+<span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, MARGIN <span class="op">=</span> <span class="fl">2</span>,  FUN <span class="op">=</span> <span class="va">min</span><span class="op">)</span> 
+<span class="va">l_ap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, FUN <span class="op">=</span> <span class="va">min</span><span class="op">)</span> 
+<span class="va">s_ap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="op">-</span><span class="fl">5</span><span class="op">]</span>, FUN <span class="op">=</span> <span class="va">min</span><span class="op">)</span></code></pre></div>
+<p><strong>2b)</strong> Add the three outputs from above to a list called “list_output.”</p>
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">list_output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">ap</span>, <span class="va">l_ap</span>, <span class="va">s_ap</span> <span class="op">)</span></code></pre></div>
+<p><strong>2c)</strong> Use an appropriate apply function to find the type of each element of list_output (using the type of function)</p>
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span>FUN <span class="op">=</span> <span class="va">typeof</span>, X <span class="op">=</span> <span class="va">list_output</span><span class="op">)</span> 
+<span class="co">#&gt; [1] "double" "list"   "double"</span></code></pre></div>
+</div>
+</div>
+<div id="some-extra-notes" class="section level2" number="50.7">
+<h2>
+<span class="header-section-number">50.7</span> Some extra notes<a class="anchor" aria-label="anchor" href="#some-extra-notes"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>If you are deciding between using for loops or apply functions, always pick apply functions as they are slightly faster and require fewer lines of code. Using apply also makes the code easier to read and understand.</li>
+</ol>
+<div class="inline-figure"><img src="images/049-apply_sapply_lapply2.jpeg" width="50%" style="display: block; margin: auto;"></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Apply functions are capable of a lot of cool things. We can also use the apply function to generate plots for the objects like this:
+<img src="049-totally_addicted_to_base-apply_sapply_lapply_files/figure-html/figures-side-1.png" width="50%"><img src="049-totally_addicted_to_base-apply_sapply_lapply_files/figure-html/figures-side-2.png" width="50%"><img src="049-totally_addicted_to_base-apply_sapply_lapply_files/figure-html/figures-side-3.png" width="50%"><img src="049-totally_addicted_to_base-apply_sapply_lapply_files/figure-html/figures-side-4.png" width="50%">
+Here, we are generating a box plot for all numerical columns of the iris data set.<br><img src="images/049-apply_sapply_lapply3.jpeg" width="50%" style="display: block; margin: auto;"></p></li>
+<li><div class="inline-figure">Using these functions can often be tricky. If you are ever struggling to decide between these functions and want the results simplified, the easiest option would be sapply. On the off-chance that you don’t want simplified results, use lapply. Generally, either of these two would be ideal.
+<img src="images/049-apply_sapply_lapply4.jpeg" width="50%" style="display: block; margin: auto;">
+</div></li>
+</ol>
+</div>
+<div id="common-mistakes-and-errors-5" class="section level2" number="50.8">
+<h2>
+<span class="header-section-number">50.8</span> Common mistakes and errors<a class="anchor" aria-label="anchor" href="#common-mistakes-and-errors-5"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>In the case of one dimensional data (like vectors), lapply or sapply should be used as the apply function will never work. It expects the data to have at least two dimensions and will give errors.</li>
+<li>If your data happens to have NA values and you use apply function, the result would be NA regardless of the function choice. You can choose to ignore the NA values (if there are any) by using na.rm inside the apply function.</li>
+</ul>
+</div>
+<div id="next-steps-28" class="section level2" number="50.9">
+<h2>
+<span class="header-section-number">50.9</span> Next steps<a class="anchor" aria-label="anchor" href="#next-steps-28"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>To know more about these functions, a useful resource is- <a href="https://www.analyticsvidhya.com/blog/2021/02/the-ultimate-swiss-army-knife-of-apply-family-in-r/" class="uri">https://www.analyticsvidhya.com/blog/2021/02/the-ultimate-swiss-army-knife-of-apply-family-in-r/</a>
+</li>
+<li>You can explore other functions of the apply family like tapply, vapply, mapply</li>
+<li>You can also explore “apply-like” functions such as colSums, rowSums, colMeans, rowMeans, etc.</li>
+</ul>
+</div>
+<div id="references-3" class="section level2" number="50.10">
+<h2>
+<span class="header-section-number">50.10</span> References<a class="anchor" aria-label="anchor" href="#references-3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>[r documentation] (<a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/apply" class="uri">https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/apply</a>).</li>
+</ul>
+</div>
+<div id="exercises-63" class="section level2" number="50.11">
+<h2>
+<span class="header-section-number">50.11</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-63"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-43" class="section level3" number="50.11.1">
+<h3>
+<span class="header-section-number">50.11.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-43"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-42" class="section level3" number="50.11.2">
+<h3>
+<span class="header-section-number">50.11.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-42"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-42" class="section level3" number="50.11.3">
+<h3>
+<span class="header-section-number">50.11.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-42"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-39" class="section level3" number="50.11.4">
+<h3>
+<span class="header-section-number">50.11.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-39"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-37" class="section level3" number="50.11.5">
+<h3>
+<span class="header-section-number">50.11.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-37"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-37" class="section level3" number="50.11.6">
+<h3>
+<span class="header-section-number">50.11.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-37"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-37" class="section level3" number="50.11.7">
+<h3>
+<span class="header-section-number">50.11.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-37"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-37" class="section level3" number="50.11.8">
+<h3>
+<span class="header-section-number">50.11.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-37"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-37" class="section level3" number="50.11.9">
+<h3>
+<span class="header-section-number">50.11.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-37"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-37" class="section level3" number="50.11.10">
+<h3>
+<span class="header-section-number">50.11.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-37"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></div>
+<div class="next"><a href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#apply-sapply-and-lapply"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li>
+<a class="nav-link" href="#introduction-46"><span class="header-section-number">50.1</span> Introduction</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#arguments-10"><span class="header-section-number">50.1.1</span> Arguments</a></li></ul>
+</li>
+<li><a class="nav-link" href="#apply"><span class="header-section-number">50.2</span> Apply</a></li>
+<li><a class="nav-link" href="#lapply"><span class="header-section-number">50.3</span> Lapply</a></li>
+<li><a class="nav-link" href="#sapply"><span class="header-section-number">50.4</span> Sapply</a></li>
+<li>
+<a class="nav-link" href="#summary-of-differences-table"><span class="header-section-number">50.5</span> Summary of differences table</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#examples-6"><span class="header-section-number">50.5.1</span> Examples</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#exercises-62"><span class="header-section-number">50.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-42"><span class="header-section-number">50.6.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-41"><span class="header-section-number">50.6.2</span> Question 2</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#some-extra-notes"><span class="header-section-number">50.7</span> Some extra notes</a></li>
+<li><a class="nav-link" href="#common-mistakes-and-errors-5"><span class="header-section-number">50.8</span> Common mistakes and errors</a></li>
+<li><a class="nav-link" href="#next-steps-28"><span class="header-section-number">50.9</span> Next steps</a></li>
+<li><a class="nav-link" href="#references-3"><span class="header-section-number">50.10</span> References</a></li>
+<li>
+<a class="nav-link" href="#exercises-63"><span class="header-section-number">50.11</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-43"><span class="header-section-number">50.11.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-42"><span class="header-section-number">50.11.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-42"><span class="header-section-number">50.11.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-39"><span class="header-section-number">50.11.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-37"><span class="header-section-number">50.11.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-37"><span class="header-section-number">50.11.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-37"><span class="header-section-number">50.11.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-37"><span class="header-section-number">50.11.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-37"><span class="header-section-number">50.11.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-37"><span class="header-section-number">50.11.10</span> Question 10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/049-totally_addicted_to_base-apply_sapply_lapply.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/049-totally_addicted_to_base-apply_sapply_lapply.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

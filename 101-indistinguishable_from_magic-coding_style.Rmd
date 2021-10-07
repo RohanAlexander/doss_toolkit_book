@@ -3,30 +3,22 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
 library(sortable)
-# gradethis::gradethis_setup()
-# library(palmerpenguins)
 library(ggmap)
 ```
 
-
 # Coding style
 
-*Written by Marija Pejcinovska*
+*Written by Marija Pejcinovska and last updated on 7 October 2021.*
 
 By now you've probably worked through dozens of modules and are feeling a lot more comfortable coding in R. This is a good spot to spend a moment or two thinking about your coding style. A good style will help you keep your R scripts consistent and easy to read (and, of course, easier to navigate through when you revisit them at a later time). In this lesson we'll focus on the coding style used throughout the `tidyverse`. More specifically, we will highlight some naming conventions for objects and functions and discuss useful structures that will make your programs easier to write and read.
-
 
 Prerequisite skills include:
 
 - Some data manipulation
 - The tidyverse
 - Writing basic functions and conditional statements 
-
 
 
 ## Naming things: the tidy way
@@ -282,15 +274,24 @@ This tutorial is largely based on content in the tidyverse style guide. For more
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
+### Question 10

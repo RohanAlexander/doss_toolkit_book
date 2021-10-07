@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 53 Investigating and playing with data | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Uzair Mirza and last updated on 7 October 2021.  53.1 Introduction When working with real world datasets we will find them often times if not always as being messy. Hence before and...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 53 Investigating and playing with data | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Uzair Mirza and last updated on 7 October 2021.  53.1 Introduction When working with real world datasets we will find them often times if not always as being messy. Hence before and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 53 Investigating and playing with data | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Uzair Mirza and last updated on 7 October 2021.  53.1 Introduction When working with real world datasets we will find them often times if not always as being messy. Hence before and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="active" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="investigating-and-playing-with-data" class="section level1" number="53">
+<h1>
+<span class="header-section-number">53</span> Investigating and playing with data<a class="anchor" aria-label="anchor" href="#investigating-and-playing-with-data"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Uzair Mirza and last updated on 7 October 2021.</em></p>
+<div id="introduction-49" class="section level2" number="53.1">
+<h2>
+<span class="header-section-number">53.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-49"><i class="fas fa-link"></i></a>
+</h2>
+<p>When working with real world datasets we will find them often times if not always as being messy. Hence before and while cleaning our datasets we would like to know if there are some <strong>empty entries</strong> or <strong>occurrences of specific values</strong> in our data, get to know all the <strong>unique categories</strong> in our data set and sometimes <strong>compare two objects</strong>. All this effort is done with the goal of reducing the bias and sources of error in our study to get accurate results.</p>
+<p>Think about conducting an observational study and working with data from a survey. We will have cases where we would like to know if there were participants who chose not to answer our main question of interest, or to observe respondents from a specific age-group or gender and study their other replies. Perhaps we want to find people above or below a certain limit which might be considered outliers, or we might be interested in knowing all the unique income levels to which people belong in our study. We might also want to test if there are multiple entries by the same person which might be a cause of over representation in our data.</p>
+<p>For the sake of this lesson, let us simulate a data frame that might look similar to that extracted from a survey. Usually, information extracted using Google Forms or other sources might be in form of CSV files or present at a specific URL.</p>
+<p>Here, however, we will be skipping the step of conducting the survey, extracting, and reading the related file, and instead we will be replacing all these steps with generation of our own data using different simulation techniques.</p>
+<p>Lastly, don’t get intimidated or overwhelmed by the length of the lecture. All the topics have a bunch of examples, the intention is to make it easy for you to grasp the understanding of the material. Going over all the examples is not necessary <strong>BUT</strong> highly recommended.</p>
+</div>
+<div id="let-the-lecture-begin" class="section level2" number="53.2">
+<h2>
+<span class="header-section-number">53.2</span> Let the lecture begin!!<a class="anchor" aria-label="anchor" href="#let-the-lecture-begin"><i class="fas fa-link"></i></a>
+</h2>
+<div id="required-setup" class="section level3" number="53.2.1">
+<h3>
+<span class="header-section-number">53.2.1</span> Required setup<a class="anchor" aria-label="anchor" href="#required-setup"><i class="fas fa-link"></i></a>
+</h3>
+<p>For this lecture you are required to load in the package <code>tidyverse</code>. You can think of a package as a specific toolkit in your garage that contains all the tools that might be required for to perform the task.</p>
+<p><strong>NOTE</strong> if this is your first time and you don’t have the package installed then you can uncomment the code(remove the hashtags) in the lines starting with <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> and run the code to install and then load the package.</p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># loading necessary package</span>
+<span class="co">#install.packages("tidyverse")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="co">#install.packages("mice")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="setting-up-our-topic-of-study" class="section level3" number="53.2.2">
+<h3>
+<span class="header-section-number">53.2.2</span> Setting up our topic of study<a class="anchor" aria-label="anchor" href="#setting-up-our-topic-of-study"><i class="fas fa-link"></i></a>
+</h3>
+<p>Suppose we are conducting a study where we are trying to investigate how bone density varies in different groups and by different factors.</p>
+<p>For this study we collected bone density and weight of 20 participants and asked them to identify and self-declare their age and gender.</p>
+<p>So let us first simulate some data. Below is the code chunk to simulate the data.</p>
+<p>You can go ahead and copy and paste the code below to follow along. Just like before, if you don’t have the package then go ahead and uncomment the code line and first <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("mice")</a></code>. To play around and simulate another yet similar dataset you can change the number of the seed (ex:)for example, <code><a href="https://rdrr.io/r/base/Random.html">set.seed(423)</a></code>). Furthermore, please note that for this lecture you are not required or expected to understand this code chunk.</p>
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># setting seed</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
+
+<span class="co"># simulating data for 20 participants</span>
+<span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">20</span>
+
+<span class="co"># assigning ID to the participants</span>
+<span class="va">ID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span>
+<span class="co">## simulating data and creating the initial data frame</span>
+<span class="va">age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">40</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+
+<span class="va">bone_density_cat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"normal"</span>, <span class="st">"low"</span>, <span class="st">"alarming"</span><span class="op">)</span>
+<span class="va">bone_density</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>
+    <span class="va">bone_density_cat</span>,
+    size <span class="op">=</span> <span class="va">n</span>,
+    replace <span class="op">=</span> <span class="cn">T</span>,
+    prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.3</span>, <span class="fl">.2</span><span class="op">)</span>
+  <span class="op">)</span><span class="op">)</span>
+
+<span class="va">weight</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">152.34</span>, sd <span class="op">=</span> <span class="fl">24.47</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+
+<span class="va">gender_cat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"non-binary"</span><span class="op">)</span>
+<span class="va">gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">gender_cat</span>, size <span class="op">=</span> <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">age</span>, <span class="va">bone_density</span>, <span class="va">weight</span>, <span class="va">gender</span><span class="op">)</span>
+
+<span class="co"># Simulating NAs in the data frame and extracting it</span>
+<span class="va">data_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/ampute.html">ampute</a></span><span class="op">(</span>
+  <span class="va">data</span>,
+  patterns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>,
+      <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>,
+      <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
+    nrow <span class="op">=</span> <span class="fl">3</span>,
+    byrow <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span>,
+  freq <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="fl">3</span>, <span class="fl">1</span> <span class="op">/</span> <span class="fl">3</span>, <span class="fl">1</span> <span class="op">/</span> <span class="fl">3</span><span class="op">)</span>,
+  prop <span class="op">=</span> <span class="fl">0.2</span>,
+  mech <span class="op">=</span> <span class="st">"MAR"</span>
+<span class="op">)</span>
+
+<span class="co">## Data with NA introduced and categories restored</span>
+<span class="va">data_2</span> <span class="op">&lt;-</span> <span class="va">data_1</span><span class="op">$</span><span class="va">amp</span>
+<span class="va">data_2</span><span class="op">$</span><span class="va">bone_density</span><span class="op">[</span><span class="va">data_2</span><span class="op">$</span><span class="va">bone_density</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"alarming"</span>
+<span class="va">data_2</span><span class="op">$</span><span class="va">bone_density</span><span class="op">[</span><span class="va">data_2</span><span class="op">$</span><span class="va">bone_density</span> <span class="op">==</span> <span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"low"</span>
+<span class="va">data_2</span><span class="op">$</span><span class="va">bone_density</span><span class="op">[</span><span class="va">data_2</span><span class="op">$</span><span class="va">bone_density</span> <span class="op">==</span> <span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"normal"</span>
+
+<span class="va">data_2</span><span class="op">$</span><span class="va">gender</span><span class="op">[</span><span class="va">data_2</span><span class="op">$</span><span class="va">gender</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"female"</span>
+<span class="va">data_2</span><span class="op">$</span><span class="va">gender</span><span class="op">[</span><span class="va">data_2</span><span class="op">$</span><span class="va">gender</span> <span class="op">==</span> <span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"male"</span>
+<span class="va">data_2</span><span class="op">$</span><span class="va">gender</span><span class="op">[</span><span class="va">data_2</span><span class="op">$</span><span class="va">gender</span> <span class="op">==</span> <span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"non-binary"</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_2</span></code></pre></div>
+<p>Let us now have a peek at the data frame.</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="co">#&gt;   ID age bone_density weight     gender</span>
+<span class="co">#&gt; 1  1  38          low 179.31       male</span>
+<span class="co">#&gt; 2  2  41          low 140.70 non-binary</span>
+<span class="co">#&gt; 3  3  NA       normal 134.98       &lt;NA&gt;</span>
+<span class="co">#&gt; 4  4  35          low 140.07       male</span>
+<span class="co">#&gt; 5  5  41       normal 112.48 non-binary</span>
+<span class="co">#&gt; 6  6  41          low 123.77     female</span></code></pre></div>
+<p>Here is the description of all the variables in our data set;</p>
+<ol style="list-style-type: decimal">
+<li>ID (numeric variable)
+<ul>
+<li>ranging 1-20</li>
+</ul>
+</li>
+<li>Age (numeric variable)
+<ul>
+<li>ranging 35-45</li>
+</ul>
+</li>
+<li>Bone density (categorical variable)
+<ul>
+<li>normal</li>
+<li>low</li>
+<li>alarming</li>
+</ul>
+</li>
+<li>Weight (numeric variable)
+<ul>
+<li>ranging 98.99-187.81</li>
+</ul>
+</li>
+<li>Gender (categorical variable)
+<ul>
+<li>male</li>
+<li>female</li>
+<li>non-binary</li>
+</ul>
+</li>
+</ol>
+<p>Now, before diving in and starting the study we need to clean our data. This is done with the aim to minimize possible biases and errors in our data. Let us now look at some of the questions which may arise while cleaning and how we can solve them.</p>
+<p><em>As mentioned before, for each case we will be working with couple of examples (a mix of intuitive and course related) in hopes of better understanding and remembering the topic.</em></p>
+</div>
+<div id="dealing-with-empty-entries-is.na" class="section level3" number="53.2.3">
+<h3>
+<span class="header-section-number">53.2.3</span> Dealing with empty entries: <code>is.na()</code><a class="anchor" aria-label="anchor" href="#dealing-with-empty-entries-is.na"><i class="fas fa-link"></i></a>
+</h3>
+<p>When collecting data or when conducting study, we need to know if our data has some empty entries. In a survey these empty entries can arise when someone chooses not to respond to a certain question, in a study this can be because there was an error in the recording tool. So instead of discarding the entire observation we might choose to keep the observation with the empty entry. This is because in real studies collecting data is quite expensive and also the missed entry might not be significantly relevant to the study (i.e. name, residency-status, etc.).</p>
+<p>When reading datasets, empty entries in R are treated and declared as <code>NA</code> which stands for <strong>N</strong>ot <strong>A</strong>vailable. To check against every entry OR a particular entry in the data frame is <code>NA</code> we use <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.</p>
+<div id="is-this-na" class="section level4" number="53.2.3.1">
+<h4>
+<span class="header-section-number">53.2.3.1</span> Is this NA?<a class="anchor" aria-label="anchor" href="#is-this-na"><i class="fas fa-link"></i></a>
+</h4>
+<p>When we want to inquire about the above question, we use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function. In R this function <strong><em>takes in</em></strong> a value, vector, or data frame and <strong><em>returns</em></strong> for every value in the data frame <code>TRUE</code> if it is <code>NA</code> and <code>FALSE</code> otherwise. So here note the return type can be either a vector or a matrix depending on the size and dimension of the input.</p>
+</div>
+<div id="examples-7" class="section level4" number="53.2.3.2">
+<h4>
+<span class="header-section-number">53.2.3.2</span> Examples<a class="anchor" aria-label="anchor" href="#examples-7"><i class="fas fa-link"></i></a>
+</h4>
+<div id="example-1-2" class="section level5" number="53.2.3.2.1">
+<h5>
+<span class="header-section-number">53.2.3.2.1</span> Example 1<a class="anchor" aria-label="anchor" href="#example-1-2"><i class="fas fa-link"></i></a>
+</h5>
+<p>Think of the case where you are receptionist of a hotel with five rooms, where hotel rooms are treated as a vector. Empty rooms are declared with NA and booked rooms are declared with the unique ID of the person who booked them.</p>
+<p>Now imagine you get a call from a potential guest asking if there are any free rooms.</p>
+<p>This is how you answer this question using <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.</p>
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Setting up our hotel rooms</span>
+<span class="va">rooms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">12</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span>
+<span class="co"># checking if we have empty rooms</span>
+<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">rooms</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE FALSE FALSE  TRUE FALSE</span></code></pre></div>
+<p>This is what the result translates to; room 1,2,3,5 are booked and room 4 is empty. This is because as expected <code>NA</code> in the fourth position results in <code>TRUE</code> in the fourth position, meaning room 4 is empty.</p>
+<p>Furthermore, note as mentioned the size of the output is the same as the size of the input.</p>
+</div>
+<div id="example-2-2" class="section level5" number="53.2.3.2.2">
+<h5>
+<span class="header-section-number">53.2.3.2.2</span> Example 2<a class="anchor" aria-label="anchor" href="#example-2-2"><i class="fas fa-link"></i></a>
+</h5>
+<p>Let us now get back to the bone density study and see what possible questions can be answered using the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function.</p>
+<p>Suppose we would like to know if bone density varies in different genders. First thing we would like to know is if there are any empty (<code>NA</code>) entries in the gender we recorded. This is how it is done:</p>
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># getting all the recorded genders in the study</span>
+<span class="va">gender</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">gender</span>
+
+<span class="co"># checking for gender</span>
+<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span>
+<span class="co">#&gt;  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE</span>
+<span class="co">#&gt; [10] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</span>
+<span class="co">#&gt; [19] FALSE FALSE</span></code></pre></div>
+<p>As it might seem hard to read the result, let us now check for the count for the individual results for <code>TRUE</code> versus <code>FALSE</code> in the result.</p>
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># shows the unique count of occurrences</span>
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; FALSE  TRUE </span>
+<span class="co">#&gt;    17     3</span></code></pre></div>
+<p>Based on the above results we can see that of all the participants there were three for which the response for gender was <strong>N</strong>ot <strong>A</strong>valible.</p>
+<p>Now depending on our study’s protocol we can either choose to remove those entries or assign a new category for the unreported category.</p>
+<p>Before proceeding with the study and going to the next step we would want to know the position of these <code>NA</code> values. How to get the position and filter them out will be the next skill to study.</p>
+</div>
+</div>
+</div>
+<div id="finding-position-of-specific-elements-which" class="section level3" number="53.2.4">
+<h3>
+<span class="header-section-number">53.2.4</span> Finding position of specific elements: <code>which()</code><a class="anchor" aria-label="anchor" href="#finding-position-of-specific-elements-which"><i class="fas fa-link"></i></a>
+</h3>
+<p>Often we would want to find the position of entries in our data based on certain conditions. Let’s say you would like to know the effect of treatment for people of a certain age or a certain gender. Another possible case while data cleaning is (as discussed previously) further building up and refining data upon discovery of <code>NA</code>.</p>
+<p>Cases like these require us to use <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> to locate the position of these entries.</p>
+<div id="which-ones-are-it" class="section level4" number="53.2.4.1">
+<h4>
+<span class="header-section-number">53.2.4.1</span> Which ones are it?<a class="anchor" aria-label="anchor" href="#which-ones-are-it"><i class="fas fa-link"></i></a>
+</h4>
+<p>Inquiring about questions related to identification and finding positions in the data frame, requires the use of the <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> function.</p>
+<p>This function <strong><em>takes in</em></strong> a logical argument or a combination of logical arguments and <strong><em>returns</em></strong> the position of the entries which satisfy the passed logical argument.</p>
+</div>
+<div id="examples-8" class="section level4" number="53.2.4.2">
+<h4>
+<span class="header-section-number">53.2.4.2</span> Examples<a class="anchor" aria-label="anchor" href="#examples-8"><i class="fas fa-link"></i></a>
+</h4>
+<div id="example-1-3" class="section level5" number="53.2.4.2.1">
+<h5>
+<span class="header-section-number">53.2.4.2.1</span> Example 1<a class="anchor" aria-label="anchor" href="#example-1-3"><i class="fas fa-link"></i></a>
+</h5>
+<p>Getting back to our hotel example, let us look at two cases.</p>
+<p>Let us say that one of the guests who had previously booked at our hotel has now arrived and would like to know their room number. Suppose they mention their ID is 23 (recall that rooms were booked against ID) this is how we would go about searching for their room number.</p>
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># our hotel rooms</span>
+<span class="va">rooms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">12</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span>
+
+<span class="co"># checking the room number</span>
+<span class="co">## STEP1: declaring the required logical argument</span>
+<span class="va">argument</span> <span class="op">&lt;-</span> <span class="va">rooms</span> <span class="op">==</span> <span class="fl">23</span>
+
+<span class="co">## STEP2: passing the argument</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1</span></code></pre></div>
+<p>Based of this result we can let our guest know that room 1 is the room booked for them.</p>
+<p><strong>Note in the previous code chunk we can combine step 1 and 2 and directly pass in the argument in the function; i.e. <code><a href="https://rdrr.io/r/base/which.html">which(rooms == 23)</a></code>. The <code>argument</code> variable was used for the ease of understanding.</strong></p>
+<p>Let us look at another related example which deals with a combination of the previously learned function <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.</p>
+<p>Imagine that we are faced with the question of which rooms are free (<code>NA</code>). This is how we will be answering this question.</p>
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># checking empty rooms</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">rooms</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] 4</span></code></pre></div>
+<p>Based on this result we can see that the fourth room is free.</p>
+<p>Let us dissect this case. Recall that <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> returns <code>TRUE</code> against all the entries which are <code>NA</code>s and <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> returns the position of the elements which pass the argument (i.e. elements in the argument that are <code>TRUE</code>, hence in this case we know that room 4 is empty).</p>
+</div>
+<div id="example-2-3" class="section level5" number="53.2.4.2.2">
+<h5>
+<span class="header-section-number">53.2.4.2.2</span> Example 2<a class="anchor" aria-label="anchor" href="#example-2-3"><i class="fas fa-link"></i></a>
+</h5>
+<p>Getting back to our bone density study, let us look at what questions we can answer using this function.</p>
+<p>Let’s say we are interested and would like to know the participants who have normal levels of bone density. This is how we do this.</p>
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># STEP1: declaring the logical argument</span>
+<span class="co">## looking for normal bone density</span>
+<span class="va">argument</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bone_density</span> <span class="op">==</span> <span class="st">"normal"</span>
+
+<span class="co"># STEP2: passing the argument getting the results</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument</span><span class="op">)</span>
+<span class="co">#&gt; [1]  3  5  8  9 11 12 15 17 19</span></code></pre></div>
+<p>Based on the results we can see that participants 3, 5, 8, 9, 11, 12, 15, 17 and 19 had normal bone density, but for the sake of clarification let us also verify this in a form of a clean table.</p>
+<pre><code>#&gt;   ID bone_density
+#&gt; 1  3       normal
+#&gt; 2  5       normal
+#&gt; 3  8       normal
+#&gt; 4  9       normal
+#&gt; 5 11       normal
+#&gt; 6 12       normal
+#&gt; 7 15       normal
+#&gt; 8 17       normal
+#&gt; 9 19       normal</code></pre>
+<p>Let us close this example with looking at a case combining <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> with <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.</p>
+<p>Suppose, while cleaning the data and removing the <code>NA</code> values we would like to know the other characteristics of the observations with any missing values. This is how we would go about solving this problem.</p>
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># STEP1: Declare logical argument</span>
+<span class="co">## Checks are done against age and gender</span>
+<span class="va">argument</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">gender</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>
+
+<span class="co"># STEP2: Get to positions of the cases which pass the argument</span>
+<span class="va">positions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument</span><span class="op">)</span>
+
+<span class="co"># STEP3: Filter the data based on the specified condition and get the results</span>
+<span class="va">data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ID</span> <span class="op">%in%</span> <span class="va">positions</span><span class="op">)</span>
+<span class="co">#&gt;   ID age bone_density weight     gender</span>
+<span class="co">#&gt; 1  3  NA       normal 134.98       &lt;NA&gt;</span>
+<span class="co">#&gt; 2  9  NA       normal 145.14       &lt;NA&gt;</span>
+<span class="co">#&gt; 3 11  NA       normal 187.81 non-binary</span>
+<span class="co">#&gt; 4 12  NA       normal 126.19       &lt;NA&gt;</span>
+<span class="co">#&gt; 5 13  NA          low 131.41       male</span></code></pre></div>
+<p>Here, we only checked for <code>NA</code> in the categories of age and gender due to the study’s assumption that we asked participants to self-report age and gender.</p>
+<p>Overall, based on the results, we can see that we had five participants who choose not to report or had an error recording their age and of these five participants, three of them had similar issues with recording their gender.</p>
+</div>
+</div>
+<div id="special-cases-and-dealing-with-common-errors" class="section level4" number="53.2.4.3">
+<h4>
+<span class="header-section-number">53.2.4.3</span> Special cases and dealing with common errors<a class="anchor" aria-label="anchor" href="#special-cases-and-dealing-with-common-errors"><i class="fas fa-link"></i></a>
+</h4>
+<p>So far we have been dealing with cases where we were able to find the elements in the data frame satisfying the logical argument. Let us now look at the case for which entries satisfying the logical argument do not exist in the data frame and see what is returned.</p>
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># STEP1: Declare logical arguments</span>
+<span class="co">## Check for an invalid ID</span>
+<span class="va">argument_1</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">ID</span> <span class="op">==</span> <span class="fl">34</span>
+<span class="co">## Check for an NA ID</span>
+<span class="va">argument_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">ID</span><span class="op">)</span>
+<span class="co">## Check for an invalid data type in weight</span>
+<span class="va">argument_3</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">weight</span> <span class="op">==</span> <span class="st">"Twinny One"</span>
+<span class="co">## Check for an invalid ID in age</span>
+<span class="va">argument_4</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"Twinny 2"</span>
+
+
+<span class="co"># STEP2: Get to positions of the cases which passes the declared arguments</span>
+<span class="va">position_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_1</span><span class="op">)</span>
+<span class="va">position_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_2</span><span class="op">)</span>
+<span class="va">position_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_3</span><span class="op">)</span>
+<span class="va">position_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_4</span><span class="op">)</span>
+
+<span class="co"># STEP3: Get the result</span>
+<span class="va">position_1</span>
+<span class="co">#&gt; integer(0)</span>
+<span class="va">position_2</span>
+<span class="co">#&gt; integer(0)</span>
+<span class="va">position_3</span>
+<span class="co">#&gt; integer(0)</span>
+<span class="va">position_4</span>
+<span class="co">#&gt; integer(0)</span></code></pre></div>
+<p>Here in each case we can see that when elements satisfying the logical argument are not found and then the result is always <code><a href="https://rdrr.io/r/base/integer.html">integer(0)</a></code>.</p>
+<p>Let us look at what this output means. Recall when we mentioned that the output of <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> is a vector of integers containing the positions of the occurrences satisfying the logical argument. So here <code><a href="https://rdrr.io/r/base/integer.html">integer(0)</a></code> is an <strong>integer vector of length 0</strong>; that is, it is an empty integer vector, which translates to mean that there are no values in our data set matching the specified logical argument.</p>
+<p>Let us now close this topic with introduction of some common errors that we might encounter.</p>
+<p>One common case occurs when we fail to input a logical argument, which means our current function fails to work and returns an error. Let us see what the output looks like.</p>
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># STEP1: Declare logical arguments</span>
+<span class="va">argument_F</span> <span class="op">&lt;-</span> <span class="fl">21</span>
+<span class="co"># STEP2: Test and find our argument</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_F</span><span class="op">)</span>
+<span class="co">#&gt; Error in which(argument_F): argument to 'which' is not logical</span></code></pre></div>
+<p>Here as expected we can see that our “logical” argument has an error and is not logical, hence the error message. Upon encountering this message, check the input of logical argument and make sure it is logical (i.e. upon processing returns either <code>TRUE</code> or <code>FALSE</code>).</p>
+<p>Another case is when the input argument is logical but the returning values are out of bound of our data frame. Let us look at that example and what that means.</p>
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># STEP1: Declaring logical</span>
+<span class="co">## Checking for Female in our data frame</span>
+<span class="va">argument_InVal</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">==</span> <span class="st">"female"</span>
+<span class="co"># STEP2: Test the argument</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_InVal</span><span class="op">)</span>
+<span class="co">#&gt; [1]  86  94  95  98  99 100</span></code></pre></div>
+<p>Based on these results let us check which entry does one of these values correspond to.</p>
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Checking for 1 of the results, every input will have the same result</span>
+<span class="va">data</span><span class="op">[</span><span class="fl">86</span>, <span class="op">]</span>
+<span class="co">#&gt;    ID age bone_density weight gender</span>
+<span class="co">#&gt; NA NA  NA         &lt;NA&gt;     NA   &lt;NA&gt;</span></code></pre></div>
+<p>Here we can see that there are no corresponding entries on the 86th row in our data set, which is expected as our data set had only 20 rows (20 IDs).</p>
+<p>When we encounter this case, we can be sure about one thing: there are occurrences satisfying our declared argument, however to actually find them we need to go back and fix our declared argument.</p>
+<p>Initially we were trying to check if every value in <code>data</code> equals female, instead we need to check in the right variable in our data frame.</p>
+<p>Let us quickly fix that and see the results:</p>
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># STEP1: Fix the declared logical argument</span>
+<span class="co">## Checking for Female under **gender** in our data frame</span>
+<span class="va">argument_Fix</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">gender</span> <span class="op">==</span> <span class="st">"female"</span>
+
+<span class="co"># STEP2: Test the argument</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_Fix</span><span class="op">)</span>
+<span class="co">#&gt; [1]  6 14 15 18 19 20</span>
+
+<span class="co"># STEP3: Filter the data based on the specified condition and get the results</span>
+<span class="va">data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ID</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">argument_Fix</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">gender</span><span class="op">)</span>
+<span class="co">#&gt;   ID gender</span>
+<span class="co">#&gt; 1  6 female</span>
+<span class="co">#&gt; 2 14 female</span>
+<span class="co">#&gt; 3 15 female</span>
+<span class="co">#&gt; 4 18 female</span>
+<span class="co">#&gt; 5 19 female</span>
+<span class="co">#&gt; 6 20 female</span></code></pre></div>
+</div>
+</div>
+<div id="getting-all-the-distinct-entries-unique" class="section level3" number="53.2.5">
+<h3>
+<span class="header-section-number">53.2.5</span> Getting all the distinct entries <code>unique()</code><a class="anchor" aria-label="anchor" href="#getting-all-the-distinct-entries-unique"><i class="fas fa-link"></i></a>
+</h3>
+<p>Often we will encounter circumstances where we would like to know of all the unique entries or categories in our data frame. Furthermore, in certain cases a potential source of error might be duplicates in our data frame, in which case we would have to filter our data to get the unique occurrences. This is done using the <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function.</p>
+<div id="show-me-only-the-unique" class="section level4" number="53.2.5.1">
+<h4>
+<span class="header-section-number">53.2.5.1</span> Show me only the unique!<a class="anchor" aria-label="anchor" href="#show-me-only-the-unique"><i class="fas fa-link"></i></a>
+</h4>
+<p>The <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function <strong>takes in</strong> a vector, matrix, or data frame and then <strong>returns</strong> a vector, matrix, or data frame containing only the unique entries. <strong>NOTE</strong> <code>NA</code> as an entry in our data frame also counts as a unique entry. Let us now look at some of the examples to cement our ideas.<br></p>
+</div>
+<div id="examples-9" class="section level4" number="53.2.5.2">
+<h4>
+<span class="header-section-number">53.2.5.2</span> Examples<a class="anchor" aria-label="anchor" href="#examples-9"><i class="fas fa-link"></i></a>
+</h4>
+<div id="example-1-4" class="section level5" number="53.2.5.2.1">
+<h5>
+<span class="header-section-number">53.2.5.2.1</span> Example 1<a class="anchor" aria-label="anchor" href="#example-1-4"><i class="fas fa-link"></i></a>
+</h5>
+<p>Let’s say that details about hotel rooms (room size) are stored in a vector against their position, i.e. detail about room 2 is the second element in our vector, and details about room X will be on the <span class="math inline">\(X^{th}\)</span> position in our vector.</p>
+<p>So now imagine a potential guest calls and wants to inquire about all the different rooms at our hotel, let us see how we can answer this question.</p>
+<div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Declaring the room detail vector</span>
+<span class="va">room_size</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span>
+<span class="co"># getting the unique options</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">room_size</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1 2 3</span></code></pre></div>
+<p>Based in this we can inform them about the three possible options for room size; one, two, and three, person rooms are currently being offered at our hotel.</p>
+</div>
+<div id="example-2-4" class="section level5" number="53.2.5.2.2">
+<h5>
+<span class="header-section-number">53.2.5.2.2</span> Example 2<a class="anchor" aria-label="anchor" href="#example-2-4"><i class="fas fa-link"></i></a>
+</h5>
+<p>Recall our bone density study, let’s say we want to get an idea about the uniqueness of the age in our study. Let us see the steps involved in solving this problem:</p>
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Fetch the all the ages from our data frame</span>
+<span class="va">age</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">age</span>
+<span class="co"># Get the all the unique ages</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>
+<span class="co">#&gt; [1] 38 41 NA 35 39 40 42 45</span></code></pre></div>
+<p>Based on the result we can see that there are eight unique ages, including one <code>NA</code> value.
+Let us continue to build on this example and incorporate some of our previously learned skills.</p>
+<p>Although we can easily spot the <code>NA</code> value in our result, in real world when dealing with large datasets it might get super difficult to spot these values. Let’s go into <strong><em>unique-ception</em></strong>.</p>
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># check if there is a NA value</span>
+<span class="co">## returns a vector of TRUE &amp; FALSE depending on the NA position</span>
+<span class="va">na_check</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># check the Unique entries in our vector</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">na_check</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE  TRUE</span></code></pre></div>
+<p>Here first we are checking each value in <code>age</code> to see if it is <code>NA</code> which result in a vector containing logical values only, and then we are running our <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function on the result to see if <code>TRUE</code> appears, indicating <code>NA</code> values in <code>age</code>.</p>
+<p>As expected and with the presence of <code>TRUE</code> in our result we know that there exists <code>NA</code> in our data. Note the ease of reading this result makes it much more easier to identify the presence of <code>NA</code> compared to <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.</p>
+</div>
+</div>
+<div id="special-case" class="section level4" number="53.2.5.3">
+<h4>
+<span class="header-section-number">53.2.5.3</span> Special case<a class="anchor" aria-label="anchor" href="#special-case"><i class="fas fa-link"></i></a>
+</h4>
+<p>Thus far we have looked at what happens when there are valid entries in our input data frame. Now let us now look at what to expect in the case where the input is pointing to an empty data frame.</p>
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># declare the empty vector</span>
+<span class="va">empty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co"># test the result</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">empty</span><span class="op">)</span>
+<span class="co">#&gt; NULL</span></code></pre></div>
+<p>In the case where we have an empty data set the <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function returns <code>NULL</code>. This is because our declared variable is storing a <code>NULL</code> (empty) vector. In the case of an empty integer vector the return value will be <code><a href="https://rdrr.io/r/base/integer.html">integer(0)</a></code>.</p>
+<p>Sometimes we might run into other funny yet complicated situations, so let’s look at some examples and the results we will get.</p>
+<p>Let’s see if there is a way to distinguish between <code>double</code> and <code>integers</code> which are two different ways R stores numbers.</p>
+<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Comparing double and  integer</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">as.double</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.000</span><span class="op">)</span>, <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0</span></code></pre></div>
+<p>Based on this result we now know that unique is not able to distinguish between integers and double, so let us see what can be done to deal with <strong>EXACT EQUALITY</strong> in the following section.</p>
+</div>
+</div>
+<div id="finding-if-objects-are-exactly-similar-identical" class="section level3" number="53.2.6">
+<h3>
+<span class="header-section-number">53.2.6</span> Finding if objects are exactly similar: <code>identical()</code><a class="anchor" aria-label="anchor" href="#finding-if-objects-are-exactly-similar-identical"><i class="fas fa-link"></i></a>
+</h3>
+<p>When comparing if two objects (vector, matrix, data frame, list, etc.) are <strong>EXACTLY</strong> equal in the case when dealing with a higher degree of precision or when dealing with super large datasets where storage of data type (64-bit-double versus 32-bit-integer) will have a significant effect on the storage and processing of data, we find use cases of comparing the EXACT equality. In these cases we will be using the <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> function.</p>
+<p>Another super useful use-case is when comparing objects of different lengths, ideally we would like to get a definitive value whether one is equal to another however the standard <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> will not give us one definitive answer and sometimes with the difference of length of our objects or presence of <code>NA</code> we might run into some errors.</p>
+<div id="check-if-they-are-same-identical" class="section level4" number="53.2.6.1">
+<h4>
+<span class="header-section-number">53.2.6.1</span> Check if they are same, <code>identical()</code><a class="anchor" aria-label="anchor" href="#check-if-they-are-same-identical"><i class="fas fa-link"></i></a>
+</h4>
+<p>The <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> function <strong>takes in</strong> two inputs that can be any R object (numbers, vectors, matrix, data frames, etc.) and <strong>returns</strong> a logical answer: <code>TRUE</code> if the two objects match and <code>FALSE</code> otherwise.</p>
+<p>Let’s look at some examples to further cement our understanding.</p>
+</div>
+<div id="examples-10" class="section level4" number="53.2.6.2">
+<h4>
+<span class="header-section-number">53.2.6.2</span> Examples<a class="anchor" aria-label="anchor" href="#examples-10"><i class="fas fa-link"></i></a>
+</h4>
+<div id="example-1-5" class="section level5" number="53.2.6.2.1">
+<h5>
+<span class="header-section-number">53.2.6.2.1</span> Example 1<a class="anchor" aria-label="anchor" href="#example-1-5"><i class="fas fa-link"></i></a>
+</h5>
+<p>Let us start with an intuitive example. Think about ID checks in the case when you might go to a bar versus when you are boarding for an international flight. In both the cases you can present your passport as an ID, however at a bar they might just compare your face and look at your age and the results of acceptance or rejection will be based on these factors. In the case of boarding a flight, there are much more extensive checks, where not only do they verify your ID but also run some checks in their database to verify your visa and confirm your identity.</p>
+<p>Here in this example you can think of the case of the bar check as a simple comparison using <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> versus the airport example as the check using <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code>.</p>
+</div>
+<div id="example-2-5" class="section level5" number="53.2.6.2.2">
+<h5>
+<span class="header-section-number">53.2.6.2.2</span> Example 2<a class="anchor" aria-label="anchor" href="#example-2-5"><i class="fas fa-link"></i></a>
+</h5>
+<p>Let us now build our knowledge with some examples in R. Let’s start off with a simple example of where we are comparing two vectors.</p>
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># declaring the vector</span>
+<span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="co"># comparing the vectors</span>
+<span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">v1</span>, <span class="va">v2</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<p>As expected, the result is <code>FALSE</code>, however let us see how the result would differ if we were to use our classical way of comparing the vectors with <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code>.</p>
+<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">v1</span> <span class="op">==</span> <span class="va">v2</span>
+<span class="co">#&gt; [1] FALSE  TRUE  TRUE</span></code></pre></div>
+<p>Here we can see that the result is a vector containing a <strong>one-to-one</strong> comparison of the entries of the vectors, and although this is useful, getting a single logical outcome is much more beneficial and easier to process and read.</p>
+<p>Also (as mentioned before) in the case where the vectors are large or of unequal length, or contain <code>NA</code> values, we may run into problems.</p>
+<p>Let us quickly look at some of these examples:</p>
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>
+<span class="va">v1</span> <span class="op">==</span> <span class="va">v2</span>
+<span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></code></pre></div>
+<p>Here we can see that we get a warning about the lengths of the vector not being equal. However we will not run into this problem with <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> as seen next.</p>
+<div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">v1</span>, <span class="va">v2</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<p>As expected we got one logical output which we should be expecting.</p>
+<p>Let us now look at the example containing <code>NA</code> and close this example:</p>
+<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">22</span>, <span class="fl">33</span><span class="op">)</span>
+<span class="va">v2</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span>
+<span class="va">v1</span> <span class="op">==</span> <span class="va">v2</span>
+<span class="co">#&gt; [1] FALSE FALSE    NA</span></code></pre></div>
+<p>Here again we see if there is a <code>NA</code> in any of our values then <code>===</code> fails to get us the desired result, however let us see how to work around this.</p>
+<div class="sourceCode" id="cb356"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">v1</span>, <span class="va">v2</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<p>Here we can see that using the <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> function we are able to identify that the two vectors are not equal even if they contain <code>NA</code>. This is extremely useful while data-cleaning and also when merging 2 datasets.</p>
+<p><strong><em>More on merging can be found in chapter: He was a d8er boi</em></strong></p>
+</div>
+<div id="example-3-2" class="section level5" number="53.2.6.2.3">
+<h5>
+<span class="header-section-number">53.2.6.2.3</span> Example 3<a class="anchor" aria-label="anchor" href="#example-3-2"><i class="fas fa-link"></i></a>
+</h5>
+<p>Let’s revisit the example from the previous section where we were comparing integers with double and see how the results differ.</p>
+<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># declare our R objects</span>
+<span class="va">obj_int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
+<span class="va">obj_float</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">as.double</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
+<span class="co"># check if the objects are equal</span>
+<span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">obj_int</span>, <span class="va">obj_float</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<p>Recall in the case when we used <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> we were unable to distinguish between them, however here as expected we are able to distinguish one object type from the other.</p>
+<p>Let us look at another case and see how to deal with it. Let us see how to differentiate between <code>+0</code> and <code>-0</code>. In an intuitive sense both of them are equal but on the number line in the case of <code>-0</code> we are approaching 0 from negative side (…,-2,-1,-0) and in the in the case of <code>+0</code> we are approaching the 0 from the positive side(…,2,1,0).</p>
+<div class="sourceCode" id="cb358"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="op">+</span><span class="fl">2</span> <span class="op">*</span> <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span> <span class="op">*</span> <span class="fl">0</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<p>Ahh! Interesting, as we should have expected to get a different result, however we didn’t. Let us see if there is a way to work around this.</p>
+<p>There are <strong>built in arguments</strong> which we can use to solve this issue, <code><a href="https://rdrr.io/r/base/identical.html">identical(-x,+x, num.eq = FALSE)</a></code>. Here the new argument of <code>num.eq = FALSE</code> is used to deal with this situation. Note by default it is set to <code>TRUE</code> meaning that it does not compare on a bit-wise level. However by changing the argument to <code>FALSE</code>, we are doing a <strong>bit-wise comparison</strong>(The numbers -0 and +0 have a different representation when translated into binary).</p>
+<p>Let’s see how this makes a difference.</p>
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span> <span class="op">*</span> <span class="fl">0</span>, num.eq <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<p>Here based on the output we can see that the <code>+0</code> and <code>-0</code>, are now treated differently which is expected as they are not bitwise equal.</p>
+</div>
+</div>
+<div id="looking-further" class="section level4" number="53.2.6.3">
+<h4>
+<span class="header-section-number">53.2.6.3</span> Looking further<a class="anchor" aria-label="anchor" href="#looking-further"><i class="fas fa-link"></i></a>
+</h4>
+<p>The <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> function can be used to compare not only datasets but also to compare objects in different environments(local/global). Furthermore, it is rare to run into errors using this function as most of the errors involved are due to an invalid pointer at C-lvl (variables being compared were not declared properly), but those are out of our current scope.</p>
+<p>However to build up your knowledge and to get your paws dirty I would strongly encourage to study <code><a href="https://rdrr.io/r/base/all.equal.html">all.equal()</a></code> and see how it differs from the <code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> function. Notes on <code><a href="https://rdrr.io/r/base/all.equal.html">all.equal()</a></code> can be found <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/all.equal">here</a>.</p>
+</div>
+</div>
+</div>
+<div id="exercises-67" class="section level2" number="53.3">
+<h2>
+<span class="header-section-number">53.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-67"><i class="fas fa-link"></i></a>
+</h2>
+<!-- ```{r q1, echo=FALSE} -->
+<!-- question("To check if every value in the data frame; `data.frame` is NA, which of the following code will you use?", -->
+<!--   answer(" `is.na(data.frame)` ", correct = TRUE ), -->
+<!--   answer(" `which(data.frame == NA)` ",  message = "Checks if the dataframe is set to `NULL`") -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q2 -->
+<!-- ```{r q2, echo=FALSE} -->
+<!-- question("To get the location of values in the data data frame; `data.frame` that are NA, Which of the following code chuck will you use?", -->
+<!--   answer(" `which(is.na(data.frame))` ", correct = TRUE ), -->
+<!--   answer(" `which(data.frame == NA)` ",  message = "Invalid, but investigate why does this return 1?") -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q3 -->
+<!-- ```{r q3, echo=FALSE} -->
+<!-- question("What is the result, when we run the `which()` function with the logical condition on the data frame and the data frame contains no value that matches our logical condition?", -->
+<!--   answer(" `integer(0)` ", correct = TRUE ), -->
+<!--   answer(" `NA` ",  message = "It returns an integer vector of 0 length ie. `integer(0)` "), -->
+<!--   answer(" `logical(0)`",  message = "It returns an integer vector of 0 length ie. `integer(0)` ") -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q4 -->
+<!-- `rand_vector <-c("22","NA","hello", "world")` \ -->
+<!-- `which(rand_vector == NA) ` \ -->
+<!-- ```{r q4, echo=FALSE} -->
+<!-- question("What is the result when you run the above code chuck? ", -->
+<!--   answer(" `integer(0)` ", correct = TRUE ), -->
+<!--   answer(" `NA` ",  message = "Check Data-types in the logical argument"), -->
+<!--   answer(" `logical(0)`",  message = "Declared vector is of type character"), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q5 -->
+<!-- ```{r q5, echo=FALSE} -->
+<!-- question("What is the output type of `is.na()` function on a dataframe? ", -->
+<!--   answer(" logical Vector ",  message = "Type should match to that of the input" ), -->
+<!--   answer(" logical Matrix ",  message = "Type should match to that of the input"), -->
+<!--   answer(" Can be either",  correct = TRUE, message = "depending on the declaration of the dataframe" ), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q6 -->
+<!-- `empty <- c()` \ -->
+<!-- `unique(empty)` \ -->
+<!-- ```{r q6, echo=FALSE} -->
+<!-- question("What is the output of the previous code code? ", -->
+<!--   answer(" `NULL` ",  correct = TRUE), -->
+<!--   answer("` NA` ",  message = "Close, try again ;) "), -->
+<!--   answer(" `integer(0)`", message = "Note the declared variable is EMPTY" ), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q7 -->
+<!-- `vec <- c(1,1,3,NA)` \ -->
+<!-- `unique(vec)` -->
+<!-- ```{r q7, echo=FALSE} -->
+<!-- question("What is the output of the previous code code? ", -->
+<!--   answer(" Error, because of NA ",  message = "unique() identify `NA` as a value"), -->
+<!--   answer("`1, 3, NA` ", correct = TRUE), -->
+<!--   answer(" `1, 3`", message = "Close, try again ;)" ), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q8 -->
+<!-- ```{r q8, echo=FALSE} -->
+<!-- question("What are some of the use cases for using identical() over the standard '==' to compare objects?", -->
+<!--   answer("Easier to read the final result, when comparing large datasets", message = " and more... "), -->
+<!--   answer("Much more reliable, deals with cases of NA values in the data frames", message = " and more... "), -->
+<!--   answer("Comparison of datatype and sensitive values; double vs integer or -0 vs +0", message = " and more... " ), -->
+<!--   answer("All of the above", correct = TRUE ), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q9 -->
+<!-- `v1 <- c(1,3,3,4, NA, NA)` \ -->
+<!-- `v2 <- c(1,3,4,NA)` \ -->
+<!-- `identical(unique(v1), v2)` \ -->
+<!-- ```{r q9, echo=FALSE} -->
+<!-- question("What is the output of the previous code code? ", -->
+<!--   answer(" Error, because of `NA` ",  message = "unique(), identical() identify `NA` as a value"), -->
+<!--   answer("`TRUE` ", correct = TRUE), -->
+<!--   answer(" `FALSE`", message = "`unique(v1)` returns us an IDENTICAL copy of v2" ), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ### Q10 -->
+<!-- For this question we will be writing the R-code in the provided code chunk to achieve the requested desired outcome. Furthermore, you may choose to concatenate your function call if you'd like.\ -->
+<!-- ***Note, parts of this problem might seem challenging, breaking down the tasks into sub tasks would be a good place to start*** -->
+<!-- This question we will mainly be working with `iris` data set. Let us first see what the data set looks like; \ -->
+<!-- ```{r q10, exercise.eval = TRUE, exercise = TRUE, exercise.lines = 1} -->
+<!-- head(iris) -->
+<!-- ``` -->
+<!-- a) Find if there are any NA values for the variable `Species` in our data and give the number of the total such occurring values; \ -->
+<!-- Hint: Use a combination of functions, 'length()' function might be useful -->
+<!-- ```{r q_10a, exercise.eval = TRUE, exercise = TRUE, exercise.lines = 5 } -->
+<!-- ``` -->
+<!-- ```{r q_10a-solution } -->
+<!-- length(which(is.na(iris$Species))) -->
+<!-- ``` -->
+<!-- b) get the position of all the values which are from the "setosa" species AND have the sepal length > 5 -->
+<!-- Hint: break down your logical argument first -->
+<!-- ```{r q_10b, exercise.eval = TRUE, exercise = TRUE, exercise.lines = 5 } -->
+<!-- ``` -->
+<!-- ```{r q_10b-solution } -->
+<!-- which( (iris$Species == "setosa") & (iris$Sepal.Length > 5)) -->
+<!-- ``` -->
+<!-- c) get the count of all the unique species of flowers in the `iris` dataframe. -->
+<!-- Hint; Use a combination of functions, 'length()' function might be useful -->
+<!-- ```{r q_10c, exercise.eval = TRUE, exercise = TRUE, exercise.lines = 5 } -->
+<!-- ``` -->
+<!-- ```{r q_10c-solution } -->
+<!-- length(unique(iris$Species)) -->
+<!-- ``` -->
+<!-- d) For this part we will be also working with another data set, `iris3` and comparing one of the variable from this data set with our variable from the `iris` data set. \ -->
+<!-- You are required to complete the code, your task is to check if the UNIQUE, Sepal lengths(`Sepal.Length`) for the "setosa" specie, between the 2 datasets are IDENTICAL. \ -->
+<!-- Hint; `filter()` will come in handy for some of this task. \ -->
+<!-- **The loading of  the required variable from the `iris3` data set has been completed for you.** \ -->
+<!-- ```{r q_10d1, exercise.eval = TRUE, exercise = TRUE, exercise.lines = 10 } -->
+<!-- setosa.Sepal.IR3 <-  tibble(Sepal.Length = as.data.frame(iris3)[, c(1)] ) -->
+<!-- ``` -->
+<!-- ```{r q_10d1-solution } -->
+<!-- setosa.Sepal.IR3 <-  tibble(Sepal.Length = as.data.frame(iris3)[, c(1)]) -->
+<!-- setosa.Sepal.IR <- iris %>% -->
+<!--   filter(iris$Species == "setosa" ) %>% -->
+<!--   select(Sepal.Length) -->
+<!-- identical(unique(setosa.Sepal.IR3$Sepal.Length) , unique(setosa.Sepal.IR$Sepal.Length)) -->
+<!-- ``` -->
+</div>
+<div id="refrences" class="section level2" number="53.4">
+<h2>
+<span class="header-section-number">53.4</span> Refrences<a class="anchor" aria-label="anchor" href="#refrences"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Data Simulation<br><a href="https://jech.bmj.com/content/jech/40/4/319.full.pdf">Facts on data</a><br><a href="https://www.youtube.com/watch?v=sNNoTd7xI-4&amp;t=769s">Generating random NA</a><br></p></li>
+<li><p><code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code><br><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/NA">Documentation</a><br><a href="https://www.programmingr.com/tutorial/is-na/">Example ideas</a><br></p></li>
+<li><p><code><a href="https://rdrr.io/r/base/which.html">which()</a></code><br><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/which">Documentation</a><br><a href="https://www.journaldev.com/45274/which-function-in-r">Example ideas</a><br><a href="https://www.r-bloggers.com/2017/03/which-function-in-r/">More example ideas</a><br></p></li>
+<li><p><code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code><br><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/unique">Documentation</a><br><a href="https://www.journaldev.com/44614/unique-function-r-programming">Example ideas</a><br></p></li>
+<li><p><code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code><br><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/identical">Documentation</a><br><a href="https://rdrr.io/r/base/identical.html">Example ideas</a><br><a href="https://docs.tibco.com/pub/enterprise-runtime-for-R/5.0.0/doc/html/Language_Reference/base/identical.html">More example ideas</a><br><a href="https://www.datasciencemadesimple.com/test-equality-two-objects-using-identical-function-in-r/">Bitwise comparison</a><br><a href="https://stackoverflow.com/questions/3395696/whats-the-difference-between-identicalx-y-and-istrueall-equalx-y">More example ideas</a><br></p></li>
+</ul>
+</div>
+<div id="exercises-68" class="section level2" number="53.5">
+<h2>
+<span class="header-section-number">53.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-68"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-46" class="section level3" number="53.5.1">
+<h3>
+<span class="header-section-number">53.5.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-46"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-45" class="section level3" number="53.5.2">
+<h3>
+<span class="header-section-number">53.5.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-45"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-45" class="section level3" number="53.5.3">
+<h3>
+<span class="header-section-number">53.5.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-45"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-42" class="section level3" number="53.5.4">
+<h3>
+<span class="header-section-number">53.5.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-42"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-40" class="section level3" number="53.5.5">
+<h3>
+<span class="header-section-number">53.5.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-40"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-40" class="section level3" number="53.5.6">
+<h3>
+<span class="header-section-number">53.5.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-40"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-40" class="section level3" number="53.5.7">
+<h3>
+<span class="header-section-number">53.5.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-40"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-40" class="section level3" number="53.5.8">
+<h3>
+<span class="header-section-number">53.5.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-40"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-40" class="section level3" number="53.5.9">
+<h3>
+<span class="header-section-number">53.5.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-40"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-40" class="section level3" number="53.5.10">
+<h3>
+<span class="header-section-number">53.5.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-40"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></div>
+<div class="next"><a href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#investigating-and-playing-with-data"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="nav-link" href="#introduction-49"><span class="header-section-number">53.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#let-the-lecture-begin"><span class="header-section-number">53.2</span> Let the lecture begin!!</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#required-setup"><span class="header-section-number">53.2.1</span> Required setup</a></li>
+<li><a class="nav-link" href="#setting-up-our-topic-of-study"><span class="header-section-number">53.2.2</span> Setting up our topic of study</a></li>
+<li><a class="nav-link" href="#dealing-with-empty-entries-is.na"><span class="header-section-number">53.2.3</span> Dealing with empty entries: is.na()</a></li>
+<li><a class="nav-link" href="#finding-position-of-specific-elements-which"><span class="header-section-number">53.2.4</span> Finding position of specific elements: which()</a></li>
+<li><a class="nav-link" href="#getting-all-the-distinct-entries-unique"><span class="header-section-number">53.2.5</span> Getting all the distinct entries unique()</a></li>
+<li><a class="nav-link" href="#finding-if-objects-are-exactly-similar-identical"><span class="header-section-number">53.2.6</span> Finding if objects are exactly similar: identical()</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#exercises-67"><span class="header-section-number">53.3</span> Exercises</a></li>
+<li><a class="nav-link" href="#refrences"><span class="header-section-number">53.4</span> Refrences</a></li>
+<li>
+<a class="nav-link" href="#exercises-68"><span class="header-section-number">53.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-46"><span class="header-section-number">53.5.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-45"><span class="header-section-number">53.5.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-45"><span class="header-section-number">53.5.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-42"><span class="header-section-number">53.5.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-40"><span class="header-section-number">53.5.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-40"><span class="header-section-number">53.5.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-40"><span class="header-section-number">53.5.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-40"><span class="header-section-number">53.5.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-40"><span class="header-section-number">53.5.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-40"><span class="header-section-number">53.5.10</span> Question 10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/052-totally_addicted_to_base-isna_which_unique.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/052-totally_addicted_to_base-isna_which_unique.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

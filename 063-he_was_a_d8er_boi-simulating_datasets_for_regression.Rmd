@@ -12,7 +12,7 @@ library(palmerpenguins)
 
 # Simulating datasets for regression
 
-*Written by Mariam Walaa.*
+*Written by Mariam Walaa and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -230,16 +230,24 @@ from a regression model, please take a look at the following:
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
-
+### Question 10

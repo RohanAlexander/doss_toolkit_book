@@ -7,10 +7,9 @@ library(flair)
 library(palmerpenguins)
 ```
 
-
 # What is the `tidyverse`?
 
-Written by Yena Joo.
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -168,3 +167,25 @@ This is not every package that `tidyverse` contains, but they are the most impor
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

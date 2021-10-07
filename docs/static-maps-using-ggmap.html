@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 101 Static maps using ggmap | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Annie Collins and last updated on 7 October 2021.  101.1 Introduction  ggmap is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 101 Static maps using ggmap | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Annie Collins and last updated on 7 October 2021.  101.1 Introduction  ggmap is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 101 Static maps using ggmap | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Annie Collins and last updated on 7 October 2021.  101.1 Introduction  ggmap is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="active" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="static-maps-using-ggmap" class="section level1" number="101">
+<h1>
+<span class="header-section-number">101</span> Static maps using ggmap<a class="anchor" aria-label="anchor" href="#static-maps-using-ggmap"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Annie Collins and last updated on 7 October 2021.</em></p>
+<div id="introduction-93" class="section level2" number="101.1">
+<h2>
+<span class="header-section-number">101.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-93"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p><code>ggmap</code> is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like Google Maps and Stamen Maps and plot them using the ggplot2 framework</p>
+</blockquote>
+<p>Now that you’re familiar with <code>ggplot2</code> and its plotting capabilities, we can start looking at some more advanced data visualization options. Next up: maps.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Use <code>ggmap</code> to plot geospatial data over maps; and</li>
+<li>Access Google Maps APIs to extend <code>ggmap</code>’s functions to Google Maps as well.</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Familiarity with <code>ggplot2</code> and its plotting functions, specifically <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d()</a></code>.</li>
+</ul>
+</div>
+<div id="package" class="section level2" number="101.2">
+<h2>
+<span class="header-section-number">101.2</span> Package<a class="anchor" aria-label="anchor" href="#package"><i class="fas fa-link"></i></a>
+</h2>
+<p>Unless you have worked with <code>ggmap</code> before, you will likely have to install the package from GitHub (it is also available from CRAN, but GitHub contains the most up-to-date version which is important in this case given that the package works with external APIs).</p>
+<div class="sourceCode" id="cb703"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"dkahle/ggmap"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="backgrounds" class="section level2" number="101.3">
+<h2>
+<span class="header-section-number">101.3</span> Backgrounds<a class="anchor" aria-label="anchor" href="#backgrounds"><i class="fas fa-link"></i></a>
+</h2>
+<p>Much like the way you build a plot in <code>ggplot2</code>, <code>ggmap</code> plots are constructed by adding to your plot feature by feature, starting with a map background. <code>ggmap</code> allows you to use map backgrounds from two different sources: Google Maps and Stamen. Both offer several options for aesthetics and customization and are fairly similar in their use. Google Maps requires access to Google APIs (see <em>Google Maps API</em> below) while Stamen Maps authentication is built into the package, so we will focus on Stamen backgrounds for the purpose of this lesson.</p>
+<p>For a Stamen Map background, we use the function <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>. This function takes several arguments that allow you to customize the appearance and format of your map, but most importantly you must state the boundaries, scale, and type of your map. The object produced by <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> then gets passed to the <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> function which allows you to view the map in the “Plots” tab as well as display data on top of it.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="21%">
+<col width="23%">
+<col width="55%">
+</colgroup>
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>bbox</td>
+<td>vector</td>
+<td>A vector stating the locations of the corners of your desired map in the format c(lower left longitude, lower left latitude, upper right longitude, upper right latitude)</td>
+</tr>
+<tr class="even">
+<td>zoom</td>
+<td>numeric</td>
+<td>Level of zoom into focus area</td>
+</tr>
+<tr class="odd">
+<td>maptype</td>
+<td>string</td>
+<td>Aesthetic of map produced. Options are: “terrain,” “terrain-background,” “terrain-labels,” “terrain-lines,” “toner,” “toner-2010,” “toner-2011,” “toner-background,” “toner-hybrid,” “toner-labels,” “toner-lines,” “toner-lite,” and “watercolor.”</td>
+</tr>
+</tbody>
+</table></div>
+<p>See <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">?get_stamenmap</a></code> for additional arguments and details.</p>
+<div class="sourceCode" id="cb704"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Houston, Texas</span>
+<span class="co"># Also try the additional maptypes listed above</span>
+<span class="va">map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span>, <span class="fl">29.73631</span>, <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.78400</span><span class="op">)</span>, zoom <span class="op">=</span> <span class="fl">15</span>, maptype <span class="op">=</span> <span class="st">"toner"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/stamen-map-1-1.png" width="672"></div>
+<p><strong>Tip</strong>: If you don’t know the exact coordinates of the map you wish to use as a background, clicking anywhere on <a href="https://www.google.com/">Google Maps</a> will give you the longitude and latitude of the selected location.</p>
+<p>One thing that is important to know is that when loading map backgrounds we are working with longitude and latitude coordinates in <strong>decimal degree</strong> format. It is important to take note of the relative values of coordinates when defining map boundaries, and these will change depending on which hemisphere you’re in. In North America (the northern and western hemispheres), the lower left hand corner of the map will always be the smaller longitude value (farthest west) and the smaller latitude value (farthest south). The image below might help you to visualize the relationship between coordinate values.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="images/64-coordinates-map.png" alt="Source: Esri" width="75%"><p class="caption">
+Figure 101.1: Source: Esri
+</p>
+</div>
+</div>
+<div id="plotting-data" class="section level2" number="101.4">
+<h2>
+<span class="header-section-number">101.4</span> Plotting Data<a class="anchor" aria-label="anchor" href="#plotting-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now we can start to visualize some data on top using our familiar <code>ggplot2</code> functions. We will be using the data set <code>crime</code> that is built into the <code>ggmap</code> package. Any data used with <code>ggmap</code> must have variables for longitude and latitude coordinates in decimal degree format for each observation, as these serve as the x and y coordinates when graphing on top of a map background.</p>
+<p>A useful way to visualize data in this context is a scatterplot using <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>.</p>
+<div class="sourceCode" id="cb705"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Filter out data points that fall outside of our mapped area, and thefts (which we will look at separately later)</span>
+<span class="va">local_crime</span> <span class="op">&lt;-</span> <span class="fu">ggmap</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/ggmap/man/crime.html">crime</a></span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span> <span class="op">&lt;=</span> <span class="va">lon</span> <span class="op">&amp;</span> <span class="va">lon</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.73631</span> <span class="op">&lt;=</span> <span class="va">lat</span> <span class="op">&amp;</span> <span class="va">lat</span> <span class="op">&lt;=</span>  <span class="fl">29.78400</span>, <span class="va">offense</span> <span class="op">!=</span> <span class="st">"theft"</span><span class="op">)</span>
+
+<span class="va">map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span>, <span class="fl">29.73631</span>, <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.78400</span><span class="op">)</span>, zoom <span class="op">=</span> <span class="fl">15</span>, maptype <span class="op">=</span> <span class="st">"toner"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">local_crime</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lon</span>, y<span class="op">=</span><span class="va">lat</span>, colour <span class="op">=</span> <span class="va">offense</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Crimes Reported in Houston, Texas, 2010"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Longitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Latitude"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/64-crime-scatter-1.png" width="672"></div>
+<p>For crimes that appear very frequently in the data set, it might be more useful to use a heat map to track density instead of individual reports. We can see what this looks like using the thefts from the <code>crime</code> data set.</p>
+<div class="sourceCode" id="cb706"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Filter out data points that fall outside of our mapped area, and all offenses except theft</span>
+<span class="va">local_theft</span> <span class="op">&lt;-</span> <span class="va">crime</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span> <span class="op">&lt;=</span> <span class="va">lon</span> <span class="op">&amp;</span> <span class="va">lon</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.73631</span> <span class="op">&lt;=</span> <span class="va">lat</span> <span class="op">&amp;</span> <span class="va">lat</span> <span class="op">&lt;=</span>  <span class="fl">29.78400</span>, <span class="va">offense</span> <span class="op">==</span> <span class="st">"theft"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">local_theft</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lon</span>, y<span class="op">=</span><span class="va">lat</span>, fill <span class="op">=</span> <span class="va">..level..</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Thefts"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Density of Thefts Reported in Houston, Texas, 2010"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Longitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Latitude"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/64-crime-density-1.png" width="672"></div>
+<p>Like <code>ggplot2</code>, <code>ggmap</code> also works with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>. Suppose we want to compare aggravated assaults and auto theft in Houston.</p>
+<div class="sourceCode" id="cb707"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">assault_auto</span> <span class="op">&lt;-</span> <span class="va">crime</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span> <span class="op">&lt;=</span> <span class="va">lon</span> <span class="op">&amp;</span> <span class="va">lon</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.73631</span> <span class="op">&lt;=</span> <span class="va">lat</span> <span class="op">&amp;</span> <span class="va">lat</span> <span class="op">&lt;=</span>  <span class="fl">29.78400</span>, <span class="va">offense</span> <span class="op">==</span> <span class="st">"aggravated assault"</span> <span class="op">|</span> <span class="va">offense</span> <span class="op">==</span> <span class="st">"auto theft"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">assault_auto</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lon</span>, y<span class="op">=</span><span class="va">lat</span>, fill <span class="op">=</span> <span class="va">..level..</span>, alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reports"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Density of Crimes Reported in Houston, Texas, 2010"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Longitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Latitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">offense</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/64-crime-density-facet-1.png" width="672"></div>
+</div>
+<div id="exercises-139" class="section level2" number="101.5">
+<h2>
+<span class="header-section-number">101.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-139"><i class="fas fa-link"></i></a>
+</h2>
+<p>To get you comfortable working with <code>ggmap</code>’s syntax and plotting capabilities, you’re now going to build a map of COVID-19 testing locations in Toronto from the data set <code>covid_testing_locations</code> which has columns <em>long</em> and <em>lat</em>.</p>
+<div class="sourceCode" id="cb708"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">covid_testing_locations</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 6</span>
+<span class="co">#&gt;   `_id` locationName      locationType  address   long   lat</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;         &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 36320 Etobicoke Genera… Assessment C… 101 Hum… -79.6  43.7</span>
+<span class="co">#&gt; 2 36321 Humber River Hos… Assessment C… 200 Chu… -79.5  43.7</span>
+<span class="co">#&gt; 3 36322 Humber River Hos… Assessment C… 2111 Fi… -79.5  43.8</span>
+<span class="co">#&gt; 4 36323 Michael Garron H… Assessment C… 825 Cox… -79.3  43.7</span>
+<span class="co">#&gt; 5 36324 Mount Sinai Hosp… Assessment C… 600 Uni… -79.4  43.7</span>
+<span class="co">#&gt; 6 36325 Auduzhe Mino Nes… Assessment C… 22 Vaug… -79.4  43.7</span></code></pre></div>
+<div id="exercise-1-27" class="section level3" number="101.5.1">
+<h3>
+<span class="header-section-number">101.5.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-27"><i class="fas fa-link"></i></a>
+</h3>
+<p>Your first task is to load the background of the map. The key to doing so correctly is to establish the correct boundaries for the map in terms of longitude and latitude coordinates, then load a map from Stamen Maps and save it under the name <code>toronto_map</code>. Complete the code below to create a background map of Toronto that will appropriately display the data (use zoom 10 and maptype “terrain”).</p>
+<!-- ```{r ggmap-exercise-1, exercise=TRUE, message=FALSE} -->
+<!-- toronto_map <- get_stamenmap(c(-75, 41, -74, 42), zoom=10, maptype="terrain") -->
+<!-- ggmap(toronto_map) -->
+<!-- ``` -->
+<!-- ```{r ggmap-exercise-1-hint-1} -->
+<!-- # Use the max() and min() functions to determine the farthest north, south, east, and west of the coordinates in the data -->
+<!-- max(covid_testing_locations$long) # Farthest east -->
+<!-- min(covid_testing_locations$long) # Farthest west -->
+<!-- max(covid_testing_locations$lat)  # Farthest north -->
+<!-- min(covid_testing_locations$lat)  # Farthest south -->
+<!-- ``` -->
+<!-- ```{r ggmap-exercise-1-hint-2} -->
+<!-- # Solution -->
+<!-- toronto_map <- get_stamenmap(c(-79.82364, 43.52281, -78.85145, 44.09669), zoom=10, maptype="terrain") -->
+<!-- ``` -->
+</div>
+<div id="exercise-2-22" class="section level3" number="101.5.2">
+<h3>
+<span class="header-section-number">101.5.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-22"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using <code>toronto_map</code> as defined above and your knowledge of <code>ggplot2</code>, complete the code below to construct a map that shows each COVID-19 testing location as a dot, with the dots coloured according to the type of assessment center they are.</p>
+<!-- ```{r ggmap-exercise-2, exercise=TRUE, message=FALSE, warning=FALSE} -->
+<!-- ggmap(toronto_map) + geom_point(data=covid_testing_locations, aes(x=lat, y=long)) -->
+<!-- ``` -->
+<!-- ```{r ggmap-exercise-2-hint-2} -->
+<!-- # Solution -->
+<!-- ggmap(toronto_map) + geom_point(data=covid_testing_locations, aes(x=long, y=lat, color=locationType)) -->
+<!-- ``` -->
+</div>
+<div id="exercise-3-13" class="section level3" number="101.5.3">
+<h3>
+<span class="header-section-number">101.5.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-13"><i class="fas fa-link"></i></a>
+</h3>
+<p>Finally, display several maps comparing the <em>density</em> of different types of testing locations. Title your plot “COVID-19 Testing Centers in Toronto, Ontario.”</p>
+<!-- ```{r ggmap-exercise-3, exercise=TRUE, message=FALSE, warning=FALSE} -->
+<!-- ggmap(toronto_map) + -->
+<!--   stat_density2d(data=covid_testing_locations,  -->
+<!--                  aes(x=long,  -->
+<!--                      y=lat,  -->
+<!--                      fill=..level..,  -->
+<!--                      alpha=0.5 -->
+<!--                      ),  -->
+<!--                  geom="polygon") -->
+<!-- ``` -->
+<!-- ```{r ggmap-exercise-3-solution} -->
+<!-- # Solution -->
+<!-- ggmap(toronto_map) + -->
+<!--   stat_density2d(data=covid_testing_locations,  -->
+<!--                  aes(x=long,  -->
+<!--                      y=lat,  -->
+<!--                      fill=..level..,  -->
+<!--                      alpha=0.5 -->
+<!--                      ),  -->
+<!--                  geom="polygon") +  -->
+<!--   facet_wrap(~locationType) + -->
+<!--   ggtitle("COVID-19 Testing Centers in Toronto, Ontario") -->
+<!-- ``` -->
+</div>
+</div>
+<div id="google-maps-apis" class="section level2" number="101.6">
+<h2>
+<span class="header-section-number">101.6</span> Google Maps APIs<a class="anchor" aria-label="anchor" href="#google-maps-apis"><i class="fas fa-link"></i></a>
+</h2>
+<p>In addition to Stamen Maps, <code>ggmap</code> can draw on Google Maps APIs for its Google Maps backgrounds, and in order to do this you must first register with Google. This involves creating an account if you do not already have a Google account, as well as registering a valid credit card (it will not be charged unless you select an account upgrade that requires payment).</p>
+<p>To begin, go to the Google Maps Platform <a href="https://cloud.google.com/maps-platform/">website</a>. Follow the instructions to register an account and a payment method (credit card), and you will receive an <strong>API key</strong>. This is important! You need to register this within R and RStudio using the following code:</p>
+<div class="inline-figure"><img src="images/64-google-1.png" width="50%"></div>
+<pre class="{r-enter-api-code}"><code><a href="https://rdrr.io/pkg/ggmap/man/register_google.html">register_google(key = "[your key]", write = TRUE)    # Copy and paste your API key in quotations</a></code></pre>
+<p>You also want to make sure that you don’t share this key with anyone since it is private and personal to each user, so keep this in mind if you’re sharing your code anywhere.</p>
+<p>Once you’ve gained access to the Google Maps Platform you will need to enable the relevant APIs: Geocoding and Maps Static. These are the APIs that work with the functions in <code>ggmap</code>, specifically <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code> (analogous to <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>), <code><a href="https://rdrr.io/pkg/ggmap/man/geocode.html">geocode()</a></code>, and <code><a href="https://rdrr.io/pkg/ggmap/man/revgeocode.html">revgeocode()</a></code>. These functions cannot be demonstrated within this module until you have access to the appropriate APIs, but the <a href="https://github.com/dkahle/ggmap">ggmap repository README</a> contains some examples and resources for using Google Maps with <code>ggmap</code>.</p>
+<p><img src="images/64-google-2.png" width="100%"><img src="images/64-google-3.png" width="100%"></p>
+</div>
+<div id="next-steps-60" class="section level2" number="101.7">
+<h2>
+<span class="header-section-number">101.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-60"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Once you have the Google Maps APIs working on your system, repeat the above exercises using <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code> in place of <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>;</li>
+<li>Use <code>ggimage</code> to create more complex icon maps (check out this <a href="https://www.littlemissdata.com/blog/iconmap">tutorial</a> from R user and data scientist Laura Ellis);</li>
+<li>Check out the <code>usmaps</code> package for more mapping functions specific to the United States.</li>
+</ul>
+</div>
+<div id="exercises-140" class="section level2" number="101.8">
+<h2>
+<span class="header-section-number">101.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-140"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-98" class="section level3" number="101.8.1">
+<h3>
+<span class="header-section-number">101.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-98"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-96" class="section level3" number="101.8.2">
+<h3>
+<span class="header-section-number">101.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-96"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-94" class="section level3" number="101.8.3">
+<h3>
+<span class="header-section-number">101.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-94"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-86" class="section level3" number="101.8.4">
+<h3>
+<span class="header-section-number">101.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-86"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-85" class="section level3" number="101.8.5">
+<h3>
+<span class="header-section-number">101.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-85"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-85" class="section level3" number="101.8.6">
+<h3>
+<span class="header-section-number">101.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-85"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-84" class="section level3" number="101.8.7">
+<h3>
+<span class="header-section-number">101.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-84"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-84" class="section level3" number="101.8.8">
+<h3>
+<span class="header-section-number">101.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-84"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-84" class="section level3" number="101.8.9">
+<h3>
+<span class="header-section-number">101.8.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-84"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-84" class="section level3" number="101.8.10">
+<h3>
+<span class="header-section-number">101.8.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-84"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></div>
+<div class="next"><a href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#static-maps-using-ggmap"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="nav-link" href="#introduction-93"><span class="header-section-number">101.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#package"><span class="header-section-number">101.2</span> Package</a></li>
+<li><a class="nav-link" href="#backgrounds"><span class="header-section-number">101.3</span> Backgrounds</a></li>
+<li><a class="nav-link" href="#plotting-data"><span class="header-section-number">101.4</span> Plotting Data</a></li>
+<li>
+<a class="nav-link" href="#exercises-139"><span class="header-section-number">101.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-27"><span class="header-section-number">101.5.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-22"><span class="header-section-number">101.5.2</span> Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-13"><span class="header-section-number">101.5.3</span> Exercise 3</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#google-maps-apis"><span class="header-section-number">101.6</span> Google Maps APIs</a></li>
+<li><a class="nav-link" href="#next-steps-60"><span class="header-section-number">101.7</span> Next Steps</a></li>
+<li>
+<a class="nav-link" href="#exercises-140"><span class="header-section-number">101.8</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-98"><span class="header-section-number">101.8.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-96"><span class="header-section-number">101.8.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-94"><span class="header-section-number">101.8.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-86"><span class="header-section-number">101.8.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-85"><span class="header-section-number">101.8.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-85"><span class="header-section-number">101.8.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-84"><span class="header-section-number">101.8.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-84"><span class="header-section-number">101.8.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-84"><span class="header-section-number">101.8.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-84"><span class="header-section-number">101.8.10</span> Question 10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/102-indistinguishable_from_magic-static_maps.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/102-indistinguishable_from_magic-static_maps.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

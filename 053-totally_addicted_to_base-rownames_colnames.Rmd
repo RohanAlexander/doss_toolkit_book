@@ -5,11 +5,9 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-# row.names() and colnames()
+# row and column names
 
-Written by Leuven Wang
-
-
+*Written by Leuven Wang and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -117,48 +115,51 @@ remove(data, car_models)
 
 Given the dataset `iris`, change the column names such that the periods are replaced with spaces."
 
-```{r q1_colnames, exercise.eval = TRUE, exercise = TRUE}
-head(iris)
-```
+<!-- ```{r q1_colnames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- head(iris) -->
+<!-- ``` -->
 
-```{r q1_colnames-solution}
-colnames(iris) <- c("Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species")
-```
+<!-- ```{r q1_colnames-solution} -->
+<!-- colnames(iris) <- c("Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species") -->
+<!-- ``` -->
+
 ### Question 2
 
-```{r q2_rowname, echo=FALSE}
-question("True or false: Just as with columns, setting row names using a vector of length shorter than the number of records results in any outstanding rows to have no name assigned.", 
-         answer("True"), 
-         answer("False", correct= TRUE, message = "Unlike with column names, setting row names with a vector shorter than the number of selected rows results in an error."))
-```
+<!-- ```{r q2_rowname, echo=FALSE} -->
+<!-- question("True or false: Just as with columns, setting row names using a vector of length shorter than the number of records results in any outstanding rows to have no name assigned.",  -->
+<!--          answer("True"),  -->
+<!--          answer("False", correct= TRUE, message = "Unlike with column names, setting row names with a vector shorter than the number of selected rows results in an error.")) -->
+<!-- ``` -->
 
 ### Question 3
 
-```{r q3_rownames, echo = FALSE}
-question("True or false: `colname` can be used to retrieve and change the name of singular columns.",
-         answer("True", message = "There is no such thing as `colname`. "),
-         answer("False", correct= TRUE, message = "There is no such thing as `colname`. ")
-         )
+<!-- ```{r q3_rownames, echo = FALSE} -->
+<!-- question("True or false: `colname` can be used to retrieve and change the name of singular columns.", -->
+<!--          answer("True", message = "There is no such thing as `colname`. "), -->
+<!--          answer("False", correct= TRUE, message = "There is no such thing as `colname`. ") -->
+<!--          ) -->
 
 
-```
+<!-- ``` -->
 
-### Question 4
-```{r include=FALSE}
-iris <- og_iris
-```
+<!-- ### Question 4 -->
+<!-- ```{r include=FALSE} -->
+<!-- iris <- og_iris -->
+<!-- ``` -->
 
 
 
 Given an unmodified version of `iris`, fix the mistake in the code below such that it successfully changes the column of the first two columns to "Sepal Length" and "Sepal Width".
-```{r q4_colnames, exercise.eval = TRUE, exercise = TRUE}
-colnames(iris)[0:1] <- c("Sepal Length", "Sepal Width")
-head(iris)
-```
 
-```{r q4_colnames-solution}
-colnames(iris)[1:2] <- c("Sepal Length", "Sepal Width")
-```
+<!-- ```{r q4_colnames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- colnames(iris)[0:1] <- c("Sepal Length", "Sepal Width") -->
+<!-- head(iris) -->
+<!-- ``` -->
+
+<!-- ```{r q4_colnames-solution} -->
+<!-- colnames(iris)[1:2] <- c("Sepal Length", "Sepal Width") -->
+<!-- ``` -->
+
 
 ### Question 5
 For each car in `mtcars`, print a string which says "I want to drive the 'car_name'". Your final output should look something like this:
@@ -169,36 +170,60 @@ I want to drive the Datsun 710
 ...
 
 Tip: use `cat("I want to drive the ", car_name, "\n")` to print your outputs.
-```{r q5_rownames, exercise.eval = TRUE, exercise = TRUE}
-head(mtcars)
-```
 
 
-```{r q5_rownames-solution}
-car_names <- row.names(mtcars)
+<!-- ```{r q5_rownames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- head(mtcars) -->
+<!-- ``` -->
 
-for(car_name in car_names){
-  cat("I want to drive the", car_name, "\n")
-}
-```
+
+<!-- ```{r q5_rownames-solution} -->
+<!-- car_names <- row.names(mtcars) -->
+
+<!-- for(car_name in car_names){ -->
+<!--   cat("I want to drive the", car_name, "\n") -->
+<!-- } -->
+<!-- ``` -->
 
 ### Question 6
 
 Change the row name of the second record of `mtcars` to be the exact same as the first record without changing the first record. See what happens and read the message. Then, figure out a way to swap the two row names without prompting an error.
 
 
-```{r q6_rownames, exercise.eval = TRUE, exercise = TRUE}
-head(mtcars)
-```
+<!-- ```{r q6_rownames, exercise.eval = TRUE, exercise = TRUE} -->
+<!-- head(mtcars) -->
+<!-- ``` -->
 
 
-```{r q6_rownames-solution}
-a <- row.names(mtcars)[1]
-b <- row.names(mtcars)[2]
-row.names(mtcars)[1:2] <- c(b,a)
-```
+<!-- ```{r q6_rownames-solution} -->
+<!-- a <- row.names(mtcars)[1] -->
+<!-- b <- row.names(mtcars)[2] -->
+<!-- row.names(mtcars)[1:2] <- c(b,a) -->
+<!-- ``` -->
 
 ## References
 
 - [row.names()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/row.names)
 - [Row and Column Names](https://stat.ethz.ch/R-manual/R-devel/library/base/html/colnames.html)
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

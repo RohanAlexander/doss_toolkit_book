@@ -11,7 +11,7 @@ library(palmerpenguins)
 
 # pull, pluck and unnest
 
-*Written by Isaac Ehrlich.*
+*Written by Isaac Ehrlich and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -239,12 +239,24 @@ In the next lesson, we will continue looking into different ways of storing and 
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
+
+### Question 10

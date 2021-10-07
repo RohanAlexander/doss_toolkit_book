@@ -1,14 +1,12 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE)
-# library(learnr)
 library(tidyverse)
 ```
 
-
 # Getting to know what is what
 
-Written by Rohan Alexander and Annie Collins.
+*Written by Annie Collins and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -17,11 +15,9 @@ In this lesson, you will learn how to:
 - Navigate the RStudio interface; and
 - Run R code using RStudio
 
-
 Prerequisite skills include:
 
 - Downloading R and RStudio (see previous lesson).
-
 
 ## Basic Layout
 
@@ -47,17 +43,3 @@ You'll notice that there are several tabs and buttons within each of these areas
 ## Next Steps
 
 The best way to learn R is to use R. In the next lesson we're going to walk you through a couple of exercises of things that you could accomplish with R once you're a little more familiar with it. We hope that you find it motivating and exciting. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

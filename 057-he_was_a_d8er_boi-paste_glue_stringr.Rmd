@@ -9,11 +9,9 @@ library(stringr)
 library(palmerpenguins)
 ```
 
-
-
 # paste, paste0, glue and stringr
 
-*Written by Marija Pejcinovska*
+*Written by Marija Pejcinovska and last updated on 7 October 2021.*
 
 
 ## Introduction  
@@ -341,11 +339,24 @@ This tutorial only briefly introduced you to the capabilities of the `stringr` p
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
+
+### Question 9
+
+### Question 10

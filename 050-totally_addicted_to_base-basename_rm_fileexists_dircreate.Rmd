@@ -6,10 +6,12 @@ library(flair)
 library(tidyverse)
 ```
 
+# File creation and manipulation
+
 http://theautomatic.net/2018/07/11/manipulate-files-r/
 
 
-*Written by Haoluan Chen.*
+*Written by Haoluan Chen and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -260,3 +262,26 @@ https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files
 
 RDocumentation for Manipulation of Directories
 https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files2
+
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

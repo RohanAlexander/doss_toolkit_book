@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 44 Mixed-effect linear models with lme4 | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Yiqu Ding. and last updated on 7 October 2021.  44.1 Introduction lme4 is in short for linear mixed effect models using Eigen and S4. It is a package in R that allows you to fix linear...">
+<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta property="og:title" content="Chapter 44 Mixed-effect linear models with lme4 | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Yiqu Ding. and last updated on 7 October 2021.  44.1 Introduction lme4 is in short for linear mixed effect models using Eigen and S4. It is a package in R that allows you to fix linear...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 44 Mixed-effect linear models with lme4 | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Yiqu Ding. and last updated on 7 October 2021.  44.1 Introduction lme4 is in short for linear mixed effect models using Eigen and S4. It is a package in R that allows you to fix linear...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="active" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
+<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
+<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
+<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
+<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
+<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
+<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
+<li class="book-part">Specialised topics</li>
+<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
+<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
+<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
+<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
+<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
+<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
+<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
+<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
+<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
+<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="mixed-effect-linear-models-with-lme4" class="section level1" number="44">
+<h1>
+<span class="header-section-number">44</span> Mixed-effect linear models with lme4<a class="anchor" aria-label="anchor" href="#mixed-effect-linear-models-with-lme4"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Yiqu Ding. and last updated on 7 October 2021.</em></p>
+<div id="introduction-40" class="section level2" number="44.1">
+<h2>
+<span class="header-section-number">44.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-40"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>lme4</code> is in short for linear mixed effect models using Eigen and S4. It is a package in R that allows you to fix linear and generalized linear fixed-effect models. S4 stands for the class and methods that the models are represented and Eigen is simply the name of the C++ library that is used to implement the algorithm.</p>
+<p>Use this code to install and load the <code>lme4</code> package:</p>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#install.packages("lme4")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/">lme4</a></span><span class="op">)</span>
+<span class="co">#&gt; Loading required package: Matrix</span></code></pre></div>
+<div id="motivation" class="section level3" number="44.1.1">
+<h3>
+<span class="header-section-number">44.1.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Why is it so important to identify the type of effects in a model? Take this simple example as motivation:</p>
+<p>An officer in the student life office at UofT wants to study the relationship between the hours of study and students’ final grades for STA130. To do that, the officer is distributing a survey among students which collects their hours of study, their final grades and the tutorial section that they belong to. The intuition here is the more hours spent studying, the higher grades you end up with. But one thing to be considered: does the tutorial section matter at all? Or in stats language, are students identical independently across tutorial sections? The answer is probably not. Different TAs have different expectations of students and are likely to have different grading styles, the time slot of the tutorial itself can be an indicator of studying type, etc. These variables impact the variable of our interest: final grade and therefore we want to account for them, but they are not something we want to estimate, and we give it a name: random effect.</p>
+<p>To further see the importance of identifying random effects from fixed effects, consider a pharmaceutical firm studying the effects of a new drug on controlling blood pressure. We have a control group that does not take the drug and a test group that uses the drug. The data includes the blood pressure over time, age, gender, current health condition and the dose of drugs taken which includes 0 for none, and 1-3 for different levels of intakes. Again, random effects are the variables that will affect our variable of interest but are not what we want to estimate, in this case, age, gender and current health condition are random effects because they sure are related to blood pressure, but this variability is not related to the drug. The only fixed effect here is the level of drug intake. This is something very realistic because you do not want to claim that a drug is 99% effective in controlling blood pressure when 90% of the variability is explained by random effects that are not accounted for.</p>
+<div id="quick-check" class="section level4" number="44.1.1.1">
+<h4>
+<span class="header-section-number">44.1.1.1</span> Quick Check<a class="anchor" aria-label="anchor" href="#quick-check"><i class="fas fa-link"></i></a>
+</h4>
+<p><em>This question is rephrased using an example from Roback and Legler at <a href="https://bookdown.org/roback/bookdown-BeyondMLR/ch-corrdata.html" class="uri">https://bookdown.org/roback/bookdown-BeyondMLR/ch-corrdata.html</a></em></p>
+<p>“A teratogen is a substance or exposure that can result in harm to a developing fetus. An experiment can be conducted to determine whether increasing levels of a potential teratogen results in increasing probability of defects in rat pups. We will simulate the results of an experiment in which 24 dams (mother rats) are randomized to four groups: 3 groups of 6 dams each are administered a potential teratogen in high (3 mg), medium (2 mg), or low (1 mg) doses, and the fourth group serves as the control. Each of the 24 dams produces 10 rat pups, and each pup is examined for the presence of an anomaly or deformity.”</p>
+<!-- ```{r a} -->
+<!-- quiz( -->
+<!--   question("Is the difference across pups from different dams considered fixed or random effect?", -->
+<!--     answer("fixed"), -->
+<!--     answer("random", correct = TRUE) -->
+<!--   ), -->
+<!--   question("Is the difference cross different does of usage considered fixed or random effect?", -->
+<!--     answer("fixed", correct = TRUE), -->
+<!--     answer("random") -->
+<!--   ) -->
+<!-- ) -->
+<!-- ``` -->
+<p><strong>Quiz</strong></p>
+<ol style="list-style-type: decimal">
+<li>Is the difference across pups from different dams considered fixed or random effect?</li>
+<li>Is the difference across different does of usage considered fixed or random effect?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="fit-a-model-with-lmer" class="section level2" number="44.2">
+<h2>
+<span class="header-section-number">44.2</span> Fit a model with <code>lmer()</code><a class="anchor" aria-label="anchor" href="#fit-a-model-with-lmer"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now we will show the use of <code><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer()</a></code> by demonstrating an example using data in Winter.B (2013). Linear models and linear mixed-effects models in R with linguistic applications. arXiv:1308.5499.</p>
+<div id="data-1" class="section level3" number="44.2.1">
+<h3>
+<span class="header-section-number">44.2.1</span> Data<a class="anchor" aria-label="anchor" href="#data-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Reads in the data as csv</span>
+<span class="va">politeness</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/politeness.csv"</span><span class="op">)</span><span class="co"># Take a glimpse</span>
+<span class="co">#&gt; Rows: 84 Columns: 5</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (3): subject, gender, attitude</span>
+<span class="co">#&gt; dbl (2): scenario, frequency</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">politeness</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">subject</th>
+<th align="left">gender</th>
+<th align="right">scenario</th>
+<th align="left">attitude</th>
+<th align="right">frequency</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">F1</td>
+<td align="left">F</td>
+<td align="right">1</td>
+<td align="left">pol</td>
+<td align="right">213.3</td>
+</tr>
+<tr class="even">
+<td align="left">F1</td>
+<td align="left">F</td>
+<td align="right">1</td>
+<td align="left">inf</td>
+<td align="right">204.5</td>
+</tr>
+<tr class="odd">
+<td align="left">F1</td>
+<td align="left">F</td>
+<td align="right">2</td>
+<td align="left">pol</td>
+<td align="right">285.1</td>
+</tr>
+<tr class="even">
+<td align="left">F1</td>
+<td align="left">F</td>
+<td align="right">2</td>
+<td align="left">inf</td>
+<td align="right">259.7</td>
+</tr>
+<tr class="odd">
+<td align="left">F1</td>
+<td align="left">F</td>
+<td align="right">3</td>
+<td align="left">pol</td>
+<td align="right">203.9</td>
+</tr>
+<tr class="even">
+<td align="left">F1</td>
+<td align="left">F</td>
+<td align="right">3</td>
+<td align="left">inf</td>
+<td align="right">286.9</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>Politeness</code> is a data set with 84 observations and 5 variables, we show the first 6 lines in the table above. I downloaded it here: <a href="http://www.bodowinter.com/tutorial/politeness_data.csv" class="uri">http://www.bodowinter.com/tutorial/politeness_data.csv</a>. The variables include:</p>
+<ul>
+<li>subject: Each represents a different speaker;</li>
+<li>gender: Sex of each speaker;</li>
+<li>scenario: 7 difference scenarios that the speaker is asked to speak in;</li>
+<li>attitude: whether the speaker was speaking politely or informally;</li>
+<li>frequency: the pitch of speaker measure in Hertz.</li>
+</ul>
+<p>Observe the diagram below and think about why a simple linear regression is not appropriate.</p>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Some visualization</span>
+<span class="va">g1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">politeness</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">politeness</span><span class="op">$</span><span class="va">subject</span>,y<span class="op">=</span><span class="va">politeness</span><span class="op">$</span><span class="va">frequency</span>, col<span class="op">=</span><span class="va">attitude</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Pitch(Hertz)"</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sbuject"</span><span class="op">)</span>
+<span class="va">g1</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="043-totally_addicted_to_base-lme4_files/figure-html/unnamed-chunk-3-1.png" alt="Pitch Varied By Subjects" width="672"><p class="caption">
+Figure 44.1: Pitch Varied By Subjects
+</p>
+</div>
+</div>
+<div id="syntax" class="section level3" number="44.2.2">
+<h3>
+<span class="header-section-number">44.2.2</span> Syntax<a class="anchor" aria-label="anchor" href="#syntax"><i class="fas fa-link"></i></a>
+</h3>
+<p>To start modeling with lmer(), all you need is to tell R the formula that you want to regress by and a data set that it needs to use. On top of the OLS formula <span class="math inline">\(y = X\beta+\epsilon\)</span>, linear mixed model requires an additional random effect term specified by <span class="math inline">\(y=X\beta+Zb+\epsilon\)</span>, where <span class="math inline">\(Z\)</span> is the matrix of coefficients for the random effect variable.</p>
+<p>Within the random effect variable, there are a few expressions you can use. Generally, random effects are expressed in the format of <code>(expr | factor)</code>. So <code>(1 | random factor)</code> is the simplest random effect there is, where you are assigning a random intercept for each level of the random factor. If instead you want different slopes for each level of your random factor you can use the term <code>(1 + fixed | random factor)</code>, where you still have 1 which gives the random intercept for levels in variable, but also f for different responses to f. For models with random slopes only, use <code>(0 + fixed factor | random factor)</code>. You can make the expression shorter by removing the 0. Following this logic, what else could you write if you want random slopes for the variable only?</p>
+<!-- ```{r b} -->
+<!-- quiz( -->
+<!--   question("To assign different slopes to levels of a variable, which line of code should be used?", -->
+<!--     answer("`(1 | variable)`"), -->
+<!--     answer("`(2 | variable`"), -->
+<!--     answer("`(fixed factor | variable)`", correct = TRUE), -->
+<!--     answer("`(1 + fixed factor | variable)`") -->
+<!--   )) -->
+<!-- ``` -->
+<p><strong>Quiz</strong></p>
+<ul>
+<li>To assign different slopes to levels of a variable, which line of code should be used?
+<ul>
+<li><code>(1 | variable)</code></li>
+<li><code>(2 | variable)</code></li>
+<li><code>(fixed factor | variable)</code></li>
+<li><code>(1 + fixed factor | variable)</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="exercise-9" class="section level3" number="44.2.3">
+<h3>
+<span class="header-section-number">44.2.3</span> Exercise<a class="anchor" aria-label="anchor" href="#exercise-9"><i class="fas fa-link"></i></a>
+</h3>
+<p>I encourage you to download the data and work on the examples with Rstudio on your own device so you can refer back to it when needed. Fit a mixed-effect model predicting the pitch frequency with attitude and gender as the fixed effect, and subject and scenario as the random effect with random intercept. Name it m1:</p>
+<!-- ```{r model1, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- # Download the data from http://www.bodowinter.com/tutorial/politeness_data.csv -->
+<!-- # politeness=read.csv("politeness_data.csv")  -->
+<!-- ``` -->
+<!-- ```{r model1-hint} -->
+<!-- m1 <- lmer(frequency ~ attitude + gender + (1|subject) + (1|scenario), data=politeness) -->
+<!-- ``` -->
+<p>Now modify the code to fit another model and name it m2. Make everything the same except for assigning random slopes to the random effect variables.</p>
+<!-- ```{r model2, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- ``` -->
+<!-- ```{r model2-hint} -->
+<!-- m2 <- lmer(frequency ~ attitude + gender + (1+attitude|subject) + (1+attitude|scenario), data=politeness) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="understanding-the-results" class="section level2" number="44.3">
+<h2>
+<span class="header-section-number">44.3</span> Understanding the Results<a class="anchor" aria-label="anchor" href="#understanding-the-results"><i class="fas fa-link"></i></a>
+</h2>
+<p>Take a look at your results of model 1. What do you see?</p>
+<!-- ```{r interpret1, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- m1 <- lmer(frequency ~ attitude + gender + (1|subject) + (1|scenario), data=politeness) -->
+<!-- ``` -->
+<!-- ```{r interpret1-hint} -->
+<!-- summary(m1) -->
+<!-- coef(m1) -->
+<!-- ``` -->
+<p>Good! You observed that the results contain two parts: fixed effects and random effects. Let us start with the simple one. The fixed effect part works just the same as what you would expect from a simple <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> model, so let’s test your knowledge of the previous modules here with the fixed effect.</p>
+<!-- ```{r c} -->
+<!-- quiz( -->
+<!--   question("What is the correct intepration of the fixed effect of model 1?", -->
+<!--     answer("Males have a average pitch of 108.516 Hertz and when being polite, speakers lower their pitch by 19.7 Hertz comparing to informal situations."), -->
+<!--     answer("Males have an average pitch of 108.516 and when being polite, speakers raise their pitch by 19.7 Hertz comparing to informal situations."), -->
+<!--     answer("Males generally have a pitch 108.516 Hertz lower than females, when being polite, speakers lower their pitch by 19.7 Hertz.", correct = TRUE), -->
+<!--     answer("Males generally have a pitch of 108.516 Hertz, when being polite, speakers lower their pitch by 19.7 Hertz)") -->
+<!--   )) -->
+<!-- ``` -->
+<p>Now we will look at the random effects part. Notice that each subject has its own intercept, but the coefficients for attitude and gender is identical for each subject. This is exactly what the model would do with our formula for model 1: expect different intercepts for the variable in the bracket which is subject and scenario and produce fixed effect coefficients for the two fixed effect variables attitude and gender.</p>
+<p>How is our model 2 different from model 1?</p>
+<!-- ```{r interpret2, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- # politeness=read.csv("http://www.bodowinter.com/tutorial/politeness_data.csv") -->
+<!-- m2 <- lmer(frequency ~ attitude + gender + (1+attitude|subject) + (1+attitude|scenario), data=politeness) -->
+<!-- ``` -->
+<!-- ```{r interpret2-hint} -->
+<!-- summary(m2) -->
+<!-- coef(m2) -->
+<!-- ``` -->
+<p>You probably see where I am going with this: it now allows for different slopes rather than different intercepts only. The way I understand this is, the random intercepts are saying okay, you get to start at different points but you have to develop in the same trend; while random intercepts open up the possibilities a bit more and are like now each level can do whatever they want after you start. For example, observe your coefficient matrix for subjects, hopefully, you will see that now the <span class="math inline">\(\beta_{attitude}\)</span> for each subject is different while the <span class="math inline">\(\beta{gender}\)</span> is constant. This corresponds to our formula because we only asked for different slopes for the attitude variable. Notice these different <span class="math inline">\(\beta\)</span>s for attitude are still all negative indicating people tend to lower their pitch when they are trying to speak formally, but to what degree is explained by difference across subjects.</p>
+</div>
+<div id="quiz" class="section level2" number="44.4">
+<h2>
+<span class="header-section-number">44.4</span> Quiz<a class="anchor" aria-label="anchor" href="#quiz"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s test your learning outcome using the <code>sleepstudy</code> data that comes with the lme4 package! Once you load the <code>lme4</code> package with <code>library</code>, you can use <code><a href="https://rdrr.io/r/utils/str.html">str(sleepstudy)</a></code> to view some basic information of the data. The data is used by Bates et al. in “Fitting Linear Mixed-Effects Models Using lme” and was originally used in a sleep deprivation study (Belenky et al. 2003). In your own R studio, load the data and get yourself familiar with it!</p>
+<!-- ```{r} -->
+<!-- xyplot(Reaction ~ Days | Subject, data = sleepstudy, layout = c(6, 3)) -->
+<!-- ``` -->
+<!-- ```{r 1} -->
+<!-- quiz( -->
+<!--   question("Observing the graph above and combine your own insight from data exploration, what is the variable of prediction in this sleep study?", -->
+<!--     answer("Days"), -->
+<!--     answer("Days into the study"), -->
+<!--     answer("Reaction time per day", correct = TRUE), -->
+<!--     answer("Reaction") -->
+<!--   )) -->
+<!-- ``` -->
+<!-- ```{r 2} -->
+<!-- quiz( -->
+<!--   question("Observing the graph above and combine your own insight from data exploration, what are the variables that account for the random effetc in our model?", -->
+<!--     answer("Days"), -->
+<!--     answer("Days into the study"), -->
+<!--     answer("Subject", correct = TRUE), -->
+<!--     answer("Reaction") -->
+<!--   )) -->
+<!-- ``` -->
+<!-- ```{r 3} -->
+<!-- quiz( -->
+<!--   question("Observing the graph above and combine your own insight from data exploration, what are the variables that account for the fixed effetc in our model?", -->
+<!--     answer("Days"), -->
+<!--     answer("Days into the study", correct = TRUE), -->
+<!--     answer("Reaction time") -->
+<!--   )) -->
+<!-- ``` -->
+<!-- ```{r 4, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- # According to your answer in q2&3, define two models where the first one includes your fixed effect and random effect without random slope and the second one with random slope.  -->
+<!-- ``` -->
+<!-- ```{r 4-hint} -->
+<!-- library(lme4) -->
+<!-- string(sleepstudy) -->
+<!-- model1 <- lmer(Reaction~Days+(Days|Subject), data=sleepstudy) -->
+<!-- model2 <- lmer(Reaction~Days+(1|Subject), data=sleepstudy) -->
+<!-- ``` -->
+<!-- ```{r 5} -->
+<!-- quiz( -->
+<!--   question("Determine whether this statement is true: Model 1 will produce different estimations for slopes ONLY and model 2 will produce the same estimations for BOTH slopes and intercepts.", -->
+<!--     answer("TRUE"), -->
+<!--     answer("FALSE", correct = TRUE) -->
+<!--   )) -->
+<!-- ``` -->
+<!-- ```{r 6, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- # Take a look at your results from model 1.  -->
+<!-- ``` -->
+<!-- ```{r 6-hint} -->
+<!-- library(lme4) -->
+<!-- string(sleepstudy) -->
+<!-- summary(model1) -->
+<!-- coef(model1) -->
+<!-- ``` -->
+<!-- ```{r 7} -->
+<!-- quiz( -->
+<!--   question("Observe your regression results from model 1, which one the following is NOT true?", -->
+<!--     answer("The slope estimation of subject 369 is 11.3395."), -->
+<!--     answer("Model 1 produces different estimation of intercept for each subject."), -->
+<!--     answer("Model 1 produces different estimation of slope for each subject but the direction of slopes are the same.", correct = TRUE), -->
+<!--     answer("The regression result for estimated beta for days as a fixed effect is 10.467.") -->
+<!--   )) -->
+<!-- ``` -->
+<!-- ```{r 8, exercise=TRUE, exercise.eval=TRUE} -->
+<!-- # Take a look at your results from model 2. -->
+<!-- ``` -->
+<!-- ```{r 8-hint} -->
+<!-- library(lme4) -->
+<!-- string(sleepstudy) -->
+<!-- summary(model2) -->
+<!-- coef(model2) -->
+<!-- ``` -->
+<!-- ```{r 9} -->
+<!-- quiz( -->
+<!--   question("Observe your regression results from model 2, which one the following is TRUE?", -->
+<!--     answer("The slope estimation of days into the experiment is 251.4501."), -->
+<!--     answer("The estimation for fixed effects of model 2 is exactly the same as model 1, which indidates model 2 works just as well as model 1."), -->
+<!--     answer("The fact that model 2 produces the same estimation for slopes means that it is a model contained by model 1.", correct = TRUE), -->
+<!--     answer("The fact that the estimation of slope for days by subject is the same as its fixed effect estimation is just a coincidence.") -->
+<!--   )) -->
+<!-- ``` -->
+<!-- ```{r 10} -->
+<!-- quiz( -->
+<!--   question("If we want to build further models based on model 1 and model 2, which one of the following is NOT an option?", -->
+<!--     answer("`model3 <- lmer(Reaction~Days+(1+Days|Subject), data=sleepstudy)`"), -->
+<!--     answer("`model3 <- lmer(Reaction~(1+Days|Subject), data=sleepstudy)`"), -->
+<!--     answer("`model3 <- lmer(Reaction~Days+(Days|Subject)+(1|Subject), data=sleepstudy)`", correct = TRUE) -->
+<!--   )) -->
+<!-- ``` -->
+</div>
+<div id="remarks" class="section level2" number="44.5">
+<h2>
+<span class="header-section-number">44.5</span> Remarks<a class="anchor" aria-label="anchor" href="#remarks"><i class="fas fa-link"></i></a>
+</h2>
+<div id="missing-random-effect" class="section level3" number="44.5.1">
+<h3>
+<span class="header-section-number">44.5.1</span> Missing Random Effect<a class="anchor" aria-label="anchor" href="#missing-random-effect"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># lmer(frequency ~ attitude, data=politeness)</span></code></pre></div>
+<p>Copy and paste this code above and try to run it. You will realize that this runs to an error, and that is because you will need to incorporate a random effect for lmer() to work. Otherwise there is no point using lmer() specifically.</p>
+</div>
+<div id="do-you-really-need-the-full-model" class="section level3" number="44.5.2">
+<h3>
+<span class="header-section-number">44.5.2</span> Do you really need the full model?<a class="anchor" aria-label="anchor" href="#do-you-really-need-the-full-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>Remember in modeling we always want to predict the most information with the simplest model. Especially with the random effect variables, you want to always make sure that they do improve your model. You will learn more about model comparisons in this book. Keep going:)</p>
+</div>
+<div id="how-do-i-properly-cite-lme4" class="section level3" number="44.5.3">
+<h3>
+<span class="header-section-number">44.5.3</span> How do I properly cite lme4?<a class="anchor" aria-label="anchor" href="#how-do-i-properly-cite-lme4"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you are using lme4 in any kind of publication, use “Bates D, Mächler M, Bolker B, Walker S (2015). “Fitting Linear Mixed-Effects Models Using lme4.” Journal of Statistical Software, 67(1), 1–48. doi: 10.18637/jss.v067.i01". Also make sure you acknowledge the name of the package and function you use even when not creating something that is not being published.</p>
+</div>
+<div id="further-readings" class="section level3" number="44.5.4">
+<h3>
+<span class="header-section-number">44.5.4</span> Further Readings<a class="anchor" aria-label="anchor" href="#further-readings"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Jared gives a neat example for introductory lmer() usage with a characteristic study example, with code here: <a href="https://www.jaredknowles.com/journal/2013/11/25/getting-started-with-mixed-effect-models-in-r" class="uri">https://www.jaredknowles.com/journal/2013/11/25/getting-started-with-mixed-effect-models-in-r</a> .</li>
+<li>Laurent and Rens used a slightly more complex data set of popularity to demonstrate the use of lme4 as well as some nice refresh on residual checks using Q-Q plots(<a href="https://www.rensvandeschoot.com/tutorials/lme4/" class="uri">https://www.rensvandeschoot.com/tutorials/lme4/</a>).</li>
+<li>If you prefer a video tutorial, check the video Mike Crowson has put together: <a href="https://www.youtube.com/watch?v=8r9bUKUVecc" class="uri">https://www.youtube.com/watch?v=8r9bUKUVecc</a>.</li>
+<li>For some more detailed correlation between model formulas and R expressions, check Livius’s answer under this stackexchange question:
+<a href="https://stats.stackexchange.com/questions/13166/rs-lmer-cheat-sheet" class="uri">https://stats.stackexchange.com/questions/13166/rs-lmer-cheat-sheet</a>. The question in general answers a lot of common questions towards the use of lmer().</li>
+</ul>
+</div>
+</div>
+<div id="reference" class="section level2" number="44.6">
+<h2>
+<span class="header-section-number">44.6</span> Reference<a class="anchor" aria-label="anchor" href="#reference"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bates D, Mächler M, Bolker B, Walker S (2015). “Fitting Linear Mixed-Effects Models Using lme4;</p>
+<p>Belenky G, Wesensten NJ, Thorne DR, Thomas ML, Sing HC, Redmond DP, Russo MB, Balkin TJ (2003). “Patterns of Performance Degradation and Restoration During Sleep Restriction and Subsequent Recovery: A Sleep Dose-Response Study.” Journal of Sleep Research, 12, 1–12. <a href="doi:10.1046/j.1365-2869.2003.00337.x" class="uri">doi:10.1046/j.1365-2869.2003.00337.x</a>.</p>
+<p>Roback P, Legler J, Beyond Multilevel regression: Applied Generalized Linear Models and Multilevel Models in R.</p>
+<p>R Core Team. 2020. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org" class="uri">https://www.R-project.org</a>.</p>
+</div>
+<div id="exercises-52" class="section level2" number="44.7">
+<h2>
+<span class="header-section-number">44.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-52"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-34" class="section level3" number="44.7.1">
+<h3>
+<span class="header-section-number">44.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-34"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-34" class="section level3" number="44.7.2">
+<h3>
+<span class="header-section-number">44.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-34"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-34" class="section level3" number="44.7.3">
+<h3>
+<span class="header-section-number">44.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-34"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-33" class="section level3" number="44.7.4">
+<h3>
+<span class="header-section-number">44.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-33"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-31" class="section level3" number="44.7.5">
+<h3>
+<span class="header-section-number">44.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-31"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-31" class="section level3" number="44.7.6">
+<h3>
+<span class="header-section-number">44.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-31"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-31" class="section level3" number="44.7.7">
+<h3>
+<span class="header-section-number">44.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-31"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-31" class="section level3" number="44.7.8">
+<h3>
+<span class="header-section-number">44.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-31"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-31" class="section level3" number="44.7.9">
+<h3>
+<span class="header-section-number">44.7.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-31"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-31" class="section level3" number="44.7.10">
+<h3>
+<span class="header-section-number">44.7.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-31"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></div>
+<div class="next"><a href="function.html"><span class="header-section-number">45</span> function</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mixed-effect-linear-models-with-lme4"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li>
+<a class="nav-link" href="#introduction-40"><span class="header-section-number">44.1</span> Introduction</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#motivation"><span class="header-section-number">44.1.1</span> Motivation</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#fit-a-model-with-lmer"><span class="header-section-number">44.2</span> Fit a model with lmer()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-1"><span class="header-section-number">44.2.1</span> Data</a></li>
+<li><a class="nav-link" href="#syntax"><span class="header-section-number">44.2.2</span> Syntax</a></li>
+<li><a class="nav-link" href="#exercise-9"><span class="header-section-number">44.2.3</span> Exercise</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#understanding-the-results"><span class="header-section-number">44.3</span> Understanding the Results</a></li>
+<li><a class="nav-link" href="#quiz"><span class="header-section-number">44.4</span> Quiz</a></li>
+<li>
+<a class="nav-link" href="#remarks"><span class="header-section-number">44.5</span> Remarks</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#missing-random-effect"><span class="header-section-number">44.5.1</span> Missing Random Effect</a></li>
+<li><a class="nav-link" href="#do-you-really-need-the-full-model"><span class="header-section-number">44.5.2</span> Do you really need the full model?</a></li>
+<li><a class="nav-link" href="#how-do-i-properly-cite-lme4"><span class="header-section-number">44.5.3</span> How do I properly cite lme4?</a></li>
+<li><a class="nav-link" href="#further-readings"><span class="header-section-number">44.5.4</span> Further Readings</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#reference"><span class="header-section-number">44.6</span> Reference</a></li>
+<li>
+<a class="nav-link" href="#exercises-52"><span class="header-section-number">44.7</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-34"><span class="header-section-number">44.7.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-34"><span class="header-section-number">44.7.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-34"><span class="header-section-number">44.7.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-33"><span class="header-section-number">44.7.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-31"><span class="header-section-number">44.7.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-31"><span class="header-section-number">44.7.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-31"><span class="header-section-number">44.7.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-31"><span class="header-section-number">44.7.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-31"><span class="header-section-number">44.7.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-31"><span class="header-section-number">44.7.10</span> Question 10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/043-totally_addicted_to_base-lme4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/043-totally_addicted_to_base-lme4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

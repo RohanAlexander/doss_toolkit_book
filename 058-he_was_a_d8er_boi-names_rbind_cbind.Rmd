@@ -9,10 +9,9 @@ library(stringr)
 library(palmerpenguins)
 ```
 
-
 # names, rbind and cbind
 
-*Written by Isaac Ehrlich.*
+*Written by Isaac Ehrlich and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -202,3 +201,25 @@ Similarly, if the names of the columns do not match, `rbind()` will give a "name
 In the next section, we will continue learning how to manipulate data frames.
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

@@ -1,17 +1,7 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
-library(flair)
-# library(gradethis)
-library(sortable)
-# gradethis::gradethis_setup()
-library(palmerpenguins)
 ```
-
 
 # (PART\*) Git outta here {-}
  
@@ -34,8 +24,3 @@ The lessons in this module are:
 - Branches in GitHub, written by Matthew Wankiewicz.
 - Dealing with Conflicts, written by Matthew Wankiewicz.
 - Putting (G)it All together in RStudio, written by Matthew Wankiewicz.
-
-
-
-
-

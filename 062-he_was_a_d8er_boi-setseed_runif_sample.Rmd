@@ -9,14 +9,11 @@ library(stringr)
 library(palmerpenguins)
 ```
 
-
 # setseed, runif, rnorm, and sample
 
-*Written by Haoluan Chen.*
-
+*Written by Haoluan Chen and last updated on 7 October 2021.*
 
 ## Introduction
-
 
 In this lesson, you will learn how to:
 
@@ -289,16 +286,24 @@ You can also generate binomial random variables using `rbinom()`, and Poisson ra
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
-
+### Question 10

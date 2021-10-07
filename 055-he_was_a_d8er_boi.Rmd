@@ -1,14 +1,7 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-library(tidyverse)
-library(flair)
-library(glue)
-library(stringr)
-library(palmerpenguins)
 ```
-
 
 # (PART\*) He was a d8er boi {-}
  

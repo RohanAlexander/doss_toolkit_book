@@ -3,22 +3,14 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
 library(sortable)
-# gradethis::gradethis_setup()
 library(palmerpenguins)
 ```
 
-
-
-
-
 # Dealing with conflicts
 
-*Written by Matthew Wankiewicz.*
+*Written by Matthew Wankiewicz and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -131,13 +123,24 @@ For further information on how to deal with conflicts in GitHub, check out:
 
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
+### Question 10

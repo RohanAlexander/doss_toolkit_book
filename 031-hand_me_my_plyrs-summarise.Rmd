@@ -3,11 +3,7 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
 library(flair)
-# tutorial_options(exercise.eval = FALSE)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(palmerpenguins)
 
 broadway <- read_csv(
@@ -21,7 +17,7 @@ broadway <- broadway %>%
 
 # summarise
 
-Written by Mariam Walaa.
+*Written by Mariam Walaa and last updated on 7 October 2021.*
 
 
 ## Introduction
@@ -338,3 +334,25 @@ summarise](https://r4ds.had.co.nz/transform.html#grouped-summaries-with-summaris
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

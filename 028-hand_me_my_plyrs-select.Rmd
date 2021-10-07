@@ -3,19 +3,13 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
 library(flair)
-# tutorial_options(exercise.eval = FALSE)
-# library(gradethis)
-# gradethis::gradethis_setup()
 library(palmerpenguins)
-
 ```
-
 
 # select
 
-Written by Yena Joo.
+*Written by Yena Joo and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -298,3 +292,25 @@ In the tidyverse essentials, there are a ton of other functions you could mix & 
 
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

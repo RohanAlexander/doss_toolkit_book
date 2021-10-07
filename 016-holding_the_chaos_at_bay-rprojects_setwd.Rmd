@@ -1,53 +1,14 @@
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# library(gradethis)
-# gradethis::gradethis_setup()
-
-# tutorial_options(exercise.eval = FALSE)
-
-## Pre-specify data at setup for learnr
-my_data <- 
-  c("studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
-
-my_data_modified <- 
-  c("Hello, this text is, irrelevant
-  As is this line
-  studendID,test1,test2,grade 
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F
-  student6,LWD,LWD,LWD"
-  )
-
-my_new_data <- 
-  c("studendID,test1,test2,grade
-  (textID),(points out of 100),(points out of 100),(letter grade)
-  student1,90,85,A
-  student2,30,46,F
-  student3,70,80,B
-  student4, NA,68,C
-  student5,NA,NA,F"
-  )
 ```
 
 
 # R Projects and working directory
 
-Written by Isaac Ehrlich.
-
+*Written by Isaac Ehrlich and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -56,7 +17,6 @@ Whether you want to save a script, load data, or output graphs, R needs to know 
 In this section, you will learn how to set a working directory using the function `setwd()` as well as how to use **RStudio projects**, and why RStudio projects are better for organization and reproducibility.
 
 Some key concepts and functions to keep in mind throughout the section: **working directory**, **R Projects**, `getwd()`, `setwd()`.
-
 
 ## The working directory
 
@@ -83,14 +43,13 @@ R Projects are a type of file, labelled `.Rproj`, which designate a working dire
 knitr::include_graphics("images/r-project-example.png")
 ```
 
-
 ### Creating and Opening R Projects
 
 To create an R Project, go to 'File', and then select 'New Project'. RStudio will then ask if you wish to create the project in a new or existing directory. If you have already created a folder on your computer, select existing directory. Otherwise, select 'New Directory/New Project', and then name the project, and choose the location to store it on your computer.
 
 To open an R project, you can go to 'File' and select 'Open Project' in RStudio. Alternatively, you can double click on the `.Rproj` file in your file explorer. Note, RStudio is capable of running multiple projects at the same time, but not within the same session. If you want to run multiple R Projects, you will need to open a new session.
 
-## Common Mistakes & Errors
+## Common mistakes and errors
 
 If you are using `setwd()`, make sure you are using proper syntax to define the folder path, and that the folder exists. Otherwise, you are likely to get the following error:
 
@@ -126,7 +85,7 @@ The syntax may vary depending on the operating system of your device.
 <!-- allow_retry = TRUE) -->
 <!-- ``` -->
 
-## Key Takeaways & Next Steps
+## Key takeaways and next steps
 
 * In order to successfully read and save files, you need to specify a working directory
 * Setting a working directory through `setwd()` makes it hard to share and reproduce your analysis
@@ -135,17 +94,24 @@ The syntax may vary depending on the operating system of your device.
 In the following section, we will discuss how to set up and organize your folders for a project in R.
 
 
+## Exercises
 
+### Question 1
 
+### Question 2
 
+### Question 3
 
+### Question 4
 
+### Question 5
 
+### Question 6
 
+### Question 7
 
+### Question 8
 
+### Question 9
 
-
-
-
-
+### Question 10

@@ -1,14 +1,12 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE)
-# library(learnr)
 library(tidyverse)
 ```
 
-
 # Getting and setting up RStudio
 
-Written by Rohan Alexander and Annie Collins.
+*Written by Annie Collins and last updated on 7 October 2021.*
 
 ## Introduction
 
@@ -24,11 +22,9 @@ R is different from RStudio and you need to download both. R refers to the progr
 
 University of Toronto Professor Liza Bolton has a wonderful analogy: if R is like a car engine, RStudio is like the car. While it's possible to use a car engine directly, most of us find it helpful to use a car. So we're going to use RStudio to interface with R.
 
-
 ## Getting R
 
 Your first step is to download R. It can be downloaded for free from the R website: https://www.r-project.org. It's not the most user-friendly website ever built, so I've taken a series of screenshots to help explain things. First you need to click **download R**. 
-
 
 ```{r, echo = FALSE, out.width="90%"}
 knitr::include_graphics("images/01-getting_started_1.png")
@@ -38,7 +34,7 @@ Then you need to pick a mirror. This is done for largely historical reasons - wh
 
 For anyone near the University of Toronto, the university hosts its own mirror: https://utstat.toronto.edu/cran/.
 
-If you don't know what to pick then you can use the one that I always use - https://cran.csiro.au/. 
+If you don't know what to pick, then you can use the one that I always use - https://cran.csiro.au/. 
 
 ```{r, echo = FALSE, out.width="90%"}
 knitr::include_graphics("images/01-getting_started_2.png")
@@ -56,7 +52,6 @@ At this point, you can click to do the actual download. This will differ dependi
 knitr::include_graphics("images/01-getting_started_4.png")
 ```
 
-
 After that downloads you can install it on your computer like any other application.
 
 ## Getting RStudio
@@ -67,7 +62,6 @@ To get started, visit the RStudio website: https://rstudio.com. Then click on do
 knitr::include_graphics("images/01-getting_started_6.png")
 ```
 
-
 You want RStudio Desktop, which is free. Click download and it should try to guess your operating system and provide the correction option for your set-up. In my case, this is Mac, so I can click **Download**, and then install it like any other application.
 
 ```{r, echo = FALSE, out.width="90%"}
@@ -77,12 +71,3 @@ knitr::include_graphics("images/01-getting_started_7.png")
 ## Next Steps
 
 Congratulations! You are now ready to start running R code in RStudio Desktop. In the next lesson, you will learn how to navigate RStudio and some of its key features that will come in handy once you start programming in R.
-
-
-
-
-
-
-
-
-

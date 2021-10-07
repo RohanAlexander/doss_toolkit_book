@@ -6,20 +6,15 @@ library(flair)
 library(tidyverse)
 ```
 
-
-
 # function
 
-*Written by Haoluan Chen.*
-
-
+*Written by Haoluan Chen and last updated on 7 October 2021.*
 
 ## Introduction
 
 In this lesson, you will learn how to:
 
 - Write your own functions in R
-
 
 Prerequisite skills include:
 
@@ -208,3 +203,25 @@ If you want to see more completed function, you can read through this Function c
 https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function
 
 
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

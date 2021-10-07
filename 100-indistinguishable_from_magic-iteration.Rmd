@@ -3,16 +3,36 @@
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-# library(learnr)
-# tutorial_options(exercise.eval = FALSE)
 library(flair)
-# library(gradethis)
 library(sortable)
-# gradethis::gradethis_setup()
-# library(palmerpenguins)
 library(ggmap)
 ```
 
-
-
 # Iteration
+
+*Written by ADD NAME and last updated on ADD DATE.*
+
+## Introduction
+
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
