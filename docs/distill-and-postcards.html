@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 105 Distill and postcards | Untitled</title>
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Untitled</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 105</span> Distill and postcards</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="distill-and-postcards" class="section level1" number="105">
+<h1>
+<span class="header-section-number">105</span> Distill and postcards<a class="anchor" aria-label="anchor" href="#distill-and-postcards"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Annie Collins and last updated on 18 December 2021.</em></p>
+<div id="introduction-97" class="section level2" number="105.1">
+<h2>
+<span class="header-section-number">105.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-97"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you have made it this far into the DoSS Toolkit, you have likely encountered R Markdown at some point in your R journey. You may also have come across Blogdown, the R package used for building simple blogs using R Markdown. R Markdown documents and Blogdown websites are rather flexible and straightforward to implement, however they may not support all the features necessary for your desired publications. In this module we will look at two formats that are specifically optimized for scientific, technical, academic and personal communication: Distill and postcards. These formats add to the existing R Markdown structure so you can use familiar tools to produce more tailored content, from individual articles to full websites and blogs.</p>
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li>Set up a basic website using Distill and postcards</li>
+<li>Identify differences between Blogdown, Distill, and postcards, and use cases for each format</li>
+</ul>
+<p>Pre-requisite knowledge includes:</p>
+<ul>
+<li>Experience with GitHub</li>
+<li>Knowledge of R Markdown</li>
+<li>Knowledge of Blogdown (see Chapter 104: Getting started with Blogdown)</li>
+</ul>
+</div>
+<div id="postcards" class="section level2" number="105.2">
+<h2>
+<span class="header-section-number">105.2</span> Postcards<a class="anchor" aria-label="anchor" href="#postcards"><i class="fas fa-link"></i></a>
+</h2>
+<p>We will begin with postcards, which is the simpler option in terms of website set up and deployment. Postcards websites can generally be used as personal or academic landing pages to showcase a brief summary of your personal, professional, or academic background as well as links to other relevant sites like GitHub, LinkedIn, or Twitter. These sites are not extensive; like the name would suggest, Postcard sites are a single page with an image and a small amount of text. While this may seem overly simple, key strength of this package is its ability to produce and deploy a well-formatted, self-contained website quickly and with very little knowledge beyond standard R Markdown functionality.</p>
+<p>Before beginning, you will likely need to install the Postcards package. You can do so in the same way as other packages from CRAN, by using the code below.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"postcards"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/seankross/postcards">postcards</a></span><span class="op">)</span></code></pre></div>
+<p>There are two ways to create a new postcard: using the command line and the function <code><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard()</a></code> from an empty directory, or by creating a new directory containing a Postcards website. We will begin with looking at the latter.</p>
+<p>To create a new directory, go to <strong>File &gt; New Project &gt; New Directory &gt; Postcards Website</strong>. When creating a Postcards site, you will need to specify a directory name and Postcards template. There are five templates to choose from: Jolla, Jolla Blue, Trestles, Onofre, and Solana. The default appearance and header for each template can be found on the <a href="https://github.com/seankross/postcards#the-templates">Postcards GitHub repo</a>. For the most part, these templates are meant to be used as-is with little customization beyond the content presented on the website.</p>
+<div class="inline-figure"><img src="images/106_postcards_1.png" width="533" style="display: block; margin: auto;"></div>
+<p>The exact same outcome as above can be accomplished using the command line and an empty directory. Begin by creating a new R Project in a new or existing directory (if the directory already exists, be sure that is is empty). For this method, you could also create an empty Git repository first and start your R Project with version control. Depending on your usual workflow, this may be a benefit of working in the command line.</p>
+<p>The main function in the Postcards package is <code><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard()</a></code>. The function has a default for every argument so it can be executed as-is, which will create a site using the Jolla template. Templates can be changed using the <code>template</code> argument. For this workflow there is no need to change any of the arguments, however these are described in detail in the function documentation (<code><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">?create_postcard</a></code>).</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard</a></span><span class="op">(</span>
+  file <span class="op">=</span> <span class="st">"index.Rmd"</span>,
+  template <span class="op">=</span> <span class="st">"jolla"</span>,
+  create_dir <span class="op">=</span> <span class="cn">FALSE</span>,
+  edit <span class="op">=</span> <span class="cn">TRUE</span>,
+  create_image <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">postcards</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard</a></span><span class="op">(</span>template <span class="op">=</span> <span class="st">"jolla"</span><span class="op">)</span>
+<span class="fu">postcards</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard</a></span><span class="op">(</span>template <span class="op">=</span> <span class="st">"jolla-blue"</span><span class="op">)</span>
+<span class="fu">postcards</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard</a></span><span class="op">(</span>template <span class="op">=</span> <span class="st">"trestles"</span><span class="op">)</span>
+<span class="fu">postcards</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard</a></span><span class="op">(</span>template <span class="op">=</span> <span class="st">"onofre"</span><span class="op">)</span>
+<span class="fu">postcards</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/postcards/man/create_postcard.html">create_postcard</a></span><span class="op">(</span>template <span class="op">=</span> <span class="st">"solana"</span><span class="op">)</span></code></pre></div>
+<p>Once the Postcard has been created, you’ll have a directory that contains your R Project file, an Rmd file called “index.Rmd,” and a jpg file which serves as the default headshot for whichever template you have selected. In the image below, I have used the Jolla template as indicated in the Rmd header.</p>
+<div class="inline-figure"><img src="images/106_postcards_2.png" width="100%" style="display: block; margin: auto;"></div>
+<p>At this stage you can begin customizing your Postcard site. This should involve:</p>
+<ul>
+<li>Replacing the default .jpg with your own headshot or custom image, and changing the <code>image:</code> file path under the Rmd header accordingly</li>
+<li>Updating the links in the Rmd header to direct to your own content</li>
+<li>Personalizing the test in the body of the file. Depending on the template you use, this may be best formatted as a basic introduction, a minimal CV, or a combination of both.</li>
+</ul>
+<p>As with an R Markdown document, you can always Knit your file to deploy it locally and test its functionality and appearance as you make changes. Once you’re ready to make your Postcard public, it can be easily deployed using <a href="https://pages.github.com/">GitHub Pages</a> or <a href="https://www.netlify.com/">Netlify</a>. Instructions for deploying with Netlify can be found in Section 104.5: Making your Website Public.</p>
+</div>
+<div id="distill" class="section level2" number="105.3">
+<h2>
+<span class="header-section-number">105.3</span> Distill<a class="anchor" aria-label="anchor" href="#distill"><i class="fas fa-link"></i></a>
+</h2>
+<p>Distill allows you to produce both individual articles and full websites using the R Markdown framework plus additional features that aid in technical communication. Some of these features include:</p>
+<ul>
+<li>Tables of contents</li>
+<li>Interactive tables</li>
+<li>More flexible figure formatting</li>
+<li>Equations</li>
+<li>Hoverable footnotes</li>
+<li>Asides</li>
+<li>Code folding</li>
+<li>Syntax highlighting</li>
+<li>Appendices</li>
+</ul>
+<p>Before we begin, it may be useful to examine some existing Distill content to see if this format will work for your purposes. Here are some examples of websites:
+- The <a href="https://rstudio.github.io/distill/">Distill for R Markdown website</a>, created by JJ Alaire, Rich Iannone, Alison Hill, and Yihui Xie
+- <a href="https://tmv.netlify.app/site/">Tidymodels, Virtually</a>, created by Alison Hill
+- <a href="https://www.opensourcefootball.com/">Open Source Football</a>, created by Sebastian Carl</p>
+<p>To get started with Distill, you will likely need to install the Distill R package. You can do so in the same way as other packages from CRAN, by using the code below.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"distill"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/distill">distill</a></span><span class="op">)</span></code></pre></div>
+<p>We will start by creating a single article. Distill articles are created the same way that R Markdown files are created, with the addition of specifying “Distill Article” as the template.</p>
+<div class="inline-figure"><img src="images/106_distill_1.png" width="75%" style="display: block; margin: auto;"></div>
+<p>You’ll notice a few differences between the contents of a Distill article compared to a normal R Markdown document. Distill article headers automatically come with more advanced formatting options for authors, including affiliations and URLs for personal and affiliated websites. You can also add an author’s ORCID iD (with argument <code>orcid_id</code>) in this header. Distill will automatically adjust for different combinations of inputted information as well as multiple authors where necessary. Another change from the default R Markdown header is the output type, which is now <code>output: distill::distill_article</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="distill-and-postcards.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb5-2"><a href="distill-and-postcards.html#cb5-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Untitled"</span></span>
+<span id="cb5-3"><a href="distill-and-postcards.html#cb5-3" aria-hidden="true" tabindex="-1"></a>description<span class="sc">:</span> <span class="er">|</span></span>
+<span id="cb5-4"><a href="distill-and-postcards.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  A new article created using the Distill format.</span>
+<span id="cb5-5"><a href="distill-and-postcards.html#cb5-5" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span></span>
+<span id="cb5-6"><a href="distill-and-postcards.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> name<span class="sc">:</span> Nora Jones </span>
+<span id="cb5-7"><a href="distill-and-postcards.html#cb5-7" aria-hidden="true" tabindex="-1"></a>    url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>example.com<span class="sc">/</span>norajones</span>
+<span id="cb5-8"><a href="distill-and-postcards.html#cb5-8" aria-hidden="true" tabindex="-1"></a>    affiliation<span class="sc">:</span> Spacely Sprockets</span>
+<span id="cb5-9"><a href="distill-and-postcards.html#cb5-9" aria-hidden="true" tabindex="-1"></a>    affiliation_url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>example.com<span class="sc">/</span>spacelysprokets</span>
+<span id="cb5-10"><a href="distill-and-postcards.html#cb5-10" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb5-11"><a href="distill-and-postcards.html#cb5-11" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> distill<span class="sc">::</span>distill_article</span>
+<span id="cb5-12"><a href="distill-and-postcards.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb5-13"><a href="distill-and-postcards.html#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="distill-and-postcards.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ```{r setup, include=FALSE}</span></span>
+<span id="cb5-15"><a href="distill-and-postcards.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::opts_chunk$set(echo = FALSE)</span></span>
+<span id="cb5-16"><a href="distill-and-postcards.html#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-17"><a href="distill-and-postcards.html#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ```</span></span>
+<span id="cb5-18"><a href="distill-and-postcards.html#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="distill-and-postcards.html#cb5-19" aria-hidden="true" tabindex="-1"></a>Distill is a publication format <span class="cf">for</span> scientific and technical writing, native to the web. </span>
+<span id="cb5-20"><a href="distill-and-postcards.html#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="distill-and-postcards.html#cb5-21" aria-hidden="true" tabindex="-1"></a>Learn more about using Distill <span class="cf">for</span> R Markdown at <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>rstudio.github.io<span class="sc">/</span>distill<span class="sc">&gt;</span>.</span></code></pre></div>
+</div>
+<div id="exercises-145" class="section level2" number="105.4">
+<h2>
+<span class="header-section-number">105.4</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-145"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-102" class="section level3" number="105.4.1">
+<h3>
+<span class="header-section-number">105.4.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-102"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-2-101" class="section level3" number="105.4.2">
+<h3>
+<span class="header-section-number">105.4.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-101"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-3-98" class="section level3" number="105.4.3">
+<h3>
+<span class="header-section-number">105.4.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-98"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-4-90" class="section level3" number="105.4.4">
+<h3>
+<span class="header-section-number">105.4.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-90"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-5-89" class="section level3" number="105.4.5">
+<h3>
+<span class="header-section-number">105.4.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-89"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-89" class="section level3" number="105.4.6">
+<h3>
+<span class="header-section-number">105.4.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-89"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-88" class="section level3" number="105.4.7">
+<h3>
+<span class="header-section-number">105.4.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-88"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-88" class="section level3" number="105.4.8">
+<h3>
+<span class="header-section-number">105.4.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-88"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-88" class="section level3" number="105.4.9">
+<h3>
+<span class="header-section-number">105.4.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-88"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-88" class="section level3" number="105.4.10">
+<h3>
+<span class="header-section-number">105.4.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-88"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Untitled</strong>" was written by true. It was last built on 2021-12-18.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

@@ -210,12 +210,52 @@ uncount(colours, n, .remove = FALSE, .id = "id")
 #> 5   blue cool 3  2
 #> 6   blue cool 3  3
 ```
-## Questions & Exercises
 
-### Exercises
 
-For the following two exercises, manipulate the `starwars` data set to match the output displayed. The original is included below for reference.
+## Exercises
 
+Below is the first five rows of output from **Exercise 1**, assigned the name `features`. Please use this data set as reference for the following questions.
+
+
+```
+#> # A tibble: 5 × 3
+#>   skin_color eye_color     n
+#>   <chr>      <chr>     <int>
+#> 1 fair       blue          6
+#> 2 light      brown         6
+#> 3 dark       brown         2
+#> 4 fair       brown         2
+#> 5 grey       black         2
+```
+
+### Question 1
+
+In the output of `uncount(features, n)`, how many times will the word "brown" appear?
+
+  a. 2
+  b. 3
+  c. 7
+  d.  12
+
+### Question 2
+
+How many rows does the output of `uncount(features, 2)` have (not including the header)?
+
+  a. 5
+  b.  10
+  c. 21
+  d. 42
+
+### Question 3
+
+How many columns does the output of `uncount(features, 2)` have?
+
+  a. 1
+  b. 2
+  c.  3
+  d. 4
+
+For the Question 4 and 5, identify the code used to manipulate the `starwars` data set to match the output displayed. The original is included below for reference.
 
 ```
 #> # A tibble: 30 × 6
@@ -234,160 +274,58 @@ For the following two exercises, manipulate the `starwars` data set to match the
 #> # … with 20 more rows
 ```
 
-**Exercise 1**
-
-
-```
-#> # A tibble: 16 × 3
-#>    skin_color  eye_color     n
-#>    <chr>       <chr>     <int>
-#>  1 fair        blue          6
-#>  2 light       brown         6
-#>  3 dark        brown         2
-#>  4 fair        brown         2
-#>  5 grey        black         2
-#>  6 light       blue          2
-#>  7 dark        blue          1
-#>  8 gold        yellow        1
-#>  9 green       orange        1
-#> 10 grey        orange        1
-#> 11 orange      orange        1
-#> 12 pale        yellow        1
-#> 13 tan         brown         1
-#> 14 white       yellow        1
-#> 15 white, blue red           1
-#> 16 white, red  red           1
-```
-
-
-```r
-count(starwars, skin_color, eye_color, sort=TRUE)
-#> # A tibble: 16 × 3
-#>    skin_color  eye_color     n
-#>    <chr>       <chr>     <int>
-#>  1 fair        blue          6
-#>  2 light       brown         6
-#>  3 dark        brown         2
-#>  4 fair        brown         2
-#>  5 grey        black         2
-#>  6 light       blue          2
-#>  7 dark        blue          1
-#>  8 gold        yellow        1
-#>  9 green       orange        1
-#> 10 grey        orange        1
-#> 11 orange      orange        1
-#> 12 pale        yellow        1
-#> 13 tan         brown         1
-#> 14 white       yellow        1
-#> 15 white, blue red           1
-#> 16 white, red  red           1
-```
-
-**Exercise 2**
-
-
-```
-#> # A tibble: 30 × 2
-#>    name                unique
-#>    <chr>                <int>
-#>  1 Adi Gallia               1
-#>  2 Anakin Skywalker         1
-#>  3 Bail Prestor Organa      1
-#>  4 Beru Whitesun lars       1
-#>  5 Biggs Darklighter        1
-#>  6 Boba Fett                1
-#>  7 C-3PO                    1
-#>  8 Cliegg Lars              1
-#>  9 Cordé                    1
-#> 10 Darth Vader              1
-#> # … with 20 more rows
-```
-
-
-```r
-count(starwars, name, name="unique")
-#> # A tibble: 30 × 2
-#>    name                unique
-#>    <chr>                <int>
-#>  1 Adi Gallia               1
-#>  2 Anakin Skywalker         1
-#>  3 Bail Prestor Organa      1
-#>  4 Beru Whitesun lars       1
-#>  5 Biggs Darklighter        1
-#>  6 Boba Fett                1
-#>  7 C-3PO                    1
-#>  8 Cliegg Lars              1
-#>  9 Cordé                    1
-#> 10 Darth Vader              1
-#> # … with 20 more rows
-```
-
-### Questions
-
-Below is the first five rows of output from **Exercise 1**, assigned the name `features`. Please use this data set as reference for the following questions.
-
-
-```
-#> # A tibble: 5 × 3
-#>   skin_color eye_color     n
-#>   <chr>      <chr>     <int>
-#> 1 fair       blue          6
-#> 2 light      brown         6
-#> 3 dark       brown         2
-#> 4 fair       brown         2
-#> 5 grey       black         2
-```
-
-<!-- ```{r uncount-question1, echo=FALSE} -->
-<!-- question("In the output of `uncount(features, n)`, how many times will the word \"brown\" appear?", -->
-<!-- answer("2"), -->
-<!-- answer("3"), -->
-<!-- answer("7"), -->
-<!-- answer("12", correct=TRUE) -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r uncount-question2, echo=FALSE} -->
-<!-- question("How many rows does the output of `uncount(features, 2)` have (not including the header)?", -->
-<!-- answer("5"), -->
-<!-- answer("10", correct=TRUE), -->
-<!-- answer("21"), -->
-<!-- answer("42") -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r uncount-question3, echo=FALSE} -->
-<!-- question("How many columns does the output of `uncount(features, 2)` have?", -->
-<!-- answer("1"), -->
-<!-- answer("2"), -->
-<!-- answer("3", correct=TRUE), -->
-<!-- answer("4") -->
-<!-- ) -->
-<!-- ``` -->
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
 ### Question 4
 
+```
+#> # A tibble: 16 × 3
+#>    skin_color  eye_color     n
+#>    <chr>       <chr>     <int>
+#>  1 fair        blue          6
+#>  2 light       brown         6
+#>  3 dark        brown         2
+#>  4 fair        brown         2
+#>  5 grey        black         2
+#>  6 light       blue          2
+#>  7 dark        blue          1
+#>  8 gold        yellow        1
+#>  9 green       orange        1
+#> 10 grey        orange        1
+#> 11 orange      orange        1
+#> 12 pale        yellow        1
+#> 13 tan         brown         1
+#> 14 white       yellow        1
+#> 15 white, blue red           1
+#> 16 white, red  red           1
+```
+
+  a.  `count(starwars, skin_color, eye_color, sort=TRUE)`
+  b. `count(starwars, skin_color, eye_color, sort=FALSE)`
+  c. `count(starwars, c(skin_color, eye_color), sort=TRUE)`
+  d. `count(starwars, c(skin_color, eye_color), sort=FALSE)`
+  
 ### Question 5
 
+```
+#> # A tibble: 30 × 2
+#>    name                unique
+#>    <chr>                <int>
+#>  1 Adi Gallia               1
+#>  2 Anakin Skywalker         1
+#>  3 Bail Prestor Organa      1
+#>  4 Beru Whitesun lars       1
+#>  5 Biggs Darklighter        1
+#>  6 Boba Fett                1
+#>  7 C-3PO                    1
+#>  8 Cliegg Lars              1
+#>  9 Cordé                    1
+#> 10 Darth Vader              1
+#> # … with 20 more rows
+```
+  a. `count(starwars)`
+  b. `count(starwars, name, species, .remove = TRUE)`
+  c. `count(starwars, name, name="name")`
+  d.  `count(starwars, name, name="unique")`
+  
 ### Question 6
 
 ### Question 7
