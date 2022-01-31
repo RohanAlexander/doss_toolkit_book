@@ -7,9 +7,7 @@ library(tidyverse)
 
 # Projects issues
 
-# Projects issues
-
-*Written by Ruijia Yang and last updated on January 22 2022.*
+*Written by Ruijia Yang and last updated on January 30 2022.*
 
 ## Introduction
 Working through subsequent material in R Markdown documents, possibly using Git and GitHub to track and share your progress, is a great idea and will leave you more prepared for your future data analysis projects.
@@ -115,54 +113,64 @@ You can resolve a conversation in a pull request if you opened the pull request 
 ## Exercise
 ### Question1
 1. GitHub Project is the same with the project in RStudio.
+
     a.  False
     b. True
     
 ### Question2    
 2. What will you do in GitHub if you want to make your project more organized and efficient?
+
     a.  Create a project board in Github to track the progress
     b. Manually write down some updates in the excel sheet
     
 ### Question3
 3. It is efficient to use GitHub Project in teamwork, and people can custom fields to track metadata.
+
     a. False
     b.  True
     
 ### Question4    
 4. what should you do to keeo your project staying up-to -date with the information on GitHub?
+
     a.  Don't need to do anything and GitHub will help me do everything
     b. Manually update the information in project board
     
 ### Question5    
 5. A public project board is visible to anyone with the project board's URL. So everyone who can view the project can edit the project.
+
     a.  False, only who has write access to the repository can edit it.
     b. True
     
 ### Question6
 6. After adding a crad as a note to a project board and you find that it isn't sufficientr for you needs, you can still convert it to an issue.
+
     a. False
     b.  True
     
 ### Question7   
 7.  You can filter cards using the following search qualifiers in any combination.
-    a. Filter cards by author using author:USERNAME
-    b. Filter cards by assignee using assignee:USERNAME or no:assignee
-    c. Filter cards by label using label:LABEL, label:"MULTI-WORD LABEL NAME", or no:label
+
+    a. Filter cards by author using `author:USERNAME`
+    b. Filter cards by assignee using `assignee:USERNAME` or `no:assignee`
+    c. Filter cards by label using `label:LABEL`, `label:"MULTI-WORD LABEL NAME"`, or no:label
     d. Type some text you'd like to search for
     e.  All above is correct
   
 ### Question8
 8. You can manage your work on GitHub by creating labels to categorize issues, pull requests, and discussions. Once a label exists, you can use the label on any issue, pull request, or discussion within that repository.
+
     a. False
     b.  True
     
 ### Question9
 9. You can copy a project board to quickly create a new project and reuse a project board's title, description, and automation configuration. 
+
     a. False
     b.  True
     
 ### Question10
 10. One project can only be used with one repositories.
+
     a.  False, I can link up to twenty-five repositories to my organization or user-owned project board. 
     b. True
     
@@ -189,29 +197,10 @@ Tips: Suggest you “Open in new session” in R.
 
 
 ## Next Step
+You can take advantages of these GitHub project management features, such as GitHub repositories, issues, and project boards, to plan and track your work, whether working on an individual project or cross-functional team. You can read more [here](https://docs.github.com/en/issues)
 
 ## Reference
 
 GitHub Docs. https://docs.github.com/en
 
-## Exercises
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
