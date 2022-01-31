@@ -40,7 +40,7 @@ library(ggmap)
 
 ## Backgrounds
 
-Much like the way you build a plot in `ggplot2`, `ggmap` plots are constructed by adding to your plot feature by feature, starting with a map background. `ggmap` allows you to use map backgrounds from two different sources: Google Maps and Stamen. Both offer several options for aesthetics and customization and are fairly similar in their use. Google Maps requires access to Google APIs (see *Google Maps API* below) while Stamen Maps authentication is built into the package, so we will focus on Stamen backgrounds for the purpose of this lesson.
+Much like the way you build a plot in `ggplot2`, `ggmap` plots are constructed by adding to your plot feature by feature, starting with a map background. `ggmap` allows you to use map backgrounds from two different sources: Google Maps and Stamen. Both offer several options for aesthetics and customization and are fairly similar in their use. Google Maps requires access to Google APIs (see Section \@ref(google-maps-apis) below) while Stamen Maps authentication is built into the package, so we will focus on Stamen backgrounds for the purpose of this lesson.
 
 For a Stamen Map background, we use the function `get_stamenmap()`. This function takes several arguments that allow you to customize the appearance and format of your map, but most importantly you must state the boundaries, scale, and type of your map. The object produced by `get_stamenmap()` then gets passed to the `ggmap()` function which allows you to view the map in the "Plots" tab as well as display data on top of it.
 
@@ -52,9 +52,8 @@ For a Stamen Map background, we use the function `get_stamenmap()`. This functio
 
 See `?get_stamenmap` for additional arguments and details.
 
-```{r stamen-map-1, message=FALSE, warning= FALSE, exercise = TRUE}
+```{r stamen-map-1, message=FALSE, warning= FALSE}
 # Houston, Texas
-# Also try the additional maptypes listed above
 map <- get_stamenmap(c(-95.39681, 29.73631, -95.34188, 29.78400), zoom = 15, maptype = "toner")
 
 ggmap(map)
@@ -114,89 +113,6 @@ ggmap(map) + stat_density2d(data = assault_auto, aes(x=lon, y=lat, fill = ..leve
 
 ```
 
-## Exercises
-
-To get you comfortable working with `ggmap`'s syntax and plotting capabilities, you're now going to build a map of COVID-19 testing locations in Toronto from the data set `covid_testing_locations` which has columns *long* and *lat*.
-
-```{r, include=FALSE}
-covid_testing_locations <- read_csv("data/64-covid-testing-locations.csv")
-```
-
-```{r}
-head(covid_testing_locations)
-```
-
-### Exercise 1
-
-Your first task is to load the background of the map. The key to doing so correctly is to establish the correct boundaries for the map in terms of longitude and latitude coordinates, then load a map from Stamen Maps and save it under the name `toronto_map`. Complete the code below to create a background map of Toronto that will appropriately display the data (use zoom 10 and maptype "terrain").
-
-<!-- ```{r ggmap-exercise-1, exercise=TRUE, message=FALSE} -->
-<!-- toronto_map <- get_stamenmap(c(-75, 41, -74, 42), zoom=10, maptype="terrain") -->
-
-<!-- ggmap(toronto_map) -->
-<!-- ``` -->
-
-<!-- ```{r ggmap-exercise-1-hint-1} -->
-<!-- # Use the max() and min() functions to determine the farthest north, south, east, and west of the coordinates in the data -->
-<!-- max(covid_testing_locations$long) # Farthest east -->
-<!-- min(covid_testing_locations$long) # Farthest west -->
-<!-- max(covid_testing_locations$lat)  # Farthest north -->
-<!-- min(covid_testing_locations$lat)  # Farthest south -->
-<!-- ``` -->
-
-<!-- ```{r ggmap-exercise-1-hint-2} -->
-<!-- # Solution -->
-<!-- toronto_map <- get_stamenmap(c(-79.82364, 43.52281, -78.85145, 44.09669), zoom=10, maptype="terrain") -->
-<!-- ``` -->
-
-```{r, include=FALSE}
-toronto_map <- get_stamenmap(c(-79.82364, 43.52281, -78.85145, 44.09669), zoom=10, maptype="terrain")
-```
-
-
-### Exercise 2
-
-Using `toronto_map` as defined above and your knowledge of `ggplot2`, complete the code below to construct a map that shows each COVID-19 testing location as a dot, with the dots coloured according to the type of assessment center they are.
-
-<!-- ```{r ggmap-exercise-2, exercise=TRUE, message=FALSE, warning=FALSE} -->
-<!-- ggmap(toronto_map) + geom_point(data=covid_testing_locations, aes(x=lat, y=long)) -->
-<!-- ``` -->
-
-<!-- ```{r ggmap-exercise-2-hint-2} -->
-<!-- # Solution -->
-<!-- ggmap(toronto_map) + geom_point(data=covid_testing_locations, aes(x=long, y=lat, color=locationType)) -->
-<!-- ``` -->
-
-### Exercise 3
-
-Finally, display several maps comparing the *density* of different types of testing locations. Title your plot "COVID-19 Testing Centers in Toronto, Ontario".
-
-<!-- ```{r ggmap-exercise-3, exercise=TRUE, message=FALSE, warning=FALSE} -->
-<!-- ggmap(toronto_map) + -->
-<!--   stat_density2d(data=covid_testing_locations,  -->
-<!--                  aes(x=long,  -->
-<!--                      y=lat,  -->
-<!--                      fill=..level..,  -->
-<!--                      alpha=0.5 -->
-<!--                      ),  -->
-<!--                  geom="polygon") -->
-<!-- ``` -->
-
-<!-- ```{r ggmap-exercise-3-solution} -->
-<!-- # Solution -->
-<!-- ggmap(toronto_map) + -->
-<!--   stat_density2d(data=covid_testing_locations,  -->
-<!--                  aes(x=long,  -->
-<!--                      y=lat,  -->
-<!--                      fill=..level..,  -->
-<!--                      alpha=0.5 -->
-<!--                      ),  -->
-<!--                  geom="polygon") +  -->
-<!--   facet_wrap(~locationType) + -->
-<!--   ggtitle("COVID-19 Testing Centers in Toronto, Ontario") -->
-<!-- ``` -->
-
-
 ## Google Maps APIs
 
 In addition to Stamen Maps, `ggmap` can draw on Google Maps APIs for its Google Maps backgrounds, and in order to do this you must first register with Google. This involves creating an account if you do not already have a Google account, as well as registering a valid credit card (it will not be charged unless you select an account upgrade that requires payment).
@@ -234,23 +150,98 @@ knitr::include_graphics("images/64-google-3.png")
 
 ### Question 1
 
+For North American maps, which corner of the map boundary will be indicated by the smallest latitude coordinate and the smallest longitude coordinate?
+
+  a. Upper left
+  b. Upper right
+  c.  Lower left
+  d. Lower right
+
 ### Question 2
 
+In the `get_stamenmap()` function argument `bbox`, what order do the coordinates appear in the vector?
+
+  a.  Lower left longitude, lower left latitude, upper right longitude, upper right latitude
+  b. Lower left latitude, lower left longitude, upper right latitude, upper right longitude
+  c. Upper right longitude, upper right latitude, lower left longitude, lower left latitude
+  d. Upper right latitude, upper right longitude, lower left latitude, lower left longitude
+  
 ### Question 3
+
+Consider a data set called `covid_testing_locations`. Suppose variable `LocationType` has three distinct categories and variable `TestType` has two distinct categories. Which of the following correctly describes the output of `toronto_map %>% ggmap() + geom_point(data=covid_testing_locations, aes(x=lat, y=long)) + facet_wrap(~LocationType)`
+
+  a. One map with two legends, one for `LocationType` and one for `TestType`.
+  b. Two of the same map object, each displaying locations for a specific test category from `TestType`.
+  c.  Two of the same map object, each displaying locations for a specific location category from `LocationType`.
+  d. Six of the same map object, each displaying locations for a unique combination of `LocationType` and `TestType`.
 
 ### Question 4
 
+If `toronto_map` refers to the output of `get_stamenmap()` with coordinates inputted for Toronto, which of the following will correctly produce a plot showing locations of COVID-19 testing centres from the `covid_testing_locations` data set in question 3 (assuming `lat` and `long` correctly refer to latitude and longitude coordinates)?
+
+  a. `toronto_map + geom_point(data=covid_testing_locations, aes(x=lat, y=long))`
+  b. `toronto_map %>% geom_point(data=covid_testing_locations, aes(x=lat, y=long))`
+  c.  `toronto_map %>% ggmap() + geom_point(data=covid_testing_locations, aes(x=lat, y=long))`
+  d. `toronto_map + ggmap() + geom_point(data=covid_testing_locations, aes(x=lat, y=long))`
+  
 ### Question 5
+
+Consider the following code and output:
+```{r, include=FALSE}
+covid_testing_locations <- read_csv(here::here("data", "102-covid-testing-locations.csv"))
+```
+
+```{r ggmap-exercise-1-hint-1}
+max(covid_testing_locations$long) # Farthest east
+min(covid_testing_locations$long) # Farthest west
+max(covid_testing_locations$lat)  # Farthest north
+min(covid_testing_locations$lat)  # Farthest south
+```
+
+Which of the following will correctly load a Stamen map containing all of the data points in `covid_testing_locations`?
+
+  a. `get_stamenmap(c(-78.85145, 44.09669, -79.82364, 43.52281))`
+  b.  `get_stamenmap(c(-79.82364, 43.52281, -78.85145, 44.09669))`
+  c. `get_stamenmap(c(43.52281, -79.82364, 44.09669, -78.85145))`
+  d. `get_stamenmap(c(44.09669, -78.85145, 43.52281, -79.82364))`
 
 ### Question 6
 
+Which of the following is **not** a function in the package `ggmap`?
+
+  a. `get_stamenmap()`
+  b. `get_googlemap()`
+  c. `get_map()`
+  d.  `stat_density2d()`
+
 ### Question 7
+
+Which of the following does **not** require Google API access?
+
+  a.  `get_stamenmap()`
+  b. `get_googlemap()`
+  c. `geocode()`
+  d. `revgeocode()`
 
 ### Question 8
 
-### Question 9
+What is the issue with the following data set of Australian post office locations as it relates to its use with `ggmap`?
 
-### Question 10
+```{r, include=FALSE}
+auspost_data <- read_csv(here::here("data", "102-auspost-locations.csv"))
+```
+
+```{r, echo=FALSE}
+auspost_data %>%
+  mutate("Location" = paste(Lat, Lon, sep = ",")) %>% 
+  select("Name", "Description", "State", "Location") %>%
+  head()
+```
+
+  a.  Location coordinates are not in separate columns
+  b. Location coordinates are not in decimal degree format
+  c. Location coordinates are in the southern hemisphere
+  d. There is not enough data to determine boundaries for a Stamen or Google map.
 
 
 

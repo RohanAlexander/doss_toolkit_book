@@ -3,7 +3,7 @@
 
 # slice
 
-*Written by Annie Collins and last updated on 7 October 2021.*
+*Written by Annie Collins and last updated on 28 January 2022.*
 
 
 ## Introduction

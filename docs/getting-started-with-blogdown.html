@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 104 Getting started with Blogdown | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Annie Collins and last updated on 7 October 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="description" content="Written by Annie Collins and last updated on 30 January 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 104 Getting started with Blogdown | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Annie Collins and last updated on 7 October 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
+<meta property="og:description" content="Written by Annie Collins and last updated on 30 January 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 104 Getting started with Blogdown | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Annie Collins and last updated on 7 October 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:description" content="Written by Annie Collins and last updated on 30 January 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -39,140 +39,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
-<li class="book-part">Hello World!</li>
-<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
-<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
-<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
-<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
-<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
-<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
-<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
-<li class="book-part">Operating in an error prone world</li>
-<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
-<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
-<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
-<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
-<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
-<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
-<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
-<li class="book-part">Holding the chaos at bay</li>
-<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
-<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
-<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
-<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
-<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
-<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
-<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
-<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
-<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
-<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
-<li class="book-part">Hand me my plyrs</li>
-<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
-<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
-<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
-<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
-<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
-<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
-<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
-<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
-<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
-<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
-<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
-<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
-<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
-<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
-<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
-<li class="book-part">Totally addicted to base</li>
-<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
-<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
-<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
-<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
-<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
-<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
-<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
-<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
-<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
-<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
-<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
-<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
-<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
-<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
-<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
-<li class="book-part">He was a d8er boi</li>
-<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
-<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
-<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
-<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
-<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
-<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
-<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
-<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
-<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
-<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
-<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
-<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
-<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
-<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
-<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
-<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
-<li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
-<li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
-<li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
-<li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="active" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 104</span> Getting started with Blogdown</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
@@ -183,7 +50,7 @@
 <h1>
 <span class="header-section-number">104</span> Getting started with Blogdown<a class="anchor" aria-label="anchor" href="#getting-started-with-blogdown"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Written by Annie Collins and last updated on 7 October 2021.</em></p>
+<p><em>Written by Annie Collins and last updated on 30 January 2021.</em></p>
 <div id="introduction-96" class="section level2" number="104.1">
 <h2>
 <span class="header-section-number">104.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-96"><i class="fas fa-link"></i></a>
@@ -206,13 +73,13 @@
 <h2>
 <span class="header-section-number">104.2</span> Set Up<a class="anchor" aria-label="anchor" href="#set-up"><i class="fas fa-link"></i></a>
 </h2>
-<p>Before getting started with <code>blogdown</code> specifically, you will need to set up GitHub and an R project to facilitate your new website. To do so, create a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">GitHub account</a> (if you don’t already have one), create a new repository, and set up an R project using Git version control. There are previous lessons on all of these steps to help you get started.</p>
+<p>Before getting started with <code>blogdown</code> specifically, you will need to set up GitHub and an R project to facilitate your new website. To do so, <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">create a GitHub account</a> (if you don’t already have one), create a new repository, and set up an R project using Git version control. There are previous lessons on all of these steps to help you get started.</p>
 <p>Now that you’re in RStudio, you will likely need to install <code>blogdown</code>. You can do so in the same way as other packages from CRAN, by using the code below.</p>
-<div class="sourceCode" id="cb710"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"blogdown"</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/blogdown">blogdown</a></span><span class="op">)</span></code></pre></div>
 <p>Next, you must install Hugo. <a href="https://gohugo.io/">Hugo</a> is an open-source static website generator upon which <code>blogdown</code> depends. You can think of it as a way to translate simple R Markdown files into nice looking and functional websites. Installing Hugo is easy and there is a built-in <code>blogdown</code> function to help you do so.</p>
-<div class="sourceCode" id="cb711"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">blogdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/blogdown/reference/install_hugo.html">install_hugo</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Once you have both <code>blogdown</code> and Hugo installed, you are ready to create a website!</p>
 </div>
@@ -221,7 +88,7 @@
 <span class="header-section-number">104.3</span> Creating a new site<a class="anchor" aria-label="anchor" href="#creating-a-new-site"><i class="fas fa-link"></i></a>
 </h2>
 <p>The command to create a new website in <code>blogdown</code> is <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> which takes several arguments. It is important to execute this command in a new and empty repository/directory since it will create a set of files that work together to produce your website, as well as all its different pages. We are going to start with using the default values for all <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> arguments.</p>
-<div class="sourceCode" id="cb712"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site</a></span><span class="op">(</span>
   dir <span class="op">=</span> <span class="st">"."</span>,
   force <span class="op">=</span> <span class="cn">NA</span>,
@@ -252,7 +119,7 @@
 <p>The main content of your website (in this case, blog posts linked from the main page) is found under <strong>main directory/content</strong>. This is where you can update the <em>About</em> section and add any markdown files you wish to showcase on your website.</p>
 <p>This is the most simple version of a <code>blogdown</code> site, built using the <em>hugo-lithium</em> theme. For full documentation on the default site’s set up and customization, see the official <code>blogdown</code> <a href="https://bookdown.org/yihui/blogdown/themes.html">book</a>.</p>
 <p>Another theme that might be useful to those working in an academic context is <em>hugo-academic</em>. You can create a <code>blogdown</code> site using this theme by using <code>theme = "gcushen/hugo-academic"</code> when calling <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">blogdown::new_site()</a></code> for the first time (along side any other desired arguments). If you’re looking to switch to this theme after trying the default theme originally, you will have to remove all of the old website’s files from your directory first and then call <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> (you can delete anything you don’t wish to transition to the new site, and simply move any content you wish to keep to a different directory until the new site is set up).</p>
-<p><em>hugo-academic</em> is a website template built specifically for showcasing yourself and your work as an academic, such as a professional headshot, publications, experience (CV), contact info, and any other work that contributes to your portfolio. You can view an example <a href="https://themes.gohugo.io//theme/academic/">here</a>. Much of the initial configuration and file structure is similar, but slightly more complex than the default <em>hugo-lithium</em>. I find the best way to get to know a new template is to play around with the files yourself as much as possible. Remember, as of right now, your website it only hosted locally so there are no repercussions if a file gets messed up or some of your code does not execute properly.</p>
+<p><em>hugo-academic</em> is a website template built specifically for showcasing yourself and your work as an academic, such as a professional headshot, publications, experience (CV), contact info, and any other work that contributes to your portfolio. You can view an example <a href="https://themes.gohugo.io/themes/hugo-academic/">here</a>. Another option for showcasing academic work is to use distill or postcards, covered in Section 105. Much of the initial configuration and file structure is similar, but slightly more complex than the default <em>hugo-lithium</em>. I find the best way to get to know a new template is to play around with the files yourself as much as possible. Remember, as of right now, your website it only hosted locally so there are no repercussions if a file gets messed up or some of your code does not execute properly.</p>
 </div>
 <div id="making-your-website-public" class="section level2" number="104.5">
 <h2>
@@ -286,102 +153,86 @@ Figure 104.1: Source: Hugo
 </div>
 <p>As mentioned previously, the best way to get to know your <code>blogdown</code> website is to play around with different files and configurations to discover what goes where and which set-up works best for you. As you build your website and try different themes, be sure to explore your <em>Files</em> tab and <code>config.yaml</code> file to get the most out of your new website.</p>
 <p>For a more in-depth look at all things <code>blogdown</code>, check out the <code>blogdown</code> <a href="https://bookdown.org/yihui/blogdown/">online book</a> authored by Yihui Xie, Amber Thomas, and Alison Presmanes Hill outlining several more aspects of creating, updating, and maintaining <code>blogdown</code> websites.</p>
+<p>If you are interested in more website building options, we will cover two more formats in Section 105: Distill and postcards</p>
 </div>
-<div id="exercises-144" class="section level2" number="104.7">
+<div id="exercises-140" class="section level2" number="104.7">
 <h2>
-<span class="header-section-number">104.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-144"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-140"><i class="fas fa-link"></i></a>
 </h2>
 <div id="question-1-101" class="section level3" number="104.7.1">
 <h3>
 <span class="header-section-number">104.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-101"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the default blog theme?</p>
+<ol style="list-style-type: lower-alpha">
+<li><em>hugo</em></li>
+<li><em>hugo-academic</em></li>
+<li><em>hugo-lithium</em></li>
+<li><em>hugo-hugo</em></li>
+</ol>
 </div>
-<div id="question-2-99" class="section level3" number="104.7.2">
+<div id="question-2-100" class="section level3" number="104.7.2">
 <h3>
-<span class="header-section-number">104.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-99"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-100"><i class="fas fa-link"></i></a>
 </h3>
+<p>On what platform are Blogdown websites automatically deployed when built?</p>
+<ol style="list-style-type: lower-alpha">
+<li>GitHub pages</li>
+<li>Netlify</li>
+<li>Wordpress</li>
+<li>Blogdown websites are not automatically deployed</li>
+</ol>
 </div>
 <div id="question-3-97" class="section level3" number="104.7.3">
 <h3>
 <span class="header-section-number">104.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-97"><i class="fas fa-link"></i></a>
 </h3>
+<p>Which of the following best describes Hugo?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Hugo is the author of the <code>blogdown</code> package</li>
+<li>Hugo is a static website generator</li>
+<li>Hugo is a platform for deploying websites</li>
+<li>Hugo is a <code>blogdown</code> theme</li>
+</ol>
 </div>
 <div id="question-4-89" class="section level3" number="104.7.4">
 <h3>
 <span class="header-section-number">104.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-89"><i class="fas fa-link"></i></a>
 </h3>
+<p>What information is indicated in the <code>config.yaml</code> file?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Website theme</li>
+<li>Main menu titles and links</li>
+<li>Logo</li>
+<li>All of the above</li>
+</ol>
 </div>
 <div id="question-5-88" class="section level3" number="104.7.5">
 <h3>
 <span class="header-section-number">104.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-88"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="question-6-88" class="section level3" number="104.7.6">
-<h3>
-<span class="header-section-number">104.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-88"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-87" class="section level3" number="104.7.7">
-<h3>
-<span class="header-section-number">104.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-87"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-87" class="section level3" number="104.7.8">
-<h3>
-<span class="header-section-number">104.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-87"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-87" class="section level3" number="104.7.9">
-<h3>
-<span class="header-section-number">104.7.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-87"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-87" class="section level3" number="104.7.10">
-<h3>
-<span class="header-section-number">104.7.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-87"><i class="fas fa-link"></i></a>
-</h3>
-
+<p>Which of the following is true?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Executing <code>blogdown::update_theme("hugo-academic")</code> will switch a Blogdown site from the default theme to the <em>hugo-academic</em> theme</li>
+<li>Executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">blogdown::new_site()</a></code> in a repository that already contains a Blogdown site will automatically overwrite all existing content to produce a new default site</li>
+<li>Executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/build_site.html">blogdown::build_site()</a></code> in an empty repository will create a Blogdown site with the theme <em>hugo-lithium</em>
+</li>
+<li>Executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">blogdown::new_site()</a></code> in an empty repository will create a Blogdown site with the theme <em>hugo-lithium</em>
+</li>
+</ol>
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></div>
-<div class="next"><a href="postcards.html"><span class="header-section-number">105</span> postcards</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#getting-started-with-blogdown"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="nav-link" href="#introduction-96"><span class="header-section-number">104.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#set-up"><span class="header-section-number">104.2</span> Set Up</a></li>
-<li><a class="nav-link" href="#creating-a-new-site"><span class="header-section-number">104.3</span> Creating a new site</a></li>
-<li><a class="nav-link" href="#initial-configurations-and-file-structure"><span class="header-section-number">104.4</span> Initial Configurations and File Structure</a></li>
-<li>
-<a class="nav-link" href="#making-your-website-public"><span class="header-section-number">104.5</span> Making your website public</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#github"><span class="header-section-number">104.5.1</span> GitHub</a></li>
-<li><a class="nav-link" href="#netlify"><span class="header-section-number">104.5.2</span> Netlify</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#next-steps-62"><span class="header-section-number">104.6</span> Next Steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-144"><span class="header-section-number">104.7</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-101"><span class="header-section-number">104.7.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-99"><span class="header-section-number">104.7.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-97"><span class="header-section-number">104.7.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-89"><span class="header-section-number">104.7.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-88"><span class="header-section-number">104.7.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-88"><span class="header-section-number">104.7.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-87"><span class="header-section-number">104.7.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-87"><span class="header-section-number">104.7.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-87"><span class="header-section-number">104.7.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-87"><span class="header-section-number">104.7.10</span> Question 10</a></li>
-</ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/105-indistinguishable_from_magic-blogdown.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/105-indistinguishable_from_magic-blogdown.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -401,34 +252,6 @@ Figure 104.1: Source: Hugo
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>

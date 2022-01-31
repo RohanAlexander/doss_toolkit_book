@@ -15,7 +15,7 @@ library(palmerpenguins)
 
 ## Introduction
 
-In this lesson, we will be covering some additional functions that will help us work with text data. If you have not already done so, please feel free to look through the previous lesson "Strings with paste and glue and stringr" for more functions and examples of working with strings that might help your understanding of this lesson's content.
+In this lesson, we will be covering some additional functions that will help us work with text data. If you have not already done so, please feel free to look through the previous lesson "58: paste, paste0, glue and stringr" for more functions and examples of working with strings that might help your understanding of this lesson's content.
 
 In this lesson, you will learn how to:
 
@@ -30,7 +30,7 @@ Prerequisite skills include:
 
 `separate()` and `separate_rows()` allow you to split up a single column of text data in different ways.
 
-`separate()` divides a single column of text data into multiple columns. There are several arguments that allow you to specify how this is done. We will focus on a the most significant ones to start:
+`separate()` divides a single column of text data into multiple columns. There are several arguments that allow you to specify how this is done. We will focus on the most significant ones to start:
 
 | Argument | Parameter | Details
 | -------- | --------- | ----------------------------------------- |
@@ -48,9 +48,9 @@ dinner_party <- data.frame(guest, food)
 dinner_party
 ```
 
-Right now the guests' orders are listed together in the column called `food`, but the data might be easier to read if each person's order for each course was in its own column. Run the code below to see how this can be accomplished.
+Right now the guests' orders are listed together in the column called `food`, but the data might be easier to read if each person's order for each course was in its own column. Observe the code below to see how this can be accomplished.
 
-```{r separate-example-1, exercise=TRUE, echo=FALSE}
+```{r separate-example-1}
 
 separate(dinner_party, food, c("soup", "salad", "main course"), sep = ",")
 
@@ -59,7 +59,7 @@ separate(dinner_party, food, c("soup", "salad", "main course"), sep = ",")
 
 ```
 
-Using `separate()`, we now can see each course as its own column and all the commas have been removed. Note that it's important to specify `sep = ","` in this case, since the default option would separate by spaces as well and split soup orders into separate columns which is not what we intended.
+Using `separate()`, we now can see each course as its own column and all the commas have been removed. Note that it's important to specify `sep = ","` in this case, since the default option would separate by spaces as well and split soup orders into separate columns which is not practical for our needs.
 
 We can split up the information contained in the `food` column in a different way using `separate_rows()`. As the name might suggest, this function will split each string into distinct rows instead of columns. The syntax and arguments are similar to `separate()`:
 
@@ -73,8 +73,9 @@ Notice that we don't need to worry about the name or number of new columns since
 
 Run the code below and observe the difference between `separate()` and `separate_rows()`.
 
-```{r separate-example-2, exercise=TRUE, echo=FALSE}
+```{r separate-example-2}
 separate_rows(dinner_party, food, sep = ",")
+
 ```
 
 ## Trouble Shooting separate()
@@ -88,17 +89,17 @@ Sometimes it is hard to know exactly how many columns your data will create when
 
 Run and edit the code below and observe the difference between the scenarios.
 
-<!-- ```{r separate-exercise-3, exercise=TRUE} -->
-<!-- letters <- data.frame(x = c("a.b", "a.b.c", "a.b.c.d")) -->
-<!-- letters -->
+```{r separate-exercise-3, exercise=TRUE}
+letters <- data.frame(x = c("a.b", "a.b.c", "a.b.c.d"))
+letters
 
-<!-- # Too many columns created - try "drop" and "merge" in place of "warn" -->
-<!-- separate(letters, x, c("A", "B"), extra = "warn") -->
+# Too many columns created - try "drop" and "merge" in place of "warn"
+separate(letters, x, c("A", "B"), extra = "warn")
 
-<!-- # Not enough columns created - try "left" and "right" in place of "warn" -->
-<!-- separate(letters, x, c("A", "B", "C", "D"), fill = "warn") -->
+# Not enough columns created - try "left" and "right" in place of "warn"
+separate(letters, x, c("A", "B", "C", "D"), fill = "warn")
 
-<!-- ``` -->
+```
 
 
 ## Working with text data using str_match() and str_remove()
@@ -140,119 +141,48 @@ postal_codes
 Suppose we want to identify the postal codes in this vector from areas surrounding the University of Toronto, which begin with "M5S". We can use the code below to do so.
 
 ```{r}
-
 str_match(postal_codes, "M5S[1-9][A-Z][1-9]") 
 # The input for pattern here essentially means "M5S followed by any combination of the format number-letter-number"
 ```
 
-We now have a vector containing only the postal codes of interest, and we could manipulate it further to remove the NA's if desired. Now suppose we actually wanted to remove these postal codes from the original data. This is where we could use `str_remove()`.
+We now have a vector containing only the postal codes of interest. Now suppose we actually wanted to remove these postal codes from the original data. This is where we could use `str_remove()`.
 
 ```{r}
 str_remove(postal_codes, "M5S[1-9][A-Z][1-9]")
 ```
 
-We now have a vector with blank strings instead of postal codes that begin with "M5S".
+We now have a vector with blank strings instead of postal codes that begin with "M5S". We can further manipulate the output of either of these functions to remove evidence of missing or blank values entirely.
+
+```{r}
+# Identify only postal codes near the University of Toronto
+m5s_codes <- str_match(postal_codes, "M5S[1-9][A-Z][1-9]")
+m5s_codes[!is.na(m5s_codes)]
+```
+
+```{r}
+# Identify only postal codes NOT near the University of Toronto
+remove_m5s_codes <- str_remove(postal_codes, "M5S[1-9][A-Z][1-9]")
+remove_m5s_codes[remove_m5s_codes != ""]
+```
 
 It is important to note that `str_match()` and `str_detect()` only operate on the first instance of the indicated pattern within each element of a string (this isn't so obvious in our postal code example since each string is rather simple and short). Both `str_match()` and `str_remove()` have accompanying functions `str_match_all()` and `str_remove_all()` which apply their functionality to *every* instance of the inputted pattern within the inputted character vector. Run the code below on a simpler vector to examine the difference.
 
-<!-- ```{r all-exercise-, exercise = TRUE} -->
-<!-- # Match -->
-<!-- rhyme <- c("she", "sells", "sea", "shells") -->
+```{r all-exercise-, exercise = TRUE}
+# Match
+rhyme <- c("she", "sells", "sea", "shells")
 
-<!-- str_match(rhyme, "s") -->
+str_match(rhyme, "s")
 
-<!-- str_match_all(rhyme, "s") -->
-<!-- ``` -->
-<!-- ```{r all-exercise-2, exercise = TRUE} -->
-<!-- # Remove -->
-<!-- rhyme <- c("she", "sells", "sea", "shells") -->
-
-<!-- str_remove(rhyme, "s") -->
-
-<!-- str_remove_all(rhyme, "s") -->
-<!-- ``` -->
-
-## Questions
-
-These questions will refer to the following data set called `groceries`.
-
-```{r, echo=FALSE}
-groceries <- data.frame(food = c("bananas,apples,rice,pasta,tofu,pizza"), drinks = c("tea,coffee,juice,wine"))
-groceries
+str_match_all(rhyme, "s")
 ```
+```{r all-exercise-2, exercise = TRUE}
+# Remove
+rhyme <- c("she", "sells", "sea", "shells")
 
-<!-- ```{r separate-q-1, echo=FALSE} -->
-<!-- question("How many rows will the output of \"separate_rows(groceries, drinks)\" have?", -->
-<!--          answer("4", correct=TRUE), -->
-<!--          answer("5"), -->
-<!--          answer("6"), -->
-<!--          answer("Error")) -->
-<!-- ``` -->
-<!-- ```{r separate-q-2, echo=FALSE} -->
-<!-- question("How many rows will the output of \"separate_rows(groceries, food, drinks)\" have?", -->
-<!--          answer("4"), -->
-<!--          answer("5"), -->
-<!--          answer("6"), -->
-<!--          answer("Error", correct = TRUE), -->
-<!--          correct = "Correct! Given the default \"sep\" value, \"drinks\" would separate into four new rows while \"food\" would separate into six, causing an error to be raised") -->
-<!-- ``` -->
-<!-- ```{r separate-q-3, echo=FALSE} -->
-<!-- question("Suppose I execute \"separate(groceries, drinks, into=c(\"A\", \"B\", \"C\", \"D\", \"E\"), fill=\"left\")\". What will the second column of the outputted data frame contain?", -->
-<!--          answer("bananas,apples,rice,pasta,tofu,pizza"), -->
-<!--          answer("tea"), -->
-<!--          answer("NA", correct = TRUE), -->
-<!--          answer("Error") -->
-<!--          ) -->
-<!-- ``` -->
-<!-- ```{r separate-q-4, echo=FALSE} -->
-<!-- question("Suppose I execute \"separate(groceries, drinks, into=c(\"A\", \"B\", \"C\"), extra=\"merge\")\". What will the final column of the outputted data frame contain?", -->
-<!--          answer("juice"), -->
-<!--          answer("wine"), -->
-<!--          answer("juice,wine", correct = TRUE), -->
-<!--          answer("Error") -->
-<!--          ) -->
-<!-- ``` -->
+str_remove(rhyme, "s")
 
-## Exercises
-
-### Exercise 1
-
-Replicate the following data set, beginning with `groceries` as above.
-```{r, echo=FALSE}
-groceries %>% separate(drinks, into=c("1", "2", "3", "4")) %>% separate_rows(food)
-
+str_remove_all(rhyme, "s")
 ```
-
-<!-- ```{r separate-exercise-1, exercise=TRUE} -->
-
-<!-- ``` -->
-<!-- ```{r separate-exercise-1-solution} -->
-<!-- groceries %>% separate(drinks, into=c("1", "2", "3", "4")) %>% separate_rows(food) -->
-<!-- # Can switch order of the functions for the same result -->
-<!-- ``` -->
-
-### Exercise 3
-
-Using the `postal_codes` data from previous examples, remove every number from the data.
-
-<!-- ```{r remove-exercise-1, exercise=TRUE} -->
-
-<!-- ``` -->
-<!-- ```{r remove-exercise-1-solution} -->
-<!-- postal_codes %>% str_remove_all("[1-9]") -->
-<!-- ``` -->
-
-
-### Exercise 2
-
-Using the `postal_codes` data from previous examples, create a vector that contains only the last three characters of all postal codes beginning with "M5S".
-
-<!-- ```{r remove-exercise-2, exercise=TRUE} -->
-
-<!-- ``` -->
-<!-- ```{r remove-exercise-2-solution} -->
-<!-- postal_codes %>% str_match("M5S[1-9][A-Z][1-9]") %>% str_remove("M5S") -->
-<!-- ``` -->
 
 ## Next Steps
 
@@ -262,22 +192,74 @@ Now that you are familiar with some functions that work with strings, you are we
 
 ## Exercises
 
+These questions will refer to the following data set called `groceries`.
+
+```{r, echo=FALSE}
+groceries <- data.frame(food = c("bananas,apples,rice,noodles,tofu,pizza"), drinks = c("tea,coffee,juice,wine"))
+groceries
+```
+
 ### Question 1
+How many rows will the output of `separate_rows(groceries, drinks)` have?
+
+  a.  4
+  b. 5
+  c. 6
+  d. An error will occur
 
 ### Question 2
 
+How many rows will the output of `separate_rows(groceries, food, drinks)` have?
+
+  a. 4
+  b. 5
+  c. 6
+  d.  An error will occur
+  
 ### Question 3
+Suppose I execute `separate(groceries, drinks, into=c("A", "B", "C", "D", "E"), fill="left")`. What will the second column ("A") of the outputted data frame contain?
+  
+  a. "bananas,apples,rice,noodles,tofu,pizza"
+  b. "tea"
+  c.  NA
+  d. An error will occur
 
 ### Question 4
 
+Suppose I execute `separate(groceries, drinks, into=c("A", "B", "C"), extra="merge")`. What will the final column of the outputted data frame contain?
+
+  a. "juice"
+  b. "wine"
+  c.  "juice,wine"
+  d. An error will occur
+
 ### Question 5
+
+Which of the following lines of code would produce this data frame:
+```{r, echo=FALSE}
+groceries %>% separate(drinks, into=c("1", "2", "3", "4")) %>% separate_rows(food)
+
+```
+
+  a. `groceries %>% separate_rows(food)`
+  b. `groceries %>% separate_rows(drinks, into=c("1", "2", "3", "4"))`
+  c. `groceries %>% separate(drinks, into=c("1", "2", "3", "4"))`
+  d.  `groceries %>% separate(drinks, into=c("1", "2", "3", "4")) %>% separate_rows(food)`
 
 ### Question 6
 
+Using the `postal_codes` data from previous examples, which of the following lines of code would result in an object containing only letters?
+
+  a. `postal_codes %>% str_remove("[1-9]")`
+  b. `postal_codes %>% str_remove_all("[1-9]")`
+  c. `postal_codes %>% str_match("[1-9]")`
+  d. `postal_codes %>% str_match_all("[1-9]")`
+
 ### Question 7
+Which of the following best describes the output of `postal_codes %>% str_match("M5S[1-9][A-Z][1-9]") %>% str_remove("M5S")`?
 
-### Question 8
+  a. A vector that contains only the last three characters of all postal codes beginning with "M5S"
+  b.  A vector that contains the last three characters of all postal codes from `postal_codes` beginning with "M5S" and `NA` values at all indices that do not meet this criteria
+  c. A vector that contains only entries from `postal_codes` that do not contain "M5S"
+  d. A vector that contains only entries from `postal_codes` that do not contain "M5S"  and `NA` values at all indices that do not meet this criteria
 
-### Question 9
-
-### Question 10

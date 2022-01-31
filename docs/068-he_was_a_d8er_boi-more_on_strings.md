@@ -7,7 +7,7 @@
 
 ## Introduction
 
-In this lesson, we will be covering some additional functions that will help us work with text data. If you have not already done so, please feel free to look through the previous lesson "Strings with paste and glue and stringr" for more functions and examples of working with strings that might help your understanding of this lesson's content.
+In this lesson, we will be covering some additional functions that will help us work with text data. If you have not already done so, please feel free to look through the previous lesson "58: paste, paste0, glue and stringr" for more functions and examples of working with strings that might help your understanding of this lesson's content.
 
 In this lesson, you will learn how to:
 
@@ -22,7 +22,7 @@ Prerequisite skills include:
 
 `separate()` and `separate_rows()` allow you to split up a single column of text data in different ways.
 
-`separate()` divides a single column of text data into multiple columns. There are several arguments that allow you to specify how this is done. We will focus on a the most significant ones to start:
+`separate()` divides a single column of text data into multiple columns. There are several arguments that allow you to specify how this is done. We will focus on the most significant ones to start:
 
 | Argument | Parameter | Details
 | -------- | --------- | ----------------------------------------- |
@@ -48,10 +48,12 @@ dinner_party
 #> 6     Sam butternut squash, garden, lasagna
 ```
 
-Right now the guests' orders are listed together in the column called `food`, but the data might be easier to read if each person's order for each course was in its own column. Run the code below to see how this can be accomplished.
+Right now the guests' orders are listed together in the column called `food`, but the data might be easier to read if each person's order for each course was in its own column. Observe the code below to see how this can be accomplished.
 
 
-```
+```r
+
+separate(dinner_party, food, c("soup", "salad", "main course"), sep = ",")
 #>     guest             soup   salad main course
 #> 1   Annie butternut squash  ceasar     lasagna
 #> 2  Mariam  italian wedding  garden     chicken
@@ -59,9 +61,12 @@ Right now the guests' orders are listed together in the column called `food`, bu
 #> 4 Shirley  italian wedding  ceasar     lasagna
 #> 5   Rohan butternut squash  garden     chicken
 #> 6     Sam butternut squash  garden     lasagna
+
+# We can also exlude the salad column in the output by using the following code instead
+# separate(dinner_party, food, c("soup", NA, "main course"), sep = ",")
 ```
 
-Using `separate()`, we now can see each course as its own column and all the commas have been removed. Note that it's important to specify `sep = ","` in this case, since the default option would separate by spaces as well and split soup orders into separate columns which is not what we intended.
+Using `separate()`, we now can see each course as its own column and all the commas have been removed. Note that it's important to specify `sep = ","` in this case, since the default option would separate by spaces as well and split soup orders into separate columns which is not practical for our needs.
 
 We can split up the information contained in the `food` column in a different way using `separate_rows()`. As the name might suggest, this function will split each string into distinct rows instead of columns. The syntax and arguments are similar to `separate()`:
 
@@ -76,7 +81,8 @@ Notice that we don't need to worry about the name or number of new columns since
 Run the code below and observe the difference between `separate()` and `separate_rows()`.
 
 
-```
+```r
+separate_rows(dinner_party, food, sep = ",")
 #> # A tibble: 18 × 2
 #>    guest   food              
 #>    <chr>   <chr>             
@@ -192,7 +198,7 @@ str_match(postal_codes, "M5S[1-9][A-Z][1-9]")
 # The input for pattern here essentially means "M5S followed by any combination of the format number-letter-number"
 ```
 
-We now have a vector containing only the postal codes of interest, and we could manipulate it further to remove the NA's if desired. Now suppose we actually wanted to remove these postal codes from the original data. This is where we could use `str_remove()`.
+We now have a vector containing only the postal codes of interest. Now suppose we actually wanted to remove these postal codes from the original data. This is where we could use `str_remove()`.
 
 
 ```r
@@ -204,7 +210,27 @@ str_remove(postal_codes, "M5S[1-9][A-Z][1-9]")
 #> [25] "M5R8B8" "M4Y2K9" "M5R7T9" "M4W8M8" "M4Y8T7" "M5T7D1"
 ```
 
-We now have a vector with blank strings instead of postal codes that begin with "M5S".
+We now have a vector with blank strings instead of postal codes that begin with "M5S". We can further manipulate the output of either of these functions to remove evidence of missing or blank values entirely.
+
+
+```r
+# Identify only postal codes near the University of Toronto
+m5s_codes <- str_match(postal_codes, "M5S[1-9][A-Z][1-9]")
+m5s_codes[!is.na(m5s_codes)]
+#> [1] "M5S2W8" "M5S5G5" "M5S5R9" "M5S5X9" "M5S2Q7" "M5S5A4"
+#> [7] "M5S5E2"
+```
+
+
+```r
+# Identify only postal codes NOT near the University of Toronto
+remove_m5s_codes <- str_remove(postal_codes, "M5S[1-9][A-Z][1-9]")
+remove_m5s_codes[remove_m5s_codes != ""]
+#>  [1] "M4W3X2" "M5T3T3" "M4V9F6" "M4V6V9" "M4V5K4" "M5T8U1"
+#>  [7] "M4V1V6" "M5R6X1" "M4Y7R8" "M4Y7N6" "M4W2S9" "M4V8K3"
+#> [13] "M4V8K1" "M5T3B9" "M4V5S4" "M5T1V4" "M4V9U6" "M5R8B8"
+#> [19] "M4Y2K9" "M5R7T9" "M4W8M8" "M4Y8T7" "M5T7D1"
+```
 
 It is important to note that `str_match()` and `str_detect()` only operate on the first instance of the indicated pattern within each element of a string (this isn't so obvious in our postal code example since each string is rather simple and short). Both `str_match()` and `str_remove()` have accompanying functions `str_match_all()` and `str_remove_all()` which apply their functionality to *every* instance of the inputted pattern within the inputted character vector. Run the code below on a simpler vector to examine the difference.
 
