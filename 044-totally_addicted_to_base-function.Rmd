@@ -207,21 +207,56 @@ https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function
 ## Exercises
 
 ### Question 1
-
+Function in R is a set of statements organized together to perform a specific task. 
+    a.  True
+    b. False
+    
 ### Question 2
-
+Function contains: 
+    a. Function Name
+    b. Arguments/Parameters
+    c. Function Body
+    d. Return Value
+    e.  All of the above
+    
 ### Question 3
-
+You should consider writing a function whenever you have copied and pasted a block of code more than twice.
+    a.  True
+    b. False 
+    
 ### Question 4
-
+`mean()` is not a built-in function in R
+    a. True
+    b.  False
+    
 ### Question 5
-
+You should avoid use built in functions in R 
+    a. True
+    b.  False
+    
 ### Question 6
+How many parameters can you have in a function?
+    a. 1
+    b. 2
+    c. 10
+    d.  As much as you need 
 
 ### Question 7
+Can we use built-in function inside our function?
+    a.  Yes
+    b. No 
 
 ### Question 8
-
+The function parameters can have a default value. 
+    a.  True
+    b. False 
+    
 ### Question 9
-
+Function returns the last expression in the function body.
+    a.  True
+    b. False 
+    
 ### Question 10
+Function is an object in R environment.    
+    a.  True
+    b. False 

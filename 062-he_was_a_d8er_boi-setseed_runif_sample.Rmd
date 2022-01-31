@@ -103,7 +103,7 @@ Here, we generated 5 numbers from normal(10,2) distribution.
 
 ### sample()
 
-In R, we can using `sample()` to randomly sample numbers from a collection of numbers. 
+In R, we can use `sample()` to randomly sample numbers from a collection of numbers. 
 
 #### Arguments
 
@@ -289,21 +289,60 @@ You can also generate binomial random variables using `rbinom()`, and Poisson ra
 ## Exercises
 
 ### Question 1
-
+`runif()` function generate random numbers from a uniform distribution.  
+    a.  True
+    b. False
 ### Question 2
+What is the required parameter for `runif()`?
+    a.  n
+    b. min
+    c. mix
+    d. There is no required parameter
 
 ### Question 3
+What is the optional parameter for `runif()`?
+    a. n
+    b.  min
+    c.  mix
+    d. There is no optional parameter
+
 
 ### Question 4
+which code generate 5 numbers from a normal(0, 5)? (multiple answer)
+    a.  rnorm(5, 0, 5)
+    b. rnorm(0, 5, 5)
+    c.  rnorm(n = 5, sd = 5)
+    d. rnorm(5, 5)
 
 ### Question 5
+`rnorm(n=10, mean=10, sd=2)` generate 10 numbers from a normal(10, 2)?
+    a.  Yes
+    b. No
 
 ### Question 6
-
+`sample()` can randomly sample numbers from a collection of numbers. 
+    a.  True
+    b. False
+    
 ### Question 7
+When `replace = TRUE` in `sample()` we will obtain repeated sample
+    a.  True
+    b. False
+    
 
 ### Question 8
+Which of the following code simulates rolling a fair dice 5 times?
+    a. sample(c(1, 2, 3, 4, 5, 6), 5)")
+    b. runif(5, 1, 6)
+    c. sample(c(1, 2, 3, 4, 5, 6), 5, replace = FALSE)
+    d.  sample(c(1, 2, 3, 4, 5, 6), 5, replace = TRUE)
 
 ### Question 9
-
+Use `set.seed()` will make sure your simulation output will be the same every time. 
+    a.  True
+    b. False
+    
 ### Question 10
+`set.seed()` can take any integer as a parameter
+    a.  True
+    b. False

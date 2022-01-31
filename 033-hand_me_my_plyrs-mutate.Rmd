@@ -200,21 +200,54 @@ Vignettes(demonstration of how to use functions in dplyr including mutate()) for
 ## Exercises
 
 ### Question 1
-
+`mutate()` is a function in the dplyr library.
+    a.  True
+    b. False
+    
 ### Question 2
-
+`mutate()` create new variables in your dataset while keeping the existing variables. 
+    a.  True
+    b. False
+    
 ### Question 3
+`mutate()` can only create numeric variable. 
+    a. True
+    b.  False
 
 ### Question 4
+`mutate()` is a built-in function
+    a. True
+    b.  False
 
 ### Question 5
+Name of the new variable can contain space or other special symbols such as / or " 
+    a. True
+    b.  False
 
 ### Question 6
-
+Which of the following code creates a new variable called `test_score` with value 100?
+    a.  mutate(data, test_score = 100)
+    b. mutate(test_score = 100)
+    c. mutate(test_score = 100, data)
+    d. mutate(test_score)
+    
 ### Question 7
-
+`mutate()` can create new string variable 
+    a.  True
+    b. False
+    
 ### Question 8
-
+Do you need to install and load dplyr package to use `mutate()`
+    a.  Yes
+    b. No
+    
 ### Question 9
-
+Other functions can be used in `mutate()` to create new variable
+    a.  True
+    b. False
+    
 ### Question 10
+`mutate()` can remove the existing variables.
+    a. True
+    b.  False
+
