@@ -210,21 +210,60 @@ In the next step, you can learn and try Generalized Linear Mixed Model (GLMM) wh
 ## Exercises
 
 ### Question 1
-
+1. GLM is the exactly the same with LM.
+    a.  False
+    b. True
+    
 ### Question 2
-
+2. Generalized linear model allow us generalize from the linear model to include more types of response variables, such as count, biary, and proportion data.
+    a. False
+    b.  True
+    
 ### Question 3
-
+3. From the following code, which one fits a generalized poisson linear model?
+    a.  glm(...,family = poisson)
+    b. glm(...,family = binomial)
+    
 ### Question 4
+4. Now we have a insect spray data set called InSprays. If I want to fit a Poisson model using spray as a factor level, from the following code, which one runs correctly?
+    a.  fit1 <- glm(count~factor(spray), family = poisson, data = InSprays)
+    b. fit1 <- glm(count~factor(spray), data = InSprays)
+    c. fit1 <- glm(count~factor(spray), family = poisson)
+    d. fit1 <- glm(count~factor(spray))
 
 ### Question 5
+5. Consider the above Poisson glm with an offset, t. From the following code, which one runs correctly?
+    a.  fit2 <- glm(count~factor(spray) + offset(t), family = poisson, data = InSprays)
+    b. fit2 <- glm(count~factor(spray), offset(t), family = poisson, data = InSprays)
+
 
 ### Question 6
+6. How would you check coefficients from above model?
+    a.  summary(fit2)$coefficients
+    b. coefficients(fit2)
+    c. summary(fit2)
+    d. fit2(coefficients)
 
 ### Question 7
-
+7. How would you transfer coefficients into natural scale?
+    a.  exp(summary(fit2)$coefficients)
+    b. summary(exp(fit2)$coefficients)
+    c. exp(summary(fit2))
+    
 ### Question 8
-
+8. What is the common name for a Generalized Linear Model with binomial data?
+    a. Linear regression
+    b.  Logistic regression
+    c. Multiple regression
+    
 ### Question 9
-
+9. Logistic regression assumes a: 
+    a. Linear relationship between continuous predictor variables and the outcome variable.
+    b.  Linear relationship between continuous predictor variables and the logit of the outcome variable.
+    c. Linear relationship between continuous predictor variables.
+    d. Linear relationship between observations.
+    
 ### Question 10
+10. For GLM, we do not need to transform the response to have a normal distribution.
+    a.  True
+    b. False
