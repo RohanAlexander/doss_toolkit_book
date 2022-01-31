@@ -53,7 +53,7 @@ The sample process for creating vignettes can be seen below:
 
 ## Making a `pkgdown` website
 
-`pkgdown` websites are compiled from your vignettes. When you create the website, it will have a home page and reference/article pages. The home page will be the README for your package and is where users will find things like descriptions of your package, installation instructions, and what to do when you encounter errors. The reference/article pages are where your vignettes will be located. This can either be split up by function or by the idea you are trying to display. 
+`pkgdown` websites are free and are compiled from your vignettes. When you create the website, it will have a home page and reference/article pages. The home page will be the README for your package and is where users will find things like descriptions of your package, installation instructions, and what to do when you encounter errors. The reference/article pages are where your vignettes will be located. This can either be split up by function or by the idea you are trying to display. 
 
 To create a `pkgdown` website you will need to use the `usethis` and `pkgdown` packages. From the `usethis` package you will need the `use_pkgdown` function. This function will create a file for configuration of the website and will add any missing files needed to make the website. You do not need to add any arguments to the function, simply run: `usethis::use_pkgdown`.
 
@@ -254,3 +254,65 @@ Some helpful websites for testing R packages are:
 
 * The testing chapter of the R packages book: https://r-pkgs.org/tests.html
 * The pkgdown site for `testthat`: https://testthat.r-lib.org/
+
+## Questions
+
+1. True or False, any package can have a vignette?
+  a.  True
+  b. False
+  
+2. True or False, you have to pay to make a `pkgdown` website?
+  a. True
+  b.  False
+  
+3. What file is the "Home" page on a `pkgdown` website?
+  a. Your first function's file
+  b. Your description file
+  c.  Your README file
+  d. None of the above
+  
+4. What type of file are vignettes?
+  a. R script
+  b.  R markdown
+  c. R Shiny app
+  d. Text file
+  
+5. True or False, packages must have tests in order to work?
+  a. True
+  b.  False
+  
+6. Why are tests important for packages?
+  a. They are needed for the package to run
+  b. They make it easier to share
+  c.  They save time by finding potential bugs or issues
+  d. Tests are not important
+  
+7. Which command prevents R chunks from running in your vignettes?
+  a. `dont_run = TRUE`
+  b.  `eval = FALSE`
+  c. `run = FALSE`
+  d. `skip = TRUE`
+
+8. True or False, there is a limit to the number of tests you can include in a package?
+  a. True
+  b.  False
+  
+9. What is the best test file name if I am running tests on the `sd` function?
+  a. `sd`
+  b.   `test_sd`
+  c. `test_file`
+  d. `sd_test`
+  
+10. True or False, you can include package logos on your `pkgdown` website?
+  a.  True
+  b. False
+
+
+
+
+
+
+
+
+
+

@@ -419,3 +419,63 @@ Some next steps and helpful links include:
 
 - The `testthat` website: https://testthat.r-lib.org/
 - The testing chapter in the R packages book: https://r-pkgs.org/tests.html
+
+## Questions
+
+1. True or False, `testthat` is located in CRAN?
+  a.  True
+  b. False
+  
+2. What folder are tests located in after running `use_testthat`?
+  a.  "testthat"
+  b. "testing"
+  c. "tests"
+  d. None of the above
+  
+3. Which function tests if the output is less than a certain value?
+  a.  `expect_lt`
+  b. `expect_lte`
+  c. `expect_gt`
+  d. `expect_gte`
+  
+4. Which function tests if the output is greater than a certain value?
+  a. `expect_lt`
+  b. `expect_lte`
+  c.  `expect_gt`
+  d. `expect_gte`
+  
+5. Which function can be used to avoid tests?
+  a. `avoid`
+  b.  `skip`
+  c. `null`
+  d. `skip_next`
+  
+6. If I have a function that I think gives an error, which function should I use to ensure an error occurs?
+  a. `expect_warning`
+  b. `expect_message`
+  c.  `expect_error`
+  d. None of the above
+  
+7. True or False, you need to include a description for your tests?
+  a.  True
+  b. False
+  
+8. True or False, there is the limit to the amount of tests you can make?
+  a. True
+  b.  False
+  
+9. True or False, you must include an error message if you used `expect_error`?
+  a. True
+  b.  False
+  
+10. What causes the "argument missing" error in the `test_that` function?
+  a.  An argument is missing in the `test_that` function
+  b. An argument is missing in the `expect_` function
+  c. Too many arguments were used in the `test_that` function
+  d. None of the above
+  
+  
+  
+  
+  
+  

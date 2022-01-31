@@ -128,25 +128,77 @@ For more information about using GitHub in RStudio, check out the following link
   - This blog post shows how to use git in RStudio and highlights the terminal commands: https://resources.github.com/whitepapers/github-and-rstudio/
 
 
-## Exercises
+## Questions
 
-### Question 1
+1. True or False, git must be downloaded on your computer for GitHub functions to work in RStudio?
+  a.  True
+  b. False
+  
+2. Which button is not included in the Git pane in RStudio?
+  a. Diff
+  b. Push
+  c. Pull
+  d.  Resolve Conflict
+  
+3. What does the "Diff" button do?
+  a. Pulls and Pushes your files to the repo
+  b. Opens up the repo on a web browser
+  c.  Shows you the files you have changed and what has been changed
+  d. Shows all of the files in your R project
+  
+4. What do the push and pull buttons do?
+  a.  Upload and Download changes to/from GitHub
+  b. Show your file edits
+  c. Create a new branch for you to work on
+  d. Checks your files for issues
+  
+5. True or False, once you have created an R project, you cannot upload it to GitHub?
+  a. True
+  b.  False
+  
+6. Which package contains functions that let you work with GitHub in R?
+  a. `gitr`
+  b.  `usethis`
+  c. `rgit`
+  d. `tidyverse`
+  
+7. Which function allows you to use GitHub on an R project?
+  a.  `use_git`
+  b. `use_github`
+  c. `to_git`
+  d. `to_github`
 
-### Question 2
+8. What parts of RStudio let you upload files to GitHub? (select all that apply)
+  a. Console
+  b.  Terminal
+  c.  Git Pane
+  d. Files Pane
+  
+9. What should be placed before commands if you want to use the terminal for git?
+  a.  "git _"
+  b. "togit _"
+  c. "github _"
+  d. "upload/download _"
+  
+10. True or False, files need to be committed before they are uploaded to GitHub?
+  a.  True
+  b. False
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
 

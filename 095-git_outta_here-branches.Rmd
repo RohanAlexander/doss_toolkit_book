@@ -157,24 +157,72 @@ Now that you have some experience with branching GitHub repos, some next steps i
 - Learning how to fork a GitHub repo: https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo
 
 
-## Exercises
+## Questions
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+1. True or False, you can use GitHub in R without a GitHub account?
+  a. True
+  b.  False
+  
+2. True or False, changing a file on a branch changes the master file?
+  a. True
+  b.  False
+  
+3. Which drop-down menu in GitHub allows you to create a new branch?
+  a. The "branches" menu
+  b. The "contributors" menu
+  c.  The "main" menu
+  d. None of the above
+  
+4. What is the main use of a pull request?
+  a.  It allows the owner of the GitHub repo to look over your changes
+  b. It creates extra work for you
+  c. It creates extra work for the repo owner
+  d. None of the above
+  
+5. If there are no conflicts present, which command will the repo owner see to add your changes to the main file?
+  a. "Add request"
+  b.  "Merge pull request"
+  c. "Bring in pull request"
+  d. "Replace pull request"
+  
+6. What are forks in GitHub?
+  a.  Copies of another repo that do not change the initial one
+  b. A file in a repo
+  c. The coding language the GitHub files are comprised of
+  d. A collection of a user's favourite files
+  
+7. True or False, changes made on a forked repo can be added to the master repo?
+  a.  True
+  b. False
+  
+8. True or False, once you have a forked repo you cannot update it?
+  a. True
+  b.  False
+  
+9. True or False, you can have multiple branches with the same name?
+  a. True
+  b.  False
+  
+10. True or False, you can add a title and comments to a pull request?
+  a.  True
+  b. False
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

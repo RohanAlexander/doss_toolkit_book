@@ -373,26 +373,69 @@ Now that you're familiar with the `forcats` package, here are some additional re
 - The factors chapter from Jenny Bryan's STAT 545 book: https://stat545.com/factors-boss.html
 
 
+## Questions
 
+1. True or False, factors are stored as integer levels in R?
+  a.  True
+  b. False
+  
+2. Which R package has tools to work with factors?
+  a. `dplyr`
+  b. `forcast`
+  c.  `forcats`
+  d. `ggplot2`
+  
+3. Which function checks if a vector is a factor or not?
+  a. `factor()`
+  b.  `is.factor()`
+  c. `forcats()`
+  d. `is.numeric()`
+  
+4. Which function counts the number of values in each level of your factor?
+  a.  `fct_count()`
+  b. `fct_reorder()`
+  c. `fct_c()`
+  d. `fct_lump()`
+  
+5. True or False, `forcats` functions can change how `ggplot` plots look?
+  a.  True
+  b. False
+  
+6. Which function will allow me to change the order of my factors for a plot?
+  a. `fct_c()`
+  b. `fct_count()`
+  c. `fct_lump()`
+  d.  `fct_reorder()`
+  
+7. What is the cause of the ""f" must be a factor (or character vector)." error?
+  a. The function you are calling does not exist
+  b. The vector you are using does not exist
+  c.  The vector you are using is not a factor
+  d. The function you are using is incorrect
+  
+8. Which function lumps levels that appear less than a certain proportion of times?
+  a. `fct_count()`
+  b. `fct_lump_n()`
+  c. `fct_lump_min()`
+  d.  `fct_lump_prop()`
+  
+9. Which function takes factors with different levels and combines them into one factor?
+  a.  `fct_c`
+  b. `fct_lump_n()`
+  c. `fct_lump_min()`
+  d. `fct_count()`
 
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+10. True or False, `forcats` functions can be used with `dplyr` functions like `mutate`?
+  a.  True
+  b. False
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

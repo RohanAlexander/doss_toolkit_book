@@ -171,25 +171,53 @@ Some next steps for making packages include:
 - The CRAN documents on writing packages: https://cran.r-project.org/doc/manuals/r-release/R-exts.html
 
 
-## Exercises
+## Questions
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+1. True or False, you need a GitHub account to create an R package?
+  a. True
+  b.  False
+  
+2. True or False, you can include examples of how your function works in the function files?
+  a.  True
+  b. False
+  
+3. Which folder does R code go into?
+  a.  R
+  b. man
+  c. description
+  d. None of the above
+  
+4. True or False, there is a limit to the amount of functions you can include in an R package?
+  a. True
+  b.  False
+  
+5. True or False, the only way to share your package is through CRAN?
+  a. True
+  b.  False
+  
+6. Which package creates documentation based off of your functions?
+  a. `tidyverse`
+  b.  `roxygen2`
+  c. `devtools`
+  d. `ggplot2`
+  
+7. Which line of code will open up GitHub to access your token?
+  a.  `usethis::browse_github_token`
+  b. `devtools::browse_github_token`
+  c. `usethis::get_github_token`
+  d. `devtools::get_github_token`
+  
+8. What is the use of the "Imports" line in the description file?
+  a. It tells R what you want to name your package
+  b.  It tells R that you are using functions from other packages
+  c. It tells R who the other creators of the package are
+  d. None of the above
+  
+9. True or False, the NAMESPACE file is important for submitting packages to CRAN?
+  a.  True
+  b. False
+  
+10. True or False, the NAMESPACE file is created by the `roxygen2` package?
+  a.  True
+  b. False
 

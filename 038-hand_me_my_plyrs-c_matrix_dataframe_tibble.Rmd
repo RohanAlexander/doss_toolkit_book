@@ -412,33 +412,76 @@ Now that you understand what vectors, matrices, dataframes and tibbles are. Some
 - The vector chapter in R4DS: https://r4ds.had.co.nz/vectors.html
 
 
+## Questions
 
-
-
-
-
-
-
-
-
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+1. True or False, tibbles are part of base R?
+  a. True
+  b.  False
+  
+2. Which data type cannot have mathematical operations done on them?
+  a. Matrices
+  b. Tibbles
+  c. Data frames
+  d.  All of the data types above can have mathematical operations done on them
+  
+3. True or False, matrices be multiplied by vectors?
+  a.  True
+  b. False
+  
+4. If I have a vector called "names" and want to find the 4th element, what code should I use?
+  a. names[3]
+  b.  names[4]
+  c. [3]names
+  d. [4]names
+  
+5. If I have a data frame called "salaries" and want to find the entry on the 3rd row and in the 4th column, what should I use?
+  a.  salaries[3,4]
+  b. salaries[4,3]
+  c. [3,4]salaries
+  d. [4,3]salaries
+  
+6. True or False, `tidyverse` functions can be used on data frames?
+  a.  True
+  b. False
+  
+7. If I have a vector called "sports" with 10 elements, what would be returned if I call sports[20]?
+  a. Nothing will happen
+  b.  An NA will be returned
+  c. An error will occur
+  d. The last element of the vector will be returned.
+  
+8. If I have a tibble called "courses" with 5 rows and 5 columns, what would be returned if I call courses[10,10]?
+  a. Nothing will happen
+  b. An NA will be returned
+  c.  NULL will be returned
+  d. The closest entry to the index will be returned.
+  
+9. True or False, the "$" operator cannot be used on tibbles?
+  a. True
+  b.  False
+  
+10. If I have two identical data frames called "data_a" and "data_b", what will happen if I run `data_a - data_b`?
+  a. Nothing will happen
+  b. A vector filled with zeroes will be returned
+  c.  A data frame filled with zeroes will be returned
+  d. An error will occur
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
