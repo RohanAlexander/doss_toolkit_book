@@ -181,21 +181,65 @@ In this website https://www.r-graph-gallery.com/histogram.html, you can find dif
 ## Exercises
 
 ### Question 1
-
+A histogram is a visual representation of the distribution of numerical data.
+    a.  True
+    b. False
+    
 ### Question 2
+Histogram can be used for categorical data.
+    a. True
+    b.  False
+
 
 ### Question 3
-
+binwidth is a required parameter for `geom_histogram()`
+    a.  True
+    b. False
+    
 ### Question 4
+How do you add title in your plot?
+    a.  Use labs()
+    b. add a title parameter in `geom_histogram()`
+    c. add a labs parameter in `geom_histogram()`
+    d. add a title parameter in `ggplot()`
 
 ### Question 5
+You should always use a larger binwidth when you create a histogram.
+    a. True
+    b.  False
+
 
 ### Question 6
+What can you do to customize your histogram? (multiple answer)
+    a.  Change color of your histogram
+    b.  Change binwidth of your histogram
+    c. Change the shape of your histogram
+    d. All of the Above
 
 ### Question 7
+books %>% 
+  ggplot(aes(rating)) + 
+  geom_histogram(color ="red")
+
+What does the code produce?
+    a. A basic histogram 
+    b. A red histogram
+    c. A red histogram with red fill color
+    d.  A histogram with boundary of each bin in red
 
 ### Question 8
+How do you change the binwidth of your histogram?
+    a. You cannot change your binwidth
+    b.  add a binwidth parameter in `geom_histogram()`
+    c. add a binwidth parameter in `ggplot()`
+    d. None of the above
 
 ### Question 9
+Histogram tells us which values in the dataset appear most often?
+    a.  True
+    b. False
 
 ### Question 10
+histogram is a visual representation of the distribution of a single numerical data.
+    a.  True
+    b. False

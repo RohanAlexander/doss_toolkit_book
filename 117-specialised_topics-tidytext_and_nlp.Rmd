@@ -22,6 +22,7 @@ In this lesson, you will learn:
 Prerequisite skills include:
 
 - install and load `tidytext` package
+- familar with `tidyverse` and `ggplot` package
 
 Highlights:
 
@@ -42,6 +43,8 @@ my_string <- c("Hello World", "This is a tokenization example") # The strings th
 data <- tibble(lines = 1:2, text = my_string)                   # Put it in a tibble 
 data
 unnest_tokens(data, word, text, token = "words")             # Using unnest_tokens() to tokenize the strings
+
+unnest_tokens(my_string, word, text, token = "words") 
 ```
 The `unnest_tokens()` takes Four parameters:
 
@@ -171,7 +174,7 @@ library(textdata)
 There are different sentiment lexicons available. Some are domain-specific, which are constructed to be used with text from a specific content area. 
 
 
-We can perform sentiment analysis using inner join with tidy text data format. 
+We can perform sentiment analysis using `inner_join()` with tidy text data format. 
 
 Let's look at the sentiment content in the news example using `nrc` lexicon.
 
@@ -316,16 +319,7 @@ The benefit of using N-grams:
 2. Words “happy” and “like” will be counted as positive, even in a sentence like “I’m not happy, and I don’t like it!” 
 Bi-grams help identify and fixes the problem of words that contributed sentiment score in the “wrong” direction.
 
-## Additional resources 
-The material in this tutorial is based on the book Text Mining with R by Julia Silge and David Robinson. You can check out here for more detail and larger examples. https://www.tidytextmining.com/index.html
 
-Here is the source code for the tidytext package: https://github.com/juliasilge/tidytext
-
-Here is the tidytext package page on cran: https://cran.r-project.org/web/packages/tidytext/index.html
-
-If you are looking for more advanced NLP applications with machine learning, you can read Supervised Machine Learning for Text Analysis in R by EMIL HVITFELDT AND JULIA SILGE https://smltar.com/
-
-If you are a University of Toronto student interested in taking an NLP course for credit, you can consider taking a reading course: ‘Natural Language Processing’ with Rohan Alexander. The outline is here: https://rohanalexander.com/reading_course-nlp.html
 
 ## Exercises
 
@@ -334,7 +328,7 @@ If you are a University of Toronto student interested in taking an NLP course fo
 <!-- ```{r exercise3, echo = FALSE} -->
 <!-- question("What is a stop word?", -->
 <!--           answer("Last word in a sentence"), -->
-<!--           answer("ords like "the", "on" that are very common in natural language and may not be useful for text analysis", correct = TRUE), -->
+<!--           answer("words like "the", "on" that are very common in natural language and may not be useful for text analysis", correct = TRUE), -->
 <!--           answer("Last word in a paragraph"), -->
 <!--           answer("The word 'stop'"), -->
 <!--           allow_retry = TRUE) -->
@@ -371,4 +365,93 @@ news_df
 <!-- ```{r exercise5, exercise=TRUE, exercise.lines = 5} -->
 
 <!-- ``` -->
+
+## MCQ
+1. What is a stop word?
+  a. Last word in a sentence
+  b.  Words like "the", "on" that are very common in natural language and may not be useful for text analysis
+  c. Last word in a paragraph
+  d. The word 'stop'
+  
+2. Which of the following are valid input for token parameter in unnest_tokens()?
+  a. "words"
+  b. "characters"
+  c. "ngrams"
+  d. "regex"
+  d. "paragraphs"
+  e.  All of the above
+
+3. Which sentiment lexicons is the best for any text data?
+  a. bing
+  b. nrc
+  c. afinn
+  d.  There is no sentiment lexicon that is best for any text data
+
+4. What is an uni-gram?
+  a.  tokenizing text into a single word
+  b. tokenizing text into a single sentence
+  c. tokenizing text into two consecutive words
+  d. None of the above
+
+5. What can we do with uni-gram?
+  a. Word Frequency 
+  b. world cloud
+  c. Sentiment Analysis
+  d.  All of the above
+  
+6. One-token-per-row format is also called?
+  a. One token format
+  b.  Tidytext format
+  c. text data format
+  d. per token format
+  
+7. The process of splitting a text data into smaller meaningful units is called tokenization
+  a.  True
+  b. False
+  
+8. Assuming my_sting equal to a text string, will the following code run? `unnest_tokens(my_string, word, text, token = "words")` 
+  a. Yes
+  b.  No
+  
+9. inner_join() can be used to remove stop word.
+  a.  True
+  b. False
+  
+10. You should cite the sentiment lexicon when you used them for research and commercial
+  a.  True
+  b. False 
+
+## Common Mistakes & Errors
+
+- For `unnest_tokens()` make sure your input text data is in tibble (not in string). 
+
+- If you see following error, that means you input text data is a string.
+`Error in UseMethod("pull") : no applicable method for 'pull' applied to an object of class "character"`
+
+- The `token` parameter for `unnest_tokens()` is a string. As shown here: 
+`unnest_tokens(my_string, word, text, token = "words") `
+
+- If you see this error, that means you have not install the `textdata` package. Using `install.package(textdata)` to install. 
+`Error: The textdata package is required to download the AFINN lexicon. Install the textdata package to access this dataset.`
+
+
+## Next Steps
+The material in this tutorial is based on the book Text Mining with R by Julia Silge and David Robinson. You can check out here for more detail and larger examples. https://www.tidytextmining.com/index.html
+
+Here is the source code for the tidytext package: https://github.com/juliasilge/tidytext
+
+Here is the tidytext package page on cran: https://cran.r-project.org/web/packages/tidytext/index.html
+
+If you are looking for more advanced NLP applications with machine learning, you can read Supervised Machine Learning for Text Analysis in R by EMIL HVITFELDT AND JULIA SILGE https://smltar.com/
+
+If you are a University of Toronto student interested in taking an NLP course for credit, you can consider taking a reading course: ‘Natural Language Processing’ with Rohan Alexander. The outline is here: https://rohanalexander.com/reading_course-nlp.html
+
+## References
+
+Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
+
+Minqing Hu and Bing Liu. "Mining and summarizing customer reviews." Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD-2004, full paper), Seattle, Washington, USA, Aug 22-25, 2004.
+
+Mohammad, S. & Turney, P. (2013). Crowdsourcing a Word-Emotion Association Lexicon. Computational Intelligence, 29(3), 436–465.
+
 

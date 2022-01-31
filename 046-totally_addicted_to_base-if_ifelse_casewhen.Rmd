@@ -248,21 +248,70 @@ for (i in 1:6){
 ## Exercises
 
 ### Question 1
+`if()` function is a tool for returning an output based on a logical condition.
+    a.  True
+    b. False
 
 ### Question 2
-
+When will the statement execute in `if(condition){statement}`
+    a. Condition evaluate to False
+    b.  Condition evaluate to True
+    c. statement will execute in any condition
+    d. Condition evaluate to NULL
+    
 ### Question 3
-
+`else()` should always be used with `if()`
+    a. True
+    b.  False
+    
 ### Question 4
-
+The `if_else()` function has two parts. The first part is exactly the same as the if statement, and the second part is the else statement. The else statement will be evaluated if the condition is FALSE. 
+    a.  True
+    b. False
 ### Question 5
-
+`~` is used to connect the condition and the output when condition evaluated to TRUE in `case_when()`.
+    a.  True
+    b. False
+    
 ### Question 6
-
+x <- c(1,2,3,4,5,6,7,8,9,10)
+if (mean(x) > 5){
+  print(1)
+}else{
+  print(0)
+}
+Predict what is the output of this if_else statement?
+    a. 0
+    b.  1
+    c. 5.5
+    d. 5
+    
 ### Question 7
-
+x <- c(5, 4, 3, 2, 1)
+if (mean(x) > 5){
+  print(1)
+}else{
+  print(0)
+}
+Predict what is the output of this if_else statement?
+    a.  0
+    b. 1
+    c. 5.5
+    d. 5
+    
 ### Question 8
-
+case_when(mean(x) > 5 ~ 1, 
+          mean(x) >= 5 ~ 0)
+Using this `case_when()` is same as `if_else` in Question 6 and 7 
+    a.  True
+    b. False
+    
 ### Question 9
-
+`case_when()` can be used when you have multiple condition
+    a.  True
+    b. False 
+    
 ### Question 10
+`case_when()` can be used when you have single condition
+    a.  True
+    b. False
