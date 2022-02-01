@@ -143,25 +143,72 @@ Some more information on filepaths and `here` include:
 - This blog post by Malcolm Barrett about the `here` package and why it is useful: https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/
 
 
-## Exercises
+## Questions
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
-
+1. What does the `here` package do?
+  a.  It makes it easier to find files you are working with
+  b. Changes your R project name
+  c. Makes it harder to work on a project
+  d. None of the above
+  
+2. What does a file path look like?
+  a. `data+file.csv`
+  b. `data-file.csv`
+  c. `data%>%file.csv` 
+  d.  `/data/file.csv`
+  
+3. What is the output of `file.path("question", "3")`?
+  a.  "question/3"
+  b. "question,3"
+  c. "question3"
+  d. The function call will result in an error
+  
+4. True or False, using the `here` function is identical to the use of `file.path`?
+  a.  True
+  b. False
+  
+5. True or False, if I use `here` on a Mac, someone using the same function call on a PC will get a different result?
+  a. True
+  b.  False
+  
+6. What is returned when you run the `i_am` function?
+  a. The R project name
+  b.  The filepath leading to the file
+  c. Your file's name
+  d. Nothing
+  
+7. What causes the "Error in UseMethod" error?
+  a.  You likely called a function inside `here`
+  b. It happens randomly without explanation
+  c. The `UseMethod` package is not installed
+  d. None of the above
+  
+8. If I have a folder called "notes" that I am working in, what is the output of `here("folder", "file")`?
+  a. "folder/file"
+  b. "file"
+  c.  ".../notes/folder/file"
+  d. "notes"
+  
+9. If I have a folder called "notes" that I am working in, what is the output of `file.path("folder", "file")`?
+  a.  "folder/file"
+  b. "file"
+  c. ".../notes/folder/file"
+  d. "notes"
+  
+10. True or False, `here` and `file.path` work for any file type?
+  a.  True
+  b. False
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

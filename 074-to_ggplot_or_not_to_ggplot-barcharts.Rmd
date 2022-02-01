@@ -285,25 +285,68 @@ For more information on bar charts in R you can look at http://www.sthda.com/eng
 Another great resource for the different type of bar charts you can make in R is https://www.learnbyexample.org/r-bar-plot-ggplot2/
 
 
+## Questions
 
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+1. When is the best time to use a bar chart?
+  a.  When a dataset does not include numerical data
+  b. When a dataset only has numerical data
+  c. When your data is not tidy
+  d. Bar charts should never be used
+  
+2. True or False, bar charts can only be made using `ggplot`?
+  a. True
+  b.  False
+  
+3. If I want to change the colour inside a bar to green which argument should I use?
+  a. inside = "green"
+  b. colour = "green"
+  c.  fill = "green"
+  d. None of the above
+  
+4. If I want to change the colour of the outside of the bars to purple which argument should I use?
+  a. inside = "purple"
+  b.  colour = "purple"
+  c. fill = "purple"
+  d. None of the above
+  
+5. Which function allows bar charts to be shown on different axes?
+  a. `flip()`
+  b.  `coord_flip()`
+  c. `to_x_axis()`
+  d. None of the above
+  
+6. True or False, you can change the width of bars manually using `ggplot`?
+  a.  True
+  b. False
+  
+7. If I want to change the transparency of my bars which argument should I use?
+  a.  `alpha = 0.01`
+  b. `fill = 0.01`
+  c. `transparency = 0.01`
+  d. `see_through = 0.01`
+  
+8. When using `ggplot` and `geom_bar`, how should I connect the function calls?
+  a. `-`
+  b.  `+`
+  c. `%>%` 
+  d. `&`
+  
+9. If the bars of my plot do not show up, what am I most likely missing?
+  a. The `ggplot` call
+  b. Nothing, the data must be empty
+  c. The pipe operator (`%>%`) 
+  d.  The `geom_bar` call
+  
+10. If my axis labels are cut off, what is the easiest solution I can try?
+  a. Give up on the plot and start working on another project
+  b.  Use `coord_flip`
+  c. Use a different type of plot
+  d. Use base R to plot the graph instead
+  
+  
+  
+  
+  
+  
+  
+  

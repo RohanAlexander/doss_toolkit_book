@@ -221,32 +221,63 @@ Now that you have got some experience with the `group_by` and `ungroup` function
 
 
 
+## Questions
 
-
-
-
-
-
-
-
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+1. True or False, after only running the `group_by` function on a dataset, the data will look different?
+  a. True
+  b.  False
+  
+2. Which function will ungroup a grouped dataset?
+  a. `group_by()`
+  b. `summarise()`
+  c.  `ungroup()`
+  d. `reset()`
+  
+3. If we want to find an average value for groups in a dataset, which function should be used with `group_by`?
+  a. `mutate()`
+  b.  `summarise()`
+  c. `count()`
+  d. `filter()`
+  
+4. If we want to find the total number of observations in each group, which functions can be used? (Select all that apply)
+  a.  `summarise(n = n())`
+  b.  `count()`
+  c. `mutate()`
+  d. `sum()`
+  
+5. What is the issue that causes this error: "Error: Must group by variables found in `.data`"?
+  a. The dataset you are referencing does not exist
+  b. There are too many NA's in the column you are referencing
+  c. There is only one group in the column you want to group by
+  d.  The column you want to group by is not in the dataset
+  
+6. True or False, `group_by` can be used on multiple columns?
+  a.  True
+  b. False
+  
+7. If I run the `group_by` function followed by the `ungroup` function and then use `summarise` what will the output be?
+  a. A table grouped by the column of interest
+  b. An empty table
+  c.  A table that is not grouped by the column of interest but is still summarized
+  d. An error will occur
+  
+8. If you use `group_by` and then `mutate`, will the data appear different if you add the `ungroup` function afterwards?
+  a. Yes
+  b.  No
+  
+9. What is the cause of the "Error in eval(lhs, parent, parent) : object 'data_frame' not found"?
+  a. The column you want to `group_by` does not exist
+  b.  The dataset you want to investigate does not exist
+  c. The `group_by` function has not been loaded
+  d. None of the above
+  
+10. True or False, you can use the `filter` function before using `group_by`?
+  a.  True
+  b. False
+  
+  
+  
+  
+  
+  
+  

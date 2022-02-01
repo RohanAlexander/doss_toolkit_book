@@ -238,25 +238,78 @@ Some next steps include:
 - R4DS's explanation of using iteration (include the `seq_along()` function): https://r4ds.had.co.nz/iteration.html
 
 
+## Questions
 
-## Exercises
+1. Which of the following functions does not return a vector?
+  a. `c()`
+  b. `seq()`
+  c.  `tibble()`
+  d. `seq_along`
+  
+2. If I want to repeat the number 21 100 times which function call should I use?
+  a.  `rep(21, 100)`
+  b. `rep(100, 21)`
+  c. `seq(21, 100)`
+  d. `seq(100, 21)`
+  
+3. If I want a vector that contains the numbers 55 to 76, which function should I use?
+  a. `rep()`
+  b. `c()`
+  c.  `seq()`
+  d. `seq_along()`
+  
+4. If I have a vector called "time" with 3 entries, what will be returned if I run `seq_along(time)`?
+  a. 3
+  b. 123
+  c. 321
+  d.  1 2 3
+  
+5. True or False, the output from `seq(1, 3)` is different from `seq(3)`?
+  a. True
+  b.  False
 
-### Question 1
+6. If I have a vector called "money" which contains 3 elements, how long will output of `rep(money, each = 3)` be?
+  a. 3
+  b. 6
+  c.  9
+  d. 1
+  
+7. If I have a vector called "money" which contains 3 elements, how long will output of `rep(money, 3, each = 3)` be?
+  a. 9
+  b.  27
+  c. 30
+  d. An error will occur
+  
+8. What is the most common cause of the "object 'string' not found" error?
+  a.  The vector you are trying to reference does not exist
+  b. The object you are referencing is not a vector
+  c. The vector has too many NAs
+  d. The function you are using does not exist
+  
+9. What is the output of `seq(3, 12, 4)`?
+  a. 36912
+  b. 3  6  9 12
+  c. 3711
+  d.  3  7 11
 
-### Question 2
+10. What is the output of `seq_along(seq(3, 12))`?
+  a.  1  2  3  4  5  6  7  8  9 10
+  b. 12345678910
+  c. 10
+  d. 1
 
-### Question 3
 
-### Question 4
 
-### Question 5
 
-### Question 6
 
-### Question 7
 
-### Question 8
 
-### Question 9
 
-### Question 10
+
+
+
+
+
+
+
+

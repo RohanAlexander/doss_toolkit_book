@@ -95,28 +95,6 @@ Once your code is completed and everything works properly, you can publish your 
 
 A video explaining how to publish your Shiny app can be found [here.](https://www.youtube.com/watch?v=g-BxlLF3XwU)
 
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
-
 
 <!-- ```{r shiny-test-understanding-1, echo=FALSE} -->
 <!-- question("What are the two fundamental parts of a Shiny app?", -->
@@ -233,6 +211,68 @@ Some helpful links for creating Shiny apps include:
 - Mastering Shiny by Hadley Wickham. Similar to the Shiny website this online book teaches readers how to create Shiny apps and also shows the code used to create these apps. https://mastering-shiny.org/index.html
 
 - The Shiny cheat sheet created by R. https://shiny.rstudio.com/images/shiny-cheatsheet.pdf
+
+## Questions
+
+1. What are Shiny apps?
+  a. Apps that are shiny
+  b.  Interactive apps made using RStudio
+  c. Interactive apps made using python
+  d. Knitted R markdown files
+  
+2. True or False, Shiny apps can include content such as quizzes?
+  a.  True
+  b. False
+  
+3. What does the `ui` section do on a Shiny app?
+  a. The `ui` section creates plots for your app
+  b. The `ui` section will control what the person using your Shiny app will not see
+  c.  The `ui` section will control what the person using your Shiny app will see
+  d. The `ui` section does not do anything
+  
+4. What does the `server` section do on a Shiny app?
+  a. The `ui` section creates plots for your app
+  b.  The `ui` section will control what the person using your Shiny app will not see
+  c. The `ui` section will control what the person using your Shiny app will see
+  d. The `ui` section does not do anything
+
+5. If I want to add a table to my Shiny app, which function should I use?
+  a. `renderText`
+  b. `renderObject`
+  c. `renderPlot`
+  d.  `renderTable`
+
+6. True or False, you need to pay to publish a Shiny app?
+  a. True
+  b.  False
+  
+7. Which file type should I select to create a Shiny app?
+  a. "R Script"
+  b. "R Markdown"
+  c. "Text File"
+  d.  "Shiny Web App"
+  
+8. How should input keywords be referred to in the `server` section?
+  a. output$keyword
+  b.  input$keyword
+  c. input.keyword
+  d. input-keyword
+  
+9. What should we save our output files as in the `server` section?
+  a.  output$keyword
+  b. input$keyword
+  c. output.keyword
+  d. output-keyword
+  
+10. What causes the "Problem with `filter()` input `..1`" error?
+  a. The function was not loaded
+  b. The dataset does not exist
+  c.  The function was used incorrectly
+  d. None of the above
+
+
+
+
 
 
 
