@@ -172,41 +172,68 @@ This is not every package that `tidyverse` contains, but they are the most impor
 
 ### Question 1
 What is tidyverse?   
-a. It is a collection of useful data analysis packages.     
-b. It includes dplyr, readr, and ggplot2.    
-c. It allows you to import table easily.     
-d. All of the above    
+  a. It is a collection of useful data analysis packages.     
+  b. It includes dplyr, readr, and ggplot2.    
+  c. It allows you to import table easily.     
+  d. All of the above    
 
 ### Question 2
 You want to import csv file from your local computer. What package in `tidyverse` would you use?  
-a. readr   
-b. tibble   
-c. purrr    
-d. ggplot2    
+  a. readr    
+  b. tibble    
+  c. purrr    
+  d. ggplot2    
 
 ### Question 3
 You successfully imported the file from the previous question, but you realize some of the rows are missing value and you would like to clean the data. Which package would you use?  
-a. readr   
-b. tibble   
-c. tidyr    
-d. ggplot2  
+  a. readr   
+  b. tibble   
+  c. tidyr    
+  d. ggplot2  
 
 ### Question 4
 Now the data is "tidy". You want to create a line graph using the table you imported. What package would you use?    
-a. readr   
-b. tibble   
-c. purrr    
-d. ggplot2    
+  a. readr   
+  b. tibble   
+  c. purrr    
+  d. ggplot2    
 
 ### Question 5
-
+Which package would you use if you want to iterate through a loop?   
+  a. purrr  
+  b. readr   
+  c. tibble   
+  d. tidyr   
 
 ### Question 6
+(True or False) You can only make line graphs and bar graphs using the `ggplot2` package.  
+  a. True  
+  b. False  
 
 ### Question 7
+Select one incorrect statement about the `stringr` package.  
+  a. It is designed to make manipulating strings easier.   
+  b. Only single quotes can be used.   
+  c. Both single and double quotes can be used.  
+  d. It is used for one-dimensional arrays.  
 
 ### Question 8
+Which package in `tidyverse` would you install if you want to create a tibble?   
+  a. readr  
+  b. tidyr  
+  c. tibble  
+  d. purrr 
 
 ### Question 9
+What functions does the `forcats` package provide (Select all that apply)?  
+  a. Change order of levels  
+  b. Change value of levels  
+  c. Add levels  
+  d. Combine multiple factors  
 
 ### Question 10
+What is the most representative function supported by `tidyr` and `dplyr`?  
+  a. <=    
+  b. %^%   
+  c. !=   
+  d. %>%   

@@ -7,7 +7,7 @@ library(tidyverse)
 
 # SQL and R
 
-*Written by Yena Joo and last updated on DATE 2021.*
+*Written by Yena Joo and last updated on January 2022.*
 
 ## Introduction
 You can always import CSV files and local dataset using a simple functions such as `read_csv`. However, what if you have to import a dataset that is too large for your computer? Here, we connect to database to store data and allows you to use whenever you need them. 
@@ -162,42 +162,26 @@ Once you learn how to connect SQL with R, you can query however you want and man
 
 ## Exercises
 ### Question 1
-
-```{r q1-sqlnr, echo=FALSE}
-# question(
-#  "What package do you need to connect to the Oracle database?",
-#  answer("RODBC", correct = TRUE), 
-# answer("JDBC"), 
-#  answer("RMySQL"), 
-# answer("RPostgreSQL"), 
-# random_answer_order = TRUE, 
-#  allow_retry = TRUE 
-# ) 
-```
+True or False: read.csv() is the only way to import a dataset.  
+  a. True  
+  b. False  
 
 ### Question 2
-
-```{r q1, echo=FALSE}
-# question(
-#  "What package do you need to connect to the Oracle database?",
-#  answer("RODBC", correct = TRUE), 
-# answer("JDBC"), 
-#  answer("RMySQL"), 
-# answer("RPostgreSQL"), 
-# random_answer_order = TRUE, 
-#  allow_retry = TRUE 
-# ) 
-```
+What package do you need to connect to the Oracle database?  
+  a. RODBC   
+  b. JDBC   
+  c. RMySQL   
+  d. RPostgreSQL   
 
 ### Question 3
-3. If I want to delete an entire table, which function would I use (pick one)? 
+If I want to delete an entire table, which function would I use (pick one)? 
   a. `dbSendQuery()`  
   b. `dbDeleteTable()`  
   c. `dbRemoveTable()`  
   d. `dbRemoveDB()` 
   
 ### Question 4
-4. What query should I write if I want to view the data?   
+What query should I write if I want to view the data?   
   a. VIEW * FROM `TableName`  
   b. SELECT * FROM `TableName`  
   c. SELECT * FROM 'TableName'  
@@ -215,7 +199,6 @@ connect_to_sql <- dbConnect(
   dbname = UofT
 )
 ```
-
 Which argument inside the function will cause an error?  
   a. `user`  
   c. `host`  
@@ -223,8 +206,10 @@ Which argument inside the function will cause an error?
   e. all of the above  
   
 ### Question 6
+(True or False) You can both insert and delete data using a same function, dbSendQuery().  
+  a. True  
+  b. False
 
-6. 
 ### Question 7
 
 ### Question 8
@@ -233,4 +218,9 @@ Which argument inside the function will cause an error?
 
 ### Question 10
 
+## Common Mistakes & Errors 
+
 ## Next Steps  
+
+
+## Reference
