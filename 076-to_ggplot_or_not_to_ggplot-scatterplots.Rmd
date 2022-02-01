@@ -69,6 +69,7 @@ ggplot(mtcars, aes(x=wt, y=mpg)) +
 # Change the point shape
 ggplot(mtcars, aes(x=wt, y=mpg)) +
   geom_point(shape=23)
+
 ```
 
 From the above figures, we know that we can change different sizes and shapes by changing parameters in `geom_point()`.
@@ -191,21 +192,67 @@ http://www.sthda.com/english/wiki/ggplot2-title-main-axis-and-legend-titles
 ## Exercises
 
 ### Question 1
+A scatter plot is a visual representation of two numerical variables.
+    a.  True
+    b. False
 
 ### Question 2
+Scatter plot allow you to visualize the correlation between two numerical variables.
+    a.  True
+    b. False
 
 ### Question 3
-
+Scatter plot allow you to visualize the distribution of two numerical variables.
+    a. True
+    b.  False
+    
 ### Question 4
-
+How do you change the shape of the dots in your scatter plot?
+    a.  Add a shape parameter in `geom_point()`
+    b. Add a shape parameter in `ggplot()`
+    c. Add a shape layer
+    d. You cannot change the shape of the dots
+    
 ### Question 5
+What can you do to customize your scatter-plot?
+    a. shape
+    b. color 
+    c. size 
+    d.  All of the above
+    
 
 ### Question 6
-
+What is the required argument for `goem_point()`?
+    a. color
+    b. size
+    c. shape
+    d. All of the above
+    e.  None of the above
+    
 ### Question 7
-
+How to add a regression line on your scatter plot to get a clear pattern of your data. 
+    a. You cannot add a regression line on scatter plot.
+    b. Add a `smooth = True` in `ggplot()`
+    c. Add a `smooth = True` in `goem_point()`
+    d.  Use geom_smooth()
+    
 ### Question 8
+Does following code work?
+ggplot(mtcars, aes(x=wt, y=mpg)) %>% 
+  geom_point(shape=23, fill="blue", size=3)
+    a. Yes
+    b.  No
 
+    
 ### Question 9
-
+Does following code work?
+geom_point(mtcars, aes(x=wt, y=mpg), shape=23, fill="blue", size=3)
+    a. Yes
+    b.  No
+    
 ### Question 10
+Does following code work?
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(shape=23, fill="blue", size=3)
+    a. Yes
+    b.  No

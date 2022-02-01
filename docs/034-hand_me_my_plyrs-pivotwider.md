@@ -36,11 +36,12 @@ This dataset (called `games`) contains a list of NBA teams and their win/loss re
 #> 5            Miami Heat   l   l   w   w   l
 ```
 
-Run the code below and observe the effect it has on the dataset. Take note of the difference in the number of rows and columns between the two tables. This will be visualized and explained in greater detail in the following step.
+Observe the effect the following code has on the data set. Take note of the difference in the number of rows and columns between the two tables. This will be visualized and explained in greater detail in the following step.
 
 
 
-```
+```r
+pivot_longer(games, cols = c(gm1, gm2, gm3, gm4, gm5), names_to = "game number", values_to = "status")
 #> # A tibble: 25 × 3
 #>    teams              `game number` status
 #>    <chr>              <chr>         <chr> 
@@ -104,10 +105,11 @@ This is a dataset called `games_long`, a "longer" version of `games` (the result
 #> # … with 15 more rows
 ```
 
-Run the code below and observe the effect it has on the dataset. Take note of the difference in the number of rows and columns between the two tables.
+Observe the effect the following code has on the data set. Take note of the difference in the number of rows and columns between the two tables.
 
 
-```
+```r
+pivot_wider(data = games_long, names_from = "game number", values_from = status)
 #> # A tibble: 5 × 6
 #>   teams                 gm1   gm2   gm3   gm4   gm5  
 #>   <chr>                 <chr> <chr> <chr> <chr> <chr>
@@ -151,138 +153,48 @@ You just executed the command `pivot_wider(data = games, names_from = "game numb
 - **names_sep = "..."**: if `names_from` or `values_from` contains multiple variables (in the form of a vector), `names_sep` allows you to state a specific string that will be used to join their names together into a single string as a column name (for example, "." or "_").
 
 
-## Questions
+<!-- ## Exercises -->
 
-Please reference this dataframe representing different pizza topping combinations for the following three questions:
+<!-- ### pivot_longer() -->
 
-```
-#>       type      top1      top2
-#> 1  classic    cheese pepperoni
-#> 2 hawaiian       ham pineapple
-#> 3   veggie mushrooms   peppers
-```
+<!-- Original `games` data, for reference. -->
 
-<!-- ```{r longerq1, echo=FALSE} -->
-<!-- question("If `pivot_longer()` was applied to this dataframe on columns 'top1' and 'top2', how many rows would the output have (not including the header)?", -->
-<!-- answer("2"), -->
-<!-- answer("3"), -->
-<!-- answer("6", correct=TRUE), -->
-<!-- answer("9") -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r longerq2, echo=FALSE} -->
-<!-- question("If `pivot_longer()` was applied to this dataframe on columns 'top1' and 'top2', how many times would the word 'pineapple' appear in the outputted dataframe?", -->
-<!-- answer("1", correct=TRUE), -->
-<!-- answer("2"), -->
-<!-- answer("3"), -->
-<!-- answer("0") -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r longerq3, echo=FALSE} -->
-<!-- question("If `pivot_longer()` was applied to this dataframe on columns 'top1' and 'top2', what would the fourth row (not including header) of the outputted dataframe contain?", -->
-<!-- answer("veggie, top1, mushrooms"), -->
-<!-- answer("veggie, top2, peppers"), -->
-<!-- answer("hawaiian, top1, ham"), -->
-<!-- answer("hawaiian, top2, pineapple", correct = TRUE) -->
-<!-- ) -->
-<!-- ``` -->
-
-
-<!-- Please reference this dataframe representing different pizza topping combinations for the following three questions: -->
-<!-- ```{r questionframe2, echo=FALSE} -->
-<!-- pivot_longer(pizza, cols=starts_with("top"), names_to = "number", values_to = "topping") -->
-<!-- ``` -->
-<!-- ```{r widerq1, echo=FALSE} -->
-<!-- question("If `pivot_wider()` was applied to this dataframe with names from \"number\" and values from \"topping\", how many columns would the output have?", -->
-<!-- answer("2"), -->
-<!-- answer("3", correct=TRUE), -->
-<!-- answer("6"), -->
-<!-- answer("9") -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r widerq2, echo=FALSE} -->
-<!-- question("If `pivot_wider()` was applied to this dataframe with names from \"number\" and values from \"topping\", how many times would the type \"classic\" appear in the output?", -->
-<!-- answer("1", correct = TRUE), -->
-<!-- answer("2"), -->
-<!-- answer("3"), -->
-<!-- answer("0") -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r widerq3, echo=FALSE} -->
-<!-- question("If `pivot_wider()` was applied to this dataframe with names from \"number\" and values from \"topping\", what would the column names be?", -->
-<!-- answer("type, top1, top2", correct = TRUE), -->
-<!-- answer("classic, hawaiian, veggie"), -->
-<!-- answer("type, number, topping"), -->
-<!-- answer("classic, cheese, pepperoni") -->
-<!-- ) -->
-<!-- ``` -->
-
-## Exercises
-
-### pivot_longer()
-
-Original `games` data, for reference.
-
-
-```
-#>                   teams gm1 gm2 gm3 gm4 gm5
-#> 1       Toronto Raptors   l   l   w   w   w
-#> 2    Los Angeles Lakers   l   w   w   l   w
-#> 3        Boston Celtics   w   l   l   l   w
-#> 4 Golden State Warriors   l   w   l   l   w
-#> 5            Miami Heat   l   l   w   w   l
-```
-
-**Hint**: Unless specified, there are multiple ways to select the columns you wish to pivot.
-
-1. Pivot the data stored in all columns except "teams". Map column names to a new column called "top five" and data from pivoted columns to a new column called "outcome".
-
-<!-- ```{r longerexample1, exercise=TRUE} -->
-
-<!-- ``` -->
-<!-- ```{r longerexample1-solution} -->
-<!-- pivot_longer(games, cols = !teams, names_to = "top five", values_to = "outcome") -->
-<!-- ``` -->
-
-
-2. The code in the window below replaces all "l" values in "games" with NA. Run this code, then pivot this table to make it longer while removing all rows with NA values. Assign columns their default names.
-
-<!-- ```{r longerexample2, exercise=TRUE} -->
-<!-- games[games=="l"] <- NA -->
+<!-- ```{r gamesref, echo=FALSE} -->
 <!-- games -->
 <!-- ``` -->
-<!-- ```{r longerexample2-solution} -->
-<!-- pivot_longer(data = games, cols = c(gm1, gm2, gm3, gm4, gm5), values_drop_na = TRUE) -->
+
+<!-- **Hint**: Unless specified, there are multiple ways to select the columns you wish to pivot. -->
+
+<!-- 1. Pivot the data stored in all columns except "teams". Map column names to a new column called "top five" and data from pivoted columns to a new column called "outcome". -->
+
+<!-- <!-- ```{r longerexample1, exercise=TRUE} -->
+
+<!-- <!-- ``` -->
+<!-- <!-- ```{r longerexample1-solution} -->
+<!-- <!-- pivot_longer(games, cols = !teams, names_to = "top five", values_to = "outcome") -->
+<!-- <!-- ``` -->
+
+
+<!-- 2. The code in the window below replaces all "l" values in "games" with NA. Run this code, then pivot this table to make it longer while removing all rows with NA values. Assign columns their default names. -->
+
+<!-- <!-- ```{r longerexample2, exercise=TRUE} -->
+<!-- <!-- games[games=="l"] <- NA -->
+<!-- <!-- games -->
+<!-- <!-- ``` -->
+<!-- <!-- ```{r longerexample2-solution} -->
+<!-- <!-- pivot_longer(data = games, cols = c(gm1, gm2, gm3, gm4, gm5), values_drop_na = TRUE) -->
+<!-- <!-- ``` -->
+
+
+<!-- ### pivot_wider() -->
+
+<!-- Original `games_long` data, for reference. -->
+
+<!-- ```{r games_longref, echo=FALSE} -->
+<!-- games_long -->
 <!-- ``` -->
 
-
-### pivot_wider()
-
-Original `games_long` data, for reference.
-
-
-```
-#> # A tibble: 25 × 3
-#>    teams              `game number` status
-#>    <chr>              <chr>         <chr> 
-#>  1 Toronto Raptors    gm1           l     
-#>  2 Toronto Raptors    gm2           l     
-#>  3 Toronto Raptors    gm3           w     
-#>  4 Toronto Raptors    gm4           w     
-#>  5 Toronto Raptors    gm5           w     
-#>  6 Los Angeles Lakers gm1           l     
-#>  7 Los Angeles Lakers gm2           w     
-#>  8 Los Angeles Lakers gm3           w     
-#>  9 Los Angeles Lakers gm4           l     
-#> 10 Los Angeles Lakers gm5           w     
-#> # … with 15 more rows
-```
-
-1. Manipulate `games_long` to look like the original `games` data frame at the top of this page.
+<!-- 1. Manipulate `games_long` to look like the original `games` data frame at the top of this page. -->
 
 <!-- ```{r widerexample1, exercise=TRUE} -->
 
@@ -311,20 +223,140 @@ Original `games_long` data, for reference.
 
 ### Question 1
 
+Which of the following is generally a desired effect of executing `pivot_longer()` on a data frame?
+
+  a. Increase number of columns
+  b.  Increase number of rows
+  c. Decrease number of values
+  d. None of the above
+
 ### Question 2
+
+Which of the following is generally a desired effect of executing `pivot_wider()` on a data frame?
+
+  a.  Increase number of columns
+  b. Increase number of rows
+  c. Decrease number of values
+  d. None of the above
 
 ### Question 3
 
+Please reference this table representing different pizza topping combinations for Questions 3 through 5:
+
+```
+#>       type      top1      top2
+#> 1  classic    cheese pepperoni
+#> 2 hawaiian       ham pineapple
+#> 3   veggie mushrooms   peppers
+```
+
+If `pivot_longer()` was applied to this dataframe on columns 'top1' and 'top2', how many rows would the output have (not including the header)?
+
+  a. 2
+  b. 3
+  c.  6
+  d. 9
+
 ### Question 4
+If `pivot_longer()` was applied to this dataframe on columns 'top1' and 'top2', how many times would the word 'pineapple' appear in the outputted dataframe?
+
+  a.  1
+  b. 2
+  c. 3
+  d. 0
 
 ### Question 5
+If `pivot_longer()` was applied to this dataframe on columns 'top1' and 'top2', what would the fourth row (not including header) of the outputted dataframe contain?
+
+  a. veggie, top1, mushrooms
+  b. veggie, top2, peppers
+  c. hawaiian, top1, ham
+  d.  hawaiian, top2, pineapple  
+
 
 ### Question 6
 
+Please reference the following table representing different pizza topping combinations for Question 6 through 8:
+
+```
+#> # A tibble: 6 × 3
+#>   type     number topping  
+#>   <chr>    <chr>  <chr>    
+#> 1 classic  top1   cheese   
+#> 2 classic  top2   pepperoni
+#> 3 hawaiian top1   ham      
+#> 4 hawaiian top2   pineapple
+#> 5 veggie   top1   mushrooms
+#> 6 veggie   top2   peppers
+```
+
+If `pivot_wider()` was applied to this dataframe with names from "number" and values from "topping", how many columns would the output have?
+
+  a. 2
+  b.  3
+  c. 6
+  d. 9
+
+
 ### Question 7
+If `pivot_wider()` was applied to this dataframe with names from "number" and values from "topping", how many times would the type "classic" appear in the output?
+
+  a.  1
+  b. 2
+  c. 3
+  d. 0
 
 ### Question 8
+If `pivot_wider()` was applied to this dataframe with names from "number" and values from "topping", what would the column names be?
+
+  a.  type, top1, top2
+  b. classic, hawaiian, veggie
+  c. type, number, topping
+  d. classic, cheese, pepperoni
 
 ### Question 9
 
+Please refer to the following data sets, `games1` and `games2`, for Questions 9 and 10.
+
+```
+#>                   teams  gm1  gm2  gm3  gm4  gm5
+#> 1       Toronto Raptors <NA> <NA>    w    w    w
+#> 2    Los Angeles Lakers <NA>    w    w <NA>    w
+#> 3        Boston Celtics    w <NA> <NA> <NA>    w
+#> 4 Golden State Warriors <NA>    w <NA> <NA>    w
+#> 5            Miami Heat <NA> <NA>    w    w <NA>
+```
+
+```
+#> # A tibble: 12 × 3
+#>    teams                 name  value
+#>    <chr>                 <chr> <chr>
+#>  1 Toronto Raptors       gm3   w    
+#>  2 Toronto Raptors       gm4   w    
+#>  3 Toronto Raptors       gm5   w    
+#>  4 Los Angeles Lakers    gm2   w    
+#>  5 Los Angeles Lakers    gm3   w    
+#>  6 Los Angeles Lakers    gm5   w    
+#>  7 Boston Celtics        gm1   w    
+#>  8 Boston Celtics        gm5   w    
+#>  9 Golden State Warriors gm2   w    
+#> 10 Golden State Warriors gm5   w    
+#> 11 Miami Heat            gm3   w    
+#> 12 Miami Heat            gm4   w
+```
+
+Which of the following lines of code will convert `games1` to `games2`?
+
+  a. `pivot_wider(games1, cols = teams, values_drop_na = TRUE)`
+  b. `pivot_longer(games1, cols = teams, na.rm = TRUE)`
+  c. `pivot_longer(games1, cols = c(gm1, gm2, gm3, gm4, gm5), na.rm = TRUE)`
+  d.  `pivot_longer(games1, cols = c(gm1, gm2, gm3, gm4, gm5), values_drop_na = TRUE)`
+
 ### Question 10
+
+Which of the following lines of code will convert `games2` to the original `games` data set?
+
+  a. `pivot_wider(games2, names_from = name, values_from = value, values_fill = "l", values_sort = TRUE)`
+  b. `pivot_wider(games2, names_from = name, values_from = value, values_fill = NA)`
+  c. `pivot_longer(games2, names_from = name, values_from = value, values_fill = NA)`
+  d.  `pivot_wider(games2, names_from = name, values_from = value, values_fill = "l", names_sort = TRUE)`

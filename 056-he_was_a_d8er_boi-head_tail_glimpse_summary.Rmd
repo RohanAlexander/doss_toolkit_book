@@ -116,7 +116,7 @@ For double data type(test_score), we have the summary statistics as we have seen
 
 
 <!-- ```{r headex2, echo = FALSE} -->
-<!-- question("If you want to look at the first 5 rows of the mtcars dataset, which code should you use?", -->
+<!-- question("If you want to look at the first 3 rows of the mtcars dataset, which code should you use?", -->
 <!--           answer("head(mtcars,3)", correct = TRUE), -->
 <!--           answer("tail(mtcars, 3)"), -->
 <!--           answer("glimpse(mtcars)"), -->
@@ -158,21 +158,72 @@ Once you have fully understood the dataset you are working with you may start us
 ## Exercises
 
 ### Question 1
-
+What is the first parameter for `head()`?
+    a. number of row in your data set
+    b.  A data frame
+    c. a number represents the First number of rows
+    d. a string number represents the First number of rows
+    
+    
 ### Question 2
-
+What does the following code produce?
+`head(data, n = 3)`
+    a. The last three row of your data
+    b.  The first three column of your data
+    c. The first three row fo your data
+    d. The last three column of your data
+    
 ### Question 3
-
+What can we learn about our data from the `glimpse()` output (Multiple answers)
+    a.  Number of rows and columns
+    b.  name of the variable
+    c.  data type
+    d. Summary statistics of your data set
+    
 ### Question 4
+`glimpse()` give us few observations of each variable.
+    a.  True
+    b. False
 
+    
 ### Question 5
+`summary()` does not produce mean value.
+    a. True
+    b.  False
 
+    
 ### Question 6
-
+If you want to look at the first 3 rows of the mtcars dataset, which code should you use?
+    a.  `head(mtcars,3)`
+    b. `tail(mtcars, 3)`
+    c. `glimpse(mtcars)`
+    d. `summary(mtcars)`
+    
 ### Question 7
-
+If you want to look at the last 3 rows of the mtcars dataset, which code should you use?
+    a. `head(mtcars,3)`
+    b.  `tail(mtcars, 3)`
+    c. `glimpse(mtcars)`
+    d. `summary(mtcars)`
+    
 ### Question 8
-
+What is the output of summary() function for factor data type?
+    a. Data type
+    b. Summary statistics such as min and max
+    c. Number of factors in the variable
+    d.  Count of each factor
+    
 ### Question 9
-
+What is the output of summary() function for double data type?
+    a. Data type
+    b.  Summary statistics such as min and max
+    c. Number of factors in the variable
+    d. Count of each factor
+    
 ### Question 10
+What is the default n for `head()`
+    a. 3
+    b. 5
+    c. 10
+    d.  6
+    

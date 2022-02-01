@@ -205,21 +205,76 @@ Here is the documentation for all the joins function in dplyr package: https://d
 ## Exercises
 
 ### Question 1
+What function can we use to combine two data frames into a single table
+    a. `left_join()`
+    b. `right_join()`
+    c. `full_join()`
+    d.   All of the above
+    
 
 ### Question 2
-
+`left_join()` will take all of the values from the first table and match them to records from the second by the variable we specified.
+    a.  True
+    b. False
+  
 ### Question 3
-
+If there is no match in the second table, it will show False for the values in the second table.
+    a. True
+    b.  False
+ 
 ### Question 4
+`left_join(a, b)` is similar  to `right_join(b, a)`
+    a.  True
+    b. False
 
 ### Question 5
-
+`full_join()` creates a new table that only contains matched rows in both tables. 
+    a. True
+    b.  False 
 ### Question 6
-
+`inner_join()` returns all of the data in a new table, whether it matches on either the left or right tables.
+    a.  True
+    b. False 
 ### Question 7
-
+`anti_join()` will return all of the rows from the first table where there are no matching values from the second.
+    a.  True
+    b. False 
+    
 ### Question 8
+test_score <- tribble(~student_id, ~grade
+                  ,'1',  94
+                  ,'2',  90
+                  ,'3',  88
+                  ,'4',  75
+                  ,'5',  66
+                  )
+student_info <- tribble(~student_id, ~age,~gender
+                  ,'1', 18, 'F'
+                  ,'3', 20, 'F'
+                  ,'5', 25, 'M'
+                  ,'7', 21, 'M'
+                  ,'9', 23, 'F'
+                  )
+
+Which set of student id is in the output of `left_join(test_score, student_info)`
+    a.  1, 2, 3, 4, 5
+    b. 1, 3, 5
+    c. 7, 9
+    d. 1, 2, 3, 4, 5, 7, 9
 
 ### Question 9
+Using the code in question 8
+Which set of student id is in the output of `inner_join(test_score, student_info)`
+    a.  1, 3, 5
+    b. 7, 9
+    c. 1, 3, 5, 7, 9
+    d. 1, 2, 3, 4, 5, 7, 9
+    
 
 ### Question 10
+Using the code in question 8
+Which set of student id is in the output of `full_join(test_score, student_info)`
+    a. 1, 3, 5
+    b. 7, 9
+    c. 1, 3, 5, 7, 9
+    d.  1, 2, 3, 4, 5, 7, 9

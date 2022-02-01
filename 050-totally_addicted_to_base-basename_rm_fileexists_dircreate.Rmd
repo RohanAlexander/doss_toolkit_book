@@ -267,21 +267,67 @@ https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files2
 ## Exercises
 
 ### Question 1
-
+`dir.create` creates files in your current directory.
+    a. True 
+    b.  False
+    
 ### Question 2
+What does it mean when `file.create()` returns True?
+    a.  File is created
+    b. Folder is created 
+    c. File is already in your directory
+    d. Fail to create the file
 
 ### Question 3
+`file.exists()` function allow you to check if a file exists in your current directory or the specified path. 
+    a.  True 
+    b. False
 
 ### Question 4
-
+What is the output of `file.exists()`?
+    a.  A boolean
+    b. String "Yes" and "No"
+    c. String "True" and "False
+    d. number 1 and 0
+    
 ### Question 5
-
+`file.remove()` can be used to remove(delete) files in your directory or specified file path.
+    a.  True 
+    b. False
+    
 ### Question 6
+What is the output for following code?
+`dirname("C:/Users/Desktop/newfile.txt")`
+    a. "C:"
+    b. "C:/Users"
+    c.  "C:/Users/Desktop"
+    d. "C:/Users/Desktop/newfile.txt"
 
+    
 ### Question 7
-
+What is the output for following code?
+`basename("C:/Users/Desktop/newfile.txt")`
+    a. "C:"
+    b. "C:/Users"
+    c. "C:/Users/Desktop/newfile.txt"
+    d.  "newfile.txt"
+    
 ### Question 8
-
+`dirname()` return the path of our current directory!
+    a.  True 
+    b. False
+    
 ### Question 9
-
+`basename()` extracts the directory name from the full file path.
+    a. True 
+    b.  False
+    
 ### Question 10
+
+`file.path("c:", "Users", "doss_toolkit_book", "totally_addicted_to_base", fsep="/")`
+
+"What is the output of above code?"
+    a.  "c:/Users/doss_toolkit_book/totally_addicted_to_base"
+    b. "totally_addicted_to_base"
+    c. TRUE
+    d. "c:/Users/doss_toolkit_book"

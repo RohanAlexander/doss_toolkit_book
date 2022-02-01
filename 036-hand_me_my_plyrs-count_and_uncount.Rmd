@@ -143,41 +143,9 @@ colours
 ```{r uncount-example4, echo=TRUE}
 uncount(colours, n, .remove = FALSE, .id = "id")
 ```
-## Questions & Exercises
 
-### Exercises
 
-For the following two exercises, manipulate the `starwars` data set to match the output displayed. The original is included below for reference.
-
-```{r starwars2, echo=FALSE}
-starwars
-```
-
-**Exercise 1**
-
-```{r countexercise1-reference, echo=FALSE}
-count(starwars, skin_color, eye_color, sort=TRUE)
-```
-```{r countexercise1, exercise=TRUE}
-
-```
-```{r countexercise1-solution}
-count(starwars, skin_color, eye_color, sort=TRUE)
-```
-
-**Exercise 2**
-
-```{r countexercise2-reference, echo=FALSE}
-count(starwars, name, name="unique")
-```
-```{r countexercise2, exercise=TRUE}
-
-```
-```{r countexercise2-solution}
-count(starwars, name, name="unique")
-```
-
-### Questions
+## Exercises
 
 Below is the first five rows of output from **Exercise 1**, assigned the name `features`. Please use this data set as reference for the following questions.
 
@@ -186,62 +154,84 @@ features <- count(starwars, skin_color, eye_color, sort=TRUE) %>% slice(1:5)
 features
 ```
 
-<!-- ```{r uncount-question1, echo=FALSE} -->
-<!-- question("In the output of `uncount(features, n)`, how many times will the word \"brown\" appear?", -->
-<!-- answer("2"), -->
-<!-- answer("3"), -->
-<!-- answer("7"), -->
-<!-- answer("12", correct=TRUE) -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r uncount-question2, echo=FALSE} -->
-<!-- question("How many rows does the output of `uncount(features, 2)` have (not including the header)?", -->
-<!-- answer("5"), -->
-<!-- answer("10", correct=TRUE), -->
-<!-- answer("21"), -->
-<!-- answer("42") -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r uncount-question3, echo=FALSE} -->
-<!-- question("How many columns does the output of `uncount(features, 2)` have?", -->
-<!-- answer("1"), -->
-<!-- answer("2"), -->
-<!-- answer("3", correct=TRUE), -->
-<!-- answer("4") -->
-<!-- ) -->
-<!-- ``` -->
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercises
-
 ### Question 1
+
+In the output of `uncount(features, n)`, how many times will the word "brown" appear?
+
+  a. 2
+  b. 3
+  c. 7
+  d.  12
 
 ### Question 2
 
+How many rows does the output of `uncount(features, 2)` have (not including the header)?
+
+  a. 5
+  b.  10
+  c. 21
+  d. 42
+
 ### Question 3
 
+How many columns does the output of `uncount(features, 2)` have?
+
+  a. 1
+  b. 2
+  c.  3
+  d. 4
+
+For the Question 4 and 5, identify the code used to manipulate the `starwars` data set to match the output displayed. The original is included below for reference.
+```{r starwars2, echo=FALSE}
+starwars
+```
+
 ### Question 4
+```{r countexercise1-reference, echo=FALSE}
+count(starwars, skin_color, eye_color, sort=TRUE)
+```
 
+  a.  `count(starwars, skin_color, eye_color, sort=TRUE)`
+  b. `count(starwars, skin_color, eye_color, sort=FALSE)`
+  c. `count(starwars, c(skin_color, eye_color), sort=TRUE)`
+  d. `count(starwars, c(skin_color, eye_color), sort=FALSE)`
+  
 ### Question 5
+```{r countexercise2-reference, echo=FALSE}
+count(starwars, name, name="unique")
+```
 
+  a. `count(starwars)`
+  b. `count(starwars, name, species, .remove = TRUE)`
+  c. `count(starwars, name, name="name")`
+  d.  `count(starwars, name, name="unique")`
+  
 ### Question 6
+
+What will be the output of the following code: `count(starwars, skin_color) %>% uncount(weights = n)`?
+
+  a. The original `starwars` data frame
+  b. A tibble with two columns: one called "skin_color" with each unique skin colour from `starwars` included once, and one called "n" with a count of the number of times that skin colour appears in the data set
+  c. A tibble with two columns: one called "skin_color" with each skin colour from `starwars` included the same number of times it appears in the data set, and one called "n" with a count of the number of times that skin colour appears in the data set (repeated for each repeated entry in column "skin_color")
+  d.  A tibble with one column called "skin_color" with each skin colour from `starwars` included the same number of times it appears in the data set.
 
 ### Question 7
 
+Use the following tibble for Questions 7 through 9:
+```{r count-uncount-q7, echo=FALSE}
+count(starwars, skin_color, species) %>% uncount(.id = "id") %>% head(5)
+```
+The tibble above represents the product of manipulating the `starwars` data set using one or more functions. Which of the options below best describes the last function applied in order to produce the given output?
+
+  a. `count()`
+  b. `uncount()`
+  c. `summarise()`
+  d.  Something else
+
 ### Question 8
+  
+True or false: In the first row of the above tibble, the value 1 in the "id" column indicates that there is only one instance of a human with dark skin in the `starwars` data frame.
 
-### Question 9
+  a. True
+  b.  False
 
-### Question 10

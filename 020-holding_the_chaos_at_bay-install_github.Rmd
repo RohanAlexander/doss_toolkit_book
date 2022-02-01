@@ -91,21 +91,63 @@ R Packages is a book that gives a comprehensive treatment of all common parts of
 ## Exercises
 
 ### Question 1
+GitHub is a popular repository for open-source projects.
+    a.  True
+    b. False
 
 ### Question 2
+What is the difference between packages on github and CRAN?
+    a. There is no difference
+    b.  There is no review process for GitHub packages
+    c. packages on github are easier to install
+    d. packages on github are simpler
+    
 
 ### Question 3
+`devtools` is required to install packages from github? 
+    a. Yes
+    b.  No
 
 ### Question 4
+`install_github()` is used to install packages from github?
+    a.  Yes
+    b. No
 
 ### Question 5
-
+What is the input to `install_github()`?
+    a. "developer name"
+    b. "package name"
+    c.  "developer name/package name"
+    d. "developer name,package name"
+    
 ### Question 6
-
+What does `devtools::install_github()` mean?
+    a. Install `devtools` package and use `install_github()` function
+    b. Install `devtools` from github
+    c.  Call the `devtools` package and use the function `install_github()`
+    d. Load the `devtools` package
+    
 ### Question 7
+You should make sure the github repository is a R package
+    a.  True
+    b. False
 
 ### Question 8
+Does `install_github("sharlagelfand/dmc")` work to install the dmc package?
+    a. Yes
+    b. No
+    c.  Yes, if you loaded the devtools package
 
+    
 ### Question 9
-
+Does `devtools::install_github("sharlagelfand/dmc")` work to install the dmc package?
+    a.  Yes
+    b. No
+    
 ### Question 10
+https://github.com/RohanAlexander/AustralianPoliticians
+Which code can install above package?
+    a. `devtools::install('RohanAlexander/AustralianPoliticians')`
+    b. `install_github('RohanAlexander/AustralianPoliticians')`
+    c. `devtools::install_github('AustralianPoliticians')`
+    d.  `devtools::install_github('RohanAlexander/AustralianPoliticians')`
