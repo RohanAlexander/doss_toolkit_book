@@ -7,28 +7,183 @@ library(tidyverse)
 
 # Python
 
-*Written by ADD NAME and last updated on ADD DATE.*
+*Written by Isaac Ehrlich and last updated on January 31st 2022*
 
 ## Introduction
 
-## Exercises
+At this point, you are most likely already fairly familiar with R, its many functions, and its many packages. The goal of this lesson is to demonstrate how RStudio can be used to run Python scripts, as well as introduce some differences and comparative strengths and weaknesses between R and Python.
 
-### Question 1
+Prerequisite Skills:
 
-### Question 2
+- Basic working knowledge of R
+- RStudio 1.4 or newer
+- Python installed on your machine (available [here](https://python.org/downloads))
 
-### Question 3
 
-### Question 4
+## Using Python in RStudio
+*Note: to use Python in RStudio, you will need to have Python installed on your computer, as well as  RStudio 1.4 or newer. You may need to install additional packages, such as `miniconda` and the R package `reticulate`. RStudio may do this automatically when you try to run your first Python script.*
 
-### Question 5
+Despite its name, RStudio is capable of running Python (as well as SQL, C++, and much more) in addition to R. To create a Python file, navigate to **File > New File > Python Script** in the top menu. It's really as simple as that! 
 
-### Question 6
+As soon as you run any code from your Python file, RStudio will modify it's state to let you run Python code in the console. You will also still have access to familiar RStudio features such as seeing the Python variables in your environment in the top right window, being able to view any plots in the viewer on the bottom right, and using the `View()` function to see your objects. RStudio will also provide autocomplete suggestions for Python functions.
 
-### Question 7
 
-### Question 8
+### Python Chunks in R Notebooks
+If you are using notebooks in RStudio, you may also use Python for individual code chunks by changing the header from `{r}` to `{python}` as shown below.
+```{r}
+# My header says {r}
+# I am an R chunk with R packages
+library(tidyverse)
+print(tibble("It's", "fun", "to", "stay"))
+```
 
-### Question 9
+```{python}
+# My header says {python}
+# I am a Python chunk with Python packages
+import numpy as np
+print(np.array(['at', 'the', 'Y', 'M', 'C', 'A']))
+```
 
-### Question 10
+In the remainder of this lesson, whenever you see Python code, keep in mind that the chunk header has been modified to match the language used in the chunk.
+
+
+### Python Packages
+Like R, Python has many useful libraries that need to be installed for use. This can be done using `reticulate`'s `py_install()` function.
+```{r, results = FALSE, warning = FALSE, message = FALSE}
+# numpy, pandas, and matplotlib are three common python pacakges you way want to use
+library(reticulate)
+py_install(c("numpy", "pandas", "matplotlib"))
+```
+
+
+## R and Python
+Every programming language has its strengths and weaknesses. Python is generally referred to as a general-purpose programming language while R is seen as a programming language optimized for performing statistical analyses and visualizing data.
+
+### The Basics
+R and Python are both free languages with large collections of packages, libraries, and large online communities - neither language will leave you wanting for more clean documentation. Additionally, both languages are well suited for many data science tasks. 
+
+If you have experience with R, you have likely encountered the `tidyverse`, which includes the `readr`, `dplyr`, `ggplot2` packages (and many more), meant for cleanly reading, manipulating, and visualizing data. The common Python alternatives to`tidyverse` packages are `numpy`, which offers mathematical functions and easy array manipulation, `pandas`, which offers data manipulation and analysis tools through its use of data frames, and `matplotlib`, which is used for data visualizations. You will often see these packages imported as follows:
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+`numpy` arrays are akin to lists in R and are created using the following structure:
+```{python, warning = FALSE, message = FALSE}
+# The NumPy version of list() 
+np.array(['If', 'you', 'like', 'pina', 'coladas'])
+
+
+np.array([['If', 'you', 'like', 'pina', 'coladas', '...'], 
+         ['Or', 'getting', 'caught', 'in', 'the', 'rain']])
+# An array can also contain multiple arrays
+
+
+np.random.rand(3,2)
+# We can also use np.random.rand() to create a random array of a set dimension
+```
+
+
+`pandas` data frames are similar to tibbles in `tidyverse` and can take a `numpy` array as an argument
+```{python}
+science = np.array([['tiger', 'striped'],
+                    ['zebra', 'striped'],
+                    ['leopard', 'spotted'],
+                    ['giraffe', 'spotted'],
+                    ['striped moose', 'fictitious impostor']])
+df = pd.DataFrame(science, columns = ['animal', 'pattern'])
+print(df)
+
+
+
+print(df['animal'])
+# Columns can be easily indexed
+```
+
+
+Finally, let's create a plot of normal clusters using `matplotlib` and `make_blobs`, a function from `scikit-learn`, a popular package for machine learning. Be sure to install new packages using reticulate if you need to!
+
+```{python, warning = FALSE, results = FALSE}
+# Use this syntax to import a single function rather than the entire library
+from sklearn.datasets import make_blobs 
+
+# Make Blobs!!
+x, y = make_blobs(n_samples=250, centers=2, random_state=0, cluster_std=0.60)
+                  
+# Plot clusters  using matplotlib
+plt.scatter(x[:, 0], x[:, 1], c=y, cmap='winter')
+plt.title("Gaussian Clusters")
+plt.show()
+```
+
+### Notable Differences
+First off, Python uses zero-based indexing, while R is one-based. Some find this fiercely concerning. Regardless of your predilection, it's important to know how to properly index in the language you are using.
+
+Greater differences lie ahead though. To begin, R is widely used as a functional programming language, while Python is object-oriented, meaning that objects can have unique attributes (see OOP lesson for greater detail). Python, therefore, is very common in environments that don't strictly involve statistical tasks, such as software testing or web development.
+
+Furthermore, although both R and Python utilise vast collections of packages, Python's SciPy is often preferred to R's machine learning capabilities, while `ggplot` typically provides easier and greater functionality than Python's alternatives. R also contains a greater and more diverse set of statistical packages.
+
+### Deciding Between R and Python
+R and Python are both important and useful programming languages, and access to both in RStudio makes them easy to use and integrate. If you are performing non-statistical tasks, developing software, or working with Python-centric colleagues, Python may be the correct choice. If your focus is on wrangling or visualizing data, then R may be the one for you. Ultimately, choosing which programming language to use will depend on a number of factors, including your programming experience, what the people you are working with use, and of course, the task at hand. 
+
+## Questions
+1.
+You can have both R and Python chunks within a single `.rmd` file.
+  a. True
+  b.False
+  
+2.
+How do you index the first value of an array, `x`, in Python?
+  a. x[1]
+  b. x[0]
+  c. x[-1]
+  d. With black magic
+
+3.
+Unlike R, every available function in Python comes automatically installed.
+  a. True - all functions are loaded as soon as you open a Python file
+  b. False - you can download additional packages through R's `reticulate` package
+
+4.
+Which of the following is the correct code for an array of arrays?
+  a. array([1,1],[2,3])
+  b. np.array([1,1], [2,3])
+  c. array([[1,1], [2,3]])
+  d. np.array([[1,1], [2,3]])
+  
+5.
+Python is a(n) ___ programming language.
+  a. Algorithmic
+  b. Statistical
+  c. Untrustworthy
+  d. Object-Oriented
+
+6.
+You cannot preview Python plots or use other RStudio functionality when running Python.
+  a. True
+  b. False
+
+7.
+Python is typically seen as a general-purpose language, and is used for software development as well as data science.
+  a. True
+  b. False
+
+8.
+Compared to Python, the following are usually considered strengths of R:
+  a. Robust statistical packages and data visualization but not machine learning
+  b. Visualizations and machine learning but not statistical packages
+  c. Scalable production tools and machine learning but not data wrangling
+  d. There are no comparative strengths
+
+9.
+Which of the following is import statements will fail in Python?
+  a. import numpy
+  b. import numpy as np
+  c. from numpy import random
+  d. import random from numpy
+
+10.
+There is never a good reason to use Python instead of R.
+  a. True
+  b. False
