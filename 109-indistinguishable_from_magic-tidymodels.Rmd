@@ -17,11 +17,11 @@ After all the chapters learning the tidyverse framework and if you feel like you
 You'll learn key concepts such as defining model objects and creating modeling workflows.
  
 In this lesson, you will learn about:  
-- create robust models 
-- perform statistical analysis
-- compare models 
-- custom modeling
-- create statistical models 
+- create robust models   
+- perform statistical analysis  
+- compare models   
+- custom modeling  
+- create statistical models   
 
 
 
@@ -184,48 +184,58 @@ https://cran.r-project.org/web/packages/yardstick/readme/README.html
 ## Exercises
 
 ### Question 1
-What core packages are included in the `tidymodels` package? 
-  a. parsnip
-  b. recipes
-  c. yardstick
-  d. all of the above
+What core packages are included in the `tidymodels` package?   
+  a. parsnip  
+  b. recipes  
+  c. yardstick  
+  d. all of the above  
   
-### Question 2
-Which of the statements is tidymodels package appropriately used? 
-  a. When I want to import excel file to R and edit the table. 
-  b. When I want to create a histogram using the data and label it. 
-  c. When I want to do statistical analysis with great flexibility and with multiple stages. 
-  d. When I want to create a pdf file and write correct references. 
+### Question 2  
+Which of the statements is tidymodels package appropriately used?   
+  a. When I want to import excel file to R and edit the table.   
+  b. When I want to create a histogram using the data and label it.   
+  c. When I want to do statistical analysis with great flexibility and with multiple stages.   
+  d. When I want to create a pdf file and write correct references.   
   
 ### Question 3
 (True or False) The `tidymodels` package includes some core packages from the `tidyverse`.  
-a. True  
-b. False  
+  a. True  
+  b. False  
 
 ### Question 4
 What argument in initial_split() should you use to set the proportionfor testing and training?   
-a. num  
-b. prop  
-c. base 
-d. rat  
+  a. num  
+  b. prop  
+  c. base   
+  d. rat  
 
 ### Question 5
 
-question about recipe
+What functions are in the `recipe` package (Select all that apply)?  
+  a. bake()   
+  b. milk()   
+  c. recipe()  
+  d. juice()  
 
 ### Question 6
-What are the two common modes of the parsnip models?  
-a. vectors  
-b. classification  
-c. aversion  
-d. regression  
+What are the two common modes of the `parsnip` models?  
+  a. vectors  
+  b. classification  
+  c. aversion  
+  d. regression  
 
 
 ### Question 7
-question about yardstick
+(True or False) For the models with classification mode, you can evaluate the model performance using R-squared.   
+  a. True  
+  b. False  
 
 ### Question 8
-
+Select one example of the most appropriate usage of the `tidymodels` package.  
+  a. Import data with readr, use tidyr to clean data, and plot the graph using ggplot2.  
+  b. connect R with SQL, import data and use kable() function to create a neat table.   
+  c. resample imported data using rsample, preprocess data with recipes, fit the model using parsnip, and evaluate the model with yardstick.   
+  d. None of the above.   
 ### Question 9
 
 ### Question 10
