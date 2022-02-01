@@ -188,25 +188,17 @@ So, the loop enters the body, prints 1, and i is incremented by 1 since the body
 ### Question 1 
 Here is a simple `for` loop code: 
 
-<!-- ```{r eval = F} -->
-<!-- example <- c(a, b, c) -->
-<!-- for (i in example){ -->
-<!--   print(example[i]) -->
-<!-- } -->
-<!-- ``` -->
-<!-- ```{r q1, echo = F, exercise.eval = TRUE} -->
-<!-- question_checkbox( -->
-<!--   "What is the correct output of the code above? ", -->
-<!--   answer("a b c ", correct = T), -->
-<!--   answer("(a, b, c) (a, b, c) (a, b, c) ", message = "Check the statement again"), -->
-<!--   answer("c b a ", correct = F), -->
-<!--   answer("a", correct = F), -->
-<!--   allow_retry = T, -->
-<!--   random_answer_order = T, -->
-<!--   incorrect = "Try again. You got this!" -->
-<!-- ) -->
-
-<!-- ``` -->
+```
+example <- c(a, b, c)
+for (i in example){
+    print(example[i])
+}
+```
+What is the correct output of the code above?  
+  a. "a b c"  
+  b. "(a, b, c) (a, b, c) (a, b, c) "  
+  c. "c b a "  
+  d. "a"
 
 
 ### Question 2
@@ -236,7 +228,7 @@ Here is a dataset of people who climbed Mount Himalayan. How many members were i
 <!-- ``` -->
 
 ### Question 3
-The following is a simple `while` loop code. 
+The following is a simple `while` loop code chunk.  
 
 ```{r, eval = F}
 i = 15
@@ -245,20 +237,25 @@ while (i > 10){
 }
 i 
 ```
+How many iterations does the while loop go through until it terminates?  
+  a. 3   
+  b. 4  
+  c. 5  
+  d. 6   
 
-<!-- ```{r q3, echo = F, exercise.eval = TRUE} -->
-<!-- question_checkbox( -->
-<!--   "How many iterations does the while loop go through until it terminates?", -->
-<!--   answer("3", correct = F), -->
-<!--   answer("4 ", correct = F), -->
-<!--   answer("5", correct = T), -->
-<!--   answer("6", correct = F), -->
-<!--   allow_retry = T, -->
-<!--   random_answer_order = T, -->
-<!--   incorrect = "Try again. You got this!" -->
-<!-- ) -->
+### Question 4 
 
-<!-- ``` -->
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
 
 
 ## Common mistakes & errors
@@ -300,24 +297,4 @@ This happens since the length of the vector you are trying to replace does not m
 - [R while loop](https://www.datamentor.io/r-programming/while-loop/)
 
 
-## Exercises
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10

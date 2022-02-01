@@ -100,20 +100,11 @@ You can find LaTeX packages on [CTAN(The Comprehensive TeX Archive Network) subp
 ## Exercises
 
 ### Question 1
-
-<!-- ```{r q1_pdf, echo=F} -->
-<!-- question_checkbox( -->
-<!--   "What is the correct command to create table of contents? ", -->
-<!--   answer("toc: false", correct = F), -->
-<!--   answer("toc: 1", correct = F), -->
-<!--   answer("toc_depth: true ", correct = F), -->
-<!--   answer("toc: true", correct = T), -->
-<!--   answer("toc_depth: 2", correct = F), -->
-<!--   allow_retry = T, -->
-<!--   random_answer_order = T, -->
-<!--   incorrect = "Try again. You got this!" -->
-<!-- ) -->
-<!-- ``` -->
+What is the correct command to create table of contents?   
+  a. toc: false  
+  b. toc_depth: true   
+  c. toc: true  
+  d. toc_depth: 2  
 
 
 ### Question 2
@@ -140,6 +131,25 @@ Modify the metadata so it changes into the pdf document with table of contents w
 <!--     number_sections: true -->
 <!-- --- -->
 <!-- ``` -->
+
+### Question 3
+True or False: You can specify the depth of headers of the document using `toc_depth`.  
+  a. True  
+  b. False   
+  
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
 
 
 ## Next Steps

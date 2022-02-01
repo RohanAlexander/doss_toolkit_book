@@ -235,6 +235,25 @@ kable(
 )
 ```
 
+### Question 4
+What is the purpose of using `kable` in the `knitr` package?  
+a. Because the dataframe itself looks ugly when R file is converted into PDF.  
+b. Because the dataframe itself looks ugly when R file is converted into HTML.   
+c. To customize the table.  
+d. All of the above. 
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
+
 ## Common Mistakes & Errors  
 
 You might get the following error message sometimes:  
@@ -248,8 +267,6 @@ Also, make sure to choose the right format of kable that matches the format of t
 could not find function "kable_pdf"
 ```  
 So be careful not to make these mistakes.  
-
-
 
 
 ## Next Steps

@@ -132,6 +132,47 @@ ggplot(data = mtcars, aes(x=wt, y=mpg, color= wt)) + geom_point()
 dev.off()
 ```
 
+### Question 4
+What does the chunk of code return?  
+```
+pdf(file = "filename.pdf")
+```
+a. It saves a PNG file of a plot.   
+b. It saves a blank PDF file, and you need to write a separate code to save the plot.  
+c. It saves a PDF file of a plot.  
+d. It does not properly save unless you execute the command `dev.off()`.  
+
+### Question 5
+What is `dev.off()` used for? 
+a. It is a command to finish creating the image file.   
+b. It is to save the Rstudio environment.   
+c. It is to delete the image file.   
+d. It is to edit the image file created.   
+
+
+### Question 6
+what do the arguments `width` and `height` do in a `png()` function?  
+a. adjust the size of the final plot in inches.  
+b. adjust the size of the final plot in centimeters.  
+c. adjust the size of the final plot in meters.  
+d. adjust the size of the final plot in feet.  
+
+
+### Question 7
+What function can you use to save plots instead of using dev.off()?  
+a. savegg()  
+b. ggsave()  
+c. plotsave()  
+d. all of the above.  
+
+### Question 8
+
+
+### Question 9
+
+
+### Question 10
+
 
 ## Next Steps
 
