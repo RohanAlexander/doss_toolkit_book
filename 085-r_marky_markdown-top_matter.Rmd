@@ -82,6 +82,7 @@ Then, get started on the abstract once you finished writing your entire paper.
 <!-- ) -->
 <!-- ``` -->
 
+### Question 2
 <!-- ```{r q2_topmatter, echo=F} -->
 <!-- question_checkbox( -->
 <!--   "What do you have to include in your abstract? Select all that apply.", -->
@@ -95,6 +96,43 @@ Then, get started on the abstract once you finished writing your entire paper.
 <!--   incorrect = "Try again. You got this!" -->
 <!-- ) -->
 <!-- ``` -->
+
+### Question 3
+Read the following chunk: 
+```
+---
+title: "This is a title"
+author: "Kelly"
+date: "January 2022"
+output: html_document
+---
+```
+What do you need to change if you want to create a PDF document? 
+a. title  
+b. author  
+c. date  
+d. output  
+
+### Question 4
+What do you have to include in an abstract?  
+a. Design of the study   
+b. goal of the study   
+c. major findings of the study   
+d. all of the above  
+
+### Question 5
+
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
+
 
 ## Common Mistakes & Errors
 

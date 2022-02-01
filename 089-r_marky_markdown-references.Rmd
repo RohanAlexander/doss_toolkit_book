@@ -113,12 +113,32 @@ print(citation("knitr"))
 ## Exercises
 
 ### Question 1
+Why is citation important (Select all that apply)?  
+a. To provide authors a proper credit.  
+b. To avoid plagiarisms when it is published publicly.  
+c. To be organized.  
+d. To monetize the paper. 
 
 ### Question 2
+Which is incorrect about a BIB file?  
+a. It is a text document.  
+b. When using BibTex, you need to type reference every time you cite it.  
+c. You need to use `bibliography` metadata field in YAML.  
+d. All of the above.  
 
 ### Question 3
+Which function for citing R packages was introduced in this lesson?   
+a. reference()    
+b. citation()    
+c. bibliography()  
+d. resource()  
 
 ### Question 4
+Which is correct about the placement of the citation (Select all that apply)?  
+a. It should be placed at the end of your document.   
+b. It should have an appropriate header.  
+c. It should be placed at the very front of your document.  
+d. All of the above.   
 
 ### Question 5
 

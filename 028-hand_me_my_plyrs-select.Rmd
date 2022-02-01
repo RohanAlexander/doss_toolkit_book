@@ -256,6 +256,7 @@ Select the columns that only are type `<dbl>` or if the column has a name `isbn`
 
 
 
+
 ## Common Mistakes & Errors
 
 - If you don't have package "dplyr" or "tidyverse" installed and called in the library, the function would not work. Download either package using `install.packages("dplyr")`, and set it up in the library at the start of your code using `library(dplyr)`.  
@@ -285,32 +286,51 @@ In the tidyverse essentials, there are a ton of other functions you could mix & 
 
 
 
-
-
-
-
-
-
-
-
 ## Exercises
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
 
 ### Question 5
+When do you use `select()` function?  
+a. To retain all rows in a dataset that satisfy your conditions.
+b. To choose a subset of variables or columns from a dataset.  
+c. To reorder a dataset.   
+d. To drop null values in a dataset.  
 
 ### Question 6
+When you want to select multiple columns, which operator is the most appropriate to use?   
+a. &  
+b. c()   
+c. !  
+d. - 
 
 ### Question 7
+What can you do with select() function?  
+a. Select column with column name.    
+b. Select column name with missing values.  
+c. Select column which ends with certain character.  
+d. All of the above.  
 
 ### Question 8
+How many columns will the following code chunk return?  
+```
+select(data, 3:5) 
+```
+a. 1  
+b. 2  
+c. 3  
+d. 4  
 
-### Question 9
+
+### Question 9  
+Which function would you use if you want to select columns that has the letter "a"?    
+a. select(data, contains("a"))  
+b. select(data, includes("a"))  
+c. select(data, starts_with("a"))   
+d. All of the above. 
 
 ### Question 10
+What does `select_if(is.numeric)` select?  
+a. select columns that contains numbers in a column name.    
+b. select the variables that have a data type character `<chr>`.   
+c. select columns that have a quantitative or numeric data type.   
+d. select columns that have a qualitative data type.  

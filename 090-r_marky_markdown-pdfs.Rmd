@@ -141,6 +141,22 @@ Modify the metadata so it changes into the pdf document with table of contents w
 <!-- --- -->
 <!-- ``` -->
 
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
+
 
 ## Next Steps
 Using all the functions we learned so far, try to write a paper of your interest, cite the sources, and knit to PDF to create a perfect professional paper. 

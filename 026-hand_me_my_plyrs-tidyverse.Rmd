@@ -171,14 +171,35 @@ This is not every package that `tidyverse` contains, but they are the most impor
 ## Exercises
 
 ### Question 1
+What is tidyverse?   
+a. It is a collection of useful data analysis packages.     
+b. It includes dplyr, readr, and ggplot2.    
+c. It allows you to import table easily.     
+d. All of the above    
 
 ### Question 2
+You want to import csv file from your local computer. What package in `tidyverse` would you use?  
+a. readr   
+b. tibble   
+c. purrr    
+d. ggplot2    
 
 ### Question 3
+You successfully imported the file from the previous question, but you realize some of the rows are missing value and you would like to clean the data. Which package would you use?  
+a. readr   
+b. tibble   
+c. tidyr    
+d. ggplot2  
 
 ### Question 4
+Now the data is "tidy". You want to create a line graph using the table you imported. What package would you use?    
+a. readr   
+b. tibble   
+c. purrr    
+d. ggplot2    
 
 ### Question 5
+
 
 ### Question 6
 

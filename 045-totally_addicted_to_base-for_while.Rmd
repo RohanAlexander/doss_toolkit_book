@@ -260,6 +260,20 @@ i
 
 <!-- ``` -->
 
+### Question 4 
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10
+
 
 ## Common mistakes & errors
 
@@ -300,24 +314,4 @@ This happens since the length of the vector you are trying to replace does not m
 - [R while loop](https://www.datamentor.io/r-programming/while-loop/)
 
 
-## Exercises
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
