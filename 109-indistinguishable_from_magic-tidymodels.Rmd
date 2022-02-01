@@ -140,7 +140,7 @@ Parsnip allows you to:
 
 The package provides different model types such as random forests `rand_forest`, logistic regression `logistic_reg`, linear regression `linear_reg`, etc. You can also customize on how you're going to use the model using the parameters of the functions.   
 
-There are two big modes of the model, classification and regression. To briefly explain, classification predicst discrete class labels, whereas regression predicts a continuous quantity output.  
+There are two big modes of the model, classification and regression. To briefly explain, classification predicts discrete class labels, whereas regression predicts a continuous quantity output.  
 
 For example, if you want to use the function `rand_forest`, 
 
@@ -236,9 +236,24 @@ Select one example of the most appropriate usage of the `tidymodels` package.
   b. connect R with SQL, import data and use kable() function to create a neat table.   
   c. resample imported data using rsample, preprocess data with recipes, fit the model using parsnip, and evaluate the model with yardstick.   
   d. None of the above.   
+  
+  
 ### Question 9
-
+What does the following function do?  
+```
+set_engine(object, engine, ...)
+```
+  a. It is used to specify which package will be used to fit the model.   
+  b. It is used to preprocess a dataset.   
+  c. It is used to bootstrap sampling.   
+  d. None of the above.    
+  
 ### Question 10
+Which statement is correct about tidymodels (select all that apply)?   
+  a. You can build a model.  
+  b. You can preprocess your data.  
+  c. You can tune model parameters.  
+  d. You can evaluate your model. 
 
 ## Common Mistakes & Errors 
 https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/
