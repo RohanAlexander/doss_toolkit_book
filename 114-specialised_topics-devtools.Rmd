@@ -1,35 +1,322 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
+knitr::opts_chunk$set(eval = FALSE)
+library(flair)
 library(tidyverse)
 ```
 
 # devtools
 
-
-*Written by ADD NAME and last updated on ADD DATE.*
+*Written by Ananya Jha and last updated on 5 February 2022*
 
 ## Introduction
+
+Packages in R are compiled blocks of code that can organize our work and make it easy to share it with others.    
+A package generally includes code, functions, documentation for package and the functions, tests and occasionally data as well. 
+
+So far we have covered how to make basic packages in R using pkgdown. In this lesson we will accomplish this task using  a more updated dev version of pkgdown. Devtools is a package by Hadley Wickham that makes package development in R considerably easier by  providing specific functions that simplify common tasks. 
+
+An important thing to note before we start is that all functions in devtools require a path, if that is not provided, R looks in current working directory. 
+
+We will be covering some of the important devtools functions in this lesson.
+The roxygen2 and testthat packages go hand in hand with devtools for documentation and testing and we will briefly talk about these too.
+
+
+In this lesson, you will learn how to:
+
+- Develop basic package skeletons in R using the devtools package(containing only R code)
+- Document the functions created for the package 
+- Check and publish the created package to CRAN
+
+
+Prerequisites:
+
+- Basic knowledge about a package structure in R
+- Basic idea about writing packages in R 
+- The ability to write functions in R
+
+
+## Package Structure
+
+Let's first briefly talk about and try to understand what a package structure is like. We will primarily be covering bundled packages in this lesson but there are a few other types of packages too like source, binary, installed or in-memory packages which might consist of different components.
+
+The 4 most common components that are present in the directory of all packages are:
+  - a R/ directory which will contain all .R files consisting of function definitions 
+  - the DESCRIPTION file with metadata about the package(like package name, version, author etc)
+  - a NAMESPACE file which lists the functions exported to or imported from other packages
+  - a man sub directory(man/) which contains documentation
+  
+Some other common components that are optional but often useful are:
+ 
+  - a data sub directory(data/) with data objects(for eg text files that can be read as data frames in R)
+  - a tests sub directory(tests/) which contains self-written tests for your code
+  - a vignettes sub directory(vignettes/) that documents the problems that your package can solve for the readers to understand  (can be thought of as a guide to the package for the reader)
+  
+
+## Installing devtools
+
+We can either install it directly from CRAN or get the development version from GitHub using the `install_github()` function from the devtools package
+```{r}
+install.packages("devtools")
+devtools::install_github("r-lib/devtools")
+install.packages("roxygen2")
+library(devtools)
+library(roxygen2)
+```
+
+## Useful devtools functions
+
+Let's take a quick look at the functions that we will be covering and their uses:
+
+| Function |                     Use                                                 |   
+|----------|-------------------------------------------------------------------------|
+| create   | Creates a package with the supplied name                                |   
+| load_all | Loads the code for all functions in the package                         |   
+| test     | Executes all testthat tests in the package                              |   
+| document | Creates documentation files and the “NAMESPACE” file from roxygen2 code |   
+| install  | Installs the package                                                    |   
+| build    | Builds the package by converting the source directory to a bundled file |   
+| check    | Checks the full R package for any ERRORs, WARNINGs, or NOTEs            |   
+| release  | Submits the package to CRAN                                             |   
+
+
+## Creating the package
+
+The first step is to set up a working directory. You can create a directory in your preferred folder(manually or by using `mkdir()`) and copy the path to supply to `setwd()` After that, we will be able to create our package using the create function without having to supply it a path. 
+
+The `create()` function from devtools takes an optional path and name argument. To open the package in a new session, we can set `open=TRUE`.
+
+Since we are creating a random package, I'm going to name it Taylor Swift (which would be the theme of the rest of this package). Package name must be relevant to its purpose and you can use the `available` package to test the validity of a package name.
+
+```{r, warning= FALSE, eval=TRUE}
+# setting my directory
+setwd("/Users/ananyajha/Desktop/r\ packages")
+# creating the package
+devtools::create("TaylorSwift")
+```
+
+Now you should be able to see a sub folder the name of your package under your home directory. If you open your package folder, it now contains a folder(the `R\` sub directory), one `DESCRIPTION` file, and a `NAMESPACE` file. These are created automatically.
+
+At this point, you should edit the `DESCRIPTION` file to add the basic important about your file- what the package does, your contact information, package version, package dependencies etc. The template is already there and you would just need to fill in the details. You can do so simply by opening the file from the file pane, making the edits and saving it.
+
+
+
+## Creating functions and documenting them
+
+Now, we get to the interesting part. We will create an R function in a .R file which is the same name as the function (making it easy to identify).  You can later use the `usethis::use_r` function to create your r scripts but right now, we can manually create our .R scripts in the R folder
+
+Let's create a very basic function.
+```{r}
+TS1 <- function(fav_album='folklore'){
+  if(fav_album == 'folklore' || fav_album == 'evermore'){
+    print("Good Choice!")
+  }
+  else {
+    print("Not bad but your answer could be better!")
+  }
+}
+```
+
+
+If you want to add more functions, you can follow the same procedure as above and add as many `.R` files as you want.
+
+**Note**- When working with many functions, it is best to group similar functions(with common inputs/parameters) in one `.R` file. This makes the code more organized and easier to locate.
+
+You can now load your functions using `load_all()`. This would install and reload your package, making the functions available to use. 
+
+Using `load_all()` is also faster than building and installing so is preferred when just testing/experimenting with the function especially if dealing with a lot of functions. 
+
+```{r}
+load_all()
+```
+
+A quick way to test our functions at this point would be to use the `test()` function. This would reload the code (simulating `load_all()`) and then run all the testthat tests(if they have already been written).
+It's a shortcut for `testthat::test_dir()`.
+
+```{r}
+test()
+```
+
+The next step would be to add documentation to these functions. Documenting is very useful when you have a lot of functions and don't want to waste time trying to figure out the purpose of each of those. It is also useful for when other people use your functions and want to quickly understand how it works.
+
+We will use the `document()` function from the `roxygen2` package that we installed earlier for this. 
+For documenting, we will add special comments at the beginning of our function in the R file. 
+
+These comments with start will start with the hash (#) symbol followed by a single quote('). More details on this can be found on the roxygen2 documentation link but here is a very simple example for documenting the function we created above:
+
+```{r}
+#' @title Favorite Album Function
+#'
+#' @description This function lets you share your share your favorite Taylor Swift album.
+#' @param fav_album A string containing the user's favorite Taylor Swift album? Defaults to folklore.
+#' @keywords 
+#' @export
+#' @examples TS1('Speak Now')
+#' @return
+#' TS1()
+
+TS1 <- function(fav_album='folklore'){
+  if(fav_album == 'folklore' || fav_album == 'evermore'){
+    print("Good Choice!")
+  }
+  else {
+    print("Not bad but your answer could be better!")
+  }
+}
+
+```
+
+Here, at the top, the first sentence would be the title of the documentation in `man` folder. The description briefly describes what the function does. `@param` describes the functions parameters. The rest of the parameters are optional for us. 
+Export decides whether the function will be  accessible to user or only accessible to functions within the R package.
+Examples shows how to use the function, return describes the output of the function(if any).
+
+After adding the annotations to the function, you can simply run `devtools::document()` to generate a documentation file in the man folder. This can now be viewed when you type `?TS1` or whatever your function name is.
+
+```{r}
+devtools::document()
+```
+
+**Note:** You will have rerun the `document()` function every time you update the documentation for the function.
+
+Most of the times, it is very useful to document your package as well. You would want to add some basic information about your package like an introduction about what it does and what problems it can solve for a user. A package documentation is called vignette. The `use_vignette()` function was recently moved to the `usethis` package so we will not be covering it here but at this point, you would want to use it to create a vignette for your package.
+
+
+## Installing and Building 
+
+While using `load_all()` did load our R package into memory, the package data would be lost as soon as we shut the R session. To actually save and re-install the package to our library permanently, we will use the `install()` function in devtools. 
+
+```{r}
+install()
+```
+
+Now, you can access your package using library(package name).
+
+In case you want to build a package file to share with others, you can use the `build()` function to build a binary version of the package.
+
+```{r}
+build()
+```
+
+This would convert the package directory into a bundled file. If you do not want to create a binary file(for example `.zip`), you can use `binary = FALSE` in the argument to get a `tar.gz` package. 
+
+## Checking and Releasing  
+
+Now that we have finished creating our very basic package, it is time to think about publishing it to an external source for others to access it. 
+A package with any errors or warnings cannot be submitted to CRAN. Thankfully, there is a function in devtools that can help us ensure our package works correctly. We can use this function while building our package as well to ensure everything works as expected as we go. 
+
+```{r}
+check()
+```
+
+It is a good idea to take some time to read the output and fix anything that needs to be fixed. The output must have 0 warnings and 0 errors and should ideally have 0 notes before publishing. If for some reason, you can't get rid of a note, make sure to document it so CRAN maintainers can get through the verification process quickly.
+
+Finally, now that all of our package is fully built and works correctly, we can release it to CRAN using the `devtools::release()` function. 
+
+
+```{r}
+release()
+```
+
+Running the command will automatically run `check()` once again and confirm that files are up-to date. If everything is good, it will build and submit the package to CRAN. 
+
+
+## Some extra notes
+
+1) The `usethis::create_package()` is an alternative to `devtools::create()` and is often preferred over the latter. You can start using that function once you cover that package in detail.
+
+2) Is it very easy to make the package available to be installed from github directly by making it a github repo. Once that is done, anyone can use `devtools::install_github()` to download the package.
+
+3) There are some shortcuts to perform the actions above without using the functions. For eg. an equivalent of the `load_all()` function is `Ctrl+Shift+L` and one for `document()` is `Ctrl-Shift-L`. Although not recommended, these can be used if you do not prefer to type into the console.
+
+
+
+## Common mistakes and errors
+
+- Since the devtools package is sttill being developed, occasionally, functions are dropped or moved to other packages. If you see an error like:
+`Error: 'use_vignette' is not an exported object from 'namespace:devtools'`, then its a good idea to check the latest documentation of the package to make sure the function is still supported.
+
+
+## Next steps 
+
+- To explore other useful devtools functions, you can refer to this documentation- https://cran.r-project.org/web/packages/devtools/devtools.pdf
+- If you intend to develop more packages in the future, the best resource would be the book - https://r-pkgs.org/  
+- If you face any questions while developing packages, you can post them here- https://community.rstudio.com/c/package-development/11
+- Apart from CRAN, you can also publish your package to github so it can be installed directly from there using the install_github() function. Here is a great resource for that- https://kbroman.org/pkg_primer/pages/github.html
+
+
+## References 
+- [r documentation] (https://www.rdocumentation.org/packages/devtools/versions/2.4.3)
+- [The Book r packages] (https://r-pkgs.org/)
+
 
 ## Exercises
 
 ### Question 1
 
+1. Which of the following is not a main required components of a package(pick one)?
+    a.  .R sub directory
+    b.   data sub directory
+    c.  DESCRIPTION file
+    d.  NAMESPACE file
+
 ### Question 2
+
+2. Which arguments do all devtools functions have in common(pick all that apply)?
+    a.  .R sub directory
+    b.  export_all
+    c.   path
+    d.  open
+
 
 ### Question 3
 
+3. True or False: The `document()` function would generate the function documentation inside the .R folder.
+    a. True
+    b.  False 
+
 ### Question 4
+
+4. Which function is used to load the complete package(including functions, DESCRIPTION file etc)?
+    a.  `load_all()`
+    b. `save_all()`
+    c. `install()`
+    d. `reload()`
 
 ### Question 5
 
+5. True or False: Using `load_all()` would ensure our package is installed and saved permanently.
+    a. True
+    b.  False
+
 ### Question 6
+
+6. True or False: By default, `build()` creates a binary file.
+    a.  True
+    b. False
 
 ### Question 7
 
+7. True or False: You would need to rerun `document()` everytime you make changes or additions to the function documentation.
+    a.  True
+    b. False
+
 ### Question 8
+
+8. Which of the following does **not** happen automatically after running the `devtools:::release()` function(pick one)?
+    a.  Package gets built again (simulating `build()`)
+    b.  `R CMD check` is run one last time (simulating `check()`)
+    c.   All functions are loaded again(simulating `load_all()`)
+    d.  Package gets uploaded to CRAN
 
 ### Question 9
 
+9. True or False: A package cannot be submitted to CRAN with more than 0 notes.
+    a. True
+    b.  False 
+
 ### Question 10
+
+10. True or False: One `.R` file can contain only one function.
+    a. True
+    b.  False 
