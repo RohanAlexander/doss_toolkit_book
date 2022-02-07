@@ -7,7 +7,7 @@ library(tidyverse)
 
 # Stan
 
-*Written by Marija Pejcinovska and last updated on 12 January 2022.*
+*Written by Marija Pejcinovska and last updated on 6 February 2022.*
 
 
 ## Introduction
@@ -46,7 +46,7 @@ The Stan modeling language and its algorithms can be accessed through a number o
 
 Because installation instructions have been changing rapidly and are somewhat machine-specific, in this tutorial we will only share a few notes on installation and mainly point you in the direction of installation guides set up by the RStan and CmdStanR's development teams.
 
-**NOTE**: If you are using a Mac machine with the latest M1 chip you might want to work with CmdStanR for now (now being late 2021/early 2022 — this will probably change in time)! If during the installation process you encounter problems configuring the C++ toolchain, this Twitter thread may have helpful advice: https://twitter.com/rlmcelreath/status/1479484823991472134. 
+**NOTE**: If you are using a Mac machine with the latest M1 chip you might want to work with CmdStanR for now (now being late 2021/early 2022 — this will probably change in time)! If during the installation process you encounter problems configuring the C++ toolchain, [this Twitter thread](https://twitter.com/rlmcelreath/status/1479484823991472134) may have helpful advice. 
 
 In general, if you are struggling with installation, remember that Stack Overflow and Stack Exchange are your friends and folks on those platforms might be able to help. You can also ask for help on the Stan Forum (https://discourse.mc-stan.org/).
 
@@ -116,23 +116,23 @@ The **primitive types** in Stan are `real` and `int`. `real` is used for continu
 
 Stan provides three **matrix-based data types**; `vector` for column vectors, `row_vector` for row vectors, and `matrix` for matrices. Vectors are declared with their sizes and matrices with the number of their rows and columns, and are all accessed using the usual bracket notation; for example, `x[2]` is the 2nd element of the vector `x` and `Z[1,2]` is the element in the 1st row and 2nd column of the `Z` matrix. Note that indexing is Stan begins at 1.     
 
-Stan also supports **arrays**. Any of the data types discussed above can be turned into an array type by using the array argument. For instance, `array[2,2] int b;` declares `b` to be a two-dimensional array of integers with 2 rows and 2 columns, and `array[4] vector[5] y;` declares y to be an array of size 4 containing vectors of length 5.  
+Stan also supports **arrays**. Any of the data types discussed above can be turned into an array type by using the array argument. For instance, `array[2,2] int b;` declares `b` to be a two-dimensional array of integers with 2 rows and 2 columns, and `array[4] vector[5] y;` declares `y` to be an array of size 4 containing vectors of length 5.  
 
 
-Stan allows you to declare **variables with constraints**. The constraints might have different effect depending on the block where the variable is defined (more on program blocks in a bit). All of the data types we have discussed can be declared with a lower bound, an upper bound, or both, using relatively standard syntax such as: `int<lower = 1> N;` or `vector<lower = 0, upper = 1>[5] p;`. Stan also provides special data types for structured vectors and matrices. For more on these consider consulting the Stan Reference Manual — link in the Resources section.  
+Stan allows you to declare **variables with constraints**. The constraints might have different effect depending on the block where the variable is defined (more on program blocks in a bit). All of the data types we have discussed can be declared with a lower bound, an upper bound, or both, using relatively standard syntax such as: `int<lower = 1> N;` or `vector<lower = 0, upper = 1>[5] p;`. Stan also provides special data types for structured vectors and matrices. For more on these consider consulting the [Stan Reference Manual](https://mc-stan.org/docs/2_28/reference-manual/index.html).  
 
 **NOTE**: In Stan, the *size* declared for each variable as well as any *constraints* associated with a variable are *not* part of a variable's underlying data type. This means that they are determined dynamically (at run-time) and are not part of the check that Stan does at compile-time.
 
 
 ### A note on Stan syntax and specifications
 
-If you look carefully at our example model you will notice that there are three distinct blocks — a data block, a parameters block, and a model block. **Every Stan program is organized into a sequence of named blocks**. Ours is just a simple model, so using just these three blocks is sufficient; however, Stan allows for much more complex models which may require calling on additional components of the program (more on Stan's program blocks in the next section).   
+If you look carefully at our example model you will notice that there are three distinct blocks — a *data block*, a *parameters block*, and a *model block*. **Every Stan program is organized into a sequence of named blocks**. Ours is just a simple model, so using just these three blocks is sufficient; however, Stan allows for much more complex models which may require calling on additional components of the program (more on Stan's program blocks in the next section).   
 
 You will also notice from the model above that **each expression and statement within each block ends with a semi-colon** (**`;`**). This is the end-of-command marker used in C++, which, as we've mentioned before, is the underlying language in Stan. Missing semi-colons are a frequent reason why your Stan program may not compile (Stan beginners accustomed to R's use of `return` may struggle a bit with this in their early Stan use).   
 
 **Comments** in Stan are indicated by `//`; slightly different from R's use of `#`.  
 
-*A note on naming variables*: Variables in Stan should be strings containing only lower-case and upper-case letters, digits, and the underscore (**`_`**) character. No other special characters are allowed. Variables must always start with a letter (either lower- or upper-case), and they should never end with two underscore characters (**`__`**). There are certain names that are considered *reserved* in Stan. Refer to the User Manual for more details on this. 
+*A note on naming variables*: Variables in Stan should be strings containing only lower-case and upper-case letters, digits, and the underscore (**`_`**) character. No other special characters are allowed. Variables must always start with a letter (either lower- or upper-case), and they should never end with two underscore characters (**`__`**). There are certain names that are considered *reserved* in Stan. Refer to the [Manual](https://mc-stan.org/docs/2_28/reference-manual/index.html) for more details on this. 
 
 Stan encourages **vectorization**. For instance, the vectorized likelihood in the model above ` y ~ bernoulli(p);` can also be coded using a loop: 
 ```{r, eval=FALSE}
@@ -266,7 +266,7 @@ model{
 
 Once you have correctly specified the model in Stan, the next task is to translate it into a C++ code and compile it into an object (specifically, an executable *dynamic shared object*) which can then be used to generate the Monte Carlo samples from the posterior distribution. This may sound complicated, but is in fact quite easy to do in either RStan or CmdStanR. Here we'll demonstrate this using appropriate commands from CmdStanR; however it is equally easy to do this using the RStan library.  
 
-We'll use the command `cmdstan_model` to let Stan translate and compile the model. Before you do anything, make sure that your `cmdstanr` library is loaded 
+We'll use the command `cmdstan_model` to let Stan translate and compile the model. Recall that in the compile stage we are just readying the program to generate posterior samples, but we have not generated those samples yet. Before you do anything, make sure that your `cmdstanr` library is loaded 
 
 Because we defined the model as string, we'll additionally need to use the `write_stan_file()` command.
 
@@ -276,7 +276,7 @@ library(cmdstanr)
 coin_mod <- cmdstan_model(write_stan_file(coin_model_in_Stan))
 
 # if you have your model program saved as a .stan file, say coin.stan, you can just use 
-#coin_mod <- cmdstan_model("coin.stan") # make sure that the file paths to your stan file are correct
+# coin_mod <- cmdstan_model("coin.stan") # make sure that the file paths to your stan file are correct
 ```
 This translation and compilation step can take a bit of time, particularly if your model is quite complex. This is also where Stan will alert you to any syntax errors in your program.   
 
@@ -323,12 +323,12 @@ You may want to consider looking into available CmdStanR vignettes for more on t
 
 For visual summaries of your findings consider the package `bayseplot`. And for model diagnostics and model comparisons you might want to get familiar with the capabilities of the `loo` package. 
 
-Of course, you don't have to write your own Stan programs to carry out full Bayesian analysis. Stan can certainly seem overwhelming at first. There are fortunately some user-friendly higher-level R interfaces to Stan. The packages `RStanArm` and `brms` are such examples. Note that `RStanArm` requires RStan in the background. `brms`, on the other hand, seems to support CmdStanR as an alternative backend to RStan. 
+Of course, **you don't need to write your own Stan programs to carry out Bayesian analysis**. Stan can certainly seem overwhelming at first, and there isn't always a need to code everything up from scratch! The R interfaces to Stan which were introduced in this tutorial are considered lower-level and that is a bit of a downside. There are fortunately some user-friendly higher-level R interfaces to Stan. The packages `RStanArm` and `brms` are such examples. Bear in mind that `RStanArm` requires RStan in the background. `brms`, on the other hand, seems to support CmdStanR as an alternative backend to RStan. Both use similar syntax as the usual modeling packages you may be familiar with, such as `lm`, `glm`, `lme4` and so on. Both packages provide excellent infrastructure that gives you a lot of wiggle room to run relatively complicated Bayesian models in a very automated and intuitive way.
 
 
 ## Additional resources 
 
- - For more technical details, check out the original Stan paper *"Stan: A Probabilistic Programming Language"* by Carpenter et al. published in the Journal of Statistical Software (Vol 76, Issue 1, 2017), which you can find here: https://www.jstatsoft.org/article/view/v076i01    
+ - For more technical details, check out the original Stan paper *"Stan: A Probabilistic Programming Language"* by Carpenter et al. published in the Journal of Statistical Software (Vol 76, Issue 1, 2017), which you can find [here](https://www.jstatsoft.org/article/view/v076i01)    
   
   - All the documentation about Stan can be found at: https://mc-stan.org/users/documentation/. This includes a Stan User's Guide, a Stan Reference Manual, and a Functions Reference. This is also where you'll find documentation on CmdStan, CmdstanR, and RStan, as well as ample Stan resources, including various case studies and tutorials on Stan. 
   
@@ -336,7 +336,7 @@ Of course, you don't have to write your own Stan programs to carry out full Baye
 
 
 
-
+<!--
 ## Exercises
 
 
@@ -390,24 +390,109 @@ question("In which of Stan's named blocks does the above expression belong?",
          allow_retry = T)
 ```
 
+-->
+
+## Exercises
 
 
 ### Question 1
 
+
+Suppose for a given problem we have observations on `N` individuals and we have some covariate `x` that we are interested in using in our regression model. Consider the following expression:  
+
+```{r , eval = FALSE}
+
+vector[N] x_stand = (x - mean(x))/ sd(x);
+
+```
+
+In the syntax of Stan this is a correctly specified statment.  
+
+  a.  True  
+  b. False
+
 ### Question 2
 
+Consider once more the expression in Question 1. In which of Stan's named block does the expression belong?  
+
+  a. The `functions` block.  
+  b. The `data` block.  
+  c.  The `transformed data` block.  
+  d. The `transformed parameters` block.  
+  
 ### Question 3
 
+In the Stan language, the data types `int` and `real` can be applied interchangeably.  
+
+  a. True  
+  b.  False  
+  
 ### Question 4
 
-### Question 5
+Which of the lines below give the correct syntax to represent an object `M` which is an array of size `N` containing matrices of size `l` by `k`.  
 
+  a.  array[N] matrix[l,k] M;  
+  b. array M matrix[l,k];  
+  c. matrix[l,k] M[N];
+
+### Question 5  
+
+Just like in R, a `;` to mark the end of a command in Stan is technically optional.  
+
+  a. True  
+  b.  False  
+  
+  
 ### Question 6
 
-### Question 7
+Suppose one of our covariates in a model, call it `x_extra`, is generated randomly from a Normal distribution as `x_extra ~ normal(0,3)`. We can place this expression in the `data` block.  
 
-### Question 8
+  a. True  
+  b.  False  
+  
+### Question 7  
 
-### Question 9
+Consider the following expression
+```{r, eval = FALSE}
+real new_sumlog(int N, vector x, real k){
+   vector[N] p;
+   real lp;
+   for (i in 1:N){
+     p[i] = k*exp(-k*x[i]);
+   }
+   lp = sum(log(p));
+   return lp;
+ }
+```
 
-### Question 10
+In which one of Stan's named block can we write this expression? (Hint: Think about what type of expression this reminds you of)  
+
+  a. The `data` block.  
+  b.  The `functions` block.  
+  c. The `parameters` block.  
+  d. The `transformed parameters` block.
+
+### Question 8 
+
+Suppose in a Stan program we have correctly specified two covariates `X` and `W` as `matrix[N, M] X;` and `matrix[N, L] W;`. An additional covariate `Z` specified with the statement `matrix[N, M + L] Z = append_col(X,W)` should be placed in which of Stan's named blocks?  
+
+  a. The `data` block. 
+  b.  The `transformed data` block.
+  c. The `functions` block. 
+  d. The `generated quantities` block.  
+  
+
+### Question 9  
+
+The data used in a Stan model is supplied at compile time.  
+
+  a. True  
+  b.  False
+
+### Question 10 
+
+Stan generates posterior samples using which sampler?  
+
+  a. A fancy Metropolis-Hastings algorithm. 
+  b. A Gibbs sampler.  
+  c.  A Hamiltonian Monte Carlo algorithm.
