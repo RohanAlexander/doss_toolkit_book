@@ -6,7 +6,7 @@ library(tidyverse)
 
 # Investigating and playing with data
 
-*Written by Uzair Mirza and last updated on 7 October 2021.*
+*Written by Uzair Mirza and last updated on February 6 2021.*
 
 ## Introduction
 
@@ -562,8 +562,6 @@ The `identical()` function can be used to compare not only datasets but also to 
 However to build up your knowledge and to get your paws dirty I would strongly encourage to study ` all.equal()` and see how it differs from the `identical()` function. Notes on `all.equal()` can be found [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/all.equal).
 
 
-## Exercises
-
 <!-- ```{r q1, echo=FALSE} -->
 <!-- question("To check if every value in the data frame; `data.frame` is NA, which of the following code will you use?", -->
 <!--   answer(" `is.na(data.frame)` ", correct = TRUE ), -->
@@ -755,24 +753,74 @@ However to build up your knowledge and to get your paws dirty I would strongly e
  [More example ideas](https://stackoverflow.com/questions/3395696/whats-the-difference-between-identicalx-y-and-istrueall-equalx-y) \
 
 
+
 ## Exercises
 
 ### Question 1
+To check if every value in the data frame; `data.frame` is NA, which of the following code will you use? \
+a.  `is.na(data.frame)` \
+b. `which(data.frame == NA)` \
 
 ### Question 2
+To get the location of values in the data data frame; `data.frame` that are NA, Which of the following code chuck will you use? \
+a.  `which(is.na(data.frame))` \
+b. `which(data.frame == NA)` \
 
 ### Question 3
+What is the result, when we run the `which()` function with the logical condition on the data frame and the data frame contains no value that matches our logical condition? \
+a.  `integer(0)` \
+b. `NA` \
+c. `logical(0)` \
 
 ### Question 4
+`rand_vector <-c("22","NA","hello", "world")` \
+`which(rand_vector == NA) ` \ 
+
+What is the result when you run the above code chuck? \
+a.  `integer(0)` \
+b. `NA` \
+c. `logical(0)` \
 
 ### Question 5
+What is the output type of `is.na()` function on a dataframe? \
+a. `logical Vector` \
+b. `logical Matrix` \
+c.   Can be either \
 
 ### Question 6
+`empty <- c()` \
+`unique(empty)` \
+
+What is the output of the previous code code? \
+a.  `NULL` \ 
+b. `NA` \
+c. `integer(0)` \
 
 ### Question 7
+`vec <- c(1,1,3,NA)` \
+`unique(vec)` \
+
+What is the output of the previous code code? \
+a. Error, because of NA " \
+b.  `1, 3, NA`  \
+c. `1, 3`" \
 
 ### Question 8
+What are some of the use cases for using identical() over the standard '==' to compare objects? \
+a. Easier to read the final result, when comparing large datasets" \
+b. Much more reliable, deals with cases of NA values in the data frames \
+c. Comparison of datatype and sensitive values; double vs integer or -0 vs +0" \
+d.  All of the above \
 
 ### Question 9
+`v1 <- c(1,3,3,4, NA, NA)` \
+`v2 <- c(1,3,4,NA)` \ 
+`identical(unique(v1), v2)` \
+
+What is the output of the previous code code? \
+a. Error, because of `NA` \
+b.  `TRUE` \
+c. `FALSE` \
 
 ### Question 10
+   !!!! Dynamic Question in .RMD commented out NEED TO CHANGE THE FORMAT and ADD Later !!! 
