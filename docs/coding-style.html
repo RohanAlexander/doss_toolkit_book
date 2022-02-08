@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 100 Coding style | DoSS Toolkit</title>
+<title>Chapter 104 Coding style | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Marija Pejcinovska and last updated on 7 October 2021. By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R. This is a good spot to...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 100 Coding style | DoSS Toolkit">
+<meta name="description" content="Written by Marija Pejcinovska and last updated on 5 February, 2022.  104.1 Introduction By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R....">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 104 Coding style | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Marija Pejcinovska and last updated on 7 October 2021. By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R. This is a good spot to...">
+<meta property="og:description" content="Written by Marija Pejcinovska and last updated on 5 February, 2022.  104.1 Introduction By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R....">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 100 Coding style | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Marija Pejcinovska and last updated on 7 October 2021. By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R. This is a good spot to...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 104 Coding style | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Marija Pejcinovska and last updated on 5 February, 2022.  104.1 Introduction By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="active" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="active" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,68 +168,71 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="coding-style" class="section level1" number="100">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="coding-style" class="section level1" number="104">
 <h1>
-<span class="header-section-number">100</span> Coding style<a class="anchor" aria-label="anchor" href="#coding-style"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104</span> Coding style<a class="anchor" aria-label="anchor" href="#coding-style"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Written by Marija Pejcinovska and last updated on 7 October 2021.</em></p>
-<p>By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R. This is a good spot to spend a moment or two thinking about your coding style. A good style will help you keep your R scripts consistent and easy to read (and, of course, easier to navigate through when you revisit them at a later time). In this lesson we’ll focus on the coding style used throughout the <code>tidyverse</code>. More specifically, we will highlight some naming conventions for objects and functions and discuss useful structures that will make your programs easier to write and read.</p>
+<p><em>Written by Marija Pejcinovska and last updated on 5 February, 2022.</em></p>
+<div id="introduction-91" class="section level2" number="104.1">
+<h2>
+<span class="header-section-number">104.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-91"><i class="fas fa-link"></i></a>
+</h2>
+<p>By now you’ve probably worked through dozens of modules and are feeling a lot more comfortable coding in R. This is a good spot to spend a moment or two thinking about your coding style. A good style will help you keep your R scripts consistent and easy to read (and, of course, much easier to navigate through when you revisit them at a later time).</p>
+<p>In this lesson we’ll focus on the coding style used throughout the <code>tidyverse</code>. More specifically, we will highlight some naming conventions for objects and functions and discuss useful structures that will make your programs easier to write and read.</p>
 <p>Prerequisite skills include:</p>
 <ul>
 <li>Some data manipulation</li>
 <li>The tidyverse</li>
 <li>Writing basic functions and conditional statements</li>
 </ul>
-<div id="naming-things-the-tidy-way" class="section level2" number="100.1">
+</div>
+<div id="naming-things-the-tidy-way" class="section level2" number="104.2">
 <h2>
-<span class="header-section-number">100.1</span> Naming things: the tidy way<a class="anchor" aria-label="anchor" href="#naming-things-the-tidy-way"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.2</span> Naming things: the tidy way<a class="anchor" aria-label="anchor" href="#naming-things-the-tidy-way"><i class="fas fa-link"></i></a>
 </h2>
-<div id="naming-files" class="section level3" number="100.1.1">
+<div id="naming-files" class="section level3" number="104.2.1">
 <h3>
-<span class="header-section-number">100.1.1</span> Naming files<a class="anchor" aria-label="anchor" href="#naming-files"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.2.1</span> Naming files<a class="anchor" aria-label="anchor" href="#naming-files"><i class="fas fa-link"></i></a>
 </h3>
 <p>In a previous lesson you learned how to set up folders and organize files in your R projects. Here we’ll talk about a few things you might want to keep in mind when naming your R files.</p>
 <ul>
-<li>Make sure your file have meaningful (though if possible also relatively short) names that end in <code>.R</code>.</li>
+<li>Make sure your files have meaningful (though, if possible, also relatively short) names that end in <code>.R</code>.</li>
 <li>Try sticking to a specific capitalization. The tidyverse style recommends using lower case letters.</li>
-<li>Avoid spaces and special characters. Consider separating words in a file name by using <code>_</code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>.</li>
+<li>Avoid spaces and special characters. Consider separating words in a file name by using <code>_</code> or <code>-</code>.</li>
 </ul>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="coding-style.html#cb692-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb692-2"><a href="coding-style.html#cb692-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A good example of file name</span></span>
-<span id="cb692-3"><a href="coding-style.html#cb692-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb692-4"><a href="coding-style.html#cb692-4" aria-hidden="true" tabindex="-1"></a>my_first_script.R</span>
-<span id="cb692-5"><a href="coding-style.html#cb692-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb692-6"><a href="coding-style.html#cb692-6" aria-hidden="true" tabindex="-1"></a><span class="co"># And a few bad (and less than ideal) examples</span></span>
-<span id="cb692-7"><a href="coding-style.html#cb692-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb692-8"><a href="coding-style.html#cb692-8" aria-hidden="true" tabindex="-1"></a>my first script.R   <span class="co"># there should be no spaces</span></span>
-<span id="cb692-9"><a href="coding-style.html#cb692-9" aria-hidden="true" tabindex="-1"></a>myfirstscript.R     <span class="co"># not a terrible file name but hard to read; </span></span>
-<span id="cb692-10"><a href="coding-style.html#cb692-10" aria-hidden="true" tabindex="-1"></a>my_first_script.r   <span class="co"># r should be capitalized</span></span>
-<span id="cb692-11"><a href="coding-style.html#cb692-11" aria-hidden="true" tabindex="-1"></a>file1.R           <span class="co"># not descriptive enough</span></span>
-<span id="cb692-12"><a href="coding-style.html#cb692-12" aria-hidden="true" tabindex="-1"></a>models<span class="sc">&amp;</span>results.R          <span class="co"># contains special characters</span></span></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="coding-style.html#cb741-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb741-2"><a href="coding-style.html#cb741-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A good example of file name</span></span>
+<span id="cb741-3"><a href="coding-style.html#cb741-3" aria-hidden="true" tabindex="-1"></a>my_first_script.R</span>
+<span id="cb741-4"><a href="coding-style.html#cb741-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb741-5"><a href="coding-style.html#cb741-5" aria-hidden="true" tabindex="-1"></a><span class="co"># And a few bad (and less than ideal) examples</span></span>
+<span id="cb741-6"><a href="coding-style.html#cb741-6" aria-hidden="true" tabindex="-1"></a>my first script.R     <span class="co"># there should be no spaces</span></span>
+<span id="cb741-7"><a href="coding-style.html#cb741-7" aria-hidden="true" tabindex="-1"></a>myfirstscript.R       <span class="co"># not a terrible file name but hard to read </span></span>
+<span id="cb741-8"><a href="coding-style.html#cb741-8" aria-hidden="true" tabindex="-1"></a>my_first_script.r     <span class="co"># r should be capitalized</span></span>
+<span id="cb741-9"><a href="coding-style.html#cb741-9" aria-hidden="true" tabindex="-1"></a>file1.R               <span class="co"># not descriptive enough</span></span>
+<span id="cb741-10"><a href="coding-style.html#cb741-10" aria-hidden="true" tabindex="-1"></a>models<span class="sc">&amp;</span>results.R      <span class="co"># contains special characters</span></span></code></pre></div>
 </div>
-<div id="naming-objects" class="section level3" number="100.1.2">
+<div id="naming-objects" class="section level3" number="104.2.2">
 <h3>
-<span class="header-section-number">100.1.2</span> Naming objects<a class="anchor" aria-label="anchor" href="#naming-objects"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.2.2</span> Naming objects<a class="anchor" aria-label="anchor" href="#naming-objects"><i class="fas fa-link"></i></a>
 </h3>
 <p>Just like with file names, you should name your R objects using descriptive and informative names. Here are some guidelines to keep in mind:</p>
 <ul>
-<li>Object and function names should start with a letter (and not a number)!</li>
+<li>Object and function names must start with a letter (and not a number)!</li>
 </ul>
-<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="coding-style.html#cb693-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good </span></span>
-<span id="cb693-2"><a href="coding-style.html#cb693-2" aria-hidden="true" tabindex="-1"></a>group_1</span>
-<span id="cb693-3"><a href="coding-style.html#cb693-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb693-4"><a href="coding-style.html#cb693-4" aria-hidden="true" tabindex="-1"></a>group_one</span>
-<span id="cb693-5"><a href="coding-style.html#cb693-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb693-6"><a href="coding-style.html#cb693-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad </span></span>
-<span id="cb693-7"><a href="coding-style.html#cb693-7" aria-hidden="true" tabindex="-1"></a>1st_group</span></code></pre></div>
+<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="coding-style.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good </span></span>
+<span id="cb742-2"><a href="coding-style.html#cb742-2" aria-hidden="true" tabindex="-1"></a>group_1</span>
+<span id="cb742-3"><a href="coding-style.html#cb742-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Also good</span></span>
+<span id="cb742-4"><a href="coding-style.html#cb742-4" aria-hidden="true" tabindex="-1"></a>group_one</span>
+<span id="cb742-5"><a href="coding-style.html#cb742-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb742-6"><a href="coding-style.html#cb742-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad </span></span>
+<span id="cb742-7"><a href="coding-style.html#cb742-7" aria-hidden="true" tabindex="-1"></a>1st_group</span></code></pre></div>
 <ul>
-<li>Names should include only letters, numbers, <code>_</code>, and <code>.</code>. Though, you should probably decide on a single separator; pick either <code>_</code> or <code>.</code> to be somewhat consistent and follow basic conventions.</li>
-<li>Since classes and methods in the S3 object system use dots, to avoid confusion, it might be best to use <code>_</code> in your function names.</li>
-<li>In fact, the tidy style guide, in general, recommends using <code>_</code> to separate words both in function names and object names. Separating lowercase words with <code>_</code> is sometimes referred to as using <em>snake_case</em>.</li>
+<li>Names should include only letters, numbers, <code>_</code>, or <code>.</code>. Though, you should probably decide on a single separator; pick either <code>_</code> or <code>.</code> to be somewhat consistent and follow basic conventions.</li>
+<li>Since classes and methods in the S3 object system use dots, to avoid confusion, it might be best to use <code>_</code> in your function names. In fact, the tidy style guide, in general, recommends using <code>_</code> to separate words both in function names and object names. Separating lowercase words with <code>_</code> is sometimes referred to as using <em>snake_case</em>.</li>
 <li>To avoid errors, names should be kept as short as possible.</li>
-<li>When naming your functions consider using active verbs</li>
+<li>When naming your functions consider using active verbs. For instance,</li>
 </ul>
-<div class="sourceCode" id="cb694"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb743"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Okay function names</span>
 <span class="fu">permute</span><span class="op">(</span><span class="op">)</span>
 <span class="fu">count_event</span><span class="op">(</span><span class="op">)</span>
@@ -249,24 +241,24 @@
 <span class="fu">permuatation</span><span class="op">(</span><span class="op">)</span>
 <span class="fu">event_counter</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>Typos and cases matter; so, be careful when calling your objects and functions. Sometime errors in your code can be misspellings.</li>
+<li>Typos and cases matter; so, be careful when calling your objects and functions. Sometimes errors in your code could end up being just silly misspellings.</li>
 <li>Avoid re-using names of common R functions and variables. For instance, avoid naming objects <code>T</code> or <code>F</code> since R reserves these for <code>TRUE</code> and <code>FALSE</code>.</li>
 </ul>
 </div>
 </div>
-<div id="tidying-up-your-syntax" class="section level2" number="100.2">
+<div id="tidying-up-your-syntax" class="section level2" number="104.3">
 <h2>
-<span class="header-section-number">100.2</span> Tidying up your “syntax”<a class="anchor" aria-label="anchor" href="#tidying-up-your-syntax"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.3</span> Tidying up your “syntax”<a class="anchor" aria-label="anchor" href="#tidying-up-your-syntax"><i class="fas fa-link"></i></a>
 </h2>
-<div id="commas-and-spaces" class="section level3" number="100.2.1">
+<div id="commas-and-spaces" class="section level3" number="104.3.1">
 <h3>
-<span class="header-section-number">100.2.1</span> Commas and spaces<a class="anchor" aria-label="anchor" href="#commas-and-spaces"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.3.1</span> Commas and spaces<a class="anchor" aria-label="anchor" href="#commas-and-spaces"><i class="fas fa-link"></i></a>
 </h3>
 <p>Many of the syntax rules in the English language are applicable to R coding. Commas and spaces are a good example of this.</p>
 <ul>
 <li>Place spaces after commas, but not before them (just like you would when you write).</li>
 </ul>
-<div class="sourceCode" id="cb695"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good </span>
 
 <span class="va">B</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span>
@@ -279,7 +271,7 @@
 <ul>
 <li>Avoid putting space between your function name and the arguments in parenthesis when calling your function</li>
 </ul>
-<div class="sourceCode" id="cb696"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb745"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Do</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
@@ -292,7 +284,7 @@
 <li>When using conditional (<code>if</code>, <code>for</code>, <code>while</code>) statements separate the condition expression in <code>()</code> by placing space around <code>()</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb697"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Good</span>
 
@@ -307,21 +299,20 @@
 <span class="op">}</span></code></pre></div>
 <ul>
 <li>
-<em>Infixed</em> operators (i.e. those placed between operands), such as <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> and so on, <strong>should always</strong> be surrounded by spaces:</li>
+<em>Infixed</em> operators (i.e. those placed between operands), such as <code>==</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, and so on, <strong>should always</strong> be surrounded by spaces</li>
 </ul>
-<div class="sourceCode" id="cb698"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Good</span>
 <span class="va">my_var</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="fl">24</span> <span class="op">+</span> <span class="op">(</span><span class="va">x</span> <span class="op">*</span> <span class="fl">0.5</span><span class="op">)</span>
 
 
 <span class="co"># Not great</span>
-
 <span class="va">my_var</span><span class="op">&lt;-</span><span class="va">y</span><span class="op">+</span><span class="fl">24</span><span class="op">+</span><span class="op">(</span><span class="va">x</span><span class="op">*</span><span class="fl">0.5</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>There are, however, a few exceptions to the above rule. <em>Operators with high precedence</em>, such as those that access stuff in a namespace (<code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>, <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">:::</a></code>), those used for extracting slots or components (<code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>, <code><a href="https://rdrr.io/r/base/slotOp.html">@</a></code>), those used for indexing (<code>[]</code>, <code>[[]]</code>), the exponentiation operator (<code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code>), or the sequence operator (<code><a href="https://rdrr.io/r/base/Colon.html">:</a></code>) <em>should not</em> be surrounded by space.</li>
+<li>There are, however, a few exception to the above rule. <em>Operators with high precedence</em>, such as those that access stuff in a namespace (<code>::</code>, <code>:::</code>), those used for extracting slots or components (<code>$</code>, <code>@</code>), those used for indexing (<code>[]</code>, <code>[[]]</code>), the exponentiation operator (<code>^</code>), or the sequence operator (<code>:</code>) <em>should not</em> be surrounded by space.</li>
 </ul>
-<div class="sourceCode" id="cb699"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Good</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">height</span>
@@ -333,203 +324,312 @@
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">:</span> <span class="fl">20</span>
 <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">^</span> <span class="fl">2</span></code></pre></div>
 </div>
-<div id="curly-braces-and-code-hierarchies" class="section level3" number="100.2.2">
+<div id="curly-braces-and-code-hierarchies" class="section level3" number="104.3.2">
 <h3>
-<span class="header-section-number">100.2.2</span> Curly braces and code hierarchies<a class="anchor" aria-label="anchor" href="#curly-braces-and-code-hierarchies"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.3.2</span> Curly braces and code hierarchies<a class="anchor" aria-label="anchor" href="#curly-braces-and-code-hierarchies"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>When writing functions and conditional statements which are not short or simple you would need should be pacing your code in a block sectioned off by <strong>curly braces</strong>. Enclosing the “body” of your function or conditional statement inside curly braces allows one to more easily see the hierarchy of a piece of code. There are few things to keep in mind here:
+<li>When writing functions and conditional statements which are not short or simple you would need to place your code in a block sectioned off by <strong>curly braces</strong>. Enclosing the “body” of a function or conditional statement inside curly braces allows one to more easily see the hierarchy of a piece of code. There are few things to keep in mind here:
 <ul>
 <li>
 <code>{</code> should be the last character on a line. Once you open the left squiggly bracket start the actual body of the code in a new line.</li>
-<li>The code content inside the curly braces should be indented by two spaces. By skimming the left-hand margin, this way you’ll be able to see the hierarchy of the code block more easily</li>
+<li>The code content inside the curly braces should be indented by two spaces. This way you’ll be able to see the hierarchy of the code block more easily</li>
 <li>When you are done with specifying the code that defines your function or conditional statement place the closing curly brace on a new line, so that it’s the first character on the line. In fact, unless it is followed by <code>else {</code>, the closing curly brace should be on its own line.</li>
 </ul>
 </li>
 </ul>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="coding-style.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
-<span id="cb700-2"><a href="coding-style.html#cb700-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
-<span id="cb700-3"><a href="coding-style.html#cb700-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(x)</span>
-<span id="cb700-4"><a href="coding-style.html#cb700-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb700-5"><a href="coding-style.html#cb700-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb700-6"><a href="coding-style.html#cb700-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb700-7"><a href="coding-style.html#cb700-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb700-8"><a href="coding-style.html#cb700-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
-<span id="cb700-9"><a href="coding-style.html#cb700-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>){</span>
-<span id="cb700-10"><a href="coding-style.html#cb700-10" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">log</span>(x)</span>
-<span id="cb700-11"><a href="coding-style.html#cb700-11" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb700-12"><a href="coding-style.html#cb700-12" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> x</span>
-<span id="cb700-13"><a href="coding-style.html#cb700-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb700-14"><a href="coding-style.html#cb700-14" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb700-15"><a href="coding-style.html#cb700-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"i is too large"</span>)</span>
-<span id="cb700-16"><a href="coding-style.html#cb700-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb700-17"><a href="coding-style.html#cb700-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb700-18"><a href="coding-style.html#cb700-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb700-19"><a href="coding-style.html#cb700-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Not so good</span></span>
-<span id="cb700-20"><a href="coding-style.html#cb700-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
-<span id="cb700-21"><a href="coding-style.html#cb700-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(x)</span>
-<span id="cb700-22"><a href="coding-style.html#cb700-22" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb700-23"><a href="coding-style.html#cb700-23" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> {</span>
-<span id="cb700-24"><a href="coding-style.html#cb700-24" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb700-25"><a href="coding-style.html#cb700-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb700-26"><a href="coding-style.html#cb700-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb700-27"><a href="coding-style.html#cb700-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
-<span id="cb700-28"><a href="coding-style.html#cb700-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>){</span>
-<span id="cb700-29"><a href="coding-style.html#cb700-29" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">log</span>(x)</span>
-<span id="cb700-30"><a href="coding-style.html#cb700-30" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb700-31"><a href="coding-style.html#cb700-31" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> x</span>
-<span id="cb700-32"><a href="coding-style.html#cb700-32" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb700-33"><a href="coding-style.html#cb700-33" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb700-34"><a href="coding-style.html#cb700-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"i is too large"</span>)</span>
-<span id="cb700-35"><a href="coding-style.html#cb700-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="coding-style.html#cb749-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb749-2"><a href="coding-style.html#cb749-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb749-3"><a href="coding-style.html#cb749-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(x)</span>
+<span id="cb749-4"><a href="coding-style.html#cb749-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb749-5"><a href="coding-style.html#cb749-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb749-6"><a href="coding-style.html#cb749-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb749-7"><a href="coding-style.html#cb749-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb749-8"><a href="coding-style.html#cb749-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb749-9"><a href="coding-style.html#cb749-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>){</span>
+<span id="cb749-10"><a href="coding-style.html#cb749-10" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">log</span>(x)</span>
+<span id="cb749-11"><a href="coding-style.html#cb749-11" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb749-12"><a href="coding-style.html#cb749-12" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> x</span>
+<span id="cb749-13"><a href="coding-style.html#cb749-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb749-14"><a href="coding-style.html#cb749-14" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb749-15"><a href="coding-style.html#cb749-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"i is too large"</span>)</span>
+<span id="cb749-16"><a href="coding-style.html#cb749-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb749-17"><a href="coding-style.html#cb749-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb749-18"><a href="coding-style.html#cb749-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb749-19"><a href="coding-style.html#cb749-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Not so good</span></span>
+<span id="cb749-20"><a href="coding-style.html#cb749-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb749-21"><a href="coding-style.html#cb749-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(x)} </span>
+<span id="cb749-22"><a href="coding-style.html#cb749-22" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> {</span>
+<span id="cb749-23"><a href="coding-style.html#cb749-23" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">3</span>}</span>
+<span id="cb749-24"><a href="coding-style.html#cb749-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb749-25"><a href="coding-style.html#cb749-25" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb749-26"><a href="coding-style.html#cb749-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>){</span>
+<span id="cb749-27"><a href="coding-style.html#cb749-27" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">log</span>(x)</span>
+<span id="cb749-28"><a href="coding-style.html#cb749-28" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb749-29"><a href="coding-style.html#cb749-29" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> x</span>
+<span id="cb749-30"><a href="coding-style.html#cb749-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb749-31"><a href="coding-style.html#cb749-31" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb749-32"><a href="coding-style.html#cb749-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"i is too large"</span>)}</span></code></pre></div>
 </div>
-<div id="few-other-notes-on-syntax" class="section level3" number="100.2.3">
+<div id="function-arguments-and-assignments" class="section level3" number="104.3.3">
 <h3>
-<span class="header-section-number">100.2.3</span> Few other notes on syntax<a class="anchor" aria-label="anchor" href="#few-other-notes-on-syntax"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.3.3</span> Function arguments and assignments<a class="anchor" aria-label="anchor" href="#function-arguments-and-assignments"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>When calling a function, it’s good to be familiar with the function’s arguments. Most have an argument that supplies the data which is used to perform some calculation. There might, of course, be other arguments that control additional aspects of that calculation. For instance, the <code>mean</code> function lists the following arguments <code>mean(x, trim = 0, na.rm = FALSE, ...)</code>, where <code>x</code> is the data argument. With most functions you might be able to get away with supplying the data without using the default value of the argument (in the case of <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> this would mean without explicitly typing <code>x = ...your data here..</code>). However, a bit more care should be taken when supplying the other arguments. You should be aware of the order of those arguments and should avoid partial matching.</li>
+</ul>
+<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Better</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="co"># Also good</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># notice here we omitted supplying the data as x =</span>
+
+<span class="co"># Don't do! </span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># in fact, this will throw an error — do you see why?</span></code></pre></div>
+<ul>
+<li>Avoid making any assignments inside function calls. Where necessary try defining objects outside of your function.</li>
+</ul>
+</div>
+<div id="a-note-on-indentation" class="section level3" number="104.3.4">
+<h3>
+<span class="header-section-number">104.3.4</span> A note on indentation<a class="anchor" aria-label="anchor" href="#a-note-on-indentation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider using two spaces when indenting your code. This is preferred to using tabs. One thing you should probably avoid is mixing both! In other words, avoid indenting some lines in your code using spaces and others using tabs.</p>
+</div>
+<div id="few-other-notes-on-syntax" class="section level3" number="104.3.5">
+<h3>
+<span class="header-section-number">104.3.5</span> Few other notes on syntax<a class="anchor" aria-label="anchor" href="#few-other-notes-on-syntax"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Avoid using semicolons (<code>;</code>) at the end of a line of code.</li>
-<li>Avoid putting multiple commands on one line; hence, avoid using semicolons to separate multiple commands on one line!</li>
-<li>You can use <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> or <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> for assignment in R, however, the tidyverse style guide strongly advocates for consistently using <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> for value assignment.</li>
+<li>Avoid putting multiple commands on one line; hence, avoid using semicolons to separate multiple commands on one line! Multiple commands on a single line make your code cluttered and harder to read.</li>
+<li>You can use <code>&lt;-</code> or <code>=</code> for assignment in R, however, the tidyverse style guide strongly advocates for consistently using <code>&lt;-</code> for value assignment.</li>
 </ul>
-<div class="sourceCode" id="cb701"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Do</span>
 <span class="va">my_var</span> <span class="op">&lt;-</span> <span class="fl">7</span>
 
 <span class="co"># Maybe don't do</span>
 <span class="va">my_var</span> <span class="op">=</span> <span class="fl">7</span></code></pre></div>
 <ul>
-<li>The pipe operator,<code><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></code>, should be preceded by space and should usually be followed by a new line. Just like indentation in code blocks the code following a pipe should be indented by two spaces.</li>
+<li>The pipe operator,<code>%&gt;%</code>, should be preceded by space and should usually be followed by a new line. Just like indentation in code blocks, the code following a pipe should be indented by two spaces (Side note: if you are working on an R script or an RMarkdown file in RStudio you may have noticed that the indentation on the next line is automatically done for you!).</li>
 </ul>
-<div class="sourceCode" id="cb702"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Good</span>
-<span class="va">data</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">my_cat_var</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>my_sum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">my_other_var</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">data</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">my_cat_var</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>my_sum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">my_other_var</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># Not so good</span>
-<span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">my_cat_var</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>my_sum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">my_other_var</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">data</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">my_cat_var</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>my_sum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">my_other_var</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>Recall that in the <code>tidyverse</code> when using the package <code>ggplot2</code> layers of your plot are separated by <code>+</code> instead of <code>%&gt;%</code>. However, the style suggestions remain the same. The <code>+</code> operator should be preceded by a space and the code that follows should appear on the next line. It is recommended that if you are incorporating your plot code inside an existing piped code you keep a single level of indentation. It is also customary to add new layers on separate lines. If you write a ggplot layer with too many arguments, for clarity it would be preferable to split this long line and place each argument of you layer in a separate line.<br>
+</li>
+<li>Inside <code>if()</code> clauses, use <code>&amp;&amp;</code> and <code>||</code> instead of the usual logical operators, <code>&amp;</code> and <code>|</code>.</li>
+</ul>
+<!-- ```{r style_q1, echo=FALSE} --><!-- question("Which one of these follows the tidy style?", --><!--          answer("x<-3"), --><!--          answer("x=3"), --><!--          answer("x <- 3", correct = TRUE), --><!--          answer("x < - 3")) --><!-- ``` --><!-- ```{r style_q2, echo=FALSE} --><!-- question("Select the appropriately styled line of code?", --><!--          answer("here::here(\"data/my_file.R\")", correct = TRUE), --><!--          answer("here::here (\"data/my_file.R\")"), --><!--          answer("here ::here(\"data/my_file.R\")") --><!-- ) --><!-- ``` -->
 </div>
 </div>
-<div id="exercises-137" class="section level2" number="100.3">
+<div id="next-steps-59" class="section level2" number="104.4">
 <h2>
-<span class="header-section-number">100.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-137"><i class="fas fa-link"></i></a>
-</h2>
-<!-- ```{r style_q1, echo=FALSE} -->
-<!-- question("Which one of these follows the tidy style?", -->
-<!--          answer("x<-3"), -->
-<!--          answer("x=3"), -->
-<!--          answer("x <- 3", correct = TRUE), -->
-<!--          answer("x < - 3")) -->
-<!-- ``` -->
-<!-- ```{r style_q2, echo=FALSE} -->
-<!-- question("Select the appropriately styled line of code?", -->
-<!--          answer("here::here(\"data/my_file.R\")", correct = TRUE), -->
-<!--          answer("here::here (\"data/my_file.R\")"), -->
-<!--          answer("here ::here(\"data/my_file.R\")") -->
-<!-- ) -->
-<!-- ``` -->
-</div>
-<div id="next-steps-59" class="section level2" number="100.4">
-<h2>
-<span class="header-section-number">100.4</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-59"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.4</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-59"><i class="fas fa-link"></i></a>
 </h2>
 <p>This tutorial is largely based on content in the tidyverse style guide. For more detailed information check out: <a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a></p>
 </div>
-<div id="exercises-138" class="section level2" number="100.5">
+<div id="exercises-115" class="section level2" number="104.5">
 <h2>
-<span class="header-section-number">100.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-138"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-115"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-97" class="section level3" number="100.5.1">
+<div id="question-1-81" class="section level3" number="104.5.1">
 <h3>
-<span class="header-section-number">100.5.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-97"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-81"><i class="fas fa-link"></i></a>
 </h3>
+<p>Which of these expressions follows the <em>tidy</em> style? Select all that apply.</p>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>x&lt;-3</code><br>
+</li>
+<li>
+<code>x=3</code><br>
+</li>
+<li>
+<code>x &lt;- 3</code><br>
+</li>
+<li><code>x &lt; - 3</code></li>
+</ol>
 </div>
-<div id="question-2-95" class="section level3" number="100.5.2">
+<div id="question-2-79" class="section level3" number="104.5.2">
 <h3>
-<span class="header-section-number">100.5.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-95"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-79"><i class="fas fa-link"></i></a>
 </h3>
+<p>Select the appropriately styled line of code from the following choices:</p>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>here::here("data/my_file.R")</code><br>
+</li>
+<li>
+<code>here::here ("data/my_file.R")</code><br>
+</li>
+<li>
+<code>here ::here("data/my_file.R")</code><br>
+</li>
+<li><code>here :: here("data/my_file.R")</code></li>
+</ol>
 </div>
-<div id="question-3-93" class="section level3" number="100.5.3">
+<div id="question-3-80" class="section level3" number="104.5.3">
 <h3>
-<span class="header-section-number">100.5.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-93"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-80"><i class="fas fa-link"></i></a>
 </h3>
+<p>The operator <code>==</code> should never be surrounded by space.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
-<div id="question-4-85" class="section level3" number="100.5.4">
+<div id="question-4-76" class="section level3" number="104.5.4">
 <h3>
-<span class="header-section-number">100.5.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-85"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-76"><i class="fas fa-link"></i></a>
 </h3>
+<p>The following file <code>statistical analysis.R</code> follows the <em>tidy</em> style?</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
-<div id="question-5-84" class="section level3" number="100.5.5">
+<div id="question-5-75" class="section level3" number="104.5.5">
 <h3>
-<span class="header-section-number">100.5.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-84"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-75"><i class="fas fa-link"></i></a>
 </h3>
+<p>Suppose you made a function called <code>normalized_sum</code> taking on some arguments. When calling your function you should leave space between the function name and the arguments in the parenthesis.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
-<div id="question-6-84" class="section level3" number="100.5.6">
+<div id="question-6-75" class="section level3" number="104.5.6">
 <h3>
-<span class="header-section-number">100.5.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-84"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-75"><i class="fas fa-link"></i></a>
 </h3>
+<p>The following code chunk is in accordance with <em>tidy</em> coding practices:</p>
+<div class="sourceCode" id="cb753"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="va">sum</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"It works!"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
-<div id="question-7-83" class="section level3" number="100.5.7">
+<div id="question-7-73" class="section level3" number="104.5.7">
 <h3>
-<span class="header-section-number">100.5.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-73"><i class="fas fa-link"></i></a>
 </h3>
+<p>Which of the following R object assignments follows the tidy style guide principles:</p>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>T &lt;- FALSE</code><br>
+</li>
+<li><code>c &lt;- 1</code></li>
+<li>
+<code>sum &lt;- mean(1:10)</code><br>
+</li>
+<li>
+<code>a &lt;- 2</code><br>
+</li>
+<li>All of the above<br>
+</li>
+<li>None of the above</li>
+</ol>
 </div>
-<div id="question-8-83" class="section level3" number="100.5.8">
+<div id="question-8-74" class="section level3" number="104.5.8">
 <h3>
-<span class="header-section-number">100.5.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-74"><i class="fas fa-link"></i></a>
 </h3>
+<p>When indenting your code it is okay to use a mix of tabs and spaces.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
-<div id="question-9-83" class="section level3" number="100.5.9">
+<div id="question-9-73" class="section level3" number="104.5.9">
 <h3>
-<span class="header-section-number">100.5.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-73"><i class="fas fa-link"></i></a>
 </h3>
+<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">age</span> <span class="op">=</span> <span class="va">age</span>, <span class="va">total</span> <span class="op">=</span> <span class="va">total</span>, <span class="va">lambda</span> <span class="op">=</span> <span class="fl">0.8</span>,
+  <span class="va">prob</span> <span class="op">=</span> <span class="fl">0.3</span>,
+  <span class="va">sum</span> <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># Code for some difficult calculation</span>
+<span class="op">}</span></code></pre></div>
+<p>Which of the following best describes the reason the above code chunk is not in line with tidy principles?</p>
+<ol style="list-style-type: lower-alpha">
+<li>The spaces between the function arguments and the code.<br>
+</li>
+<li>The indentation of the function arguments.<br>
+</li>
+<li>None of the above! This function is actually tidy.<br>
+</li>
+<li>Both a. and b. are the culprits.</li>
+</ol>
 </div>
-<div id="question-10-83" class="section level3" number="100.5.10">
+<div id="question-10-73" class="section level3" number="104.5.10">
 <h3>
-<span class="header-section-number">100.5.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104.5.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-73"><i class="fas fa-link"></i></a>
 </h3>
-
+<p>Suppose you ran a model and saved your results in an object named <code>model-1</code>. You are confident in the naming choice because it is in line with coding practices.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="iteration.html"><span class="header-section-number">99</span> Iteration</a></div>
-<div class="next"><a href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></div>
+<div class="prev"><a href="iteration.html"><span class="header-section-number">103</span> Iteration</a></div>
+<div class="next"><a href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#coding-style"><span class="header-section-number">100</span> Coding style</a></li>
+<li><a class="nav-link" href="#coding-style"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="nav-link" href="#introduction-91"><span class="header-section-number">104.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#naming-things-the-tidy-way"><span class="header-section-number">100.1</span> Naming things: the tidy way</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#naming-files"><span class="header-section-number">100.1.1</span> Naming files</a></li>
-<li><a class="nav-link" href="#naming-objects"><span class="header-section-number">100.1.2</span> Naming objects</a></li>
+<a class="nav-link" href="#naming-things-the-tidy-way"><span class="header-section-number">104.2</span> Naming things: the tidy way</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#naming-files"><span class="header-section-number">104.2.1</span> Naming files</a></li>
+<li><a class="nav-link" href="#naming-objects"><span class="header-section-number">104.2.2</span> Naming objects</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#tidying-up-your-syntax"><span class="header-section-number">100.2</span> Tidying up your “syntax”</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#commas-and-spaces"><span class="header-section-number">100.2.1</span> Commas and spaces</a></li>
-<li><a class="nav-link" href="#curly-braces-and-code-hierarchies"><span class="header-section-number">100.2.2</span> Curly braces and code hierarchies</a></li>
-<li><a class="nav-link" href="#few-other-notes-on-syntax"><span class="header-section-number">100.2.3</span> Few other notes on syntax</a></li>
+<a class="nav-link" href="#tidying-up-your-syntax"><span class="header-section-number">104.3</span> Tidying up your “syntax”</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#commas-and-spaces"><span class="header-section-number">104.3.1</span> Commas and spaces</a></li>
+<li><a class="nav-link" href="#curly-braces-and-code-hierarchies"><span class="header-section-number">104.3.2</span> Curly braces and code hierarchies</a></li>
+<li><a class="nav-link" href="#function-arguments-and-assignments"><span class="header-section-number">104.3.3</span> Function arguments and assignments</a></li>
+<li><a class="nav-link" href="#a-note-on-indentation"><span class="header-section-number">104.3.4</span> A note on indentation</a></li>
+<li><a class="nav-link" href="#few-other-notes-on-syntax"><span class="header-section-number">104.3.5</span> Few other notes on syntax</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#exercises-137"><span class="header-section-number">100.3</span> Exercises</a></li>
-<li><a class="nav-link" href="#next-steps-59"><span class="header-section-number">100.4</span> Next Steps</a></li>
+<li><a class="nav-link" href="#next-steps-59"><span class="header-section-number">104.4</span> Next Steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-138"><span class="header-section-number">100.5</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-97"><span class="header-section-number">100.5.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-95"><span class="header-section-number">100.5.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-93"><span class="header-section-number">100.5.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-85"><span class="header-section-number">100.5.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-84"><span class="header-section-number">100.5.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-84"><span class="header-section-number">100.5.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-83"><span class="header-section-number">100.5.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-83"><span class="header-section-number">100.5.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-83"><span class="header-section-number">100.5.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-83"><span class="header-section-number">100.5.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-115"><span class="header-section-number">104.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-81"><span class="header-section-number">104.5.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-79"><span class="header-section-number">104.5.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-80"><span class="header-section-number">104.5.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-76"><span class="header-section-number">104.5.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-75"><span class="header-section-number">104.5.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-75"><span class="header-section-number">104.5.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-73"><span class="header-section-number">104.5.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-74"><span class="header-section-number">104.5.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-73"><span class="header-section-number">104.5.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-73"><span class="header-section-number">104.5.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -549,7 +649,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

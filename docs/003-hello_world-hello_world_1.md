@@ -70,13 +70,13 @@ head(covid_data, 20)
 #> 18    18          18 Sporadic              40 to 49 Years
 #> 19    19          19 Outbreak Associated   40 to 49 Years
 #> 20    20         115 Sporadic              30 to 39 Years
-#> # … with 14 more variables: Neighbourhood Name <chr>,
-#> #   FSA <chr>, Source of Infection <chr>,
-#> #   Classification <chr>, Episode Date <date>,
-#> #   Reported Date <date>, Client Gender <chr>,
-#> #   Outcome <chr>, Currently Hospitalized <chr>,
-#> #   Currently in ICU <chr>, Currently Intubated <chr>,
-#> #   Ever Hospitalized <chr>, Ever in ICU <chr>, …
+#> # … with 14 more variables: `Neighbourhood Name` <chr>,
+#> #   FSA <chr>, `Source of Infection` <chr>,
+#> #   Classification <chr>, `Episode Date` <date>,
+#> #   `Reported Date` <date>, `Client Gender` <chr>,
+#> #   Outcome <chr>, `Currently Hospitalized` <chr>,
+#> #   `Currently in ICU` <chr>, `Currently Intubated` <chr>,
+#> #   `Ever Hospitalized` <chr>, `Ever in ICU` <chr>, …
 ```
 
 Once all our data is loaded, we can start the cleaning process.
@@ -124,7 +124,7 @@ covid_data <- filter(covid_data, `Reported Date` < max(covid_data$`Reported Date
 ```r
 head(covid_data, 20)
 #> # A tibble: 20 × 9
-#>    `Age Group`    `Neighbourhood Nam… FSA   `Source of Infe…
+#>    `Age Group`    `Neighbourhood Na…` FSA   `Source of Inf…`
 #>    <chr>          <chr>               <chr> <chr>           
 #>  1 50 to 59 Years Willowdale East     M2N   Travel          
 #>  2 50 to 59 Years Willowdale East     M2N   Travel          
@@ -147,8 +147,8 @@ head(covid_data, 20)
 #> 19 40 to 49 Years <NA>                <NA>  Outbreak associ…
 #> 20 30 to 39 Years Moss Park           M5A   Travel          
 #> # … with 5 more variables: Classification <chr>,
-#> #   Episode Date <date>, Reported Date <date>,
-#> #   Client Gender <chr>, Outcome <chr>
+#> #   `Episode Date` <date>, `Reported Date` <date>,
+#> #   `Client Gender` <chr>, Outcome <chr>
 ```
 
 Looking at our data as a whole, we can see that we've restricted the data to only the variables we want to work with, have reassigned the date columns to have type `<date>`, and have renamed an awkward variable classification in "Source of Infection". Now we can summarize our data!

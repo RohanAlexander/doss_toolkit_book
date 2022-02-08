@@ -43,7 +43,7 @@ covid_data <-
 
 ```{r, eval = TRUE, include = FALSE}
 # Use beow code for package (had to change in order to work with draft repo)
-covid_data <- read_csv(system.file("extdata", "covid_data.csv", package = "DoSStoolkit", mustWork = TRUE))
+covid_data <- read_csv(here::here("data/covid_data.csv"))
 
 # covid_data <- read_csv("covid_data.csv")
 ```

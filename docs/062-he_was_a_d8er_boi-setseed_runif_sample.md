@@ -51,7 +51,7 @@ max (optional)| the maximum value of the uniform distribution you are sampling f
 
 ```r
 runif(n = 3)
-#> [1] 0.9317394 0.3456249 0.7127989
+#> [1] 0.6034775 0.9619177 0.2129215
 ```
 The above code means to generate three random numbers from unif(0,1) where unif is a uniform distribution with a minimum value of 0 and maximum value of 1.
 
@@ -62,7 +62,7 @@ In `runif()` function, we can specify the min and max to be 2 and 8 to generate 
 
 ```r
 runif(n = 3, min = 2, max = 8)
-#> [1] 2.506564 3.583140 5.068793
+#> [1] 5.881770 6.486302 3.368771
 ```
 
 ### rnorm()
@@ -87,7 +87,7 @@ Let's say we want to generate 5 random number from a normal distribution with `m
 
 ```r
 rnorm(n = 5, sd = 2)
-#> [1] -4.0530897 -0.4828468  0.8745783  0.1097077 -0.8059629
+#> [1] -3.1218571  3.9995003 -0.9345657 -0.1337965 -3.9527948
 ```
 
 Here, we set the `n` to be 5 and `sd` to be 2, because we want to generate five random numbers from a normal distribution with a standard deviation of 2. We do not have to specify the mean value here because the default of the mean parameter is 0, which is exactly what we want. 
@@ -97,13 +97,13 @@ What if we want to generate 5 number from normal(10,2)?
 
 ```r
 rnorm(n = 5, mean = 10, sd = 2)
-#> [1]  8.144985  9.890151 10.006775  6.725741  9.411133
+#> [1]  6.336855  8.474858  7.251483 10.894489  8.786920
 ```
 Here, we generated 5 numbers from normal(10,2) distribution.
 
 ### sample()
 
-In R, we can using `sample()` to randomly sample numbers from a collection of numbers. 
+In R, we can use `sample()` to randomly sample numbers from a collection of numbers. 
 
 #### Arguments
 
@@ -172,7 +172,7 @@ Let's run our dice simulation twice and see what happens (run the following code
 ```r
 x <- c(1, 2, 3, 4, 5, 6)
 sample(x = x, size = 6, replace = TRUE)
-#> [1] 6 1 5 5 1 3
+#> [1] 6 1 6 6 1 3
 ```
 
 We get different results every time we run the simulation, because we randomly sampled from 1-6 with replacement. What if you want to reuse the result from one simulation? Sometimes you do not want your result to change every time you run the function. This is what `set.seed()` does. 
@@ -291,21 +291,60 @@ You can also generate binomial random variables using `rbinom()`, and Poisson ra
 ## Exercises
 
 ### Question 1
-
+`runif()` function generate random numbers from a uniform distribution.  
+    a.  True
+    b. False
 ### Question 2
+What is the required parameter for `runif()`?
+    a.  n
+    b. min
+    c. mix
+    d. There is no required parameter
 
 ### Question 3
+What is the optional parameter for `runif()`?
+    a. n
+    b.  min
+    c.  mix
+    d. There is no optional parameter
+
 
 ### Question 4
+which code generate 5 numbers from a normal(0, 5)? (multiple answer)
+    a.  rnorm(5, 0, 5)
+    b. rnorm(0, 5, 5)
+    c.  rnorm(n = 5, sd = 5)
+    d. rnorm(5, 5)
 
 ### Question 5
+`rnorm(n=10, mean=10, sd=2)` generate 10 numbers from a normal(10, 2)?
+    a.  Yes
+    b. No
 
 ### Question 6
-
+`sample()` can randomly sample numbers from a collection of numbers. 
+    a.  True
+    b. False
+    
 ### Question 7
+When `replace = TRUE` in `sample()` we will obtain repeated sample
+    a.  True
+    b. False
+    
 
 ### Question 8
+Which of the following code simulates rolling a fair dice 5 times?
+    a. sample(c(1, 2, 3, 4, 5, 6), 5)")
+    b. runif(5, 1, 6)
+    c. sample(c(1, 2, 3, 4, 5, 6), 5, replace = FALSE)
+    d.  sample(c(1, 2, 3, 4, 5, 6), 5, replace = TRUE)
 
 ### Question 9
-
+Use `set.seed()` will make sure your simulation output will be the same every time. 
+    a.  True
+    b. False
+    
 ### Question 10
+`set.seed()` can take any integer as a parameter
+    a.  True
+    b. False

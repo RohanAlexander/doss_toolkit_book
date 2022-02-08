@@ -312,21 +312,21 @@ termination_levels <- levels(as.factor(expeditions$termination_reason))
 # use sample to make the order of levels randomized
 
 levels(fct_relevel(termination_levels, sample))
-#>  [1] "Success (subpeak)"                                                           
-#>  [2] "Route technically too difficult, lack of experience, strength, or motivation"
-#>  [3] "Attempt rumoured"                                                            
-#>  [4] "Unknown"                                                                     
-#>  [5] "Accident (death or serious injury)"                                          
-#>  [6] "Success (claimed)"                                                           
-#>  [7] "Lack (or loss) of supplies or equipment"                                     
-#>  [8] "Illness, AMS, exhaustion, or frostbite"                                      
-#>  [9] "Bad weather (storms, high winds)"                                            
-#> [10] "Bad conditions (deep snow, avalanching, falling ice, or rock)"               
-#> [11] "Did not reach base camp"                                                     
-#> [12] "Other"                                                                       
-#> [13] "Success (main peak)"                                                         
+#>  [1] "Illness, AMS, exhaustion, or frostbite"                                      
+#>  [2] "Unknown"                                                                     
+#>  [3] "Bad weather (storms, high winds)"                                            
+#>  [4] "Success (claimed)"                                                           
+#>  [5] "Success (subpeak)"                                                           
+#>  [6] "Attempt rumoured"                                                            
+#>  [7] "Accident (death or serious injury)"                                          
+#>  [8] "Lack (or loss) of supplies or equipment"                                     
+#>  [9] "Bad conditions (deep snow, avalanching, falling ice, or rock)"               
+#> [10] "Lack of time"                                                                
+#> [11] "Other"                                                                       
+#> [12] "Success (main peak)"                                                         
+#> [13] "Did not reach base camp"                                                     
 #> [14] "Did not attempt climb"                                                       
-#> [15] "Lack of time"
+#> [15] "Route technically too difficult, lack of experience, strength, or motivation"
 ```
 
 
@@ -561,7 +561,7 @@ fct_relevel(gifts$donor_country, sample)
 #> [736] Canada    Italy     France    Australia France   
 #> [741] Germany   Germany   Germany   Germany   Germany  
 #> [746] Germany   Spain    
-#> 8 Levels: Brazil France Canada Spain Germany ... Italy
+#> 8 Levels: Germany Spain Canada France Brazil ... Mexico
 ```
 
 This final exercise will combine the uses of different `forcats` functions and will still use the `gifts` data. 
@@ -647,26 +647,69 @@ Now that you're familiar with the `forcats` package, here are some additional re
 - The factors chapter from Jenny Bryan's STAT 545 book: https://stat545.com/factors-boss.html
 
 
+## Questions
 
+1. True or False, factors are stored as integer levels in R?
+  a.  True
+  b. False
+  
+2. Which R package has tools to work with factors?
+  a. `dplyr`
+  b. `forcast`
+  c.  `forcats`
+  d. `ggplot2`
+  
+3. Which function checks if a vector is a factor or not?
+  a. `factor()`
+  b.  `is.factor()`
+  c. `forcats()`
+  d. `is.numeric()`
+  
+4. Which function counts the number of values in each level of your factor?
+  a.  `fct_count()`
+  b. `fct_reorder()`
+  c. `fct_c()`
+  d. `fct_lump()`
+  
+5. True or False, `forcats` functions can change how `ggplot` plots look?
+  a.  True
+  b. False
+  
+6. Which function will allow me to change the order of my factors for a plot?
+  a. `fct_c()`
+  b. `fct_count()`
+  c. `fct_lump()`
+  d.  `fct_reorder()`
+  
+7. What is the cause of the ""f" must be a factor (or character vector)." error?
+  a. The function you are calling does not exist
+  b. The vector you are using does not exist
+  c.  The vector you are using is not a factor
+  d. The function you are using is incorrect
+  
+8. Which function lumps levels that appear less than a certain proportion of times?
+  a. `fct_count()`
+  b. `fct_lump_n()`
+  c. `fct_lump_min()`
+  d.  `fct_lump_prop()`
+  
+9. Which function takes factors with different levels and combines them into one factor?
+  a.  `fct_c`
+  b. `fct_lump_n()`
+  c. `fct_lump_min()`
+  d. `fct_count()`
 
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10
+10. True or False, `forcats` functions can be used with `dplyr` functions like `mutate`?
+  a.  True
+  b. False
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

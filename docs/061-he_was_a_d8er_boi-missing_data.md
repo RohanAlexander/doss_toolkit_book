@@ -52,18 +52,18 @@ first_year
 #> # A tibble: 12 × 3
 #>    student_id course grade
 #>         <dbl> <chr>  <dbl>
-#>  1          1 STA130    82
-#>  2          1 CSC108    80
-#>  3          1 MAT137    80
-#>  4          2 STA130    81
-#>  5          2 CSC108    76
-#>  6          3 STA130    70
-#>  7          4 STA130    79
+#>  1          1 STA130    74
+#>  2          1 CSC108    81
+#>  3          1 MAT137    76
+#>  4          2 STA130    74
+#>  5          2 CSC108    74
+#>  6          3 STA130    81
+#>  7          4 STA130    85
 #>  8          4 CSC108    79
-#>  9          4 MAT137    73
-#> 10          5 STA130    77
-#> 11          5 MAT137    77
-#> 12          6 MAT137    78
+#>  9          4 MAT137    78
+#> 10          5 STA130    87
+#> 11          5 MAT137    81
+#> 12          6 MAT137    74
 ```
 
 As you can see, our data is missing some rows that would correspond to courses that 
@@ -76,7 +76,7 @@ right tool to do this and we can do this as follows.
 
 
 
-<pre><code class='language-r'><code>first_year %>%<br>&nbsp;&nbsp;<span style='color:hotpink'>complete</span>(student_id, course)<br>#> # A tibble: 18 × 3<br>#> &nbsp;&nbsp;&nbsp;student_id course grade<br>#> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<dbl> <chr> &nbsp;<dbl><br>#> &nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 CSC108 &nbsp;&nbsp;&nbsp;80<br>#> &nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 MAT137 &nbsp;&nbsp;&nbsp;80<br>#> &nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 STA130 &nbsp;&nbsp;&nbsp;82<br>#> &nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 CSC108 &nbsp;&nbsp;&nbsp;76<br>#> &nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 MAT137 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 STA130 &nbsp;&nbsp;&nbsp;81<br>#> &nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 MAT137 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 STA130 &nbsp;&nbsp;&nbsp;70<br>#> 10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 CSC108 &nbsp;&nbsp;&nbsp;79<br>#> 11 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 MAT137 &nbsp;&nbsp;&nbsp;73<br>#> 12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 STA130 &nbsp;&nbsp;&nbsp;79<br>#> 13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 MAT137 &nbsp;&nbsp;&nbsp;77<br>#> 15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 STA130 &nbsp;&nbsp;&nbsp;77<br>#> 16 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> 17 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 MAT137 &nbsp;&nbsp;&nbsp;78<br>#> 18 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 STA130 &nbsp;&nbsp;&nbsp;NA</code></code></pre>
+<pre><code class='language-r'><code>first_year %>%<br>&nbsp;&nbsp;<span style='color:hotpink'>complete</span>(student_id, course)<br>#> # A tibble: 18 × 3<br>#> &nbsp;&nbsp;&nbsp;student_id course grade<br>#> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<dbl> <chr> &nbsp;<dbl><br>#> &nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 CSC108 &nbsp;&nbsp;&nbsp;81<br>#> &nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 MAT137 &nbsp;&nbsp;&nbsp;76<br>#> &nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 STA130 &nbsp;&nbsp;&nbsp;74<br>#> &nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 CSC108 &nbsp;&nbsp;&nbsp;74<br>#> &nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 MAT137 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 STA130 &nbsp;&nbsp;&nbsp;74<br>#> &nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 MAT137 &nbsp;&nbsp;&nbsp;NA<br>#> &nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 STA130 &nbsp;&nbsp;&nbsp;81<br>#> 10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 CSC108 &nbsp;&nbsp;&nbsp;79<br>#> 11 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 MAT137 &nbsp;&nbsp;&nbsp;78<br>#> 12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 STA130 &nbsp;&nbsp;&nbsp;85<br>#> 13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 MAT137 &nbsp;&nbsp;&nbsp;81<br>#> 15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 STA130 &nbsp;&nbsp;&nbsp;87<br>#> 16 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 CSC108 &nbsp;&nbsp;&nbsp;NA<br>#> 17 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 MAT137 &nbsp;&nbsp;&nbsp;74<br>#> 18 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 STA130 &nbsp;&nbsp;&nbsp;NA</code></code></pre>
 
 This function gives us rows that represent courses students still haven't completed,
 which we don't have their grades for.

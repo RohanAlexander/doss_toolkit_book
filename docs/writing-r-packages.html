@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 102 Writing R Packages | DoSS Toolkit</title>
+<title>Chapter 106 Writing R Packages | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  102.1 Introduction While working on projects, you may get to the point where you want to create your own package in R. This...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 102 Writing R Packages | DoSS Toolkit">
+<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  106.1 Introduction While working on projects, you may get to the point where you want to create your own package in R. This...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 106 Writing R Packages | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  102.1 Introduction While working on projects, you may get to the point where you want to create your own package in R. This...">
+<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  106.1 Introduction While working on projects, you may get to the point where you want to create your own package in R. This...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 102 Writing R Packages | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  102.1 Introduction While working on projects, you may get to the point where you want to create your own package in R. This...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 106 Writing R Packages | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  106.1 Introduction While working on projects, you may get to the point where you want to create your own package in R. This...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="active" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="active" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,22 +168,22 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="writing-r-packages" class="section level1" number="102">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="writing-r-packages" class="section level1" number="106">
 <h1>
-<span class="header-section-number">102</span> Writing R Packages<a class="anchor" aria-label="anchor" href="#writing-r-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106</span> Writing R Packages<a class="anchor" aria-label="anchor" href="#writing-r-packages"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Matthew Wankiewicz and last updated on 7 October 2021.</em></p>
-<div id="introduction-94" class="section level2" number="102.1">
+<div id="introduction-93" class="section level2" number="106.1">
 <h2>
-<span class="header-section-number">102.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-94"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-93"><i class="fas fa-link"></i></a>
 </h2>
 <p>While working on projects, you may get to the point where you want to create your own package in R. This package could be as simple as containing a temperature converter between Fahrenheit to Celsius or could contain a web-scraper which helps you get data you would like to analyze. This lesson will help go over the basics of creating a package in R.</p>
 <p>Before we begin, be sure to have the <code>devtools</code> and <code>roxygen2</code> packages installed as they are very useful when creating packages.</p>
 <p>While there are a few different ways to create package in R, the method we will look at in this lesson is great for getting started.</p>
 </div>
-<div id="steps-for-making-a-package-in-r" class="section level2" number="102.2">
+<div id="steps-for-making-a-package-in-r" class="section level2" number="106.2">
 <h2>
-<span class="header-section-number">102.2</span> Steps for Making a Package in R<a class="anchor" aria-label="anchor" href="#steps-for-making-a-package-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.2</span> Steps for Making a Package in R<a class="anchor" aria-label="anchor" href="#steps-for-making-a-package-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>After you have installed <code>devtools</code> and <code>roxygen2</code>, create a new R project, then click new directory and then R package. Here you will name your R package and include any files to the creation of the package. Once you have selected any files, click “Create Package” to make the package.</p></li>
@@ -214,9 +203,9 @@
 <li><p>There are other ways to create packages which are more advanced than the steps I have detailed, more information about these steps will be included in the “Further Reading” Section.</p></li>
 </ol>
 </div>
-<div id="each-section-of-packages-in-depth" class="section level2" number="102.3">
+<div id="each-section-of-packages-in-depth" class="section level2" number="106.3">
 <h2>
-<span class="header-section-number">102.3</span> Each Section of Packages in depth<a class="anchor" aria-label="anchor" href="#each-section-of-packages-in-depth"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.3</span> Each Section of Packages in depth<a class="anchor" aria-label="anchor" href="#each-section-of-packages-in-depth"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>Description</strong>: The description file will look similar to the one below:
 <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2017/03/20070011/R7.png" alt="Image from Analytics Vidhya"></p>
@@ -231,9 +220,9 @@
 </div>
 <p>For <code>@title</code> you should write the title of the function, <code>@description</code> is where the description goes, <code>@param</code> is where your parameters go, <code>@return</code> is what your function returns and <code>@examples</code> are examples of how to use the function. Below that part is where you write out your entire function. This should be repeated for every function you plan to include in your package.</p>
 <p><strong>NAMESPACE:</strong> The NAMESPACE file is a more advanced file for making R packages. From the R Packages book from Hadley Wickham, it says that this file is “not that important if you’re only developing packages for yourself. However, understanding namespaces is vital if you plan to submit your package to CRAN.” NAMESPACE files can also be created automatically from <code>roxygen</code>.</p>
-<div id="after-you-have-filled-out-each-file" class="section level3" number="102.3.1">
+<div id="after-you-have-filled-out-each-file" class="section level3" number="106.3.1">
 <h3>
-<span class="header-section-number">102.3.1</span> After you have filled out each file<a class="anchor" aria-label="anchor" href="#after-you-have-filled-out-each-file"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.3.1</span> After you have filled out each file<a class="anchor" aria-label="anchor" href="#after-you-have-filled-out-each-file"><i class="fas fa-link"></i></a>
 </h3>
 <p>Once you have filled out each file with your functions you are now ready to build your package. To do this, go to your menu bar and select “Build” and then “Configure Build tools….” Once you have selected this there will be a new window that opens which includes options for the package. Check off the box that says “Create documentation with Roxygen” then select all checkboxes and click “OK” if another window appears. You can also type in “-–as-cran” into “Check Package,” this will let R conduct tests to simulate your package being checked/tested in CRAN.</p>
 <ul>
@@ -241,27 +230,27 @@
 </ul>
 <p>Now you can go back to “Build” and then click “Clean and Rebuild.” This will restart your R session and load in your package to R. Now you can test out your functions to make sure they are working properly. If your functions work without error, you have successfully created your package!</p>
 </div>
-<div id="sharing-your-package" class="section level3" number="102.3.2">
+<div id="sharing-your-package" class="section level3" number="106.3.2">
 <h3>
-<span class="header-section-number">102.3.2</span> Sharing Your Package<a class="anchor" aria-label="anchor" href="#sharing-your-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.3.2</span> Sharing Your Package<a class="anchor" aria-label="anchor" href="#sharing-your-package"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you would like other people to use your function and want to share it, there are two main options. The first option (and easiest) would be to upload your package to GitHub. To do this, create a GitHub repository and upload your files to the repository. Once the files are on GitHub, it can be installed using <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github</a></code>.</p>
 <p>You can also select Git when creating your package. After you have created and edited your functions &amp; files, you can use the <code><a href="https://usethis.r-lib.org/reference/use_github.html">usethis::use_github</a></code> to create a repository for your package. If you haven’t done this before, the function will give you steps in creating a key to connect to your GitHub and will also tell you how to store it. Once you have done this, you can re-run the function and it should upload your files to GitHub.</p>
 <p>As you get more advanced with creating packages in R, you can send it to CRAN to try to get it verified there. Having your package verified by CRAN means that the package can be installed using <code>install.packages</code>. To get the package CRAN verified, you would need to submit your source package to <a href="https://cran.r-project.org/submit.html" class="uri">https://cran.r-project.org/submit.html</a>. To create a source package, go to “Build” then “Build Source Package.” R will then create a “.tar.gz” file which can be uploaded to the CRAN website.</p>
 </div>
 </div>
-<div id="live-coding" class="section level2" number="102.4">
+<div id="live-coding" class="section level2" number="106.4">
 <h2>
-<span class="header-section-number">102.4</span> Live Coding<a class="anchor" aria-label="anchor" href="#live-coding"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.4</span> Live Coding<a class="anchor" aria-label="anchor" href="#live-coding"><i class="fas fa-link"></i></a>
 </h2>
 <p>Video displaying live coding of an R package:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wLGRLCXIAYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <p>To get your access token from GitHub use <code><a href="https://usethis.r-lib.org/reference/usethis-defunct.html">usethis::browse_github_token</a></code>, it will open up a new page and you can access a token from GitHub there. It will also tell you how to store your token after running the function. (This is also covered in the GitHub lessons.)</p>
 </div>
-<div id="exercises-141" class="section level2" number="102.5">
+<div id="exercises-117" class="section level2" number="106.5">
 <h2>
-<span class="header-section-number">102.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-141"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-117"><i class="fas fa-link"></i></a>
 </h2>
 <!-- ```{r making-packages-q1, echo=F} -->
 <!-- question("Which packages are very important to the creation of R packages? (Select all that apply)", -->
@@ -335,9 +324,9 @@
 <!--          allow_retry = T) -->
 <!-- ``` -->
 </div>
-<div id="next-steps-61" class="section level2" number="102.6">
+<div id="next-steps-61" class="section level2" number="106.6">
 <h2>
-<span class="header-section-number">102.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-61"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-61"><i class="fas fa-link"></i></a>
 </h2>
 <p>Some next steps for making packages include:</p>
 <ul>
@@ -347,95 +336,109 @@
 </li>
 </ul>
 </div>
-<div id="exercises-142" class="section level2" number="102.7">
+<div id="questions-15" class="section level2" number="106.7">
 <h2>
-<span class="header-section-number">102.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-142"><i class="fas fa-link"></i></a>
+<span class="header-section-number">106.7</span> Questions<a class="anchor" aria-label="anchor" href="#questions-15"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-99" class="section level3" number="102.7.1">
-<h3>
-<span class="header-section-number">102.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-99"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-97" class="section level3" number="102.7.2">
-<h3>
-<span class="header-section-number">102.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-97"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-95" class="section level3" number="102.7.3">
-<h3>
-<span class="header-section-number">102.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-95"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-87" class="section level3" number="102.7.4">
-<h3>
-<span class="header-section-number">102.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-87"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-86" class="section level3" number="102.7.5">
-<h3>
-<span class="header-section-number">102.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-86"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-86" class="section level3" number="102.7.6">
-<h3>
-<span class="header-section-number">102.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-86"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-85" class="section level3" number="102.7.7">
-<h3>
-<span class="header-section-number">102.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-85"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-85" class="section level3" number="102.7.8">
-<h3>
-<span class="header-section-number">102.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-85"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-85" class="section level3" number="102.7.9">
-<h3>
-<span class="header-section-number">102.7.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-85"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-85" class="section level3" number="102.7.10">
-<h3>
-<span class="header-section-number">102.7.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-85"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<ol style="list-style-type: decimal">
+<li>True or False, you need a GitHub account to create an R package?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>True or False, you can include examples of how your function works in the function files?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Which folder does R code go into?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>R</li>
+<li>man</li>
+<li>description</li>
+<li>None of the above</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>True or False, there is a limit to the amount of functions you can include in an R package?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>True or False, the only way to share your package is through CRAN?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>Which package creates documentation based off of your functions?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>tidyverse</code></li>
+<li><code>roxygen2</code></li>
+<li><code>devtools</code></li>
+<li><code>ggplot2</code></li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>Which line of code will open up GitHub to access your token?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://usethis.r-lib.org/reference/usethis-defunct.html">usethis::browse_github_token</a></code></li>
+<li><code>devtools::browse_github_token</code></li>
+<li><code>usethis::get_github_token</code></li>
+<li><code>devtools::get_github_token</code></li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>What is the use of the “Imports” line in the description file?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>It tells R what you want to name your package</li>
+<li>It tells R that you are using functions from other packages</li>
+<li>It tells R who the other creators of the package are</li>
+<li>None of the above</li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>True or False, the NAMESPACE file is important for submitting packages to CRAN?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>True or False, the NAMESPACE file is created by the <code>roxygen2</code> package?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></div>
-<div class="next"><a href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></div>
+<div class="prev"><a href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></div>
+<div class="next"><a href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#writing-r-packages"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="nav-link" href="#introduction-94"><span class="header-section-number">102.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#steps-for-making-a-package-in-r"><span class="header-section-number">102.2</span> Steps for Making a Package in R</a></li>
+<li><a class="nav-link" href="#writing-r-packages"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="nav-link" href="#introduction-93"><span class="header-section-number">106.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#steps-for-making-a-package-in-r"><span class="header-section-number">106.2</span> Steps for Making a Package in R</a></li>
 <li>
-<a class="nav-link" href="#each-section-of-packages-in-depth"><span class="header-section-number">102.3</span> Each Section of Packages in depth</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#after-you-have-filled-out-each-file"><span class="header-section-number">102.3.1</span> After you have filled out each file</a></li>
-<li><a class="nav-link" href="#sharing-your-package"><span class="header-section-number">102.3.2</span> Sharing Your Package</a></li>
+<a class="nav-link" href="#each-section-of-packages-in-depth"><span class="header-section-number">106.3</span> Each Section of Packages in depth</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#after-you-have-filled-out-each-file"><span class="header-section-number">106.3.1</span> After you have filled out each file</a></li>
+<li><a class="nav-link" href="#sharing-your-package"><span class="header-section-number">106.3.2</span> Sharing Your Package</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#live-coding"><span class="header-section-number">102.4</span> Live Coding</a></li>
-<li><a class="nav-link" href="#exercises-141"><span class="header-section-number">102.5</span> Exercises</a></li>
-<li><a class="nav-link" href="#next-steps-61"><span class="header-section-number">102.6</span> Next Steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-142"><span class="header-section-number">102.7</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-99"><span class="header-section-number">102.7.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-97"><span class="header-section-number">102.7.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-95"><span class="header-section-number">102.7.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-87"><span class="header-section-number">102.7.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-86"><span class="header-section-number">102.7.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-86"><span class="header-section-number">102.7.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-85"><span class="header-section-number">102.7.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-85"><span class="header-section-number">102.7.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-85"><span class="header-section-number">102.7.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-85"><span class="header-section-number">102.7.10</span> Question 10</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#live-coding"><span class="header-section-number">106.4</span> Live Coding</a></li>
+<li><a class="nav-link" href="#exercises-117"><span class="header-section-number">106.5</span> Exercises</a></li>
+<li><a class="nav-link" href="#next-steps-61"><span class="header-section-number">106.6</span> Next Steps</a></li>
+<li><a class="nav-link" href="#questions-15"><span class="header-section-number">106.7</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -453,7 +456,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

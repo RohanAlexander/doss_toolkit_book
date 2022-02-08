@@ -1,7 +1,7 @@
 --- 
 title: "DoSS Toolkit"
 author: "Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu"
-date: "2021-10-07"
+date: "2022-02-08"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -200,19 +200,25 @@ There are eleven parts to this book:
 
 ## Contributors
 
+- Ananya Jha is an undergraduate student majoring in Computer Science and Statistics and minoring in Mathematics at the University of Toronto. She loves everything about data, photography, and advocating for the representation of women in Tech.
 - Annie Collins is an undergraduate student in the Department of Mathematics specializing in applied mathematics and statistics with a minor in history and philosophy of science. In her free time, she focuses her efforts on student governance, promoting women's representation in STEM, and working with data in the non-profit and charitable sector.
 - Haoluan Chen is an undergraduate student in the Department of Statistical Science specializing in applied statistics. He is interested in applying data science techniques, especially in NLP, to gain insight from the data.
 - Isaac Ehrlich is an undergraduate student in Statistics and Cognitive Science at the University of Toronto. He enjoys using R for everything from analysing trends in his recent movie-viewing history, to his past research building models on human categorization.
+- José Casas is an undergraduate student at the University of Toronto majoring in Statistics and minoring in Computer Science and Math. Loves programming in R; usually spends more time tweaking the tiniest details of a ggplot graph than doing actual analysis.
 - Leuven Wang is an undergraduate student at the University of Toronto majoring in statistics and minoring in political science and philosophy. He loves to combine quantitative and qualitative analyses to holistically understand social issues. When he's not working, he's probably thinking about politics, Star Wars, or Star Wars politics.
 - Mariam Walaa is an undergraduate student in the Department of Computer and Mathematical Sciences at University of Toronto Scarborough, majoring in Mathematics and minoring in GIS and statistics. Mariam enjoys learning about how to work with data such as spatial and text data to extract insights.
 - Marija Pejcinovska is a graduate student in the Department of Statistical Sciences. Her research is motivated by modelling challenges that arise with "complicated" data (sparse/highly biased/poor quality data), usually in the context of social or health inequalities.
 - Matthew Wankiewicz is an undergraduate student at the University of Toronto, majoring in Statistics and minoring in Mathematics and the History and Philosophy of Science.
 - Michael Chong is a graduate student in the Department of Statistical Sciences. His research aims to build statistical models for demographic estimation in contexts where high quality data are unavailable. There is almost always an active R session on his computer!
 - Paul Hodgetts is a Master of Information candidate concentrating in Human-Centred Data Science in the Faculty of Information, University of Toronto. He sincerely believes that Calvin and Hobbes is the greatest comic ever produced.
+- Ruijia Yang is a graduate student in the Faculty of Information, concentrating on User Experience Design. Coming from a computer science and statistics background, she found herself passionate about the human value and holistic user experience of a tech product when developing applications.
 - Rohan Alexander is an assistant professor in the Faculty of Information and the Department of Statistical Sciences. Some people convert to catholicism upon marriage, Rohan converted to R. His greatest professional achievement is probably getting a pull request accepted into R for Data Science (it was just fixing a minor typo but still).
 - Samantha-Jo Caetano is an assistant professor (teaching stream) in the Department of Statistical Sciences. She loves statistics, socializing, her family, and her dogs, not necessarily in that order.
 - Shirley Deng is an undergraduate student specializing in Statistics and majoring in Mathematics. Meticulous and soft-hearted, she often finds herself engrossed in new pastimes by the second at the influence of her peers. One of which that has remained a longtime constant---spending an excessive amount of time helping people debug their R code.
+- Simone Collier is an undergraduate student studying Mathematics and Environmental Science. She is interested in the use of mathematics to gain insight and address problems relating to the climate crisis and public health.
+- Uzair Mirza is an undergraduate student at University of Toronto Scarborough, currently he is specializing in Statistics. He is greatly interested in Machine Learning and aims to promote and contribute to the advancement of Machine Learning in the Middle East.
 - Yena Joo is an undergraduate student majoring in Economics and double minoring in Statistics and Computer Science.
+- Yiqu Ding is an undergraduate student at the University of Toronto majoring in statistics and specializing in mathematical application in finance and economics. Shanghai is her favourite city and Toronto the second.  Wherever she ends up, hopefully there is something data related.
 
 
 ## Acknowledgements

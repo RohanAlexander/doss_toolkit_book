@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 14 Making reproducible examples | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Marija Pejcinovska and last updated on 7 October 2021.  14.1 Introduction In this lesson you will: learn about using reproducible examples to solve R issues learn how to create...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="description" content="Written by Marija Pejcinovska and last updated on 5 Feb 2022.  14.1 Introduction In this lesson you will: learn about using reproducible examples to solve R issues learn how to create reproducible...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 14 Making reproducible examples | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Marija Pejcinovska and last updated on 7 October 2021.  14.1 Introduction In this lesson you will: learn about using reproducible examples to solve R issues learn how to create...">
+<meta property="og:description" content="Written by Marija Pejcinovska and last updated on 5 Feb 2022.  14.1 Introduction In this lesson you will: learn about using reproducible examples to solve R issues learn how to create reproducible...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 14 Making reproducible examples | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Marija Pejcinovska and last updated on 7 October 2021.  14.1 Introduction In this lesson you will: learn about using reproducible examples to solve R issues learn how to create...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:description" content="Written by Marija Pejcinovska and last updated on 5 Feb 2022.  14.1 Introduction In this lesson you will: learn about using reproducible examples to solve R issues learn how to create reproducible...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -183,7 +172,7 @@
 <h1>
 <span class="header-section-number">14</span> Making reproducible examples<a class="anchor" aria-label="anchor" href="#making-reproducible-examples"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Written by Marija Pejcinovska and last updated on 7 October 2021.</em></p>
+<p><em>Written by Marija Pejcinovska and last updated on 5 Feb 2022.</em></p>
 <div id="introduction-12" class="section level2" number="14.1">
 <h2>
 <span class="header-section-number">14.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-12"><i class="fas fa-link"></i></a>
@@ -198,22 +187,18 @@
 <ul>
 <li>Installing packages, troubleshooting, and asking for help</li>
 </ul>
-<p>Highlights:</p>
-<ul>
-<li>Making good reproducible examples is essential for getting online help with your R issues (be it on Stack Overflow, R Studio Communities, Slack,..).</li>
-<li>Good reproducible examples are minimal and self-contained.</li>
-<li>R packages like <code>reprex</code> are there to help you ask for help the right way!</li>
-</ul>
 </div>
 <div id="seeking-help-the-helpful-way" class="section level2" number="14.2">
 <h2>
 <span class="header-section-number">14.2</span> Seeking help the helpful way<a class="anchor" aria-label="anchor" href="#seeking-help-the-helpful-way"><i class="fas fa-link"></i></a>
 </h2>
-<p>At this point in the toolkit you have probably picked up a troubleshooting trick or two.</p>
-<p>In fact, you may have already googled how to code up something in R or have come across useful discussions on Stack Exchange or Stack Overflow.</p>
-<p>Most of the time, you are likely to face issues many R users have grappled with before. In a way, this is nice. It means it should be much easier to find a solution to your problem online, usually with only a few google searches. Other times though, you might come across a more challenging problem and the solution might not be as readily available online.
-In such a situation, assuming you’ve exhausted all other debugging and troubleshooting options, it’s possible that you would need to ask for some help online! Fortunately, as you’ve been making your way through this toolkit, you have probably already learned where to turn for help when needed.</p>
-<p>At this stage, knowing how to create a <strong>repr</strong>oducible <strong>ex</strong>ample (or <strong>reprex</strong> for short) would come in handy. The idea of a reprex is exactly what you might expect: it is a minimal illustrative example that will reproduce the issue you are facing, so that others could help you solve it more easily.</p>
+<p>At this point in the toolkit you have probably picked up a troubleshooting trick or two. 
+In fact, you may have already googled how to code up something in R or have come across useful discussions on Stack Exchange or Stack Overflow.
+</p>
+<p>Most of the time, you are likely to face issues many R users have grappled with before. In a way, this is nice. It means it should be much easier to find a solution to your problem online, usually with only a few google searches. Other times, however, you might come across a more challenging problem and the solution might not be as readily available online.
+In such a situation — assuming you’ve exhausted all other debugging and troubleshooting options — it’s possible that you would need to ask for some help online. Fortunately, as you’ve been making your way through this toolkit, you have probably already learned where to turn for help when needed.</p>
+<p>At this point, knowing how to create a <strong>repr</strong>oducible <strong>ex</strong>ample (or <strong>reprex</strong> for short) would come in handy. The idea of a reprex is exactly what you might expect: it is a minimal, illustrative example that will reproduce the issue you are facing, so that others could help you solve it more easily.
+</p>
 <p>Not all reprexes are created equal, however. In order for you to engage productively with the R community and get the help you need, you should help the reader understand your problem with as little effort on their part as possible. This means that a reprex needs to be minimal and self-contained, so that those helping you can simply copy and paste your R code, reproduce the error and understand your issue… and hopefully help you solve it, of course.</p>
 </div>
 <div id="elements-of-a-reprex" class="section level2" number="14.3">
@@ -223,26 +208,28 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <p>So, what does a reprex look like?</p>
 <p>All reproducible examples have these few elements in common:</p>
 <ul>
-<li>a <strong>minimal data set</strong> on which the code can be run and the error reproduced.</li>
-<li>a <strong>minimal, runnable</strong> piece of <strong>code</strong> that is <strong>well formatted</strong> and produces the same error when run on the supplied minimal data set.<br>
-</li>
-<li>call to any necessary <strong>R packages</strong> + any relevant pieces of <strong>information about your R environment</strong> when the issue was encountered.</li>
+<li><p>a <strong>minimal data set</strong> on which the code can be run and the error reproduced.</p></li>
+<li><p>a <strong>minimal, runnable</strong> piece of <strong>code</strong> that is <strong>well formatted</strong> and produces the same error when run on the supplied minimal data set.</p></li>
+<li><p>call to any necessary <strong>R packages</strong> + any relevant pieces of <strong>information about your R environment</strong> when the issue was encountered.</p></li>
 </ul>
 </div>
 <div id="creating-a-data-set-for-a-reprex" class="section level2" number="14.4">
 <h2>
 <span class="header-section-number">14.4</span> Creating a data set for a reprex<a class="anchor" aria-label="anchor" href="#creating-a-data-set-for-a-reprex"><i class="fas fa-link"></i></a>
 </h2>
-<p>You should always provide some data along with your reproducible example, so that you can easily illustrate your issue. It might not always be possible to share the actual data you’ve been working on. In fact, it is probably more practical to create a “toy” data set which will produce the same error or issue you’ve been dealing with.</p>
-<p>There are a few of ways of doing this.</p>
+<p>You should always provide some data along with your reproducible example, so that you can easily illustrate your issue.</p>
+<p>At times, it might not be possible, or advisable, to share the actual data you’ve been working on. In fact, it is probably more practical (and likely, much simpler) to create a “toy” data set which will produce the same error or issue you’ve been dealing with.</p>
+<p>Here are a few ways of doing this.</p>
 <ul>
-<li>You could <strong>create your own data</strong> by using functions such as those in the <code>tibble</code> package. As an example, consider the data frame below. Here we’ve used the <code>tibble()</code> function to create a very small data frame with 4 variables (x, y, z, and w) each with 4 observations (Note: <code>tibble()</code> in the tidyverse is similar to the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function in base R). An alternative way of creating a data frame is through the <code>tribble()</code> function, where <strong>tribble</strong> is simply short for <strong>tr</strong>ansposed <strong>tibble</strong>, the syntax for which is visually easier but a little less common (call <code>?tribble</code> at the R prompt)</li>
+<li>You could <strong>create your own data</strong> by using functions such as those in the <code>tibble</code> package. As an example, consider the data frame below. Here we’ve used the <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> function to create a very small data frame with 4 variables (x, y, z, and w) each with 4 observations (Note: <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> in the tidyverse is similar to the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function in base R). An alternative way of creating a data frame is through the <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code> function, where <strong>tribble</strong> is simply short for <strong>tr</strong>ansposed <strong>tibble</strong>, the syntax for which is visually easier but a little less common (call <code><a href="https://tibble.tidyverse.org/reference/tribble.html">?tribble</a></code> at the R prompt to launch the help file)</li>
 </ul>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">first_toy_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span> <span class="op">(</span>
+<code class="sourceCode R">
+
+<span class="va">first_toy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span> <span class="op">(</span>
   x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,
   y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span>,
-  z <span class="op">=</span> <span class="va">x</span> <span class="op">+</span> <span class="va">x</span> <span class="op">^</span> <span class="fl">2</span>,
+  z <span class="op">=</span> <span class="va">x</span> <span class="op">+</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span>,
   w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span>, <span class="st">"yes"</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="va">first_toy_data</span>
@@ -254,51 +241,35 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <span class="co">#&gt; 3     3 c        12 yes  </span>
 <span class="co">#&gt; 4     4 d        20 yes</span></code></pre></div>
 <ul>
-<li><p>Alternatively, you could consider using some of the <strong>built-in R data sets</strong>. To see the available data sets, try typing <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> at the prompt in your R console. As you keep learning R you’ll notice many examples that feature, say, the <em>mtcars</em> or <em>iris</em> data sets. These data sets do get a little boring over time, but you shouldn’t really worry about the dullness of your data when making a reprex. In fact, feel free to bore your helpers with you choices. If you do end up using built in data, you might want to consider using only a subset of the data set (do this by making use of the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> or <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> functions.)</p></li>
+<li><p>Alternatively, you could consider using some of the <strong>built-in R data sets</strong>. To see the available data sets, try typing <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> at the prompt in your R console. As you keep learning R you’ll notice many examples that feature, say, the <em>mtcars</em> or <em>iris</em> data sets. These data sets do get a little boring over time, but you shouldn’t really worry about the dullness of your data when making a reprex. In fact, feel free to bore your helpers with you choices. If you do end up using built-in data, you might want to consider using only a subset of the data set. You can do this by making use of the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> or <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code> functions.</p></li>
 <li><p>Finally, whatever data you are sharing you might find the <code><a href="https://rdrr.io/r/base/dput.html">dput()</a></code> function helpful. The function will write a text representation of your data which others can then copy-and-paste into their own R scripts to get your data. <code>dput</code> essentially generates the R code necessary to recreate your data. The output from <code>dput</code> would look something like this:</p></li>
 </ul>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dput.html">dput</a></span><span class="op">(</span><span class="va">first_toy_data</span><span class="op">)</span>
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/r/base/dput.html">dput</a></span><span class="op">(</span><span class="va">first_toy_data</span><span class="op">)</span>
 <span class="co">#&gt; structure(list(x = 1:4, y = c("a", "b", "c", "d"), z = c(2, 6, </span>
-<span class="co">#&gt; 12, 20), w = c("yes", "no", "yes", "yes")), row.names = c(NA, </span>
-<span class="co">#&gt; -4L), class = c("tbl_df", "tbl", "data.frame"))</span></code></pre></div>
+<span class="co">#&gt; 12, 20), w = c("yes", "no", "yes", "yes")), class = c("tbl_df", </span>
+<span class="co">#&gt; "tbl", "data.frame"), row.names = c(NA, -4L))</span></code></pre></div>
 <p>Running the output from <code><a href="https://rdrr.io/r/base/dput.html">dput()</a></code> will create exactly the data object <code>first_toy_data</code> we created above. This is, indeed, the behavior we want. Run the code below to see for yourself.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-    x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,
-    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span>,
-    z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">6</span>,
-          <span class="fl">12</span>, <span class="fl">20</span><span class="op">)</span>,
-    w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span>, <span class="st">"yes"</span><span class="op">)</span>
-  <span class="op">)</span>,
-  row.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="op">-</span><span class="fl">4L</span><span class="op">)</span>,
-  class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tbl_df"</span>, <span class="st">"tbl"</span>, <span class="st">"data.frame"</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="co">#&gt; # A tibble: 4 × 4</span>
-<span class="co">#&gt;       x y         z w    </span>
-<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1     1 a         2 yes  </span>
-<span class="co">#&gt; 2     2 b         6 no   </span>
-<span class="co">#&gt; 3     3 c        12 yes  </span>
-<span class="co">#&gt; 4     4 d        20 yes</span></code></pre></div>
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span>, z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">6</span>, 
+<span class="fl">12</span>, <span class="fl">20</span><span class="op">)</span>, w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span>, <span class="st">"yes"</span><span class="op">)</span><span class="op">)</span>, row.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, 
+<span class="op">-</span><span class="fl">4L</span><span class="op">)</span>, class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tbl_df"</span>, <span class="st">"tbl"</span>, <span class="st">"data.frame"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="adding-code" class="section level2" number="14.5">
 <h2>
 <span class="header-section-number">14.5</span> Adding code<a class="anchor" aria-label="anchor" href="#adding-code"><i class="fas fa-link"></i></a>
 </h2>
-<p>The code in your reprex should be easy to understand and stripped down to the most bare version that would allow those helping you to replicate your errors.</p>
-<p>Here are a few tips you might want to keep in mind as you are readying code for a reprex:</p>
+<p>The code in your reproducible example should be easy to understand and stripped down to the most bare version that would allow those helping you to replicate your errors.</p>
+<p>Here are a few things you might want to keep in mind as you are readying code for a reprex:</p>
 <ul>
-<li>Make sure you only include necessary code!! This simply means including only enough code to reproduce your problem; and not everything that is in your R script.</li>
-<li>Try to format the code properly. This will make it easier for people to read and understand it. If you are unsure of the recommended formatting styles check out the following tidyverse style guide by Hadley Whickham (<a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a>).</li>
-<li>Comment your code if necessary (recall that we use <code>#</code> to begin a comment in an R code chunk).<br>
-</li>
-<li>Don’t copy and paste code from the console!! Console output contains characters that would make it difficult for folks to re-run your code without doing additional work. This might be an even bigger problem if you post your copied console output to an online forum. The special characters in the console output might be interpreted as special formatting symbols which can render your post unreadable!<br>
-</li>
-<li>If the code that created your data uses any random generation of values (e.g. <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> etc.) you need to use the <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> function. This will fix the starting number used in generating a sequence of random values, making your data easy to replicate exactly.<br>
-</li>
-<li>Always test your code in a new, empty R session! This means that before you upload any code and ask for help on Stack Overflow or Slack or RStudio community forums you should make sure that the code runs outside of the R environment where it was created.</li>
+<li><p>Make sure you only include necessary code!! This simply means including only enough code to reproduce your problem; and not everything that is in your R script.</p></li>
+<li><p>Try to format the code properly. This will make it easier for people to read and understand it. If you are unsure of the recommended formatting styles check out the tutorial on coding style in this toolkit (or consult Hadley Wickham’s <a href="https://style.tidyverse.org/">tidyverse style guide</a>).</p></li>
+<li><p>Comment your code if necessary (recall that we use <code>#</code> to begin a comment in an R code chunk).<br></p></li>
+<li><p>Don’t copy and paste code from the console!! Console output contains characters that would make it difficult for folks to re-run your code without doing additional work. This might be an even bigger problem if you post your copied console output to an online forum. The special characters in the console output might be interpreted as special formatting symbols which can render your post unreadable!<br></p></li>
+<li><p>If the code that created your data uses any random generation of values (e.g. <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> etc.) you need to use the <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> function. This will fix the starting number used in generating a sequence of random values, making your data easy to replicate exactly.</p></li>
+<li><p>Always test your code in a new, empty R session! This means that before you upload any code and ask for help on Stack Overflow or Slack or RStudio community forums you should make sure that the code runs outside of the R environment where it was created.</p></li>
 </ul>
 <p>A useful tool for making reproducible example is the <code>reprex</code> package. We’ll see reprex in action shortly.</p>
 </div>
@@ -306,20 +277,21 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <h2>
 <span class="header-section-number">14.6</span> Packages and any other relevant information<a class="anchor" aria-label="anchor" href="#packages-and-any-other-relevant-information"><i class="fas fa-link"></i></a>
 </h2>
-<p>Along with the data and code, when asking for help you should always remember to add the relevant packages at the top of your script. If you use certain functions or package-specific data sets you need to specify the required package (by adding <code><a href="https://rdrr.io/r/base/library.html">library(package_name)</a></code> at the top of your code snippet), otherwise your code will not be exactly reproducible.</p>
-<p>In certain situations, it might be useful to add a bit more information. If you are reporting on an unusual error or believe to have come across a bug in some function or feature of a package, you might need to report the version of R you are using and possibly the operating system. In most cases this would be sufficient, but sometimes you may need to also share the output of <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>. Note that while packages are absolutely essential, sharing your version of R or a specific package might not be always necessary.</p>
+<p>Along with the data and code, when asking for help you should always remember to add the relevant packages at the top of your script. If you use certain functions or package-specific data sets you need to specify the required package (by adding <code><a href="https://rdrr.io/r/base/library.html">library(your_package_name_here)</a></code> at the top of your code snippet), otherwise your code will not be exactly reproducible.</p>
+<p>In certain situations, it might be useful to add a bit more information.
+If you are reporting on an unusual error or believe to have come across a bug in some function or feature of a package, you might need to report the version of R you are using and possibly the operating system. In most cases, sharing the version of R or operating system would be sufficient, but sometimes you may need to also share the output of <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>. Note that while packages are absolutely essential, sharing your version of R or a specific package might not be always necessary.</p>
 </div>
 <div id="a-closer-look-at-the-reprex-package" class="section level2" number="14.7">
 <h2>
 <span class="header-section-number">14.7</span> A closer look at the reprex package<a class="anchor" aria-label="anchor" href="#a-closer-look-at-the-reprex-package"><i class="fas fa-link"></i></a>
 </h2>
-<p>Making reproducible examples is not always easy. Fortunately, there is an R package which makes some of that work a little bit easier.</p>
+<p>Making reproducible examples is not always easy. Fortunately, there is an R package which makes some of that work a little bit easier!</p>
 <p>Below is a quick overview of how you can create a reproducible example with <code>reprex</code>.</p>
 <ul>
 <li>Start by installing the <code>reprex</code> package</li>
 </ul>
 <ol style="list-style-type: lower-roman">
-<li>We can do this by installing from CRAN:</li>
+<li>We can do this by installing it from CRAN:</li>
 </ol>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"reprex"</span><span class="op">)</span></code></pre></div>
@@ -327,31 +299,28 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <li>or, by fetching the development version from GitHub</li>
 </ol>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"tidyverse/reprex"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"tidyverse/reprex"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>In an R script write your code, including the data and all necessary calls to packages. For instance, suppose the code in your script is just as the one below.</li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="va">mpg</span> <span class="op">%&gt;%</span>
-  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">displ</span>, y<span class="op">=</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>Highlight the code (including the library statement) and copy it to your clipboard<br>
-</li>
-<li>In your console type <code>reprex()</code> and press Enter (you’ll need to wait a second or two for R to render your reproducible example).<br>
-</li>
-<li>Once the reprex has been rendered, it is automatically stored on your clipboard and you could simply paste it online and share it with others.<br>
-</li>
-<li>To see what R actually generates once reprex() has been called in the console we’ll paste the content of the clipboard below.</li>
+<li><p>Highlight the code (including the library statement) and copy it to your clipboard</p></li>
+<li><p>In your console type <code>reprex()</code> and press Enter (you’ll need to wait a second or two for R to render your reproducible example; remember also that you need to have the <code>reprex</code> package loaded before you attempt this!).<br></p></li>
+<li><p>Once the reprex has been rendered, it is automatically stored on your clipboard and you could simply paste it online and share it with others.<br></p></li>
+<li><p>To see what R actually generates once reprex() has been called in the console we’ll paste the content of the clipboard below.</p></li>
 </ul>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="va">mpg</span> <span class="op">%&gt;%</span> 
-  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">displ</span>, y<span class="op">=</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color<span class="op">=</span><span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span>
+<span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">displ</span>, y<span class="op">=</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; Error: `mapping` must be created by `aes()`</span>
 <span class="co">#&gt; Did you use %&gt;% instead of +?</span></code></pre></div>
 <p><sup>Created on 2021-01-18 by the <a href="https://reprex.tidyverse.org">reprex package</a> (v0.3.0)</sup></p>
@@ -360,32 +329,35 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <h2>
 <span class="header-section-number">14.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-5"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-1" class="section level3" number="14.8.1">
-<h3>
-<span class="header-section-number">14.8.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1"><i class="fas fa-link"></i></a>
-</h3>
-<p>Suppose you are interested in seeking help from the online RStudio community for an error you get based on the code below.</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">tibble</span><span class="op">(</span>
-  group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
-    <span class="st">"trtmnt"</span>,
-    <span class="st">"control"</span>,
-    <span class="st">"control"</span>,
-    <span class="st">"control"</span>,
-    <span class="st">"trtmnt"</span>,
-    <span class="st">"control"</span>,
-    <span class="st">"trtmnt"</span>,
-    <span class="st">"trtmnt"</span>,
-    <span class="st">"trtmnt"</span>,
-    <span class="st">"control"</span>
-  <span class="op">)</span>,
-  msrmnt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">0.5</span><span class="op">)</span>,
-  <span class="co">## rnorm(10,5,1.5) generates 10 random normal variables centered at 5 with sd of 1.5</span>
-  <span class="co">## use ?rnorm to check out the function's arguments</span>
-  improvement <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span><span class="op">)</span>
-<span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>new_var1 <span class="op">=</span> <span class="va">msrmnt</span> <span class="op">+</span> <span class="va">improvement</span><span class="op">)</span></code></pre></div>
-<p><strong>PART A</strong></p>
+<!--
+### Exercise 1
+
+Suppose you are interested in seeking help from the online RStudio community for an error you get based on the code below.
+
+```r
+tibble(
+  group = c(
+    "trtmnt",
+    "control",
+    "control",
+    "control",
+    "trtmnt",
+    "control",
+    "trtmnt",
+    "trtmnt",
+    "trtmnt",
+    "control"
+  ),
+  msrmnt = rnorm(10, 5, 0.5),
+  ## rnorm(10,5,1.5) generates 10 random normal variables centered at 5 with sd of 1.5
+  ## use ?rnorm to check out the function's arguments
+  improvement = c("yes", "no", "no", "no", "no", "no", "yes", "no", "no", "yes")
+) %>%
+  mutate(new_var1 = msrmnt + improvement)
+```
+
+**PART A**  
+
 <!-- ```{r ex1reprexp1, echo=FALSE} -->
 <!--   question("As it is written, is the above snippet of code a viable reproducible example?", -->
 <!--            answer("Yes"),  -->
@@ -396,12 +368,20 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <!-- How might you fix it? Add any missing pieces and turn the code chunk below into a usable reprex. -->
 <!-- ```{r ex1reprexp2, exercise=TRUE, exercise.eval = FALSE} -->
 <!-- ``` -->
-<p><strong>PART C</strong></p>
-<p>The error you should be getting should involve the <code>mutate()</code> function. Specifically the error message should be:</p>
-<pre><code>#&gt; Error: Problem with `mutate()` input `new_var1`. 
-#&gt; x non-numeric argument to binary operator 
-#&gt; ℹ Input `new_var1` is `msrmnt + improvement`.</code></pre>
-<p>Use the <code>reprex()</code> function in the code chunk below to check whether you’ve correctly modified the code in Part B. You can do this by copying and pasting the correct code inside the curly brackets provided in the <code>reprex</code> function. See what happens.</p>
+<!--
+**PART C**  
+
+The error you should be getting should involve the `mutate()` function. Specifically the error message should be:
+
+
+```
+#> Error: Problem with `mutate()` input `new_var1`. 
+#> x non-numeric argument to binary operator 
+#> ℹ Input `new_var1` is `msrmnt + improvement`.
+```
+
+Use the `reprex()` function in the code chunk below to check whether you've correctly modified the code in Part B. You can do this by copying and pasting the correct code inside the curly brackets provided in the `reprex` function. See what happens.
+
 <!-- ```{r ex1reprexp3, exercise=TRUE, exercise.lines=15} -->
 <!-- reprex::reprex({ -->
 <!--   set.seed(789) -->
@@ -427,13 +407,12 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <!-- ) -->
 <!-- ``` -->
 </div>
-</div>
 <div id="next-steps-7" class="section level2" number="14.9">
 <h2>
 <span class="header-section-number">14.9</span> Next steps<a class="anchor" aria-label="anchor" href="#next-steps-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this lesson you learned the basics of making a reproducible example. If you are interested in some additional resources, consider the following list of do’s and don’ts from the folks that made the <code>reprex</code> package: <a href="https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html" class="uri">https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html</a></p>
-<p>For even more information on <code>reprex</code>, check out Jenny Bryan webinar on creating reproducible examples with reprex: <a href="https://reprex.tidyverse.org/articles/articles/learn-reprex.html" class="uri">https://reprex.tidyverse.org/articles/articles/learn-reprex.html</a></p>
+<p>For even more information on <code>reprex</code>, check out Jenny Bryan’s webinar on creating reproducible examples with reprex: <a href="https://reprex.tidyverse.org/articles/articles/learn-reprex.html" class="uri">https://reprex.tidyverse.org/articles/articles/learn-reprex.html</a></p>
 </div>
 <div id="exercises-6" class="section level2" number="14.10">
 <h2>
@@ -443,52 +422,158 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <h3>
 <span class="header-section-number">14.10.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>The <code>reprex()</code> function helps you identify the errors in your code, so that you can avoid asking for help on Stack Overflow or Stack Exchange.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
 <div id="question-2-4" class="section level3" number="14.10.2">
 <h3>
 <span class="header-section-number">14.10.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Pick the most appropriate answer from the list below: A good reproducible example should be</p>
+<ol style="list-style-type: lower-alpha">
+<li>minimal.<br>
+</li>
+<li>self-contained.<br>
+</li>
+<li>able to reproduce the same error you have.</li>
+<li>All of the above.</li>
+</ol>
 </div>
 <div id="question-3-4" class="section level3" number="14.10.3">
 <h3>
 <span class="header-section-number">14.10.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Suppose you are interested in seeking help from the online RStudio community for an error you get based on the code below.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"trtmnt"</span>, <span class="st">"control"</span>, <span class="st">"control"</span>, <span class="st">"control"</span>, <span class="st">"trtmnt"</span><span class="op">)</span>,
+  msrmnt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="co"># rnorm(5,5,1.5) generates 5 random normal variables</span>
+                            <span class="co">#centered at 5 with sd of 0.5</span>
+                            <span class="co"># use ?rnorm to check out the function's arguments</span>
+  improvement <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"no"</span>, <span class="st">"no"</span><span class="op">)</span>
+<span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>new_var <span class="op">=</span> <span class="va">msrmnt</span> <span class="op">+</span> <span class="va">improvement</span><span class="op">)</span></code></pre></div>
+<p>This is a well designed reproducible example.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
 <div id="question-4-4" class="section level3" number="14.10.4">
 <h3>
 <span class="header-section-number">14.10.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Referring to Question 3 above, what is needed to make the example truly reproducible?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Changing the variable type of the variable <code>improvement</code>.<br>
+</li>
+<li>Adding a call to the package <code>reprex</code>.</li>
+<li>Adding a <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> command.</li>
+<li>Assigning the tibble to an R object.</li>
+</ol>
 </div>
 <div id="question-5-4" class="section level3" number="14.10.5">
 <h3>
 <span class="header-section-number">14.10.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>As a way of verifying the functionality of your reproducible example, it is sufficient to test it out within the R environment you’ve been working in.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
 <div id="question-6-4" class="section level3" number="14.10.6">
 <h3>
 <span class="header-section-number">14.10.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Consider the following code using the <code>starwars</code> built-in data set.</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">30</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">homeworld</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>eye_color_counts <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">eye_color</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Regardless of what the error in this code is, this is an example of a good reprex.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True<br>
+</li>
+<li>False</li>
+</ol>
 </div>
 <div id="question-7-4" class="section level3" number="14.10.7">
 <h3>
 <span class="header-section-number">14.10.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Referring to Question 6 above, which of the following would make this a good reproducible example.</p>
+<ol style="list-style-type: lower-alpha">
+<li>adding <code>set.seed(1234)</code>.</li>
+<li>adding <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>.<br>
+</li>
+<li>adding <code>dat &lt;- starwars %&gt;% ...</code>.<br>
+</li>
+<li>adding <code><a href="https://reprex.tidyverse.org">library(reprex)</a></code>.</li>
+</ol>
 </div>
 <div id="question-8-4" class="section level3" number="14.10.8">
 <h3>
 <span class="header-section-number">14.10.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Consider the following code chunk. Suppose the data file <code>my_reprex_data</code> is a short, stripped down version of you actual data and you plan on using it in your reproducible example. Suppose also you’ve made sure that <code>my_reprex_data</code> is actually a good version of a data to use in a reproducible example.</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"Documents/my_projects/stats_projects"</span><span class="op">)</span>
+
+<span class="va">my_reprex_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">type</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>new_rounds <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">tally</a></span><span class="op">(</span><span class="va">rounds</span><span class="op">)</span><span class="op">)</span> <span class="co"># error occurs after call to summarise</span>
+  </code></pre></div>
+<p>Is this a good example of a reproducible example?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Yes</li>
+<li>No</li>
+</ol>
 </div>
 <div id="question-9-4" class="section level3" number="14.10.9">
 <h3>
 <span class="header-section-number">14.10.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-4"><i class="fas fa-link"></i></a>
 </h3>
+<p>Referring to the code chunk in Question 8, why is this not a good example?</p>
+<ol style="list-style-type: lower-alpha">
+<li>The <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> call will only work on your computer.<br>
+</li>
+<li>The <code>rounds</code> variable does not exist, hence the error.<br>
+</li>
+<li>Calls to relevant packages are not listed.<br>
+</li>
+<li>
+<code>my_reprex_data</code> is not a reproducible data file.</li>
+<li>Only a. and b. are correct</li>
+<li>Only a. and c. are correct.</li>
+<li>All of a. through d. are correct.<br>
+</li>
+<li>Only a., b., and c. are correct.<br>
+</li>
+<li>Only a., c., and d. are correct.</li>
+</ol>
 </div>
 <div id="question-10-4" class="section level3" number="14.10.10">
 <h3>
 <span class="header-section-number">14.10.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-4"><i class="fas fa-link"></i></a>
 </h3>
-
+<p>Refer once more to the example code in Question 8. Which of the following steps would make it a good reprex?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Remove the <code>setwd(...)</code> command, define <code>my_reprex_data</code>, and add <code><a href="https://tidyr.tidyverse.org">library(tidyr)</a></code><br>
+</li>
+<li>Add <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>, remove <code>setwd(..)</code>, and generate new random data.</li>
+<li>Add <code><a href="https://rdrr.io/r/base/library.html">library(tidyvesre)</a></code>, use <code>dput(my_reprex_data)</code> to define your data, and remove <code>setwd(...)</code>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -506,9 +591,7 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <li><a class="nav-link" href="#adding-code"><span class="header-section-number">14.5</span> Adding code</a></li>
 <li><a class="nav-link" href="#packages-and-any-other-relevant-information"><span class="header-section-number">14.6</span> Packages and any other relevant information</a></li>
 <li><a class="nav-link" href="#a-closer-look-at-the-reprex-package"><span class="header-section-number">14.7</span> A closer look at the reprex package</a></li>
-<li>
-<a class="nav-link" href="#exercises-5"><span class="header-section-number">14.8</span> Exercises</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1"><span class="header-section-number">14.8.1</span> Exercise 1</a></li></ul>
-</li>
+<li><a class="nav-link" href="#exercises-5"><span class="header-section-number">14.8</span> Exercises</a></li>
 <li><a class="nav-link" href="#next-steps-7"><span class="header-section-number">14.9</span> Next steps</a></li>
 <li>
 <a class="nav-link" href="#exercises-6"><span class="header-section-number">14.10</span> Exercises</a><ul class="nav navbar-nav">
@@ -541,7 +624,7 @@ In such a situation, assuming you’ve exhausted all other debugging and trouble
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

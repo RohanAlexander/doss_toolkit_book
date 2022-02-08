@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 108 tidymodels | DoSS Toolkit</title>
+<title>Chapter 111 tidymodels | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by ADD NAME and last updated on ADD DATE.  108.1 Introduction   108.2 Exercises  108.2.1 Question 1   108.2.2 Question 2   108.2.3 Question 3   108.2.4 Question 4   108.2.5 Question 5  ...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 108 tidymodels | DoSS Toolkit">
+<meta name="description" content="Written by Yena Joo and last updated on January 2022.  111.1 Introduction Tidyverse has become an essential package for analyzing data when using a consistent interface. tidymodels is a package...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 111 tidymodels | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by ADD NAME and last updated on ADD DATE.  108.1 Introduction   108.2 Exercises  108.2.1 Question 1   108.2.2 Question 2   108.2.3 Question 3   108.2.4 Question 4   108.2.5 Question 5  ...">
+<meta property="og:description" content="Written by Yena Joo and last updated on January 2022.  111.1 Introduction Tidyverse has become an essential package for analyzing data when using a consistent interface. tidymodels is a package...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 108 tidymodels | DoSS Toolkit">
-<meta name="twitter:description" content="Written by ADD NAME and last updated on ADD DATE.  108.1 Introduction   108.2 Exercises  108.2.1 Question 1   108.2.2 Question 2   108.2.3 Question 3   108.2.4 Question 4   108.2.5 Question 5  ...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 111 tidymodels | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Yena Joo and last updated on January 2022.  111.1 Introduction Tidyverse has become an essential package for analyzing data when using a consistent interface. tidymodels is a package...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="active" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="active" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,95 +168,338 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tidymodels" class="section level1" number="108">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tidymodels" class="section level1" number="111">
 <h1>
-<span class="header-section-number">108</span> tidymodels<a class="anchor" aria-label="anchor" href="#tidymodels"><i class="fas fa-link"></i></a>
+<span class="header-section-number">111</span> tidymodels<a class="anchor" aria-label="anchor" href="#tidymodels"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Written by ADD NAME and last updated on ADD DATE.</em></p>
-<div id="introduction-99" class="section level2" number="108.1">
+<p><em>Written by Yena Joo and last updated on January 2022.</em></p>
+<div id="introduction-97" class="section level2" number="111.1">
 <h2>
-<span class="header-section-number">108.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-99"><i class="fas fa-link"></i></a>
+<span class="header-section-number">111.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-97"><i class="fas fa-link"></i></a>
 </h2>
+<p>Tidyverse has become an essential package for analyzing data when using a consistent interface.
+<code>tidymodels</code> is a package created to provide a consistent interface when creating a data model that inherits the principles of <code>tidyverse</code>.</p>
+<p>After all the chapters learning the tidyverse framework and if you feel like you are familiar with the basics, we can start building various statistical models to incorporate to your analyses.</p>
+<p>You’ll learn key concepts such as defining model objects and creating modeling workflows.</p>
+<p>In this lesson, you will learn about:<br>
+- create robust models<br>
+- perform statistical analysis<br>
+- compare models<br>
+- custom modeling<br>
+- create statistical models</p>
+<p>Install Tidymodels with:</p>
+<pre><code>install.packages("tidymodels")</code></pre>
+<p>Note that the package loads some core <code>tidyverse</code> packages, including <code>dplyr</code>, <code>tidyr</code>, and <code>ggplot2</code>.</p>
+<div class="sourceCode" id="cb781"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span>
+<span class="co">#&gt; Registered S3 method overwritten by 'tune':</span>
+<span class="co">#&gt;   method                   from   </span>
+<span class="co">#&gt;   required_pkgs.model_spec parsnip</span>
+<span class="co">#&gt; ── Attaching packages ────────────────── tidymodels 0.1.4 ──</span>
+<span class="co">#&gt; ✓ broom        0.7.10     ✓ recipes      0.1.17</span>
+<span class="co">#&gt; ✓ dials        0.0.10     ✓ rsample      0.1.1 </span>
+<span class="co">#&gt; ✓ dplyr        1.0.7      ✓ tibble       3.1.6 </span>
+<span class="co">#&gt; ✓ ggplot2      3.3.5      ✓ tidyr        1.2.0 </span>
+<span class="co">#&gt; ✓ infer        1.0.0      ✓ tune         0.1.6 </span>
+<span class="co">#&gt; ✓ modeldata    0.1.1      ✓ workflows    0.2.4 </span>
+<span class="co">#&gt; ✓ parsnip      0.1.7      ✓ workflowsets 0.1.0 </span>
+<span class="co">#&gt; ✓ purrr        0.3.4      ✓ yardstick    0.0.9</span>
+<span class="co">#&gt; ── Conflicts ───────────────────── tidymodels_conflicts() ──</span>
+<span class="co">#&gt; x purrr::discard() masks scales::discard()</span>
+<span class="co">#&gt; x dplyr::filter()  masks stats::filter()</span>
+<span class="co">#&gt; x dplyr::lag()     masks stats::lag()</span>
+<span class="co">#&gt; x recipes::step()  masks stats::step()</span>
+<span class="co">#&gt; • Use suppressPackageStartupMessages() to eliminate package startup messages</span></code></pre></div>
+<p>You can see the list of the packages included in the tidymodels package above.</p>
+<p>In this lesson, we will focus on the core packages in <code>tidymodels</code>, including:<br>
+- <code>rsample</code><br>
+- <code>recipes</code><br>
+- <code>parsnip</code><br>
+- <code>yardstick</code></p>
+<div id="prerequisite-skills-include-1" class="section level3" number="111.1.1">
+<h3>
+<span class="header-section-number">111.1.1</span> Prerequisite skills include<a class="anchor" aria-label="anchor" href="#prerequisite-skills-include-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<code>tidyverse</code><br>
+</li>
+<li>Basic modeling<br>
+</li>
+<li>Machine Learning knowledge</li>
+</ul>
 </div>
-<div id="exercises-148" class="section level2" number="108.2">
+<div id="data-preparation-data-resampling-rsample" class="section level3" number="111.1.2">
+<h3>
+<span class="header-section-number">111.1.2</span> Data preparation (Data resampling): <code>rsample</code><a class="anchor" aria-label="anchor" href="#data-preparation-data-resampling-rsample"><i class="fas fa-link"></i></a>
+</h3>
+<p>Every statistical analysis and modeling start with data.
+<code>rsample</code> is a General Resampling Infrastructure for R. The package comes in handy when you want to separate a data set into training dataset and testing dataset.</p>
+<div id="resampling-methods" class="section level4" number="111.1.2.1">
+<h4>
+<span class="header-section-number">111.1.2.1</span> Resampling Methods<a class="anchor" aria-label="anchor" href="#resampling-methods"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Simple Training</strong>
+“The initial_split() function is specially built to separate the data set into a training and testing set”<br>
+By using the <code>prop</code> argument, you can set the proportion of the data that is for testing and training.</p>
+<div class="sourceCode" id="cb782"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars_split</span> <span class="op">&lt;-</span> <span class="fu">initial_split</span><span class="op">(</span><span class="va">mtcars</span>, prop <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span>
+<span class="va">mtcars_split</span>
+<span class="co">#&gt; &lt;Analysis/Assess/Total&gt;</span>
+<span class="co">#&gt; &lt;22/10/32&gt;</span>
+<span class="va">training_df</span> <span class="op">&lt;-</span> <span class="fu">training</span><span class="op">(</span><span class="va">mtcars_split</span><span class="op">)</span>
+<span class="va">testing_df</span> <span class="op">&lt;-</span> <span class="fu">testing</span><span class="op">(</span><span class="va">mtcars_split</span><span class="op">)</span></code></pre></div>
+<p>The function executes the row count for analysis, assess, and total.<br>
+You can use the function <code>training()</code> to access the training data, and <code>testing()</code> to access the testing data.</p>
+<div class="sourceCode" id="cb783"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars_split</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="fu">training</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 22</span>
+<span class="co">#&gt; Columns: 11</span>
+<span class="co">#&gt; $ mpg  &lt;dbl&gt; 15.5, 18.7, 19.2, 21.0, 10.4, 30.4, 18.1, 21.…</span>
+<span class="co">#&gt; $ cyl  &lt;dbl&gt; 8, 8, 8, 6, 8, 4, 6, 6, 4, 8, 4, 4, 6, 4, 8, …</span>
+<span class="co">#&gt; $ disp &lt;dbl&gt; 318.0, 360.0, 400.0, 160.0, 460.0, 95.1, 225.…</span>
+<span class="co">#&gt; $ hp   &lt;dbl&gt; 150, 175, 175, 110, 215, 113, 105, 110, 91, 1…</span>
+<span class="co">#&gt; $ drat &lt;dbl&gt; 2.76, 3.15, 3.08, 3.90, 3.00, 3.77, 2.76, 3.9…</span>
+<span class="co">#&gt; $ wt   &lt;dbl&gt; 3.520, 3.440, 3.845, 2.620, 5.424, 1.513, 3.4…</span>
+<span class="co">#&gt; $ qsec &lt;dbl&gt; 16.87, 17.02, 17.05, 16.46, 17.82, 16.90, 20.…</span>
+<span class="co">#&gt; $ vs   &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, …</span>
+<span class="co">#&gt; $ am   &lt;dbl&gt; 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, …</span>
+<span class="co">#&gt; $ gear &lt;dbl&gt; 3, 3, 3, 4, 3, 5, 3, 4, 5, 3, 4, 3, 5, 4, 3, …</span>
+<span class="co">#&gt; $ carb &lt;dbl&gt; 2, 2, 2, 4, 4, 2, 1, 4, 2, 2, 1, 1, 6, 2, 4, …</span></code></pre></div>
+<p><strong>Bootstrap Sampling</strong>
+Bootstrap sampling can be easily conducted by using the function <code>bootstraps()</code>. Bootstrap is sampling with replacement to estimate the variability in a statistic of interest to assess the accuracy of an estimate from resampling from a larger population.</p>
+<div class="sourceCode" id="cb784"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">bootstraps</span><span class="op">(</span>
+  <span class="va">mtcars</span>,
+  times <span class="op">=</span> <span class="fl">25</span>
+<span class="op">)</span>
+<span class="co">#&gt; # Bootstrap sampling </span>
+<span class="co">#&gt; # A tibble: 25 × 2</span>
+<span class="co">#&gt;    splits          id         </span>
+<span class="co">#&gt;    &lt;list&gt;          &lt;chr&gt;      </span>
+<span class="co">#&gt;  1 &lt;split [32/13]&gt; Bootstrap01</span>
+<span class="co">#&gt;  2 &lt;split [32/6]&gt;  Bootstrap02</span>
+<span class="co">#&gt;  3 &lt;split [32/12]&gt; Bootstrap03</span>
+<span class="co">#&gt;  4 &lt;split [32/14]&gt; Bootstrap04</span>
+<span class="co">#&gt;  5 &lt;split [32/11]&gt; Bootstrap05</span>
+<span class="co">#&gt;  6 &lt;split [32/10]&gt; Bootstrap06</span>
+<span class="co">#&gt;  7 &lt;split [32/13]&gt; Bootstrap07</span>
+<span class="co">#&gt;  8 &lt;split [32/13]&gt; Bootstrap08</span>
+<span class="co">#&gt;  9 &lt;split [32/12]&gt; Bootstrap09</span>
+<span class="co">#&gt; 10 &lt;split [32/13]&gt; Bootstrap10</span>
+<span class="co">#&gt; # … with 15 more rows</span></code></pre></div>
+<p>The package also provides different types of cross-validation functions as well as various resampling methods you can use. All the functions can be easily found <a href="https://rsample.tidymodels.org/reference/index.html">here</a></p>
+<p><a href="https://cloud.r-project.org/web/packages/rsample/rsample.pdf" class="uri">https://cloud.r-project.org/web/packages/rsample/rsample.pdf</a>
+<a href="https://rsample.tidymodels.org" class="uri">https://rsample.tidymodels.org</a></p>
+</div>
+</div>
+<div id="preprocessing-feature-engineering-recipes" class="section level3" number="111.1.3">
+<h3>
+<span class="header-section-number">111.1.3</span> Preprocessing (Feature engineering): <code>recipes</code><a class="anchor" aria-label="anchor" href="#preprocessing-feature-engineering-recipes"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>recipes</code> package contains a data preprocessor, which means it is designed to help you preprocess your data before training your model.<br>
+It is divided into a series of steps, such as:<br>
+- creating dummy variables<br>
+- model transformation<br>
+- extract key information from raw data, and etc.</p>
+<p>This is the order of how the package is organized:</p>
+<p>As the name of the package is ‘recipes,’ it creates and provides you a recipe to process the data sets, so you can ‘prep’ the set and ‘bake’ it according to the recipe.</p>
+<p>"
+In recipe(), the function defines the formula of the preprocessing of transformation. This process is similar to the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function.<br>
+In prep(), the function calculates statistics from the training data.<br>
+In bake(), the function applies the preprocessing to data sets.
+"</p>
+<p>Here is an example:</p>
+<p>Using the same mtcars training dataset, you can create a recipe and prep it.</p>
+<pre><code>mtcars_recipe &lt;- training_df %&gt;% 
+  recipe(Of your choice) %&gt;%
+  Transformation of your choice %&gt;% 
+  prep()</code></pre>
+<p>Then,using the function <code>bake()</code>, you can execute the preprocessing using the testing data, as we did for the training data as the following.</p>
+<pre><code>mtcars_recipe %&gt;% bake(testing(mtcars_split))</code></pre>
+<p>Once you applied the trained data recipe, you can use the function <code>juice()</code> to extract the finalized training set.</p>
+<pre><code>mtcars_training &lt;- juice(mtcars_recipe)</code></pre>
+<p>For more information on <code>recipes</code>, here is an <a href="https://recipes.tidymodels.org">additional resource on recipes package</a> you may find helpful.</p>
+</div>
+<div id="model-fitting-model-training-parsnip" class="section level3" number="111.1.4">
+<h3>
+<span class="header-section-number">111.1.4</span> Model Fitting, Model training: <code>parsnip</code><a class="anchor" aria-label="anchor" href="#model-fitting-model-training-parsnip"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>parsnip</code> package provides functions and methods that you can train models and solve problem related to model fitting.</p>
+<p>Parsnip allows you to:<br>
+- provides functions and methods for modeling (fitting the model, predictions, etc)
+- framework for model parameter tuning<br>
+- Evaluating model</p>
+<p>The package provides different model types such as random forests <code>rand_forest</code>, logistic regression <code>logistic_reg</code>, linear regression <code>linear_reg</code>, etc. You can also customize on how you’re going to use the model using the parameters of the functions.</p>
+<p>There are two big modes of the model, classification and regression. To briefly explain, classification predicts discrete class labels, whereas regression predicts a continuous quantity output.</p>
+<p>For example, if you want to use the function <code>rand_forest</code>,</p>
+<pre><code>mtcars_fit &lt;- rand_forest(trees = int, mode = "classification" or "regression") %&gt;% 
+set_engine("randomForest") %&gt;% 
+fit(variable of your choice ~., data = mtcars_training)</code></pre>
+<p>Note that you can use <code>rand_forest</code> and <code>decision_tree</code> if you choose “classification” mode.</p>
+<p>The <code>set_engine()</code> function allows you to use packages such as <code>ranger</code>, <code>randomForest</code>, etc.</p>
+<p>You can then apply the model to the testing dataset by using the the <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> function:</p>
+<pre><code>mtcars_prediction &lt;- predict(mtcars_fit, mtcars_testing)</code></pre>
+<p>and there are interfaces that allow you to fit a model:
+- fit() for formula interface
+- fit_xy() for non-formula interface</p>
+<p>For more information on <code>parsnip</code>, here is an <a href="https://parsnip.tidymodels.org">additional resource on parsnips package</a> you may find helpful.</p>
+<p><a href="https://www.tidymodels.org" class="uri">https://www.tidymodels.org</a>
+<a href="https://www.tidyverse.org/blog/2018/11/parsnip-0-0-1/" class="uri">https://www.tidyverse.org/blog/2018/11/parsnip-0-0-1/</a></p>
+</div>
+<div id="model-evaluation-yardstick" class="section level3" number="111.1.5">
+<h3>
+<span class="header-section-number">111.1.5</span> Model Evaluation: <code>yardstick</code><a class="anchor" aria-label="anchor" href="#model-evaluation-yardstick"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>yardstick</code> package allows you to estimate how well models are performing using tidy data principles. For regression models, we can use R-squared or MSE to evaluate the model performnce, however classifier evaluation requires a little more than that.</p>
+<p>Using the package, you can create custom metrics to evaluate your model.</p>
+<pre><code>mtcars_prediction %&gt;% 
+bind_cols(mtcars_testing) %&gt;% 
+metrics(truth = Variable name, estimate = .pred_class)</code></pre>
+<p><a href="https://yardstick.tidymodels.org" class="uri">https://yardstick.tidymodels.org</a>
+<a href="https://cran.r-project.org/web/packages/yardstick/readme/README.html" class="uri">https://cran.r-project.org/web/packages/yardstick/readme/README.html</a>
+## Exercises</p>
+</div>
+<div id="question-1-85" class="section level3" number="111.1.6">
+<h3>
+<span class="header-section-number">111.1.6</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-85"><i class="fas fa-link"></i></a>
+</h3>
+<p>What core packages are included in the <code>tidymodels</code> package?<br>
+a. parsnip<br>
+b. recipes<br>
+c. yardstick<br>
+d. all of the above</p>
+</div>
+<div id="question-2-83" class="section level3" number="111.1.7">
+<h3>
+<span class="header-section-number">111.1.7</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-83"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the statements is tidymodels package appropriately used?<br>
+a. When I want to import excel file to R and edit the table.<br>
+b. When I want to create a histogram using the data and label it.<br>
+c. When I want to do statistical analysis with great flexibility and with multiple stages.<br>
+d. When I want to create a pdf file and write correct references.</p>
+</div>
+<div id="question-3-84" class="section level3" number="111.1.8">
+<h3>
+<span class="header-section-number">111.1.8</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-84"><i class="fas fa-link"></i></a>
+</h3>
+<p>(True or False) The <code>tidymodels</code> package includes some core packages from the <code>tidyverse</code>.<br>
+a. True<br>
+b. False</p>
+</div>
+<div id="question-4-80" class="section level3" number="111.1.9">
+<h3>
+<span class="header-section-number">111.1.9</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-80"><i class="fas fa-link"></i></a>
+</h3>
+<p>What argument in initial_split() should you use to set the proportionfor testing and training?<br>
+a. num<br>
+b. prop<br>
+c. base<br>
+d. rat</p>
+</div>
+<div id="question-5-79" class="section level3" number="111.1.10">
+<h3>
+<span class="header-section-number">111.1.10</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-79"><i class="fas fa-link"></i></a>
+</h3>
+<p>What functions are in the <code>recipe</code> package (Select all that apply)?<br>
+a. bake()<br>
+b. milk()<br>
+c. recipe()<br>
+d. juice()</p>
+</div>
+<div id="question-6-78" class="section level3" number="111.1.11">
+<h3>
+<span class="header-section-number">111.1.11</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-78"><i class="fas fa-link"></i></a>
+</h3>
+<p>What are the two common modes of the <code>parsnip</code> models?<br>
+a. vectors<br>
+b. classification<br>
+c. aversion<br>
+d. regression</p>
+</div>
+<div id="question-7-76" class="section level3" number="111.1.12">
+<h3>
+<span class="header-section-number">111.1.12</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-76"><i class="fas fa-link"></i></a>
+</h3>
+<p>(True or False) For the models with classification mode, you can evaluate the model performance using R-squared.<br>
+a. True<br>
+b. False</p>
+</div>
+<div id="question-8-77" class="section level3" number="111.1.13">
+<h3>
+<span class="header-section-number">111.1.13</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-77"><i class="fas fa-link"></i></a>
+</h3>
+<p>Select one example of the most appropriate usage of the <code>tidymodels</code> package.<br>
+a. Import data with readr, use tidyr to clean data, and plot the graph using ggplot2.<br>
+b. connect R with SQL, import data and use kable() function to create a neat table.<br>
+c. resample imported data using rsample, preprocess data with recipes, fit the model using parsnip, and evaluate the model with yardstick.<br>
+d. None of the above.</p>
+</div>
+<div id="question-9-75" class="section level3" number="111.1.14">
+<h3>
+<span class="header-section-number">111.1.14</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-75"><i class="fas fa-link"></i></a>
+</h3>
+<p>What does the following function do?</p>
+<pre><code>set_engine(object, engine, ...)</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>It is used to specify which package will be used to fit the model.<br>
+</li>
+<li>It is used to preprocess a dataset.<br>
+</li>
+<li>It is used to bootstrap sampling.<br>
+</li>
+<li>None of the above.</li>
+</ol>
+</div>
+<div id="question-10-75" class="section level3" number="111.1.15">
+<h3>
+<span class="header-section-number">111.1.15</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-75"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which statement is correct about tidymodels (select all that apply)?<br>
+a. You can build a model.<br>
+b. You can preprocess your data.<br>
+c. You can tune model parameters.<br>
+d. You can evaluate your model.</p>
+</div>
+</div>
+<div id="common-mistakes-errors-32" class="section level2" number="111.2">
 <h2>
-<span class="header-section-number">108.2</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-148"><i class="fas fa-link"></i></a>
+<span class="header-section-number">111.2</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-32"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-105" class="section level3" number="108.2.1">
-<h3>
-<span class="header-section-number">108.2.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-105"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-103" class="section level3" number="108.2.2">
-<h3>
-<span class="header-section-number">108.2.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-103"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-101" class="section level3" number="108.2.3">
-<h3>
-<span class="header-section-number">108.2.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-101"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-93" class="section level3" number="108.2.4">
-<h3>
-<span class="header-section-number">108.2.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-93"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-92" class="section level3" number="108.2.5">
-<h3>
-<span class="header-section-number">108.2.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-92"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-92" class="section level3" number="108.2.6">
-<h3>
-<span class="header-section-number">108.2.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-92"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-91" class="section level3" number="108.2.7">
-<h3>
-<span class="header-section-number">108.2.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-91"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-91" class="section level3" number="108.2.8">
-<h3>
-<span class="header-section-number">108.2.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-91"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-91" class="section level3" number="108.2.9">
-<h3>
-<span class="header-section-number">108.2.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-91"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-91" class="section level3" number="108.2.10">
-<h3>
-<span class="header-section-number">108.2.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-91"><i class="fas fa-link"></i></a>
-</h3>
+<p><a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/" class="uri">https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/</a></p>
 
 </div>
 </div>
-</div>
   <div class="chapter-nav">
-<div class="prev"><a href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></div>
-<div class="next"><a href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></div>
+<div class="prev"><a href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tidymodels"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="nav-link" href="#introduction-99"><span class="header-section-number">108.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#tidymodels"><span class="header-section-number">111</span> tidymodels</a></li>
 <li>
-<a class="nav-link" href="#exercises-148"><span class="header-section-number">108.2</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-105"><span class="header-section-number">108.2.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-103"><span class="header-section-number">108.2.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-101"><span class="header-section-number">108.2.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-93"><span class="header-section-number">108.2.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-92"><span class="header-section-number">108.2.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-92"><span class="header-section-number">108.2.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-91"><span class="header-section-number">108.2.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-91"><span class="header-section-number">108.2.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-91"><span class="header-section-number">108.2.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-91"><span class="header-section-number">108.2.10</span> Question 10</a></li>
+<a class="nav-link" href="#introduction-97"><span class="header-section-number">111.1</span> Introduction</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#prerequisite-skills-include-1"><span class="header-section-number">111.1.1</span> Prerequisite skills include</a></li>
+<li><a class="nav-link" href="#data-preparation-data-resampling-rsample"><span class="header-section-number">111.1.2</span> Data preparation (Data resampling): rsample</a></li>
+<li><a class="nav-link" href="#preprocessing-feature-engineering-recipes"><span class="header-section-number">111.1.3</span> Preprocessing (Feature engineering): recipes</a></li>
+<li><a class="nav-link" href="#model-fitting-model-training-parsnip"><span class="header-section-number">111.1.4</span> Model Fitting, Model training: parsnip</a></li>
+<li><a class="nav-link" href="#model-evaluation-yardstick"><span class="header-section-number">111.1.5</span> Model Evaluation: yardstick</a></li>
+<li><a class="nav-link" href="#question-1-85"><span class="header-section-number">111.1.6</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-83"><span class="header-section-number">111.1.7</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-84"><span class="header-section-number">111.1.8</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-80"><span class="header-section-number">111.1.9</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-79"><span class="header-section-number">111.1.10</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-78"><span class="header-section-number">111.1.11</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-76"><span class="header-section-number">111.1.12</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-77"><span class="header-section-number">111.1.13</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-75"><span class="header-section-number">111.1.14</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-75"><span class="header-section-number">111.1.15</span> Question 10</a></li>
 </ul>
 </li>
+<li><a class="nav-link" href="#common-mistakes-errors-32"><span class="header-section-number">111.2</span> Common Mistakes &amp; Errors</a></li>
 </ul>
 
       <div class="book-extra">
@@ -285,7 +517,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

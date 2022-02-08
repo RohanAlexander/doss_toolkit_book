@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 94 Branches in GitHub | DoSS Toolkit</title>
+<title>Chapter 98 Branches in GitHub | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  94.1 Introduction In this lesson, you will learn: What a branch of a GitHub repository is. How to create a branch of a GitHub...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 94 Branches in GitHub | DoSS Toolkit">
+<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  98.1 Introduction In this lesson, you will learn: What a branch of a GitHub repository is. How to create a branch of a GitHub...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 98 Branches in GitHub | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  94.1 Introduction In this lesson, you will learn: What a branch of a GitHub repository is. How to create a branch of a GitHub...">
+<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  98.1 Introduction In this lesson, you will learn: What a branch of a GitHub repository is. How to create a branch of a GitHub...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 94 Branches in GitHub | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  94.1 Introduction In this lesson, you will learn: What a branch of a GitHub repository is. How to create a branch of a GitHub...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 98 Branches in GitHub | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  98.1 Introduction In this lesson, you will learn: What a branch of a GitHub repository is. How to create a branch of a GitHub...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="active" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="active" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,14 +168,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="branches-in-github" class="section level1" number="94">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="branches-in-github" class="section level1" number="98">
 <h1>
-<span class="header-section-number">94</span> Branches in GitHub<a class="anchor" aria-label="anchor" href="#branches-in-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98</span> Branches in GitHub<a class="anchor" aria-label="anchor" href="#branches-in-github"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Matthew Wankiewicz and last updated on 7 October 2021.</em></p>
-<div id="introduction-87" class="section level2" number="94.1">
+<div id="introduction-85" class="section level2" number="98.1">
 <h2>
-<span class="header-section-number">94.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-87"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-85"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this lesson, you will learn:</p>
 <ul>
@@ -206,21 +195,21 @@
 <li>Branching allows you to take a copy of the main repo and work on it on your own before you make any changes to the main repo.</li>
 </ul>
 </div>
-<div id="the-content-10" class="section level2" number="94.2">
+<div id="the-content-10" class="section level2" number="98.2">
 <h2>
-<span class="header-section-number">94.2</span> The content<a class="anchor" aria-label="anchor" href="#the-content-10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.2</span> The content<a class="anchor" aria-label="anchor" href="#the-content-10"><i class="fas fa-link"></i></a>
 </h2>
-<div id="about-branches" class="section level3" number="94.2.1">
+<div id="about-branches" class="section level3" number="98.2.1">
 <h3>
-<span class="header-section-number">94.2.1</span> About Branches<a class="anchor" aria-label="anchor" href="#about-branches"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.2.1</span> About Branches<a class="anchor" aria-label="anchor" href="#about-branches"><i class="fas fa-link"></i></a>
 </h3>
 <p>When you work in groups using GitHub projects, it becomes annoying to have one person add all of the code to the repo by themselves, copying and pasting code from group members. This is where branches come in handy.
 - Branching allows you to take a copy of the current GitHub repo and make changes on your own computer. Once you and your group have made changes to the code, you can add the changes back into your initial repo.
 - Branching can also be used when you want to work on one part of a project separately from the other areas.</p>
 </div>
-<div id="how-to-create-a-branch" class="section level3" number="94.2.2">
+<div id="how-to-create-a-branch" class="section level3" number="98.2.2">
 <h3>
-<span class="header-section-number">94.2.2</span> How to Create a Branch<a class="anchor" aria-label="anchor" href="#how-to-create-a-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.2.2</span> How to Create a Branch<a class="anchor" aria-label="anchor" href="#how-to-create-a-branch"><i class="fas fa-link"></i></a>
 </h3>
 <p>To make a branch from a GitHub repo, go to the main repo you plan to work on and click on the drop down menu that should say main. It should look like the image below.</p>
 <div class="figure">
@@ -231,9 +220,9 @@
 <img src="https://docs.github.com/assets/images/help/branch/branch-creation-text-box.png" alt=""><p class="caption">Image from: <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository" class="uri">https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository</a></p>
 </div>
 </div>
-<div id="how-to-make-a-pull-request" class="section level3" number="94.2.3">
+<div id="how-to-make-a-pull-request" class="section level3" number="98.2.3">
 <h3>
-<span class="header-section-number">94.2.3</span> How to make a pull request<a class="anchor" aria-label="anchor" href="#how-to-make-a-pull-request"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.2.3</span> How to make a pull request<a class="anchor" aria-label="anchor" href="#how-to-make-a-pull-request"><i class="fas fa-link"></i></a>
 </h3>
 <p>A pull request allows the owner of the GitHub repo to look over your changes to make sure that it will fit in with the current repo and also to make sure that it doesn’t create any conflicts in your repo.</p>
 <p>To make a pull request from your branch, you first need to make a change to your branched repo. Once you make a change to the branch there will be a yellow bar on your screen asking if you want to make a pull request. As you can see in the image below, there will be a green button, and once you click on that you can create a pull request.</p>
@@ -250,32 +239,32 @@
 <img src="https://uoftcoders.github.io/rcourse/image/git_lesson/delete_branch.png" alt=""><p class="caption">Image from: <a href="https://uoftcoders.github.io/rcourse/lec15-git-projects.html#creating_a_fork" class="uri">https://uoftcoders.github.io/rcourse/lec15-git-projects.html#creating_a_fork</a></p>
 </div>
 </div>
-<div id="forks" class="section level3" number="94.2.4">
+<div id="forks" class="section level3" number="98.2.4">
 <h3>
-<span class="header-section-number">94.2.4</span> Forks<a class="anchor" aria-label="anchor" href="#forks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.2.4</span> Forks<a class="anchor" aria-label="anchor" href="#forks"><i class="fas fa-link"></i></a>
 </h3>
 <p>Forks are similar to branches. Forks take a clone of the main GitHub repo and allows multiple people to work on a GitHub project.</p>
 </div>
-<div id="updating-a-branched-or-forked-repo" class="section level3" number="94.2.5">
+<div id="updating-a-branched-or-forked-repo" class="section level3" number="98.2.5">
 <h3>
-<span class="header-section-number">94.2.5</span> Updating a Branched (or Forked) Repo<a class="anchor" aria-label="anchor" href="#updating-a-branched-or-forked-repo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.2.5</span> Updating a Branched (or Forked) Repo<a class="anchor" aria-label="anchor" href="#updating-a-branched-or-forked-repo"><i class="fas fa-link"></i></a>
 </h3>
 <p>If someone in your group makes a change to the master repo, there is a way to update your branch so you can see the changes they made. When a change is made, the webpage for the branched repo will say that your repo is “1 commit behind main.” This means that there has been 1 change between what your branch looks like compared to what the master repo looks like.</p>
 <p>If you want to update your branch, press on the “Changes” button. You will then be brought to a page that will say “main is up to date with all commits from branch. Try switching the base.” Click on “switching the base.” It will then tell you if you are able to merge your branch and if you are, you can click on “Create pull request” (title and comment your request) and submit a pull request.</p>
 <p>Now, click on “Merge pull request,” then “Confirm merge” and your branch will be updated!</p>
 </div>
 </div>
-<div id="questions-9" class="section level2" number="94.3">
+<div id="questions-10" class="section level2" number="98.3">
 <h2>
-<span class="header-section-number">94.3</span> Questions<a class="anchor" aria-label="anchor" href="#questions-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.3</span> Questions<a class="anchor" aria-label="anchor" href="#questions-10"><i class="fas fa-link"></i></a>
 </h2>
 <p>Video explaining how to make a branch: <a href="https://youtu.be/eSd-Ib14fFk" class="uri">https://youtu.be/eSd-Ib14fFk</a></p>
 <p>Video explaining how to make a pull request: <a href="https://youtu.be/Wpz6ynJwqUg" class="uri">https://youtu.be/Wpz6ynJwqUg</a></p>
 <p>Video explaining how to update a branch: <a href="https://youtu.be/c3btGlDxPNg" class="uri">https://youtu.be/c3btGlDxPNg</a></p>
 </div>
-<div id="exercises-130" class="section level2" number="94.4">
+<div id="exercises-112" class="section level2" number="98.4">
 <h2>
-<span class="header-section-number">94.4</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-130"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.4</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-112"><i class="fas fa-link"></i></a>
 </h2>
 <!-- ```{r question1Branches, echo=FALSE} -->
 <!-- question("True or False, making a change on a GitHub branch makes a change on the main repository?", -->
@@ -323,15 +312,15 @@
 <!-- ) -->
 <!-- ``` -->
 </div>
-<div id="common-mistakes-errors-30" class="section level2" number="94.5">
+<div id="common-mistakes-errors-30" class="section level2" number="98.5">
 <h2>
-<span class="header-section-number">94.5</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-30"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.5</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-30"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes you can encounter issues in GitHub such as two people attempting to change the same file in their pull request. These conflicts will be discussed in the next module, “Dealing with Conflicts.”</p>
 </div>
-<div id="next-steps-56" class="section level2" number="94.6">
+<div id="next-steps-56" class="section level2" number="98.6">
 <h2>
-<span class="header-section-number">94.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-56"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-56"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now that you have some experience with branching GitHub repos, some next steps include:</p>
 <ul>
@@ -340,98 +329,112 @@
 <li><p>Learning how to fork a GitHub repo: <a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo" class="uri">https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo</a></p></li>
 </ul>
 </div>
-<div id="exercises-131" class="section level2" number="94.7">
+<div id="questions-11" class="section level2" number="98.7">
 <h2>
-<span class="header-section-number">94.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-131"><i class="fas fa-link"></i></a>
+<span class="header-section-number">98.7</span> Questions<a class="anchor" aria-label="anchor" href="#questions-11"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-92" class="section level3" number="94.7.1">
-<h3>
-<span class="header-section-number">94.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-92"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-90" class="section level3" number="94.7.2">
-<h3>
-<span class="header-section-number">94.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-90"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-88" class="section level3" number="94.7.3">
-<h3>
-<span class="header-section-number">94.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-88"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-80" class="section level3" number="94.7.4">
-<h3>
-<span class="header-section-number">94.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-80"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-79" class="section level3" number="94.7.5">
-<h3>
-<span class="header-section-number">94.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-79"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-79" class="section level3" number="94.7.6">
-<h3>
-<span class="header-section-number">94.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-79"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-78" class="section level3" number="94.7.7">
-<h3>
-<span class="header-section-number">94.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-78"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-78" class="section level3" number="94.7.8">
-<h3>
-<span class="header-section-number">94.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-78"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-78" class="section level3" number="94.7.9">
-<h3>
-<span class="header-section-number">94.7.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-78"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-78" class="section level3" number="94.7.10">
-<h3>
-<span class="header-section-number">94.7.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-78"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<ol style="list-style-type: decimal">
+<li>True or False, you can use GitHub in R without a GitHub account?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>True or False, changing a file on a branch changes the master file?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Which drop-down menu in GitHub allows you to create a new branch?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The “branches” menu</li>
+<li>The “contributors” menu</li>
+<li>The “main” menu</li>
+<li>None of the above</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>What is the main use of a pull request?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>It allows the owner of the GitHub repo to look over your changes</li>
+<li>It creates extra work for you</li>
+<li>It creates extra work for the repo owner</li>
+<li>None of the above</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>If there are no conflicts present, which command will the repo owner see to add your changes to the main file?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>“Add request”</li>
+<li>“Merge pull request”</li>
+<li>“Bring in pull request”</li>
+<li>“Replace pull request”</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>What are forks in GitHub?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Copies of another repo that do not change the initial one</li>
+<li>A file in a repo</li>
+<li>The coding language the GitHub files are comprised of</li>
+<li>A collection of a user’s favourite files</li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>True or False, changes made on a forked repo can be added to the master repo?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>True or False, once you have a forked repo you cannot update it?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>True or False, you can have multiple branches with the same name?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>True or False, you can add a title and comments to a pull request?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></div>
-<div class="next"><a href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></div>
+<div class="prev"><a href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></div>
+<div class="next"><a href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#branches-in-github"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="nav-link" href="#introduction-87"><span class="header-section-number">94.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#branches-in-github"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="nav-link" href="#introduction-85"><span class="header-section-number">98.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#the-content-10"><span class="header-section-number">94.2</span> The content</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#about-branches"><span class="header-section-number">94.2.1</span> About Branches</a></li>
-<li><a class="nav-link" href="#how-to-create-a-branch"><span class="header-section-number">94.2.2</span> How to Create a Branch</a></li>
-<li><a class="nav-link" href="#how-to-make-a-pull-request"><span class="header-section-number">94.2.3</span> How to make a pull request</a></li>
-<li><a class="nav-link" href="#forks"><span class="header-section-number">94.2.4</span> Forks</a></li>
-<li><a class="nav-link" href="#updating-a-branched-or-forked-repo"><span class="header-section-number">94.2.5</span> Updating a Branched (or Forked) Repo</a></li>
+<a class="nav-link" href="#the-content-10"><span class="header-section-number">98.2</span> The content</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#about-branches"><span class="header-section-number">98.2.1</span> About Branches</a></li>
+<li><a class="nav-link" href="#how-to-create-a-branch"><span class="header-section-number">98.2.2</span> How to Create a Branch</a></li>
+<li><a class="nav-link" href="#how-to-make-a-pull-request"><span class="header-section-number">98.2.3</span> How to make a pull request</a></li>
+<li><a class="nav-link" href="#forks"><span class="header-section-number">98.2.4</span> Forks</a></li>
+<li><a class="nav-link" href="#updating-a-branched-or-forked-repo"><span class="header-section-number">98.2.5</span> Updating a Branched (or Forked) Repo</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#questions-9"><span class="header-section-number">94.3</span> Questions</a></li>
-<li><a class="nav-link" href="#exercises-130"><span class="header-section-number">94.4</span> Exercises</a></li>
-<li><a class="nav-link" href="#common-mistakes-errors-30"><span class="header-section-number">94.5</span> Common Mistakes &amp; Errors</a></li>
-<li><a class="nav-link" href="#next-steps-56"><span class="header-section-number">94.6</span> Next Steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-131"><span class="header-section-number">94.7</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-92"><span class="header-section-number">94.7.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-90"><span class="header-section-number">94.7.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-88"><span class="header-section-number">94.7.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-80"><span class="header-section-number">94.7.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-79"><span class="header-section-number">94.7.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-79"><span class="header-section-number">94.7.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-78"><span class="header-section-number">94.7.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-78"><span class="header-section-number">94.7.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-78"><span class="header-section-number">94.7.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-78"><span class="header-section-number">94.7.10</span> Question 10</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#questions-10"><span class="header-section-number">98.3</span> Questions</a></li>
+<li><a class="nav-link" href="#exercises-112"><span class="header-section-number">98.4</span> Exercises</a></li>
+<li><a class="nav-link" href="#common-mistakes-errors-30"><span class="header-section-number">98.5</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-56"><span class="header-section-number">98.6</span> Next Steps</a></li>
+<li><a class="nav-link" href="#questions-11"><span class="header-section-number">98.7</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -449,7 +452,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

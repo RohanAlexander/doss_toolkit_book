@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 86 Tables: kable, kableextra, and gt | DoSS Toolkit</title>
+<title>Chapter 90 Tables: kable, kableextra, and gt | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Yena Joo and last updated on 7 October 2021.  86.1 Introduction In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 86 Tables: kable, kableextra, and gt | DoSS Toolkit">
+<meta name="description" content="Written by Yena Joo and last updated on 7 October 2021.  90.1 Introduction In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 90 Tables: kable, kableextra, and gt | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Yena Joo and last updated on 7 October 2021.  86.1 Introduction In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when...">
+<meta property="og:description" content="Written by Yena Joo and last updated on 7 October 2021.  90.1 Introduction In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 86 Tables: kable, kableextra, and gt | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Yena Joo and last updated on 7 October 2021.  86.1 Introduction In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 90 Tables: kable, kableextra, and gt | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Yena Joo and last updated on 7 October 2021.  90.1 Introduction In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="active" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="active" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,14 +168,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tables-kable-kableextra-and-gt" class="section level1" number="86">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tables-kable-kableextra-and-gt" class="section level1" number="90">
 <h1>
-<span class="header-section-number">86</span> Tables: kable, kableextra, and gt<a class="anchor" aria-label="anchor" href="#tables-kable-kableextra-and-gt"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90</span> Tables: kable, kableextra, and gt<a class="anchor" aria-label="anchor" href="#tables-kable-kableextra-and-gt"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Yena Joo and last updated on 7 October 2021.</em></p>
-<div id="introduction-79" class="section level2" number="86.1">
+<div id="introduction-77" class="section level2" number="90.1">
 <h2>
-<span class="header-section-number">86.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-79"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-77"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the research papers, tables are used all the time. However, the dataframe itself looks unorganized and latex-y when the R file is converted into PDF or HTML. To make nice and beautiful tables, we are going to learn how to use <code>kable</code> and <code>kableextra</code>.</p>
 <p>In this lesson, you will learn how to:</p>
@@ -210,29 +199,29 @@
 <code>kable</code>, <code>kableExtra</code>, <code>gt</code>
 </li>
 </ul>
-<div id="packages-2" class="section level3" number="86.1.1">
+<div id="packages-2" class="section level3" number="90.1.1">
 <h3>
-<span class="header-section-number">86.1.1</span> Packages<a class="anchor" aria-label="anchor" href="#packages-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.1.1</span> Packages<a class="anchor" aria-label="anchor" href="#packages-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Packages <code>knitr</code> and <code>kableExtra</code> are needed. For the gt Table, <code>gt</code> package is needed.</p>
-<div class="sourceCode" id="cb641"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb666"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/">kableExtra</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="kable" class="section level2" number="86.2">
+<div id="kable" class="section level2" number="90.2">
 <h2>
-<span class="header-section-number">86.2</span> Kable()<a class="anchor" aria-label="anchor" href="#kable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.2</span> Kable()<a class="anchor" aria-label="anchor" href="#kable"><i class="fas fa-link"></i></a>
 </h2>
 <p><code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> function in <code>knitr</code> package is a table generator.</p>
-<div id="arguments-of-kable" class="section level3" number="86.2.1">
+<div id="arguments-of-kable" class="section level3" number="90.2.1">
 <h3>
-<span class="header-section-number">86.2.1</span> Arguments of <code>kable()</code><a class="anchor" aria-label="anchor" href="#arguments-of-kable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.2.1</span> Arguments of <code>kable()</code><a class="anchor" aria-label="anchor" href="#arguments-of-kable"><i class="fas fa-link"></i></a>
 </h3>
-<pre><code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable(x, format, digits = getOption("digits"), row.names = NA, 
+<pre><code>kable(x, format, digits = getOption("digits"), row.names = NA, 
   col.names = NA, align, caption = NULL, label = NULL, 
-  format.args = list(), escape = TRUE, ...)</a></code></pre>
+  format.args = list(), escape = TRUE, ...)</code></pre>
 <p>Here are some important arguments of <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>:</p>
 <ul>
 <li>
@@ -249,7 +238,7 @@
 </ul>
 <p>If you want the full descriptions of each argument, click <a href="https://www.rdocumentation.org/packages/knitr/versions/1.33/topics/kable">here</a> or type <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">help("kable")</a></code> into your console.</p>
 <p>First, let’s use a built-in dataset <code>mtcars</code> as an example. We simply put the dataset name as the argument x of the function <code>kbl</code> or <code>kable</code>. Then, it creates the most basic table output as follows. Note that for R Markdown documents, the function uses the format “pipe” by default.</p>
-<div class="sourceCode" id="cb643"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb668"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr>
@@ -521,21 +510,21 @@ Valiant
 </tbody>
 </table></div>
 </div>
-<div id="formatting-of-kable" class="section level3" number="86.2.2">
+<div id="formatting-of-kable" class="section level3" number="90.2.2">
 <h3>
-<span class="header-section-number">86.2.2</span> Formatting of <code>kable</code><a class="anchor" aria-label="anchor" href="#formatting-of-kable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.2.2</span> Formatting of <code>kable</code><a class="anchor" aria-label="anchor" href="#formatting-of-kable"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are several arguments you can customize the tables.<br>
 For example, you can set the format of the table using <code>format = "html"</code>.
 You can also add a title to the table using <code>caption = ""</code> argument.
 <code>digits =</code> allows you to round and format the numbers in the table.</p>
 <p>Let’s try to create an HTML table with a caption.</p>
-<div class="sourceCode" id="cb644"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb669"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dt</span>, format <span class="op">=</span> <span class="st">"html"</span>, caption <span class="op">=</span> <span class="st">"Title of the table"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:unnamed-chunk-3">Table 86.1: </span>Title of the table
+<span id="tab:unnamed-chunk-3">Table 90.1: </span>Title of the table
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -693,11 +682,11 @@ Datsun 710
 </table></div>
 <p>However, the basic HTML output of <code>kable</code> does not look so pretty, since it is just a plain HTML table without any styling.</p>
 <p>We can also change the column names or row names using <code>col.names</code> or <code>row.names</code>. Let’s customize the table above into the format “simple,” as well as with changed column names.</p>
-<div class="sourceCode" id="cb645"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb670"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dt</span>, format <span class="op">=</span> <span class="st">"simple"</span>, caption <span class="op">=</span> <span class="st">"Title of the table"</span>, col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>, <span class="st">"10"</span>, <span class="st">"11"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:unnamed-chunk-4">Table 86.2: </span>Title of the table</caption>
+<span id="tab:unnamed-chunk-4">Table 90.2: </span>Title of the table</caption>
 <thead><tr class="header">
 <th></th>
 <th align="right">1</th>
@@ -760,14 +749,14 @@ Datsun 710
 <p>Note that only the <code>pipe</code> and <code>simple</code> formats work in any output document format. Formats such as <code>latex</code> or <code>html</code> only work on the specific format of the document output.</p>
 </div>
 </div>
-<div id="kableextra" class="section level2" number="86.3">
+<div id="kableextra" class="section level2" number="90.3">
 <h2>
-<span class="header-section-number">86.3</span> <code>kableExtra</code><a class="anchor" aria-label="anchor" href="#kableextra"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.3</span> <code>kableExtra</code><a class="anchor" aria-label="anchor" href="#kableextra"><i class="fas fa-link"></i></a>
 </h2>
-<p>The <code>kableExtra</code> package allows you to add a lot more features and options to your simple table you made using the function <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>. The package features the pipe operator, <code><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></code>, so you can pipe the table to add more features.</p>
-<div id="kable_styling" class="section level3" number="86.3.1">
+<p>The <code>kableExtra</code> package allows you to add a lot more features and options to your simple table you made using the function <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>. The package features the pipe operator, <code>%&gt;%</code>, so you can pipe the table to add more features.</p>
+<div id="kable_styling" class="section level3" number="90.3.1">
 <h3>
-<span class="header-section-number">86.3.1</span> <code>kable_styling()</code><a class="anchor" aria-label="anchor" href="#kable_styling"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.3.1</span> <code>kable_styling()</code><a class="anchor" aria-label="anchor" href="#kable_styling"><i class="fas fa-link"></i></a>
 </h3>
 <p>To make the plain HTML table we just created look prettier, you can always apply themes using <code><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling()</a></code> from the package <code>kableExtra</code> to make the tables look more fancy and neat.</p>
 <p>The function has the following arguments:</p>
@@ -780,8 +769,8 @@ Datsun 710
   font_size = NULL,....</code></pre>
 <p>Details of the arguments can be found <a href="https://www.rdocumentation.org/packages/kableExtra/versions/1.3.4/topics/kable_styling">here</a>.</p>
 <p>First, let’s just try using the function without any argument. <code><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling()</a></code> will automatically apply Twitter bootstrap theme to the table.</p>
-<div class="sourceCode" id="cb647"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="op">]</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb672"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="op">]</span><span class="op">)</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
@@ -940,8 +929,8 @@ Datsun 710
 </table></div>
 <p>As you can see, it creates a nice and simple table.</p>
 <p>Using <code>kable_styling</code>, you can also adjust the size and position of the table, font sizes, etc. as the following:</p>
-<div class="sourceCode" id="cb648"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dt</span>, format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb673"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dt</span>, format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span>, full_width <span class="op">=</span> <span class="cn">F</span>, position <span class="op">=</span> <span class="st">"left"</span>, font_size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-striped" style="font-size: 10px; width: auto !important; ">
 <thead><tr>
@@ -1100,23 +1089,23 @@ Datsun 710
 </table></div>
 <p>You can try various options using the function <code>kable_styling</code>. <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Here</a> are some more nice and detailed examples for a reference.</p>
 </div>
-<div id="how-to-put-multiple-tables-side-by-side" class="section level3" number="86.3.2">
+<div id="how-to-put-multiple-tables-side-by-side" class="section level3" number="90.3.2">
 <h3>
-<span class="header-section-number">86.3.2</span> How to put multiple tables side by side<a class="anchor" aria-label="anchor" href="#how-to-put-multiple-tables-side-by-side"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.3.2</span> How to put multiple tables side by side<a class="anchor" aria-label="anchor" href="#how-to-put-multiple-tables-side-by-side"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can pass a list of dataframes to <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> which generates side-by-side tables.
-Here, I will split <code>mtcars</code> dataset into two tables, and put them side by side using <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable(list(datasets))</a></code>.</p>
-<div class="sourceCode" id="cb649"><pre class="downlit sourceCode r">
+Here, I will split <code>mtcars</code> dataset into two tables, and put them side by side using <code>kable(list(datasets))</code>.</p>
+<div class="sourceCode" id="cb674"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span>
 <span class="va">data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span>, <span class="fl">4</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data1</span>, <span class="va">data2</span><span class="op">)</span>, format <span class="op">=</span> <span class="st">"html"</span>,
   caption <span class="op">=</span> <span class="st">'Tables side by side.'</span>,
   booktabs <span class="op">=</span> <span class="cn">TRUE</span>, valign <span class="op">=</span> <span class="st">'t'</span>
-<span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span><span class="op">)</span></code></pre></div>
+<span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="kable_wrapper table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-7">Table 86.3: </span>Tables side by side.
+<span id="tab:unnamed-chunk-7">Table 90.3: </span>Tables side by side.
 </caption>
 <tbody><tr>
 <td>
@@ -1308,15 +1297,15 @@ Valiant
 </table></div>
 <p>This feature only works for html and pdf output.</p>
 <p>Another way to put tables side by side is to use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kables()</a></code>.</p>
-<div class="sourceCode" id="cb650"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb675"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kables</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">data1</span>, caption <span class="op">=</span> <span class="st">"first table"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span><span class="op">)</span>, 
-  <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">data2</span>, caption<span class="op">=</span> <span class="st">"second table"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">data1</span>, caption <span class="op">=</span> <span class="st">"first table"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span><span class="op">)</span>, 
+  <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">data2</span>, caption<span class="op">=</span> <span class="st">"second table"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">"striped"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
 <div class="inline-table"><table class="kable_wrapper"><tbody><tr>
 <td>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-8">Table 86.4: </span>first table
+<span id="tab:unnamed-chunk-8">Table 90.4: </span>first table
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -1380,7 +1369,7 @@ Datsun 710
 <td>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-8">Table 86.4: </span>second table
+<span id="tab:unnamed-chunk-8">Table 90.4: </span>second table
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -1508,28 +1497,28 @@ Valiant
 <p>By using <code>kables</code> function, you can pass the list of <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> objects to it. You can also set different titles for each table.</p>
 </div>
 </div>
-<div id="gt-table" class="section level2" number="86.4">
+<div id="gt-table" class="section level2" number="90.4">
 <h2>
-<span class="header-section-number">86.4</span> GT Table<a class="anchor" aria-label="anchor" href="#gt-table"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.4</span> GT Table<a class="anchor" aria-label="anchor" href="#gt-table"><i class="fas fa-link"></i></a>
 </h2>
 <p>The gt package is used to produce nice-looking display tables. Here, we distinguish between data tables(tibbles, dataframes, etc) and the display tables easily found in articles, and web pages.</p>
 <p>In order to produce the gt table, gt package is needed.</p>
-<div class="sourceCode" id="cb651"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb676"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://gt.rstudio.com/">"gt"</a></span><span class="op">)</span></code></pre></div>
 <p>Given that <code>data</code> is a tibble which we have a suitable input for gt.</p>
 <p>We use <code><a href="https://gt.rstudio.com/reference/gt.html">gt()</a></code> function. If we pass the tibble to the gt() function, we’ll get a gt Table as an output.</p>
-<div class="sourceCode" id="cb652"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb677"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mt</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span>
 <span class="va">mt_table</span> <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mt</span><span class="op">)</span>
 
 <span class="co"># Show the gt Table</span>
 <span class="va">mt_table</span></code></pre></div>
-<div id="azpaubsrlk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ycqjxljaev" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#azpaubsrlk .gt_table {
+#ycqjxljaev .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1554,7 +1543,7 @@ Valiant
   border-left-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_heading {
+#ycqjxljaev .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1566,7 +1555,7 @@ Valiant
   border-right-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_title {
+#ycqjxljaev .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1576,7 +1565,7 @@ Valiant
   border-bottom-width: 0;
 }
 
-#azpaubsrlk .gt_subtitle {
+#ycqjxljaev .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1586,13 +1575,13 @@ Valiant
   border-top-width: 0;
 }
 
-#azpaubsrlk .gt_bottom_border {
+#ycqjxljaev .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_col_headings {
+#ycqjxljaev .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1607,7 +1596,7 @@ Valiant
   border-right-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_col_heading {
+#ycqjxljaev .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1627,7 +1616,7 @@ Valiant
   overflow-x: hidden;
 }
 
-#azpaubsrlk .gt_column_spanner_outer {
+#ycqjxljaev .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1639,15 +1628,15 @@ Valiant
   padding-right: 4px;
 }
 
-#azpaubsrlk .gt_column_spanner_outer:first-child {
+#ycqjxljaev .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#azpaubsrlk .gt_column_spanner_outer:last-child {
+#ycqjxljaev .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#azpaubsrlk .gt_column_spanner {
+#ycqjxljaev .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1659,7 +1648,7 @@ Valiant
   width: 100%;
 }
 
-#azpaubsrlk .gt_group_heading {
+#ycqjxljaev .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1681,7 +1670,7 @@ Valiant
   vertical-align: middle;
 }
 
-#azpaubsrlk .gt_empty_group_heading {
+#ycqjxljaev .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1696,15 +1685,15 @@ Valiant
   vertical-align: middle;
 }
 
-#azpaubsrlk .gt_from_md > :first-child {
+#ycqjxljaev .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#azpaubsrlk .gt_from_md > :last-child {
+#ycqjxljaev .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#azpaubsrlk .gt_row {
+#ycqjxljaev .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1723,7 +1712,7 @@ Valiant
   overflow-x: hidden;
 }
 
-#azpaubsrlk .gt_stub {
+#ycqjxljaev .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1735,7 +1724,7 @@ Valiant
   padding-left: 12px;
 }
 
-#azpaubsrlk .gt_summary_row {
+#ycqjxljaev .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1745,7 +1734,7 @@ Valiant
   padding-right: 5px;
 }
 
-#azpaubsrlk .gt_first_summary_row {
+#ycqjxljaev .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1755,7 +1744,7 @@ Valiant
   border-top-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_grand_summary_row {
+#ycqjxljaev .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1765,7 +1754,7 @@ Valiant
   padding-right: 5px;
 }
 
-#azpaubsrlk .gt_first_grand_summary_row {
+#ycqjxljaev .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1775,11 +1764,11 @@ Valiant
   border-top-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_striped {
+#ycqjxljaev .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#azpaubsrlk .gt_table_body {
+#ycqjxljaev .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1788,7 +1777,7 @@ Valiant
   border-bottom-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_footnotes {
+#ycqjxljaev .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1802,13 +1791,13 @@ Valiant
   border-right-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_footnote {
+#ycqjxljaev .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#azpaubsrlk .gt_sourcenotes {
+#ycqjxljaev .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1822,41 +1811,41 @@ Valiant
   border-right-color: #D3D3D3;
 }
 
-#azpaubsrlk .gt_sourcenote {
+#ycqjxljaev .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#azpaubsrlk .gt_left {
+#ycqjxljaev .gt_left {
   text-align: left;
 }
 
-#azpaubsrlk .gt_center {
+#ycqjxljaev .gt_center {
   text-align: center;
 }
 
-#azpaubsrlk .gt_right {
+#ycqjxljaev .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#azpaubsrlk .gt_font_normal {
+#ycqjxljaev .gt_font_normal {
   font-weight: normal;
 }
 
-#azpaubsrlk .gt_font_bold {
+#ycqjxljaev .gt_font_bold {
   font-weight: bold;
 }
 
-#azpaubsrlk .gt_font_italic {
+#ycqjxljaev .gt_font_italic {
   font-style: italic;
 }
 
-#azpaubsrlk .gt_super {
+#ycqjxljaev .gt_super {
   font-size: 65%;
 }
 
-#azpaubsrlk .gt_footnote_marks {
+#ycqjxljaev .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1958,28 +1947,28 @@ Valiant
 </tbody>
 </table></div>
 </div>
-<div id="add-parts-to-the-gt-table" class="section level3" number="86.4.1">
+<div id="add-parts-to-the-gt-table" class="section level3" number="90.4.1">
 <h3>
-<span class="header-section-number">86.4.1</span> Add parts to the gt Table<a class="anchor" aria-label="anchor" href="#add-parts-to-the-gt-table"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.4.1</span> Add parts to the gt Table<a class="anchor" aria-label="anchor" href="#add-parts-to-the-gt-table"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can add titles and labels for various levels on the gt Tables.
 The picture below shows the parts you can put the title/labels at.</p>
 <div class="inline-figure"><img src="https://gt.rstudio.com/reference/figures/gt_parts_of_a_table.svg"></div>
 <p>To add a title, you used the <code>tab_header</code> function to add labels or titles.</p>
-<div class="sourceCode" id="cb653"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb678"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mt_table</span> <span class="op">&lt;-</span> 
-<span class="va">mt_table</span> <span class="op">%&gt;%</span>
+<span class="va">mt_table</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>
     title <span class="op">=</span> <span class="st">"This is a title"</span>,
     subtitle <span class="op">=</span> <span class="st">"This is a subtitle"</span>
   <span class="op">)</span> 
 <span class="va">mt_table</span></code></pre></div>
-<div id="xidoornhtm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jklmpauecn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xidoornhtm .gt_table {
+#jklmpauecn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2004,7 +1993,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-left-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_heading {
+#jklmpauecn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2016,7 +2005,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-right-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_title {
+#jklmpauecn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2026,7 +2015,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-bottom-width: 0;
 }
 
-#xidoornhtm .gt_subtitle {
+#jklmpauecn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2036,13 +2025,13 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-top-width: 0;
 }
 
-#xidoornhtm .gt_bottom_border {
+#jklmpauecn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_col_headings {
+#jklmpauecn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2057,7 +2046,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-right-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_col_heading {
+#jklmpauecn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2077,7 +2066,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   overflow-x: hidden;
 }
 
-#xidoornhtm .gt_column_spanner_outer {
+#jklmpauecn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2089,15 +2078,15 @@ The picture below shows the parts you can put the title/labels at.</p>
   padding-right: 4px;
 }
 
-#xidoornhtm .gt_column_spanner_outer:first-child {
+#jklmpauecn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xidoornhtm .gt_column_spanner_outer:last-child {
+#jklmpauecn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xidoornhtm .gt_column_spanner {
+#jklmpauecn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2109,7 +2098,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   width: 100%;
 }
 
-#xidoornhtm .gt_group_heading {
+#jklmpauecn .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2131,7 +2120,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   vertical-align: middle;
 }
 
-#xidoornhtm .gt_empty_group_heading {
+#jklmpauecn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2146,15 +2135,15 @@ The picture below shows the parts you can put the title/labels at.</p>
   vertical-align: middle;
 }
 
-#xidoornhtm .gt_from_md > :first-child {
+#jklmpauecn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xidoornhtm .gt_from_md > :last-child {
+#jklmpauecn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xidoornhtm .gt_row {
+#jklmpauecn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2173,7 +2162,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   overflow-x: hidden;
 }
 
-#xidoornhtm .gt_stub {
+#jklmpauecn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2185,7 +2174,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   padding-left: 12px;
 }
 
-#xidoornhtm .gt_summary_row {
+#jklmpauecn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2195,7 +2184,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   padding-right: 5px;
 }
 
-#xidoornhtm .gt_first_summary_row {
+#jklmpauecn .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2205,7 +2194,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-top-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_grand_summary_row {
+#jklmpauecn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2215,7 +2204,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   padding-right: 5px;
 }
 
-#xidoornhtm .gt_first_grand_summary_row {
+#jklmpauecn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2225,11 +2214,11 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-top-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_striped {
+#jklmpauecn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xidoornhtm .gt_table_body {
+#jklmpauecn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2238,7 +2227,7 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_footnotes {
+#jklmpauecn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2252,13 +2241,13 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-right-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_footnote {
+#jklmpauecn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#xidoornhtm .gt_sourcenotes {
+#jklmpauecn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2272,41 +2261,41 @@ The picture below shows the parts you can put the title/labels at.</p>
   border-right-color: #D3D3D3;
 }
 
-#xidoornhtm .gt_sourcenote {
+#jklmpauecn .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#xidoornhtm .gt_left {
+#jklmpauecn .gt_left {
   text-align: left;
 }
 
-#xidoornhtm .gt_center {
+#jklmpauecn .gt_center {
   text-align: center;
 }
 
-#xidoornhtm .gt_right {
+#jklmpauecn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xidoornhtm .gt_font_normal {
+#jklmpauecn .gt_font_normal {
   font-weight: normal;
 }
 
-#xidoornhtm .gt_font_bold {
+#jklmpauecn .gt_font_bold {
   font-weight: bold;
 }
 
-#xidoornhtm .gt_font_italic {
+#jklmpauecn .gt_font_italic {
   font-style: italic;
 }
 
-#xidoornhtm .gt_super {
+#jklmpauecn .gt_super {
   font-size: 65%;
 }
 
-#xidoornhtm .gt_footnote_marks {
+#jklmpauecn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2418,18 +2407,18 @@ The picture below shows the parts you can put the title/labels at.</p>
 </div>
 </div>
 </div>
-<div id="exercises-118" class="section level2" number="86.5">
+<div id="exercises-101" class="section level2" number="90.5">
 <h2>
-<span class="header-section-number">86.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-118"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-101"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-83" class="section level3" number="86.5.1">
+<div id="question-1-72" class="section level3" number="90.5.1">
 <h3>
-<span class="header-section-number">86.5.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.5.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-72"><i class="fas fa-link"></i></a>
 </h3>
 <p>Create a table that has a title “This is a table,” bootstrap options being <code>stripe</code>, and having full width, with a <code>right</code> position, using the dataset <code>data</code>.</p>
-<div class="sourceCode" id="cb654"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb679"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb655"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb680"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span>, caption <span class="op">=</span> <span class="st">"This is a table"</span>, position <span class="op">=</span> <span class="st">"right"</span>, full_width <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
@@ -2705,16 +2694,16 @@ Valiant
 </tbody>
 </table></div>
 </div>
-<div id="question-2-81" class="section level3" number="86.5.2">
+<div id="question-2-70" class="section level3" number="90.5.2">
 <h3>
-<span class="header-section-number">86.5.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-81"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.5.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-70"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now, use <code><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling()</a></code> to create the same table, but with <code>striped</code> bootstrap option.</p>
-<div class="sourceCode" id="cb656"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb681"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb657"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb682"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span>, caption <span class="op">=</span> <span class="st">"This is a table"</span>, position <span class="op">=</span> <span class="st">"right"</span>, full_width <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">'striped'</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span>, caption <span class="op">=</span> <span class="st">"This is a table"</span>, position <span class="op">=</span> <span class="st">"right"</span>, full_width <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="st">'striped'</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
 (#tab:q2_kable-solution)This is a table
@@ -2988,15 +2977,15 @@ Valiant
 </tbody>
 </table></div>
 </div>
-<div id="question-3-80" class="section level3" number="86.5.3">
+<div id="question-3-71" class="section level3" number="90.5.3">
 <h3>
-<span class="header-section-number">86.5.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-80"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.5.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-71"><i class="fas fa-link"></i></a>
 </h3>
 <p>Put the following data frames side by side, with the title “Tables are side by side.” Drop the decimal places using the argument <code>digits</code>.</p>
-<div class="sourceCode" id="cb658"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb683"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span>
 <span class="va">data_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span>, <span class="fl">5</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb659"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb684"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data_1</span>, <span class="va">data_2</span><span class="op">)</span>,
   caption <span class="op">=</span> <span class="st">'Tables are side by side.'</span>, digits <span class="op">=</span> <span class="fl">0</span>
@@ -3150,10 +3139,50 @@ Valiant
 </tr></tbody>
 </table></div>
 </div>
+<div id="question-4-67" class="section level3" number="90.5.4">
+<h3>
+<span class="header-section-number">90.5.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-67"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the purpose of using <code>kable</code> in the <code>knitr</code> package?<br>
+a. Because the dataframe itself looks ugly when R file is converted into PDF.<br>
+b. Because the dataframe itself looks ugly when R file is converted into HTML.<br>
+c. To customize the table.<br>
+d. All of the above.</p>
 </div>
-<div id="common-mistakes-errors-26" class="section level2" number="86.6">
+<div id="question-5-66" class="section level3" number="90.5.5">
+<h3>
+<span class="header-section-number">90.5.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-66"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-6-66" class="section level3" number="90.5.6">
+<h3>
+<span class="header-section-number">90.5.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-66"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-7-64" class="section level3" number="90.5.7">
+<h3>
+<span class="header-section-number">90.5.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-64"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-8-65" class="section level3" number="90.5.8">
+<h3>
+<span class="header-section-number">90.5.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-65"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-9-64" class="section level3" number="90.5.9">
+<h3>
+<span class="header-section-number">90.5.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-64"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="question-10-64" class="section level3" number="90.5.10">
+<h3>
+<span class="header-section-number">90.5.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-64"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="common-mistakes-errors-26" class="section level2" number="90.6">
 <h2>
-<span class="header-section-number">86.6</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-26"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.6</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-26"><i class="fas fa-link"></i></a>
 </h2>
 <p>You might get the following error message sometimes:</p>
 <pre><code>Error in dimnames(x) &lt;- dn : length of 'dimnames' [2] not equal to array extent</code></pre>
@@ -3162,15 +3191,15 @@ Valiant
 <pre><code>could not find function "kable_pdf"</code></pre>
 <p>So be careful not to make these mistakes.</p>
 </div>
-<div id="next-steps-50" class="section level2" number="86.7">
+<div id="next-steps-50" class="section level2" number="90.7">
 <h2>
-<span class="header-section-number">86.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-50"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-50"><i class="fas fa-link"></i></a>
 </h2>
 <p>Create some fancy tables using kable &amp; kableExtra :)</p>
 </div>
-<div id="reference-1" class="section level2" number="86.8">
+<div id="reference-1" class="section level2" number="90.8">
 <h2>
-<span class="header-section-number">86.8</span> Reference<a class="anchor" aria-label="anchor" href="#reference-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.8</span> Reference<a class="anchor" aria-label="anchor" href="#reference-1"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>
@@ -3185,110 +3214,117 @@ Valiant
 <li><a href="https://gt.rstudio.com/articles/intro-creating-gt-tables.html">more information on gt Tables</a></li>
 </ul>
 </div>
-<div id="exercises-119" class="section level2" number="86.9">
+<div id="exercises-102" class="section level2" number="90.9">
 <h2>
-<span class="header-section-number">86.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-119"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-102"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-84" class="section level3" number="86.9.1">
+<div id="question-1-73" class="section level3" number="90.9.1">
 <h3>
-<span class="header-section-number">86.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-84"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-73"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-2-82" class="section level3" number="86.9.2">
+<div id="question-2-71" class="section level3" number="90.9.2">
 <h3>
-<span class="header-section-number">86.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-82"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-71"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-3-81" class="section level3" number="86.9.3">
+<div id="question-3-72" class="section level3" number="90.9.3">
 <h3>
-<span class="header-section-number">86.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-81"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-72"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-4-73" class="section level3" number="86.9.4">
+<div id="question-4-68" class="section level3" number="90.9.4">
 <h3>
-<span class="header-section-number">86.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-73"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-68"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-5-72" class="section level3" number="86.9.5">
+<div id="question-5-67" class="section level3" number="90.9.5">
 <h3>
-<span class="header-section-number">86.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-72"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-67"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-6-72" class="section level3" number="86.9.6">
+<div id="question-6-67" class="section level3" number="90.9.6">
 <h3>
-<span class="header-section-number">86.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-72"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-67"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-7-71" class="section level3" number="86.9.7">
+<div id="question-7-65" class="section level3" number="90.9.7">
 <h3>
-<span class="header-section-number">86.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-71"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-65"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-8-71" class="section level3" number="86.9.8">
+<div id="question-8-66" class="section level3" number="90.9.8">
 <h3>
-<span class="header-section-number">86.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-71"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-66"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-9-71" class="section level3" number="86.9.9">
+<div id="question-9-65" class="section level3" number="90.9.9">
 <h3>
-<span class="header-section-number">86.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-71"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-65"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-10-71" class="section level3" number="86.9.10">
+<div id="question-10-65" class="section level3" number="90.9.10">
 <h3>
-<span class="header-section-number">86.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-71"><i class="fas fa-link"></i></a>
+<span class="header-section-number">90.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-65"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></div>
-<div class="next"><a href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></div>
+<div class="prev"><a href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></div>
+<div class="next"><a href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tables-kable-kableextra-and-gt"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="nav-link" href="#tables-kable-kableextra-and-gt"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
 <li>
-<a class="nav-link" href="#introduction-79"><span class="header-section-number">86.1</span> Introduction</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#packages-2"><span class="header-section-number">86.1.1</span> Packages</a></li></ul>
+<a class="nav-link" href="#introduction-77"><span class="header-section-number">90.1</span> Introduction</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#packages-2"><span class="header-section-number">90.1.1</span> Packages</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#kable"><span class="header-section-number">86.2</span> Kable()</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#arguments-of-kable"><span class="header-section-number">86.2.1</span> Arguments of kable()</a></li>
-<li><a class="nav-link" href="#formatting-of-kable"><span class="header-section-number">86.2.2</span> Formatting of kable</a></li>
+<a class="nav-link" href="#kable"><span class="header-section-number">90.2</span> Kable()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#arguments-of-kable"><span class="header-section-number">90.2.1</span> Arguments of kable()</a></li>
+<li><a class="nav-link" href="#formatting-of-kable"><span class="header-section-number">90.2.2</span> Formatting of kable</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#kableextra"><span class="header-section-number">86.3</span> kableExtra</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#kable_styling"><span class="header-section-number">86.3.1</span> kable_styling()</a></li>
-<li><a class="nav-link" href="#how-to-put-multiple-tables-side-by-side"><span class="header-section-number">86.3.2</span> How to put multiple tables side by side</a></li>
+<a class="nav-link" href="#kableextra"><span class="header-section-number">90.3</span> kableExtra</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#kable_styling"><span class="header-section-number">90.3.1</span> kable_styling()</a></li>
+<li><a class="nav-link" href="#how-to-put-multiple-tables-side-by-side"><span class="header-section-number">90.3.2</span> How to put multiple tables side by side</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#gt-table"><span class="header-section-number">86.4</span> GT Table</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#add-parts-to-the-gt-table"><span class="header-section-number">86.4.1</span> Add parts to the gt Table</a></li></ul>
+<a class="nav-link" href="#gt-table"><span class="header-section-number">90.4</span> GT Table</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#add-parts-to-the-gt-table"><span class="header-section-number">90.4.1</span> Add parts to the gt Table</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-118"><span class="header-section-number">86.5</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-83"><span class="header-section-number">86.5.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-81"><span class="header-section-number">86.5.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-80"><span class="header-section-number">86.5.3</span> Question 3</a></li>
+<a class="nav-link" href="#exercises-101"><span class="header-section-number">90.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-72"><span class="header-section-number">90.5.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-70"><span class="header-section-number">90.5.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-71"><span class="header-section-number">90.5.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-67"><span class="header-section-number">90.5.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-66"><span class="header-section-number">90.5.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-66"><span class="header-section-number">90.5.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-64"><span class="header-section-number">90.5.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-65"><span class="header-section-number">90.5.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-64"><span class="header-section-number">90.5.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-64"><span class="header-section-number">90.5.10</span> Question 10</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#common-mistakes-errors-26"><span class="header-section-number">86.6</span> Common Mistakes &amp; Errors</a></li>
-<li><a class="nav-link" href="#next-steps-50"><span class="header-section-number">86.7</span> Next Steps</a></li>
-<li><a class="nav-link" href="#reference-1"><span class="header-section-number">86.8</span> Reference</a></li>
+<li><a class="nav-link" href="#common-mistakes-errors-26"><span class="header-section-number">90.6</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-50"><span class="header-section-number">90.7</span> Next Steps</a></li>
+<li><a class="nav-link" href="#reference-1"><span class="header-section-number">90.8</span> Reference</a></li>
 <li>
-<a class="nav-link" href="#exercises-119"><span class="header-section-number">86.9</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-84"><span class="header-section-number">86.9.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-82"><span class="header-section-number">86.9.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-81"><span class="header-section-number">86.9.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-73"><span class="header-section-number">86.9.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-72"><span class="header-section-number">86.9.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-72"><span class="header-section-number">86.9.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-71"><span class="header-section-number">86.9.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-71"><span class="header-section-number">86.9.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-71"><span class="header-section-number">86.9.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-71"><span class="header-section-number">86.9.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-102"><span class="header-section-number">90.9</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-73"><span class="header-section-number">90.9.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-71"><span class="header-section-number">90.9.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-72"><span class="header-section-number">90.9.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-68"><span class="header-section-number">90.9.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-67"><span class="header-section-number">90.9.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-67"><span class="header-section-number">90.9.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-65"><span class="header-section-number">90.9.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-66"><span class="header-section-number">90.9.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-65"><span class="header-section-number">90.9.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-65"><span class="header-section-number">90.9.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -3308,7 +3344,7 @@ Valiant
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

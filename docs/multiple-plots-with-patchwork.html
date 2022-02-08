@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 87 Multiple plots with patchwork | DoSS Toolkit</title>
+<title>Chapter 91 Multiple plots with patchwork | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Michael Chong and last updated on 7 October 2021.  87.1 Introduction In this lesson, you will learn how to: use the patchwork R package to make multi-panel plots Prerequisite skills...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 87 Multiple plots with patchwork | DoSS Toolkit">
+<meta name="description" content="Written by Michael Chong and last updated on 7 October 2021.  91.1 Introduction In this lesson, you will learn how to: use the patchwork R package to make multi-panel plots Prerequisite skills...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 91 Multiple plots with patchwork | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Michael Chong and last updated on 7 October 2021.  87.1 Introduction In this lesson, you will learn how to: use the patchwork R package to make multi-panel plots Prerequisite skills...">
+<meta property="og:description" content="Written by Michael Chong and last updated on 7 October 2021.  91.1 Introduction In this lesson, you will learn how to: use the patchwork R package to make multi-panel plots Prerequisite skills...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 87 Multiple plots with patchwork | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Michael Chong and last updated on 7 October 2021.  87.1 Introduction In this lesson, you will learn how to: use the patchwork R package to make multi-panel plots Prerequisite skills...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 91 Multiple plots with patchwork | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Michael Chong and last updated on 7 October 2021.  91.1 Introduction In this lesson, you will learn how to: use the patchwork R package to make multi-panel plots Prerequisite skills...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="active" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="active" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,14 +168,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-plots-with-patchwork" class="section level1" number="87">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-plots-with-patchwork" class="section level1" number="91">
 <h1>
-<span class="header-section-number">87</span> Multiple plots with <code>patchwork</code><a class="anchor" aria-label="anchor" href="#multiple-plots-with-patchwork"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91</span> Multiple plots with <code>patchwork</code><a class="anchor" aria-label="anchor" href="#multiple-plots-with-patchwork"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Michael Chong and last updated on 7 October 2021.</em></p>
-<div id="introduction-80" class="section level2" number="87.1">
+<div id="introduction-78" class="section level2" number="91.1">
 <h2>
-<span class="header-section-number">87.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-80"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-78"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this lesson, you will learn how to:</p>
 <ul>
@@ -198,25 +187,25 @@
 </li>
 </ul>
 </div>
-<div id="what-is-patchwork" class="section level2" number="87.2">
+<div id="what-is-patchwork" class="section level2" number="91.2">
 <h2>
-<span class="header-section-number">87.2</span> What is <code>patchwork</code>?<a class="anchor" aria-label="anchor" href="#what-is-patchwork"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.2</span> What is <code>patchwork</code>?<a class="anchor" aria-label="anchor" href="#what-is-patchwork"><i class="fas fa-link"></i></a>
 </h2>
 <p>In some situations it might be useful to arrange multiple plots side by side. The <code>patchwork</code> R package provides a really easy way to do this.</p>
 <p><a href="https://patchwork.data-imaginist.com/">The package website</a> is a great resource on its own. Most of the content in this lesson can also be found there.</p>
 <p><strong>To get started</strong>, make sure to have the package installed, which you can get using the default install command:</p>
-<div class="sourceCode" id="cb662"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb687"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></code></pre></div>
 <p>and load the package:</p>
-<div class="sourceCode" id="cb663"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb688"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="getting-started" class="section level2" number="87.3">
+<div id="getting-started" class="section level2" number="91.3">
 <h2>
-<span class="header-section-number">87.3</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.3</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
 </h2>
 <p>First, make some plots that you want to put together. Here’s an example using the <a href="https://allisonhorst.github.io/palmerpenguins/index.html"><code>palmerpenguins</code></a> dataset.</p>
-<div class="sourceCode" id="cb664"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb689"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span>
 
 <span class="co"># Make a scatterplot of flipper length vs. body mass</span>
@@ -226,51 +215,51 @@
 <span class="co"># Make a boxplot of body mass by sex</span>
 <span class="va">second_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>Putting two plots together is as simple as just “adding” them with a <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> sign:</p>
-<div class="sourceCode" id="cb665"><pre class="downlit sourceCode r">
+<p>Putting two plots together is as simple as just “adding” them with a <code>+</code> sign:</p>
+<div class="sourceCode" id="cb690"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Add them together side by side</span>
 <span class="va">first_plot</span> <span class="op">+</span> <span class="va">second_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
-<p>If we want to stack the plots on top of each other, we use the <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> symbol instead:</p>
-<div class="sourceCode" id="cb666"><pre class="downlit sourceCode r">
+<p>If we want to stack the plots on top of each other, we use the <code>/</code> symbol instead:</p>
+<div class="sourceCode" id="cb691"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Stack them on top</span>
 <span class="va">first_plot</span> <span class="op">/</span> <span class="va">second_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <p>It’s that simple!</p>
 </div>
-<div id="more-complicated-layouts" class="section level2" number="87.4">
+<div id="more-complicated-layouts" class="section level2" number="91.4">
 <h2>
-<span class="header-section-number">87.4</span> More complicated layouts<a class="anchor" aria-label="anchor" href="#more-complicated-layouts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.4</span> More complicated layouts<a class="anchor" aria-label="anchor" href="#more-complicated-layouts"><i class="fas fa-link"></i></a>
 </h2>
 <p>Okay, what if you have more than 2 plots that you want to arrange? Suppose we also want to plot how size varies by island.</p>
-<div class="sourceCode" id="cb667"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb692"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">third_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">island</span>, y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>To put them in a row, I’d recommend using <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> (instead of <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, which doesn’t always force them in a row)</p>
-<div class="sourceCode" id="cb668"><pre class="downlit sourceCode r">
+<p>To put them in a row, I’d recommend using <code>|</code> (instead of <code>+</code>, which doesn’t always force them in a row)</p>
+<div class="sourceCode" id="cb693"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_plot</span> <span class="op">|</span> <span class="va">second_plot</span> <span class="op">|</span> <span class="va">third_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
-<p>or, you can stack as many as you want by adding more <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> symbols:</p>
-<div class="sourceCode" id="cb669"><pre class="downlit sourceCode r">
+<p>or, you can stack as many as you want by adding more <code>/</code> symbols:</p>
+<div class="sourceCode" id="cb694"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_plot</span> <span class="op">/</span> <span class="va">second_plot</span> <span class="op">/</span> <span class="va">third_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
-<p>Or, you can arrange them using a mix of <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> and <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code>:</p>
-<div class="sourceCode" id="cb670"><pre class="downlit sourceCode r">
+<p>Or, you can arrange them using a mix of <code>|</code> and <code>/</code>:</p>
+<div class="sourceCode" id="cb695"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_plot</span> <span class="op">|</span> <span class="va">second_plot</span> <span class="op">/</span> <span class="va">third_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>You can use parentheses <code>( )</code> to change “the order of operations” to change how things are arranged:</p>
-<div class="sourceCode" id="cb671"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb696"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">first_plot</span> <span class="op">|</span> <span class="va">second_plot</span><span class="op">)</span> <span class="op">/</span> <span class="va">third_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <p>With these few tools, you can get good looking multi-panel plots relatively easily!</p>
 </div>
-<div id="customization-and-annotation" class="section level2" number="87.5">
+<div id="customization-and-annotation" class="section level2" number="91.5">
 <h2>
-<span class="header-section-number">87.5</span> Customization and annotation<a class="anchor" aria-label="anchor" href="#customization-and-annotation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.5</span> Customization and annotation<a class="anchor" aria-label="anchor" href="#customization-and-annotation"><i class="fas fa-link"></i></a>
 </h2>
 <p>After you have the plots arranged in the way you want, maybe you want to add a title and labels, which you can do using the <code><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation()</a></code> function. You can just add this to the <code>patchwork</code> expression.</p>
 <p>As an example, I’ll add a title, subtitle, caption, as well as “tag” the individual subplots with “a,” “b,” “c.”</p>
-<div class="sourceCode" id="cb672"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb697"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">first_plot</span> <span class="op">|</span> <span class="va">second_plot</span> <span class="op">/</span> <span class="va">third_plot</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation</a></span><span class="op">(</span>
     title <span class="op">=</span> <span class="st">"Exploration of penguin size"</span>,
@@ -280,7 +269,7 @@
   <span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 <p>Note that I have to wrap <code>first_plot | second_plot / third_plot</code> in parentheses <code>( )</code> – otherwise the annotations won’t be added correctly. You can also assign the patchwork as its own object before adding the annotations:</p>
-<div class="sourceCode" id="cb673"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb698"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_patchwork</span> <span class="op">&lt;-</span> <span class="va">first_plot</span> <span class="op">|</span> <span class="va">second_plot</span> <span class="op">/</span> <span class="va">third_plot</span></code></pre></div>
 <p>The arguments for <code>title</code>, <code>subtitle</code>, and <code>caption</code> are straightforward – you just provide a string of text to display.</p>
 <p>For <code>tag_levels</code>, you specify how you want the subplots to be labelled. You can provide:</p>
@@ -296,28 +285,28 @@
 </ul>
 <p>Remember you can always check how to use the function using <code><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">?plot_annotation</a></code>.</p>
 </div>
-<div id="exercises-120" class="section level2" number="87.6">
+<div id="exercises-103" class="section level2" number="91.6">
 <h2>
-<span class="header-section-number">87.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-120"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-103"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-1-25" class="section level3" number="87.6.1">
+<div id="exercise-1-21" class="section level3" number="91.6.1">
 <h3>
-<span class="header-section-number">87.6.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.6.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-21"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
 <p>Using the plot <code>first_plot</code> three times, recreate the <code>patchwork</code> layout above.</p>
-<div class="sourceCode" id="cb674"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb699"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">first_plot</span> <span class="op">/</span> <span class="va">first_plot</span><span class="op">)</span> <span class="op">|</span> <span class="va">first_plot</span></code></pre></div>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/patchwork-exercise-1-solution-1.png" width="672"></div>
 </div>
-<div id="exercise-2-20" class="section level3" number="87.6.2">
+<div id="exercise-2-18" class="section level3" number="91.6.2">
 <h3>
-<span class="header-section-number">87.6.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-20"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.6.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-18"><i class="fas fa-link"></i></a>
 </h3>
 <p>Annotate the plot you made in Exercise 1! Replicate the following:</p>
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
-<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="multiple-plots-with-patchwork.html#cb675-1" aria-hidden="true" tabindex="-1"></a>You<span class="st">'ll need to modify one of the subplots.</span></span></code></pre></div>
-<div class="sourceCode" id="cb676"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="multiple-plots-with-patchwork.html#cb700-1" aria-hidden="true" tabindex="-1"></a>You<span class="st">'ll need to modify one of the subplots.</span></span></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_plot_modified</span> <span class="op">&lt;-</span> <span class="va">first_plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"This plot has its own title"</span><span class="op">)</span>
 
 <span class="op">(</span><span class="op">(</span><span class="va">first_plot</span> <span class="op">/</span> <span class="va">first_plot</span><span class="op">)</span> <span class="op">|</span> <span class="va">first_plot_modified</span><span class="op">)</span> <span class="op">+</span>
@@ -328,21 +317,21 @@
 <div class="inline-figure"><img src="088-r_marky_markdown-patchwork_files/figure-html/patchwork-exercise-2-solution-1.png" width="672"></div>
 </div>
 </div>
-<div id="common-mistakes-errors-27" class="section level2" number="87.7">
+<div id="common-mistakes-errors-27" class="section level2" number="91.7">
 <h2>
-<span class="header-section-number">87.7</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-27"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.7</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-27"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>Annotations aren’t showing up</strong> You might need to make sure you’re adding the <code><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation()</a></code> to the patchwork object. Try wrapping your patchwork in parentheses (e.g. <code>(plot1 | plot2) + plot_annotation(...)</code>), or saving it to a different object first (<code>patchwork &lt;- plot1 | plot2; patchwork + plot_annotation(...)</code>)</p>
 <p><strong>I’m having trouble laying out my plots how I want</strong> Check out some of the resources under Next Steps – in particular browsing the patchwork website. This lesson just introduces some of the basic functionality, and there’s lots more to know!</p>
 <p><strong><code>Error: Can't add ____ to a ggplot object</code></strong> First, make sure you’ve loaded the <code>patchwork</code> package with <code><a href="https://patchwork.data-imaginist.com">library(patchwork)</a></code>. Then, make sure that all the plots you’re trying to add together are <code>ggplot</code> objects (see code chunk below).</p>
-<div class="sourceCode" id="cb677"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb702"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">first_plot</span><span class="op">)</span>
 <span class="co">#&gt; [1] "gg"     "ggplot"</span></code></pre></div>
 <p><strong>patchwork and <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code></strong> Note that plots made using base R’s <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function aren’t compatible with patchwork (as far as I know)! If you need to put base R plots together in a similar way, you can try using the <code>cowplot</code> R package.</p>
 </div>
-<div id="next-steps-51" class="section level2" number="87.8">
+<div id="next-steps-51" class="section level2" number="91.8">
 <h2>
-<span class="header-section-number">87.8</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-51"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.8</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-51"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you need more functionality, the <code>patchwork</code> package is capable of much more! You can browse the <a href="https://patchwork.data-imaginist.com/index.html">main website</a> or check out these vignettes:</p>
 <ul>
@@ -351,95 +340,95 @@
 </ul>
 <p>If you still need more functionality to get those plots perfectly arranged, you can try the <a href="https://wilkelab.org/cowplot/index.html"><code>cowplot</code> package</a>. It’s more powerful, but the syntax is a bit more difficult.</p>
 </div>
-<div id="exercises-121" class="section level2" number="87.9">
+<div id="exercises-104" class="section level2" number="91.9">
 <h2>
-<span class="header-section-number">87.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-121"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-104"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-85" class="section level3" number="87.9.1">
+<div id="question-1-74" class="section level3" number="91.9.1">
 <h3>
-<span class="header-section-number">87.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-85"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-74"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-2-83" class="section level3" number="87.9.2">
+<div id="question-2-72" class="section level3" number="91.9.2">
 <h3>
-<span class="header-section-number">87.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-72"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-3-82" class="section level3" number="87.9.3">
+<div id="question-3-73" class="section level3" number="91.9.3">
 <h3>
-<span class="header-section-number">87.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-82"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-73"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-4-74" class="section level3" number="87.9.4">
+<div id="question-4-69" class="section level3" number="91.9.4">
 <h3>
-<span class="header-section-number">87.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-74"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-69"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-5-73" class="section level3" number="87.9.5">
+<div id="question-5-68" class="section level3" number="91.9.5">
 <h3>
-<span class="header-section-number">87.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-73"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-68"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-6-73" class="section level3" number="87.9.6">
+<div id="question-6-68" class="section level3" number="91.9.6">
 <h3>
-<span class="header-section-number">87.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-73"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-68"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-7-72" class="section level3" number="87.9.7">
+<div id="question-7-66" class="section level3" number="91.9.7">
 <h3>
-<span class="header-section-number">87.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-72"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-66"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-8-72" class="section level3" number="87.9.8">
+<div id="question-8-67" class="section level3" number="91.9.8">
 <h3>
-<span class="header-section-number">87.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-72"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-67"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-9-72" class="section level3" number="87.9.9">
+<div id="question-9-66" class="section level3" number="91.9.9">
 <h3>
-<span class="header-section-number">87.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-72"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-66"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-10-72" class="section level3" number="87.9.10">
+<div id="question-10-66" class="section level3" number="91.9.10">
 <h3>
-<span class="header-section-number">87.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-72"><i class="fas fa-link"></i></a>
+<span class="header-section-number">91.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-66"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></div>
-<div class="next"><a href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></div>
+<div class="prev"><a href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></div>
+<div class="next"><a href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#multiple-plots-with-patchwork"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="nav-link" href="#introduction-80"><span class="header-section-number">87.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#what-is-patchwork"><span class="header-section-number">87.2</span> What is patchwork?</a></li>
-<li><a class="nav-link" href="#getting-started"><span class="header-section-number">87.3</span> Getting started</a></li>
-<li><a class="nav-link" href="#more-complicated-layouts"><span class="header-section-number">87.4</span> More complicated layouts</a></li>
-<li><a class="nav-link" href="#customization-and-annotation"><span class="header-section-number">87.5</span> Customization and annotation</a></li>
+<li><a class="nav-link" href="#multiple-plots-with-patchwork"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="nav-link" href="#introduction-78"><span class="header-section-number">91.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#what-is-patchwork"><span class="header-section-number">91.2</span> What is patchwork?</a></li>
+<li><a class="nav-link" href="#getting-started"><span class="header-section-number">91.3</span> Getting started</a></li>
+<li><a class="nav-link" href="#more-complicated-layouts"><span class="header-section-number">91.4</span> More complicated layouts</a></li>
+<li><a class="nav-link" href="#customization-and-annotation"><span class="header-section-number">91.5</span> Customization and annotation</a></li>
 <li>
-<a class="nav-link" href="#exercises-120"><span class="header-section-number">87.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercise-1-25"><span class="header-section-number">87.6.1</span> Exercise 1</a></li>
-<li><a class="nav-link" href="#exercise-2-20"><span class="header-section-number">87.6.2</span> Exercise 2</a></li>
+<a class="nav-link" href="#exercises-103"><span class="header-section-number">91.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-21"><span class="header-section-number">91.6.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-18"><span class="header-section-number">91.6.2</span> Exercise 2</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#common-mistakes-errors-27"><span class="header-section-number">87.7</span> Common Mistakes &amp; Errors</a></li>
-<li><a class="nav-link" href="#next-steps-51"><span class="header-section-number">87.8</span> Next Steps</a></li>
+<li><a class="nav-link" href="#common-mistakes-errors-27"><span class="header-section-number">91.7</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-51"><span class="header-section-number">91.8</span> Next Steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-121"><span class="header-section-number">87.9</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-85"><span class="header-section-number">87.9.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-83"><span class="header-section-number">87.9.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-82"><span class="header-section-number">87.9.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-74"><span class="header-section-number">87.9.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-73"><span class="header-section-number">87.9.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-73"><span class="header-section-number">87.9.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-72"><span class="header-section-number">87.9.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-72"><span class="header-section-number">87.9.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-72"><span class="header-section-number">87.9.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-72"><span class="header-section-number">87.9.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-104"><span class="header-section-number">91.9</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-74"><span class="header-section-number">91.9.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-72"><span class="header-section-number">91.9.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-73"><span class="header-section-number">91.9.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-69"><span class="header-section-number">91.9.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-68"><span class="header-section-number">91.9.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-68"><span class="header-section-number">91.9.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-66"><span class="header-section-number">91.9.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-67"><span class="header-section-number">91.9.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-66"><span class="header-section-number">91.9.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-66"><span class="header-section-number">91.9.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -459,7 +448,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

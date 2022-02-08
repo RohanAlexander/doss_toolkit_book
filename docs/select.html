@@ -7,16 +7,16 @@
 <title>Chapter 29 select | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Yena Joo and last updated on 7 October 2021.  29.1 Introduction  29.1.1 What is select()? In this lesson, we will learn how to use the select function. When you’re working with data,...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 29 select | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Yena Joo and last updated on 7 October 2021.  29.1 Introduction  29.1.1 What is select()? In this lesson, we will learn how to use the select function. When you’re working with data,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 29 select | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Yena Joo and last updated on 7 October 2021.  29.1 Introduction  29.1.1 What is select()? In this lesson, we will learn how to use the select function. When you’re working with data,...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -204,14 +193,14 @@
 <ul>
 <li>You should have a good understanding of data (column, row, variable), and how to import data.<br>
 </li>
-<li>You also have to know how to use pipe (<code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>)</li>
+<li>You also have to know how to use pipe (<code>%&gt;%</code>)</li>
 </ul>
 </div>
 <div id="basic-setup" class="section level3" number="29.1.3">
 <h3>
 <span class="header-section-number">29.1.3</span> Basic setup<a class="anchor" aria-label="anchor" href="#basic-setup"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -235,7 +224,7 @@
 #&gt; 3     10     25    14     -8</code></pre>
 <p>Now, let’s say we want to only see temperatures in the Spring. To do so, select variables you would like to keep by putting the variable name in the parameter with the function <code>select</code>.<br>
 Here, I would like to just see the <code>spring</code> column by writing the code as below:</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">temperature_data</span>, <span class="va">spring</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 1</span>
 <span class="co">#&gt;   spring</span>
@@ -244,7 +233,7 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="co">#&gt; 2      5</span>
 <span class="co">#&gt; 3     10</span></code></pre></div>
 <p>However, it is important to know that the data in <code>temperature_data</code> did not change as you can see. The function does not mutate the original dataset.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">temperature_data</span>
 <span class="co">#&gt; # A tibble: 3 × 4</span>
 <span class="co">#&gt;   spring summer  fall winter</span>
@@ -253,7 +242,7 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="co">#&gt; 2      5     27    17     -1</span>
 <span class="co">#&gt; 3     10     25    14     -8</span></code></pre></div>
 <p>If you want to use the new dataset with the variable <code>spring</code>, you would have to assign the selected column(s) to a new variable:</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new_data</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">temperature_data</span>, <span class="va">spring</span><span class="op">)</span>
 <span class="va">new_data</span>
 <span class="co">#&gt; # A tibble: 3 × 1</span>
@@ -269,7 +258,7 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 </h2>
 <p>Now, we know how to use the function <code>select</code> bare minimum. There are various ways to use the function with some operators.</p>
 <p><strong>1. You can select multiple variables using commas. Order of the input matters!</strong></p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">temperature_data</span>, <span class="va">winter</span>, <span class="va">summer</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
 <span class="co">#&gt;   winter summer</span>
@@ -278,8 +267,8 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="co">#&gt; 2     -1     27</span>
 <span class="co">#&gt; 3     -8     25</span></code></pre></div>
 <p><strong>2. Another way of selecting multiple variables is to use the operator <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</strong><br><code><a href="https://rdrr.io/r/base/c.html">c()</a></code> is a function that returns a vector(a one-dimensional array). Order of the input also matters.</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">winter</span>, <span class="va">fall</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
 <span class="co">#&gt;   winter  fall</span>
@@ -287,9 +276,9 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="co">#&gt; 1      2    19</span>
 <span class="co">#&gt; 2     -1    17</span>
 <span class="co">#&gt; 3     -8    14</span></code></pre></div>
-<p><strong>3. The <code><a href="https://rdrr.io/r/base/Logic.html">!</a></code> operator negates a selection, <code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code> operator means “and”(intersection), whereas <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> takes the union of the selections (or).</strong></p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op">%&gt;%</span>
+<p><strong>3. The <code>!</code> operator negates a selection, <code>&amp;</code> operator means “and”(intersection), whereas <code>|</code> takes the union of the selections (or).</strong></p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">!</span><span class="va">winter</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 3</span>
 <span class="co">#&gt;   spring summer  fall</span>
@@ -304,10 +293,10 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="co">#&gt; 1      3    19</span>
 <span class="co">#&gt; 2      5    17</span>
 <span class="co">#&gt; 3     10    14</span></code></pre></div>
-<p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select(temperature_data, winter &amp; summer)</a></code> would incur an error because there cannot exist a variable that is both winter and summer.</p>
-<p><strong>4. The <code><a href="https://rdrr.io/r/base/Colon.html">:</a></code> operator selects a range of consecutive variables, starting from the variable you put on the left of the colon to the variable you put on the right of the colon.</strong></p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op">%&gt;%</span> 
+<p><code>select(temperature_data, winter &amp; summer)</code> would incur an error because there cannot exist a variable that is both winter and summer.</p>
+<p><strong>4. The <code>:</code> operator selects a range of consecutive variables, starting from the variable you put on the left of the colon to the variable you put on the right of the colon.</strong></p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">summer</span><span class="op">:</span><span class="va">winter</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 3</span>
 <span class="co">#&gt;   summer  fall winter</span>
@@ -315,10 +304,10 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="co">#&gt; 1     23    19      2</span>
 <span class="co">#&gt; 2     27    17     -1</span>
 <span class="co">#&gt; 3     25    14     -8</span></code></pre></div>
-<p><strong>5. The <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> operator excludes a column.</strong></p>
-<p>If you would like to choose most of the columns in the dataset, and exclude a few columns, there is an easier way. You can just put <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> in front of the name of the column you would like to exclude. For example, I would like to exclude columns <code>summer</code> and <code>winter</code>, then I would just put a <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> in front of the columns:</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op">%&gt;%</span> 
+<p><strong>5. The <code>-</code> operator excludes a column.</strong></p>
+<p>If you would like to choose most of the columns in the dataset, and exclude a few columns, there is an easier way. You can just put <code>-</code> in front of the name of the column you would like to exclude. For example, I would like to exclude columns <code>summer</code> and <code>winter</code>, then I would just put a <code>-</code> in front of the columns:</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">temperature_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">summer</span>, <span class="op">-</span><span class="va">winter</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
 <span class="co">#&gt;   spring  fall</span>
@@ -332,26 +321,26 @@ Here, I would like to just see the <code>spring</code> column by writing the cod
 <span class="header-section-number">29.5</span> Advanced uses<a class="anchor" aria-label="anchor" href="#advanced-uses"><i class="fas fa-link"></i></a>
 </h2>
 <p>Some would wonder how they could select the columns based on the data types, since most of the statistical analyses use quantitative data rather than qualitative data. In that case, you can use the following:</p>
-<p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select(which(sapply(., is.numeric)))</a></code></p>
+<p><code>select(which(sapply(., is.numeric)))</code></p>
 <p>Instead of <code>is.numeric</code>, you can put <code>is.character</code> and <code>is.double</code> depending on what type of variables you would like to select in the dataset.
 Let’s look at some examples. Here is a dataset that contains information about Sakura blooming in Japan, and it has various data types such as <code>&lt;int&gt;</code>(integer), <code>&lt;chr&gt;</code>(character), <code>&lt;dbl&gt;</code>(double).</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># japanese_blooming &lt;- read.csv("https://raw.githubusercontent.com/tacookson/data/master/sakura-flowering/temperatures-modern.csv")</span>
 <span class="co"># head(japanese_blooming)</span></code></pre></div>
-<p>Using the <code><a href="https://rdrr.io/r/base/which.html">which(sapply(., is.character))</a></code>, we can select the variables that have a data type character <code>&lt;chr&gt;</code>.</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<p>Using the <code>which(sapply(., is.character))</code>, we can select the variables that have a data type character <code>&lt;chr&gt;</code>.</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># japanese_blooming %&gt;% select(which(sapply(.,is.character)))</span></code></pre></div>
 <p>If you want to select quantitative/numeric data, you can put <code>is.numeric</code> instead.</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># japanese_blooming %&gt;% select(which(sapply(.,is.numeric)))</span></code></pre></div>
 <p>Another way to perform, is the following using <code>select_if</code> with whichever data type you would like to select, such as <code>is.double</code>, <code>is.integer</code>, <code>is.double</code> and <code>is.character</code>:</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># japanese_blooming %&gt;% select_if(is.double)</span></code></pre></div>
 <p>Selecting variables depending on the data type will come in handy when the dataset has hundreds of variables and you would like to select only quantitative variables for your data analysis/building a statistical model.</p>
 </div>
-<div id="exercises-28" class="section level2" number="29.6">
+<div id="exercises-27" class="section level2" number="29.6">
 <h2>
-<span class="header-section-number">29.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-28"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-27"><i class="fas fa-link"></i></a>
 </h2>
 <p>Based on the material we have learned, now let’s do some exercises.</p>
 <div id="question-1-17" class="section level3" number="29.6.1">
@@ -359,7 +348,7 @@ Let’s look at some examples. Here is a dataset that contains information about
 <span class="header-section-number">29.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-17"><i class="fas fa-link"></i></a>
 </h3>
 <p>Modify this code so that we can only see from second to fourth column.</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">temperature_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>spring <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span>, 
                   summer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">27</span>, <span class="fl">25</span><span class="op">)</span>, 
                   fall <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">19</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span>, 
@@ -372,7 +361,7 @@ Let’s look at some examples. Here is a dataset that contains information about
 <span class="co">#&gt; 1      2</span>
 <span class="co">#&gt; 2     -1</span>
 <span class="co">#&gt; 3     -8</span></code></pre></div>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">temperature_data</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 3</span>
 <span class="co">#&gt;   summer  fall winter</span>
@@ -392,8 +381,8 @@ Let’s look at some examples. Here is a dataset that contains information about
 <h3>
 <span class="header-section-number">29.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-17"><i class="fas fa-link"></i></a>
 </h3>
-<p>Modify this code so that we can only see the columns “winter” and “summer” respectively, using <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> operator.</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<p>Modify this code so that we can only see the columns “winter” and “summer” respectively, using <code>|</code> operator.</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">temperature_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>spring <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span>, 
                   summer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">27</span>, <span class="fl">25</span><span class="op">)</span>, 
                   fall <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">19</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span>, 
@@ -406,7 +395,7 @@ Let’s look at some examples. Here is a dataset that contains information about
 <span class="co">#&gt; 1      3</span>
 <span class="co">#&gt; 2      5</span>
 <span class="co">#&gt; 3     10</span></code></pre></div>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">temperature_data</span>, <span class="va">winter</span><span class="op">|</span><span class="va">summer</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
 <span class="co">#&gt;   winter summer</span>
@@ -465,13 +454,13 @@ Let’s look at some examples. Here is a dataset that contains information about
 <span class="header-section-number">29.7</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-3"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
-<li>If you don’t have package “dplyr” or “tidyverse” installed and called in the library, the function would not work. Download either package using <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("dplyr")</a></code>, and set it up in the library at the start of your code using <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code>.<br>
+<li>If you don’t have package “dplyr” or “tidyverse” installed and called in the library, the function would not work. Download either package using <code>install.packages("dplyr")</code>, and set it up in the library at the start of your code using <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code>.<br>
 </li>
 <li>Make sure you typed in the correct variable/column name. Always check if your code contains any typo.<br>
 </li>
 <li>If you would like to use the new data frame using the variables you have selected, make sure to assign the selected variables to a new data frame.<br>
 </li>
-<li>Make sure you understand the differences between the operator <code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code> and <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>. They can be confusing.</li>
+<li>Make sure you understand the differences between the operator <code>&amp;</code> and <code>|</code>. They can be confusing.</li>
 </ul>
 </div>
 <div id="next-steps-see-also" class="section level2" number="29.8">
@@ -493,81 +482,97 @@ Let’s look at some examples. Here is a dataset that contains information about
 <li>There are some operators that can come in handy.
 <ol style="list-style-type: decimal">
 <li>
-<code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>: OR operator<br>
+<code>|</code>: OR operator<br>
 </li>
 <li>
-<code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code>: AND operator<br>
+<code>&amp;</code>: AND operator<br>
 </li>
 <li>
 <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>: a function that returns a vector, it is for choosing multiple columns.</li>
 <li>
-<code><a href="https://rdrr.io/r/base/Logic.html">!</a></code>: to negate a statement or a column<br>
+<code>!</code>: to negate a statement or a column<br>
 </li>
 <li>
-<code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>: to exclude a column<br>
+<code>-</code>: to exclude a column<br>
 </li>
 <li>
-<code><a href="https://rdrr.io/r/base/Colon.html">:</a></code>: to select a range of consecutive variables<br>
+<code>:</code>: to select a range of consecutive variables<br>
 </li>
 </ol>
 </li>
-<li>If you want to select columns with a specific data type, use <code><a href="https://rdrr.io/r/base/which.html">which(sapply(.,is.DATATYPE))</a></code> or use <code><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if(is.DATATYPE)</a></code>
+<li>If you want to select columns with a specific data type, use <code>which(sapply(.,is.DATATYPE))</code> or use <code>select_if(is.DATATYPE)</code>
 </li>
 </ul>
 </div>
-<div id="exercises-29" class="section level2" number="29.10">
+<div id="exercises-28" class="section level2" number="29.10">
 <h2>
-<span class="header-section-number">29.10</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-29"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-28"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-18" class="section level3" number="29.10.1">
+<div id="question-5-17" class="section level3" number="29.10.1">
 <h3>
-<span class="header-section-number">29.10.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-18"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10.1</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-17"><i class="fas fa-link"></i></a>
 </h3>
+<p>When do you use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function?<br>
+a. To retain all rows in a dataset that satisfy your conditions.
+b. To choose a subset of variables or columns from a dataset.<br>
+c. To reorder a dataset.<br>
+d. To drop null values in a dataset.</p>
 </div>
-<div id="question-2-18" class="section level3" number="29.10.2">
+<div id="question-6-17" class="section level3" number="29.10.2">
 <h3>
-<span class="header-section-number">29.10.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-18"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10.2</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-17"><i class="fas fa-link"></i></a>
 </h3>
+<p>When you want to select multiple columns, which operator is the most appropriate to use?<br>
+a. &amp;<br>
+b. c()<br>
+c. !<br>
+d. -</p>
 </div>
-<div id="question-3-18" class="section level3" number="29.10.3">
+<div id="question-7-16" class="section level3" number="29.10.3">
 <h3>
-<span class="header-section-number">29.10.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-18"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10.3</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-16"><i class="fas fa-link"></i></a>
 </h3>
+<p>What can you do with select() function?<br>
+a. Select column with column name.<br>
+b. Select column name with missing values.<br>
+c. Select column which ends with certain character.<br>
+d. All of the above.</p>
 </div>
-<div id="question-4-18" class="section level3" number="29.10.4">
+<div id="question-8-17" class="section level3" number="29.10.4">
 <h3>
-<span class="header-section-number">29.10.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-18"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10.4</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-17"><i class="fas fa-link"></i></a>
 </h3>
+<p>How many columns will the following code chunk return?</p>
+<pre><code>select(data, 3:5) </code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>1<br>
+</li>
+<li>2<br>
+</li>
+<li>3<br>
+</li>
+<li>4</li>
+</ol>
 </div>
-<div id="question-5-17" class="section level3" number="29.10.5">
+<div id="question-9-17" class="section level3" number="29.10.5">
 <h3>
-<span class="header-section-number">29.10.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-17"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10.5</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-17"><i class="fas fa-link"></i></a>
 </h3>
+<p>Which function would you use if you want to select columns that has the letter “a?”<br>
+a. select(data, contains(“a”))<br>
+b. select(data, includes(“a”))<br>
+c. select(data, starts_with(“a”))<br>
+d. All of the above.</p>
 </div>
-<div id="question-6-17" class="section level3" number="29.10.6">
+<div id="question-10-17" class="section level3" number="29.10.6">
 <h3>
-<span class="header-section-number">29.10.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-17"><i class="fas fa-link"></i></a>
+<span class="header-section-number">29.10.6</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-17"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="question-7-17" class="section level3" number="29.10.7">
-<h3>
-<span class="header-section-number">29.10.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-17"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-17" class="section level3" number="29.10.8">
-<h3>
-<span class="header-section-number">29.10.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-17"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-17" class="section level3" number="29.10.9">
-<h3>
-<span class="header-section-number">29.10.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-17"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-17" class="section level3" number="29.10.10">
-<h3>
-<span class="header-section-number">29.10.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-17"><i class="fas fa-link"></i></a>
-</h3>
+<p>What does <code>select_if(is.numeric)</code> select?<br>
+a. select columns that contains numbers in a column name.<br>
+b. select the variables that have a data type character <code>&lt;chr&gt;</code>.<br>
+c. select columns that have a quantitative or numeric data type.<br>
+d. select columns that have a qualitative data type.</p>
 
 </div>
 </div>
@@ -591,7 +596,7 @@ Let’s look at some examples. Here is a dataset that contains information about
 <li><a class="nav-link" href="#operators"><span class="header-section-number">29.4</span> Operators</a></li>
 <li><a class="nav-link" href="#advanced-uses"><span class="header-section-number">29.5</span> Advanced uses</a></li>
 <li>
-<a class="nav-link" href="#exercises-28"><span class="header-section-number">29.6</span> Exercises</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#exercises-27"><span class="header-section-number">29.6</span> Exercises</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#question-1-17"><span class="header-section-number">29.6.1</span> Question 1</a></li>
 <li><a class="nav-link" href="#question-2-17"><span class="header-section-number">29.6.2</span> Question 2</a></li>
 <li><a class="nav-link" href="#question-3-17"><span class="header-section-number">29.6.3</span> Question 3</a></li>
@@ -602,17 +607,13 @@ Let’s look at some examples. Here is a dataset that contains information about
 <li><a class="nav-link" href="#next-steps-see-also"><span class="header-section-number">29.8</span> Next Steps &amp; See also</a></li>
 <li><a class="nav-link" href="#summary"><span class="header-section-number">29.9</span> Summary</a></li>
 <li>
-<a class="nav-link" href="#exercises-29"><span class="header-section-number">29.10</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-18"><span class="header-section-number">29.10.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-18"><span class="header-section-number">29.10.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-18"><span class="header-section-number">29.10.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-18"><span class="header-section-number">29.10.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-17"><span class="header-section-number">29.10.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-17"><span class="header-section-number">29.10.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-17"><span class="header-section-number">29.10.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-17"><span class="header-section-number">29.10.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-17"><span class="header-section-number">29.10.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-17"><span class="header-section-number">29.10.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-28"><span class="header-section-number">29.10</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-5-17"><span class="header-section-number">29.10.1</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-17"><span class="header-section-number">29.10.2</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-16"><span class="header-section-number">29.10.3</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-17"><span class="header-section-number">29.10.4</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-17"><span class="header-section-number">29.10.5</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-17"><span class="header-section-number">29.10.6</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -632,7 +633,7 @@ Let’s look at some examples. Here is a dataset that contains information about
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

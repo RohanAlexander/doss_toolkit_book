@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 103 Writing R Packages II | DoSS Toolkit</title>
+<title>Chapter 107 Writing R Packages II | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by ADD NAME and last updated on ADD DATE.  103.1 Introduction   103.2 Exercises  103.2.1 Question 1   103.2.2 Question 2   103.2.3 Question 3   103.2.4 Question 4   103.2.5 Question 5  ...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 103 Writing R Packages II | DoSS Toolkit">
+<meta name="description" content="Written by Matthew Wankiewicz and last updated on January 5th, 2022  107.1 Introduction After creating your first R package, you will likely want to share it with others and will need to make...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 107 Writing R Packages II | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by ADD NAME and last updated on ADD DATE.  103.1 Introduction   103.2 Exercises  103.2.1 Question 1   103.2.2 Question 2   103.2.3 Question 3   103.2.4 Question 4   103.2.5 Question 5  ...">
+<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on January 5th, 2022  107.1 Introduction After creating your first R package, you will likely want to share it with others and will need to make...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 103 Writing R Packages II | DoSS Toolkit">
-<meta name="twitter:description" content="Written by ADD NAME and last updated on ADD DATE.  103.1 Introduction   103.2 Exercises  103.2.1 Question 1   103.2.2 Question 2   103.2.3 Question 3   103.2.4 Question 4   103.2.5 Question 5  ...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 107 Writing R Packages II | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on January 5th, 2022  107.1 Introduction After creating your first R package, you will likely want to share it with others and will need to make...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="active" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="active" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,95 +168,343 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="writing-r-packages-ii" class="section level1" number="103">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="writing-r-packages-ii" class="section level1" number="107">
 <h1>
-<span class="header-section-number">103</span> Writing R Packages II<a class="anchor" aria-label="anchor" href="#writing-r-packages-ii"><i class="fas fa-link"></i></a>
+<span class="header-section-number">107</span> Writing R Packages II<a class="anchor" aria-label="anchor" href="#writing-r-packages-ii"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Written by ADD NAME and last updated on ADD DATE.</em></p>
-<div id="introduction-95" class="section level2" number="103.1">
+<p><em>Written by Matthew Wankiewicz and last updated on January 5th, 2022</em></p>
+<div id="introduction-94" class="section level2" number="107.1">
 <h2>
-<span class="header-section-number">103.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-95"><i class="fas fa-link"></i></a>
+<span class="header-section-number">107.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-94"><i class="fas fa-link"></i></a>
 </h2>
+<p>After creating your first R package, you will likely want to share it with others and will need to make instructions for how to use functions in your package. This is where <code>pkgdown</code> and vignettes come into play. <code>pkgdown</code> is an R package which creates a website for your package, showing users the functionality of it. Vignettes are instructions for using your package. Most packages in R will have vignettes created and you can access them using <code>browseVignettes("package")</code>. Using this function will open up a window which contains the vignettes for the package.</p>
+<p>Another important step in the package making process is testing. Testing ensures that your package is working properly by telling you if there are any functions which don’t work as intended. A common package to use for testing is <code>testthat</code>.</p>
+<p>In this module, we will first look at how to make vignettes, then compiling these vignettes on a <code>pkgdown</code> site and finally the steps for testing your packages.</p>
 </div>
-<div id="exercises-143" class="section level2" number="103.2">
+<div id="vignettes" class="section level2" number="107.2">
 <h2>
-<span class="header-section-number">103.2</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-143"><i class="fas fa-link"></i></a>
+<span class="header-section-number">107.2</span> Vignettes<a class="anchor" aria-label="anchor" href="#vignettes"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-100" class="section level3" number="103.2.1">
-<h3>
-<span class="header-section-number">103.2.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-100"><i class="fas fa-link"></i></a>
-</h3>
+<p>A vignette is a set of instructions for users on how your package works. These instructions can show unique situations where your package works best, or just give an overview on how to use the package. You can also use vignettes to tell users how to avoid common errors with your package or what they should do if they encounter an error.</p>
+<p>The first step for making vignettes is installing the <code>usethis</code> package and running <code>usethis::use_vignette("vignette_name")</code>. This will create a directory which will contain your vignettes and edit your description to show that you have vignettes.</p>
+<p>After running the code chunk above, you will find a sample vignette in the “vignettes” directory. This vignette will be a template for how you should format your vignettes. You can edit it and copy its format to create other vignettes.</p>
+<p>Once the sample vignette has been customized to suit your package’s functions, you can create more vignettes by creating new R markdown files. You can either copy the format from your first vignette or when creating a new R markdown file you can select “From Template” on the pop-up window and then select “Package Vignette.” This will make another sample vignette file that you can customize.</p>
+<div class="figure">
+<img src="https://bookdown.org/yihui/rmarkdown-cookbook/images/package-vignette.png" alt=""><p class="caption">Example of the Template Window for R markdown. Image from the “R Markdown Cookbook.”</p>
 </div>
-<div id="question-2-98" class="section level3" number="103.2.2">
+<p>In the header of the file, you can change the title and add a spot for the name of the Author and when the vignette was written (<strong>Note:</strong> When changing the title, you must do it on the line that says “Title” on line 2 and on the 7th line inside the brackets of “%VignetteIndexEntry{Vignette Title}”). After editing the header, you can start writing about your function, with examples of how it works, including topics like what changing an argument does to the function. To write these examples, you can insert code chunks which either run the function or simply show the function.</p>
+<p>To create a code chunk which does not run the function, add include <code>eval = FALSE</code> into the R chunk title. This will allow you to run the chunk in the .rmd file, but will not run it when the file is knit. This is useful for when your function doesn’t have an output or creates a new file, as it will just show what to write instead of running it.</p>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="writing-r-packages-ii.html#cb763-1" aria-hidden="true" tabindex="-1"></a>A code chunk with <span class="st">`</span><span class="at">eval = FALSE</span><span class="st">`</span> will look like this. You can place anything <span class="cf">in</span> the chunk and it will not run</span></code></pre></div>
+<p>Once you have written your vignette, you can knit it to ensure that everything is running properly. You can then repeat the process until you have written vignettes for all parts of the package you want to explain.</p>
+<div id="sample-process" class="section level3" number="107.2.1">
 <h3>
-<span class="header-section-number">103.2.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-98"><i class="fas fa-link"></i></a>
+<span class="header-section-number">107.2.1</span> Sample Process<a class="anchor" aria-label="anchor" href="#sample-process"><i class="fas fa-link"></i></a>
 </h3>
+<p>The sample process for creating vignettes can be seen below:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the project for your package.</li>
+<li>Run <code>usethis::use_vignette("vignette_name")</code> to set up the vignette folder.</li>
+<li>Customize the sample .rmd to contain information for your package.</li>
+<li>Make more vignettes by either copying and editing the entire sample .rmd file or by creating a new R markdown file and using the vignette template.</li>
+<li>After you’ve made vignettes, you can save your package, clean and rebuild and then push it to GitHub. You can then install the package and use <code><a href="https://rdrr.io/r/utils/browseVignettes.html">browseVignettes()</a></code> to see your vignettes. (You can also check your vignettes by knitting the .rmd file.)</li>
+</ol>
 </div>
-<div id="question-3-96" class="section level3" number="103.2.3">
-<h3>
-<span class="header-section-number">103.2.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-96"><i class="fas fa-link"></i></a>
-</h3>
 </div>
-<div id="question-4-88" class="section level3" number="103.2.4">
-<h3>
-<span class="header-section-number">103.2.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-88"><i class="fas fa-link"></i></a>
-</h3>
+<div id="making-a-pkgdown-website" class="section level2" number="107.3">
+<h2>
+<span class="header-section-number">107.3</span> Making a <code>pkgdown</code> website<a class="anchor" aria-label="anchor" href="#making-a-pkgdown-website"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>pkgdown</code> websites are free and are compiled from your vignettes. When you create the website, it will have a home page and reference/article pages. The home page will be the README for your package and is where users will find things like descriptions of your package, installation instructions, and what to do when you encounter errors. The reference/article pages are where your vignettes will be located. This can either be split up by function or by the idea you are trying to display.</p>
+<p>To create a <code>pkgdown</code> website you will need to use the <code>usethis</code> and <code>pkgdown</code> packages. From the <code>usethis</code> package you will need the <code>use_pkgdown</code> function. This function will create a file for configuration of the website and will add any missing files needed to make the website. You do not need to add any arguments to the function, simply run: <code><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">usethis::use_pkgdown</a></code>.</p>
+<p>After your package has been set up to become a <code>pkgdown</code> site, you can run <code>pkgdown::build_site()</code> to create your website. This will go through all of the files and compile them into a website for you. Some examples of <code>pkgdown</code> sites include:</p>
+<ul>
+<li>The <code>pkgdown</code> website: <a href="https://pkgdown.r-lib.org/" class="uri">https://pkgdown.r-lib.org/</a>
+</li>
+<li>The DoSS toolkit’s website: <a href="https://dosstoolkit.com/" class="uri">https://dosstoolkit.com/</a>
+</li>
+</ul>
+<p>If you want to change any part of the website, all you need to do is edit the README to edit the homepage or edit the vignettes.</p>
+<p>If you have a logo for your package, <code>pkgdown</code> will automatically add it in to the homepage. If you don’t have a logo, you can add one to your package by inserting the line of code below into your README. You can save your image into the “man” folder, where your function documentation is located.</p>
+<p><code># PACKAGENAME &lt;img src="man/figures/hexsticker.png" align = "right" /&gt;</code></p>
+<p>Usually, the logo/sticker will be hexagon shaped and you can make them using the <a href="https://github.com/GuangchuangYu/hexSticker"><code>hexSticker</code> package.</a></p>
+<p>If you have recently made changes to your package and want to advertise them on your website, you can add a news file called “NEWS.md” to your package. If <code>pkgdown</code> sees that you have a news file, it will add it to the website under a tab called “News” on the header of the website.</p>
 </div>
-<div id="question-5-87" class="section level3" number="103.2.5">
-<h3>
-<span class="header-section-number">103.2.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-87"><i class="fas fa-link"></i></a>
-</h3>
+<div id="testing" class="section level2" number="107.4">
+<h2>
+<span class="header-section-number">107.4</span> Testing<a class="anchor" aria-label="anchor" href="#testing"><i class="fas fa-link"></i></a>
+</h2>
+<p>Testing is an important step in the creation of an R package, and should be done as frequently as possible. When testing, you will be able to find any bugs or issues with your package. Being able to find these issues as soon as possible is important because it will confirm that all of your functions are working properly, and will save you time in the future if any bugs appear.</p>
+<p>A simple way to test a package function is a manual test in the console. You can do this by writing your function in the console and seeing if the output you receive is the same as the one you expect. If it does not match, you will need to change your function’s code. If the function passes that test, you can move on to testing different cases.</p>
+<p>Testing your package’s functions one-by-one is extremely time consuming, especially if you have many different functions and test cases To save time, we can use the <code>testthat</code> package. To use <code>testthat</code>, we will run: <code><a href="https://usethis.r-lib.org/reference/use_testthat.html">usethis::use_testthat()</a></code>.</p>
+<p>Running the line of code above will create a folder and file which will hold the tests for your functions.</p>
+<ul>
+<li>Once you have the test folder created, you can create separate files to test each function. Each file should start with “test.” For example, if you were testing the <code>mean</code> function, you could name the file “test_mean.”</li>
+</ul>
+<p>When creating tests for your functions, you start by using the <code>test_that</code> function. Inside the function you will first write what you are testing, such as “testing the function returns the correct length.” After writing a short description, you can use the <code>expect_</code> functions which run the function, find the output and see if they match up with what you expect it to return. For example, if you tested the <code>nchar</code> function that tells you how many characters are in a string, you can use the <code>expect_equal</code> function as a test. The code chunk below shows how you can format a test for <code>nchar</code>.</p>
+<div class="sourceCode" id="cb764"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">test_that</span><span class="op">(</span><span class="st">"nchar returns the correct number of characters"</span>,
+          <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="st">"abc123"</span><span class="op">)</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; Test passed 🥇</span></code></pre></div>
+<p>If your function passes the test, you will get a message saying “Test passed.” If your function fails the test, there will be a message alerting you of the failure and what went wrong. If we changed the 6 to a 5 in the chunk above, the message would say that there was a mismatch and will tell you what the <code>nchar</code> output yielded.</p>
+<div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">test_that</span><span class="op">(</span><span class="st">"nchar returns the correct number of characters"</span>,
+          <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="st">"abc123"</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; ── Failure (???): nchar returns the correct number of characters ───────────────</span>
+<span class="co">#&gt; nchar("abc123") not equal to 5.</span>
+<span class="co">#&gt; 1/1 mismatches</span>
+<span class="co">#&gt; [1] 6 - 5 == 1</span>
+<span class="co">#&gt; Error:</span>
+<span class="co">#&gt; ! Test failed</span></code></pre></div>
+<p>There are many other types of <code>expect_</code> functions, including ones that look for errors, or that the functions output matches a certain string or number. More functions will be discussed in the <code>testthat</code> lesson.</p>
+<p>After you have created tests for your functions, you can write <code><a href="https://devtools.r-lib.org/reference/test.html">devtools::test()</a></code> in the console and your tests will be run. While running your tests, the function will tell you how many functions passed or failed and if they do fail, why they failed.</p>
+<p>Overall, the steps for testing functions in your package are:</p>
+<ol style="list-style-type: decimal">
+<li>Run <code>usethis::test_that</code>
+</li>
+<li>Create test files for your functions</li>
+<li>Test various cases (looking for errors or ensuring the output is correct)</li>
+<li>Run the tests and see if there are any errors.</li>
+</ol>
 </div>
-<div id="question-6-87" class="section level3" number="103.2.6">
-<h3>
-<span class="header-section-number">103.2.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-87"><i class="fas fa-link"></i></a>
-</h3>
+<div id="common-issues-or-errors" class="section level2" number="107.5">
+<h2>
+<span class="header-section-number">107.5</span> Common Issues or Errors<a class="anchor" aria-label="anchor" href="#common-issues-or-errors"><i class="fas fa-link"></i></a>
+</h2>
+<p>The most common issues that occur when working with vignettes are issues with knitting the R markdown files. To prevent these issues from occurring, you will need to look at any error messages and make sure the error is avoided. If you have a chunk of code which has an error and you don’t want it to be run, add <code>eval=FALSE</code> to the header. If you want the code chunk with the error to run, you can add <code>error=TRUE</code>.</p>
+<p>When making pkgdown sites, you may run into errors with the building of the site. This can be avoided by installing certain packages or downloading programs which help the building process. In most cases, the error will tell you that a package is missing (<a href="https://community.rstudio.com/t/error-when-creating-site-with-pkgdown/99268">like this one</a>). To fix this, you need to install any package that is missing.</p>
+<p>Issues and Errors for testing will be covered more in-depth in the <code>testthat</code> module but for the most part, the most common issues will be arguments missing (such as descriptions or expectations for testing). Another issue that occurs are warnings, the solution changes depending on the case and are usually explained in the warning message.</p>
 </div>
-<div id="question-7-86" class="section level3" number="103.2.7">
-<h3>
-<span class="header-section-number">103.2.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-86"><i class="fas fa-link"></i></a>
-</h3>
+<div id="exercises-118" class="section level2" number="107.6">
+<h2>
+<span class="header-section-number">107.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-118"><i class="fas fa-link"></i></a>
+</h2>
+<!-- ### Question 1 -->
+<!-- ```{r mult-choice-making-packages-ii-1, echo=FALSE} -->
+<!-- question("What is the purpose of a package vignette? (Select all that apply)", -->
+<!--          answer("Give users an idea of how your package's functions work", correct = T), -->
+<!--          answer("Make extra work for the package creator"), -->
+<!--          answer("Tell users how to deal with errors", correct = T), -->
+<!--          answer("None of the above"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ### Question 2 -->
+<!-- ```{r mult-choice-making-packages-ii-2, echo=FALSE} -->
+<!-- question("Which command will create a vignette folder and a sample vignette for your package?", -->
+<!--          answer("`usethis::create_vignette`"), -->
+<!--          answer("`usethis::use_vignette`", correct = T), -->
+<!--          answer("`utils::vignette`"), -->
+<!--          answer("There is no command."), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ### Question 3 -->
+<!-- ```{r sort-making-packages-ii-1, echo=FALSE} -->
+<!-- order <- c("Go to package's project", "Run `usethis::use_vignette`, to create vignette folder", -->
+<!--            "Customize the sample .rmd", "Add more vignettes to the vignette folder",  -->
+<!--            "Clean and Rebuild package and check vignettes.") -->
+<!-- question_rank("What is the correct order of making package vignettes", -->
+<!--               answer(order, correct = T), -->
+<!--               allow_retry = T) -->
+<!-- ``` -->
+<!-- ### Question 4 -->
+<!-- ```{r mult-choice-making-packages-ii-3, echo=FALSE} -->
+<!-- question("What automatically appears on a pkgdown website? (Select all that apply)", -->
+<!--          answer("Your package's vignettes", correct = T), -->
+<!--          answer("Your package's tests"), -->
+<!--          answer("Your package's error logs"), -->
+<!--          answer("Your package's README", correct = T), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ### Question 5 -->
+<!-- ```{r mult-choice-making-packages-ii-4, echo=FALSE} -->
+<!-- question("Which command creates a pkgdown site for your package?", -->
+<!--          answer("`usethis::use_pkgdown`", correct = T), -->
+<!--          answer("`usethis::create_pkgdown`"), -->
+<!--          answer("`usethis::use_vignettes`"), -->
+<!--          answer("None of the above"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ### Question 6 -->
+<!-- ```{r mult-choice-making-packages-ii-5, echo=FALSE} -->
+<!-- question("True or False: To make a change on your pkgdown website, you need to change your package's files and re-upload them to GitHub", -->
+<!--          answer("True", correct = T), -->
+<!--          answer("False")) -->
+<!-- ``` -->
+<!-- ### Question 7 -->
+<!-- ```{r mult-choice-making-packages-ii-6, echo=FALSE} -->
+<!-- question("After creating tests for your package, which command runs tests on your package?", -->
+<!--          answer("`devtools::test()`", correct = T), -->
+<!--          answer("`usethis::test_that()`"), -->
+<!--          answer("`run_tests`"), -->
+<!--          answer("`pkgdown::test_package`"), -->
+<!--          random_answer_order = T, -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- The final three questions will involve the `test_that` function, testing the `length` function. The length function returns the length of a vector. For example, if a vector called "a" has 4 entries, `length(a)` will return 4.  -->
+<!-- ```{r test-that-example-making-packages, eval=FALSE} -->
+<!-- vec <- c("a", "b", "c", 1, 2, 3) -->
+<!-- test_that("???", -->
+<!--           expect_equal(length(vec), X)) -->
+<!-- ``` -->
+<!-- ### Question 8 -->
+<!-- ```{r making-packages-ii-test-that1, echo=FALSE} -->
+<!-- question("If we want to test that the length function returns the correct length, which description would be the best to use?", -->
+<!--          answer("length returns the correct vector length", correct = T), -->
+<!--          answer("nchar returns the correct vector length"), -->
+<!--          answer("test length"), -->
+<!--          answer("test function"), -->
+<!--          allow_retry = T, -->
+<!--          random_answer_order = T) -->
+<!-- ``` -->
+<!-- ### Question 9 -->
+<!-- ```{r making-packages-ii-test-that2, echo=FALSE} -->
+<!-- question("If we set X = 5, in the `test_that` expression, which of the lines will **not** appear? (Try running the code in your R console)", -->
+<!--          answer("── Failure ─────────────────────────────"), -->
+<!--          answer("length(vec) not equal to 5."), -->
+<!--          answer("1/1 mismatches"), -->
+<!--          answer("Length returned was 6", correct = T), -->
+<!--          answer("[1] 6 - 5 == 1"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
+<!-- ### Question 10 -->
+<!-- ```{r making-packages-ii-test-that3, echo=FALSE} -->
+<!-- question("Given the length of `vec`, which value of 'X', would return 'Test Passed'", -->
+<!--          answer('6', correct = T), -->
+<!--          answer('5'),  -->
+<!--          answer('3'), -->
+<!--          answer('7'), -->
+<!--          allow_retry = T, -->
+<!--          random_answer_order = T) -->
+<!-- ``` -->
 </div>
-<div id="question-8-86" class="section level3" number="103.2.8">
-<h3>
-<span class="header-section-number">103.2.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-86"><i class="fas fa-link"></i></a>
-</h3>
+<div id="next-steps-62" class="section level2" number="107.7">
+<h2>
+<span class="header-section-number">107.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-62"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some helpful websites for making vignettes include:</p>
+<ul>
+<li>The vignette chapter from the R package book: <a href="https://r-pkgs.org/vignettes.html" class="uri">https://r-pkgs.org/vignettes.html</a>
+</li>
+<li>The vignette chapter from the Bookdown book: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/package-vignette.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/package-vignette.html</a>
+</li>
+</ul>
+<p>Some helpful websites for making pkgdown websites are:</p>
+<ul>
+<li>The pkgdown website: <a href="https://pkgdown.r-lib.org/index.html" class="uri">https://pkgdown.r-lib.org/index.html</a>
+</li>
+<li>An R-bloggers site on pkgdown: <a href="https://www.r-bloggers.com/2017/08/building-a-website-with-pkgdown-a-short-guide/" class="uri">https://www.r-bloggers.com/2017/08/building-a-website-with-pkgdown-a-short-guide/</a>
+</li>
+</ul>
+<p>Some helpful websites for testing R packages are:</p>
+<ul>
+<li>The testing chapter of the R packages book: <a href="https://r-pkgs.org/tests.html" class="uri">https://r-pkgs.org/tests.html</a>
+</li>
+<li>The pkgdown site for <code>testthat</code>: <a href="https://testthat.r-lib.org/" class="uri">https://testthat.r-lib.org/</a>
+</li>
+</ul>
 </div>
-<div id="question-9-86" class="section level3" number="103.2.9">
-<h3>
-<span class="header-section-number">103.2.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-86"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-86" class="section level3" number="103.2.10">
-<h3>
-<span class="header-section-number">103.2.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-86"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<div id="questions-16" class="section level2" number="107.8">
+<h2>
+<span class="header-section-number">107.8</span> Questions<a class="anchor" aria-label="anchor" href="#questions-16"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>True or False, any package can have a vignette?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>True or False, you have to pay to make a <code>pkgdown</code> website?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>What file is the “Home” page on a <code>pkgdown</code> website?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Your first function’s file</li>
+<li>Your description file</li>
+<li>Your README file</li>
+<li>None of the above</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>What type of file are vignettes?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>R script</li>
+<li>R markdown</li>
+<li>R Shiny app</li>
+<li>Text file</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>True or False, packages must have tests in order to work?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>Why are tests important for packages?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>They are needed for the package to run</li>
+<li>They make it easier to share</li>
+<li>They save time by finding potential bugs or issues</li>
+<li>Tests are not important</li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>Which command prevents R chunks from running in your vignettes?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>dont_run = TRUE</code></li>
+<li><code>eval = FALSE</code></li>
+<li><code>run = FALSE</code></li>
+<li><code>skip = TRUE</code></li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>True or False, there is a limit to the number of tests you can include in a package?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>What is the best test file name if I am running tests on the <code>sd</code> function?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>sd</code></li>
+<li><code>test_sd</code></li>
+<li><code>test_file</code></li>
+<li><code>sd_test</code></li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>True or False, you can include package logos on your <code>pkgdown</code> website?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></div>
-<div class="next"><a href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></div>
+<div class="prev"><a href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></div>
+<div class="next"><a href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#writing-r-packages-ii"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="nav-link" href="#introduction-95"><span class="header-section-number">103.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#writing-r-packages-ii"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="nav-link" href="#introduction-94"><span class="header-section-number">107.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#exercises-143"><span class="header-section-number">103.2</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-100"><span class="header-section-number">103.2.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-98"><span class="header-section-number">103.2.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-96"><span class="header-section-number">103.2.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-88"><span class="header-section-number">103.2.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-87"><span class="header-section-number">103.2.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-87"><span class="header-section-number">103.2.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-86"><span class="header-section-number">103.2.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-86"><span class="header-section-number">103.2.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-86"><span class="header-section-number">103.2.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-86"><span class="header-section-number">103.2.10</span> Question 10</a></li>
-</ul>
+<a class="nav-link" href="#vignettes"><span class="header-section-number">107.2</span> Vignettes</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#sample-process"><span class="header-section-number">107.2.1</span> Sample Process</a></li></ul>
 </li>
+<li><a class="nav-link" href="#making-a-pkgdown-website"><span class="header-section-number">107.3</span> Making a pkgdown website</a></li>
+<li><a class="nav-link" href="#testing"><span class="header-section-number">107.4</span> Testing</a></li>
+<li><a class="nav-link" href="#common-issues-or-errors"><span class="header-section-number">107.5</span> Common Issues or Errors</a></li>
+<li><a class="nav-link" href="#exercises-118"><span class="header-section-number">107.6</span> Exercises</a></li>
+<li><a class="nav-link" href="#next-steps-62"><span class="header-section-number">107.7</span> Next Steps</a></li>
+<li><a class="nav-link" href="#questions-16"><span class="header-section-number">107.8</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -285,7 +522,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

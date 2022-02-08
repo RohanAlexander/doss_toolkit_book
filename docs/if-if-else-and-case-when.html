@@ -7,16 +7,16 @@
 <title>Chapter 47 if, if else and case when | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Haoluan Chen and last updated on 7 October 2021.  47.1 Introduction In this lesson, you will learn how to: use the if() function. use the if_else() function. use the case_when()...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 47 if, if else and case when | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  47.1 Introduction In this lesson, you will learn how to: use the if() function. use the if_else() function. use the case_when()...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 47 if, if else and case when | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  47.1 Introduction In this lesson, you will learn how to: use the if() function. use the if_else() function. use the case_when()...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -261,17 +250,17 @@ if (x &gt; 0){
 </h2>
 <p>What if you have multiple condition? <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function is here to help.</p>
 <p>The syntax of <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function with a single case is a follows:</p>
-<pre class="case"><code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when(condition ~ output_value)</a></code></pre>
+<pre class="case"><code>case_when(condition ~ output_value)</code></pre>
 <p>If the condition is evaluated to true, then the <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function will return the output_value. With only a single case, this is exactly the same as an if statement.</p>
 <p>The syntax of <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function with two cases is a follows:</p>
-<pre class="case1"><code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when(condition ~ output_value_true, 
-          TRUE ~ output_value_false)</a></code></pre>
+<pre class="case1"><code>case_when(condition ~ output_value_true, 
+          TRUE ~ output_value_false)</code></pre>
 <p>If the condition is evaluates to true, then the <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function will return the output_value_true. However, if the condition is false, then the function will return the output_value_false.</p>
 <p>The syntax of <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function with multiple cases is a follows:</p>
-<pre class="case2"><code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when(condition_1 ~ output_1, 
+<pre class="case2"><code>case_when(condition_1 ~ output_1, 
           condition_2 ~ output_2,
           condition_3 ~ output_3, 
-          ...)</a></code></pre>
+          ...)</code></pre>
 <p>Here, when condition_1 is evaluated to true, then the function returns output_1. When condition_2 is evaluated to true, then the function returns output_2 and so on.</p>
 <div id="examples-5" class="section level3" number="47.5.1">
 <h3>
@@ -279,7 +268,7 @@ if (x &gt; 0){
 </h3>
 <p>Here is an example of using <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function with multiple cases.</p>
 <p>We have seven students and their numeric grades for a course, and we want to assign the letter grade for each student. A grade between 80 and 100 is A grade, 70 to 79 is B grade, 60 to 69 is C grade, 50 to 59 is D grade, and below 50 is F grade.</p>
-<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">test_score_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span><span class="op">~</span><span class="va">student_id</span>, <span class="op">~</span><span class="va">grade</span>
                   ,<span class="st">'1'</span>,  <span class="fl">94</span>
                   ,<span class="st">'2'</span>,  <span class="fl">90</span>
@@ -301,7 +290,7 @@ if (x &gt; 0){
 <span class="co">#&gt; 6 6             65</span>
 <span class="co">#&gt; 7 7             45</span></code></pre></div>
 <p>To assign the letter grade, we can use mutate and case_when() to create a new variable in our table.</p>
-<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">test_score_df</span>, letter_grade <span class="op">=</span> 
                            <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">&lt;=</span> <span class="fl">100</span> <span class="op">&amp;</span> <span class="va">grade</span> <span class="op">&gt;=</span> <span class="fl">80</span> <span class="op">~</span> <span class="st">'A'</span>, 
                                      <span class="va">grade</span> <span class="op">&lt;</span> <span class="fl">80</span> <span class="op">&amp;</span> <span class="va">grade</span> <span class="op">&gt;=</span> <span class="fl">70</span> <span class="op">~</span> <span class="st">'B'</span>, 
@@ -320,20 +309,20 @@ if (x &gt; 0){
 <span class="co">#&gt; 7 7             45 F</span></code></pre></div>
 </div>
 </div>
-<div id="exercises-57" class="section level2" number="47.6">
+<div id="exercises-50" class="section level2" number="47.6">
 <h2>
-<span class="header-section-number">47.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-50"><i class="fas fa-link"></i></a>
 </h2>
 <div id="exercises-1-1" class="section level3" number="47.6.1">
 <h3>
 <span class="header-section-number">47.6.1</span> Exercises 1<a class="anchor" aria-label="anchor" href="#exercises-1-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Using if_else statement to see if x can be divided by 3 with remainder equal to zero.<br><strong>Hint: %% is an operation to calculate the remainder </strong></p>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">123456</span></code></pre></div>
 <div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">123456</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">123456</span>
-<span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">%%</span> <span class="fl">3</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">3</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">}</span> <span class="kw">else</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>
@@ -365,7 +354,7 @@ if (x &gt; 0){
 <h3>
 <span class="header-section-number">47.6.3</span> Exercises 3<a class="anchor" aria-label="anchor" href="#exercises-3-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span><span class="op">~</span><span class="va">student_id</span>, <span class="op">~</span><span class="va">pass</span>
                   ,<span class="st">'1'</span>,  <span class="cn">TRUE</span>
                   ,<span class="st">'2'</span>,  <span class="cn">TRUE</span>
@@ -411,7 +400,7 @@ if (x &gt; 0){
 </h2>
 <p>You can write a nested if_else for more complex situations. An example can be found on this website <a href="https://www.tutorialgateway.org/nested-if-else-in-r/" class="uri">https://www.tutorialgateway.org/nested-if-else-in-r/</a></p>
 <p>You can also combine for and while loop with if_else for other complex situations! For example</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">{</span>
   <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">==</span> <span class="fl">5</span><span class="op">)</span><span class="op">{</span>
@@ -428,59 +417,105 @@ if (x &gt; 0){
 <span class="co">#&gt; [1] TRUE</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 </div>
-<div id="exercises-58" class="section level2" number="47.9">
+<div id="exercises-51" class="section level2" number="47.9">
 <h2>
-<span class="header-section-number">47.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-58"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-51"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-38" class="section level3" number="47.9.1">
+<div id="question-1-34" class="section level3" number="47.9.1">
 <h3>
-<span class="header-section-number">47.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-34"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>if()</code> function is a tool for returning an output based on a logical condition.
+a. True
+b. False</p>
 </div>
-<div id="question-2-38" class="section level3" number="47.9.2">
+<div id="question-2-34" class="section level3" number="47.9.2">
 <h3>
-<span class="header-section-number">47.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-34"><i class="fas fa-link"></i></a>
 </h3>
+<p>When will the statement execute in <code>if(condition){statement}</code>
+a. Condition evaluate to False
+b. Condition evaluate to True
+c. statement will execute in any condition
+d. Condition evaluate to NULL</p>
 </div>
-<div id="question-3-38" class="section level3" number="47.9.3">
+<div id="question-3-34" class="section level3" number="47.9.3">
 <h3>
-<span class="header-section-number">47.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-34"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>else()</code> should always be used with <code>if()</code>
+a. True
+b. False</p>
 </div>
-<div id="question-4-36" class="section level3" number="47.9.4">
+<div id="question-4-33" class="section level3" number="47.9.4">
 <h3>
-<span class="header-section-number">47.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-36"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-33"><i class="fas fa-link"></i></a>
 </h3>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code> function has two parts. The first part is exactly the same as the if statement, and the second part is the else statement. The else statement will be evaluated if the condition is FALSE.
+a. True
+b. False
+### Question 5
+<code>~</code> is used to connect the condition and the output when condition evaluated to TRUE in <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>.
+a. True
+b. False</p>
 </div>
-<div id="question-5-34" class="section level3" number="47.9.5">
+<div id="question-6-32" class="section level3" number="47.9.5">
 <h3>
-<span class="header-section-number">47.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-34"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.5</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-32"><i class="fas fa-link"></i></a>
 </h3>
+<p>x &lt;- c(1,2,3,4,5,6,7,8,9,10)
+if (mean(x) &gt; 5){
+print(1)
+}else{
+print(0)
+}
+Predict what is the output of this if_else statement?
+a. 0
+b. 1
+c. 5.5
+d. 5</p>
 </div>
-<div id="question-6-34" class="section level3" number="47.9.6">
+<div id="question-7-31" class="section level3" number="47.9.6">
 <h3>
-<span class="header-section-number">47.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-34"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.6</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-31"><i class="fas fa-link"></i></a>
 </h3>
+<p>x &lt;- c(5, 4, 3, 2, 1)
+if (mean(x) &gt; 5){
+print(1)
+}else{
+print(0)
+}
+Predict what is the output of this if_else statement?
+a. 0
+b. 1
+c. 5.5
+d. 5</p>
 </div>
-<div id="question-7-34" class="section level3" number="47.9.7">
+<div id="question-8-32" class="section level3" number="47.9.7">
 <h3>
-<span class="header-section-number">47.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-34"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.7</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-32"><i class="fas fa-link"></i></a>
 </h3>
+<p>case_when(mean(x) &gt; 5 ~ 1,
+mean(x) &gt;= 5 ~ 0)
+Using this <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> is same as <code>if_else</code> in Question 6 and 7
+a. True
+b. False</p>
 </div>
-<div id="question-8-34" class="section level3" number="47.9.8">
+<div id="question-9-31" class="section level3" number="47.9.8">
 <h3>
-<span class="header-section-number">47.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-34"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.8</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-31"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> can be used when you have multiple condition
+a. True
+b. False</p>
 </div>
-<div id="question-9-34" class="section level3" number="47.9.9">
+<div id="question-10-31" class="section level3" number="47.9.9">
 <h3>
-<span class="header-section-number">47.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-34"><i class="fas fa-link"></i></a>
+<span class="header-section-number">47.9.9</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-31"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="question-10-34" class="section level3" number="47.9.10">
-<h3>
-<span class="header-section-number">47.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-34"><i class="fas fa-link"></i></a>
-</h3>
+<p><code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> can be used when you have single condition
+a. True
+b. False</p>
 
 </div>
 </div>
@@ -502,7 +537,7 @@ if (x &gt; 0){
 <a class="nav-link" href="#case_when-function"><span class="header-section-number">47.5</span> case_when() function</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#examples-5"><span class="header-section-number">47.5.1</span> Examples</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-57"><span class="header-section-number">47.6</span> Exercises</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#exercises-50"><span class="header-section-number">47.6</span> Exercises</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#exercises-1-1"><span class="header-section-number">47.6.1</span> Exercises 1</a></li>
 <li><a class="nav-link" href="#exercises-2-1"><span class="header-section-number">47.6.2</span> Exercises 2</a></li>
 <li><a class="nav-link" href="#exercises-3-1"><span class="header-section-number">47.6.3</span> Exercises 3</a></li>
@@ -511,17 +546,16 @@ if (x &gt; 0){
 <li><a class="nav-link" href="#common-mistakes-errors-12"><span class="header-section-number">47.7</span> Common mistakes &amp; errors</a></li>
 <li><a class="nav-link" href="#next-steps-26"><span class="header-section-number">47.8</span> Next steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-58"><span class="header-section-number">47.9</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-38"><span class="header-section-number">47.9.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-38"><span class="header-section-number">47.9.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-38"><span class="header-section-number">47.9.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-36"><span class="header-section-number">47.9.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-34"><span class="header-section-number">47.9.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-34"><span class="header-section-number">47.9.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-34"><span class="header-section-number">47.9.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-34"><span class="header-section-number">47.9.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-34"><span class="header-section-number">47.9.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-34"><span class="header-section-number">47.9.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-51"><span class="header-section-number">47.9</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-34"><span class="header-section-number">47.9.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-34"><span class="header-section-number">47.9.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-34"><span class="header-section-number">47.9.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-33"><span class="header-section-number">47.9.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-6-32"><span class="header-section-number">47.9.5</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-31"><span class="header-section-number">47.9.6</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-32"><span class="header-section-number">47.9.7</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-31"><span class="header-section-number">47.9.8</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-31"><span class="header-section-number">47.9.9</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -541,7 +575,7 @@ if (x &gt; 0){
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

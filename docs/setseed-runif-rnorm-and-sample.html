@@ -7,16 +7,16 @@
 <title>Chapter 62 setseed, runif, rnorm, and sample | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Haoluan Chen and last updated on 7 October 2021.  62.1 Introduction In this lesson, you will learn how to: Generate numbers from a uniform distribution or normal distribution Sample...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 62 setseed, runif, rnorm, and sample | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  62.1 Introduction In this lesson, you will learn how to: Generate numbers from a uniform distribution or normal distribution Sample...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 62 setseed, runif, rnorm, and sample | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  62.1 Introduction In this lesson, you will learn how to: Generate numbers from a uniform distribution or normal distribution Sample...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -250,15 +239,15 @@
 <h4>
 <span class="header-section-number">62.2.1.2</span> Example<a class="anchor" aria-label="anchor" href="#example-9"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.9317394 0.3456249 0.7127989</span></code></pre></div>
+<span class="co">#&gt; [1] 0.6034775 0.9619177 0.2129215</span></code></pre></div>
 <p>The above code means to generate three random numbers from unif(0,1) where unif is a uniform distribution with a minimum value of 0 and maximum value of 1.</p>
 <p>What if you want to generate number from <code>unif(2,8)</code> uniformly?</p>
 <p>In <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> function, we can specify the min and max to be 2 and 8 to generate three numbers from unif(2,8):</p>
-<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, min <span class="op">=</span> <span class="fl">2</span>, max <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>
-<span class="co">#&gt; [1] 2.506564 3.583140 5.068793</span></code></pre></div>
+<span class="co">#&gt; [1] 5.881770 6.486302 3.368771</span></code></pre></div>
 </div>
 </div>
 <div id="rnorm" class="section level3" number="62.2.2">
@@ -301,14 +290,14 @@
 <span class="header-section-number">62.2.2.2</span> Example<a class="anchor" aria-label="anchor" href="#example-10"><i class="fas fa-link"></i></a>
 </h4>
 <p>Let’s say we want to generate 5 random number from a normal distribution with <code>mean = 0</code> and <code>sd = 2</code>.</p>
-<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; [1] -4.0530897 -0.4828468  0.8745783  0.1097077 -0.8059629</span></code></pre></div>
+<span class="co">#&gt; [1] -3.1218571  3.9995003 -0.9345657 -0.1337965 -3.9527948</span></code></pre></div>
 <p>Here, we set the <code>n</code> to be 5 and <code>sd</code> to be 2, because we want to generate five random numbers from a normal distribution with a standard deviation of 2. We do not have to specify the mean value here because the default of the mean parameter is 0, which is exactly what we want.</p>
 <p>What if we want to generate 5 number from normal(10,2)?</p>
-<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; [1]  8.144985  9.890151 10.006775  6.725741  9.411133</span></code></pre></div>
+<span class="co">#&gt; [1]  6.336855  8.474858  7.251483 10.894489  8.786920</span></code></pre></div>
 <p>Here, we generated 5 numbers from normal(10,2) distribution.</p>
 </div>
 </div>
@@ -316,7 +305,7 @@
 <h3>
 <span class="header-section-number">62.2.3</span> sample()<a class="anchor" aria-label="anchor" href="#sample"><i class="fas fa-link"></i></a>
 </h3>
-<p>In R, we can using <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to randomly sample numbers from a collection of numbers.</p>
+<p>In R, we can use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to randomly sample numbers from a collection of numbers.</p>
 <div id="arguments-15" class="section level4" number="62.2.3.1">
 <h4>
 <span class="header-section-number">62.2.3.1</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-15"><i class="fas fa-link"></i></a>
@@ -357,14 +346,14 @@
 <span class="header-section-number">62.2.3.2</span> Examples<a class="anchor" aria-label="anchor" href="#examples-11"><i class="fas fa-link"></i></a>
 </h4>
 <p>Here, we have a vector containing 6 numbers to simulate rolling dice. Let’s roll the dice 6 times and see what we get:</p>
-<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">6</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 5 6 6 1 5 1</span></code></pre></div>
 <p><strong>Don’t worry about set.seed(1), you will learn in this tutorial!</strong>
 What if we set the replace to <code>FALSE</code>?</p>
-<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">6</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 4 3 6 2 5</span></code></pre></div>
@@ -372,7 +361,7 @@ What if we set the replace to <code>FALSE</code>?</p>
 <p>When setting the replace to <code>FALSE</code>, the numbers are taken out for each round of sampling. Here, our first number is 5, which means that the second number will only be a sample from the set {2,3,4,5,6}. The 1 will be taken out of the vector for this sampling process. So, that is why we always get each number to appear once in the simulation.</p>
 <p>Using the prob argument, we can assign the probability of each elements the vector being sampled.
 For example, for a unfair dice, The probability of getting a 6 is 40% and the probability of getting any other number are 12%. We may simulate this unfair dice using sample() function and setting the prob argument.</p>
-<div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">6</span>, replace <span class="op">=</span> <span class="cn">TRUE</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.12</span>, <span class="fl">0.12</span>, <span class="fl">0.12</span>, <span class="fl">0.12</span>, <span class="fl">0.12</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] 6 5 4 6 1 1</span></code></pre></div>
@@ -383,10 +372,10 @@ For example, for a unfair dice, The probability of getting a 6 is 40% and the pr
 <span class="header-section-number">62.2.4</span> set.seed()<a class="anchor" aria-label="anchor" href="#set.seed"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let’s run our dice simulation twice and see what happens (run the following code twice)</p>
-<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">6</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; [1] 6 1 5 5 1 3</span></code></pre></div>
+<span class="co">#&gt; [1] 6 1 6 6 1 3</span></code></pre></div>
 <p>We get different results every time we run the simulation, because we randomly sampled from 1-6 with replacement. What if you want to reuse the result from one simulation? Sometimes you do not want your result to change every time you run the function. This is what <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> does.</p>
 <p>When you use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> function before your simulation, the simulation output will be the same every time.</p>
 <div id="arguments-16" class="section level4" number="62.2.4.1">
@@ -401,7 +390,7 @@ For example, for a unfair dice, The probability of getting a 6 is 40% and the pr
 </h4>
 <p>Let’s use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> before we do the dice simulation</p>
 <p>Please run the following code twice.</p>
-<div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">6</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -410,25 +399,25 @@ For example, for a unfair dice, The probability of getting a 6 is 40% and the pr
 </div>
 </div>
 </div>
-<div id="exercises-82" class="section level2" number="62.3">
+<div id="exercises-71" class="section level2" number="62.3">
 <h2>
-<span class="header-section-number">62.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-82"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-71"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-1-15" class="section level3" number="62.3.1">
+<div id="exercise-1-12" class="section level3" number="62.3.1">
 <h3>
-<span class="header-section-number">62.3.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-15"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.3.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-12"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please generate 10 random values from unif(-1,1)</p>
 </div>
-<div id="exercise-2-12" class="section level3" number="62.3.2">
+<div id="exercise-2-10" class="section level3" number="62.3.2">
 <h3>
-<span class="header-section-number">62.3.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-12"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.3.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please generate 10 random values from normal(0,5)</p>
 </div>
-<div id="exercise-3-7" class="section level3" number="62.3.3">
+<div id="exercise-3-6" class="section level3" number="62.3.3">
 <h3>
-<span class="header-section-number">62.3.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.3.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-6"><i class="fas fa-link"></i></a>
 </h3>
 <!-- ```{r exercise3, echo = FALSE} -->
 <!-- question("Which of the following code simulates rolling a fair dice 5 times?", -->
@@ -477,59 +466,93 @@ For example, for a unfair dice, The probability of getting a 6 is 40% and the pr
 <p>Sometimes you need to do additional things to make your simulated more similar to your data. You can take a look on this book: R Programming for Data Science: <a href="https://bookdown.org/rdpeng/rprogdatascience/simulation.html" class="uri">https://bookdown.org/rdpeng/rprogdatascience/simulation.html</a>. It has videos that explains simulation concepts and simulating a linear model.</p>
 <p>You can also generate binomial random variables using <code><a href="https://rdrr.io/r/stats/Binomial.html">rbinom()</a></code>, and Poisson random variables using <code><a href="https://rdrr.io/r/stats/Poisson.html">rpois()</a></code>, among others!</p>
 </div>
-<div id="exercises-83" class="section level2" number="62.6">
+<div id="exercises-72" class="section level2" number="62.6">
 <h2>
-<span class="header-section-number">62.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-72"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-57" class="section level3" number="62.6.1">
+<div id="question-1-51" class="section level3" number="62.6.1">
 <h3>
-<span class="header-section-number">62.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-51"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> function generate random numbers from a uniform distribution.<br>
+a. True
+b. False
+### Question 2
+What is the required parameter for <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>?
+a. n
+b. min
+c. mix
+d. There is no required parameter</p>
 </div>
-<div id="question-2-56" class="section level3" number="62.6.2">
+<div id="question-3-50" class="section level3" number="62.6.2">
 <h3>
-<span class="header-section-number">62.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-56"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.2</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-50"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the optional parameter for <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>?
+a. n
+b. min
+c. mix
+d. There is no optional parameter</p>
 </div>
-<div id="question-3-55" class="section level3" number="62.6.3">
+<div id="question-4-47" class="section level3" number="62.6.3">
 <h3>
-<span class="header-section-number">62.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-55"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.3</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-47"><i class="fas fa-link"></i></a>
 </h3>
+<p>which code generate 5 numbers from a normal(0, 5)? (multiple answer)
+a. rnorm(5, 0, 5)
+b. rnorm(0, 5, 5)
+c. rnorm(n = 5, sd = 5)
+d. rnorm(5, 5)</p>
 </div>
-<div id="question-4-51" class="section level3" number="62.6.4">
+<div id="question-5-46" class="section level3" number="62.6.4">
 <h3>
-<span class="header-section-number">62.6.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-51"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.4</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-46"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>rnorm(n=10, mean=10, sd=2)</code> generate 10 numbers from a normal(10, 2)?
+a. Yes
+b. No</p>
 </div>
-<div id="question-5-50" class="section level3" number="62.6.5">
+<div id="question-6-46" class="section level3" number="62.6.5">
 <h3>
-<span class="header-section-number">62.6.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-50"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.5</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-46"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> can randomly sample numbers from a collection of numbers.
+a. True
+b. False</p>
 </div>
-<div id="question-6-50" class="section level3" number="62.6.6">
+<div id="question-7-44" class="section level3" number="62.6.6">
 <h3>
-<span class="header-section-number">62.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-50"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.6</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-44"><i class="fas fa-link"></i></a>
 </h3>
+<p>When <code>replace = TRUE</code> in <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> we will obtain repeated sample
+a. True
+b. False</p>
 </div>
-<div id="question-7-49" class="section level3" number="62.6.7">
+<div id="question-8-46" class="section level3" number="62.6.7">
 <h3>
-<span class="header-section-number">62.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-49"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.7</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-46"><i class="fas fa-link"></i></a>
 </h3>
+<p>Which of the following code simulates rolling a fair dice 5 times?
+a. sample(c(1, 2, 3, 4, 5, 6), 5)")
+b. runif(5, 1, 6)
+c. sample(c(1, 2, 3, 4, 5, 6), 5, replace = FALSE)
+d. sample(c(1, 2, 3, 4, 5, 6), 5, replace = TRUE)</p>
 </div>
-<div id="question-8-49" class="section level3" number="62.6.8">
+<div id="question-9-45" class="section level3" number="62.6.8">
 <h3>
-<span class="header-section-number">62.6.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-49"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.8</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-45"><i class="fas fa-link"></i></a>
 </h3>
+<p>Use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> will make sure your simulation output will be the same every time.
+a. True
+b. False</p>
 </div>
-<div id="question-9-49" class="section level3" number="62.6.9">
+<div id="question-10-45" class="section level3" number="62.6.9">
 <h3>
-<span class="header-section-number">62.6.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-49"><i class="fas fa-link"></i></a>
+<span class="header-section-number">62.6.9</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-45"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="question-10-49" class="section level3" number="62.6.10">
-<h3>
-<span class="header-section-number">62.6.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-49"><i class="fas fa-link"></i></a>
-</h3>
+<p><code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> can take any integer as a parameter
+a. True
+b. False</p>
 
 </div>
 </div>
@@ -551,26 +574,25 @@ For example, for a unfair dice, The probability of getting a 6 is 40% and the pr
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-82"><span class="header-section-number">62.3</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercise-1-15"><span class="header-section-number">62.3.1</span> Exercise 1</a></li>
-<li><a class="nav-link" href="#exercise-2-12"><span class="header-section-number">62.3.2</span> Exercise 2</a></li>
-<li><a class="nav-link" href="#exercise-3-7"><span class="header-section-number">62.3.3</span> Exercise 3</a></li>
+<a class="nav-link" href="#exercises-71"><span class="header-section-number">62.3</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-12"><span class="header-section-number">62.3.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-10"><span class="header-section-number">62.3.2</span> Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-6"><span class="header-section-number">62.3.3</span> Exercise 3</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#common-mistakes-errors-17"><span class="header-section-number">62.4</span> Common Mistakes &amp; Errors</a></li>
 <li><a class="nav-link" href="#next-steps-34"><span class="header-section-number">62.5</span> Next Steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-83"><span class="header-section-number">62.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-57"><span class="header-section-number">62.6.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-56"><span class="header-section-number">62.6.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-55"><span class="header-section-number">62.6.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-51"><span class="header-section-number">62.6.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-50"><span class="header-section-number">62.6.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-50"><span class="header-section-number">62.6.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-49"><span class="header-section-number">62.6.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-49"><span class="header-section-number">62.6.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-49"><span class="header-section-number">62.6.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-49"><span class="header-section-number">62.6.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-72"><span class="header-section-number">62.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-51"><span class="header-section-number">62.6.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-3-50"><span class="header-section-number">62.6.2</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-47"><span class="header-section-number">62.6.3</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-46"><span class="header-section-number">62.6.4</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-46"><span class="header-section-number">62.6.5</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-44"><span class="header-section-number">62.6.6</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-46"><span class="header-section-number">62.6.7</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-45"><span class="header-section-number">62.6.8</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-45"><span class="header-section-number">62.6.9</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -590,7 +612,7 @@ For example, for a unfair dice, The probability of getting a 6 is 40% and the pr
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

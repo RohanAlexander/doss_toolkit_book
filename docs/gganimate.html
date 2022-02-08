@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 80 gganimate | DoSS Toolkit</title>
+<title>Chapter 78 gganimate | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021. #&gt; No renderer backend detected. gganimate will default to writing frames to separate files #&gt; Consider installing: #&gt; - the...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 80 gganimate | DoSS Toolkit">
+<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  78.1 The content In this lesson you will learn how to: Create animated plots with the gganimate package Some pre-requisites...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 78 gganimate | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021. #&gt; No renderer backend detected. gganimate will default to writing frames to separate files #&gt; Consider installing: #&gt; - the...">
+<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  78.1 The content In this lesson you will learn how to: Create animated plots with the gganimate package Some pre-requisites...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 80 gganimate | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021. #&gt; No renderer backend detected. gganimate will default to writing frames to separate files #&gt; Consider installing: #&gt; - the...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 78 gganimate | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  78.1 The content In this lesson you will learn how to: Create animated plots with the gganimate package Some pre-requisites...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="active" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="active" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,19 +168,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gganimate" class="section level1" number="80">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gganimate" class="section level1" number="78">
 <h1>
-<span class="header-section-number">80</span> gganimate<a class="anchor" aria-label="anchor" href="#gganimate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78</span> gganimate<a class="anchor" aria-label="anchor" href="#gganimate"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Matthew Wankiewicz and last updated on 7 October 2021.</em></p>
-<pre><code>#&gt; No renderer backend detected. gganimate will default to writing frames to separate files
-#&gt; Consider installing:
-#&gt; - the `gifski` package for gif output
-#&gt; - the `av` package for video output
-#&gt; and restarting the R session</code></pre>
-<div id="the-content-8" class="section level2" number="80.1">
+<div id="the-content-7" class="section level2" number="78.1">
 <h2>
-<span class="header-section-number">80.1</span> The content<a class="anchor" aria-label="anchor" href="#the-content-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.1</span> The content<a class="anchor" aria-label="anchor" href="#the-content-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this lesson you will learn how to:</p>
 <ul>
@@ -212,15 +196,15 @@
 </ul>
 <p>The <code>gganimate</code> package is an extension of the <code>ggplot2</code> package which allows you to make your ggplots animated. The animations contained in this package allow you to show trends in data over a period of time or depending on certain states. This can be a useful way to keep readers engaged with your data or can be used if you want to share the trends you find on places like twitter.</p>
 <p>Before using <code>gganimate</code>, you’ll have to have a graph set up using <code>ggplot2</code>, once you have the graph you can move on to animating it.</p>
-<p>The package can be installed from CRAN using <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("gganimate")</a></code>.</p>
+<p>The package can be installed from CRAN using <code>install.packages("gganimate")</code>.</p>
 </div>
-<div id="functions" class="section level2" number="80.2">
+<div id="functions" class="section level2" number="78.2">
 <h2>
-<span class="header-section-number">80.2</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
 </h2>
-<div id="transition_" class="section level3" number="80.2.1">
+<div id="transition_" class="section level3" number="78.2.1">
 <h3>
-<span class="header-section-number">80.2.1</span> <code>transition_*()</code>:<a class="anchor" aria-label="anchor" href="#transition_"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.1</span> <code>transition_*()</code>:<a class="anchor" aria-label="anchor" href="#transition_"><i class="fas fa-link"></i></a>
 </h3>
 <p>The transition functions are the most important functions in the package. The functions are what make the plots animated. There are 8 total <code>transition_*</code> functions, 4 will be shown below.</p>
 <ul>
@@ -239,19 +223,17 @@
 </li>
 </ul>
 <p>Below is an example of the <code>transition_states</code> function:</p>
-<div class="sourceCode" id="cb618"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">broadway</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv"</span><span class="op">)</span>
+<div class="sourceCode" id="cb593"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">broadway</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/broadway-grosses/grosses.csv"</span><span class="op">)</span>
 
-<span class="va">broadway_plot</span> <span class="op">&lt;-</span> <span class="va">broadway</span> <span class="op">%&gt;%</span> 
+<span class="va">broadway_plot</span> <span class="op">&lt;-</span> <span class="va">broadway</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">weekly_gross</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>
 
 <span class="va">broadway_plot</span> <span class="op">+</span> <span class="fu">transition_states</span><span class="op">(</span>transition_length <span class="op">=</span> <span class="fl">1</span>,
                                   states <span class="op">=</span> <span class="va">theatre</span>, 
-                                  state_length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; Warning: No renderer available. Please install the gifski,</span>
-<span class="co">#&gt; av, or magick package to create animated output</span>
-<span class="co">#&gt; NULL</span></code></pre></div>
+                                  state_length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="079-to_ggplot_or_not_to_ggplot-gganimate_files/figure-html/gganimate-transition-states-example-1.gif" width="75%"></div>
 <p>The plot above shows the distribution of weekly gross ticket sales for theatres on broadway. Each state on the plot is a different theatre.</p>
 <ul>
 <li>
@@ -291,9 +273,9 @@
 </ul>
 <p>Some other transition functions include <code>transition_null</code>, <code>transition_manual</code>, <code>transition_components</code> and <code>transition_layers</code>. These functions aren’t used as much as the other 4 shown, more information about the functions can be found in the <a href="https://cran.r-project.org/web/packages/gganimate/gganimate.pdf"><code>gganimate</code> documentation.</a></p>
 </div>
-<div id="more-aesthetic-functions" class="section level3" number="80.2.2">
+<div id="more-aesthetic-functions" class="section level3" number="78.2.2">
 <h3>
-<span class="header-section-number">80.2.2</span> More Aesthetic Functions<a class="anchor" aria-label="anchor" href="#more-aesthetic-functions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.2</span> More Aesthetic Functions<a class="anchor" aria-label="anchor" href="#more-aesthetic-functions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Along with the transition functions, there are other <code>gganimate</code> functions which can help your animations look better. There are two types of functions which can help your animations: Enter/Exit functions and the ease function.</p>
 <p>The Enter/Exit Function determine how the data for each state will enter the graph. Instead of having the points on a graph appear/disappear, these functions will add more interesting transitions, like shrinking/growing or fading in/out. The <code>gganimate</code> website gives some helpful information about these functions and can be found <a href="https://gganimate.com/reference/enter_exit.html">here.</a></p>
@@ -306,9 +288,9 @@
 <li>To have the title change for <code>transition_time</code> use “{frame_time}” after the title.</li>
 </ul>
 </div>
-<div id="animate" class="section level3" number="80.2.3">
+<div id="animate" class="section level3" number="78.2.3">
 <h3>
-<span class="header-section-number">80.2.3</span> <code>animate</code><a class="anchor" aria-label="anchor" href="#animate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.3</span> <code>animate</code><a class="anchor" aria-label="anchor" href="#animate"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <code>animate</code> function is used to render the animations created. In these renderings you can change the image quality, number of frames, frames per second and many other options. The most important arguments of <code>animate</code> will be discussed below:</p>
 <ul>
@@ -325,9 +307,9 @@
 </ul>
 </div>
 </div>
-<div id="common-errors-2" class="section level2" number="80.3">
+<div id="common-errors-2" class="section level2" number="78.3">
 <h2>
-<span class="header-section-number">80.3</span> Common Errors<a class="anchor" aria-label="anchor" href="#common-errors-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3</span> Common Errors<a class="anchor" aria-label="anchor" href="#common-errors-2"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>Error: Provided file does not exist.
@@ -351,15 +333,15 @@ transformr is required to tween paths and lines
 </li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2" number="80.4">
+<div id="test-your-understanding" class="section level2" number="78.4">
 <h2>
-<span class="header-section-number">80.4</span> Test your Understanding<a class="anchor" aria-label="anchor" href="#test-your-understanding"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.4</span> Test your Understanding<a class="anchor" aria-label="anchor" href="#test-your-understanding"><i class="fas fa-link"></i></a>
 </h2>
 <p>The next three questions will use the code chunk below:</p>
-<div class="sourceCode" id="cb619"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">caribou_timeplot</span> <span class="op">&lt;-</span> <span class="va">caribou</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">animal_id</span> <span class="op">==</span> <span class="st">"GR_C01"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">event_id</span> <span class="op">&lt;</span> <span class="fl">2259197491</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb594"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">caribou_timeplot</span> <span class="op">&lt;-</span> <span class="va">caribou</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">animal_id</span> <span class="op">==</span> <span class="st">"GR_C01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">event_id</span> <span class="op">&lt;</span> <span class="fl">2259197491</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">longitude</span>, <span class="va">latitude</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Timestamp: {****}"</span><span class="op">)</span>
@@ -471,7 +453,7 @@ transformr is required to tween paths and lines
 <!--                               mpg > 20, gear == 3, carb <= 5) -->
 <!-- ``` -->
 <p>The final question will use the plot below:</p>
-<pre><code>#&gt; NULL</code></pre>
+<div class="inline-figure"><img src="079-to_ggplot_or_not_to_ggplot-gganimate_files/figure-html/gganimate-example-plot-q10-1.gif" width="75%"></div>
 <!-- ```{r gganimate-question-10, echo=FALSE} -->
 <!-- question("Which code chunk was used to create the plot above?",  -->
 <!--          answer("ex_plot <- expeditions %>%  -->
@@ -497,9 +479,9 @@ transformr is required to tween paths and lines
 <!-- allow_retry = T, random_answer_order = T) -->
 <!-- ``` -->
 </div>
-<div id="helpful-links" class="section level2" number="80.5">
+<div id="helpful-links" class="section level2" number="78.5">
 <h2>
-<span class="header-section-number">80.5</span> Helpful Links<a class="anchor" aria-label="anchor" href="#helpful-links"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.5</span> Helpful Links<a class="anchor" aria-label="anchor" href="#helpful-links"><i class="fas fa-link"></i></a>
 </h2>
 <p>Some helpful links include:</p>
 <ul>
@@ -508,95 +490,117 @@ transformr is required to tween paths and lines
 <li><p>The rOpenSci Labs github page for learning <code>gganimate</code>: <a href="https://github.com/ropensci-archive/learngganimate" class="uri">https://github.com/ropensci-archive/learngganimate</a></p></li>
 </ul>
 </div>
-<div id="exercises-112" class="section level2" number="80.6">
+<div id="questions-8" class="section level2" number="78.6">
 <h2>
-<span class="header-section-number">80.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-112"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.6</span> Questions<a class="anchor" aria-label="anchor" href="#questions-8"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-77" class="section level3" number="80.6.1">
-<h3>
-<span class="header-section-number">80.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-77"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-76" class="section level3" number="80.6.2">
-<h3>
-<span class="header-section-number">80.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-76"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-75" class="section level3" number="80.6.3">
-<h3>
-<span class="header-section-number">80.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-75"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-68" class="section level3" number="80.6.4">
-<h3>
-<span class="header-section-number">80.6.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-68"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-67" class="section level3" number="80.6.5">
-<h3>
-<span class="header-section-number">80.6.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-67"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-67" class="section level3" number="80.6.6">
-<h3>
-<span class="header-section-number">80.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-67"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-66" class="section level3" number="80.6.7">
-<h3>
-<span class="header-section-number">80.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-66"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-66" class="section level3" number="80.6.8">
-<h3>
-<span class="header-section-number">80.6.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-66"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-66" class="section level3" number="80.6.9">
-<h3>
-<span class="header-section-number">80.6.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-66"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-66" class="section level3" number="80.6.10">
-<h3>
-<span class="header-section-number">80.6.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-66"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<ol style="list-style-type: decimal">
+<li>True or False, <code>gganimate</code> plots will work if the output file is a PDF?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>True or False, <code>gganimate</code> is part of the <code>ggplot2</code> package?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>If I want my <code>gganimate</code> plot to loop, which argument should I use?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>loop = TRUE</code></li>
+<li><code>repeat = TRUE</code></li>
+<li><code>wrap = TRUE</code></li>
+<li>That argument does not exist</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>Which function is best suited to animate an line that changes over time (like yearly population totals)?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>transition_states()</code></li>
+<li><code>transition_time()</code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code></li>
+<li><code>transition_line()</code></li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>What is the <code>render</code> function used for?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Render animations that were created</li>
+<li>Change the scales of the plot</li>
+<li>Make the plot static</li>
+<li>None of the above</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>If I want to make a moving plot that changes depending on a categorical variable, which function should be used?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>transition_states()</code></li>
+<li><code>transition_time()</code></li>
+<li><code>transition_reveal()</code></li>
+<li><code>transition_cat()</code></li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>What does the <code>ggtitle</code> function do?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Creates a title that does not change</li>
+<li>Creates a new plot</li>
+<li>Creates a title that changes depending on the state</li>
+<li>None of the above</li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>If I am using <code>transition_filter</code>, which <code>ggtitle</code> call should I use?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>“{closest_filter}”</li>
+<li>“{frame_time}”</li>
+<li>“{closest_state}”</li>
+<li>“{frame_along}”</li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>What is the default file type for the <code>animate</code> function?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>gif</li>
+<li>jpg</li>
+<li>html</li>
+<li>png</li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>What do enter/exit functions do?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Make the animation static</li>
+<li>Change how the animation begins/ends</li>
+<li>Add more plots</li>
+<li>Add a title to the plots</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></div>
-<div class="next"><a href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></div>
+<div class="prev"><a href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></div>
+<div class="next"><a href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#gganimate"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="nav-link" href="#the-content-8"><span class="header-section-number">80.1</span> The content</a></li>
+<li><a class="nav-link" href="#gganimate"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="nav-link" href="#the-content-7"><span class="header-section-number">78.1</span> The content</a></li>
 <li>
-<a class="nav-link" href="#functions"><span class="header-section-number">80.2</span> Functions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#transition_"><span class="header-section-number">80.2.1</span> transition_*():</a></li>
-<li><a class="nav-link" href="#more-aesthetic-functions"><span class="header-section-number">80.2.2</span> More Aesthetic Functions</a></li>
-<li><a class="nav-link" href="#animate"><span class="header-section-number">80.2.3</span> animate</a></li>
+<a class="nav-link" href="#functions"><span class="header-section-number">78.2</span> Functions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#transition_"><span class="header-section-number">78.2.1</span> transition_*():</a></li>
+<li><a class="nav-link" href="#more-aesthetic-functions"><span class="header-section-number">78.2.2</span> More Aesthetic Functions</a></li>
+<li><a class="nav-link" href="#animate"><span class="header-section-number">78.2.3</span> animate</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#common-errors-2"><span class="header-section-number">80.3</span> Common Errors</a></li>
-<li><a class="nav-link" href="#test-your-understanding"><span class="header-section-number">80.4</span> Test your Understanding</a></li>
-<li><a class="nav-link" href="#helpful-links"><span class="header-section-number">80.5</span> Helpful Links</a></li>
-<li>
-<a class="nav-link" href="#exercises-112"><span class="header-section-number">80.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-77"><span class="header-section-number">80.6.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-76"><span class="header-section-number">80.6.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-75"><span class="header-section-number">80.6.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-68"><span class="header-section-number">80.6.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-67"><span class="header-section-number">80.6.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-67"><span class="header-section-number">80.6.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-66"><span class="header-section-number">80.6.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-66"><span class="header-section-number">80.6.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-66"><span class="header-section-number">80.6.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-66"><span class="header-section-number">80.6.10</span> Question 10</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#common-errors-2"><span class="header-section-number">78.3</span> Common Errors</a></li>
+<li><a class="nav-link" href="#test-your-understanding"><span class="header-section-number">78.4</span> Test your Understanding</a></li>
+<li><a class="nav-link" href="#helpful-links"><span class="header-section-number">78.5</span> Helpful Links</a></li>
+<li><a class="nav-link" href="#questions-8"><span class="header-section-number">78.6</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -614,7 +618,7 @@ transformr is required to tween paths and lines
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

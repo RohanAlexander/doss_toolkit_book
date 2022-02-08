@@ -321,6 +321,7 @@ For the Question 4 and 5, identify the code used to manipulate the `starwars` da
 #> 10 Darth Vader              1
 #> # … with 20 more rows
 ```
+
   a. `count(starwars)`
   b. `count(starwars, name, species, .remove = TRUE)`
   c. `count(starwars, name, name="name")`
@@ -328,10 +329,38 @@ For the Question 4 and 5, identify the code used to manipulate the `starwars` da
   
 ### Question 6
 
+What will be the output of the following code: `count(starwars, skin_color) %>% uncount(weights = n)`?
+
+  a. The original `starwars` data frame
+  b. A tibble with two columns: one called "skin_color" with each unique skin colour from `starwars` included once, and one called "n" with a count of the number of times that skin colour appears in the data set
+  c. A tibble with two columns: one called "skin_color" with each skin colour from `starwars` included the same number of times it appears in the data set, and one called "n" with a count of the number of times that skin colour appears in the data set (repeated for each repeated entry in column "skin_color")
+  d.  A tibble with one column called "skin_color" with each skin colour from `starwars` included the same number of times it appears in the data set.
+
 ### Question 7
 
+Use the following tibble for Questions 7 through 9:
+
+```
+#> # A tibble: 5 × 3
+#>   skin_color species       id
+#>   <chr>      <chr>      <int>
+#> 1 dark       Human          1
+#> 2 dark       Tholothian     1
+#> 3 dark       <NA>           1
+#> 4 fair       Human          1
+#> 5 fair       Human          2
+```
+The tibble above represents the product of manipulating the `starwars` data set using one or more functions. Which of the options below best describes the last function applied in order to produce the given output?
+
+  a. `count()`
+  b. `uncount()`
+  c. `summarise()`
+  d.  Something else
+
 ### Question 8
+  
+True or false: In the first row of the above tibble, the value 1 in the "id" column indicates that there is only one instance of a human with dark skin in the `starwars` data frame.
 
-### Question 9
+  a. True
+  b.  False
 
-### Question 10

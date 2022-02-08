@@ -1,0 +1,173 @@
+
+
+
+# Branches in GitHub
+
+*Written by Matthew Wankiewicz and last updated on 7 October 2021.*
+
+## Introduction
+
+In this lesson, you will learn:
+
+- What a branch of a GitHub repository is.
+- How to create a branch of a GitHub repository.
+- How to update a GitHub repository from your branched repository.
+
+Prerequisite skills include:
+
+- Familiarity with GitHub repositories.
+- Have Git installed on your computer.
+- A GitHub account!
+
+Highlights:
+
+- Branching allows multiple people to work on the same project and update the GitHub repository individually.
+- Branching allows you to take a copy of the main repo and work on it on your own before you make any changes to the main repo.
+
+## The content
+
+### About Branches
+
+When you work in groups using GitHub projects, it becomes annoying to have one person add all of the code to the repo by themselves, copying and pasting code from group members. This is where branches come in handy. 
+  - Branching allows you to take a copy of the current GitHub repo and make changes on your own computer. Once you and your group have made changes to the code, you can add the changes back into your initial repo.
+  - Branching can also be used when you want to work on one part of a project separately from the other areas.
+  
+### How to Create a Branch
+
+To make a branch from a GitHub repo, go to the main repo you plan to work on and click on the drop down menu that should say main. It should look like the image below.
+
+![Image from: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository](https://docs.github.com/assets/images/help/branch/branch-selection-dropdown.png)
+
+Once you press on that menu, GitHub will have a text-box that says "Find or create a branch...", type a new name for your branch, something like 'newbranch1'. Since that branch does not exist, GitHub will ask you if you want to create a branch called 'newbranch1'. Click on "Create branch: newbranch1" and it will create the new branch for you, this is shown in the image below.
+
+![Image from: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository](https://docs.github.com/assets/images/help/branch/branch-creation-text-box.png)
+
+### How to make a pull request
+
+A pull request allows the owner of the GitHub repo to look over your changes to make sure that it will fit in with the current repo and also to make sure that it doesn't create any conflicts in your repo. 
+
+To make a pull request from your branch, you first need to make a change to your branched repo. Once you make a change to the branch there will be a yellow bar on your screen asking if you want to make a pull request. As you can see in the image below, there will be a green button, and once you click on that you can create a pull request.
+
+![Image from: https://uoftcoders.github.io/rcourse/lec15-git-projects.html#creating_a_fork](https://uoftcoders.github.io/rcourse/image/git_lesson/yellow_prompt.png)
+
+Once you press the button, GitHub will tell you if there are any issues with merging that branch to your main repo. If there aren't any issues, GitHub will have a checkmark and will say "Able to merge". You can then add a title and comment to your pull request to tell the owner of the repo what you did. Once you've filled out a comment and title, you can press "Create a pull request". Once you do this, it will send a notification to the owner of the repo, telling them that your edits are ready to be reviewed.
+
+After you've sent your pull request, the owner of the GitHub repo can go to the repo's page and click on the "Pull Requests" tab. This page will contain a list of pull requests, this is where the owner can select your request. Once the owner gets to the page of your pull request, they will see a button that says "Merge pull request" (similar to the image below).
+
+![Image from: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository](https://docs.github.com/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
+
+
+Once the owner clicks on the green button, they will be asked again if they want to make that change, once they press it again, the change will be merged onto the main branch and they will see something similar to the image below..
+
+![Image from: https://uoftcoders.github.io/rcourse/lec15-git-projects.html#creating_a_fork](https://uoftcoders.github.io/rcourse/image/git_lesson/delete_branch.png)
+
+### Forks
+
+Forks are similar to branches. Forks take a clone of the main GitHub repo and allows multiple people to work on a GitHub project.
+
+### Updating a Branched (or Forked) Repo
+
+If someone in your group makes a change to the master repo, there is a way to update your branch so you can see the changes they made. When a change is made, the webpage for the branched repo will say that your repo is "1 commit behind main". This means that there has been 1 change between what your branch looks like compared to what the master repo looks like.
+
+If you want to update your branch, press on the "Changes" button. You will then be brought to a page that will say "main is up to date with all commits from branch. Try switching the base". Click on "switching the base". It will then tell you if you are able to merge your branch and if you are, you can click on "Create pull request" (title and comment your request) and submit a pull request.
+
+Now, click on "Merge pull request", then "Confirm merge" and your branch will be updated!
+
+## Questions
+
+Video explaining how to make a branch: https://youtu.be/eSd-Ib14fFk
+
+Video explaining how to make a pull request: https://youtu.be/Wpz6ynJwqUg
+
+Video explaining how to update a branch: https://youtu.be/c3btGlDxPNg
+
+## Exercises
+
+<!-- ```{r question1Branches, echo=FALSE} -->
+<!-- question("True or False, making a change on a GitHub branch makes a change on the main repository?", -->
+<!--          answer("TRUE",), -->
+<!--          answer("FALSE", correct = TRUE)) -->
+<!-- ``` -->
+
+
+<!-- ```{r question2Branches, echo=FALSE} -->
+<!-- question("What are some benefits to using a branched repo? (Select all that apply)", -->
+<!--          answer("Lets multiple people work on the project at once", correct = T), -->
+<!--          answer("No benefits"), -->
+<!--          answer("Allows you to test out changes that you don't want to make on your main branch",  -->
+<!--                 correct = T), -->
+<!--          answer("Branching lets the owner of the repo to make sure there aren't any issues before making any changes", correct = T)) -->
+<!-- ``` -->
+
+
+<!-- ```{r question3Branches, echo=FALSE} -->
+<!-- steps <- c("Create a GitHub Repository", "Find the dropdown menu for branches", "Type in the name for your new branch", "Make edits to the new branch") -->
+<!-- question_rank( -->
+<!--   "What is the order of creating a branch for a GitHub repository?", -->
+<!--   answer(steps, correct = TRUE), -->
+<!--   answer(rev(steps), correct = FALSE, message = "Other direction!"), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r question4Branches, echo=FALSE} -->
+<!-- steps2 <- c("Make a change on branched repo", "Click on the Compare & Pull Request button",  -->
+<!--             "Title and comment your pull request", "Submit Pull Request", -->
+<!--             "Wait for repository owner to accept request") -->
+<!-- question_rank( -->
+<!--   "What steps should I take if I want to make a pull request?", -->
+<!--   answer(steps2, correct = TRUE), -->
+<!--   answer(rev(steps2), correct = FALSE, message = "Other direction!"), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r question5Branches, echo=FALSE} -->
+<!-- steps3 <- c("Select 'changes' on the branch's webpage", "Switch the base",  -->
+<!--             "Check that you are able to merge the master to your branch",  -->
+<!--             "Create a pull request from the Master to your Branch", "Merge the pull request", -->
+<!--             "Enjoy your updated repo") -->
+<!-- question_rank( -->
+<!--   "How do you update a branch?", -->
+<!--   answer(steps3, correct = TRUE), -->
+<!--   answer(rev(steps3), correct = FALSE, message = "Other direction!"), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+
+## Common Mistakes & Errors
+
+Sometimes you can encounter issues in GitHub such as two people attempting to change the same file in their pull request. These conflicts will be discussed in the next module, "Dealing with Conflicts".
+
+## Next Steps
+
+Now that you have some experience with branching GitHub repos, some next steps include:
+
+- Learning about creating branches through terminal: https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/
+
+- GitHub documents about branches and forks: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-branches
+
+- Learning how to fork a GitHub repo: https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo
+
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

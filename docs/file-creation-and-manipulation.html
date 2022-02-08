@@ -7,16 +7,16 @@
 <title>Chapter 51 File creation and manipulation | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="http://theautomatic.net/2018/07/11/manipulate-files-r/ Written by Haoluan Chen and last updated on 7 October 2021.  51.1 Introduction In this lesson, you will learn how to: use the dir.create()...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 51 File creation and manipulation | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="http://theautomatic.net/2018/07/11/manipulate-files-r/ Written by Haoluan Chen and last updated on 7 October 2021.  51.1 Introduction In this lesson, you will learn how to: use the dir.create()...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 51 File creation and manipulation | DoSS Toolkit">
 <meta name="twitter:description" content="http://theautomatic.net/2018/07/11/manipulate-files-r/ Written by Haoluan Chen and last updated on 7 October 2021.  51.1 Introduction In this lesson, you will learn how to: use the dir.create()...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -213,10 +202,12 @@
 </h2>
 <p><code><a href="https://rdrr.io/r/base/files2.html">dir.create()</a></code> function allows you to create new folders in your current directory or desired file path. It takes in a string parameter that is either the name of the new folder or the file path that including the name of the new folder.</p>
 <p>You can run the following code to create a new folder in your current directory called “New folder.”</p>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"New folder"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"New folder"</span><span class="op">)</span>
+<span class="co">#&gt; Warning in dir.create("New folder"): 'New folder' already</span>
+<span class="co">#&gt; exists</span></code></pre></div>
 <p>Alternatively, you can specify the path of the new folder. It can be anywhere on your computer! Using the following code, I created a folder called “New” on my desktop. Paths can be different for different computer systems.</p>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"/Users/chl19/Desktop/New"</span><span class="op">)</span>
 <span class="co">#&gt; Warning in dir.create("/Users/chl19/Desktop/New"): cannot</span>
 <span class="co">#&gt; create dir '/Users/chl19/Desktop/New', reason 'No such file</span>
@@ -228,12 +219,12 @@
 </h2>
 <p><code><a href="https://rdrr.io/r/base/files.html">file.create()</a></code> function allows you to create a new file in your current directory or desired file path. It takes in a string parameter that is either the new file’s name or the file path.</p>
 <p>The following code creates a new text file in your current directory.</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span><span class="op">(</span><span class="st">"new_textfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>The output TRUE means the file is created.</p>
 <p>Like <code>dir.create</code>, you can create a file anywhere on your computer by inputting the file path!</p>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span><span class="op">(</span><span class="st">"/Users/chl19/Desktop/another_new_textfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; Warning in file.create("/Users/chl19/Desktop/</span>
 <span class="co">#&gt; another_new_textfile.txt"): cannot create file '/Users/</span>
@@ -247,15 +238,15 @@
 </h2>
 <p><code><a href="https://rdrr.io/r/base/files.html">file.exists()</a></code> function allow you to check if a file exists in your current directory or the specified path. It takes in a string parameter that is same as <code><a href="https://rdrr.io/r/base/files2.html">dir.create()</a></code> and <code><a href="https://rdrr.io/r/base/files.html">file.create()</a></code>. It will output a boolean indicating if the file there exists file in the directory.</p>
 <p>For example, I can check if I have successfully created the “new_textfile.txt.”</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"new_textfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>Let’s try checking a file that does not exist in the current directory!</p>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"a_file.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Checking file that is outside of our working directory (This is the file we created above!).</p>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"/Users/chl19/Desktop/another_new_textfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 </div>
@@ -265,11 +256,11 @@
 </h2>
 <p><code><a href="https://rdrr.io/r/base/files.html">file.remove()</a></code> can be used to remove(delete) files in your directory or specified file path. It takes in a string parameter that is either the new file’s name or the file path. It will return a boolean indicating if you have successfully removed the file.</p>
 <p>Let’s try to remove the new_textfile we just created in our directory.</p>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"new_textfile.txt"</span><span class="op">)</span> 
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>Let’s check if the function works properly!</p>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"new_textfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>The “new_textfile.txt” does not exist anymore! We have removed(deleted) the file!</p>
@@ -280,11 +271,11 @@
 </h2>
 <p><code><a href="https://rdrr.io/r/base/basename.html">dirname()</a></code> function can extract your directory path from a file path. It takes a string that is your file path.</p>
 <p>For example, let’s first create a new file</p>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span><span class="op">(</span><span class="st">"newfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>This new file has following file path: “C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt”</p>
-<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/basename.html">dirname</a></span><span class="op">(</span><span class="st">"C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "C:/Users/a/chl19/Desktop/doss_toolkit_book"</span></code></pre></div>
 <p>When we input this file path in <code><a href="https://rdrr.io/r/base/basename.html">dirname()</a></code>, it will return the path of our current directory!</p>
@@ -294,7 +285,7 @@
 <span class="header-section-number">51.7</span> <code>basename()</code><a class="anchor" aria-label="anchor" href="#basename"><i class="fas fa-link"></i></a>
 </h2>
 <p>As we see that <code><a href="https://rdrr.io/r/base/basename.html">dirname()</a></code> extracts the directory path from the full file path, the function basename extracts the file name from the full file path.</p>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="st">"C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "newfile.txt"</span></code></pre></div>
 <p>Here, we get the file name using <code><a href="https://rdrr.io/r/base/basename.html">basename()</a></code>.</p>
@@ -308,17 +299,17 @@
 <p>For example, in windows, our path is separated by <code>/.</code></p>
 <p>“C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt”</p>
 <p>We can generate the file path above using file.path function:</p>
-<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"c:"</span>, <span class="st">"Users"</span>, <span class="st">"a"</span>, <span class="st">"chl19"</span>, <span class="st">"Desktop"</span>, <span class="st">"doss_toolkit_book"</span>, <span class="st">"newfile.txt"</span>, fsep<span class="op">=</span><span class="st">"/"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "c:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt"</span></code></pre></div>
 <p>If the operating system uses <code>\\</code> as the path separator, we can generate the file path using the following code.</p>
-<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"c:"</span>, <span class="st">"Users"</span>, <span class="st">"a"</span>, <span class="st">"chl19"</span>, <span class="st">"Desktop"</span>, <span class="st">"doss_toolkit_book"</span>, <span class="st">"newfile.txt"</span>, fsep<span class="op">=</span><span class="st">"\\"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "c:\\Users\\a\\chl19\\Desktop\\doss_toolkit_book\\newfile.txt"</span></code></pre></div>
 </div>
-<div id="exercises-64" class="section level2" number="51.9">
+<div id="exercises-55" class="section level2" number="51.9">
 <h2>
-<span class="header-section-number">51.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-64"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-55"><i class="fas fa-link"></i></a>
 </h2>
 <div id="exercises-1-2" class="section level3" number="51.9.1">
 <h3>
@@ -376,7 +367,7 @@
 <h3>
 <span class="header-section-number">51.9.5</span> Exercises 5<a class="anchor" aria-label="anchor" href="#exercises-5-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"c:"</span>, <span class="st">"Users"</span>, <span class="st">"doss_toolkit_book"</span>, <span class="st">"totally_addicted_to_base"</span>, fsep<span class="op">=</span><span class="st">"/"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "c:/Users/doss_toolkit_book/totally_addicted_to_base"</span></code></pre></div>
 <!--```{r fileex5, echo=FALSE} -->
@@ -398,15 +389,15 @@
 <li><p>filename is not case sensitive. (i.e “newfile.txt” is same as "Newfile.txt)
 For example:</p></li>
 </ul>
-<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span><span class="op">(</span><span class="st">"Hi.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"hi.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"hi.txt"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
-<p>We see that after we created “Hi.txt,” the <code><a href="https://rdrr.io/r/base/files.html">file.exists("hi.txt")</a></code> returned TRUE, which means the file name is not case-sensitive.
-This also reflects when we run <code><a href="https://rdrr.io/r/base/files.html">file.remove("hi.txt")</a></code> that we successfully remove the file “Hi.txt” that we just created.</p>
+<p>We see that after we created “Hi.txt,” the <code>file.exists("hi.txt")</code> returned TRUE, which means the file name is not case-sensitive.
+This also reflects when we run <code>file.remove("hi.txt")</code> that we successfully remove the file “Hi.txt” that we just created.</p>
 </div>
 <div id="next-steps-29" class="section level2" number="51.11">
 <h2>
@@ -419,59 +410,102 @@ This also reflects when we run <code><a href="https://rdrr.io/r/base/files.html"
 <p>RDocumentation for Manipulation of Directories
 <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files2" class="uri">https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files2</a></p>
 </div>
-<div id="exercises-65" class="section level2" number="51.12">
+<div id="exercises-56" class="section level2" number="51.12">
 <h2>
-<span class="header-section-number">51.12</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-65"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-56"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-44" class="section level3" number="51.12.1">
+<div id="question-1-38" class="section level3" number="51.12.1">
 <h3>
-<span class="header-section-number">51.12.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-38"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>dir.create</code> creates files in your current directory.
+a. True
+b. False</p>
 </div>
-<div id="question-2-43" class="section level3" number="51.12.2">
+<div id="question-2-37" class="section level3" number="51.12.2">
 <h3>
-<span class="header-section-number">51.12.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-43"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-37"><i class="fas fa-link"></i></a>
 </h3>
+<p>What does it mean when <code><a href="https://rdrr.io/r/base/files.html">file.create()</a></code> returns True?
+a. File is created
+b. Folder is created
+c. File is already in your directory
+d. Fail to create the file</p>
 </div>
-<div id="question-3-43" class="section level3" number="51.12.3">
+<div id="question-3-38" class="section level3" number="51.12.3">
 <h3>
-<span class="header-section-number">51.12.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-43"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-38"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/base/files.html">file.exists()</a></code> function allow you to check if a file exists in your current directory or the specified path.
+a. True
+b. False</p>
 </div>
-<div id="question-4-40" class="section level3" number="51.12.4">
+<div id="question-4-36" class="section level3" number="51.12.4">
 <h3>
-<span class="header-section-number">51.12.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-40"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-36"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the output of <code><a href="https://rdrr.io/r/base/files.html">file.exists()</a></code>?
+a. A boolean
+b. String “Yes” and “No”
+c. String “True” and "False
+d. number 1 and 0</p>
 </div>
-<div id="question-5-38" class="section level3" number="51.12.5">
+<div id="question-5-34" class="section level3" number="51.12.5">
 <h3>
-<span class="header-section-number">51.12.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-34"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/base/files.html">file.remove()</a></code> can be used to remove(delete) files in your directory or specified file path.
+a. True
+b. False</p>
 </div>
-<div id="question-6-38" class="section level3" number="51.12.6">
+<div id="question-6-35" class="section level3" number="51.12.6">
 <h3>
-<span class="header-section-number">51.12.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-35"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the output for following code?
+<code>dirname("C:/Users/Desktop/newfile.txt")</code>
+a. “C:”
+b. “C:/Users”
+c. “C:/Users/Desktop”
+d. “C:/Users/Desktop/newfile.txt”</p>
 </div>
-<div id="question-7-38" class="section level3" number="51.12.7">
+<div id="question-7-34" class="section level3" number="51.12.7">
 <h3>
-<span class="header-section-number">51.12.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-34"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the output for following code?
+<code>basename("C:/Users/Desktop/newfile.txt")</code>
+a. “C:”
+b. “C:/Users”
+c. “C:/Users/Desktop/newfile.txt”
+d. “newfile.txt”</p>
 </div>
-<div id="question-8-38" class="section level3" number="51.12.8">
+<div id="question-8-35" class="section level3" number="51.12.8">
 <h3>
-<span class="header-section-number">51.12.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-35"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/base/basename.html">dirname()</a></code> return the path of our current directory!
+a. True
+b. False</p>
 </div>
-<div id="question-9-38" class="section level3" number="51.12.9">
+<div id="question-9-34" class="section level3" number="51.12.9">
 <h3>
-<span class="header-section-number">51.12.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-34"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/base/basename.html">basename()</a></code> extracts the directory name from the full file path.
+a. True
+b. False</p>
 </div>
-<div id="question-10-38" class="section level3" number="51.12.10">
+<div id="question-10-34" class="section level3" number="51.12.10">
 <h3>
-<span class="header-section-number">51.12.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.12.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-34"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>file.path("c:", "Users", "doss_toolkit_book", "totally_addicted_to_base", fsep="/")</code></p>
+<p>“What is the output of above code?”
+a. “c:/Users/doss_toolkit_book/totally_addicted_to_base”
+b. “totally_addicted_to_base”
+c. TRUE
+d. “c:/Users/doss_toolkit_book”</p>
 
 </div>
 </div>
@@ -492,7 +526,7 @@ This also reflects when we run <code><a href="https://rdrr.io/r/base/files.html"
 <li><a class="nav-link" href="#basename"><span class="header-section-number">51.7</span> basename()</a></li>
 <li><a class="nav-link" href="#file.path"><span class="header-section-number">51.8</span> file.path()</a></li>
 <li>
-<a class="nav-link" href="#exercises-64"><span class="header-section-number">51.9</span> Exercises</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#exercises-55"><span class="header-section-number">51.9</span> Exercises</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#exercises-1-2"><span class="header-section-number">51.9.1</span> Exercises 1</a></li>
 <li><a class="nav-link" href="#exercises-2-2"><span class="header-section-number">51.9.2</span> Exercises 2</a></li>
 <li><a class="nav-link" href="#exercises-3-2"><span class="header-section-number">51.9.3</span> Exercises 3</a></li>
@@ -503,17 +537,17 @@ This also reflects when we run <code><a href="https://rdrr.io/r/base/files.html"
 <li><a class="nav-link" href="#common-mistakes-errors-15"><span class="header-section-number">51.10</span> Common mistakes &amp; errors</a></li>
 <li><a class="nav-link" href="#next-steps-29"><span class="header-section-number">51.11</span> Next steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-65"><span class="header-section-number">51.12</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-44"><span class="header-section-number">51.12.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-43"><span class="header-section-number">51.12.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-43"><span class="header-section-number">51.12.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-40"><span class="header-section-number">51.12.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-38"><span class="header-section-number">51.12.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-38"><span class="header-section-number">51.12.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-38"><span class="header-section-number">51.12.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-38"><span class="header-section-number">51.12.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-38"><span class="header-section-number">51.12.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-38"><span class="header-section-number">51.12.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-56"><span class="header-section-number">51.12</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-38"><span class="header-section-number">51.12.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-37"><span class="header-section-number">51.12.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-38"><span class="header-section-number">51.12.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-36"><span class="header-section-number">51.12.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-34"><span class="header-section-number">51.12.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-35"><span class="header-section-number">51.12.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-34"><span class="header-section-number">51.12.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-35"><span class="header-section-number">51.12.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-34"><span class="header-section-number">51.12.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-34"><span class="header-section-number">51.12.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -533,7 +567,7 @@ This also reflects when we run <code><a href="https://rdrr.io/r/base/files.html"
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

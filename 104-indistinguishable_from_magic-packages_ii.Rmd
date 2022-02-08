@@ -119,124 +119,125 @@ Issues and Errors for testing will be covered more in-depth in the `testthat` mo
 
 ## Exercises
 
-### Question 1
+<!-- ### Question 1 -->
 
-```{r mult-choice-making-packages-ii-1, echo=FALSE}
-question("What is the purpose of a package vignette? (Select all that apply)",
-         answer("Give users an idea of how your package's functions work", correct = T),
-         answer("Make extra work for the package creator"),
-         answer("Tell users how to deal with errors", correct = T),
-         answer("None of the above"),
-         allow_retry = T)
-```
+<!-- ```{r mult-choice-making-packages-ii-1, echo=FALSE} -->
+<!-- question("What is the purpose of a package vignette? (Select all that apply)", -->
+<!--          answer("Give users an idea of how your package's functions work", correct = T), -->
+<!--          answer("Make extra work for the package creator"), -->
+<!--          answer("Tell users how to deal with errors", correct = T), -->
+<!--          answer("None of the above"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-### Question 2
+<!-- ### Question 2 -->
 
-```{r mult-choice-making-packages-ii-2, echo=FALSE}
-question("Which command will create a vignette folder and a sample vignette for your package?",
-         answer("`usethis::create_vignette`"),
-         answer("`usethis::use_vignette`", correct = T),
-         answer("`utils::vignette`"),
-         answer("There is no command."),
-         allow_retry = T)
-```
+<!-- ```{r mult-choice-making-packages-ii-2, echo=FALSE} -->
+<!-- question("Which command will create a vignette folder and a sample vignette for your package?", -->
+<!--          answer("`usethis::create_vignette`"), -->
+<!--          answer("`usethis::use_vignette`", correct = T), -->
+<!--          answer("`utils::vignette`"), -->
+<!--          answer("There is no command."), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-### Question 3
+<!-- ### Question 3 -->
 
-```{r sort-making-packages-ii-1, echo=FALSE}
-order <- c("Go to package's project", "Run `usethis::use_vignette`, to create vignette folder",
-           "Customize the sample .rmd", "Add more vignettes to the vignette folder", 
-           "Clean and Rebuild package and check vignettes.")
-question_rank("What is the correct order of making package vignettes",
-              answer(order, correct = T),
-              allow_retry = T)
-```
+<!-- ```{r sort-making-packages-ii-1, echo=FALSE} -->
+<!-- order <- c("Go to package's project", "Run `usethis::use_vignette`, to create vignette folder", -->
+<!--            "Customize the sample .rmd", "Add more vignettes to the vignette folder",  -->
+<!--            "Clean and Rebuild package and check vignettes.") -->
+<!-- question_rank("What is the correct order of making package vignettes", -->
+<!--               answer(order, correct = T), -->
+<!--               allow_retry = T) -->
+<!-- ``` -->
 
-### Question 4
+<!-- ### Question 4 -->
 
-```{r mult-choice-making-packages-ii-3, echo=FALSE}
-question("What automatically appears on a pkgdown website? (Select all that apply)",
-         answer("Your package's vignettes", correct = T),
-         answer("Your package's tests"),
-         answer("Your package's error logs"),
-         answer("Your package's README", correct = T),
-         allow_retry = T)
-```
+<!-- ```{r mult-choice-making-packages-ii-3, echo=FALSE} -->
+<!-- question("What automatically appears on a pkgdown website? (Select all that apply)", -->
+<!--          answer("Your package's vignettes", correct = T), -->
+<!--          answer("Your package's tests"), -->
+<!--          answer("Your package's error logs"), -->
+<!--          answer("Your package's README", correct = T), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-### Question 5
+<!-- ### Question 5 -->
 
-```{r mult-choice-making-packages-ii-4, echo=FALSE}
-question("Which command creates a pkgdown site for your package?",
-         answer("`usethis::use_pkgdown`", correct = T),
-         answer("`usethis::create_pkgdown`"),
-         answer("`usethis::use_vignettes`"),
-         answer("None of the above"),
-         allow_retry = T)
-```
+<!-- ```{r mult-choice-making-packages-ii-4, echo=FALSE} -->
+<!-- question("Which command creates a pkgdown site for your package?", -->
+<!--          answer("`usethis::use_pkgdown`", correct = T), -->
+<!--          answer("`usethis::create_pkgdown`"), -->
+<!--          answer("`usethis::use_vignettes`"), -->
+<!--          answer("None of the above"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-### Question 6
+<!-- ### Question 6 -->
 
-```{r mult-choice-making-packages-ii-5, echo=FALSE}
-question("True or False: To make a change on your pkgdown website, you need to change your package's files and re-upload them to GitHub",
-         answer("True", correct = T),
-         answer("False"))
-```
+<!-- ```{r mult-choice-making-packages-ii-5, echo=FALSE} -->
+<!-- question("True or False: To make a change on your pkgdown website, you need to change your package's files and re-upload them to GitHub", -->
+<!--          answer("True", correct = T), -->
+<!--          answer("False")) -->
+<!-- ``` -->
 
-### Question 7
+<!-- ### Question 7 -->
 
-```{r mult-choice-making-packages-ii-6, echo=FALSE}
-question("After creating tests for your package, which command runs tests on your package?",
-         answer("`devtools::test()`", correct = T),
-         answer("`usethis::test_that()`"),
-         answer("`run_tests`"),
-         answer("`pkgdown::test_package`"),
-         random_answer_order = T,
-         allow_retry = T)
-```
+<!-- ```{r mult-choice-making-packages-ii-6, echo=FALSE} -->
+<!-- question("After creating tests for your package, which command runs tests on your package?", -->
+<!--          answer("`devtools::test()`", correct = T), -->
+<!--          answer("`usethis::test_that()`"), -->
+<!--          answer("`run_tests`"), -->
+<!--          answer("`pkgdown::test_package`"), -->
+<!--          random_answer_order = T, -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-The final three questions will involve the `test_that` function, testing the `length` function. The length function returns the length of a vector. For example, if a vector called "a" has 4 entries, `length(a)` will return 4. 
+<!-- The final three questions will involve the `test_that` function, testing the `length` function. The length function returns the length of a vector. For example, if a vector called "a" has 4 entries, `length(a)` will return 4.  -->
 
-```{r test-that-example-making-packages, eval=FALSE}
-vec <- c("a", "b", "c", 1, 2, 3)
-test_that("???",
-          expect_equal(length(vec), X))
-```
+<!-- ```{r test-that-example-making-packages, eval=FALSE} -->
+<!-- vec <- c("a", "b", "c", 1, 2, 3) -->
+<!-- test_that("???", -->
+<!--           expect_equal(length(vec), X)) -->
+<!-- ``` -->
 
-### Question 8
+<!-- ### Question 8 -->
 
-```{r making-packages-ii-test-that1, echo=FALSE}
-question("If we want to test that the length function returns the correct length, which description would be the best to use?",
-         answer("length returns the correct vector length", correct = T),
-         answer("nchar returns the correct vector length"),
-         answer("test length"),
-         answer("test function"),
-         allow_retry = T,
-         random_answer_order = T)
-```
+<!-- ```{r making-packages-ii-test-that1, echo=FALSE} -->
+<!-- question("If we want to test that the length function returns the correct length, which description would be the best to use?", -->
+<!--          answer("length returns the correct vector length", correct = T), -->
+<!--          answer("nchar returns the correct vector length"), -->
+<!--          answer("test length"), -->
+<!--          answer("test function"), -->
+<!--          allow_retry = T, -->
+<!--          random_answer_order = T) -->
+<!-- ``` -->
 
-### Question 9
+<!-- ### Question 9 -->
 
-```{r making-packages-ii-test-that2, echo=FALSE}
-question("If we set X = 5, in the `test_that` expression, which of the lines will **not** appear? (Try running the code in your R console)",
-         answer("── Failure ─────────────────────────────"),
-         answer("length(vec) not equal to 5."),
-         answer("1/1 mismatches"),
-         answer("Length returned was 6", correct = T),
-         answer("[1] 6 - 5 == 1"),
-         allow_retry = T)
-```
+<!-- ```{r making-packages-ii-test-that2, echo=FALSE} -->
+<!-- question("If we set X = 5, in the `test_that` expression, which of the lines will **not** appear? (Try running the code in your R console)", -->
+<!--          answer("── Failure ─────────────────────────────"), -->
+<!--          answer("length(vec) not equal to 5."), -->
+<!--          answer("1/1 mismatches"), -->
+<!--          answer("Length returned was 6", correct = T), -->
+<!--          answer("[1] 6 - 5 == 1"), -->
+<!--          allow_retry = T) -->
+<!-- ``` -->
 
-### Question 10
+<!-- ### Question 10 -->
 
-```{r making-packages-ii-test-that3, echo=FALSE}
-question("Given the length of `vec`, which value of 'X', would return 'Test Passed'",
-         answer('6', correct = T),
-         answer('5'), 
-         answer('3'),
-         answer('7'),
-         allow_retry = T,
-         random_answer_order = T)
-```
+<!-- ```{r making-packages-ii-test-that3, echo=FALSE} -->
+<!-- question("Given the length of `vec`, which value of 'X', would return 'Test Passed'", -->
+<!--          answer('6', correct = T), -->
+<!--          answer('5'),  -->
+<!--          answer('3'), -->
+<!--          answer('7'), -->
+<!--          allow_retry = T, -->
+<!--          random_answer_order = T) -->
+<!-- ``` -->
+
 
 ## Next Steps
 

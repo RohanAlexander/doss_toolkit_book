@@ -7,16 +7,16 @@
 <title>Chapter 67 forcats and factors | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  67.1 Introduction In this lesson, you will learn about: Factors in R, how they work, what they do. The forcats package....">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 67 forcats and factors | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  67.1 Introduction In this lesson, you will learn about: Factors in R, how they work, what they do. The forcats package....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 67 forcats and factors | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  67.1 Introduction In this lesson, you will learn about: Factors in R, how they work, what they do. The forcats package....">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -213,39 +202,39 @@
 <span class="header-section-number">67.3</span> Factors<a class="anchor" aria-label="anchor" href="#factors"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code>factor</code> function allows you to take a vector and turn it into a factor. The vector used can be made up of characters or integers. Its main argument is the vector that you want to turn into a factor. An example of this is shown below.</p>
-<div class="sourceCode" id="cb454"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb449"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">factor_vector</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 2 3</span>
 <span class="co">#&gt; Levels: 1 2 3</span></code></pre></div>
 <p>In addition to the main argument, <code>factor</code> also has some optional arguments. These include <code>levels</code>, <code>labels</code> and <code>exclude</code>. <code>levels</code> tells R what the order of the levels are of your factor (which is highest/lowest), if you leave it empty it will make the levels in alphabetical order or increasing order for integers. <code>labels</code> will create labels for your factor and will set the order of your factor. <code>exclude</code> will take out a level that appears in your factor and replace those values with <code>&lt;NA&gt;</code>.</p>
 <p>We can change the levels of our <code>factor_vector</code> from earlier using the <code>levels</code> argument.</p>
-<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb450"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">factor_vector</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co">## set levels to 2,1,3</span>
 <span class="co">#&gt; [1] 1 2 3</span>
 <span class="co">#&gt; Levels: 2 1 3</span></code></pre></div>
 <p>Using the <code>labels</code> argument, we can rename the levels of <code>factor_vector</code>. This will rename 1 to ‘one,’ 2 to ‘two’ and 3 to ‘three.’</p>
-<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb451"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">factor_vector</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span><span class="op">)</span><span class="op">)</span> <span class="co">## set labels to 'one', 'two', 'three'</span>
 <span class="co">#&gt; [1] one   two   three</span>
 <span class="co">#&gt; Levels: one two three</span></code></pre></div>
 <p>Using <code>exclude</code> we can exclude the number two from our factor.</p>
-<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb452"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">factor_vector</span>, exclude <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1    &lt;NA&gt; 3   </span>
 <span class="co">#&gt; Levels: 1 3</span></code></pre></div>
 <p>If you want to test if a column or set of data is a factor, you can use <code>is.factor</code>.</p>
-<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb453"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
 <span class="va">new_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">factor_vector</span>, exclude <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/factor.html">is.factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">new_factor</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>You can also check the levels of a factor using <code>levels</code></p>
-<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb454"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>
 <span class="va">new_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">factor_vector</span><span class="op">)</span>
 
@@ -262,9 +251,9 @@
 <span class="header-section-number">67.4.1</span> <code>fct_count</code><a class="anchor" aria-label="anchor" href="#fct_count"><i class="fas fa-link"></i></a>
 </h3>
 <p>This function can be used to count the number of values in each level of your factor. It takes one main argument, the factor you want to count. The other optional arguments (<code>sort</code>, <code>prop</code>) sort the most common levels to the top and can compute the proportion of the levels represented.</p>
-<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">random_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">fct_count</span><span class="op">(</span><span class="va">random_factor</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">random_factor</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 × 2</span>
 <span class="co">#&gt;   f         n</span>
 <span class="co">#&gt;   &lt;fct&gt; &lt;int&gt;</span>
@@ -273,7 +262,7 @@
 <span class="co">#&gt; 3 3         5</span>
 <span class="co">#&gt; 4 4         2</span>
 
-<span class="fu">fct_count</span><span class="op">(</span><span class="va">random_factor</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">random_factor</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 × 2</span>
 <span class="co">#&gt;   f         n</span>
 <span class="co">#&gt;   &lt;fct&gt; &lt;int&gt;</span>
@@ -282,7 +271,7 @@
 <span class="co">#&gt; 3 2         4</span>
 <span class="co">#&gt; 4 4         2</span>
 
-<span class="fu">fct_count</span><span class="op">(</span><span class="va">random_factor</span>, sort <span class="op">=</span> <span class="cn">TRUE</span>, prop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">random_factor</span>, sort <span class="op">=</span> <span class="cn">TRUE</span>, prop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 × 3</span>
 <span class="co">#&gt;   f         n     p</span>
 <span class="co">#&gt;   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;</span>
@@ -296,11 +285,11 @@
 <span class="header-section-number">67.4.2</span> <code>fct_c</code><a class="anchor" aria-label="anchor" href="#fct_c"><i class="fas fa-link"></i></a>
 </h3>
 <p>This function takes factors with different levels and can combine them into one factor with the levels from the other factors. The only argument it takes are the factors you want to combine. We see that when using it on factors with levels ‘a’ and ‘b’ it will combine them into one factor with levels ‘a’ and ‘b.’</p>
-<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span>
 <span class="va">factor_b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span>
 
-<span class="fu">fct_c</span><span class="op">(</span><span class="va">factor_a</span>, <span class="va">factor_b</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_c.html">fct_c</a></span><span class="op">(</span><span class="va">factor_a</span>, <span class="va">factor_b</span><span class="op">)</span>
 <span class="co">#&gt; [1] a b</span>
 <span class="co">#&gt; Levels: a b</span></code></pre></div>
 </div>
@@ -317,18 +306,18 @@
 <li>
 <code>fct_lump_n:</code> This function lumps all of the levels except the n most frequent ones.</li>
 </ul>
-<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">random_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 
-<span class="fu">fct_lump_n</span><span class="op">(</span><span class="va">random_factor</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># keep the 2 most frequent levels</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_n</a></span><span class="op">(</span><span class="va">random_factor</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># keep the 2 most frequent levels</span>
 <span class="co">#&gt;  [1] 1     1     1     Other 3     Other Other 3     Other</span>
 <span class="co">#&gt; [10] 1     Other 3     3     3     Other 1     1    </span>
 <span class="co">#&gt; Levels: 1 3 Other</span>
-<span class="fu">fct_lump_prop</span><span class="op">(</span><span class="va">random_factor</span>, prop <span class="op">=</span> <span class="fl">.25</span><span class="op">)</span> <span class="co"># lump levels which appear less than 25 % of time</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_prop</a></span><span class="op">(</span><span class="va">random_factor</span>, prop <span class="op">=</span> <span class="fl">.25</span><span class="op">)</span> <span class="co"># lump levels which appear less than 25 % of time</span>
 <span class="co">#&gt;  [1] 1     1     1     Other 3     Other Other 3     Other</span>
 <span class="co">#&gt; [10] 1     Other 3     3     3     Other 1     1    </span>
 <span class="co">#&gt; Levels: 1 3 Other</span>
-<span class="fu">fct_lump_min</span><span class="op">(</span><span class="va">random_factor</span>, min <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># lump levels which appear less than 3 times</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_min</a></span><span class="op">(</span><span class="va">random_factor</span>, min <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># lump levels which appear less than 3 times</span>
 <span class="co">#&gt;  [1] 1     1     1     2     3     Other 2     3     2    </span>
 <span class="co">#&gt; [10] 1     Other 3     3     3     2     1     1    </span>
 <span class="co">#&gt; Levels: 1 2 3 Other</span></code></pre></div>
@@ -339,28 +328,28 @@
 </h3>
 <p>This function is useful when working with factors because it allows you to reorder a factor you are working with by another variable. For example, you can reorder a factor with levels of different sports by the average height for the sports listed. The first argument for this function is the factor/variable you plan to re-order and the second will be the variable you are sorting the factor by.</p>
 <p>Using the <code>expeditions</code> data which looks at Himalayan expeditions, we can reorder the levels of the seasons by the average peak height for each season. As you can see, by adding the <code>mutate</code> line we can change the order of the levels depending on the mean height reached that season.</p>
-<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data_ex</span> <span class="op">&lt;-</span> <span class="va">expeditions</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">season</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data_ex</span> <span class="op">&lt;-</span> <span class="va">expeditions</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">season</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">highpoint_metres</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">data_ex</span> <span class="op">%&gt;%</span> 
+<span class="va">data_ex</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">season</span>, y <span class="op">=</span> <span class="va">mean_height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Plot without fct_reorder"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="067-he_was_a_d8er_boi-forcats_and_factors_files/figure-html/reorder-expedition-1.png" width="672"></div>
-<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">data_ex</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">season</span>, <span class="va">mean_height</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">data_ex</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">mean_height</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">season</span>, y <span class="op">=</span> <span class="va">mean_height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Plot with fct_reorder"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="067-he_was_a_d8er_boi-forcats_and_factors_files/figure-html/reorder-expedition-2.png" width="672"></div>
-<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">data_sorted</span> <span class="op">&lt;-</span> <span class="va">data_ex</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">season</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_height</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data_sorted</span> <span class="op">&lt;-</span> <span class="va">data_ex</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">season</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_height</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">data_ex</span><span class="op">$</span><span class="va">season</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Autumn"  "Spring"  "Summer"  "Unknown" "Winter"</span>
@@ -368,28 +357,28 @@
 <span class="co">#&gt; [1] "Spring"  "Autumn"  "Winter"  "Summer"  "Unknown"</span></code></pre></div>
 <p>We can see that the original order was alphabetical while the new sorted one is not.</p>
 <p><code>fct_reorder</code> can also be used to sort factors in descending order. We will use the same dataset, but this time we will order the levels of seasons decreasing by number of staff hired</p>
-<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">crew_group</span> <span class="op">&lt;-</span><span class="va">expeditions</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">season</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">crew_group</span> <span class="op">&lt;-</span><span class="va">expeditions</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">season</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_staff <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">hired_staff</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">crew_group</span> <span class="op">%&gt;%</span> 
+<span class="va">crew_group</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">season</span>, y <span class="op">=</span> <span class="va">mean_staff</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Plot without fct_reorder"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="067-he_was_a_d8er_boi-forcats_and_factors_files/figure-html/fct-reorder-desc-1.png" width="672"></div>
-<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">crew_group</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">season</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_staff</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">crew_group</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">season</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_staff</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">season</span>, y <span class="op">=</span> <span class="va">mean_staff</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Plot with fct_reorder"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="067-he_was_a_d8er_boi-forcats_and_factors_files/figure-html/fct-reorder-desc-2.png" width="672"></div>
-<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">data_sorted</span> <span class="op">&lt;-</span> <span class="va">crew_group</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">season</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_staff</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data_sorted</span> <span class="op">&lt;-</span> <span class="va">crew_group</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">season</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_staff</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">crew_group</span><span class="op">$</span><span class="va">season</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Autumn"  "Spring"  "Summer"  "Unknown" "Winter"</span>
@@ -407,20 +396,20 @@
 <code>fct_relevel</code> takes three arguments: the factor you want to relevel, the new order of the levels and <code>after</code> which tells R where you want the new order to occur (you can set <code>after=Inf</code> to bring your order to the end.)</li>
 </ul>
 <p>If you have a factor with levels “hot,” “cold” and “medium,” R will sort the levels alphabetically, meaning the order will be “cold,” “hot” and then “medium.” <code>fct_relevel</code> is one way to put the levels in the correct order. There are many ways to change the order, you can either write the order yourself or just move hot to the end using <code>after = Inf</code>.</p>
-<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">temperatures</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hot"</span>, <span class="st">"cold"</span>, <span class="st">"medium"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">temperatures</span><span class="op">)</span>
 <span class="co">#&gt; [1] "cold"   "hot"    "medium"</span>
 
 <span class="co"># use fct_relevel</span>
 
-<span class="fu">fct_relevel</span><span class="op">(</span><span class="va">temperatures</span>, <span class="st">"hot"</span>, after <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">temperatures</span>, <span class="st">"hot"</span>, after <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>
 <span class="co">#&gt; [1] hot    cold   medium</span>
 <span class="co">#&gt; Levels: cold medium hot</span></code></pre></div>
 <p>Another example of using <code>fct_relevel</code> is with the expedition data. We can use it to change the levels of the <code>termination_reason</code> to place Successful expeditions at the top of the levels.</p>
-<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">termination_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">expeditions</span><span class="op">$</span><span class="va">termination_reason</span><span class="op">)</span><span class="op">)</span>
-<span class="va">reordered_levels</span> <span class="op">&lt;-</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">termination_levels</span>, <span class="st">"Success (claimed)"</span>, <span class="st">"Success (main peak)"</span>,
+<span class="va">reordered_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">termination_levels</span>, <span class="st">"Success (claimed)"</span>, <span class="st">"Success (main peak)"</span>,
             <span class="st">"Success (subpeak)"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">reordered_levels</span><span class="op">)</span>
@@ -441,31 +430,31 @@
 <span class="co">#&gt; [15] "Unknown"</span></code></pre></div>
 <p>Now we have successes at the top.</p>
 <p>You can also include a function in <code>fct_relevel</code> to change up the order of your levels. You can use functions like <code>sample</code>, <code>sort</code> or <code>rev</code> to change the order.</p>
-<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">termination_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">expeditions</span><span class="op">$</span><span class="va">termination_reason</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># use sample to make the order of levels randomized</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu">fct_relevel</span><span class="op">(</span><span class="va">termination_levels</span>, <span class="va">sample</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "Success (subpeak)"                                                           </span>
-<span class="co">#&gt;  [2] "Route technically too difficult, lack of experience, strength, or motivation"</span>
-<span class="co">#&gt;  [3] "Attempt rumoured"                                                            </span>
-<span class="co">#&gt;  [4] "Unknown"                                                                     </span>
-<span class="co">#&gt;  [5] "Accident (death or serious injury)"                                          </span>
-<span class="co">#&gt;  [6] "Success (claimed)"                                                           </span>
-<span class="co">#&gt;  [7] "Lack (or loss) of supplies or equipment"                                     </span>
-<span class="co">#&gt;  [8] "Illness, AMS, exhaustion, or frostbite"                                      </span>
-<span class="co">#&gt;  [9] "Bad weather (storms, high winds)"                                            </span>
-<span class="co">#&gt; [10] "Bad conditions (deep snow, avalanching, falling ice, or rock)"               </span>
-<span class="co">#&gt; [11] "Did not reach base camp"                                                     </span>
-<span class="co">#&gt; [12] "Other"                                                                       </span>
-<span class="co">#&gt; [13] "Success (main peak)"                                                         </span>
+<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">termination_levels</span>, <span class="va">sample</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;  [1] "Illness, AMS, exhaustion, or frostbite"                                      </span>
+<span class="co">#&gt;  [2] "Unknown"                                                                     </span>
+<span class="co">#&gt;  [3] "Bad weather (storms, high winds)"                                            </span>
+<span class="co">#&gt;  [4] "Success (claimed)"                                                           </span>
+<span class="co">#&gt;  [5] "Success (subpeak)"                                                           </span>
+<span class="co">#&gt;  [6] "Attempt rumoured"                                                            </span>
+<span class="co">#&gt;  [7] "Accident (death or serious injury)"                                          </span>
+<span class="co">#&gt;  [8] "Lack (or loss) of supplies or equipment"                                     </span>
+<span class="co">#&gt;  [9] "Bad conditions (deep snow, avalanching, falling ice, or rock)"               </span>
+<span class="co">#&gt; [10] "Lack of time"                                                                </span>
+<span class="co">#&gt; [11] "Other"                                                                       </span>
+<span class="co">#&gt; [12] "Success (main peak)"                                                         </span>
+<span class="co">#&gt; [13] "Did not reach base camp"                                                     </span>
 <span class="co">#&gt; [14] "Did not attempt climb"                                                       </span>
-<span class="co">#&gt; [15] "Lack of time"</span></code></pre></div>
+<span class="co">#&gt; [15] "Route technically too difficult, lack of experience, strength, or motivation"</span></code></pre></div>
 </div>
 </div>
-<div id="exercises-90" class="section level2" number="67.5">
+<div id="exercises-79" class="section level2" number="67.5">
 <h2>
-<span class="header-section-number">67.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-90"><i class="fas fa-link"></i></a>
+<span class="header-section-number">67.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-79"><i class="fas fa-link"></i></a>
 </h2>
 <p>These next exercises will use a dataset which looks at the various countries who have given gifts to the United States, along with the monetary value of these gifts. While the original dataset has almost every country in the world, we will focus on a smaller portion of the countries.</p>
 <pre><code>#&gt; Rows: 747
@@ -481,45 +470,45 @@
 #&gt; $ value_usd        &lt;dbl&gt; 1000, 660, 1200, 1400, 250, 800, …
 #&gt; $ justification    &lt;chr&gt; "Non-acceptance would cause embar…</code></pre>
 <p>Using <code>fct_reorder</code> change the order of the <code>donor_country</code> levels to be in order of <code>mean_value</code>.</p>
-<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value_usd</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Enter solution below</span></code></pre></div>
-<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value_usd</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Enter solution below</span>
-<span class="fu">fct_reorder</span><span class="op">(</span><span class="va">gifts_grouped</span><span class="op">$</span><span class="va">donor_country</span>, <span class="va">gifts_grouped</span><span class="op">$</span><span class="va">mean_value</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">gifts_grouped</span><span class="op">$</span><span class="va">donor_country</span>, <span class="va">gifts_grouped</span><span class="op">$</span><span class="va">mean_value</span><span class="op">)</span>
 <span class="co">#&gt; [1] Australia Brazil    Canada    France    Germany  </span>
 <span class="co">#&gt; [6] Italy     Mexico    Spain    </span>
 <span class="co">#&gt; 8 Levels: Spain Canada Mexico Australia Germany ... Italy</span></code></pre></div>
 <p>Now, using <code>fct_reorder</code> change the order of the <code>donor_country</code> levels to be decreasing by <code>mean_value</code>. (Bonus: use the new order to make a plot, steps are very similar to the earlier examples)</p>
-<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value_usd</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Enter solution below</span></code></pre></div>
-<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gifts_grouped</span> <span class="op">&lt;-</span> <span class="va">gifts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">donor_country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value_usd</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Enter solution below</span>
-<span class="fu">fct_reorder</span><span class="op">(</span><span class="va">gifts_grouped</span><span class="op">$</span><span class="va">donor_country</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">gifts_grouped</span><span class="op">$</span><span class="va">mean_value</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">gifts_grouped</span><span class="op">$</span><span class="va">donor_country</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">gifts_grouped</span><span class="op">$</span><span class="va">mean_value</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] Australia Brazil    Canada    France    Germany  </span>
 <span class="co">#&gt; [6] Italy     Mexico    Spain    </span>
 <span class="co">#&gt; 8 Levels: Italy Brazil France Germany Australia ... Spain</span>
 
 <span class="co">## BONUS</span>
-<span class="va">gifts_grouped</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>donor_country <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">donor_country</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">gifts_grouped</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>donor_country <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">donor_country</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">donor_country</span>, <span class="va">mean_value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="067-he_was_a_d8er_boi-forcats_and_factors_files/figure-html/forcats-test-2-solution-1.png" width="672"></div>
 <p>Using <code>fct_relevel</code>, change the order of the levels for <code>gifts$donor_country</code> to be randomly sampled.</p>
-<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">fct_relevel</span><span class="op">(</span><span class="va">gifts</span><span class="op">$</span><span class="va">donor_country</span>, <span class="va">sample</span><span class="op">)</span>
+<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">gifts</span><span class="op">$</span><span class="va">donor_country</span>, <span class="va">sample</span><span class="op">)</span>
 <span class="co">#&gt;   [1] Mexico    Spain     France    Italy     France   </span>
 <span class="co">#&gt;   [6] Canada    Mexico    Mexico    Canada    France   </span>
 <span class="co">#&gt;  [11] France    Germany   France    France    Italy    </span>
@@ -670,13 +659,13 @@
 <span class="co">#&gt; [736] Canada    Italy     France    Australia France   </span>
 <span class="co">#&gt; [741] Germany   Germany   Germany   Germany   Germany  </span>
 <span class="co">#&gt; [746] Germany   Spain    </span>
-<span class="co">#&gt; 8 Levels: Brazil France Canada Spain Germany ... Italy</span></code></pre></div>
+<span class="co">#&gt; 8 Levels: Germany Spain Canada France Brazil ... Mexico</span></code></pre></div>
 <p>This final exercise will combine the uses of different <code>forcats</code> functions and will still use the <code>gifts</code> data.
 Using one of the <code>fct_lump_</code> functions, lump all but 5 of the <code>donor_country</code> levels into other (save it under <code>gifts_lumped</code>). Next, using <code>fct_relevel</code> change the order to be in a random order (save under <code>gifts_lumped</code> again). Finally, using a <code>forcats</code> function count how many entries are in each level.</p>
-<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gifts_lumped</span> <span class="op">&lt;-</span> <span class="fu">fct_lump_n</span><span class="op">(</span><span class="va">gifts</span><span class="op">$</span><span class="va">donor_country</span>, <span class="fl">5</span><span class="op">)</span>
-<span class="va">gifts_lumped</span> <span class="op">&lt;-</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">gifts_lumped</span>, <span class="va">rev</span><span class="op">)</span>
-<span class="fu">fct_count</span><span class="op">(</span><span class="va">gifts_lumped</span><span class="op">)</span>
+<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gifts_lumped</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_n</a></span><span class="op">(</span><span class="va">gifts</span><span class="op">$</span><span class="va">donor_country</span>, <span class="fl">5</span><span class="op">)</span>
+<span class="va">gifts_lumped</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">gifts_lumped</span>, <span class="va">rev</span><span class="op">)</span>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">gifts_lumped</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
 <span class="co">#&gt;   f             n</span>
 <span class="co">#&gt;   &lt;fct&gt;     &lt;int&gt;</span>
@@ -686,14 +675,14 @@ Using one of the <code>fct_lump_</code> functions, lump all but 5 of the <code>d
 <span class="co">#&gt; 4 Germany      89</span>
 <span class="co">#&gt; 5 France      125</span>
 <span class="co">#&gt; 6 Australia    74</span></code></pre></div>
-<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factor_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="fl">19</span><span class="op">)</span>, 
                     <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"fish"</span>, <span class="fl">12</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"cow"</span>, <span class="fl">9</span><span class="op">)</span>,
                     <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"bird"</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="fu">fct_relevel</span><span class="op">(</span><span class="va">factor_example</span>, <span class="st">"fish"</span>, <span class="st">"dog"</span><span class="op">)</span> 
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">factor_example</span>, <span class="st">"fish"</span>, <span class="st">"dog"</span><span class="op">)</span> 
 
-<span class="fu">fct_lump_n</span><span class="op">(</span><span class="va">factor_example</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_n</a></span><span class="op">(</span><span class="va">factor_example</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <!-- ```{r forcats-mult-choice-1, echo=F} -->
 <!-- question("What is the order of the levels before we run `fct_relevel`?", -->
 <!--          answer("dog, cat, fish, cow, bird"), -->
@@ -750,61 +739,94 @@ Using one of the <code>fct_lump_</code> functions, lump all but 5 of the <code>d
 <li><p>The factors chapter from Jenny Bryan’s STAT 545 book: <a href="https://stat545.com/factors-boss.html" class="uri">https://stat545.com/factors-boss.html</a></p></li>
 </ul>
 </div>
-<div id="exercises-91" class="section level2" number="67.8">
+<div id="questions-7" class="section level2" number="67.8">
 <h2>
-<span class="header-section-number">67.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-91"><i class="fas fa-link"></i></a>
+<span class="header-section-number">67.8</span> Questions<a class="anchor" aria-label="anchor" href="#questions-7"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-63" class="section level3" number="67.8.1">
-<h3>
-<span class="header-section-number">67.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-63"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-62" class="section level3" number="67.8.2">
-<h3>
-<span class="header-section-number">67.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-62"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-61" class="section level3" number="67.8.3">
-<h3>
-<span class="header-section-number">67.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-61"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-56" class="section level3" number="67.8.4">
-<h3>
-<span class="header-section-number">67.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-56"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-55" class="section level3" number="67.8.5">
-<h3>
-<span class="header-section-number">67.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-55"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-55" class="section level3" number="67.8.6">
-<h3>
-<span class="header-section-number">67.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-55"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-54" class="section level3" number="67.8.7">
-<h3>
-<span class="header-section-number">67.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-54"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-54" class="section level3" number="67.8.8">
-<h3>
-<span class="header-section-number">67.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-54"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-54" class="section level3" number="67.8.9">
-<h3>
-<span class="header-section-number">67.8.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-54"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-54" class="section level3" number="67.8.10">
-<h3>
-<span class="header-section-number">67.8.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-54"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<ol style="list-style-type: decimal">
+<li>True or False, factors are stored as integer levels in R?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Which R package has tools to work with factors?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>dplyr</code></li>
+<li><code>forcast</code></li>
+<li><code>forcats</code></li>
+<li><code>ggplot2</code></li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Which function checks if a vector is a factor or not?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code></li>
+<li><code><a href="https://rdrr.io/r/base/factor.html">is.factor()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/forcats-package.html">forcats()</a></code></li>
+<li><code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code></li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>Which function counts the number of values in each level of your factor?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_c.html">fct_c()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump()</a></code></li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>True or False, <code>forcats</code> functions can change how <code>ggplot</code> plots look?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>Which function will allow me to change the order of my factors for a plot?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_c.html">fct_c()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder()</a></code></li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>What is the cause of the "“f” must be a factor (or character vector)." error?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The function you are calling does not exist</li>
+<li>The vector you are using does not exist</li>
+<li>The vector you are using is not a factor</li>
+<li>The function you are using is incorrect</li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>Which function lumps levels that appear less than a certain proportion of times?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_n()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_min()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_prop()</a></code></li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>Which function takes factors with different levels and combines them into one factor?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>fct_c</code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_n()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump_min()</a></code></li>
+<li><code><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count()</a></code></li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>True or False, <code>forcats</code> functions can be used with <code>dplyr</code> functions like <code>mutate</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">
@@ -826,23 +848,10 @@ Using one of the <code>fct_lump_</code> functions, lump all but 5 of the <code>d
 <li><a class="nav-link" href="#fct_relevel"><span class="header-section-number">67.4.5</span> fct_relevel</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#exercises-90"><span class="header-section-number">67.5</span> Exercises</a></li>
+<li><a class="nav-link" href="#exercises-79"><span class="header-section-number">67.5</span> Exercises</a></li>
 <li><a class="nav-link" href="#common-mistakes-errors-19"><span class="header-section-number">67.6</span> Common Mistakes &amp; Errors</a></li>
 <li><a class="nav-link" href="#next-steps-38"><span class="header-section-number">67.7</span> Next Steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-91"><span class="header-section-number">67.8</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-63"><span class="header-section-number">67.8.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-62"><span class="header-section-number">67.8.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-61"><span class="header-section-number">67.8.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-56"><span class="header-section-number">67.8.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-55"><span class="header-section-number">67.8.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-55"><span class="header-section-number">67.8.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-54"><span class="header-section-number">67.8.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-54"><span class="header-section-number">67.8.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-54"><span class="header-section-number">67.8.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-54"><span class="header-section-number">67.8.10</span> Question 10</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#questions-7"><span class="header-section-number">67.8</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -860,7 +869,7 @@ Using one of the <code>fct_lump_</code> functions, lump all but 5 of the <code>d
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

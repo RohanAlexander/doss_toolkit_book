@@ -1,0 +1,321 @@
+
+
+
+# File creation and manipulation
+
+http://theautomatic.net/2018/07/11/manipulate-files-r/
+
+
+*Written by Haoluan Chen and last updated on 7 October 2021.*
+
+## Introduction
+
+In this lesson, you will learn how to:
+
+- use the `dir.create()` function. 
+- use the `file.create()` function.
+- use the `file.exists()` function.
+- use the `file.remove()` function.
+- use the `dirname()` function.
+- use the `basename()` function.
+- use the `file.path()` function.
+
+Prerequisite skills include:
+
+- Setup RStudio.
+- Folder set up.
+
+Highlights:
+
+Manipulation folders and files on your computer using R
+
+
+## `dir.create()`
+`dir.create()` function allows you to create new folders in your current directory or desired file path. It takes in a string parameter that is either the name of the new folder or the file path that including the name of the new folder.
+
+You can run the following code to create a new folder in your current directory called "New folder".
+
+
+```r
+dir.create("New folder")
+```
+
+Alternatively, you can specify the path of the new folder. It can be anywhere on your computer! Using the following code, I created a folder called "New" on my desktop. Paths can be different for different computer systems.
+
+
+```r
+dir.create("/Users/chl19/Desktop/New")
+#> Warning in dir.create("/Users/chl19/Desktop/New"): cannot
+#> create dir '/Users/chl19/Desktop/New', reason 'No such file
+#> or directory'
+```
+
+## `file.create()`
+`file.create()` function allows you to create a new file in your current directory or desired file path. It takes in a string parameter that is either the new file's name or the file path.
+
+The following code creates a new text file in your current directory.
+
+
+```r
+file.create("new_textfile.txt")
+#> [1] TRUE
+```
+
+The output TRUE means the file is created.
+
+Like `dir.create`, you can create a file anywhere on your computer by inputting the file path!
+
+
+```r
+file.create("/Users/chl19/Desktop/another_new_textfile.txt")
+#> Warning in file.create("/Users/chl19/Desktop/
+#> another_new_textfile.txt"): cannot create file '/Users/
+#> chl19/Desktop/another_new_textfile.txt', reason 'No such
+#> file or directory'
+#> [1] FALSE
+```
+
+
+## `file.exists()`
+`file.exists()` function allow you to check if a file exists in your current directory or the specified path. It takes in a string parameter that is same as `dir.create()` and `file.create()`. It will output a boolean indicating if the file there exists file in the directory.
+
+For example, I can check if I have successfully created the "new_textfile.txt".
+
+
+```r
+file.exists("new_textfile.txt")
+#> [1] TRUE
+```
+
+Let's try checking a file that does not exist in the current directory!
+
+
+```r
+file.exists("a_file.txt")
+#> [1] FALSE
+```
+
+Checking file that is outside of our working directory (This is the file we created above!).
+
+
+```r
+file.exists("/Users/chl19/Desktop/another_new_textfile.txt")
+#> [1] FALSE
+```
+
+## `file.remove()`
+`file.remove()` can be used to remove(delete) files in your directory or specified file path. It takes in a string parameter that is either the new file's name or the file path. It will return a boolean indicating if you have successfully removed the file.
+
+Let's try to remove the new_textfile we just created in our directory. 
+
+
+```r
+file.remove("new_textfile.txt") 
+#> [1] TRUE
+```
+
+Let's check if the function works properly! 
+
+
+```r
+file.exists("new_textfile.txt")
+#> [1] FALSE
+```
+
+The "new_textfile.txt" does not exist anymore! We have removed(deleted) the file!
+
+
+## `dirname()`
+`dirname()` function can extract your directory path from a file path. It takes a string that is your file path. 
+
+For example, let's first create a new file
+
+
+```r
+file.create("newfile.txt")
+#> [1] TRUE
+```
+
+This new file has following file path: "C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt"
+
+
+```r
+dirname("C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt")
+#> [1] "C:/Users/a/chl19/Desktop/doss_toolkit_book"
+```
+
+When we input this file path in `dirname()`, it will return the path of our current directory!
+
+## `basename()`
+As we see that `dirname()` extracts the directory path from the full file path, the function basename extracts the file name from the full file path. 
+
+
+```r
+basename("C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt")
+#> [1] "newfile.txt"
+```
+
+Here, we get the file name using `basename()`.
+
+
+
+## `file.path()`
+The `file.path()` function allows you to create reproducible code that can be run in different operating systems such as macOS or windows since different operating systems have different directory separators. 
+
+The `file.path()` function takes in a set of strings that you want to paste together to a file path. And another parameter is called fsep, which is the path separator in string format.
+
+For example, in windows, our path is separated by `/.`
+
+"C:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt"
+
+We can generate the file path above using file.path function:
+
+
+```r
+file.path("c:", "Users", "a", "chl19", "Desktop", "doss_toolkit_book", "newfile.txt", fsep="/")
+#> [1] "c:/Users/a/chl19/Desktop/doss_toolkit_book/newfile.txt"
+```
+
+If the operating system uses `\\` as the path separator, we can generate the file path using the following code.
+
+
+```r
+file.path("c:", "Users", "a", "chl19", "Desktop", "doss_toolkit_book", "newfile.txt", fsep="\\")
+#> [1] "c:\\Users\\a\\chl19\\Desktop\\doss_toolkit_book\\newfile.txt"
+```
+
+
+## Exercises
+
+### Exercises 1 
+
+Write a function that takes in a file name and checks if this file exists in your current directory. If this file exists in your current directory, print "The file already exists." If this file is not in your current directory, create the file and print "File created." (There are multiple answers!)
+
+
+<!--```{r fileex1, exercise=TRUE, exercise.lines = 8} -->
+
+<!--```-->
+
+<!--```{r fileex1-solution} -->
+<!--function(filename){ -->
+<!--if (file.exists(filename)) { -->
+
+<!-- print("The file already exists") -->
+
+<!--} else { -->
+<!-- file.create(filename) -->
+<!--  print("File created") -->
+<!--  } -->
+<!--} -->
+
+<!--``` -->
+
+
+### Exercises 2 
+
+Please create a new folder called "my_data" in your current directory, then create a new CSV file called data in this "data" folder. 
+
+<!--```{r fileex2, exercise=TRUE, exercise.lines = 3} -->
+
+<!--``` -->
+
+<!--```{r fileex2-solution} -->
+<!--dir.create("my_data") -->
+<!--file.create("my_data/data.csv") -->
+<!--``` -->
+
+### Exercises 3
+
+Check if you successfully created the data.csv file in my_data folder from exercise 2
+
+<!--```{r fileex3, exercise=TRUE, exercise.lines = 2} -->
+
+<!--``` -->
+
+<!--```{r fileex3-solution} -->
+<!--file.exists("my_data/data.csv") -->
+<!--``` -->
+
+
+### Exercises 4
+
+Please remove the data.csv file you created in exercies 2
+
+<!--```{r fileex4, exercise=TRUE, exercise.lines = 2} -->
+
+<!--``` -->
+
+<!--```{r fileex4-solution} -->
+<!--file.remove("my_data/data.csv") -->
+<!--``` -->
+
+
+### Exercises 5
+
+
+```r
+file.path("c:", "Users", "doss_toolkit_book", "totally_addicted_to_base", fsep="/")
+#> [1] "c:/Users/doss_toolkit_book/totally_addicted_to_base"
+```
+
+<!--```{r fileex5, echo=FALSE} -->
+<!--question("What is the output of above code?", -->
+<!--  answer("c:/Users/doss_toolkit_book/totally_addicted_to_base", correct = TRUE), -->
+<!--  answer("totally_addicted_to_base"), -->
+<!--  answer(TRUE), -->
+<!--  answer("c:/Users/doss_toolkit_book") -->
+<!--) -->
+<!--``` -->
+
+## Common mistakes & errors
+
+- Make sure the path is correct.
+
+- filename is not case sensitive. (i.e "newfile.txt" is same as "Newfile.txt)
+For example:
+
+
+```r
+file.create("Hi.txt")
+#> [1] TRUE
+file.exists("hi.txt")
+#> [1] TRUE
+file.remove("hi.txt")
+#> [1] TRUE
+```
+We see that after we created "Hi.txt", the `file.exists("hi.txt")` returned TRUE, which means the file name is not case-sensitive.
+This also reflects when we run `file.remove("hi.txt")` that we successfully remove the file "Hi.txt" that we just created. 
+
+## Next steps
+
+This website contains more function for file manipulation
+http://theautomatic.net/2018/07/11/manipulate-files-r/
+
+RDocumentation for file manipulation
+https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files
+
+RDocumentation for Manipulation of Directories
+https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files2
+
+
+## Exercises
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+### Question 4
+
+### Question 5
+
+### Question 6
+
+### Question 7
+
+### Question 8
+
+### Question 9
+
+### Question 10

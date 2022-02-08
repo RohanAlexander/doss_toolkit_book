@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 104 Getting started with Blogdown | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Annie Collins and last updated on 30 January 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 104 Getting started with Blogdown | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Annie Collins and last updated on 30 January 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 104 Getting started with Blogdown | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Annie Collins and last updated on 30 January 2021.  104.1 Introduction blogdown is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 104</span> Getting started with Blogdown</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="getting-started-with-blogdown" class="section level1" number="104">
+<h1>
+<span class="header-section-number">104</span> Getting started with Blogdown<a class="anchor" aria-label="anchor" href="#getting-started-with-blogdown"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Annie Collins and last updated on 30 January 2021.</em></p>
+<div id="introduction-96" class="section level2" number="104.1">
+<h2>
+<span class="header-section-number">104.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-96"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>blogdown</code> is an R package that allows you to create websites and blogs using your knowledge of R Markdown. If you have never made a website before, <code>blogdown</code> is a simple way to get started. Even if you are experienced in building websites, <code>blogdown</code>’s R and R Markdown compatibility makes it highly tailored to presenting statistical work, including equations, visualizations, and modelling. It is also highly adaptable, allowing you to easily convert your work to other supported formats like PDF.</p>
+<p>Websites can be a key tool for showcasing your work to future employers or educational institutions, which is why working with <code>blogdown</code> is becoming more and more of a key skill set for R users.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Create a website using GitHub and <code>blogdown</code>;</li>
+<li>Edit and update your website’s content and design; and,</li>
+<li>Make your website publicly available on the internet.</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>GitHub account and general familiarity.</li>
+<li>Knowledge of R Markdown.</li>
+</ul>
+</div>
+<div id="set-up" class="section level2" number="104.2">
+<h2>
+<span class="header-section-number">104.2</span> Set Up<a class="anchor" aria-label="anchor" href="#set-up"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before getting started with <code>blogdown</code> specifically, you will need to set up GitHub and an R project to facilitate your new website. To do so, <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">create a GitHub account</a> (if you don’t already have one), create a new repository, and set up an R project using Git version control. There are previous lessons on all of these steps to help you get started.</p>
+<p>Now that you’re in RStudio, you will likely need to install <code>blogdown</code>. You can do so in the same way as other packages from CRAN, by using the code below.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"blogdown"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/blogdown">blogdown</a></span><span class="op">)</span></code></pre></div>
+<p>Next, you must install Hugo. <a href="https://gohugo.io/">Hugo</a> is an open-source static website generator upon which <code>blogdown</code> depends. You can think of it as a way to translate simple R Markdown files into nice looking and functional websites. Installing Hugo is easy and there is a built-in <code>blogdown</code> function to help you do so.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">blogdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/blogdown/reference/install_hugo.html">install_hugo</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Once you have both <code>blogdown</code> and Hugo installed, you are ready to create a website!</p>
+</div>
+<div id="creating-a-new-site" class="section level2" number="104.3">
+<h2>
+<span class="header-section-number">104.3</span> Creating a new site<a class="anchor" aria-label="anchor" href="#creating-a-new-site"><i class="fas fa-link"></i></a>
+</h2>
+<p>The command to create a new website in <code>blogdown</code> is <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> which takes several arguments. It is important to execute this command in a new and empty repository/directory since it will create a set of files that work together to produce your website, as well as all its different pages. We are going to start with using the default values for all <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> arguments.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site</a></span><span class="op">(</span>
+  dir <span class="op">=</span> <span class="st">"."</span>,
+  force <span class="op">=</span> <span class="cn">NA</span>,
+  install_hugo <span class="op">=</span> <span class="cn">TRUE</span>,
+  format <span class="op">=</span> <span class="st">"yaml"</span>,
+  sample <span class="op">=</span> <span class="cn">TRUE</span>,
+  theme <span class="op">=</span> <span class="st">"yihui/hugo-lithium"</span>,
+  hostname <span class="op">=</span> <span class="st">"github.com"</span>,
+  theme_example <span class="op">=</span> <span class="cn">TRUE</span>,
+  empty_dirs <span class="op">=</span> <span class="cn">FALSE</span>,
+  to_yaml <span class="op">=</span> <span class="cn">TRUE</span>,
+  netlify <span class="op">=</span> <span class="cn">TRUE</span>,
+  .Rprofile <span class="op">=</span> <span class="cn">TRUE</span>,
+  serve <span class="op">=</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="st">"ask"</span> <span class="kw">else</span> <span class="cn">FALSE</span>
+<span class="op">)</span></code></pre></div>
+<p>If you execute <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> using the default arguments (exactly as shown above), you will be able to view something like the below image in the <em>Viewer</em> tab in RStudio.</p>
+<div class="inline-figure"><img src="images/84-new_site_1.png" width="50%" style="display: block; margin: auto;"></div>
+<p>You can then click the button in the upper left hand corner of the visualization to view your website in a browser. This isn’t yet a live website, simply a local visualization of what your website will look like once it’s hosted.</p>
+<div class="inline-figure"><img src="images/84-new_site_2.png" width="75%" style="display: block; margin: auto;"></div>
+</div>
+<div id="initial-configurations-and-file-structure" class="section level2" number="104.4">
+<h2>
+<span class="header-section-number">104.4</span> Initial Configurations and File Structure<a class="anchor" aria-label="anchor" href="#initial-configurations-and-file-structure"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the <em>Files</em> tab, you should see something like the below image. Exact files and configurations may change depending on the theme chosen when executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code>.</p>
+<div class="inline-figure"><img src="images/84-new_site_3.png" width="75%" style="display: block; margin: auto;"></div>
+<p>In <code>config.yaml</code> (<code>config.toml</code> if you switch to <code>format = "toml"</code>), you will find several parameters that dictate aspects of your website’s overall appearance. Some of the basic ones you may want to update initially are (from top to bottom): <em>title</em>, <em>menu &gt; main &gt; name</em> and <em>url</em> (to update the menu in the header), and <em>logo</em>. A <em>logo</em> image can be stored under <strong>main directory/themes/hugo-lithium/static/images</strong> and then referred to by its file name in the <code>config.yaml</code> file.</p>
+<p>The main content of your website (in this case, blog posts linked from the main page) is found under <strong>main directory/content</strong>. This is where you can update the <em>About</em> section and add any markdown files you wish to showcase on your website.</p>
+<p>This is the most simple version of a <code>blogdown</code> site, built using the <em>hugo-lithium</em> theme. For full documentation on the default site’s set up and customization, see the official <code>blogdown</code> <a href="https://bookdown.org/yihui/blogdown/themes.html">book</a>.</p>
+<p>Another theme that might be useful to those working in an academic context is <em>hugo-academic</em>. You can create a <code>blogdown</code> site using this theme by using <code>theme = "gcushen/hugo-academic"</code> when calling <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">blogdown::new_site()</a></code> for the first time (along side any other desired arguments). If you’re looking to switch to this theme after trying the default theme originally, you will have to remove all of the old website’s files from your directory first and then call <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">new_site()</a></code> (you can delete anything you don’t wish to transition to the new site, and simply move any content you wish to keep to a different directory until the new site is set up).</p>
+<p><em>hugo-academic</em> is a website template built specifically for showcasing yourself and your work as an academic, such as a professional headshot, publications, experience (CV), contact info, and any other work that contributes to your portfolio. You can view an example <a href="https://themes.gohugo.io/themes/hugo-academic/">here</a>. Another option for showcasing academic work is to use distill or postcards, covered in Section 105. Much of the initial configuration and file structure is similar, but slightly more complex than the default <em>hugo-lithium</em>. I find the best way to get to know a new template is to play around with the files yourself as much as possible. Remember, as of right now, your website it only hosted locally so there are no repercussions if a file gets messed up or some of your code does not execute properly.</p>
+</div>
+<div id="making-your-website-public" class="section level2" number="104.5">
+<h2>
+<span class="header-section-number">104.5</span> Making your website public<a class="anchor" aria-label="anchor" href="#making-your-website-public"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once you are happy with your <code>blogdown</code> website as it appears in RStudio and the browser preview, you can set it up to be hosted publicly on the internet. There are several ways to do this, but we will look at one (free) way to do so using Netlify.</p>
+<div id="github" class="section level3" number="104.5.1">
+<h3>
+<span class="header-section-number">104.5.1</span> GitHub<a class="anchor" aria-label="anchor" href="#github"><i class="fas fa-link"></i></a>
+</h3>
+<p>The first step is to commit your changes to the GitHub repo you created for your website R project. This can be done via the command line or the <em>Git</em> tab in RStudio. It is important to capture your <code>blogdown</code> code in an online repository so it can be accessed by Netlify (along with all the other benefits of storing your code in a repo).</p>
+</div>
+<div id="netlify" class="section level3" number="104.5.2">
+<h3>
+<span class="header-section-number">104.5.2</span> Netlify<a class="anchor" aria-label="anchor" href="#netlify"><i class="fas fa-link"></i></a>
+</h3>
+<p>Then, go to the <a href="https://www.netlify.com/">Netlify website</a> and create an account or log in with your GitHub account. Netlify connects directly to your website’s GitHub repo in order to deploy your website, which makes it very simple to create and update your website. To do so, click the button that says <strong>New site from Git</strong>. You will be prompted to choose a Git provider (select <strong>GitHub</strong>), then choose your website’s repository, and finally choose some settings for your new public site. Once you’ve completed these steps, click <strong>Deploy site</strong>, and your website will be public!</p>
+<p>You can now play around with certain features like domain name and security, and any features or updates you push to your GitHub repo should be automatically reflected on your public site thanks to Netlify’s GitHub link.</p>
+</div>
+</div>
+<div id="next-steps-62" class="section level2" number="104.6">
+<h2>
+<span class="header-section-number">104.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-62"><i class="fas fa-link"></i></a>
+</h2>
+<p>Themes play a rather significant role in the functionality of a <code>blogdown</code> site. If neither <em>hugo-lithium</em> nor <em>hugo-academic</em> seem appropriate for your purposes, try some of the other themes available from Hugo that can be found <a href="https://themes.gohugo.io/">here</a> (not every Hugo theme has been tested with <code>blogdown</code>, so be sure to double check that your site is functioning as intended).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="images/84-new_site_4.png" alt="Source: Hugo" width="75%"><p class="caption">
+Figure 104.1: Source: Hugo
+</p>
+</div>
+<p>As mentioned previously, the best way to get to know your <code>blogdown</code> website is to play around with different files and configurations to discover what goes where and which set-up works best for you. As you build your website and try different themes, be sure to explore your <em>Files</em> tab and <code>config.yaml</code> file to get the most out of your new website.</p>
+<p>For a more in-depth look at all things <code>blogdown</code>, check out the <code>blogdown</code> <a href="https://bookdown.org/yihui/blogdown/">online book</a> authored by Yihui Xie, Amber Thomas, and Alison Presmanes Hill outlining several more aspects of creating, updating, and maintaining <code>blogdown</code> websites.</p>
+<p>If you are interested in more website building options, we will cover two more formats in Section 105: Distill and postcards</p>
+</div>
+<div id="exercises-140" class="section level2" number="104.7">
+<h2>
+<span class="header-section-number">104.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-140"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-101" class="section level3" number="104.7.1">
+<h3>
+<span class="header-section-number">104.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-101"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the default blog theme?</p>
+<ol style="list-style-type: lower-alpha">
+<li><em>hugo</em></li>
+<li><em>hugo-academic</em></li>
+<li><em>hugo-lithium</em></li>
+<li><em>hugo-hugo</em></li>
+</ol>
+</div>
+<div id="question-2-100" class="section level3" number="104.7.2">
+<h3>
+<span class="header-section-number">104.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-100"><i class="fas fa-link"></i></a>
+</h3>
+<p>On what platform are Blogdown websites automatically deployed when built?</p>
+<ol style="list-style-type: lower-alpha">
+<li>GitHub pages</li>
+<li>Netlify</li>
+<li>Wordpress</li>
+<li>Blogdown websites are not automatically deployed</li>
+</ol>
+</div>
+<div id="question-3-97" class="section level3" number="104.7.3">
+<h3>
+<span class="header-section-number">104.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-97"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the following best describes Hugo?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Hugo is the author of the <code>blogdown</code> package</li>
+<li>Hugo is a static website generator</li>
+<li>Hugo is a platform for deploying websites</li>
+<li>Hugo is a <code>blogdown</code> theme</li>
+</ol>
+</div>
+<div id="question-4-89" class="section level3" number="104.7.4">
+<h3>
+<span class="header-section-number">104.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-89"><i class="fas fa-link"></i></a>
+</h3>
+<p>What information is indicated in the <code>config.yaml</code> file?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Website theme</li>
+<li>Main menu titles and links</li>
+<li>Logo</li>
+<li>All of the above</li>
+</ol>
+</div>
+<div id="question-5-88" class="section level3" number="104.7.5">
+<h3>
+<span class="header-section-number">104.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-88"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the following is true?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Executing <code>blogdown::update_theme("hugo-academic")</code> will switch a Blogdown site from the default theme to the <em>hugo-academic</em> theme</li>
+<li>Executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">blogdown::new_site()</a></code> in a repository that already contains a Blogdown site will automatically overwrite all existing content to produce a new default site</li>
+<li>Executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/build_site.html">blogdown::build_site()</a></code> in an empty repository will create a Blogdown site with the theme <em>hugo-lithium</em>
+</li>
+<li>Executing <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html">blogdown::new_site()</a></code> in an empty repository will create a Blogdown site with the theme <em>hugo-lithium</em>
+</li>
+</ol>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

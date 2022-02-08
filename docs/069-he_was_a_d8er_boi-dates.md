@@ -53,13 +53,13 @@ we can immediately start to use, without data or parameters.
 
 ```r
 today()
-#> [1] "2021-10-07"
+#> [1] "2022-02-08"
 ```
 
 
 ```r
 now()
-#> [1] "2021-10-07 15:21:48 EDT"
+#> [1] "2022-02-08 12:33:47 EST"
 ```
 
 You may want to use these functions today() and now() for various reasons, such as 
@@ -68,7 +68,7 @@ including the date and time in a file name. You can do that as follows.
 
 ```r
 paste0(today(), "_datafile.csv")
-#> [1] "2021-10-07_datafile.csv"
+#> [1] "2022-02-08_datafile.csv"
 ```
 
 ### Example
@@ -100,54 +100,54 @@ information from it using `lubridate` functions.
 # extracting year
 caribou %>% mutate(year = year(timestamp))
 #> # A tibble: 249,450 × 8
-#>      event_id animal_id study_site season timestamp          
-#>         <dbl> <chr>     <chr>      <chr>  <dttm>             
-#>  1 2259197332 GR_C01    Graham     Winter 2001-02-21 05:00:00
-#>  2 2259197333 GR_C01    Graham     Winter 2001-02-21 09:00:00
-#>  3 2259197334 GR_C01    Graham     Winter 2001-02-21 13:00:00
-#>  4 2259197335 GR_C01    Graham     Winter 2001-02-21 17:01:00
-#>  5 2259197336 GR_C01    Graham     Winter 2001-02-21 21:00:00
-#>  6 2259197337 GR_C01    Graham     Winter 2001-02-22 01:00:00
-#>  7 2259197338 GR_C01    Graham     Winter 2001-02-22 05:00:00
-#>  8 2259197339 GR_C01    Graham     Winter 2001-02-22 09:00:00
-#>  9 2259197340 GR_C01    Graham     Winter 2001-02-22 13:00:00
-#> 10 2259197341 GR_C01    Graham     Winter 2001-02-22 17:00:00
+#>     event_id animal_id study_site season timestamp          
+#>        <dbl> <chr>     <chr>      <chr>  <dttm>             
+#>  1    2.26e9 GR_C01    Graham     Winter 2001-02-21 05:00:00
+#>  2    2.26e9 GR_C01    Graham     Winter 2001-02-21 09:00:00
+#>  3    2.26e9 GR_C01    Graham     Winter 2001-02-21 13:00:00
+#>  4    2.26e9 GR_C01    Graham     Winter 2001-02-21 17:01:00
+#>  5    2.26e9 GR_C01    Graham     Winter 2001-02-21 21:00:00
+#>  6    2.26e9 GR_C01    Graham     Winter 2001-02-22 01:00:00
+#>  7    2.26e9 GR_C01    Graham     Winter 2001-02-22 05:00:00
+#>  8    2.26e9 GR_C01    Graham     Winter 2001-02-22 09:00:00
+#>  9    2.26e9 GR_C01    Graham     Winter 2001-02-22 13:00:00
+#> 10    2.26e9 GR_C01    Graham     Winter 2001-02-22 17:00:00
 #> # … with 249,440 more rows, and 3 more variables:
 #> #   longitude <dbl>, latitude <dbl>, year <dbl>
 
 # extracting week day
 caribou %>% mutate(week_day = wday(timestamp))
 #> # A tibble: 249,450 × 8
-#>      event_id animal_id study_site season timestamp          
-#>         <dbl> <chr>     <chr>      <chr>  <dttm>             
-#>  1 2259197332 GR_C01    Graham     Winter 2001-02-21 05:00:00
-#>  2 2259197333 GR_C01    Graham     Winter 2001-02-21 09:00:00
-#>  3 2259197334 GR_C01    Graham     Winter 2001-02-21 13:00:00
-#>  4 2259197335 GR_C01    Graham     Winter 2001-02-21 17:01:00
-#>  5 2259197336 GR_C01    Graham     Winter 2001-02-21 21:00:00
-#>  6 2259197337 GR_C01    Graham     Winter 2001-02-22 01:00:00
-#>  7 2259197338 GR_C01    Graham     Winter 2001-02-22 05:00:00
-#>  8 2259197339 GR_C01    Graham     Winter 2001-02-22 09:00:00
-#>  9 2259197340 GR_C01    Graham     Winter 2001-02-22 13:00:00
-#> 10 2259197341 GR_C01    Graham     Winter 2001-02-22 17:00:00
+#>     event_id animal_id study_site season timestamp          
+#>        <dbl> <chr>     <chr>      <chr>  <dttm>             
+#>  1    2.26e9 GR_C01    Graham     Winter 2001-02-21 05:00:00
+#>  2    2.26e9 GR_C01    Graham     Winter 2001-02-21 09:00:00
+#>  3    2.26e9 GR_C01    Graham     Winter 2001-02-21 13:00:00
+#>  4    2.26e9 GR_C01    Graham     Winter 2001-02-21 17:01:00
+#>  5    2.26e9 GR_C01    Graham     Winter 2001-02-21 21:00:00
+#>  6    2.26e9 GR_C01    Graham     Winter 2001-02-22 01:00:00
+#>  7    2.26e9 GR_C01    Graham     Winter 2001-02-22 05:00:00
+#>  8    2.26e9 GR_C01    Graham     Winter 2001-02-22 09:00:00
+#>  9    2.26e9 GR_C01    Graham     Winter 2001-02-22 13:00:00
+#> 10    2.26e9 GR_C01    Graham     Winter 2001-02-22 17:00:00
 #> # … with 249,440 more rows, and 3 more variables:
 #> #   longitude <dbl>, latitude <dbl>, week_day <dbl>
 
 # extracting whether it's a leap year!
 caribou %>% mutate(leap_year = leap_year(timestamp))
 #> # A tibble: 249,450 × 8
-#>      event_id animal_id study_site season timestamp          
-#>         <dbl> <chr>     <chr>      <chr>  <dttm>             
-#>  1 2259197332 GR_C01    Graham     Winter 2001-02-21 05:00:00
-#>  2 2259197333 GR_C01    Graham     Winter 2001-02-21 09:00:00
-#>  3 2259197334 GR_C01    Graham     Winter 2001-02-21 13:00:00
-#>  4 2259197335 GR_C01    Graham     Winter 2001-02-21 17:01:00
-#>  5 2259197336 GR_C01    Graham     Winter 2001-02-21 21:00:00
-#>  6 2259197337 GR_C01    Graham     Winter 2001-02-22 01:00:00
-#>  7 2259197338 GR_C01    Graham     Winter 2001-02-22 05:00:00
-#>  8 2259197339 GR_C01    Graham     Winter 2001-02-22 09:00:00
-#>  9 2259197340 GR_C01    Graham     Winter 2001-02-22 13:00:00
-#> 10 2259197341 GR_C01    Graham     Winter 2001-02-22 17:00:00
+#>     event_id animal_id study_site season timestamp          
+#>        <dbl> <chr>     <chr>      <chr>  <dttm>             
+#>  1    2.26e9 GR_C01    Graham     Winter 2001-02-21 05:00:00
+#>  2    2.26e9 GR_C01    Graham     Winter 2001-02-21 09:00:00
+#>  3    2.26e9 GR_C01    Graham     Winter 2001-02-21 13:00:00
+#>  4    2.26e9 GR_C01    Graham     Winter 2001-02-21 17:01:00
+#>  5    2.26e9 GR_C01    Graham     Winter 2001-02-21 21:00:00
+#>  6    2.26e9 GR_C01    Graham     Winter 2001-02-22 01:00:00
+#>  7    2.26e9 GR_C01    Graham     Winter 2001-02-22 05:00:00
+#>  8    2.26e9 GR_C01    Graham     Winter 2001-02-22 09:00:00
+#>  9    2.26e9 GR_C01    Graham     Winter 2001-02-22 13:00:00
+#> 10    2.26e9 GR_C01    Graham     Winter 2001-02-22 17:00:00
 #> # … with 249,440 more rows, and 3 more variables:
 #> #   longitude <dbl>, latitude <dbl>, leap_year <lgl>
 ```

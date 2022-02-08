@@ -7,16 +7,16 @@
 <title>Chapter 25 Reading tables dta and other data types | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Isaac Ehrlich and last updated on 7 October 2021.  25.1 Introduction Unfortunately, not all data that you may need to read into R will be stored in nice, easily-readable ‘.csv’ files....">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 25 Reading tables dta and other data types | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Isaac Ehrlich and last updated on 7 October 2021.  25.1 Introduction Unfortunately, not all data that you may need to read into R will be stored in nice, easily-readable ‘.csv’ files....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 25 Reading tables dta and other data types | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Isaac Ehrlich and last updated on 7 October 2021.  25.1 Introduction Unfortunately, not all data that you may need to read into R will be stored in nice, easily-readable ‘.csv’ files....">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -188,7 +177,7 @@
 <h2>
 <span class="header-section-number">25.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-22"><i class="fas fa-link"></i></a>
 </h2>
-<p>Unfortunately, not all data that you may need to read into R will be stored in nice, easily-readable ‘.csv’ files. To handle alternate data file types, <code>tidyverse</code> has a series of read-in functions beyond <code>read_csv()</code>. This includes <code>read_table()</code>, <code>read_table2()</code>, <code>read_excel()</code>, <code>read_fwf())</code>, and <code>read_delim()</code> for tabular data, <code>read_file()</code> and <code>read_lines()</code> for non-tabular data, and functions in the tidyverse <code>haven</code> package for reading data formats from other statistical languages such as <code>read_sas()</code>, <code>read_sav()</code>, and <code>read_dta()</code>.</p>
+<p>Unfortunately, not all data that you may need to read into R will be stored in nice, easily-readable ‘.csv’ files. To handle alternate data file types, <code>tidyverse</code> has a series of read-in functions beyond <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>. This includes <code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code>, <code><a href="https://readr.tidyverse.org/reference/read_table2.html">read_table2()</a></code>, <code>read_excel()</code>, <code>read_fwf())</code>, and <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> for tabular data, <code><a href="https://readr.tidyverse.org/reference/read_file.html">read_file()</a></code> and <code><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines()</a></code> for non-tabular data, and functions in the tidyverse <code>haven</code> package for reading data formats from other statistical languages such as <code>read_sas()</code>, <code>read_sav()</code>, and <code>read_dta()</code>.</p>
 <p>In this lesson, you will learn how to:</p>
 <ul>
 <li>Read in a variety of alternate data file types, including tabular, non-tabular, and statistical package data</li>
@@ -196,22 +185,22 @@
 <p>Prerequisite skills include:</p>
 <ul>
 <li>Installing packages and calling libraries</li>
-<li>Knowledge of <code>read_csv()</code> and its arguments</li>
+<li>Knowledge of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> and its arguments</li>
 </ul>
 </div>
 <div id="tabular-data" class="section level2" number="25.2">
 <h2>
 <span class="header-section-number">25.2</span> Tabular Data<a class="anchor" aria-label="anchor" href="#tabular-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>The following functions all take similar arguments to <code>read_csv()</code>, which are broken down in the previous module. The following sections will instead focus on the different types of files and formats each function is capable of reading.</p>
-<p><strong><code>read_table()</code>: </strong>
-<code>read_table()</code> reads tabular text data where each column is separated by one (or more) spaces. <code>read_table()</code> is frequently used to read in space-delimited <code>.txt</code> files but can handle other text file types as well. <code>read_table()</code> requires that each line is the same length, and each column is in the same position.</p>
-<p><strong><code>read_table2()</code>: </strong>
-<code>read_table2()</code> is similar to <code>read_table()</code>, but does not require each line to be the same length.</p>
-<p><strong><code>read_fwf()</code>: </strong>
-<code>read_fwf()</code> reads in <strong>f</strong>ixed <strong>w</strong>idth <strong>f</strong>ile types. Fixed width files are files where the data is not delimited in any way, but like the proper input to <code>read_table()</code>, these files have columns that are in the same place on every line; hence, they are “fixed width.” <code>read_fwf()</code> takes the additional argument <code>col_positions</code>, which specifies the position at which each column begins.</p>
-<p><strong><code>read_delim()</code>: </strong>
-<code>read_delim()</code> is the general case of <code>read_csv()</code>, where the user can specify which single character the file is delimited by, rather than defaulting to the comma, as in <code>read_csv()</code>. <code>read_delim()</code> takes in the additional argument <code>delim</code>, which specifies by which single character columns in the raw file are separated.</p>
+<p>The following functions all take similar arguments to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, which are broken down in the previous module. The following sections will instead focus on the different types of files and formats each function is capable of reading.</p>
+<p><strong><code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code>: </strong>
+<code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code> reads tabular text data where each column is separated by one (or more) spaces. <code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code> is frequently used to read in space-delimited <code>.txt</code> files but can handle other text file types as well. <code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code> requires that each line is the same length, and each column is in the same position.</p>
+<p><strong><code><a href="https://readr.tidyverse.org/reference/read_table2.html">read_table2()</a></code>: </strong>
+<code><a href="https://readr.tidyverse.org/reference/read_table2.html">read_table2()</a></code> is similar to <code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code>, but does not require each line to be the same length.</p>
+<p><strong><code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code>: </strong>
+<code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code> reads in <strong>f</strong>ixed <strong>w</strong>idth <strong>f</strong>ile types. Fixed width files are files where the data is not delimited in any way, but like the proper input to <code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code>, these files have columns that are in the same place on every line; hence, they are “fixed width.” <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code> takes the additional argument <code>col_positions</code>, which specifies the position at which each column begins.</p>
+<p><strong><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code>: </strong>
+<code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> is the general case of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, where the user can specify which single character the file is delimited by, rather than defaulting to the comma, as in <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>. <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> takes in the additional argument <code>delim</code>, which specifies by which single character columns in the raw file are separated.</p>
 <p><strong><code>read_excel()</code>: </strong>
 <code>read_excel()</code> reads in <code>.xls</code> and <code>.xlsx</code> files (Microsoft Excel file types). <code>read_excel()</code> takes the additional argument <code>sheet</code> that specifies which sheet of an Excel file to read, either using the name of the sheet as a string or the index. If the argument is not specified, <code>read_excel()</code> will default to the first sheet.</p>
 </div>
@@ -219,10 +208,10 @@
 <h2>
 <span class="header-section-number">25.3</span> Non-Tabular Data<a class="anchor" aria-label="anchor" href="#non-tabular-data"><i class="fas fa-link"></i></a>
 </h2>
-<p><strong><code>read_file()</code>: </strong>
-<code>read_file()</code> reads an entire file as a single string into a single vector.</p>
-<p><strong><code>read_lines()</code>: </strong>
-<code>read_lines()</code> reads each line of a file as a separate string, and creates a list of strings.</p>
+<p><strong><code><a href="https://readr.tidyverse.org/reference/read_file.html">read_file()</a></code>: </strong>
+<code><a href="https://readr.tidyverse.org/reference/read_file.html">read_file()</a></code> reads an entire file as a single string into a single vector.</p>
+<p><strong><code><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines()</a></code>: </strong>
+<code><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines()</a></code> reads each line of a file as a separate string, and creates a list of strings.</p>
 </div>
 <div id="statistical-package-data-using-the-tidyverse-haven-package" class="section level2" number="25.4">
 <h2>
@@ -234,12 +223,12 @@
 <code>read_sav()</code> reads <code>.sav</code> files generated in SPSS.</p>
 <p><strong><code>read_dta()</code>: </strong>
 <code>read_dta()</code> reads <code>.dta</code> files generated in Stata. One particularly common way to use it is in combination with <code><a href="http://larmarange.github.io/labelled/reference/to_factor.html">labelled::to_factor()</a></code>. This then adds the labels into the dataset. Otherwise they are stored separately. For instance, a typical usage is something like:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="reading-tables-dta-and-other-data-types.html#cb72-1" aria-hidden="true" tabindex="-1"></a>my_dta_dataset <span class="ot">&lt;-</span> </span>
-<span id="cb72-2"><a href="reading-tables-dta-and-other-data-types.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_dta</span>(<span class="st">"my_dta_dataset.dta"</span>)<span class="er">)</span></span>
-<span id="cb72-3"><a href="reading-tables-dta-and-other-data-types.html#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-4"><a href="reading-tables-dta-and-other-data-types.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The Stata format separates labels so reunite those</span></span>
-<span id="cb72-5"><a href="reading-tables-dta-and-other-data-types.html#cb72-5" aria-hidden="true" tabindex="-1"></a>my_dta_dataset <span class="ot">&lt;-</span> </span>
-<span id="cb72-6"><a href="reading-tables-dta-and-other-data-types.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  labelled<span class="sc">::</span><span class="fu">to_factor</span>(my_dta_dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="reading-tables-dta-and-other-data-types.html#cb71-1" aria-hidden="true" tabindex="-1"></a>my_dta_dataset <span class="ot">&lt;-</span> </span>
+<span id="cb71-2"><a href="reading-tables-dta-and-other-data-types.html#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_dta</span>(<span class="st">"my_dta_dataset.dta"</span>)<span class="er">)</span></span>
+<span id="cb71-3"><a href="reading-tables-dta-and-other-data-types.html#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="reading-tables-dta-and-other-data-types.html#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The Stata format separates labels so reunite those</span></span>
+<span id="cb71-5"><a href="reading-tables-dta-and-other-data-types.html#cb71-5" aria-hidden="true" tabindex="-1"></a>my_dta_dataset <span class="ot">&lt;-</span> </span>
+<span id="cb71-6"><a href="reading-tables-dta-and-other-data-types.html#cb71-6" aria-hidden="true" tabindex="-1"></a>  labelled<span class="sc">::</span><span class="fu">to_factor</span>(my_dta_dataset)</span></code></pre></div>
 </div>
 <div id="overview-and-next-steps" class="section level2" number="25.5">
 <h2>
@@ -247,9 +236,9 @@
 </h2>
 <p>There are many different file types you may come across, but fortunately tidyverse has a fairly extensive set of functions to read in from as well. Happy reading!</p>
 </div>
-<div id="exercises-24" class="section level2" number="25.6">
+<div id="exercises-23" class="section level2" number="25.6">
 <h2>
-<span class="header-section-number">25.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-24"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-23"><i class="fas fa-link"></i></a>
 </h2>
 <div id="question-1-14" class="section level3" number="25.6.1">
 <h3>
@@ -281,9 +270,9 @@
 <span class="header-section-number">25.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-14"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-7-14" class="section level3" number="25.6.7">
+<div id="question-7-13" class="section level3" number="25.6.7">
 <h3>
-<span class="header-section-number">25.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-14"><i class="fas fa-link"></i></a>
+<span class="header-section-number">25.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-13"><i class="fas fa-link"></i></a>
 </h3>
 </div>
 <div id="question-8-14" class="section level3" number="25.6.8">
@@ -320,14 +309,14 @@
 <li><a class="nav-link" href="#statistical-package-data-using-the-tidyverse-haven-package"><span class="header-section-number">25.4</span> Statistical Package Data (Using the Tidyverse haven Package)</a></li>
 <li><a class="nav-link" href="#overview-and-next-steps"><span class="header-section-number">25.5</span> Overview and next steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-24"><span class="header-section-number">25.6</span> Exercises</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#exercises-23"><span class="header-section-number">25.6</span> Exercises</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#question-1-14"><span class="header-section-number">25.6.1</span> Question 1</a></li>
 <li><a class="nav-link" href="#question-2-14"><span class="header-section-number">25.6.2</span> Question 2</a></li>
 <li><a class="nav-link" href="#question-3-14"><span class="header-section-number">25.6.3</span> Question 3</a></li>
 <li><a class="nav-link" href="#question-4-14"><span class="header-section-number">25.6.4</span> Question 4</a></li>
 <li><a class="nav-link" href="#question-5-14"><span class="header-section-number">25.6.5</span> Question 5</a></li>
 <li><a class="nav-link" href="#question-6-14"><span class="header-section-number">25.6.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-14"><span class="header-section-number">25.6.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-7-13"><span class="header-section-number">25.6.7</span> Question 7</a></li>
 <li><a class="nav-link" href="#question-8-14"><span class="header-section-number">25.6.8</span> Question 8</a></li>
 <li><a class="nav-link" href="#question-9-14"><span class="header-section-number">25.6.9</span> Question 9</a></li>
 <li><a class="nav-link" href="#question-10-14"><span class="header-section-number">25.6.10</span> Question 10</a></li>
@@ -350,7 +339,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

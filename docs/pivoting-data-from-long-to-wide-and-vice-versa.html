@@ -4,14 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 35 Pivoting data from long to wide and vice versa | Untitled</title>
+<title>Chapter 35 Pivoting data from long to wide and vice versa | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Annie Collins and last updated on 7 October 2021.  35.1 Introduction In this lesson, you will learn how to: Use the function pivot_wider() to manipulate a data frame or tibble. Use the...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 35 Pivoting data from long to wide and vice versa | Untitled">
+<meta property="og:title" content="Chapter 35 Pivoting data from long to wide and vice versa | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Annie Collins and last updated on 7 October 2021.  35.1 Introduction In this lesson, you will learn how to: Use the function pivot_wider() to manipulate a data frame or tibble. Use the...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 35 Pivoting data from long to wide and vice versa | Untitled">
+<meta name="twitter:title" content="Chapter 35 Pivoting data from long to wide and vice versa | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Annie Collins and last updated on 7 October 2021.  35.1 Introduction In this lesson, you will learn how to: Use the function pivot_wider() to manipulate a data frame or tibble. Use the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +28,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Untitled</a>
+        <a href="index.html" title="">DoSS Toolkit</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -38,7 +39,129 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 35</span> Pivoting data from long to wide and vice versa</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="active" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
@@ -56,8 +179,8 @@
 </h2>
 <p>In this lesson, you will learn how to:</p>
 <ul>
-<li>Use the function <code>pivot_wider()</code> to manipulate a data frame or tibble.</li>
-<li>Use the function <code>pivot_longer()</code> to manipulate a data frame or tibble.</li>
+<li>Use the function <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> to manipulate a data frame or tibble.</li>
+<li>Use the function <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to manipulate a data frame or tibble.</li>
 </ul>
 <p>This lesson is a yellow level skill and is part of “Tidyverse Essentials.” Prerequisite skills include:</p>
 <ul>
@@ -70,7 +193,7 @@
 <h2>
 <span class="header-section-number">35.2</span> pivot_longer()<a class="anchor" aria-label="anchor" href="#pivot_longer"><i class="fas fa-link"></i></a>
 </h2>
-<p><code>pivot_longer()</code> takes the inputted dataset and makes it <strong>longer</strong> by rearranging its data to <strong>increase the number of rows</strong> and <strong>decrease the number of columns</strong>. Here, we consider “longer” in the vertical sense – a “longer” dataset has a larger number of cells from top to bottom than a “shorter” dataset.</p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> takes the inputted dataset and makes it <strong>longer</strong> by rearranging its data to <strong>increase the number of rows</strong> and <strong>decrease the number of columns</strong>. Here, we consider “longer” in the vertical sense – a “longer” dataset has a larger number of cells from top to bottom than a “shorter” dataset.</p>
 <div id="introductory-example" class="section level3" number="35.2.1">
 <h3>
 <span class="header-section-number">35.2.1</span> Introductory Example<a class="anchor" aria-label="anchor" href="#introductory-example"><i class="fas fa-link"></i></a>
@@ -83,8 +206,8 @@
 #&gt; 4 Golden State Warriors   l   w   l   l   w
 #&gt; 5            Miami Heat   l   l   w   w   l</code></pre>
 <p>Observe the effect the following code has on the data set. Take note of the difference in the number of rows and columns between the two tables. This will be visualized and explained in greater detail in the following step.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pivot_longer</span><span class="op">(</span><span class="va">games</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gm1</span>, <span class="va">gm2</span>, <span class="va">gm3</span>, <span class="va">gm4</span>, <span class="va">gm5</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"game number"</span>, values_to <span class="op">=</span> <span class="st">"status"</span><span class="op">)</span>
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">games</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gm1</span>, <span class="va">gm2</span>, <span class="va">gm3</span>, <span class="va">gm4</span>, <span class="va">gm5</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"game number"</span>, values_to <span class="op">=</span> <span class="st">"status"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 25 × 3</span>
 <span class="co">#&gt;    teams              `game number` status</span>
 <span class="co">#&gt;    &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt; </span>
@@ -105,7 +228,7 @@
 <h2>
 <span class="header-section-number">35.3</span> Visualizing pivot_longer()<a class="anchor" aria-label="anchor" href="#visualizing-pivot_longer"><i class="fas fa-link"></i></a>
 </h2>
-<p>This video will guide you through the changes that occur when applying <code>pivot_longer()</code> to our dataset.</p>
+<p>This video will guide you through the changes that occur when applying <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to our dataset.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OBsQA0vyxNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
@@ -126,12 +249,12 @@
 <h2>
 <span class="header-section-number">35.5</span> pivot_wider()<a class="anchor" aria-label="anchor" href="#pivot_wider"><i class="fas fa-link"></i></a>
 </h2>
-<p><code>pivot_wider()</code> takes the inputted dataset and makes it <strong>wider</strong> by rearranging its data to <strong>decrease the number of rows</strong> and <strong>increase the number of columns</strong>. <code>pivot_wider()</code> is essentially the inverse of <code>pivot_longer()</code> - the two transformations can be used to switch a data frame back and forth between its “longer” and “wider” forms.</p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> takes the inputted dataset and makes it <strong>wider</strong> by rearranging its data to <strong>decrease the number of rows</strong> and <strong>increase the number of columns</strong>. <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> is essentially the inverse of <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> - the two transformations can be used to switch a data frame back and forth between its “longer” and “wider” forms.</p>
 <div id="introductory-example-1" class="section level3" number="35.5.1">
 <h3>
 <span class="header-section-number">35.5.1</span> Introductory Example<a class="anchor" aria-label="anchor" href="#introductory-example-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>This is a dataset called <code>games_long</code>, a “longer” version of <code>games</code> (the result of applying <code>pivot_longer()</code> to the original data frame).</p>
+<p>This is a dataset called <code>games_long</code>, a “longer” version of <code>games</code> (the result of applying <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to the original data frame).</p>
 <pre><code>#&gt; # A tibble: 25 × 3
 #&gt;    teams              `game number` status
 #&gt;    &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt; 
@@ -147,8 +270,8 @@
 #&gt; 10 Los Angeles Lakers gm5           w     
 #&gt; # … with 15 more rows</code></pre>
 <p>Observe the effect the following code has on the data set. Take note of the difference in the number of rows and columns between the two tables.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pivot_wider</span><span class="op">(</span>data <span class="op">=</span> <span class="va">games_long</span>, names_from <span class="op">=</span> <span class="st">"game number"</span>, values_from <span class="op">=</span> <span class="va">status</span><span class="op">)</span>
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">games_long</span>, names_from <span class="op">=</span> <span class="st">"game number"</span>, values_from <span class="op">=</span> <span class="va">status</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 5 × 6</span>
 <span class="co">#&gt;   teams                 gm1   gm2   gm3   gm4   gm5  </span>
 <span class="co">#&gt;   &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
@@ -163,7 +286,7 @@
 <h2>
 <span class="header-section-number">35.6</span> Visualizing pivot_wider()<a class="anchor" aria-label="anchor" href="#visualizing-pivot_wider"><i class="fas fa-link"></i></a>
 </h2>
-<p>This video will guide you through the changes that occur when applying <code>pivot_wider()</code> to our data frame.</p>
+<p>This video will guide you through the changes that occur when applying <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> to our data frame.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PycHf7Og-sY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
@@ -211,7 +334,7 @@
 <span class="header-section-number">35.9</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-6"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
-<li>If you want to keep your dataframe in its longer or wider version, make sure to assign or reassign it to a variable when you execute <code>pivot_longer()</code>. For example, if you wish “games” to now represent the longer version of games instead of the original, you must write <code>games &lt;- pivot_longer(data=games, ...)</code>
+<li>If you want to keep your dataframe in its longer or wider version, make sure to assign or reassign it to a variable when you execute <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>. For example, if you wish “games” to now represent the longer version of games instead of the original, you must write <code>games &lt;- pivot_longer(data=games, ...)</code>
 </li>
 </ul>
 <p><em>Error in UseMethod(“pivot_longer”) :
@@ -226,18 +349,18 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 </h2>
 <ul>
 <li>Try more complicated pivots, like pivoting into multiple new columns at once or combining boolean statements.</li>
-<li>Switch your dataframe between formats using <code>pivot_longer()</code> and <code>pivot_wider()</code> as inverse functions.</li>
+<li>Switch your dataframe between formats using <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> and <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> as inverse functions.</li>
 </ul>
 </div>
-<div id="exercises-38" class="section level2" number="35.11">
+<div id="exercises-36" class="section level2" number="35.11">
 <h2>
-<span class="header-section-number">35.11</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-38"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-36"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-26" class="section level3" number="35.11.1">
+<div id="question-1-24" class="section level3" number="35.11.1">
 <h3>
-<span class="header-section-number">35.11.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-26"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-24"><i class="fas fa-link"></i></a>
 </h3>
-<p>Which of the following is generally a desired effect of executing <code>pivot_longer()</code> on a data frame?</p>
+<p>Which of the following is generally a desired effect of executing <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> on a data frame?</p>
 <ol style="list-style-type: lower-alpha">
 <li>Increase number of columns</li>
 <li>Increase number of rows</li>
@@ -245,11 +368,11 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>None of the above</li>
 </ol>
 </div>
-<div id="question-2-26" class="section level3" number="35.11.2">
+<div id="question-2-24" class="section level3" number="35.11.2">
 <h3>
-<span class="header-section-number">35.11.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-26"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-24"><i class="fas fa-link"></i></a>
 </h3>
-<p>Which of the following is generally a desired effect of executing <code>pivot_wider()</code> on a data frame?</p>
+<p>Which of the following is generally a desired effect of executing <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> on a data frame?</p>
 <ol style="list-style-type: lower-alpha">
 <li>Increase number of columns</li>
 <li>Increase number of rows</li>
@@ -257,16 +380,16 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>None of the above</li>
 </ol>
 </div>
-<div id="question-3-26" class="section level3" number="35.11.3">
+<div id="question-3-24" class="section level3" number="35.11.3">
 <h3>
-<span class="header-section-number">35.11.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-26"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-24"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please reference this table representing different pizza topping combinations for Questions 3 through 5:</p>
 <pre><code>#&gt;       type      top1      top2
 #&gt; 1  classic    cheese pepperoni
 #&gt; 2 hawaiian       ham pineapple
 #&gt; 3   veggie mushrooms   peppers</code></pre>
-<p>If <code>pivot_longer()</code> was applied to this dataframe on columns ‘top1’ and ‘top2,’ how many rows would the output have (not including the header)?</p>
+<p>If <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> was applied to this dataframe on columns ‘top1’ and ‘top2,’ how many rows would the output have (not including the header)?</p>
 <ol style="list-style-type: lower-alpha">
 <li>2</li>
 <li>3</li>
@@ -274,11 +397,11 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>9</li>
 </ol>
 </div>
-<div id="question-4-25" class="section level3" number="35.11.4">
+<div id="question-4-23" class="section level3" number="35.11.4">
 <h3>
-<span class="header-section-number">35.11.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-23"><i class="fas fa-link"></i></a>
 </h3>
-<p>If <code>pivot_longer()</code> was applied to this dataframe on columns ‘top1’ and ‘top2,’ how many times would the word ‘pineapple’ appear in the outputted dataframe?</p>
+<p>If <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> was applied to this dataframe on columns ‘top1’ and ‘top2,’ how many times would the word ‘pineapple’ appear in the outputted dataframe?</p>
 <ol style="list-style-type: lower-alpha">
 <li>1</li>
 <li>2</li>
@@ -286,11 +409,11 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>0</li>
 </ol>
 </div>
-<div id="question-5-23" class="section level3" number="35.11.5">
+<div id="question-5-22" class="section level3" number="35.11.5">
 <h3>
-<span class="header-section-number">35.11.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-22"><i class="fas fa-link"></i></a>
 </h3>
-<p>If <code>pivot_longer()</code> was applied to this dataframe on columns ‘top1’ and ‘top2,’ what would the fourth row (not including header) of the outputted dataframe contain?</p>
+<p>If <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> was applied to this dataframe on columns ‘top1’ and ‘top2,’ what would the fourth row (not including header) of the outputted dataframe contain?</p>
 <ol style="list-style-type: lower-alpha">
 <li>veggie, top1, mushrooms</li>
 <li>veggie, top2, peppers</li>
@@ -298,9 +421,9 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>hawaiian, top2, pineapple</li>
 </ol>
 </div>
-<div id="question-6-23" class="section level3" number="35.11.6">
+<div id="question-6-22" class="section level3" number="35.11.6">
 <h3>
-<span class="header-section-number">35.11.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-22"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please reference the following table representing different pizza topping combinations for Question 6 through 8:</p>
 <pre><code>#&gt; # A tibble: 6 × 3
@@ -312,7 +435,7 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 #&gt; 4 hawaiian top2   pineapple
 #&gt; 5 veggie   top1   mushrooms
 #&gt; 6 veggie   top2   peppers</code></pre>
-<p>If <code>pivot_wider()</code> was applied to this dataframe with names from “number” and values from “topping,” how many columns would the output have?</p>
+<p>If <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> was applied to this dataframe with names from “number” and values from “topping,” how many columns would the output have?</p>
 <ol style="list-style-type: lower-alpha">
 <li>2</li>
 <li>3</li>
@@ -320,11 +443,11 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>9</li>
 </ol>
 </div>
-<div id="question-7-23" class="section level3" number="35.11.7">
+<div id="question-7-21" class="section level3" number="35.11.7">
 <h3>
-<span class="header-section-number">35.11.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-21"><i class="fas fa-link"></i></a>
 </h3>
-<p>If <code>pivot_wider()</code> was applied to this dataframe with names from “number” and values from “topping,” how many times would the type “classic” appear in the output?</p>
+<p>If <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> was applied to this dataframe with names from “number” and values from “topping,” how many times would the type “classic” appear in the output?</p>
 <ol style="list-style-type: lower-alpha">
 <li>1</li>
 <li>2</li>
@@ -332,11 +455,11 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>0</li>
 </ol>
 </div>
-<div id="question-8-23" class="section level3" number="35.11.8">
+<div id="question-8-22" class="section level3" number="35.11.8">
 <h3>
-<span class="header-section-number">35.11.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-22"><i class="fas fa-link"></i></a>
 </h3>
-<p>If <code>pivot_wider()</code> was applied to this dataframe with names from “number” and values from “topping,” what would the column names be?</p>
+<p>If <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> was applied to this dataframe with names from “number” and values from “topping,” what would the column names be?</p>
 <ol style="list-style-type: lower-alpha">
 <li>type, top1, top2</li>
 <li>classic, hawaiian, veggie</li>
@@ -344,9 +467,9 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li>classic, cheese, pepperoni</li>
 </ol>
 </div>
-<div id="question-9-23" class="section level3" number="35.11.9">
+<div id="question-9-22" class="section level3" number="35.11.9">
 <h3>
-<span class="header-section-number">35.11.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-22"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please refer to the following data sets, <code>games1</code> and <code>games2</code>, for Questions 9 and 10.</p>
 <pre><code>#&gt;                   teams  gm1  gm2  gm3  gm4  gm5
@@ -378,9 +501,9 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <li><code>pivot_longer(games1, cols = c(gm1, gm2, gm3, gm4, gm5), values_drop_na = TRUE)</code></li>
 </ol>
 </div>
-<div id="question-10-23" class="section level3" number="35.11.10">
+<div id="question-10-22" class="section level3" number="35.11.10">
 <h3>
-<span class="header-section-number">35.11.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">35.11.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-22"><i class="fas fa-link"></i></a>
 </h3>
 <p>Which of the following lines of code will convert <code>games2</code> to the original <code>games</code> data set?</p>
 <ol style="list-style-type: lower-alpha">
@@ -393,15 +516,51 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 </div>
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="mutate.html"><span class="header-section-number">34</span> mutate</a></div>
+<div class="next"><a href="rename.html"><span class="header-section-number">36</span> rename</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pivoting-data-from-long-to-wide-and-vice-versa"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="nav-link" href="#introduction-31"><span class="header-section-number">35.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#pivot_longer"><span class="header-section-number">35.2</span> pivot_longer()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introductory-example"><span class="header-section-number">35.2.1</span> Introductory Example</a></li></ul>
+</li>
+<li><a class="nav-link" href="#visualizing-pivot_longer"><span class="header-section-number">35.3</span> Visualizing pivot_longer()</a></li>
+<li><a class="nav-link" href="#pivot_longer-arguments"><span class="header-section-number">35.4</span> pivot_longer() Arguments</a></li>
+<li>
+<a class="nav-link" href="#pivot_wider"><span class="header-section-number">35.5</span> pivot_wider()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introductory-example-1"><span class="header-section-number">35.5.1</span> Introductory Example</a></li></ul>
+</li>
+<li><a class="nav-link" href="#visualizing-pivot_wider"><span class="header-section-number">35.6</span> Visualizing pivot_wider()</a></li>
+<li><a class="nav-link" href="#pivot_wider-arguments"><span class="header-section-number">35.7</span> pivot_wider() Arguments</a></li>
+<li>
+<a class="nav-link" href="#other-optional-arguments-1"><span class="header-section-number">35.8</span> Other Optional Arguments</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pivot_longer-1"><span class="header-section-number">35.8.1</span> pivot_longer()</a></li>
+<li><a class="nav-link" href="#pivot_wider-1"><span class="header-section-number">35.8.2</span> pivot_wider()</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-mistakes-errors-6"><span class="header-section-number">35.9</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-18"><span class="header-section-number">35.10</span> Next Steps</a></li>
+<li>
+<a class="nav-link" href="#exercises-36"><span class="header-section-number">35.11</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-24"><span class="header-section-number">35.11.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-24"><span class="header-section-number">35.11.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-24"><span class="header-section-number">35.11.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-23"><span class="header-section-number">35.11.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-22"><span class="header-section-number">35.11.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-22"><span class="header-section-number">35.11.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-21"><span class="header-section-number">35.11.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-22"><span class="header-section-number">35.11.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-22"><span class="header-section-number">35.11.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-22"><span class="header-section-number">35.11.10</span> Question 10</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/034-hand_me_my_plyrs-pivotwider.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/034-hand_me_my_plyrs-pivotwider.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -413,7 +572,7 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Untitled</strong>" was written by true. It was last built on 2021-12-18.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -421,6 +580,34 @@ no applicable method for ‘pivot_longer’ applied to an object of class “c(�
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

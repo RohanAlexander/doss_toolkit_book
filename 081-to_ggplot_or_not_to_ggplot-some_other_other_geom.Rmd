@@ -342,7 +342,7 @@ ggplot(df, aes(long, lat, group = group)) +
 Use the `faithfuld` data set in R to plot `waiting` vs `eruptions` and add a layer of rectangles(to create a heat map) using the most high performing function(out of the three that we covered). Add density as the fill aesthetic and smooth out the graph. 
 
 
-```{r q3, exercise.eval = TRUE, exercise = TRUE}
+```{r q4, exercise.eval = TRUE, exercise = TRUE}
 
 ```
 

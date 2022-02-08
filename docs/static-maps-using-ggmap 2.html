@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 101 Static maps using ggmap | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
+<meta name="description" content="Written by Annie Collins and last updated on 7 October 2021.  101.1 Introduction  ggmap is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 101 Static maps using ggmap | DoSS Toolkit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Written by Annie Collins and last updated on 7 October 2021.  101.1 Introduction  ggmap is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 101 Static maps using ggmap | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Annie Collins and last updated on 7 October 2021.  101.1 Introduction  ggmap is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">DoSS Toolkit</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 101</span> Static maps using ggmap</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="static-maps-using-ggmap" class="section level1" number="101">
+<h1>
+<span class="header-section-number">101</span> Static maps using ggmap<a class="anchor" aria-label="anchor" href="#static-maps-using-ggmap"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Written by Annie Collins and last updated on 7 October 2021.</em></p>
+<div id="introduction-93" class="section level2" number="101.1">
+<h2>
+<span class="header-section-number">101.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-93"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p><code>ggmap</code> is an R package that makes it easy to retrieve raster map tiles from popular online mapping services like Google Maps and Stamen Maps and plot them using the ggplot2 framework</p>
+</blockquote>
+<p>Now that you’re familiar with <code>ggplot2</code> and its plotting capabilities, we can start looking at some more advanced data visualization options. Next up: maps.</p>
+<p>In this lesson, you will learn how to:</p>
+<ul>
+<li>Use <code>ggmap</code> to plot geospatial data over maps; and</li>
+<li>Access Google Maps APIs to extend <code>ggmap</code>’s functions to Google Maps as well.</li>
+</ul>
+<p>Prerequisite skills include:</p>
+<ul>
+<li>Familiarity with <code>ggplot2</code> and its plotting functions, specifically <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d()</a></code>.</li>
+</ul>
+</div>
+<div id="package" class="section level2" number="101.2">
+<h2>
+<span class="header-section-number">101.2</span> Package<a class="anchor" aria-label="anchor" href="#package"><i class="fas fa-link"></i></a>
+</h2>
+<p>Unless you have worked with <code>ggmap</code> before, you will likely have to install the package from GitHub (it is also available from CRAN, but GitHub contains the most up-to-date version which is important in this case given that the package works with external APIs).</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"dkahle/ggmap"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="backgrounds" class="section level2" number="101.3">
+<h2>
+<span class="header-section-number">101.3</span> Backgrounds<a class="anchor" aria-label="anchor" href="#backgrounds"><i class="fas fa-link"></i></a>
+</h2>
+<p>Much like the way you build a plot in <code>ggplot2</code>, <code>ggmap</code> plots are constructed by adding to your plot feature by feature, starting with a map background. <code>ggmap</code> allows you to use map backgrounds from two different sources: Google Maps and Stamen. Both offer several options for aesthetics and customization and are fairly similar in their use. Google Maps requires access to Google APIs (see Section <a href="static-maps-using-ggmap.html#google-maps-apis">101.5</a> below) while Stamen Maps authentication is built into the package, so we will focus on Stamen backgrounds for the purpose of this lesson.</p>
+<p>For a Stamen Map background, we use the function <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>. This function takes several arguments that allow you to customize the appearance and format of your map, but most importantly you must state the boundaries, scale, and type of your map. The object produced by <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> then gets passed to the <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> function which allows you to view the map in the “Plots” tab as well as display data on top of it.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="21%">
+<col width="23%">
+<col width="55%">
+</colgroup>
+<thead><tr class="header">
+<th>Argument</th>
+<th>Parameter</th>
+<th>Details</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>bbox</td>
+<td>vector</td>
+<td>A vector stating the locations of the corners of your desired map in the format c(lower left longitude, lower left latitude, upper right longitude, upper right latitude)</td>
+</tr>
+<tr class="even">
+<td>zoom</td>
+<td>numeric</td>
+<td>Level of zoom into focus area</td>
+</tr>
+<tr class="odd">
+<td>maptype</td>
+<td>string</td>
+<td>Aesthetic of map produced. Options are: “terrain,” “terrain-background,” “terrain-labels,” “terrain-lines,” “toner,” “toner-2010,” “toner-2011,” “toner-background,” “toner-hybrid,” “toner-labels,” “toner-lines,” “toner-lite,” and “watercolor.”</td>
+</tr>
+</tbody>
+</table></div>
+<p>See <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">?get_stamenmap</a></code> for additional arguments and details.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Houston, Texas</span>
+<span class="va">map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span>, <span class="fl">29.73631</span>, <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.78400</span><span class="op">)</span>, zoom <span class="op">=</span> <span class="fl">15</span>, maptype <span class="op">=</span> <span class="st">"toner"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/stamen-map-1-1.png" width="672"></div>
+<p><strong>Tip</strong>: If you don’t know the exact coordinates of the map you wish to use as a background, clicking anywhere on <a href="https://www.google.com/">Google Maps</a> will give you the longitude and latitude of the selected location.</p>
+<p>One thing that is important to know is that when loading map backgrounds we are working with longitude and latitude coordinates in <strong>decimal degree</strong> format. It is important to take note of the relative values of coordinates when defining map boundaries, and these will change depending on which hemisphere you’re in. In North America (the northern and western hemispheres), the lower left hand corner of the map will always be the smaller longitude value (farthest west) and the smaller latitude value (farthest south). The image below might help you to visualize the relationship between coordinate values.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="images/64-coordinates-map.png" alt="Source: Esri" width="75%"><p class="caption">
+Figure 101.1: Source: Esri
+</p>
+</div>
+</div>
+<div id="plotting-data" class="section level2" number="101.4">
+<h2>
+<span class="header-section-number">101.4</span> Plotting Data<a class="anchor" aria-label="anchor" href="#plotting-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now we can start to visualize some data on top using our familiar <code>ggplot2</code> functions. We will be using the data set <code>crime</code> that is built into the <code>ggmap</code> package. Any data used with <code>ggmap</code> must have variables for longitude and latitude coordinates in decimal degree format for each observation, as these serve as the x and y coordinates when graphing on top of a map background.</p>
+<p>A useful way to visualize data in this context is a scatterplot using <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Filter out data points that fall outside of our mapped area, and thefts (which we will look at separately later)</span>
+<span class="va">local_crime</span> <span class="op">&lt;-</span> <span class="fu">ggmap</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/ggmap/man/crime.html">crime</a></span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span> <span class="op">&lt;=</span> <span class="va">lon</span> <span class="op">&amp;</span> <span class="va">lon</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.73631</span> <span class="op">&lt;=</span> <span class="va">lat</span> <span class="op">&amp;</span> <span class="va">lat</span> <span class="op">&lt;=</span>  <span class="fl">29.78400</span>, <span class="va">offense</span> <span class="op">!=</span> <span class="st">"theft"</span><span class="op">)</span>
+
+<span class="va">map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span>, <span class="fl">29.73631</span>, <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.78400</span><span class="op">)</span>, zoom <span class="op">=</span> <span class="fl">15</span>, maptype <span class="op">=</span> <span class="st">"toner"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">local_crime</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lon</span>, y<span class="op">=</span><span class="va">lat</span>, colour <span class="op">=</span> <span class="va">offense</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Crimes Reported in Houston, Texas, 2010"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Longitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Latitude"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/64-crime-scatter-1.png" width="672"></div>
+<p>For crimes that appear very frequently in the data set, it might be more useful to use a heat map to track density instead of individual reports. We can see what this looks like using the thefts from the <code>crime</code> data set.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Filter out data points that fall outside of our mapped area, and all offenses except theft</span>
+<span class="va">local_theft</span> <span class="op">&lt;-</span> <span class="va">crime</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span> <span class="op">&lt;=</span> <span class="va">lon</span> <span class="op">&amp;</span> <span class="va">lon</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.73631</span> <span class="op">&lt;=</span> <span class="va">lat</span> <span class="op">&amp;</span> <span class="va">lat</span> <span class="op">&lt;=</span>  <span class="fl">29.78400</span>, <span class="va">offense</span> <span class="op">==</span> <span class="st">"theft"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">local_theft</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lon</span>, y<span class="op">=</span><span class="va">lat</span>, fill <span class="op">=</span> <span class="va">..level..</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Thefts"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Density of Thefts Reported in Houston, Texas, 2010"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Longitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Latitude"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/64-crime-density-1.png" width="672"></div>
+<p>Like <code>ggplot2</code>, <code>ggmap</code> also works with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>. Suppose we want to compare aggravated assaults and auto theft in Houston.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">assault_auto</span> <span class="op">&lt;-</span> <span class="va">crime</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.39681</span> <span class="op">&lt;=</span> <span class="va">lon</span> <span class="op">&amp;</span> <span class="va">lon</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="fl">95.34188</span>, <span class="fl">29.73631</span> <span class="op">&lt;=</span> <span class="va">lat</span> <span class="op">&amp;</span> <span class="va">lat</span> <span class="op">&lt;=</span>  <span class="fl">29.78400</span>, <span class="va">offense</span> <span class="op">==</span> <span class="st">"aggravated assault"</span> <span class="op">|</span> <span class="va">offense</span> <span class="op">==</span> <span class="st">"auto theft"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">assault_auto</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lon</span>, y<span class="op">=</span><span class="va">lat</span>, fill <span class="op">=</span> <span class="va">..level..</span>, alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reports"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Density of Crimes Reported in Houston, Texas, 2010"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Longitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Latitude"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">offense</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="102-indistinguishable_from_magic-static_maps_files/figure-html/64-crime-density-facet-1.png" width="672"></div>
+</div>
+<div id="google-maps-apis" class="section level2" number="101.5">
+<h2>
+<span class="header-section-number">101.5</span> Google Maps APIs<a class="anchor" aria-label="anchor" href="#google-maps-apis"><i class="fas fa-link"></i></a>
+</h2>
+<p>In addition to Stamen Maps, <code>ggmap</code> can draw on Google Maps APIs for its Google Maps backgrounds, and in order to do this you must first register with Google. This involves creating an account if you do not already have a Google account, as well as registering a valid credit card (it will not be charged unless you select an account upgrade that requires payment).</p>
+<p>To begin, go to the Google Maps Platform <a href="https://cloud.google.com/maps-platform/">website</a>. Follow the instructions to register an account and a payment method (credit card), and you will receive an <strong>API key</strong>. This is important! You need to register this within R and RStudio using the following code:</p>
+<div class="inline-figure"><img src="images/64-google-1.png" width="50%"></div>
+<pre class="{r-enter-api-code}"><code>register_google(key = "[your key]", write = TRUE)    # Copy and paste your API key in quotations</code></pre>
+<p>You also want to make sure that you don’t share this key with anyone since it is private and personal to each user, so keep this in mind if you’re sharing your code anywhere.</p>
+<p>Once you’ve gained access to the Google Maps Platform you will need to enable the relevant APIs: Geocoding and Maps Static. These are the APIs that work with the functions in <code>ggmap</code>, specifically <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code> (analogous to <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>), <code><a href="https://rdrr.io/pkg/ggmap/man/geocode.html">geocode()</a></code>, and <code><a href="https://rdrr.io/pkg/ggmap/man/revgeocode.html">revgeocode()</a></code>. These functions cannot be demonstrated within this module until you have access to the appropriate APIs, but the <a href="https://github.com/dkahle/ggmap">ggmap repository README</a> contains some examples and resources for using Google Maps with <code>ggmap</code>.</p>
+<p><img src="images/64-google-2.png" width="100%"><img src="images/64-google-3.png" width="100%"></p>
+</div>
+<div id="next-steps-60" class="section level2" number="101.6">
+<h2>
+<span class="header-section-number">101.6</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-60"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Once you have the Google Maps APIs working on your system, repeat the above exercises using <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code> in place of <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>;</li>
+<li>Use <code>ggimage</code> to create more complex icon maps (check out this <a href="https://www.littlemissdata.com/blog/iconmap">tutorial</a> from R user and data scientist Laura Ellis);</li>
+<li>Check out the <code>usmaps</code> package for more mapping functions specific to the United States.</li>
+</ul>
+</div>
+<div id="exercises-136" class="section level2" number="101.7">
+<h2>
+<span class="header-section-number">101.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-136"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-98" class="section level3" number="101.7.1">
+<h3>
+<span class="header-section-number">101.7.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-98"><i class="fas fa-link"></i></a>
+</h3>
+<p>For North American maps, which corner of the map boundary will be indicated by the smallest latitude coordinate and the smallest longitude coordinate?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Upper left</li>
+<li>Upper right</li>
+<li>Lower left</li>
+<li>Lower right</li>
+</ol>
+</div>
+<div id="question-2-97" class="section level3" number="101.7.2">
+<h3>
+<span class="header-section-number">101.7.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-97"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> function argument <code>bbox</code>, what order do the coordinates appear in the vector?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Lower left longitude, lower left latitude, upper right longitude, upper right latitude</li>
+<li>Lower left latitude, lower left longitude, upper right latitude, upper right longitude</li>
+<li>Upper right longitude, upper right latitude, lower left longitude, lower left latitude</li>
+<li>Upper right latitude, upper right longitude, lower left latitude, lower left longitude</li>
+</ol>
+</div>
+<div id="question-3-94" class="section level3" number="101.7.3">
+<h3>
+<span class="header-section-number">101.7.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-94"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider a data set called <code>covid_testing_locations</code>. Suppose variable <code>LocationType</code> has three distinct categories and variable <code>TestType</code> has two distinct categories. Which of the following correctly describes the output of <code>toronto_map %&gt;% ggmap() + geom_point(data=covid_testing_locations, aes(x=lat, y=long)) + facet_wrap(~LocationType)</code></p>
+<ol style="list-style-type: lower-alpha">
+<li>One map with two legends, one for <code>LocationType</code> and one for <code>TestType</code>.</li>
+<li>Two of the same map object, each displaying locations for a specific test category from <code>TestType</code>.</li>
+<li>Two of the same map object, each displaying locations for a specific location category from <code>LocationType</code>.</li>
+<li>Six of the same map object, each displaying locations for a unique combination of <code>LocationType</code> and <code>TestType</code>.</li>
+</ol>
+</div>
+<div id="question-4-86" class="section level3" number="101.7.4">
+<h3>
+<span class="header-section-number">101.7.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-86"><i class="fas fa-link"></i></a>
+</h3>
+<p>If <code>toronto_map</code> refers to the output of <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> with coordinates inputted for Toronto, which of the following will correctly produce a plot showing locations of COVID-19 testing centres from the <code>covid_testing_locations</code> data set in question 3 (assuming <code>lat</code> and <code>long</code> correctly refer to latitude and longitude coordinates)?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>toronto_map + geom_point(data=covid_testing_locations, aes(x=lat, y=long))</code></li>
+<li><code>toronto_map %&gt;% geom_point(data=covid_testing_locations, aes(x=lat, y=long))</code></li>
+<li><code>toronto_map %&gt;% ggmap() + geom_point(data=covid_testing_locations, aes(x=lat, y=long))</code></li>
+<li><code>toronto_map + ggmap() + geom_point(data=covid_testing_locations, aes(x=lat, y=long))</code></li>
+</ol>
+</div>
+<div id="question-5-85" class="section level3" number="101.7.5">
+<h3>
+<span class="header-section-number">101.7.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-85"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the following code and output:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">covid_testing_locations</span><span class="op">$</span><span class="va">long</span><span class="op">)</span> <span class="co"># Farthest east</span>
+<span class="co">#&gt; [1] -78.85145</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">covid_testing_locations</span><span class="op">$</span><span class="va">long</span><span class="op">)</span> <span class="co"># Farthest west</span>
+<span class="co">#&gt; [1] -79.82364</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">covid_testing_locations</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span>  <span class="co"># Farthest north</span>
+<span class="co">#&gt; [1] 44.09669</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">covid_testing_locations</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span>  <span class="co"># Farthest south</span>
+<span class="co">#&gt; [1] 43.52281</span></code></pre></div>
+<p>Which of the following will correctly load a Stamen map containing all of the data points in <code>covid_testing_locations</code>?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>get_stamenmap(c(-78.85145, 44.09669, -79.82364, 43.52281))</code></li>
+<li><code>get_stamenmap(c(-79.82364, 43.52281, -78.85145, 44.09669))</code></li>
+<li><code>get_stamenmap(c(43.52281, -79.82364, 44.09669, -78.85145))</code></li>
+<li><code>get_stamenmap(c(44.09669, -78.85145, 43.52281, -79.82364))</code></li>
+</ol>
+</div>
+<div id="question-6-85" class="section level3" number="101.7.6">
+<h3>
+<span class="header-section-number">101.7.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-85"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the following is <strong>not</strong> a function in the package <code>ggmap</code>?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/get_map.html">get_map()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">stat_density2d()</a></code></li>
+</ol>
+</div>
+<div id="question-7-84" class="section level3" number="101.7.7">
+<h3>
+<span class="header-section-number">101.7.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-84"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the following does <strong>not</strong> require Google API access?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/geocode.html">geocode()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/ggmap/man/revgeocode.html">revgeocode()</a></code></li>
+</ol>
+</div>
+<div id="question-8-84" class="section level3" number="101.7.8">
+<h3>
+<span class="header-section-number">101.7.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-84"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the issue with the following data set of Australian post office locations as it relates to its use with <code>ggmap</code>?</p>
+<pre><code>#&gt; # A tibble: 6 × 4
+#&gt;   Name             Description State Location               
+#&gt;   &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;                  
+#&gt; 1 LADYSMITH LPO    Post Office NSW   -35.207406,147.513585  
+#&gt; 2 FOREST HILL LPO  Post Office NSW   -35.148835,147.465949  
+#&gt; 3 KOORINGAL LPO    Post Office NSW   -35.14135657,147.37529…
+#&gt; 4 GUMLY GUMLY LPO  Post Office NSW   -35.126769,147.431916  
+#&gt; 5 MANGOPLAH LPO    Post Office NSW   -35.376713,147.252243  
+#&gt; 6 MOUNT AUSTIN LPO Post Office NSW   -35.13339194,147.35771…</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Location coordinates are not in separate columns</li>
+<li>Location coordinates are not in decimal degree format</li>
+<li>Location coordinates are in the southern hemisphere</li>
+<li>There is not enough data to determine boundaries for a Stamen or Google map.</li>
+</ol>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

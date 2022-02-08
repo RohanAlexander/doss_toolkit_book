@@ -4,14 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 37 Counting | Untitled</title>
+<title>Chapter 37 Counting | DoSS Toolkit</title>
+<meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Annie Collins and last updated on 7 October 2021.  37.1 Introduction In this lesson, you will learn how to: Use count() to summarize a data set. Use uncount() to produce a full data set...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 37 Counting | Untitled">
+<meta property="og:title" content="Chapter 37 Counting | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Annie Collins and last updated on 7 October 2021.  37.1 Introduction In this lesson, you will learn how to: Use count() to summarize a data set. Use uncount() to produce a full data set...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 37 Counting | Untitled">
+<meta name="twitter:title" content="Chapter 37 Counting | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Annie Collins and last updated on 7 October 2021.  37.1 Introduction In this lesson, you will learn how to: Use count() to summarize a data set. Use uncount() to produce a full data set...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +28,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Untitled</a>
+        <a href="index.html" title="">DoSS Toolkit</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -38,7 +39,129 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 37</span> Counting</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
+<li class="book-part">Hello World!</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-and-setting-up-rstudio.html"><span class="header-section-number">3</span> Getting and setting up RStudio</a></li>
+<li><a class="" href="getting-to-know-what-is-what.html"><span class="header-section-number">4</span> Getting to know what is what</a></li>
+<li><a class="" href="hello-world-1.html"><span class="header-section-number">5</span> Hello World!</a></li>
+<li><a class="" href="hello-world-again.html"><span class="header-section-number">6</span> Hello World, again!</a></li>
+<li><a class="" href="hello-world-yet-again.html"><span class="header-section-number">7</span> Hello World, yet again!</a></li>
+<li><a class="" href="the-r-community.html"><span class="header-section-number">8</span> The R community</a></li>
+<li class="book-part">Operating in an error prone world</li>
+<li><a class="" href="introduction-7.html"><span class="header-section-number">9</span> Introduction</a></li>
+<li><a class="" href="getting-help-is-normal.html"><span class="header-section-number">10</span> Getting help is normal!</a></li>
+<li><a class="" href="using-google-and-stack-overflow.html"><span class="header-section-number">11</span> Using Google and Stack Overflow</a></li>
+<li><a class="" href="even-more-on-stack-overflow.html"><span class="header-section-number">12</span> Even more on Stack Overflow</a></li>
+<li><a class="" href="when-your-code-doesnt-work.html"><span class="header-section-number">13</span> When your code doesn’t work</a></li>
+<li><a class="" href="making-reproducible-examples.html"><span class="header-section-number">14</span> Making reproducible examples</a></li>
+<li><a class="" href="how-to-make-the-most-of-rs-cryptic-error-messages.html"><span class="header-section-number">15</span> How to make the most of R’s cryptic error messages</a></li>
+<li class="book-part">Holding the chaos at bay</li>
+<li><a class="" href="introduction-13.html"><span class="header-section-number">16</span> Introduction</a></li>
+<li><a class="" href="r-projects-and-working-directory.html"><span class="header-section-number">17</span> R Projects and working directory</a></li>
+<li><a class="" href="folder-set-up.html"><span class="header-section-number">18</span> Folder set-up</a></li>
+<li><a class="" href="writing-comments.html"><span class="header-section-number">19</span> Writing comments</a></li>
+<li><a class="" href="installing-packages.html"><span class="header-section-number">20</span> Installing packages</a></li>
+<li><a class="" href="install-from-github.html"><span class="header-section-number">21</span> Install from GitHub</a></li>
+<li><a class="" href="calling-packages.html"><span class="header-section-number">22</span> Calling packages</a></li>
+<li><a class="" href="how-to-update-packages.html"><span class="header-section-number">23</span> How to update packages</a></li>
+<li><a class="" href="read-csvs.html"><span class="header-section-number">24</span> Read CSVs</a></li>
+<li><a class="" href="reading-tables-dta-and-other-data-types.html"><span class="header-section-number">25</span> Reading tables dta and other data types</a></li>
+<li class="book-part">Hand me my plyrs</li>
+<li><a class="" href="introduction-23.html"><span class="header-section-number">26</span> Introduction</a></li>
+<li><a class="" href="what-is-the-tidyverse.html"><span class="header-section-number">27</span> What is the tidyverse?</a></li>
+<li><a class="" href="the-pipe.html"><span class="header-section-number">28</span> The pipe</a></li>
+<li><a class="" href="select.html"><span class="header-section-number">29</span> select</a></li>
+<li><a class="" href="filter.html"><span class="header-section-number">30</span> filter</a></li>
+<li><a class="" href="group-and-ungroup.html"><span class="header-section-number">31</span> group and ungroup</a></li>
+<li><a class="" href="summarise.html"><span class="header-section-number">32</span> summarise</a></li>
+<li><a class="" href="arrange.html"><span class="header-section-number">33</span> arrange</a></li>
+<li><a class="" href="mutate.html"><span class="header-section-number">34</span> mutate</a></li>
+<li><a class="" href="pivoting-data-from-long-to-wide-and-vice-versa.html"><span class="header-section-number">35</span> Pivoting data from long to wide and vice versa</a></li>
+<li><a class="" href="rename.html"><span class="header-section-number">36</span> rename</a></li>
+<li><a class="active" href="counting.html"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="" href="slice.html"><span class="header-section-number">38</span> slice</a></li>
+<li><a class="" href="representations-of-data.html"><span class="header-section-number">39</span> Representations of data</a></li>
+<li><a class="" href="length-rows-columns-and-dimensions.html"><span class="header-section-number">40</span> length, rows, columns and dimensions</a></li>
+<li class="book-part">Totally addicted to base</li>
+<li><a class="" href="introduction-37.html"><span class="header-section-number">41</span> Introduction</a></li>
+<li><a class="" href="mean-median-sd-lm-and-summary.html"><span class="header-section-number">42</span> mean, median, sd, lm, and summary</a></li>
+<li><a class="" href="generalized-linear-models-with-glm.html"><span class="header-section-number">43</span> Generalized linear models with glm</a></li>
+<li><a class="" href="mixed-effect-linear-models-with-lme4.html"><span class="header-section-number">44</span> Mixed-effect linear models with lme4</a></li>
+<li><a class="" href="function.html"><span class="header-section-number">45</span> function</a></li>
+<li><a class="" href="for-and-while.html"><span class="header-section-number">46</span> for and while</a></li>
+<li><a class="" href="if-if-else-and-case-when.html"><span class="header-section-number">47</span> if, if else and case when</a></li>
+<li><a class="" href="c-seq-seq-along-and-rep.html"><span class="header-section-number">48</span> c, seq, seq along, and rep</a></li>
+<li><a class="" href="hist-plot-and-boxplot.html"><span class="header-section-number">49</span> hist, plot and boxplot</a></li>
+<li><a class="" href="apply-sapply-and-lapply.html"><span class="header-section-number">50</span> apply, sapply, and lapply</a></li>
+<li><a class="" href="file-creation-and-manipulation.html"><span class="header-section-number">51</span> File creation and manipulation</a></li>
+<li><a class="" href="sum-round-etc.html"><span class="header-section-number">52</span> sum round etc</a></li>
+<li><a class="" href="investigating-and-playing-with-data.html"><span class="header-section-number">53</span> Investigating and playing with data</a></li>
+<li><a class="" href="row-and-column-names.html"><span class="header-section-number">54</span> row and column names</a></li>
+<li><a class="" href="floor-ceiling-round-and-abs.html"><span class="header-section-number">55</span> floor(), ceiling(), round(), and abs()</a></li>
+<li class="book-part">He was a d8er boi</li>
+<li><a class="" href="introduction-52.html"><span class="header-section-number">56</span> Introduction</a></li>
+<li><a class="" href="head-tail-glimpse-and-summary.html"><span class="header-section-number">57</span> head, tail, glimpse and summary</a></li>
+<li><a class="" href="paste-paste0-glue-and-stringr.html"><span class="header-section-number">58</span> paste, paste0, glue and stringr</a></li>
+<li><a class="" href="names-rbind-and-cbind.html"><span class="header-section-number">59</span> names, rbind and cbind</a></li>
+<li><a class="" href="joins.html"><span class="header-section-number">60</span> Joins</a></li>
+<li><a class="" href="looking-for-missing-data.html"><span class="header-section-number">61</span> Looking for missing data</a></li>
+<li><a class="" href="setseed-runif-rnorm-and-sample.html"><span class="header-section-number">62</span> setseed, runif, rnorm, and sample</a></li>
+<li><a class="" href="simulating-datasets-for-regression.html"><span class="header-section-number">63</span> Simulating datasets for regression</a></li>
+<li><a class="" href="conditional-mutating-and-summarising.html"><span class="header-section-number">64</span> Conditional mutating and summarising</a></li>
+<li><a class="" href="tidying-up-datasets.html"><span class="header-section-number">65</span> Tidying up datasets</a></li>
+<li><a class="" href="pull-pluck-and-unnest.html"><span class="header-section-number">66</span> pull, pluck and unnest</a></li>
+<li><a class="" href="forcats-and-factors.html"><span class="header-section-number">67</span> forcats and factors</a></li>
+<li><a class="" href="more-on-strings.html"><span class="header-section-number">68</span> More on strings</a></li>
+<li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
+<li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
+<li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
+<li class="book-part">To ggplot or not to ggplot</li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
+<li class="book-part">R Marky Markdown and the Funky Docs</li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
+<li class="book-part">Git outta here</li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
+<li class="book-part">Indistinguishable from magic</li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/RohanAlexander/doss_toolkit_book">View book source <i class="fab fa-github"></i></a></p>
@@ -56,8 +179,8 @@
 </h2>
 <p>In this lesson, you will learn how to:</p>
 <ul>
-<li>Use <code>count()</code> to summarize a data set.</li>
-<li>Use <code>uncount()</code> to produce a full data set from a table containing values and counts.</li>
+<li>Use <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> to summarize a data set.</li>
+<li>Use <code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code> to produce a full data set from a table containing values and counts.</li>
 </ul>
 <p>This lesson is a yellow level skill and is part of “Tidyverse Essentials.” Prerequisite skills include:</p>
 <ul>
@@ -77,8 +200,8 @@
 <h2>
 <span class="header-section-number">37.3</span> count()<a class="anchor" aria-label="anchor" href="#count"><i class="fas fa-link"></i></a>
 </h2>
-<p><code>count()</code> is a function that can be used to summarize a data set in terms of the number of unique values of a certain variable or combination of variables.</p>
-<p>Using <code>count()</code> on a data set produces a new table including each unique value or combination of values along with an integer value representing the number of times it appears in the data.</p>
+<p><code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> is a function that can be used to summarize a data set in terms of the number of unique values of a certain variable or combination of variables.</p>
+<p>Using <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> on a data set produces a new table including each unique value or combination of values along with an integer value representing the number of times it appears in the data.</p>
 </div>
 <div id="using-count" class="section level2" number="37.4">
 <h2>
@@ -101,8 +224,8 @@
 #&gt; # … with 20 more rows</code></pre>
 <p>Although each character is unique and only appears once in the data, there are several variables where multiple characters have the same characteristic, and we may want to know how many characters share each characteristic.</p>
 <p>For example, we may want to examine how many characters came from each home world.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">count</span><span class="op">(</span><span class="va">starwars</span>, <span class="va">homeworld</span><span class="op">)</span>
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">homeworld</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 5 × 2</span>
 <span class="co">#&gt;   homeworld     n</span>
 <span class="co">#&gt;   &lt;chr&gt;     &lt;int&gt;</span>
@@ -112,8 +235,8 @@
 <span class="co">#&gt; 4 Naboo        11</span>
 <span class="co">#&gt; 5 Tatooine     10</span></code></pre></div>
 <p>We can also sort this table to see which home worlds appear in the data most frequently.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">count</span><span class="op">(</span><span class="va">starwars</span>, <span class="va">homeworld</span>, sort<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">homeworld</span>, sort<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 5 × 2</span>
 <span class="co">#&gt;   homeworld     n</span>
 <span class="co">#&gt;   &lt;chr&gt;     &lt;int&gt;</span>
@@ -124,8 +247,8 @@
 <span class="co">#&gt; 5 Kamino        3</span></code></pre></div>
 <p>Here, we see that Naboo is the most common home world, with 11 characters in the data set from this world.</p>
 <p>If we wish to get even more specific, we could look at unique species-homeworld combinations amongst characters in the data.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">count</span><span class="op">(</span><span class="va">starwars</span>, <span class="va">species</span>, <span class="va">homeworld</span>, sort<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">species</span>, <span class="va">homeworld</span>, sort<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 11 × 3</span>
 <span class="co">#&gt;    species    homeworld     n</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;</span>
@@ -151,9 +274,9 @@
 <li>
 <strong>data</strong>: the data frame you are counting from.</li>
 <li>
-<strong>variables</strong>: the variables in <strong>data</strong> you are counting, inputted by individual column name. This could be one or multiple variables to be counted in combination. If none are entered, <code>count()</code> will return a count of the total number of rows in <strong>data</strong>.</li>
+<strong>variables</strong>: the variables in <strong>data</strong> you are counting, inputted by individual column name. This could be one or multiple variables to be counted in combination. If none are entered, <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> will return a count of the total number of rows in <strong>data</strong>.</li>
 <li>
-<strong>sort = …</strong>: FALSE by default (if omitted). If sort = TRUE, <code>count()</code> will sort the outputted table in descending order of the count column, otherwise it will be sorted in alphabetical order by the first column (with NA values last).</li>
+<strong>sort = …</strong>: FALSE by default (if omitted). If sort = TRUE, <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> will sort the outputted table in descending order of the count column, otherwise it will be sorted in alphabetical order by the first column (with NA values last).</li>
 <li>
 <strong>name = “…”</strong>: NULL (empty) by default. This argument indicates the name you wish to give the column containing the count values, inputted in the form of a string. If omitted, the count column will be titled <strong>n</strong>.</li>
 </ul>
@@ -162,12 +285,12 @@
 <h2>
 <span class="header-section-number">37.6</span> uncount()<a class="anchor" aria-label="anchor" href="#uncount"><i class="fas fa-link"></i></a>
 </h2>
-<p><code>uncount()</code> is a function that can be used to produce a full length table from a table containing variables and counts (for example, one that was produced using the <code>count()</code> function). The function duplicates each unique variable according to the value in the count column indicated. You may think of it as the inverse of <code>count()</code>.</p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code> is a function that can be used to produce a full length table from a table containing variables and counts (for example, one that was produced using the <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> function). The function duplicates each unique variable according to the value in the count column indicated. You may think of it as the inverse of <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>.</p>
 <div id="arguments-5" class="section level3" number="37.6.1">
 <h3>
 <span class="header-section-number">37.6.1</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"><i class="fas fa-link"></i></a>
 </h3>
-<p><code>uncount()</code> takes two required arguments and two optional arguments:</p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code> takes two required arguments and two optional arguments:</p>
 <p><code>uncount(data, weights, .remove = TRUE, .id = NULL)</code></p>
 <ul>
 <li>
@@ -188,15 +311,15 @@
 <h2>
 <span class="header-section-number">37.7</span> Using uncount()<a class="anchor" aria-label="anchor" href="#using-uncount"><i class="fas fa-link"></i></a>
 </h2>
-<p>To help visualize the use of <code>uncount()</code>, we will use this small data set called <code>colours</code>.</p>
+<p>To help visualize the use of <code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code>, we will use this small data set called <code>colours</code>.</p>
 <pre><code>#&gt;   colour n
 #&gt; 1    red 1
 #&gt; 2 yellow 2
 #&gt; 3   blue 3</code></pre>
 <p><code>colours</code> indicates that red occurs once, yellow occurs twice, and blue occurs three times in some data, for a total of six observations.</p>
-<p>If we want to observe all the data in its uncounted form, we can use <code>uncount()</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">uncount</span><span class="op">(</span><span class="va">colours</span>, <span class="va">n</span><span class="op">)</span>
+<p>If we want to observe all the data in its uncounted form, we can use <code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code>.</p>
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount</a></span><span class="op">(</span><span class="va">colours</span>, <span class="va">n</span><span class="op">)</span>
 <span class="co">#&gt;   colour</span>
 <span class="co">#&gt; 1    red</span>
 <span class="co">#&gt; 2 yellow</span>
@@ -204,10 +327,10 @@
 <span class="co">#&gt; 4   blue</span>
 <span class="co">#&gt; 5   blue</span>
 <span class="co">#&gt; 6   blue</span></code></pre></div>
-<p>Our output includes only one column (no count values) with each colour repeated the number of times indicated in the <strong>n</strong> column in <code>colours</code>. <code>uncount()</code> also automatically generates a new version of the row number according to the number of times each row was duplicated.</p>
+<p>Our output includes only one column (no count values) with each colour repeated the number of times indicated in the <strong>n</strong> column in <code>colours</code>. <code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code> also automatically generates a new version of the row number according to the number of times each row was duplicated.</p>
 <p>If we wish to duplicate each colour (regardless of the value in column <strong>n</strong>), we can substitute <strong>2</strong> in place of <strong>n</strong> in the function. Note that in the outputted table, the values from <strong>n</strong> are still present since we did not input a column for the <strong>weights</strong> argument.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">uncount</span><span class="op">(</span><span class="va">colours</span>, <span class="fl">2</span><span class="op">)</span>
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount</a></span><span class="op">(</span><span class="va">colours</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt;   colour n</span>
 <span class="co">#&gt; 1    red 1</span>
 <span class="co">#&gt; 2    red 1</span>
@@ -216,8 +339,8 @@
 <span class="co">#&gt; 5   blue 3</span>
 <span class="co">#&gt; 6   blue 3</span></code></pre></div>
 <p>Using the optional arguments <strong>.remove</strong> and <strong>.id</strong>, we can uncount <code>colours</code> according to column <strong>n</strong> while still keeping the values from <strong>n</strong> in the output <em>and</em> assign a unique ID number to each repeated colour.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">uncount</span><span class="op">(</span><span class="va">colours</span>, <span class="va">n</span>, .remove <span class="op">=</span> <span class="cn">FALSE</span>, .id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span>
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount</a></span><span class="op">(</span><span class="va">colours</span>, <span class="va">n</span>, .remove <span class="op">=</span> <span class="cn">FALSE</span>, .id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span>
 <span class="co">#&gt;   colour n id</span>
 <span class="co">#&gt; 1    red 1  1</span>
 <span class="co">#&gt; 2 yellow 2  1</span>
@@ -232,8 +355,8 @@
 #&gt; 1    red warm 1
 #&gt; 2 yellow warm 2
 #&gt; 3   blue cool 3</code></pre>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">uncount</span><span class="op">(</span><span class="va">colours</span>, <span class="va">n</span>, .remove <span class="op">=</span> <span class="cn">FALSE</span>, .id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span>
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount</a></span><span class="op">(</span><span class="va">colours</span>, <span class="va">n</span>, .remove <span class="op">=</span> <span class="cn">FALSE</span>, .id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span>
 <span class="co">#&gt;   colour temp n id</span>
 <span class="co">#&gt; 1    red warm 1  1</span>
 <span class="co">#&gt; 2 yellow warm 2  1</span>
@@ -242,9 +365,9 @@
 <span class="co">#&gt; 5   blue cool 3  2</span>
 <span class="co">#&gt; 6   blue cool 3  3</span></code></pre></div>
 </div>
-<div id="exercises-41" class="section level2" number="37.8">
+<div id="exercises-39" class="section level2" number="37.8">
 <h2>
-<span class="header-section-number">37.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-41"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-39"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below is the first five rows of output from <strong>Exercise 1</strong>, assigned the name <code>features</code>. Please use this data set as reference for the following questions.</p>
 <pre><code>#&gt; # A tibble: 5 × 3
@@ -255,9 +378,9 @@
 #&gt; 3 dark       brown         2
 #&gt; 4 fair       brown         2
 #&gt; 5 grey       black         2</code></pre>
-<div id="question-1-28" class="section level3" number="37.8.1">
+<div id="question-1-26" class="section level3" number="37.8.1">
 <h3>
-<span class="header-section-number">37.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-28"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-26"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the output of <code>uncount(features, n)</code>, how many times will the word “brown” appear?</p>
 <ol style="list-style-type: lower-alpha">
@@ -267,9 +390,9 @@
 <li>12</li>
 </ol>
 </div>
-<div id="question-2-28" class="section level3" number="37.8.2">
+<div id="question-2-26" class="section level3" number="37.8.2">
 <h3>
-<span class="header-section-number">37.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-28"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-26"><i class="fas fa-link"></i></a>
 </h3>
 <p>How many rows does the output of <code>uncount(features, 2)</code> have (not including the header)?</p>
 <ol style="list-style-type: lower-alpha">
@@ -279,9 +402,9 @@
 <li>42</li>
 </ol>
 </div>
-<div id="question-3-28" class="section level3" number="37.8.3">
+<div id="question-3-26" class="section level3" number="37.8.3">
 <h3>
-<span class="header-section-number">37.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-28"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-26"><i class="fas fa-link"></i></a>
 </h3>
 <p>How many columns does the output of <code>uncount(features, 2)</code> have?</p>
 <ol style="list-style-type: lower-alpha">
@@ -306,9 +429,9 @@
 #&gt; 10 Anakin… blond      fair       blue      Tatooine  Human  
 #&gt; # … with 20 more rows</code></pre>
 </div>
-<div id="question-4-27" class="section level3" number="37.8.4">
+<div id="question-4-25" class="section level3" number="37.8.4">
 <h3>
-<span class="header-section-number">37.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-27"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-25"><i class="fas fa-link"></i></a>
 </h3>
 <pre><code>#&gt; # A tibble: 16 × 3
 #&gt;    skin_color  eye_color     n
@@ -336,9 +459,9 @@
 <li><code>count(starwars, c(skin_color, eye_color), sort=FALSE)</code></li>
 </ol>
 </div>
-<div id="question-5-25" class="section level3" number="37.8.5">
+<div id="question-5-24" class="section level3" number="37.8.5">
 <h3>
-<span class="header-section-number">37.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-24"><i class="fas fa-link"></i></a>
 </h3>
 <pre><code>#&gt; # A tibble: 30 × 2
 #&gt;    name                unique
@@ -361,44 +484,85 @@
 <li><code>count(starwars, name, name="unique")</code></li>
 </ol>
 </div>
-<div id="question-6-25" class="section level3" number="37.8.6">
+<div id="question-6-24" class="section level3" number="37.8.6">
 <h3>
-<span class="header-section-number">37.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-24"><i class="fas fa-link"></i></a>
 </h3>
+<p>What will be the output of the following code: <code>count(starwars, skin_color) %&gt;% uncount(weights = n)</code>?</p>
+<ol style="list-style-type: lower-alpha">
+<li>The original <code>starwars</code> data frame</li>
+<li>A tibble with two columns: one called “skin_color” with each unique skin colour from <code>starwars</code> included once, and one called “n” with a count of the number of times that skin colour appears in the data set</li>
+<li>A tibble with two columns: one called “skin_color” with each skin colour from <code>starwars</code> included the same number of times it appears in the data set, and one called “n” with a count of the number of times that skin colour appears in the data set (repeated for each repeated entry in column “skin_color”)</li>
+<li>A tibble with one column called “skin_color” with each skin colour from <code>starwars</code> included the same number of times it appears in the data set.</li>
+</ol>
 </div>
-<div id="question-7-25" class="section level3" number="37.8.7">
+<div id="question-7-23" class="section level3" number="37.8.7">
 <h3>
-<span class="header-section-number">37.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-23"><i class="fas fa-link"></i></a>
 </h3>
+<p>Use the following tibble for Questions 7 through 9:</p>
+<pre><code>#&gt; # A tibble: 5 × 3
+#&gt;   skin_color species       id
+#&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 dark       Human          1
+#&gt; 2 dark       Tholothian     1
+#&gt; 3 dark       &lt;NA&gt;           1
+#&gt; 4 fair       Human          1
+#&gt; 5 fair       Human          2</code></pre>
+<p>The tibble above represents the product of manipulating the <code>starwars</code> data set using one or more functions. Which of the options below best describes the last function applied in order to produce the given output?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code></li>
+<li><code><a href="https://tidyr.tidyverse.org/reference/uncount.html">uncount()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></li>
+<li>Something else</li>
+</ol>
 </div>
-<div id="question-8-25" class="section level3" number="37.8.8">
+<div id="question-8-24" class="section level3" number="37.8.8">
 <h3>
-<span class="header-section-number">37.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">37.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-24"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="question-9-25" class="section level3" number="37.8.9">
-<h3>
-<span class="header-section-number">37.8.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-25"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-25" class="section level3" number="37.8.10">
-<h3>
-<span class="header-section-number">37.8.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-25"><i class="fas fa-link"></i></a>
-</h3>
-
+<p>True or false: In the first row of the above tibble, the value 1 in the “id” column indicates that there is only one instance of a human with dark skin in the <code>starwars</code> data frame.</p>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="rename.html"><span class="header-section-number">36</span> rename</a></div>
+<div class="next"><a href="slice.html"><span class="header-section-number">38</span> slice</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#counting"><span class="header-section-number">37</span> Counting</a></li>
+<li><a class="nav-link" href="#introduction-33"><span class="header-section-number">37.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#video-tutorial"><span class="header-section-number">37.2</span> Video Tutorial</a></li>
+<li><a class="nav-link" href="#count"><span class="header-section-number">37.3</span> count()</a></li>
+<li><a class="nav-link" href="#using-count"><span class="header-section-number">37.4</span> Using count()</a></li>
+<li><a class="nav-link" href="#count-arguments"><span class="header-section-number">37.5</span> count() Arguments</a></li>
+<li>
+<a class="nav-link" href="#uncount"><span class="header-section-number">37.6</span> uncount()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#arguments-5"><span class="header-section-number">37.6.1</span> Arguments</a></li></ul>
+</li>
+<li><a class="nav-link" href="#using-uncount"><span class="header-section-number">37.7</span> Using uncount()</a></li>
+<li>
+<a class="nav-link" href="#exercises-39"><span class="header-section-number">37.8</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-26"><span class="header-section-number">37.8.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-26"><span class="header-section-number">37.8.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-26"><span class="header-section-number">37.8.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-25"><span class="header-section-number">37.8.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-24"><span class="header-section-number">37.8.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-24"><span class="header-section-number">37.8.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-23"><span class="header-section-number">37.8.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-24"><span class="header-section-number">37.8.8</span> Question 8</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/RohanAlexander/doss_toolkit_book/blob/master/036-hand_me_my_plyrs-count_and_uncount.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/RohanAlexander/doss_toolkit_book/edit/master/036-hand_me_my_plyrs-count_and_uncount.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -410,7 +574,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Untitled</strong>" was written by true. It was last built on 2021-12-18.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -418,6 +582,34 @@
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

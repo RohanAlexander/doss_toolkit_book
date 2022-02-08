@@ -175,7 +175,7 @@ mpg %>%
 ### Exercise 1
 
 Suppose you are interested in seeking help from the online RStudio community for an error you get based on the code below.
-```{r ex1setup, eval=FALSE}
+```{r ex1sedtup, eval=FALSE}
 tibble(
   group = c(
     "trtmnt",

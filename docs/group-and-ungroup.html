@@ -7,16 +7,16 @@
 <title>Chapter 31 group and ungroup | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  31.1 Introduction In this lesson, you will learn how to: Use the group_by() function in R Use the group_by() function with other...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 31 group and ungroup | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  31.1 Introduction In this lesson, you will learn how to: Use the group_by() function in R Use the group_by() function with other...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 31 group and ungroup | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  31.1 Introduction In this lesson, you will learn how to: Use the group_by() function in R Use the group_by() function with other...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -243,7 +232,7 @@
 <span class="header-section-number">31.5</span> Questions<a class="anchor" aria-label="anchor" href="#questions-1"><i class="fas fa-link"></i></a>
 </h2>
 <div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins_grouped</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins_grouped</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">penguins_grouped</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 8</span>
@@ -260,7 +249,7 @@
 <span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></code></pre></div>
 <p>As you can see above, using the <code>group_by</code> function does not appear to do anything when it is done on its own. When you have a grouped data frame, you usually pair it with another function to get the data you want.</p>
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1 × 1</span>
 <span class="co">#&gt;       n</span>
@@ -268,8 +257,8 @@
 <span class="co">#&gt; 1   344</span></code></pre></div>
 <p>The chunk above takes the penguins data frame and counts how many observations are included. The output is only one number which represent all of the penguins. In the chunk below, we will use the <code>group_by</code> function to see the number of penguins of each species present in the data frame.</p>
 <div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
 <span class="co">#&gt; # Groups:   species [3]</span>
@@ -280,8 +269,8 @@
 <span class="co">#&gt; 3 Gentoo      124</span></code></pre></div>
 <p>In the chunk above, I used the grouped data frame that was created in the chunk before and ran it with the <code>count</code> function. This allows us to see how many penguins of each species are present in the data frame.</p>
 <div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="co"># use na.rm to remove missing values</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>average_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
@@ -292,8 +281,8 @@
 <span class="co">#&gt; 3 Gentoo             5076.</span></code></pre></div>
 <p>This chunk shows how we can use the <code>group_by</code> function with the <code>summarise</code> function to get summary statistics for each species. To do this, you can either take the grouped data frame and pipe it into the <code>summarise</code> function or you can use the <code>group_by</code> function on the initial data frame and then pipe that into the <code>summarise</code> function.</p>
 <div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>average_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,
             average_flipper_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flipper_length_mm</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 3</span>
@@ -304,10 +293,11 @@
 <span class="co">#&gt; 3 Gentoo             5076.                   217.</span></code></pre></div>
 <p>This is an example of using the <code>group_by</code> function and the <code>summarise</code> function after piping in your initial data frame. As you can see, there is another column present in the output, compared to the chart above. This was done by adding in another argument to the <code>summarise</code> function which now gives us the average flipper length of each species of penguin.</p>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>average_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; `summarise()` has grouped output by 'species'. You can override using the `.groups` argument.</span>
+<span class="co">#&gt; `summarise()` has grouped output by 'species'. You can</span>
+<span class="co">#&gt; override using the `.groups` argument.</span>
 <span class="co">#&gt; # A tibble: 8 × 3</span>
 <span class="co">#&gt; # Groups:   species [3]</span>
 <span class="co">#&gt;   species   sex    average_weight</span>
@@ -322,10 +312,11 @@
 <span class="co">#&gt; 8 Gentoo    &lt;NA&gt;            4588.</span></code></pre></div>
 <p>The <code>group_by</code> function can also be used with multiple variables. This is an example of using two variables to group our data, this time we will use species and sex. Once again, we can see that visually, the data doesn’t look different but when we apply other functions to it, the data will appear differently.</p>
 <div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">sex</span>, <span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">sex</span>, <span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>average_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; `summarise()` has grouped output by 'species', 'sex'. You can override using the `.groups` argument.</span>
+<span class="co">#&gt; `summarise()` has grouped output by 'species', 'sex'. You</span>
+<span class="co">#&gt; can override using the `.groups` argument.</span>
 <span class="co">#&gt; # A tibble: 22 × 4</span>
 <span class="co">#&gt; # Groups:   species, sex [8]</span>
 <span class="co">#&gt;    species   sex     year average_weight</span>
@@ -343,8 +334,8 @@
 <span class="co">#&gt; # … with 12 more rows</span></code></pre></div>
 <p>This output shows us the average weights of the penguins, when grouped by species and sex. We can see that there are levels for each of the three species (Adelie, Chinstrap and Gentoo) and the three gender levels present (Male, Female and NA).</p>
 <div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 7 × 8</span>
 <span class="co">#&gt; # Groups:   species, sex [6]</span>
@@ -361,8 +352,8 @@
 <span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></code></pre></div>
 <p>The <code>group_by</code> function also works with the <code>filter</code> function. The chunk above gives us the penguins with the largest body mass for each of the groups we created.</p>
 <div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 2</span>
 <span class="co">#&gt; # Groups:   species [3]</span>
@@ -372,9 +363,9 @@
 <span class="co">#&gt; 2 Chinstrap    68</span>
 <span class="co">#&gt; 3 Gentoo      124</span>
 
-<span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1 × 1</span>
 <span class="co">#&gt;       n</span>
@@ -386,15 +377,15 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/011h7uREXAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
-<div id="exercises-32" class="section level2" number="31.6">
+<div id="exercises-31" class="section level2" number="31.6">
 <h2>
-<span class="header-section-number">31.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-32"><i class="fas fa-link"></i></a>
+<span class="header-section-number">31.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-31"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>1.</strong> Use the group_by function to count how many penguins were studied each year and also group them by their sex. Remember the data frame is called “penguins” and the year variable is called “year,” sex is called “sex.”</p>
 <div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## FINAL SOLUTION ## </span>
-<span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 9 × 3</span>
 <span class="co">#&gt; # Groups:   year, sex [9]</span>
@@ -412,10 +403,11 @@
 
 <span class="co">## OR ##</span>
 
-<span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.</span>
+<span class="co">#&gt; `summarise()` has grouped output by 'year'. You can override</span>
+<span class="co">#&gt; using the `.groups` argument.</span>
 <span class="co">#&gt; # A tibble: 9 × 3</span>
 <span class="co">#&gt; # Groups:   year [3]</span>
 <span class="co">#&gt;    year sex        n</span>
@@ -431,29 +423,30 @@
 <span class="co">#&gt; 9  2009 &lt;NA&gt;       3</span></code></pre></div>
 <p><strong>2.</strong> Using the penguins data frame, group by both <code>island</code>, <code>sex</code> and <code>species</code> and give the average bill length (<code>bill_length_mm</code>), average bill depth (<code>bill_depth_mm</code>) and the difference between average bill length and average bill depths.</p>
 <div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">island</span>, <span class="va">sex</span>, <span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">island</span>, <span class="va">sex</span>, <span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,
             avg_depth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bill_depth_mm</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,
             diff_depth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bill_length_mm</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; `summarise()` has grouped output by 'island', 'sex'. You can override using the `.groups` argument.</span>
+<span class="co">#&gt; `summarise()` has grouped output by 'island', 'sex'. You can</span>
+<span class="co">#&gt; override using the `.groups` argument.</span>
 <span class="co">#&gt; # A tibble: 13 × 6</span>
 <span class="co">#&gt; # Groups:   island, sex [9]</span>
-<span class="co">#&gt;    island    sex    species   avg_length avg_depth diff_depth</span>
-<span class="co">#&gt;    &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;          &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Biscoe    female Adelie          37.4      17.7       19.7</span>
-<span class="co">#&gt;  2 Biscoe    female Gentoo          45.6      14.2       31.3</span>
-<span class="co">#&gt;  3 Biscoe    male   Adelie          40.6      19.0       21.6</span>
-<span class="co">#&gt;  4 Biscoe    male   Gentoo          49.5      15.7       33.8</span>
-<span class="co">#&gt;  5 Biscoe    &lt;NA&gt;   Gentoo          45.6      14.6       NA  </span>
-<span class="co">#&gt;  6 Dream     female Adelie          36.9      17.6       19.3</span>
-<span class="co">#&gt;  7 Dream     female Chinstrap       46.6      17.6       29.0</span>
-<span class="co">#&gt;  8 Dream     male   Adelie          40.1      18.8       21.2</span>
-<span class="co">#&gt;  9 Dream     male   Chinstrap       51.1      19.3       31.8</span>
-<span class="co">#&gt; 10 Dream     &lt;NA&gt;   Adelie          37.5      18.9       18.6</span>
-<span class="co">#&gt; 11 Torgersen female Adelie          37.6      17.6       20.0</span>
-<span class="co">#&gt; 12 Torgersen male   Adelie          40.6      19.4       21.2</span>
-<span class="co">#&gt; 13 Torgersen &lt;NA&gt;   Adelie          37.9      18.2       NA</span>
+<span class="co">#&gt;    island    sex    species  avg_length avg_depth diff_depth</span>
+<span class="co">#&gt;    &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;         &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 Biscoe    female Adelie         37.4      17.7       19.7</span>
+<span class="co">#&gt;  2 Biscoe    female Gentoo         45.6      14.2       31.3</span>
+<span class="co">#&gt;  3 Biscoe    male   Adelie         40.6      19.0       21.6</span>
+<span class="co">#&gt;  4 Biscoe    male   Gentoo         49.5      15.7       33.8</span>
+<span class="co">#&gt;  5 Biscoe    &lt;NA&gt;   Gentoo         45.6      14.6       NA  </span>
+<span class="co">#&gt;  6 Dream     female Adelie         36.9      17.6       19.3</span>
+<span class="co">#&gt;  7 Dream     female Chinstr…       46.6      17.6       29.0</span>
+<span class="co">#&gt;  8 Dream     male   Adelie         40.1      18.8       21.2</span>
+<span class="co">#&gt;  9 Dream     male   Chinstr…       51.1      19.3       31.8</span>
+<span class="co">#&gt; 10 Dream     &lt;NA&gt;   Adelie         37.5      18.9       18.6</span>
+<span class="co">#&gt; 11 Torgersen female Adelie         37.6      17.6       20.0</span>
+<span class="co">#&gt; 12 Torgersen male   Adelie         40.6      19.4       21.2</span>
+<span class="co">#&gt; 13 Torgersen &lt;NA&gt;   Adelie         37.9      18.2       NA</span>
 <span class="co"># na.rm = T is optional, safer to use it if you're unsure if </span>
 <span class="co"># your data contains NA's</span></code></pre></div>
 <p>Solution to Exercise 1:</p>
@@ -498,61 +491,92 @@
 <li><p>Section 6.11 of OHI Data Science Training looks at the <code>group_by</code> function: <a href="https://ohi-science.org/data-science-training/dplyr.html#group_by-operates-on-groups" class="uri">https://ohi-science.org/data-science-training/dplyr.html#group_by-operates-on-groups</a>)</p></li>
 </ul>
 </div>
-<div id="exercises-33" class="section level2" number="31.9">
+<div id="questions-2" class="section level2" number="31.9">
 <h2>
-<span class="header-section-number">31.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-33"><i class="fas fa-link"></i></a>
+<span class="header-section-number">31.9</span> Questions<a class="anchor" aria-label="anchor" href="#questions-2"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-20" class="section level3" number="31.9.1">
-<h3>
-<span class="header-section-number">31.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-20"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-20" class="section level3" number="31.9.2">
-<h3>
-<span class="header-section-number">31.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-20"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-20" class="section level3" number="31.9.3">
-<h3>
-<span class="header-section-number">31.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-20"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-20" class="section level3" number="31.9.4">
-<h3>
-<span class="header-section-number">31.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-20"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-19" class="section level3" number="31.9.5">
-<h3>
-<span class="header-section-number">31.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-19"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-19" class="section level3" number="31.9.6">
-<h3>
-<span class="header-section-number">31.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-19"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-19" class="section level3" number="31.9.7">
-<h3>
-<span class="header-section-number">31.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-19"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-19" class="section level3" number="31.9.8">
-<h3>
-<span class="header-section-number">31.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-19"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-19" class="section level3" number="31.9.9">
-<h3>
-<span class="header-section-number">31.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-19"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-19" class="section level3" number="31.9.10">
-<h3>
-<span class="header-section-number">31.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-19"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<ol style="list-style-type: decimal">
+<li>True or False, after only running the <code>group_by</code> function on a dataset, the data will look different?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Which function will ungroup a grouped dataset?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code></li>
+<li><code>reset()</code></li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>If we want to find an average value for groups in a dataset, which function should be used with <code>group_by</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code></li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>If we want to find the total number of observations in each group, which functions can be used? (Select all that apply)</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>summarise(n = n())</code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></li>
+<li><code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code></li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>What is the issue that causes this error: “Error: Must group by variables found in <code>.data</code>?”</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The dataset you are referencing does not exist</li>
+<li>There are too many NA’s in the column you are referencing</li>
+<li>There is only one group in the column you want to group by</li>
+<li>The column you want to group by is not in the dataset</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>True or False, <code>group_by</code> can be used on multiple columns?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>If I run the <code>group_by</code> function followed by the <code>ungroup</code> function and then use <code>summarise</code> what will the output be?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>A table grouped by the column of interest</li>
+<li>An empty table</li>
+<li>A table that is not grouped by the column of interest but is still summarized</li>
+<li>An error will occur</li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>If you use <code>group_by</code> and then <code>mutate</code>, will the data appear different if you add the <code>ungroup</code> function afterwards?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Yes</li>
+<li>No</li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>What is the cause of the “Error in eval(lhs, parent, parent) : object ‘data_frame’ not found?”</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The column you want to <code>group_by</code> does not exist</li>
+<li>The dataset you want to investigate does not exist</li>
+<li>The <code>group_by</code> function has not been loaded</li>
+<li>None of the above</li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>True or False, you can use the <code>filter</code> function before using <code>group_by</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">
@@ -567,23 +591,10 @@
 <li><a class="nav-link" href="#arguments-2"><span class="header-section-number">31.3</span> Arguments</a></li>
 <li><a class="nav-link" href="#other-optional-arguments"><span class="header-section-number">31.4</span> Other Optional Arguments</a></li>
 <li><a class="nav-link" href="#questions-1"><span class="header-section-number">31.5</span> Questions</a></li>
-<li><a class="nav-link" href="#exercises-32"><span class="header-section-number">31.6</span> Exercises</a></li>
+<li><a class="nav-link" href="#exercises-31"><span class="header-section-number">31.6</span> Exercises</a></li>
 <li><a class="nav-link" href="#common-mistakes-errors-4"><span class="header-section-number">31.7</span> Common Mistakes &amp; Errors</a></li>
 <li><a class="nav-link" href="#next-steps-15"><span class="header-section-number">31.8</span> Next Steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-33"><span class="header-section-number">31.9</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-20"><span class="header-section-number">31.9.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-20"><span class="header-section-number">31.9.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-20"><span class="header-section-number">31.9.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-20"><span class="header-section-number">31.9.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-19"><span class="header-section-number">31.9.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-19"><span class="header-section-number">31.9.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-19"><span class="header-section-number">31.9.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-19"><span class="header-section-number">31.9.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-19"><span class="header-section-number">31.9.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-19"><span class="header-section-number">31.9.10</span> Question 10</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#questions-2"><span class="header-section-number">31.9</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -601,7 +612,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

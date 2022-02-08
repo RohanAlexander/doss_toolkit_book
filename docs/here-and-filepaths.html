@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 90 here and filepaths | DoSS Toolkit</title>
+<title>Chapter 94 here and filepaths | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  90.1 Introduction In this lesson, you will learn how about: Filepaths and the here package Highlights: here allows you to...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 90 here and filepaths | DoSS Toolkit">
+<meta name="description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  94.1 Introduction In this lesson, you will learn how about: Filepaths and the here package Highlights: here allows you to...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 94 here and filepaths | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  90.1 Introduction In this lesson, you will learn how about: Filepaths and the here package Highlights: here allows you to...">
+<meta property="og:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  94.1 Introduction In this lesson, you will learn how about: Filepaths and the here package Highlights: here allows you to...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 90 here and filepaths | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  90.1 Introduction In this lesson, you will learn how about: Filepaths and the here package Highlights: here allows you to...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 94 here and filepaths | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Matthew Wankiewicz and last updated on 7 October 2021.  94.1 Introduction In this lesson, you will learn how about: Filepaths and the here package Highlights: here allows you to...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="active" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="active" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,14 +168,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="here-and-filepaths" class="section level1" number="90">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="here-and-filepaths" class="section level1" number="94">
 <h1>
-<span class="header-section-number">90</span> here and filepaths<a class="anchor" aria-label="anchor" href="#here-and-filepaths"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94</span> here and filepaths<a class="anchor" aria-label="anchor" href="#here-and-filepaths"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Matthew Wankiewicz and last updated on 7 October 2021.</em></p>
-<div id="introduction-83" class="section level2" number="90.1">
+<div id="introduction-81" class="section level2" number="94.1">
 <h2>
-<span class="header-section-number">90.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-83"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-81"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this lesson, you will learn how about:</p>
 <ul>
@@ -199,30 +188,30 @@
 <li>If you have the option to use <code>file.path</code> vs <code>here</code>, <code>here</code> is generally the better option to use.</li>
 </ul>
 </div>
-<div id="the-content-9" class="section level2" number="90.2">
+<div id="the-content-9" class="section level2" number="94.2">
 <h2>
-<span class="header-section-number">90.2</span> The content<a class="anchor" aria-label="anchor" href="#the-content-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.2</span> The content<a class="anchor" aria-label="anchor" href="#the-content-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>When working on projects using R, filepaths are going to be an important part of calling datasets or saving files. Filepaths are important because when working in R projects, you will likely have multiple folders which contain both R scripts for cleaning or collecting data and also R markdown files or Shiny files to display your data. This section will look at how to properly use filepaths in R and will also introduce the <code>here</code> package which makes it easier to find your files.</p>
-<div id="filepaths" class="section level3" number="90.2.1">
+<div id="filepaths" class="section level3" number="94.2.1">
 <h3>
-<span class="header-section-number">90.2.1</span> Filepaths<a class="anchor" aria-label="anchor" href="#filepaths"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.2.1</span> Filepaths<a class="anchor" aria-label="anchor" href="#filepaths"><i class="fas fa-link"></i></a>
 </h3>
 <p>Filepaths for files like .csv’s in R will look like <code>../data/file.csv</code>. The second part will change depending on what your data folder is named and the file name will change depending on what you have named your file. Filepaths can be typed out but the process can be shortened by using the <code><a href="https://rdrr.io/r/base/file.path.html">file.path()</a></code> function. This function takes in strings for arguments and will create a file path using those strings.</p>
-<p>For example, if I have a .csv called ‘2021data’ in a folder called ‘data,’ if I write <code><a href="https://rdrr.io/r/base/file.path.html">file.path("data", "2021data.csv")</a></code> the function will create the file path <code>data/2021data.csv</code>. This file path can then be used to read in the file to bring the data into the file currently being worked on. This function will also work for other data types like .rds or .txt.</p>
+<p>For example, if I have a .csv called ‘2021data’ in a folder called ‘data,’ if I write <code>file.path("data", "2021data.csv")</code> the function will create the file path <code>data/2021data.csv</code>. This file path can then be used to read in the file to bring the data into the file currently being worked on. This function will also work for other data types like .rds or .txt.</p>
 </div>
-<div id="here" class="section level3" number="90.2.2">
+<div id="here" class="section level3" number="94.2.2">
 <h3>
-<span class="header-section-number">90.2.2</span> Here<a class="anchor" aria-label="anchor" href="#here"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.2.2</span> Here<a class="anchor" aria-label="anchor" href="#here"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <code>here</code> package was created to make the finding of filepaths simpler. The main function in the package is <code>here()</code>, and is meant to be used as a replacement for the <code><a href="https://rdrr.io/r/base/file.path.html">file.path()</a></code> function we discussed earlier. <code>here</code> is good to use because it creates these filepaths relative to the project you are currently working in, helping you avoid any errors.</p>
 <p>Using the <code>here</code> function is identical to the use of <code>file.path</code>. Simply enter the name of the folder(s) and file you are trying to reach and the function will create a filepath through your current project to get to the desired file. This function can also be used to see what your current directory is.</p>
 <p>Another benefit to the <code>here</code> package is that the filepaths it creates are accessible for people using different operating systems. This means that if I use the function on a Mac, someone using a PC will be able to get the same result. <code>here</code> is also helpful because when working with R projects, you may run into issues where R cannot find a file in a directory you wrote out, but after using <code>here</code>, R will be able to find those files.</p>
 </div>
 </div>
-<div id="arguments-24" class="section level2" number="90.3">
+<div id="arguments-24" class="section level2" number="94.3">
 <h2>
-<span class="header-section-number">90.3</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-24"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.3</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments-24"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>
@@ -233,28 +222,28 @@
 <p>The <code>here</code> library also contains another function called <code>i_am</code>. This function tells the <code>here</code> function where to start the file path from. For example, if you are working in an R project and want <code>here</code> to run from a specific folder, it will tell it to start at that folder.
 - When using <code>i_am</code> be sure to call it on an existing file or you will end up with an error.</p>
 </div>
-<div id="examples-15" class="section level2" number="90.4">
+<div id="examples-16" class="section level2" number="94.4">
 <h2>
-<span class="header-section-number">90.4</span> Examples<a class="anchor" aria-label="anchor" href="#examples-15"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.4</span> Examples<a class="anchor" aria-label="anchor" href="#examples-16"><i class="fas fa-link"></i></a>
 </h2>
 <p>If we are working on a project which contains a folder called “Output” and a file called “Data_Analysis,” we will find that <code>file.path</code> and <code>here</code> will return different paths.</p>
 <p>Firstly, with <code>file.path</code> we will get:</p>
-<div class="sourceCode" id="cb689"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb714"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"Output"</span>, <span class="st">"Data_Analysis"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Output/Data_Analysis"</span></code></pre></div>
 <p>Next, when we use <code>here</code> we will get:</p>
-<div class="sourceCode" id="cb690"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb715"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">here</span><span class="op">(</span><span class="st">"Output"</span>, <span class="st">"Data_Analysis"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/Users/rohanalexander/Documents/projects/doss_toolkit_book/Output/Data_Analysis"</span></code></pre></div>
 <p>Both function do the same thing, but <code>here</code> just goes a little bit farther in making the path. This is extremely useful when creating projects because it will allow your work to be much more reproducible.</p>
 <p>Looking at <code><a href="https://here.r-lib.org//reference/i_am.html">here::i_am</a></code>, we can say that we are working in a file called “filepaths.Rmd” and let <code>here</code> decide where to start the filepath from.</p>
-<div class="sourceCode" id="cb691"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb716"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## here::i_am("filepaths.Rmd")</span></code></pre></div>
 <p>The chunk above will return a string saying “here() starts at /Users/name/folder,” depending on the file path your computer takes to get to the file.</p>
 </div>
-<div id="exercises-125" class="section level2" number="90.5">
+<div id="exercises-108" class="section level2" number="94.5">
 <h2>
-<span class="header-section-number">90.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-125"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-108"><i class="fas fa-link"></i></a>
 </h2>
 <p>To get used to <code>file.path</code>, create the path <code>Users/DoSS/Toolkit</code> using <code>file.path</code></p>
 <!-- ```{r file-path-exercise, exercise = TRUE} -->
@@ -298,9 +287,9 @@
 <!--          allow_retry = T) -->
 <!-- ``` -->
 </div>
-<div id="common-mistakes-errors-28" class="section level2" number="90.6">
+<div id="common-mistakes-errors-28" class="section level2" number="94.6">
 <h2>
-<span class="header-section-number">90.6</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-28"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.6</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-28"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>One common issue highlighted in this lesson was using <code>i_am</code> on files that aren’t in your current project. This can happen from typing a file name wrong but if it didn’t, make sure the file you’re referencing is in your project/directory.
@@ -311,9 +300,9 @@
 <li>One of the only errors which occurs with <code>here</code> is “Error in UseMethod.” This only happens when you accidentally reference a function inside your <code>here</code> call.</li>
 </ul>
 </div>
-<div id="next-steps-53" class="section level2" number="90.7">
+<div id="next-steps-53" class="section level2" number="94.7">
 <h2>
-<span class="header-section-number">90.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-53"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.7</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-53"><i class="fas fa-link"></i></a>
 </h2>
 <p>Some more information on filepaths and <code>here</code> include:</p>
 <ul>
@@ -323,99 +312,120 @@
 </li>
 </ul>
 </div>
-<div id="exercises-126" class="section level2" number="90.8">
+<div id="questions-9" class="section level2" number="94.8">
 <h2>
-<span class="header-section-number">90.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-126"><i class="fas fa-link"></i></a>
+<span class="header-section-number">94.8</span> Questions<a class="anchor" aria-label="anchor" href="#questions-9"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-89" class="section level3" number="90.8.1">
-<h3>
-<span class="header-section-number">90.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-89"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-2-87" class="section level3" number="90.8.2">
-<h3>
-<span class="header-section-number">90.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-87"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-3-85" class="section level3" number="90.8.3">
-<h3>
-<span class="header-section-number">90.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-85"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-77" class="section level3" number="90.8.4">
-<h3>
-<span class="header-section-number">90.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-77"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-76" class="section level3" number="90.8.5">
-<h3>
-<span class="header-section-number">90.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-76"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-76" class="section level3" number="90.8.6">
-<h3>
-<span class="header-section-number">90.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-76"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-75" class="section level3" number="90.8.7">
-<h3>
-<span class="header-section-number">90.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-75"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-75" class="section level3" number="90.8.8">
-<h3>
-<span class="header-section-number">90.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-75"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-75" class="section level3" number="90.8.9">
-<h3>
-<span class="header-section-number">90.8.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-75"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-75" class="section level3" number="90.8.10">
-<h3>
-<span class="header-section-number">90.8.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-75"><i class="fas fa-link"></i></a>
-</h3>
-
-</div>
+<ol style="list-style-type: decimal">
+<li>What does the <code>here</code> package do?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>It makes it easier to find files you are working with</li>
+<li>Changes your R project name</li>
+<li>Makes it harder to work on a project</li>
+<li>None of the above</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>What does a file path look like?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><code>data+file.csv</code></li>
+<li><code>data-file.csv</code></li>
+<li><code>data%&gt;%file.csv</code></li>
+<li><code>/data/file.csv</code></li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>What is the output of <code>file.path("question", "3")</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>“question/3”</li>
+<li>“question,3”</li>
+<li>“question3”</li>
+<li>The function call will result in an error</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>True or False, using the <code>here</code> function is identical to the use of <code>file.path</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>True or False, if I use <code>here</code> on a Mac, someone using the same function call on a PC will get a different result?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
+<ol start="6" style="list-style-type: decimal">
+<li>What is returned when you run the <code>i_am</code> function?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The R project name</li>
+<li>The filepath leading to the file</li>
+<li>Your file’s name</li>
+<li>Nothing</li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li>What causes the “Error in UseMethod” error?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>You likely called a function inside <code>here</code>
+</li>
+<li>It happens randomly without explanation</li>
+<li>The <code>UseMethod</code> package is not installed</li>
+<li>None of the above</li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>If I have a folder called “notes” that I am working in, what is the output of <code>here("folder", "file")</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>“folder/file”</li>
+<li>“file”</li>
+<li>“…/notes/folder/file”</li>
+<li>“notes”</li>
+</ol>
+<ol start="9" style="list-style-type: decimal">
+<li>If I have a folder called “notes” that I am working in, what is the output of <code>file.path("folder", "file")</code>?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>“folder/file”</li>
+<li>“file”</li>
+<li>“…/notes/folder/file”</li>
+<li>“notes”</li>
+</ol>
+<ol start="10" style="list-style-type: decimal">
+<li>True or False, <code>here</code> and <code>file.path</code> work for any file type?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>True</li>
+<li>False</li>
+</ol>
 </div>
 </div>
 
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></div>
-<div class="next"><a href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></div>
+<div class="prev"><a href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></div>
+<div class="next"><a href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#here-and-filepaths"><span class="header-section-number">90</span> here and filepaths</a></li>
-<li><a class="nav-link" href="#introduction-83"><span class="header-section-number">90.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#here-and-filepaths"><span class="header-section-number">94</span> here and filepaths</a></li>
+<li><a class="nav-link" href="#introduction-81"><span class="header-section-number">94.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#the-content-9"><span class="header-section-number">90.2</span> The content</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#filepaths"><span class="header-section-number">90.2.1</span> Filepaths</a></li>
-<li><a class="nav-link" href="#here"><span class="header-section-number">90.2.2</span> Here</a></li>
+<a class="nav-link" href="#the-content-9"><span class="header-section-number">94.2</span> The content</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#filepaths"><span class="header-section-number">94.2.1</span> Filepaths</a></li>
+<li><a class="nav-link" href="#here"><span class="header-section-number">94.2.2</span> Here</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#arguments-24"><span class="header-section-number">90.3</span> Arguments</a></li>
-<li><a class="nav-link" href="#examples-15"><span class="header-section-number">90.4</span> Examples</a></li>
-<li><a class="nav-link" href="#exercises-125"><span class="header-section-number">90.5</span> Exercises</a></li>
-<li><a class="nav-link" href="#common-mistakes-errors-28"><span class="header-section-number">90.6</span> Common Mistakes &amp; Errors</a></li>
-<li><a class="nav-link" href="#next-steps-53"><span class="header-section-number">90.7</span> Next Steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-126"><span class="header-section-number">90.8</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-89"><span class="header-section-number">90.8.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-87"><span class="header-section-number">90.8.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-85"><span class="header-section-number">90.8.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-77"><span class="header-section-number">90.8.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-76"><span class="header-section-number">90.8.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-76"><span class="header-section-number">90.8.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-75"><span class="header-section-number">90.8.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-75"><span class="header-section-number">90.8.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-75"><span class="header-section-number">90.8.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-75"><span class="header-section-number">90.8.10</span> Question 10</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#arguments-24"><span class="header-section-number">94.3</span> Arguments</a></li>
+<li><a class="nav-link" href="#examples-16"><span class="header-section-number">94.4</span> Examples</a></li>
+<li><a class="nav-link" href="#exercises-108"><span class="header-section-number">94.5</span> Exercises</a></li>
+<li><a class="nav-link" href="#common-mistakes-errors-28"><span class="header-section-number">94.6</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-53"><span class="header-section-number">94.7</span> Next Steps</a></li>
+<li><a class="nav-link" href="#questions-9"><span class="header-section-number">94.8</span> Questions</a></li>
 </ul>
 
       <div class="book-extra">
@@ -433,7 +443,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -7,16 +7,16 @@
 <title>Chapter 57 head, tail, glimpse and summary | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Haoluan Chen and last updated on 7 October 2021.  57.1 Introduction In this lesson, you will learn how to: Get an overview of your dataset using head(), tail(), glimpse(), and summary()...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 57 head, tail, glimpse and summary | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  57.1 Introduction In this lesson, you will learn how to: Get an overview of your dataset using head(), tail(), glimpse(), and summary()...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 57 head, tail, glimpse and summary | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  57.1 Introduction In this lesson, you will learn how to: Get an overview of your dataset using head(), tail(), glimpse(), and summary()...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -211,7 +200,7 @@
 <span class="header-section-number">57.2</span> <code>head()</code><a class="anchor" aria-label="anchor" href="#head"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function takes in two parameters. The first parameter is the data frame, and the second parameter is the first number of rows you want to look at. (The “head” of your dataset.)</p>
-<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt;                mpg cyl disp  hp drat    wt  qsec vs am gear</span>
 <span class="co">#&gt; Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4</span>
@@ -228,7 +217,7 @@
 <span class="header-section-number">57.3</span> <code>tail()</code><a class="anchor" aria-label="anchor" href="#tail"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> function also takes in two parameters. The first parameter is the data frame, and the second parameter is the last number of rows you want to look at. (The “tail” of your dataset.)</p>
-<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">mtcars</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt;                mpg cyl disp  hp drat   wt qsec vs am gear</span>
 <span class="co">#&gt; Ferrari Dino  19.7   6  145 175 3.62 2.77 15.5  0  1    5</span>
@@ -245,7 +234,7 @@
 <span class="header-section-number">57.4</span> <code>glimpse()</code><a class="anchor" aria-label="anchor" href="#glimpse"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function takes in one parameter, which is the data frame. This function can tell you the number of rows and columns for your dataset. Additionally, you can get the name, data type, and first few observations of each variable.</p>
-<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 32</span>
 <span class="co">#&gt; Columns: 11</span>
@@ -275,7 +264,7 @@
 <li>3rd Qu. : the third quartile of the variable</li>
 <li>Max. maximum value of the variable</li>
 </ul>
-<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
 <span class="co">#&gt;       mpg             cyl             disp      </span>
 <span class="co">#&gt;  Min.   :10.40   Min.   :4.000   Min.   : 71.1  </span>
@@ -306,7 +295,7 @@
 <span class="co">#&gt;  3rd Qu.:4.000   3rd Qu.:4.000  </span>
 <span class="co">#&gt;  Max.   :5.000   Max.   :8.000</span></code></pre></div>
 <p>What happens if you have other data types in your dataset? Here is a dataset called scores. It contains three variables student_ID, gender, and test_score.</p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>student_ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span><span class="op">)</span>,
                  gender <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"male"</span>, <span class="st">"male"</span>,<span class="st">"female"</span>,<span class="st">"female"</span>,<span class="st">"female"</span><span class="op">)</span><span class="op">)</span>,
                test_score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">87</span>, <span class="fl">76</span>, <span class="fl">61</span>, <span class="fl">80</span>, <span class="fl">72</span>, <span class="fl">69</span><span class="op">)</span>,
@@ -321,7 +310,7 @@
 <span class="co">#&gt; 4 4          female         80</span>
 <span class="co">#&gt; 5 5          female         72</span>
 <span class="co">#&gt; 6 6          female         69</span></code></pre></div>
-<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">scores</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 6</span>
 <span class="co">#&gt; Columns: 3</span>
@@ -329,7 +318,7 @@
 <span class="co">#&gt; $ gender     &lt;fct&gt; male, male, male, female, female, female</span>
 <span class="co">#&gt; $ test_score &lt;dbl&gt; 87, 76, 61, 80, 72, 69</span></code></pre></div>
 <p>Using the glimpse function, we know that student_ID is a character data type, gender is a factor data type, and test_score is a double data type.</p>
-<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">scores</span><span class="op">)</span>
 <span class="co">#&gt;   student_ID           gender    test_score   </span>
 <span class="co">#&gt;  Length:6           female:3   Min.   :61.00  </span>
@@ -342,16 +331,16 @@
 <p>For factor data type(gender), we have the count of each factor. In this dataset, there are three female students and three male students.</p>
 <p>For double data type(test_score), we have the summary statistics as we have seen before.</p>
 </div>
-<div id="exercises-73" class="section level2" number="57.6">
+<div id="exercises-63" class="section level2" number="57.6">
 <h2>
-<span class="header-section-number">57.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-73"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-63"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-1-12" class="section level3" number="57.6.1">
+<div id="exercise-1-10" class="section level3" number="57.6.1">
 <h3>
-<span class="header-section-number">57.6.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-12"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.6.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-10"><i class="fas fa-link"></i></a>
 </h3>
 <!-- ```{r headex2, echo = FALSE} -->
-<!-- question("If you want to look at the first 5 rows of the mtcars dataset, which code should you use?", -->
+<!-- question("If you want to look at the first 3 rows of the mtcars dataset, which code should you use?", -->
 <!--           answer("head(mtcars,3)", correct = TRUE), -->
 <!--           answer("tail(mtcars, 3)"), -->
 <!--           answer("glimpse(mtcars)"), -->
@@ -373,9 +362,9 @@
 <span class="header-section-number">57.6.2</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>Here, we have a book dataset from Alex Cookson. This dataset contains 9,000 children’s books that have been rated from 1-5 stars. Run the following code to your R and use the functions you learned in this tutorial to explore this dataset!</p>
-<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb388"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">books</span> <span class="op">&lt;-</span> 
-  <span class="fu">read_tsv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/childrens-book-ratings/childrens-books.txt"</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/childrens-book-ratings/childrens-books.txt"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="next-steps-30" class="section level2" number="57.7">
@@ -384,59 +373,106 @@
 </h2>
 <p>Once you have fully understood the dataset you are working with you may start using plots to get a graphical representation of your dataset. You may like to read this chapter for more information: <a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a>.</p>
 </div>
-<div id="exercises-74" class="section level2" number="57.8">
+<div id="exercises-64" class="section level2" number="57.8">
 <h2>
-<span class="header-section-number">57.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-74"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-64"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-51" class="section level3" number="57.8.1">
+<div id="question-1-45" class="section level3" number="57.8.1">
 <h3>
-<span class="header-section-number">57.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-51"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-45"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the first parameter for <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code>?
+a. number of row in your data set
+b. A data frame
+c. a number represents the First number of rows
+d. a string number represents the First number of rows</p>
 </div>
-<div id="question-2-50" class="section level3" number="57.8.2">
+<div id="question-2-44" class="section level3" number="57.8.2">
 <h3>
-<span class="header-section-number">57.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-50"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-44"><i class="fas fa-link"></i></a>
 </h3>
+<p>What does the following code produce?
+<code>head(data, n = 3)</code>
+a. The last three row of your data
+b. The first three column of your data
+c. The first three row fo your data
+d. The last three column of your data</p>
 </div>
-<div id="question-3-50" class="section level3" number="57.8.3">
+<div id="question-3-45" class="section level3" number="57.8.3">
 <h3>
-<span class="header-section-number">57.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-50"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-45"><i class="fas fa-link"></i></a>
 </h3>
+<p>What can we learn about our data from the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> output (Multiple answers)
+a. Number of rows and columns
+b. name of the variable
+c. data type
+d. Summary statistics of your data set</p>
 </div>
-<div id="question-4-46" class="section level3" number="57.8.4">
+<div id="question-4-42" class="section level3" number="57.8.4">
 <h3>
-<span class="header-section-number">57.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-46"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-42"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> give us few observations of each variable.
+a. True
+b. False</p>
 </div>
-<div id="question-5-45" class="section level3" number="57.8.5">
+<div id="question-5-41" class="section level3" number="57.8.5">
 <h3>
-<span class="header-section-number">57.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-45"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-41"><i class="fas fa-link"></i></a>
 </h3>
+<p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> does not produce mean value.
+a. True
+b. False</p>
 </div>
-<div id="question-6-45" class="section level3" number="57.8.6">
+<div id="question-6-42" class="section level3" number="57.8.6">
 <h3>
-<span class="header-section-number">57.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-45"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-42"><i class="fas fa-link"></i></a>
 </h3>
+<p>If you want to look at the first 3 rows of the mtcars dataset, which code should you use?
+a. <code>head(mtcars,3)</code>
+b. <code>tail(mtcars, 3)</code>
+c. <code>glimpse(mtcars)</code>
+d. <code>summary(mtcars)</code></p>
 </div>
-<div id="question-7-44" class="section level3" number="57.8.7">
+<div id="question-7-40" class="section level3" number="57.8.7">
 <h3>
-<span class="header-section-number">57.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-40"><i class="fas fa-link"></i></a>
 </h3>
+<p>If you want to look at the last 3 rows of the mtcars dataset, which code should you use?
+a. <code>head(mtcars,3)</code>
+b. <code>tail(mtcars, 3)</code>
+c. <code>glimpse(mtcars)</code>
+d. <code>summary(mtcars)</code></p>
 </div>
-<div id="question-8-44" class="section level3" number="57.8.8">
+<div id="question-8-41" class="section level3" number="57.8.8">
 <h3>
-<span class="header-section-number">57.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-41"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the output of summary() function for factor data type?
+a. Data type
+b. Summary statistics such as min and max
+c. Number of factors in the variable
+d. Count of each factor</p>
 </div>
-<div id="question-9-44" class="section level3" number="57.8.9">
+<div id="question-9-40" class="section level3" number="57.8.9">
 <h3>
-<span class="header-section-number">57.8.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-40"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the output of summary() function for double data type?
+a. Data type
+b. Summary statistics such as min and max
+c. Number of factors in the variable
+d. Count of each factor</p>
 </div>
-<div id="question-10-44" class="section level3" number="57.8.10">
+<div id="question-10-40" class="section level3" number="57.8.10">
 <h3>
-<span class="header-section-number">57.8.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">57.8.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-40"><i class="fas fa-link"></i></a>
 </h3>
+<p>What is the default n for <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code>
+a. 3
+b. 5
+c. 10
+d. 6</p>
 
 </div>
 </div>
@@ -454,24 +490,24 @@
 <li><a class="nav-link" href="#glimpse"><span class="header-section-number">57.4</span> glimpse()</a></li>
 <li><a class="nav-link" href="#summary-3"><span class="header-section-number">57.5</span> summary()</a></li>
 <li>
-<a class="nav-link" href="#exercises-73"><span class="header-section-number">57.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercise-1-12"><span class="header-section-number">57.6.1</span> Exercise 1</a></li>
+<a class="nav-link" href="#exercises-63"><span class="header-section-number">57.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-10"><span class="header-section-number">57.6.1</span> Exercise 1</a></li>
 <li><a class="nav-link" href="#exercise-3-5"><span class="header-section-number">57.6.2</span> Exercise 3</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#next-steps-30"><span class="header-section-number">57.7</span> Next Steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-74"><span class="header-section-number">57.8</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-51"><span class="header-section-number">57.8.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-50"><span class="header-section-number">57.8.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-50"><span class="header-section-number">57.8.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-46"><span class="header-section-number">57.8.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-45"><span class="header-section-number">57.8.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-45"><span class="header-section-number">57.8.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-44"><span class="header-section-number">57.8.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-44"><span class="header-section-number">57.8.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-44"><span class="header-section-number">57.8.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-44"><span class="header-section-number">57.8.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-64"><span class="header-section-number">57.8</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-45"><span class="header-section-number">57.8.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-44"><span class="header-section-number">57.8.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-45"><span class="header-section-number">57.8.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-42"><span class="header-section-number">57.8.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-41"><span class="header-section-number">57.8.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-42"><span class="header-section-number">57.8.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-40"><span class="header-section-number">57.8.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-41"><span class="header-section-number">57.8.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-40"><span class="header-section-number">57.8.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-40"><span class="header-section-number">57.8.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -491,7 +527,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -7,16 +7,16 @@
 <title>Chapter 59 names, rbind and cbind | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Isaac Ehrlich and last updated on 7 October 2021.  59.1 Introduction For certain tasks, you may need to combine data frames and find information about them. In this lesson, you will...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 59 names, rbind and cbind | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Isaac Ehrlich and last updated on 7 October 2021.  59.1 Introduction For certain tasks, you may need to combine data frames and find information about them. In this lesson, you will...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 59 names, rbind and cbind | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Isaac Ehrlich and last updated on 7 October 2021.  59.1 Introduction For certain tasks, you may need to combine data frames and find information about them. In this lesson, you will...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -209,17 +198,17 @@
 <span class="header-section-number">59.2.1</span> <code>names()</code><a class="anchor" aria-label="anchor" href="#names"><i class="fas fa-link"></i></a>
 </h3>
 <p>The primary purpose of <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> is to return the column names of a data frame. The only argument that <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> takes is the data frame. <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> is a similar function which outputs the same information, and works for matrices as well.</p>
-<div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 14</span>
-<span class="co">#&gt;   name           height  mass hair_color skin_color eye_color</span>
-<span class="co">#&gt;   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    </span>
-<span class="co">#&gt; 1 Luke Skywalker    172    77 blond      fair       blue     </span>
-<span class="co">#&gt; 2 C-3PO             167    75 &lt;NA&gt;       gold       yellow   </span>
-<span class="co">#&gt; 3 R2-D2              96    32 &lt;NA&gt;       white, bl… red      </span>
-<span class="co">#&gt; 4 Darth Vader       202   136 none       white      yellow   </span>
-<span class="co">#&gt; 5 Leia Organa       150    49 brown      light      brown    </span>
-<span class="co">#&gt; 6 Owen Lars         178   120 brown, gr… light      blue     </span>
+<span class="co">#&gt;   name          height  mass hair_color skin_color eye_color</span>
+<span class="co">#&gt;   &lt;chr&gt;          &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    </span>
+<span class="co">#&gt; 1 Luke Skywalk…    172    77 blond      fair       blue     </span>
+<span class="co">#&gt; 2 C-3PO            167    75 &lt;NA&gt;       gold       yellow   </span>
+<span class="co">#&gt; 3 R2-D2             96    32 &lt;NA&gt;       white, bl… red      </span>
+<span class="co">#&gt; 4 Darth Vader      202   136 none       white      yellow   </span>
+<span class="co">#&gt; 5 Leia Organa      150    49 brown      light      brown    </span>
+<span class="co">#&gt; 6 Owen Lars        178   120 brown, gr… light      blue     </span>
 <span class="co">#&gt; # … with 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,</span>
 <span class="co">#&gt; #   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,</span>
 <span class="co">#&gt; #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</span>
@@ -233,7 +222,7 @@
 <span class="co">#&gt; TRUE </span>
 <span class="co">#&gt;   14</span></code></pre></div>
 <p>Using indexing, <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> can also be used to change the column names of a data frame.</p>
-<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Change the homeworld column name (the tenth column) to home-planet</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span><span class="op">[</span><span class="fl">10</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"home-planet"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span>
@@ -242,10 +231,10 @@
 <span class="co">#&gt;  [9] "gender"      "home-planet" "species"     "films"      </span>
 <span class="co">#&gt; [13] "vehicles"    "starships"</span></code></pre></div>
 <p>The tidyverse <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> function can also be used to change column names, and avoids indexing by specifying the column to rename, using the syntax <code>new_name = old_name</code>.</p>
-<div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Change the starships column name to spaceships</span>
 <span class="va">starwars</span> <span class="op">&lt;-</span> 
-  <span class="va">starwars</span> <span class="op">%&gt;%</span> 
+  <span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>spaceships <span class="op">=</span> <span class="va">starships</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "name"        "height"      "mass"        "hair_color" </span>
@@ -258,7 +247,7 @@
 <span class="header-section-number">59.2.2</span> <code>rbind()</code><a class="anchor" aria-label="anchor" href="#rbind"><i class="fas fa-link"></i></a>
 </h3>
 <p>The purpose of <code><a href="https://amices.org/mice/reference/cbind.html">rbind()</a></code> is to combine two (or more) data frames by row. The arguments to <code><a href="https://amices.org/mice/reference/cbind.html">rbind()</a></code> are two (or more) data frames. These data frames must have the same number of columns, and must have the same column names as well. <code><a href="https://amices.org/mice/reference/cbind.html">rbind()</a></code> can also be used to combine matrices which match the same requirements.</p>
-<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">letter_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>numbers <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">26</span>, strings <span class="op">=</span> <span class="va">letters</span><span class="op">)</span>
 <span class="va">words_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>numbers <span class="op">=</span> <span class="fl">27</span><span class="op">:</span><span class="fl">1006</span>, strings <span class="op">=</span> <span class="va">words</span><span class="op">)</span>
 
@@ -274,7 +263,7 @@
 </h3>
 <p>The purpose of <code><a href="https://amices.org/mice/reference/cbind.html">cbind()</a></code> is to combine two (or more) data frames by column. The arguments to <code><a href="https://amices.org/mice/reference/cbind.html">cbind()</a></code> are two (or more) data frames. These data frames must have the same number of rows, or the number of rows must be multiples of one another. <code><a href="https://amices.org/mice/reference/cbind.html">cbind()</a></code> can also be used to combine matrices which match the same requirements.</p>
 <p>Note, in the case that the number of rows are multiples, the rows in the smaller data frame are repeated so they match the longer data frame.</p>
-<div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">index_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>numbers <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, letters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">names_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>vegetables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"arugula"</span>, <span class="st">"broccoli"</span>, <span class="st">"cauliflower"</span>, <span class="st">"dill"</span>, <span class="st">"endive"</span><span class="op">)</span>,
                        fruits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apricot"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"date"</span>, <span class="st">"elderberry"</span><span class="op">)</span>,
@@ -292,20 +281,20 @@
 <h2>
 <span class="header-section-number">59.3</span> Questions and Exercises<a class="anchor" aria-label="anchor" href="#questions-and-exercises-2"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-53" class="section level3" number="59.3.1">
+<div id="question-1-47" class="section level3" number="59.3.1">
 <h3>
-<span class="header-section-number">59.3.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-53"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.3.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-47"><i class="fas fa-link"></i></a>
 </h3>
 <p>Using the <code>presidential</code> data frame, save the column names, and then change the name of the second column to <code>inauguration-date</code>.</p>
 <pre><code>#&gt; [1] "name"  "start" "end"   "party"</code></pre>
-<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">presidential_col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">presidential</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">presidential</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"inauguration-date"</span></code></pre></div>
 </div>
-<div id="question-2-52" class="section level3" number="59.3.2">
+<div id="question-2-46" class="section level3" number="59.3.2">
 <h3>
-<span class="header-section-number">59.3.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-52"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.3.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-46"><i class="fas fa-link"></i></a>
 </h3>
 <!-- ```{r rbind-q2, echo = FALSE} -->
 <!-- question("If you were to rbind() a data frame to itself, ", -->
@@ -369,58 +358,58 @@
 <p><code><a href="https://rdrr.io/r/base/names.html">names()</a></code> will return the column names of data frames and can be used to change column names as well. <code><a href="https://amices.org/mice/reference/cbind.html">rbind()</a></code> and <code><a href="https://amices.org/mice/reference/cbind.html">cbind()</a></code> combine data frames either by row or by column.</p>
 <p>In the next section, we will continue learning how to manipulate data frames.</p>
 </div>
-<div id="exercises-77" class="section level2" number="59.6">
+<div id="exercises-66" class="section level2" number="59.6">
 <h2>
-<span class="header-section-number">59.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-77"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-66"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-54" class="section level3" number="59.6.1">
+<div id="question-1-48" class="section level3" number="59.6.1">
 <h3>
-<span class="header-section-number">59.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-54"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-48"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-2-53" class="section level3" number="59.6.2">
+<div id="question-2-47" class="section level3" number="59.6.2">
 <h3>
-<span class="header-section-number">59.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-53"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-47"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-3-52" class="section level3" number="59.6.3">
+<div id="question-3-47" class="section level3" number="59.6.3">
 <h3>
-<span class="header-section-number">59.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-52"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-47"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-4-48" class="section level3" number="59.6.4">
+<div id="question-4-44" class="section level3" number="59.6.4">
 <h3>
-<span class="header-section-number">59.6.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-48"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-44"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-5-47" class="section level3" number="59.6.5">
+<div id="question-5-43" class="section level3" number="59.6.5">
 <h3>
-<span class="header-section-number">59.6.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-47"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-43"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-6-47" class="section level3" number="59.6.6">
+<div id="question-6-44" class="section level3" number="59.6.6">
 <h3>
-<span class="header-section-number">59.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-47"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-44"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-7-46" class="section level3" number="59.6.7">
+<div id="question-7-42" class="section level3" number="59.6.7">
 <h3>
-<span class="header-section-number">59.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-46"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-42"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-8-46" class="section level3" number="59.6.8">
+<div id="question-8-43" class="section level3" number="59.6.8">
 <h3>
-<span class="header-section-number">59.6.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-46"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-43"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-9-46" class="section level3" number="59.6.9">
+<div id="question-9-42" class="section level3" number="59.6.9">
 <h3>
-<span class="header-section-number">59.6.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-46"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-42"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-10-46" class="section level3" number="59.6.10">
+<div id="question-10-42" class="section level3" number="59.6.10">
 <h3>
-<span class="header-section-number">59.6.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-46"><i class="fas fa-link"></i></a>
+<span class="header-section-number">59.6.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-42"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
@@ -443,24 +432,24 @@
 </li>
 <li>
 <a class="nav-link" href="#questions-and-exercises-2"><span class="header-section-number">59.3</span> Questions and Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-53"><span class="header-section-number">59.3.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-52"><span class="header-section-number">59.3.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-1-47"><span class="header-section-number">59.3.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-46"><span class="header-section-number">59.3.2</span> Question 2</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#special-cases-common-mistakes-1"><span class="header-section-number">59.4</span> Special Cases &amp; Common Mistakes</a></li>
 <li><a class="nav-link" href="#overview-next-steps"><span class="header-section-number">59.5</span> Overview &amp; Next Steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-77"><span class="header-section-number">59.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-54"><span class="header-section-number">59.6.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-53"><span class="header-section-number">59.6.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-52"><span class="header-section-number">59.6.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-48"><span class="header-section-number">59.6.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-47"><span class="header-section-number">59.6.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-47"><span class="header-section-number">59.6.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-46"><span class="header-section-number">59.6.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-46"><span class="header-section-number">59.6.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-46"><span class="header-section-number">59.6.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-46"><span class="header-section-number">59.6.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-66"><span class="header-section-number">59.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-48"><span class="header-section-number">59.6.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-47"><span class="header-section-number">59.6.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-47"><span class="header-section-number">59.6.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-44"><span class="header-section-number">59.6.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-43"><span class="header-section-number">59.6.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-44"><span class="header-section-number">59.6.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-42"><span class="header-section-number">59.6.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-43"><span class="header-section-number">59.6.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-42"><span class="header-section-number">59.6.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-42"><span class="header-section-number">59.6.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -480,7 +469,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

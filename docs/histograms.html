@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 76 Histograms | DoSS Toolkit</title>
+<title>Chapter 74 Histograms | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by Haoluan Chen and last updated on 7 October 2021.  76.1 Introduction  Image Source:https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png,...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 76 Histograms | DoSS Toolkit">
+<meta name="description" content="Written by Haoluan Chen and last updated on 7 October 2021.  74.1 Introduction  Image Source:https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png,...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 74 Histograms | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  76.1 Introduction  Image Source:https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png,...">
+<meta property="og:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  74.1 Introduction  Image Source:https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 76 Histograms | DoSS Toolkit">
-<meta name="twitter:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  76.1 Introduction  Image Source:https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png,...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 74 Histograms | DoSS Toolkit">
+<meta name="twitter:description" content="Written by Haoluan Chen and last updated on 7 October 2021.  74.1 Introduction  Image Source:https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="active" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="active" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,14 +168,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="histograms" class="section level1" number="76">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="histograms" class="section level1" number="74">
 <h1>
-<span class="header-section-number">76</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Written by Haoluan Chen and last updated on 7 October 2021.</em></p>
-<div id="introduction-70" class="section level2" number="76.1">
+<div id="introduction-68" class="section level2" number="74.1">
 <h2>
-<span class="header-section-number">76.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-70"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-68"><i class="fas fa-link"></i></a>
 </h2>
 <div class="figure">
 <img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png?raw=true" width="400" height="300" alt=""><p class="caption">Image Source:<a href="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png" class="uri">https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_exploratory.png</a>, Allison Horst</p>
@@ -206,13 +195,13 @@
 <li>Create a histogram with a real dataset</li>
 </ul>
 </div>
-<div id="making-and-customizing-histograms" class="section level2" number="76.2">
+<div id="making-and-customizing-histograms" class="section level2" number="74.2">
 <h2>
-<span class="header-section-number">76.2</span> Making and customizing histograms<a class="anchor" aria-label="anchor" href="#making-and-customizing-histograms"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.2</span> Making and customizing histograms<a class="anchor" aria-label="anchor" href="#making-and-customizing-histograms"><i class="fas fa-link"></i></a>
 </h2>
-<div id="what-is-a-histogram" class="section level3" number="76.2.1">
+<div id="what-is-a-histogram" class="section level3" number="74.2.1">
 <h3>
-<span class="header-section-number">76.2.1</span> What is a histogram?<a class="anchor" aria-label="anchor" href="#what-is-a-histogram"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.2.1</span> What is a histogram?<a class="anchor" aria-label="anchor" href="#what-is-a-histogram"><i class="fas fa-link"></i></a>
 </h3>
 <p>A histogram is a visual representation of the distribution of numerical data. It allows you to easily see where your data is concentrated and the variation of the data. It can help visually answer questions like:</p>
 <ul>
@@ -220,8 +209,8 @@
 <li>what is the range of values found in my data?</li>
 </ul>
 <p>Here, we have a book dataset from Alex Cookson. This dataset contains 9,000 children’s books that have been rated from 1-5 stars.</p>
-<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">books</span> <span class="op">&lt;-</span> <span class="fu">read_tsv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/childrens-book-ratings/childrens-books.txt"</span><span class="op">)</span>
+<div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">books</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tacookson/data/master/childrens-book-ratings/childrens-books.txt"</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 9240 Columns: 15</span>
 <span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
 <span class="co">#&gt; Delimiter: "\t"</span>
@@ -232,8 +221,8 @@
 <span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></code></pre></div>
 <p>We can see that <code>rating</code> is a numerical variable, so we can create a histogram to visualize the rating distribution.</p>
 <p>Using the following code, we can create our first and simplest histogram in R!</p>
-<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">books</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">books</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with</span>
@@ -244,18 +233,18 @@
 <p>For the histogram it only requires one numeric variable as input (<code>rating</code> in this case). The function <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> automatically counts the number of numerical values that lie within specific ranges, called bins. Bins are defined by their lower bounds (inclusive); the upper bound is the lower bound of the next bin.</p>
 <p>Looking at the histogram above, we can see that the x-axis (<code>rating</code>) is divided into small blocks (bins) and the y-axis represents the number if observations lie within that block. The warning is telling you there is missing values in the rating. We can ignore this for now.</p>
 </div>
-<div id="other-optional-arguments-4" class="section level3" number="76.2.2">
+<div id="other-optional-arguments-3" class="section level3" number="74.2.2">
 <h3>
-<span class="header-section-number">76.2.2</span> Other Optional Arguments<a class="anchor" aria-label="anchor" href="#other-optional-arguments-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.2.2</span> Other Optional Arguments<a class="anchor" aria-label="anchor" href="#other-optional-arguments-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the geom_histogram function, we can adjust our bins’ size, titles of the histogram, and color of our histogram.</p>
-<div id="bin-size" class="section level4" number="76.2.2.1">
+<div id="bin-size" class="section level4" number="74.2.2.1">
 <h4>
-<span class="header-section-number">76.2.2.1</span> Bin size<a class="anchor" aria-label="anchor" href="#bin-size"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.2.2.1</span> Bin size<a class="anchor" aria-label="anchor" href="#bin-size"><i class="fas fa-link"></i></a>
 </h4>
 <p>We can adjust the bin size of our histogram by setting the optional parameter binwidth.</p>
-<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">books</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">books</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; Warning: Removed 37 rows containing non-finite values</span>
@@ -264,12 +253,12 @@
 <p>Here, I am setting the bin width equal to 1. This means that we divide the rating into bins of range 1. In this case, we have a bin with range [2.5,3.5), [3.5,4.5), and [4.5,5.5). Then, we count the number of ratings that lies within this range. From the above histogram, we can see that there is about 8000 books lies within the range of [3,4).</p>
 <p>Without specifying the binwidth, geom_histogram will automatically find an optimal binwidth.</p>
 </div>
-<div id="color-and-fill" class="section level4" number="76.2.2.2">
+<div id="color-and-fill" class="section level4" number="74.2.2.2">
 <h4>
-<span class="header-section-number">76.2.2.2</span> Color and fill<a class="anchor" aria-label="anchor" href="#color-and-fill"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.2.2.2</span> Color and fill<a class="anchor" aria-label="anchor" href="#color-and-fill"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">books</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb538"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">books</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span><span class="st">"red"</span>, fill <span class="op">=</span> <span class="st">"light blue"</span><span class="op">)</span>
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with</span>
@@ -279,13 +268,13 @@
 <div class="inline-figure"><img src="075-to_ggplot_or_not_to_ggplot-histograms_files/figure-html/color-1.png" width="672"></div>
 <p>The color parameter specify the color of the boundary of each bin and the fill parameter specify the color of the bin. You can create change the color of your histogram to make more unique and appealing.</p>
 </div>
-<div id="title-and-name-of-the-axes" class="section level4" number="76.2.2.3">
+<div id="title-and-name-of-the-axes" class="section level4" number="74.2.2.3">
 <h4>
-<span class="header-section-number">76.2.2.3</span> Title, and name of the axes<a class="anchor" aria-label="anchor" href="#title-and-name-of-the-axes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.2.2.3</span> Title, and name of the axes<a class="anchor" aria-label="anchor" href="#title-and-name-of-the-axes"><i class="fas fa-link"></i></a>
 </h4>
 <p>Using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function in ggplot2 we can change the title and the name of the axes.</p>
-<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">books</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">books</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span><span class="st">"red"</span>, fill <span class="op">=</span> <span class="st">"light blue"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"A historgram of children's book rating"</span>, 
@@ -299,34 +288,34 @@
 </div>
 </div>
 </div>
-<div id="exercises-104" class="section level2" number="76.3">
+<div id="exercises-87" class="section level2" number="74.3">
 <h2>
-<span class="header-section-number">76.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-104"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-87"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-1-23" class="section level3" number="76.3.1">
+<div id="exercise-1-18" class="section level3" number="74.3.1">
 <h3>
-<span class="header-section-number">76.3.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.3.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-18"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please create a histogram for the ratings of the books that are published in 2010
 <strong>Hint: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> in <code>dplyr</code> package maybe helpful</strong></p>
 </div>
-<div id="exercise-2-18" class="section level3" number="76.3.2">
+<div id="exercise-2-15" class="section level3" number="74.3.2">
 <h3>
-<span class="header-section-number">76.3.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-18"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.3.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-15"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please change the bin width of your histogram in Exercise 1 to 0.2</p>
 </div>
-<div id="exercise-3-11" class="section level3" number="76.3.3">
+<div id="exercise-3-9" class="section level3" number="74.3.3">
 <h3>
-<span class="header-section-number">76.3.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.3.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please change the colour and the fill of your histogram in Exercise 1
 You can choose any colour you like from this website: <a href="https://www.rapidtables.com/web/color/RGB_Color.html" class="uri">https://www.rapidtables.com/web/color/RGB_Color.html</a>
 You may use the colour name or the Hex code provided in the website.</p>
 </div>
-<div id="exercise-4-5" class="section level3" number="76.3.4">
+<div id="exercise-4-4" class="section level3" number="74.3.4">
 <h3>
-<span class="header-section-number">76.3.4</span> Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.3.4</span> Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-4"><i class="fas fa-link"></i></a>
 </h3>
 <pre><code>#&gt; Warning: Removed 37 rows containing non-finite values
 #&gt; (stat_bin).</code></pre>
@@ -340,125 +329,166 @@ You may use the colour name or the Hex code provided in the website.</p>
 <!--           allow_retry = TRUE) -->
 <!-- ``` -->
 </div>
-<div id="video-solutions" class="section level3" number="76.3.5">
+<div id="video-solutions" class="section level3" number="74.3.5">
 <h3>
-<span class="header-section-number">76.3.5</span> Video Solutions<a class="anchor" aria-label="anchor" href="#video-solutions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.3.5</span> Video Solutions<a class="anchor" aria-label="anchor" href="#video-solutions"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="https://youtu.be/85R2xZK97o4" alt="Exercise 1"><img src="https://youtu.be/cJHxbn2-R-4" alt="Exercise 2"><img src="https://youtu.be/FOaQIlORfdU" alt="Exercise 3"></p>
 </div>
 </div>
-<div id="common-mistakes-errors-22" class="section level2" number="76.4">
+<div id="common-mistakes-errors-21" class="section level2" number="74.4">
 <h2>
-<span class="header-section-number">76.4</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-22"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.4</span> Common Mistakes &amp; Errors<a class="anchor" aria-label="anchor" href="#common-mistakes-errors-21"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>Make sure your input variable is a numeric variable.</li>
-<li>Make sure you are using <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> to connect the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>, not the pipe operator <code><a href="https://rpkgs.datanovia.com/ggpubr/reference/pipe.html">%&gt;%</a></code>
+<li>Make sure you are using <code>+</code> to connect the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>, not the pipe operator <code>%&gt;%</code>
 </li>
 <li>Check you have closed all the bracket</li>
 </ul>
 </div>
-<div id="next-steps-44" class="section level2" number="76.5">
+<div id="next-steps-42" class="section level2" number="74.5">
 <h2>
-<span class="header-section-number">76.5</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.5</span> Next Steps<a class="anchor" aria-label="anchor" href="#next-steps-42"><i class="fas fa-link"></i></a>
 </h2>
 <p>For next step, you can customize your histogram with different colour, labels and change the line types. You can find examples in this website: <a href="http://www.sthda.com/english/wiki/ggplot2-histogram-plot-quick-start-guide-r-software-and-data-visualization" class="uri">http://www.sthda.com/english/wiki/ggplot2-histogram-plot-quick-start-guide-r-software-and-data-visualization</a></p>
 <p>In this website <a href="https://www.r-graph-gallery.com/histogram.html" class="uri">https://www.r-graph-gallery.com/histogram.html</a>, you can find different types of histogram you can make in R it has codes that you can follow along. On the main page, there are many other types of visual representations you can build in R, such as box plot and scatter plot:<a href="https://www.r-graph-gallery.com/index.html" class="uri">https://www.r-graph-gallery.com/index.html</a></p>
 </div>
-<div id="exercises-105" class="section level2" number="76.6">
+<div id="exercises-88" class="section level2" number="74.6">
 <h2>
-<span class="header-section-number">76.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-105"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-88"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-71" class="section level3" number="76.6.1">
+<div id="question-1-62" class="section level3" number="74.6.1">
 <h3>
-<span class="header-section-number">76.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-71"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-62"><i class="fas fa-link"></i></a>
 </h3>
+<p>A histogram is a visual representation of the distribution of numerical data.
+a. True
+b. False</p>
 </div>
-<div id="question-2-70" class="section level3" number="76.6.2">
+<div id="question-2-60" class="section level3" number="74.6.2">
 <h3>
-<span class="header-section-number">76.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-70"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-60"><i class="fas fa-link"></i></a>
 </h3>
+<p>Histogram can be used for categorical data.
+a. True
+b. False</p>
 </div>
-<div id="question-3-69" class="section level3" number="76.6.3">
+<div id="question-3-61" class="section level3" number="74.6.3">
 <h3>
-<span class="header-section-number">76.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-69"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-61"><i class="fas fa-link"></i></a>
 </h3>
+<p>binwidth is a required parameter for <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>
+a. True
+b. False</p>
 </div>
-<div id="question-4-64" class="section level3" number="76.6.4">
+<div id="question-4-57" class="section level3" number="74.6.4">
 <h3>
-<span class="header-section-number">76.6.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-64"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-57"><i class="fas fa-link"></i></a>
 </h3>
+<p>How do you add title in your plot?
+a. Use labs()
+b. add a title parameter in <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>
+c. add a labs parameter in <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>
+d. add a title parameter in <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code></p>
 </div>
-<div id="question-5-63" class="section level3" number="76.6.5">
+<div id="question-5-56" class="section level3" number="74.6.5">
 <h3>
-<span class="header-section-number">76.6.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-63"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-56"><i class="fas fa-link"></i></a>
 </h3>
+<p>You should always use a larger binwidth when you create a histogram.
+a. True
+b. False</p>
 </div>
-<div id="question-6-63" class="section level3" number="76.6.6">
+<div id="question-6-56" class="section level3" number="74.6.6">
 <h3>
-<span class="header-section-number">76.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-63"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-56"><i class="fas fa-link"></i></a>
 </h3>
+<p>What can you do to customize your histogram? (multiple answer)
+a. Change color of your histogram
+b. Change binwidth of your histogram
+c. Change the shape of your histogram
+d. All of the Above</p>
 </div>
-<div id="question-7-62" class="section level3" number="76.6.7">
+<div id="question-7-54" class="section level3" number="74.6.7">
 <h3>
-<span class="header-section-number">76.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-62"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-54"><i class="fas fa-link"></i></a>
 </h3>
+<p>books %&gt;%
+ggplot(aes(rating)) +
+geom_histogram(color =“red”)</p>
+<p>What does the code produce?
+a. A basic histogram
+b. A red histogram
+c. A red histogram with red fill color
+d. A histogram with boundary of each bin in red</p>
 </div>
-<div id="question-8-62" class="section level3" number="76.6.8">
+<div id="question-8-55" class="section level3" number="74.6.8">
 <h3>
-<span class="header-section-number">76.6.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-62"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-55"><i class="fas fa-link"></i></a>
 </h3>
+<p>How do you change the binwidth of your histogram?
+a. You cannot change your binwidth
+b. add a binwidth parameter in <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>
+c. add a binwidth parameter in <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>
+d. None of the above</p>
 </div>
-<div id="question-9-62" class="section level3" number="76.6.9">
+<div id="question-9-54" class="section level3" number="74.6.9">
 <h3>
-<span class="header-section-number">76.6.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-62"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-54"><i class="fas fa-link"></i></a>
 </h3>
+<p>Histogram tells us which values in the dataset appear most often?
+a. True
+b. False</p>
 </div>
-<div id="question-10-62" class="section level3" number="76.6.10">
+<div id="question-10-54" class="section level3" number="74.6.10">
 <h3>
-<span class="header-section-number">76.6.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-62"><i class="fas fa-link"></i></a>
+<span class="header-section-number">74.6.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-54"><i class="fas fa-link"></i></a>
 </h3>
+<p>histogram is a visual representation of the distribution of a single numerical data.
+a. True
+b. False</p>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></div>
-<div class="next"><a href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></div>
+<div class="prev"><a href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></div>
+<div class="next"><a href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#histograms"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="nav-link" href="#introduction-70"><span class="header-section-number">76.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#histograms"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="nav-link" href="#introduction-68"><span class="header-section-number">74.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#making-and-customizing-histograms"><span class="header-section-number">76.2</span> Making and customizing histograms</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#what-is-a-histogram"><span class="header-section-number">76.2.1</span> What is a histogram?</a></li>
-<li><a class="nav-link" href="#other-optional-arguments-4"><span class="header-section-number">76.2.2</span> Other Optional Arguments</a></li>
+<a class="nav-link" href="#making-and-customizing-histograms"><span class="header-section-number">74.2</span> Making and customizing histograms</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-is-a-histogram"><span class="header-section-number">74.2.1</span> What is a histogram?</a></li>
+<li><a class="nav-link" href="#other-optional-arguments-3"><span class="header-section-number">74.2.2</span> Other Optional Arguments</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-104"><span class="header-section-number">76.3</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercise-1-23"><span class="header-section-number">76.3.1</span> Exercise 1</a></li>
-<li><a class="nav-link" href="#exercise-2-18"><span class="header-section-number">76.3.2</span> Exercise 2</a></li>
-<li><a class="nav-link" href="#exercise-3-11"><span class="header-section-number">76.3.3</span> Exercise 3</a></li>
-<li><a class="nav-link" href="#exercise-4-5"><span class="header-section-number">76.3.4</span> Exercise 4</a></li>
-<li><a class="nav-link" href="#video-solutions"><span class="header-section-number">76.3.5</span> Video Solutions</a></li>
+<a class="nav-link" href="#exercises-87"><span class="header-section-number">74.3</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-18"><span class="header-section-number">74.3.1</span> Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-15"><span class="header-section-number">74.3.2</span> Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-9"><span class="header-section-number">74.3.3</span> Exercise 3</a></li>
+<li><a class="nav-link" href="#exercise-4-4"><span class="header-section-number">74.3.4</span> Exercise 4</a></li>
+<li><a class="nav-link" href="#video-solutions"><span class="header-section-number">74.3.5</span> Video Solutions</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#common-mistakes-errors-22"><span class="header-section-number">76.4</span> Common Mistakes &amp; Errors</a></li>
-<li><a class="nav-link" href="#next-steps-44"><span class="header-section-number">76.5</span> Next Steps</a></li>
+<li><a class="nav-link" href="#common-mistakes-errors-21"><span class="header-section-number">74.4</span> Common Mistakes &amp; Errors</a></li>
+<li><a class="nav-link" href="#next-steps-42"><span class="header-section-number">74.5</span> Next Steps</a></li>
 <li>
-<a class="nav-link" href="#exercises-105"><span class="header-section-number">76.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-71"><span class="header-section-number">76.6.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-70"><span class="header-section-number">76.6.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-69"><span class="header-section-number">76.6.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-64"><span class="header-section-number">76.6.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-63"><span class="header-section-number">76.6.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-63"><span class="header-section-number">76.6.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-62"><span class="header-section-number">76.6.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-62"><span class="header-section-number">76.6.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-62"><span class="header-section-number">76.6.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-62"><span class="header-section-number">76.6.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-88"><span class="header-section-number">74.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-62"><span class="header-section-number">74.6.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-60"><span class="header-section-number">74.6.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-61"><span class="header-section-number">74.6.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-57"><span class="header-section-number">74.6.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-56"><span class="header-section-number">74.6.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-56"><span class="header-section-number">74.6.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-54"><span class="header-section-number">74.6.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-55"><span class="header-section-number">74.6.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-54"><span class="header-section-number">74.6.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-54"><span class="header-section-number">74.6.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +508,7 @@ You may use the colour name or the Hex code provided in the website.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

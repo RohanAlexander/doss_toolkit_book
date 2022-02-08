@@ -103,21 +103,57 @@ You can also create your own packages!
 ## Exercises
 
 ### Question 1
+What is a package
+    a.  Collections of functions or datasets developed by the community
+    b. Built in functions or datasets in R
+    c. A set of file to store your code 
+
 
 ### Question 2
+CRAN is the official repository where the packages are located, and you can install them on your computer.
+    a.  True  
+    b. False
 
 ### Question 3
-
+Why do we want to use packages?
+    a. No, we should not use other people's package
+    b. It helps us to run R more smoothly
+    c.  It increases and expands the tools we can use in R for various tasks
+    d. To have better user interface in R-studio
+    
 ### Question 4
+Can you install packages in the R-studio console?
+    a.  Yes
+    b. No
 
 ### Question 5
-
+Can you install packages in the packages tab on the right side of R-studio?
+    a.  Yes
+    b. No
+    
 ### Question 6
-
+Which code can install the `tidyverse` package?
+    a. `packages(tidyverse)`
+    b. `install.packages(tidyverse)`
+    c.  `install.packages('tidyverse')`
+    d. `install.package('tidyverse')`   
 ### Question 7
+You can create your own packages
+    a.  True
+    b. False
 
 ### Question 8
+`dplyr` is a data visualization package.
+    a.  True
+    b. False
 
 ### Question 9
-
+Does `install.packages("dplyr")` work? 
+    a.  Yes
+    b. No
+    
 ### Question 10
+Does `install.packages(tidyverse)` work?
+    a. Yes
+    b.  No
+

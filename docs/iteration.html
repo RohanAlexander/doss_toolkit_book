@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 99 Iteration | DoSS Toolkit</title>
+<title>Chapter 103 Iteration | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
-<meta name="description" content="Written by ADD NAME and last updated on ADD DATE.  99.1 Introduction   99.2 Exercises  99.2.1 Question 1   99.2.2 Question 2   99.2.3 Question 3   99.2.4 Question 4   99.2.5 Question 5   99.2.6...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
-<meta property="og:title" content="Chapter 99 Iteration | DoSS Toolkit">
+<meta name="description" content="Written by José Casas and last updated on February 2022.  103.1 Introduction When doing analyses or programming, there are many times where you have to repeat the same operation many times on...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 103 Iteration | DoSS Toolkit">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Written by ADD NAME and last updated on ADD DATE.  99.1 Introduction   99.2 Exercises  99.2.1 Question 1   99.2.2 Question 2   99.2.3 Question 3   99.2.4 Question 4   99.2.5 Question 5   99.2.6...">
+<meta property="og:description" content="Written by José Casas and last updated on February 2022.  103.1 Introduction When doing analyses or programming, there are many times where you have to repeat the same operation many times on...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 99 Iteration | DoSS Toolkit">
-<meta name="twitter:description" content="Written by ADD NAME and last updated on ADD DATE.  99.1 Introduction   99.2 Exercises  99.2.1 Question 1   99.2.2 Question 2   99.2.3 Question 3   99.2.4 Question 4   99.2.5 Question 5   99.2.6...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="Chapter 103 Iteration | DoSS Toolkit">
+<meta name="twitter:description" content="Written by José Casas and last updated on February 2022.  103.1 Introduction When doing analyses or programming, there are many times where you have to repeat the same operation many times on...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="active" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="active" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,95 +168,565 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="iteration" class="section level1" number="99">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="iteration" class="section level1" number="103">
 <h1>
-<span class="header-section-number">99</span> Iteration<a class="anchor" aria-label="anchor" href="#iteration"><i class="fas fa-link"></i></a>
+<span class="header-section-number">103</span> Iteration<a class="anchor" aria-label="anchor" href="#iteration"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Written by ADD NAME and last updated on ADD DATE.</em></p>
-<div id="introduction-92" class="section level2" number="99.1">
+<p><em>Written by José Casas and last updated on February 2022.</em></p>
+<div id="introduction-90" class="section level2" number="103.1">
 <h2>
-<span class="header-section-number">99.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-92"><i class="fas fa-link"></i></a>
+<span class="header-section-number">103.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-90"><i class="fas fa-link"></i></a>
 </h2>
+<p>When doing analyses or programming, there are many times where you have to repeat the same operation many times on different inputs. In this lesson, you will learn how to:</p>
+<ul>
+<li>use loops, <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map</a></code>, and many of its derivative functions to iterate a task</li>
+<li>read in many files into R iteratively</li>
+<li>write safe iterations</li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li>Vectors, lists, and indexing</li>
+<li>Functions</li>
+<li>Pipe operator (<code>%&gt;%</code>)</li>
+</ul>
 </div>
-<div id="exercises-136" class="section level2" number="99.2">
+<div id="before-iterating" class="section level2" number="103.2">
 <h2>
-<span class="header-section-number">99.2</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-136"><i class="fas fa-link"></i></a>
+<span class="header-section-number">103.2</span> Before iterating<a class="anchor" aria-label="anchor" href="#before-iterating"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-96" class="section level3" number="99.2.1">
-<h3>
-<span class="header-section-number">99.2.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-96"><i class="fas fa-link"></i></a>
-</h3>
+<p>Before you start writing your code to iterate through a list/vector/etc., you have to understand what’s in there, so that you can account for any variations in your input. One tip for when you want to iterate over many things: try to do it for just one or two things first. When you get a few things working fine, it’s easy to make it into an iteration. This is better than trying to iterate over many things in the first go and wasting a lot of time if (when) something goes wrong.</p>
 </div>
-<div id="question-2-94" class="section level3" number="99.2.2">
-<h3>
-<span class="header-section-number">99.2.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-94"><i class="fas fa-link"></i></a>
-</h3>
+<div id="for-loops" class="section level2" number="103.3">
+<h2>
+<span class="header-section-number">103.3</span> For loops<a class="anchor" aria-label="anchor" href="#for-loops"><i class="fas fa-link"></i></a>
+</h2>
+<p>One way to do iterations is through the classic <em>for</em> loop. In R, for loops have three parts: output (usually a vector or list with enough space allocated in it), sequence (what the for loop will loop over, usually called <code>i</code>), and body (the action that the loop will perform over <code>i</code> iteratively).</p>
+<p>An example of a simple usage of a for loop in R:</p>
+<div class="sourceCode" id="cb717"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">output</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">"double"</span>, length <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="co"># output allocation</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span>                             <span class="co"># sequence</span>
+  <span class="va">output</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>                      <span class="co"># body</span>
+<span class="op">}</span>
+<span class="va">output</span>
+<span class="co">#&gt; [1] 1.000000 1.414214 1.732051 2.000000 2.236068</span></code></pre></div>
+<p>In R, for loops are not used very often, and it is usually preferred to use the “body” as a function and then calling that function using a different method that we’ll talk about below.</p>
 </div>
-<div id="question-3-92" class="section level3" number="99.2.3">
-<h3>
-<span class="header-section-number">99.2.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-92"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-4-84" class="section level3" number="99.2.4">
-<h3>
-<span class="header-section-number">99.2.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-84"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-5-83" class="section level3" number="99.2.5">
-<h3>
-<span class="header-section-number">99.2.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-83"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-6-83" class="section level3" number="99.2.6">
-<h3>
-<span class="header-section-number">99.2.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-83"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-7-82" class="section level3" number="99.2.7">
-<h3>
-<span class="header-section-number">99.2.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-82"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-8-82" class="section level3" number="99.2.8">
-<h3>
-<span class="header-section-number">99.2.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-82"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-9-82" class="section level3" number="99.2.9">
-<h3>
-<span class="header-section-number">99.2.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-82"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="question-10-82" class="section level3" number="99.2.10">
-<h3>
-<span class="header-section-number">99.2.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-82"><i class="fas fa-link"></i></a>
-</h3>
+<div id="purrrs-map" class="section level2" number="103.4">
+<h2>
+<span class="header-section-number">103.4</span> <code>purrr</code>’s <code>map</code><a class="anchor" aria-label="anchor" href="#purrrs-map"><i class="fas fa-link"></i></a>
+</h2>
+<p>Simply put, <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> is a function that applies a function to each element of a list. A basic template of its usage is:
+<code>map(some_list, some_function, ...)</code></p>
+<ul>
+<li>The first input, <code>.x</code>, is your list/vector/etc.</li>
+<li>The second input, <code>.f</code>, is the function to apply to each component of <code>.x</code>.</li>
+</ul>
+<p><code>map</code> always returns a list containing each of the outputs of applying the function <code>.f</code> to each of the elements in <code>.x</code>.</p>
+<p><code>map</code> also has type-specific cousins, which are <code><a href="https://purrr.tidyverse.org/reference/map.html">map_lgl()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html">map_int()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl()</a></code>, and <code><a href="https://purrr.tidyverse.org/reference/map.html">map_chr()</a></code>. These functions return a vector of the type indicated in the name, rather than the lists returned by <code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code>. The types are as follows:</p>
+<ul>
+<li>
+<code><a href="https://purrr.tidyverse.org/reference/map.html">map_lgl()</a></code> → logical vector</li>
+<li>
+<code><a href="https://purrr.tidyverse.org/reference/map.html">map_int()</a></code> → integer vector</li>
+<li>
+<code><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl()</a></code> → double vector</li>
+<li>
+<code><a href="https://purrr.tidyverse.org/reference/map.html">map_chr()</a></code> → character vector</li>
+</ul>
+<p>These type-specific functions will fail if they can’t return a vector of the specified type. This is useful for when you want to control your function so that it doesn’t give you outputs of the wrong type.</p>
+<p>A very simple example of using <code>map</code>:</p>
+<div class="sourceCode" id="cb718"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">9</span>, <span class="fl">16</span><span class="op">)</span>
 
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">sqrt</span><span class="op">)</span> <span class="co"># sqrt is the base R square root function</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] 2</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; [1] 4</span></code></pre></div>
+<p>As you can see, it returns a list containing each of the outputs of applying <code>sqrt</code> to each number in the vector <code>c(4, 9, 16)</code>. We will get to more complex examples soon.</p>
+<p>There are three ways you can specify a function to <code>map</code>:</p>
+<ul>
+<li>The normal way. Calling the function name in <code>map</code>. 
+<code>map(your_input, your_function)</code>
+</li>
+<li>Defining a function inside the <code>map</code> call. 
+<code>map(your_input, function(x) [function body goes here])</code>
+</li>
+<li>Using a formula. Also inside <code>map</code>, using the <code>~</code> symbol and using <code>.x</code> to refer to the input. 
+<code>map(your_input, ~ some_new_function(.x, ...))</code>
+</li>
+</ul>
 </div>
+<div id="maps-other-friends" class="section level2" number="103.5">
+<h2>
+<span class="header-section-number">103.5</span> <code>map</code>’s other friends<a class="anchor" aria-label="anchor" href="#maps-other-friends"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are many variations of the <code>map</code> function, and they all have a specific purpose. Since there are so many, it can get pretty confusing to know which one does what, but you can always refer to the documentation for each one (by typing <code>?</code> before the function name in the R console, e.g. <code>?purrr::map()</code>) or use <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/purrr.pdf">this <code>purrr</code> cheatsheet from RStudio</a> to help you remember.</p>
+<p>Here are some important ones:</p>
+<div id="map_dfr-map_dfc" class="section level3" number="103.5.1">
+<h3>
+<span class="header-section-number">103.5.1</span> <code>map_dfr</code> &amp; <code>map_dfc</code><a class="anchor" aria-label="anchor" href="#map_dfr-map_dfc"><i class="fas fa-link"></i></a>
+</h3>
+<p><code><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr()</a></code> and <code><a href="https://purrr.tidyverse.org/reference/map.html">map_dfc()</a></code> are like the other type-specific <code>map</code> functions, but they are special because they return a <strong>data frame</strong> created by row-binding and column-binding, respectively.</p>
+<p>They are also useful when you want to read in data from multiple files like CSVs or Excel sheets. We will look at an example of that later.</p>
+</div>
+<div id="map2-and-pmap" class="section level3" number="103.5.2">
+<h3>
+<span class="header-section-number">103.5.2</span> <code>map2</code> and <code>pmap</code><a class="anchor" aria-label="anchor" href="#map2-and-pmap"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now, you might be thinking “if <code>map</code> is so good, then why isn’t there a <code>map</code> 2?” And boy oh boy, have I got a function for you.</p>
+<p>With <code><a href="https://purrr.tidyverse.org/reference/map2.html">map2()</a></code>, you can apply a function over two vectors/lists in parallel. A basic template of its usage is:
+<code>map2(first_list, second_list, some_function, ...)</code>
+And the function you pass in (<code>some_function</code> in this example) should have two parameters, for which the two inputs of <code>map2</code> (<code>first_list</code> and <code>second_list</code> in this example) will be used. This makes it easier to make iterations using both data and models, of the form <code>map2(models, datasets, predict)</code>.</p>
+<p><code><a href="https://purrr.tidyverse.org/reference/map2.html">map2()</a></code> also has the same type-specific cousins as <code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code>: <code><a href="https://purrr.tidyverse.org/reference/map2.html">map2_lgl()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map2.html">map2_int()</a></code>, etc.</p>
+<div class="sourceCode" id="cb719"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">odd_numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>
+<span class="va">even_numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>
+
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span><span class="op">(</span><span class="va">odd_numbers</span>, <span class="va">even_numbers</span>, <span class="va">`+`</span><span class="op">)</span> <span class="co"># you can pass in operators as functions!</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [1] 7</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; [1] 11</span></code></pre></div>
+<p>Now, if you need to iterate over two or <em>more</em> lists in parallel, <code>pmap</code> works for that. A basic template of its usage is:
+<code>pmap(list_of_input_lists, some_function, ...)</code>
+Where <code>list_of_input_lists</code> is a (nested) list that contains all the lists you want to use in parallel. And again, the function you pass should have parameters for each of the inputs in the list you pass to <code>pmap</code>.</p>
+<div class="sourceCode" id="cb720"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">odd_numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>
+<span class="va">even_numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>
+<span class="va">more_numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">9</span><span class="op">)</span>
+
+<span class="va">all_numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">odd_numbers</span>, <span class="va">even_numbers</span>, <span class="va">more_numbers</span><span class="op">)</span>
+
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span><span class="op">(</span><span class="va">all_numbers</span>, <span class="va">sum</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] 10</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [1] 15</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; [1] 20</span></code></pre></div>
+</div>
+<div id="reduce" class="section level3" number="103.5.3">
+<h3>
+<span class="header-section-number">103.5.3</span> <code>reduce</code><a class="anchor" aria-label="anchor" href="#reduce"><i class="fas fa-link"></i></a>
+</h3>
+<p>With <code>reduce</code>, you can combine the elements of a list/vector into a single value, through a specified function, iteratively. That is, it takes the first two elements, combines them through the function (e.g. <code>+</code> to sum them), and then combines that result with the next element, and so on. An example of its usage is:</p>
+<div class="sourceCode" id="cb721"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">`+`</span><span class="op">)</span> <span class="co"># same as saying (2 + 3) + 4</span>
+<span class="co">#&gt; [1] 9</span>
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">`^`</span><span class="op">)</span> <span class="co"># same as (2^3)^4</span>
+<span class="co">#&gt; [1] 4096</span></code></pre></div>
+<p>You can also specify the order in which to reduce the list</p>
+<div class="sourceCode" id="cb722"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">`^`</span>, .dir <span class="op">=</span> <span class="st">"backward"</span><span class="op">)</span> <span class="co"># same as 2^(3^4)</span>
+<span class="co">#&gt; [1] 2.417852e+24</span></code></pre></div>
+</div>
+<div id="walk" class="section level3" number="103.5.4">
+<h3>
+<span class="header-section-number">103.5.4</span> <code>walk</code><a class="anchor" aria-label="anchor" href="#walk"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>walk</code> is for when you don’t care about the return value of a function, and only want to use the function for its process. For example, if you wanted to generate and save an image of a <code>ggplot</code> graph of 50 different data frames, or save multiple cleaned data frames to CSV files. These tasks would not have a return value, but they still do something.</p>
+<p>You use it in the same way as <code>map</code>, like this:</p>
+<div class="sourceCode" id="cb723"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">25</span>, <span class="fl">9</span><span class="op">)</span>
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">walk</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">print</span><span class="op">)</span>
+<span class="co">#&gt; [1] 4</span>
+<span class="co">#&gt; [1] 25</span>
+<span class="co">#&gt; [1] 9</span></code></pre></div>
+<p>As an example, imagine we have many data frames with Weight and Height measurements from many dogs of a different breed in each data frame. We will create a function that will generate a scatterplot of a certain data frame, and save the image with the data frame’s name using <code>walk</code>.</p>
+<div class="sourceCode" id="cb724"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Define the function</span>
+<span class="va">generate_scatterplot</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dat</span><span class="op">)</span><span class="op">{</span> <span class="co"># here dat is the dataframe parameter</span>
+  <span class="va">dat</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Weight</span>, y <span class="op">=</span> <span class="va">Height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="co"># notice it is %&gt;% and not + here!</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html">substitute</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>, <span class="st">".png"</span><span class="op">)</span><span class="op">)</span>
+    <span class="co"># substitue(dat) return the name of the argument given as dat</span>
+<span class="op">}</span>
+
+<span class="co"># Use walk to save images to computer</span>
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">walk</a></span><span class="op">(</span><span class="va">some_list_of_dataframes</span>, <span class="va">generate_scatterplot</span><span class="op">)</span></code></pre></div>
+<p>There are different ways to do this, of course. For example, you could separate the steps into first generating all the plots, and then saving all of them as images.</p>
+<p><code>walk</code> also has parallel versions: <code>walk2</code> and <code>pwalk</code>, which work in the same way as <code>map2</code> and <code>pmap</code>.</p>
+<p><code>walk</code>, <code>walk2</code>, and <code>pwalk</code> all return the first argument (invisibly, so it is not printed as output), this is useful for when you want to use them in the middle of a pipeline, like this:</p>
+<div class="sourceCode" id="cb725"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">25</span>, <span class="fl">9</span><span class="op">)</span>
+
+<span class="va">numbers</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
+  <span class="va">sqrt</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="co"># calculate square root of numbers</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">walk</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="co"># print all numbers one by one</span>
+  <span class="va">sqrt</span> <span class="co"># calculate square root again</span>
+<span class="co">#&gt; [1] 2</span>
+<span class="co">#&gt; [1] 5</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; [1] 1.414214 2.236068 1.732051</span></code></pre></div>
+</div>
+</div>
+<div id="reading-in-many-files" class="section level2" number="103.6">
+<h2>
+<span class="header-section-number">103.6</span> Reading in many files<a class="anchor" aria-label="anchor" href="#reading-in-many-files"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most times, when working in R you need to load in your data from some source, and that source is usually a CSV or Excel file. This can easily be done with <code>read.csv</code> (also <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code>) or <code><a href="https://readxl.tidyverse.org/reference/read_excel.html">readxl::read_excel</a></code>, respectively. Whenever you have a directory with many different files that you want to load into R, you can save a lot of time by doing do iteratively!</p>
+<p>A simple way to do this is to use the <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code> function to get a list of all the file names you want to read in. You can use some simple regex in <code>list.files</code> to indicate that you only want files with a specific type, like .csv or .xlsx.</p>
+<div class="sourceCode" id="cb726"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">files_to_read</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data/"</span>, pattern <span class="op">=</span> <span class="st">"*.csv"</span><span class="op">)</span></code></pre></div>
+<p>Here, <code>path = "data/"</code> means that it should look inside a folder called ‘data,’ and <code>pattern = "*.csv"</code> means that it will select all file names that end in ‘.csv.’</p>
+<p>Then, you can use <code>map</code> to iterate reading all the names in the list:</p>
+<div class="sourceCode" id="cb727"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">files_to_read</span>, <span class="va">read.csv</span><span class="op">)</span></code></pre></div>
+<p>Which will give you a list of data frames of each of the CSV files in the ‘data’ folder. If you wanted to combine them all into one, you can use a function like <code>bind_rows</code>.</p>
+<p>Another quick way to do this is by using <code>map_dfr</code>, which will output a new data frame created by merging all the elements by row automatically:</p>
+<div class="sourceCode" id="cb728"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">files_to_read</span>, <span class="va">read.csv</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="writing-safe-iterations" class="section level2" number="103.7">
+<h2>
+<span class="header-section-number">103.7</span> Writing safe iterations<a class="anchor" aria-label="anchor" href="#writing-safe-iterations"><i class="fas fa-link"></i></a>
+</h2>
+<p>A very useful thing from <code>purrr</code> is the <code><a href="https://purrr.tidyverse.org/reference/safely.html">safely()</a></code> function. It works by taking a function and returning a list with two elements:</p>
+<ul>
+<li>
+<code>result</code>: the normal result of the function if there were no errors (otherwise it is <code>NULL</code>)</li>
+<li>
+<code>error</code>: an error object if there was an error (otherwise it is <code>NULL</code>) Note that it will only have one or the other</li>
+</ul>
+<p>This is specially useful for when you are working with really big lists or inputs that take a long time to run. This way, if there is an error along the way, your code will take a note of the error and it will keep going so you won’t lose all your progress.</p>
+<div class="sourceCode" id="cb729"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">safe_sqrt</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/safely.html">safely</a></span><span class="op">(</span><span class="va">sqrt</span><span class="op">)</span> <span class="co"># pass in the function sqrt</span>
+<span class="fu">safe_sqrt</span><span class="op">(</span><span class="fl">9</span><span class="op">)</span> <span class="co"># will give no error</span>
+<span class="co">#&gt; $result</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $error</span>
+<span class="co">#&gt; NULL</span>
+<span class="fu">safe_sqrt</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="co"># will give an error</span>
+<span class="co">#&gt; $result</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $error</span>
+<span class="co">#&gt; &lt;simpleError in .Primitive("sqrt")(x): non-numeric argument to mathematical function&gt;</span></code></pre></div>
+<p><code>safely</code> works with <code>map</code> too:</p>
+<div class="sourceCode" id="cb730"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">16</span>, <span class="st">"abc"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">safe_sqrt</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [[1]]$result</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[1]]$error</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [[2]]$result</span>
+<span class="co">#&gt; [1] 4</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]$error</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; [[3]]$result</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]$error</span>
+<span class="co">#&gt; &lt;simpleError in .Primitive("sqrt")(x): non-numeric argument to mathematical function&gt;</span></code></pre></div>
+<p>So you can see how it’s useful.</p>
+<p>And, if you wanted to get a list with just the results and another with just the errors, you can use <code><a href="https://purrr.tidyverse.org/reference/transpose.html">transpose()</a></code>:</p>
+<div class="sourceCode" id="cb731"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">safe_sqrt</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/transpose.html">transpose</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; $result</span>
+<span class="co">#&gt; $result[[1]]</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $result[[2]]</span>
+<span class="co">#&gt; [1] 4</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $result[[3]]</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $error</span>
+<span class="co">#&gt; $error[[1]]</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $error[[2]]</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $error[[3]]</span>
+<span class="co">#&gt; &lt;simpleError in .Primitive("sqrt")(x): non-numeric argument to mathematical function&gt;</span></code></pre></div>
+<p>If you don’t care about errors, then you can use the simpler function <code><a href="https://purrr.tidyverse.org/reference/safely.html">possibly()</a></code>. With <code><a href="https://purrr.tidyverse.org/reference/safely.html">possibly()</a></code>, you can specify a default value for when it encounters an error.</p>
+<div class="sourceCode" id="cb732"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">possibly_sqrt</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/safely.html">possibly</a></span><span class="op">(</span><span class="va">sqrt</span>, <span class="cn">NA</span><span class="op">)</span>
+
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">possibly_sqrt</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [1] 4</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; [1] NA</span>
+
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">possibly_sqrt</span><span class="op">)</span> <span class="co"># want something simpler? use map_dbl()</span>
+<span class="co">#&gt; [1]  3  4 NA</span></code></pre></div>
+<p>If you want to save the actual printed output, warnings, and messages, you can use <code><a href="https://purrr.tidyverse.org/reference/safely.html">quietly()</a></code>. For example:</p>
+<div class="sourceCode" id="cb733"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">numbers</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">9</span>, <span class="op">-</span><span class="fl">10</span><span class="op">)</span> <span class="co"># sqrt(-10) gives the warning "NaNs produced"</span>
+<span class="va">quiet_sqrt</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/safely.html">quietly</a></span><span class="op">(</span><span class="va">sqrt</span><span class="op">)</span>
+
+<span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">quiet_sqrt</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [[1]]$result</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[1]]$output</span>
+<span class="co">#&gt; [1] ""</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[1]]$warnings</span>
+<span class="co">#&gt; character(0)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[1]]$messages</span>
+<span class="co">#&gt; character(0)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [[2]]$result</span>
+<span class="co">#&gt; [1] NaN</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]$output</span>
+<span class="co">#&gt; [1] ""</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]$warnings</span>
+<span class="co">#&gt; [1] "NaNs produced"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]$messages</span>
+<span class="co">#&gt; character(0)</span></code></pre></div>
+</div>
+<div id="notes" class="section level2" number="103.8">
+<h2>
+<span class="header-section-number">103.8</span> Notes<a class="anchor" aria-label="anchor" href="#notes"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code> is basically the same as the base R function <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>, but its syntax is more consistent with the rest of the purrr functions and you can use the <code>.f</code> shortcut in the function parameter.</p>
+<p><code><a href="https://purrr.tidyverse.org/reference/safely.html">safely()</a></code> is similar to the base R function <code><a href="https://rdrr.io/r/base/try.html">try()</a></code>, but <code><a href="https://rdrr.io/r/base/try.html">try()</a></code> can be more difficult to work with since its output is less predictable.</p>
+</div>
+<div id="exercises-114" class="section level2" number="103.9">
+<h2>
+<span class="header-section-number">103.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-114"><i class="fas fa-link"></i></a>
+</h2>
+<div id="question-1-80" class="section level3" number="103.9.1">
+<h3>
+<span class="header-section-number">103.9.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-80"><i class="fas fa-link"></i></a>
+</h3>
+<p>What will be the output on the following code?</p>
+<pre><code>output = vector(mode = "double", length = 3)
+for(i in 1:3) {
+  output[[i]] = i - 1
+}
+output</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>0 0 0</li>
+<li>-1 0 1</li>
+<li>0 1 2</li>
+<li>It will give an error.</li>
+</ol>
+</div>
+<div id="question-2-78" class="section level3" number="103.9.2">
+<h3>
+<span class="header-section-number">103.9.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-78"><i class="fas fa-link"></i></a>
+</h3>
+<p>What will be the output of the following code?</p>
+<pre><code>map_lgl(c(1, 2, 3), sqrt)</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>1.000000 1.414214 1.732051</li>
+<li>1 1 1</li>
+<li>1 1 0</li>
+<li>It will give an error.</li>
+</ol>
+</div>
+<div id="question-3-79" class="section level3" number="103.9.3">
+<h3>
+<span class="header-section-number">103.9.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-79"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the following function calls in <code>map</code> gives an error?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>map(c(1, 2, 3), sum)</code></li>
+<li><code>map(c(1, 2, 3), function(x) x + 1)</code></li>
+<li><code>map(c(1, 2, 3), ~ .x + 1)</code></li>
+<li>None will give an error.</li>
+</ol>
+</div>
+<div id="question-4-75" class="section level3" number="103.9.4">
+<h3>
+<span class="header-section-number">103.9.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-75"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the options will <em>NOT</em> give the following output <em>vector</em>?</p>
+<pre><code>## 1 2 3</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li><code>map(c(1, 2, 3), sum)</code></li>
+<li><code>map_dbl(c(1, 2, 3), sum)</code></li>
+<li><code>map_dbl(c(1, 2, 3), ~ .x)</code></li>
+<li>All of them will give that output.</li>
+</ol>
+</div>
+<div id="question-5-74" class="section level3" number="103.9.5">
+<h3>
+<span class="header-section-number">103.9.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-74"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the options will give the following output?</p>
+<pre><code>## [[1]]
+## [1] 3
+## 
+## [[2]]
+## [1] 7
+## 
+## [[3]]
+## [1] 11</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>map2(c(1, 3, 5), c(2, 4, 6),</code> `<code>+</code>`<code>)</code>
+</li>
+<li>
+<code>pmap(list(c(1, 3, 5), c(2, 4, 6)),</code> `<code>+</code>`<code>)</code>
+</li>
+<li>Both a and b.</li>
+<li>None.</li>
+</ol>
+</div>
+<div id="question-6-74" class="section level3" number="103.9.6">
+<h3>
+<span class="header-section-number">103.9.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-74"><i class="fas fa-link"></i></a>
+</h3>
+<p>Are the following two lines equivalent?</p>
+<pre><code>reduce(c(2, -3, .4), `+` )
+reduce(c(2, -3, .4), `+`, .dir = "backward")</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Yes</li>
+<li>No</li>
+</ol>
+</div>
+<div id="question-7-72" class="section level3" number="103.9.7">
+<h3>
+<span class="header-section-number">103.9.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-72"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the output of the following code?</p>
+<pre><code>out1 = map(c("aa"), ~ paste0(.x, "a"))
+out2 = map_chr(c("aa"), ~ paste0(.x, "a"))
+
+out1 == out2
+typeof(out1) == typeof(out2)</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>TRUE, FALSE</li>
+<li>TRUE, TRUE</li>
+<li>FALSE, FALSE</li>
+<li>It will give an error.</li>
+</ol>
+</div>
+<div id="question-8-73" class="section level3" number="103.9.8">
+<h3>
+<span class="header-section-number">103.9.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-73"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which option will give the following output?</p>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>map_dbl(c(1, 2, 3), ~ .x)</li>
+<li>map_dbl(c(1, 2, 3), print)</li>
+<li>walk(c(1, 2, 3), print)</li>
+<li>All of them.</li>
+</ol>
+</div>
+<div id="question-9-72" class="section level3" number="103.9.9">
+<h3>
+<span class="header-section-number">103.9.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-72"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which function could you use if you wanted to know whether there was an error in your summations?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>safely(sum, NULL)</code></li>
+<li><code>possibly(sum, NULL)</code></li>
+<li><code>quietly(sum)</code></li>
+<li>All of them</li>
+</ol>
+</div>
+<div id="question-10-72" class="section level3" number="103.9.10">
+<h3>
+<span class="header-section-number">103.9.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-72"><i class="fas fa-link"></i></a>
+</h3>
+<p>Which of the following options would successfully sum up all the elements in <code>numbers = c(1, 2, 3)</code>?</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>map(numbers, sum)</code></li>
+<li>
+<code>map(numbers,</code> `<code>+</code>`<code>)</code>
+</li>
+<li><code>reduce(numbers, sum)</code></li>
+<li>None.</li>
+</ol>
+</div>
+</div>
+<div id="references-9" class="section level2" number="103.10">
+<h2>
+<span class="header-section-number">103.10</span> References<a class="anchor" aria-label="anchor" href="#references-9"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Iteration | R for Data Science (<a href="https://r4ds.had.co.nz/iteration.html">r4ds.had.co.nz/iteration.html</a>)</li>
+<li>purrr tutorial: Lessons and Examples (<a href="https://jennybc.github.io/purrr-tutorial/">jennybc.github.io/purrr-tutorial</a>)</li>
+<li>Apply a function to each element of a list or atomic vector — map | purrr (<a href="https://purrr.tidyverse.org/reference/map.html">purrr.tidyverse.org/reference/map</a>)</li>
+<li>Other purrr functions | Functional Programming (<a href="https://dcl-prog.stanford.edu/purrr-extras.html">dcl-prog.stanford.edu/purrr-extras.html</a>)</li>
+</ul>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></div>
-<div class="next"><a href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></div>
+<div class="prev"><a href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></div>
+<div class="next"><a href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#iteration"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="nav-link" href="#introduction-92"><span class="header-section-number">99.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#iteration"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="nav-link" href="#introduction-90"><span class="header-section-number">103.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#before-iterating"><span class="header-section-number">103.2</span> Before iterating</a></li>
+<li><a class="nav-link" href="#for-loops"><span class="header-section-number">103.3</span> For loops</a></li>
+<li><a class="nav-link" href="#purrrs-map"><span class="header-section-number">103.4</span> purrr’s map</a></li>
 <li>
-<a class="nav-link" href="#exercises-136"><span class="header-section-number">99.2</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-96"><span class="header-section-number">99.2.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-94"><span class="header-section-number">99.2.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-92"><span class="header-section-number">99.2.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-84"><span class="header-section-number">99.2.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-83"><span class="header-section-number">99.2.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-83"><span class="header-section-number">99.2.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-82"><span class="header-section-number">99.2.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-82"><span class="header-section-number">99.2.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-82"><span class="header-section-number">99.2.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-82"><span class="header-section-number">99.2.10</span> Question 10</a></li>
+<a class="nav-link" href="#maps-other-friends"><span class="header-section-number">103.5</span> map’s other friends</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#map_dfr-map_dfc"><span class="header-section-number">103.5.1</span> map_dfr &amp; map_dfc</a></li>
+<li><a class="nav-link" href="#map2-and-pmap"><span class="header-section-number">103.5.2</span> map2 and pmap</a></li>
+<li><a class="nav-link" href="#reduce"><span class="header-section-number">103.5.3</span> reduce</a></li>
+<li><a class="nav-link" href="#walk"><span class="header-section-number">103.5.4</span> walk</a></li>
 </ul>
 </li>
+<li><a class="nav-link" href="#reading-in-many-files"><span class="header-section-number">103.6</span> Reading in many files</a></li>
+<li><a class="nav-link" href="#writing-safe-iterations"><span class="header-section-number">103.7</span> Writing safe iterations</a></li>
+<li><a class="nav-link" href="#notes"><span class="header-section-number">103.8</span> Notes</a></li>
+<li>
+<a class="nav-link" href="#exercises-114"><span class="header-section-number">103.9</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-80"><span class="header-section-number">103.9.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-78"><span class="header-section-number">103.9.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-79"><span class="header-section-number">103.9.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-75"><span class="header-section-number">103.9.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-74"><span class="header-section-number">103.9.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-74"><span class="header-section-number">103.9.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-72"><span class="header-section-number">103.9.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-73"><span class="header-section-number">103.9.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-72"><span class="header-section-number">103.9.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-72"><span class="header-section-number">103.9.10</span> Question 10</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#references-9"><span class="header-section-number">103.10</span> References</a></li>
 </ul>
 
       <div class="book-extra">
@@ -285,7 +744,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

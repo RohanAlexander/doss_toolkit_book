@@ -7,16 +7,16 @@
 <title>Chapter 70 Regular expressions | DoSS Toolkit</title>
 <meta name="author" content="Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu">
 <meta name="description" content="Written by Shirley Deng and last updated on 7 October 2021. To use the stringr package, we can describe patterns in strings using regular expressions, or regex. This section will outline a variety...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 70 Regular expressions | DoSS Toolkit">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Written by Shirley Deng and last updated on 7 October 2021. To use the stringr package, we can describe patterns in strings using regular expressions, or regex. This section will outline a variety...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 70 Regular expressions | DoSS Toolkit">
 <meta name="twitter:description" content="Written by Shirley Deng and last updated on 7 October 2021. To use the stringr package, we can describe patterns in strings using regular expressions, or regex. This section will outline a variety...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 </head>
@@ -117,61 +117,50 @@
 <li><a class="" href="working-with-dates.html"><span class="header-section-number">69</span> Working with dates</a></li>
 <li><a class="active" href="regular-expressions.html"><span class="header-section-number">70</span> Regular expressions</a></li>
 <li><a class="" href="janitor.html"><span class="header-section-number">71</span> janitor</a></li>
-<li><a class="" href="tidyr-package.html"><span class="header-section-number">72</span> tidyr package</a></li>
 <li class="book-part">To ggplot or not to ggplot</li>
-<li><a class="" href="introduction-68.html"><span class="header-section-number">73</span> Introduction</a></li>
-<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">74</span> Overview of ggplot2</a></li>
-<li><a class="" href="bar-charts.html"><span class="header-section-number">75</span> Bar charts</a></li>
-<li><a class="" href="histograms.html"><span class="header-section-number">76</span> Histograms</a></li>
-<li><a class="" href="scatter-plots.html"><span class="header-section-number">77</span> Scatter plots</a></li>
-<li><a class="" href="various-useful-options.html"><span class="header-section-number">78</span> Various useful options</a></li>
-<li><a class="" href="saving-graphs.html"><span class="header-section-number">79</span> Saving graphs</a></li>
-<li><a class="" href="gganimate.html"><span class="header-section-number">80</span> gganimate</a></li>
-<li><a class="" href="some-other-geom.html"><span class="header-section-number">81</span> Some other geom</a></li>
-<li><a class="" href="some-geom.html"><span class="header-section-number">82</span> some geom</a></li>
+<li><a class="" href="introduction-67.html"><span class="header-section-number">72</span> Introduction</a></li>
+<li><a class="" href="overview-of-ggplot2.html"><span class="header-section-number">73</span> Overview of ggplot2</a></li>
+<li><a class="" href="histograms.html"><span class="header-section-number">74</span> Histograms</a></li>
+<li><a class="" href="scatter-plots.html"><span class="header-section-number">75</span> Scatter plots</a></li>
+<li><a class="" href="various-useful-options.html"><span class="header-section-number">76</span> Various useful options</a></li>
+<li><a class="" href="saving-graphs.html"><span class="header-section-number">77</span> Saving graphs</a></li>
+<li><a class="" href="gganimate.html"><span class="header-section-number">78</span> gganimate</a></li>
+<li><a class="" href="some-other-geom.html"><span class="header-section-number">79</span> Some other geom</a></li>
+<li><a class="" href="other-geoms-2.html"><span class="header-section-number">80</span> other geoms 2</a></li>
+<li><a class="" href="examples-15.html"><span class="header-section-number">81</span> Examples</a></li>
+<li><a class="" href="exercises-96.html"><span class="header-section-number">82</span> Exercises</a></li>
+<li><a class="" href="exercise-1-20.html"><span class="header-section-number">83</span> Exercise 1</a></li>
+<li><a class="" href="exercise-2-17.html"><span class="header-section-number">84</span> Exercise 2</a></li>
+<li><a class="" href="exercise-3-10.html"><span class="header-section-number">85</span> Exercise 3</a></li>
+<li><a class="" href="exercise-4-5.html"><span class="header-section-number">86</span> Exercise 4</a></li>
 <li class="book-part">R Marky Markdown and the Funky Docs</li>
-<li><a class="" href="introduction-76.html"><span class="header-section-number">83</span> Introduction</a></li>
-<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">84</span> Introduction to R Markdown</a></li>
-<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">85</span> Top Matter: Title, Date, Author, Abstract</a></li>
-<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">86</span> Tables: kable, kableextra, and gt</a></li>
-<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">87</span> Multiple plots with patchwork</a></li>
-<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">88</span> References and Bibtex</a></li>
-<li><a class="" href="pdf-outputs.html"><span class="header-section-number">89</span> PDF outputs</a></li>
-<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">90</span> here and filepaths</a></li>
+<li><a class="" href="introduction-74.html"><span class="header-section-number">87</span> Introduction</a></li>
+<li><a class="" href="introduction-to-r-markdown.html"><span class="header-section-number">88</span> Introduction to R Markdown</a></li>
+<li><a class="" href="top-matter-title-date-author-abstract.html"><span class="header-section-number">89</span> Top Matter: Title, Date, Author, Abstract</a></li>
+<li><a class="" href="tables-kable-kableextra-and-gt.html"><span class="header-section-number">90</span> Tables: kable, kableextra, and gt</a></li>
+<li><a class="" href="multiple-plots-with-patchwork.html"><span class="header-section-number">91</span> Multiple plots with patchwork</a></li>
+<li><a class="" href="references-and-bibtex.html"><span class="header-section-number">92</span> References and Bibtex</a></li>
+<li><a class="" href="pdf-outputs.html"><span class="header-section-number">93</span> PDF outputs</a></li>
+<li><a class="" href="here-and-filepaths.html"><span class="header-section-number">94</span> here and filepaths</a></li>
 <li class="book-part">Git outta here</li>
-<li><a class="" href="introduction-84.html"><span class="header-section-number">91</span> Introduction</a></li>
-<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">92</span> What is version control and GitHub?</a></li>
-<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">93</span> Git: pull, status, add, commit, push</a></li>
-<li><a class="" href="branches-in-github.html"><span class="header-section-number">94</span> Branches in GitHub</a></li>
-<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">95</span> Dealing with conflicts</a></li>
-<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">96</span> Putting (G)it All together in RStudio</a></li>
-<li><a class="" href="projects-issues.html"><span class="header-section-number">97</span> Projects issues</a></li>
+<li><a class="" href="introduction-82.html"><span class="header-section-number">95</span> Introduction</a></li>
+<li><a class="" href="what-is-version-control-and-github.html"><span class="header-section-number">96</span> What is version control and GitHub?</a></li>
+<li><a class="" href="git-pull-status-add-commit-push.html"><span class="header-section-number">97</span> Git: pull, status, add, commit, push</a></li>
+<li><a class="" href="branches-in-github.html"><span class="header-section-number">98</span> Branches in GitHub</a></li>
+<li><a class="" href="dealing-with-conflicts.html"><span class="header-section-number">99</span> Dealing with conflicts</a></li>
+<li><a class="" href="putting-git-all-together-in-rstudio.html"><span class="header-section-number">100</span> Putting (G)it All together in RStudio</a></li>
+<li><a class="" href="projects-issues.html"><span class="header-section-number">101</span> Projects issues</a></li>
 <li class="book-part">Indistinguishable from magic</li>
-<li><a class="" href="introduction-91.html"><span class="header-section-number">98</span> Introduction</a></li>
-<li><a class="" href="iteration.html"><span class="header-section-number">99</span> Iteration</a></li>
-<li><a class="" href="coding-style.html"><span class="header-section-number">100</span> Coding style</a></li>
-<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">101</span> Static maps using ggmap</a></li>
-<li><a class="" href="writing-r-packages.html"><span class="header-section-number">102</span> Writing R Packages</a></li>
-<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">103</span> Writing R Packages II</a></li>
-<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">104</span> Getting started with Blogdown</a></li>
-<li><a class="" href="postcards.html"><span class="header-section-number">105</span> postcards</a></li>
-<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">106</span> Getting started with Shiny</a></li>
-<li><a class="" href="writing-a-cv.html"><span class="header-section-number">107</span> Writing a CV</a></li>
-<li><a class="" href="tidymodels.html"><span class="header-section-number">108</span> tidymodels</a></li>
-<li><a class="" href="leaflet.html"><span class="header-section-number">109</span> leaflet</a></li>
-<li><a class="" href="diagrammer.html"><span class="header-section-number">110</span> diagrammer</a></li>
-<li class="book-part">Specialised topics</li>
-<li><a class="" href="overview-15.html"><span class="header-section-number">111</span> Overview</a></li>
-<li><a class="" href="stan.html"><span class="header-section-number">112</span> Stan</a></li>
-<li><a class="" href="devtools.html"><span class="header-section-number">113</span> devtools</a></li>
-<li><a class="" href="usethis.html"><span class="header-section-number">114</span> usethis</a></li>
-<li><a class="" href="testthat.html"><span class="header-section-number">115</span> testthat</a></li>
-<li><a class="" href="tidytext-and-nlp.html"><span class="header-section-number">116</span> Tidytext and NLP</a></li>
-<li><a class="" href="oop.html"><span class="header-section-number">117</span> OOP</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">118</span> Functional programming</a></li>
-<li><a class="" href="sql.html"><span class="header-section-number">119</span> SQL</a></li>
-<li><a class="" href="python.html"><span class="header-section-number">120</span> Python</a></li>
-<li><a class="" href="c-1.html"><span class="header-section-number">121</span> C++</a></li>
+<li><a class="" href="introduction-89.html"><span class="header-section-number">102</span> Introduction</a></li>
+<li><a class="" href="iteration.html"><span class="header-section-number">103</span> Iteration</a></li>
+<li><a class="" href="coding-style.html"><span class="header-section-number">104</span> Coding style</a></li>
+<li><a class="" href="static-maps-using-ggmap.html"><span class="header-section-number">105</span> Static maps using ggmap</a></li>
+<li><a class="" href="writing-r-packages.html"><span class="header-section-number">106</span> Writing R Packages</a></li>
+<li><a class="" href="writing-r-packages-ii.html"><span class="header-section-number">107</span> Writing R Packages II</a></li>
+<li><a class="" href="getting-started-with-blogdown.html"><span class="header-section-number">108</span> Getting started with Blogdown</a></li>
+<li><a class="" href="distill-and-postcards.html"><span class="header-section-number">109</span> Distill and postcards</a></li>
+<li><a class="" href="getting-started-with-shiny.html"><span class="header-section-number">110</span> Getting started with Shiny</a></li>
+<li><a class="" href="tidymodels.html"><span class="header-section-number">111</span> tidymodels</a></li>
 </ul>
 
         <div class="book-extra">
@@ -197,30 +186,30 @@
 <p>Say we’re interested in seeing how many different types of berries are on our list.</p>
 <p>We can match exact strings by simply using them as the <code>pattern</code> argument in our chosen <code>stringr</code> function. Here, we are using <code><a href="https://stringr.tidyverse.org/reference/str_subset.html">stringr::str_subset()</a></code></p>
 <div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"berries"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"berries"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "strawberries" "blueberries"</span></code></pre></div>
 </div>
 <div id="wrapping-our-package" class="section level2" number="70.2">
 <h2>
 <span class="header-section-number">70.2</span> Wrapping our package<a class="anchor" aria-label="anchor" href="#wrapping-our-package"><i class="fas fa-link"></i></a>
 </h2>
-<p>When we use a plain string for the <code>pattern</code> argument, R reads it by wrapping it in the <code><a href="https://rdrr.io/r/base/regex.html">regex()</a></code> function.</p>
+<p>When we use a plain string for the <code>pattern</code> argument, R reads it by wrapping it in the <code><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex()</a></code> function.</p>
 <div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="fu"><a href="https://rdrr.io/r/base/regex.html">regex</a></span><span class="op">(</span><span class="st">"berries"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"berries"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "strawberries" "blueberries"</span></code></pre></div>
-<p>Notice that whether we use <code><a href="https://stringr.tidyverse.org/reference/str_subset.html">stringr::str_subset()</a></code> with <code>"berries"</code> or <code><a href="https://rdrr.io/r/base/regex.html">regex("berries")</a></code> as our pattern argument, the results are the same.</p>
+<p>Notice that whether we use <code><a href="https://stringr.tidyverse.org/reference/str_subset.html">stringr::str_subset()</a></code> with <code>"berries"</code> or <code>regex("berries")</code> as our pattern argument, the results are the same.</p>
 </div>
 <div id="insensitive-about-cases" class="section level2" number="70.3">
 <h2>
 <span class="header-section-number">70.3</span> Insensitive about cases<a class="anchor" aria-label="anchor" href="#insensitive-about-cases"><i class="fas fa-link"></i></a>
 </h2>
-<p>Notice that in the above examples, <code>str_subset()</code> was case sensitive and did not return the <code>"Mixed Berries"</code> item in our <code>groceries</code> list.</p>
-<p>However, if we include the argument <code>ignore_case=T</code> in <code><a href="https://rdrr.io/r/base/regex.html">regex()</a></code>, it will.</p>
+<p>Notice that in the above examples, <code><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset()</a></code> was case sensitive and did not return the <code>"Mixed Berries"</code> item in our <code>groceries</code> list.</p>
+<p>However, if we include the argument <code>ignore_case=T</code> in <code><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex()</a></code>, it will.</p>
 <div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="fu"><a href="https://rdrr.io/r/base/regex.html">regex</a></span><span class="op">(</span><span class="st">"Berries"</span>, ignore_case<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"Berries"</span>, ignore_case<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "strawberries"         "blueberries"         </span>
 <span class="co">#&gt; [3] "frozen Mixed-Berries"</span></code></pre></div>
-<p>Note: if we want to use options other than the default for <code><a href="https://rdrr.io/r/base/regex.html">regex()</a></code>, we have to explicitly wrap our pattern criteria in the <code><a href="https://rdrr.io/r/base/regex.html">regex()</a></code> function.</p>
+<p>Note: if we want to use options other than the default for <code><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex()</a></code>, we have to explicitly wrap our pattern criteria in the <code><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex()</a></code> function.</p>
 </div>
 <div id="period." class="section level2" number="70.4">
 <h2>
@@ -229,13 +218,13 @@
 <p>Notice that the item <code>"frozen raspberry"</code> is a berry, but was not returned in the earlier examples because we were only searching for the plural spelling <code>"berries"</code>.</p>
 <p>The period <code>.</code> is used to match any character except the newline <code>\n</code>, so we can use the common part <code>"berr"</code> to include <code>"frozen raspberry"</code>.</p>
 <div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">".berr."</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">".berr."</span><span class="op">)</span>
 <span class="co">#&gt; [1] "strawberries"     "blueberries"      "frozen raspberry"</span></code></pre></div>
-<p>However, if we did want to include the newline <code>\n</code>, then we can explicitly state this in the <code><a href="https://rdrr.io/r/base/regex.html">regex()</a></code> arguments as well using <code>dotall=T</code>. Here, we use the <code>stringr</code> function <code>str_detect()</code>:</p>
+<p>However, if we did want to include the newline <code>\n</code>, then we can explicitly state this in the <code><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex()</a></code> arguments as well using <code>dotall=T</code>. Here, we use the <code>stringr</code> function <code><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect()</a></code>:</p>
 <div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_detect</span><span class="op">(</span><span class="st">"\nGroceries\n"</span>, <span class="st">".G."</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"\nGroceries\n"</span>, <span class="st">".G."</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span>
-<span class="fu">str_detect</span><span class="op">(</span><span class="st">"\nGroceries\n"</span>, <span class="fu"><a href="https://rdrr.io/r/base/regex.html">regex</a></span><span class="op">(</span><span class="st">".G."</span>, dotall<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"\nGroceries\n"</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">".G."</span>, dotall<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 </div>
 <div id="from-start-to-finish" class="section level2" number="70.5">
@@ -243,13 +232,13 @@
 <span class="header-section-number">70.5</span> From start to finish<a class="anchor" aria-label="anchor" href="#from-start-to-finish"><i class="fas fa-link"></i></a>
 </h2>
 <p>Alternatively, we can also search for strings that start or end with a certain pattern by using anchors.</p>
-<p>For example, if we wanted all frozen items in <code>groceries</code>, we can use the caret <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> to indicate the start of a string and search for items beginning with “frozen”:</p>
+<p>For example, if we wanted all frozen items in <code>groceries</code>, we can use the caret <code>^</code> to indicate the start of a string and search for items beginning with “frozen”:</p>
 <div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"^frozen"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"^frozen"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "frozen raspberry"     "frozen Mixed-Berries"</span></code></pre></div>
-<p>Or if we wanted all varieties of plums in <code>groceries</code>, we can use the dollar sign <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> to indicate the end of a string and search for all items ending with “plums”:</p>
+<p>Or if we wanted all varieties of plums in <code>groceries</code>, we can use the dollar sign <code>$</code> to indicate the end of a string and search for all items ending with “plums”:</p>
 <div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"plums$"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"plums$"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "red color plums"     "yellow colour plums"</span></code></pre></div>
 <p>Some <a href="https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf">additional anchors</a> are as follows:</p>
 <div class="inline-table"><table class="table table-sm">
@@ -259,11 +248,11 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code></td>
+<td><code>^</code></td>
 <td>start of the string</td>
 </tr>
 <tr class="even">
-<td><code><a href="https://rdrr.io/r/base/Extract.html">$</a></code></td>
+<td><code>$</code></td>
 <td>end of the string</td>
 </tr>
 <tr class="odd">
@@ -289,14 +278,14 @@
 <h2>
 <span class="header-section-number">70.6</span> Or how about…<a class="anchor" aria-label="anchor" href="#or-how-about"><i class="fas fa-link"></i></a>
 </h2>
-<p>Or how about we try explicitly searching for all of <code>"berries"</code>, <code>"Berries"</code>, and <code>"berry"</code>? We can do so with the alternation operator, <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>, which means “or.”</p>
+<p>Or how about we try explicitly searching for all of <code>"berries"</code>, <code>"Berries"</code>, and <code>"berry"</code>? We can do so with the alternation operator, <code>|</code>, which means “or.”</p>
 <div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"berries|Berries|berry"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"berries|Berries|berry"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "strawberries"         "blueberries"         </span>
 <span class="co">#&gt; [3] "frozen raspberry"     "frozen Mixed-Berries"</span></code></pre></div>
 <p>Alternatively, we can also use parentheses <code>()</code> to write this more concisely. The parantheses essentially do the same thing they do in BEDMAS/PEDMAS for math: indicate grouping.</p>
 <div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"(b|B)err(ies|y)"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"(b|B)err(ies|y)"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "strawberries"         "blueberries"         </span>
 <span class="co">#&gt; [3] "frozen raspberry"     "frozen Mixed-Berries"</span></code></pre></div>
 </div>
@@ -306,18 +295,18 @@
 </h2>
 <p>Notice that in we have spelled both “color” and “colour” in <code>groceries</code>. Suppose we wanted to find all of the items that had their colour indicated.</p>
 <p>There are a variety of ways we could do this using the tools we have so far.</p>
-<p>For example, using the alternation operator <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>:</p>
+<p>For example, using the alternation operator <code>|</code>:</p>
 <div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"color|colour"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"color|colour"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "red color plums"     "yellow colour plums"</span></code></pre></div>
 <p>Or, using parentheses <code>()</code> too:</p>
 <div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"colo(r|ur)"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"colo(r|ur)"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "red color plums"     "yellow colour plums"</span></code></pre></div>
 <p>Alternatively, we can also use repetition quantifiers.</p>
-<p>For example, the question mark <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code> indicates that the preceding item is optional, and can be matched up to once. We can thus us <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code> to indicate that the “u” in “colour” is optional:</p>
+<p>For example, the question mark <code>?</code> indicates that the preceding item is optional, and can be matched up to once. We can thus us <code>?</code> to indicate that the “u” in “colour” is optional:</p>
 <div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"colou?r"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"colou?r"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "red color plums"     "yellow colour plums"</span></code></pre></div>
 <p>Below is a list of some of these <a href="https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf">repetition operators</a>:</p>
 <div class="inline-table"><table class="table table-sm">
@@ -331,15 +320,15 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code><a href="https://rdrr.io/r/utils/Question.html">?</a></code></td>
+<td><code>?</code></td>
 <td>The preceding item is optional and will be matched at most once</td>
 </tr>
 <tr class="even">
-<td><code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code></td>
+<td><code>*</code></td>
 <td>The preceding item will be matched zero or more times</td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code></td>
+<td><code>+</code></td>
 <td>The preceding item will be matched one or more times</td>
 </tr>
 <tr class="even">
@@ -364,7 +353,7 @@
 <p>Suppose we wanted to search for all items in <code>groceries</code> that have amounts provided. How many lbs of beef do we need? Is the number of plums specified?</p>
 <p>One way we could do this is to search for digits altogether. Using our current knowledge of regex, we could use the following:</p>
 <div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"0|1|2|3|4|5|6|7|8|9"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"0|1|2|3|4|5|6|7|8|9"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "2 lb ground beef"</span></code></pre></div>
 <p>R has syntax for classes of characters, though. And in this case, the class of digits is referred to with <code>[:digit:]</code>.</p>
 <p>Below is a list of some <a href="https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf">character classes</a>:</p>
@@ -416,7 +405,7 @@
 </tr>
 <tr class="odd">
 <td><code>[:punct:]</code></td>
-<td>Punctuation characters: <code>`</code>, <code><a href="https://rdrr.io/r/base/Logic.html">!</a></code>, <code>"</code>, <code>#</code>, <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>, <code>%</code>, <code><a href="https://rdrr.io/r/base/Logic.html">&amp;</a></code>, <code>'</code>, <code>(</code>, <code>)</code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, <code>,</code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, <code>.</code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code>, <code><a href="https://rdrr.io/r/base/Colon.html">:</a></code>, <code>;</code>, <code><a href="https://rdrr.io/r/base/Comparison.html">&lt;</a></code>, <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>, <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code>, <code><a href="https://rdrr.io/r/base/slotOp.html">@</a></code>, <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code>, <code>\</code>, <code>]</code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code>, <code>_</code>, <code>{</code>, <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>, <code>}</code>, and <code><a href="https://rdrr.io/r/base/tilde.html">~</a></code>
+<td>Punctuation characters: <code>`</code>, <code>!</code>, <code>"</code>, <code>#</code>, <code>$</code>, <code>%</code>, <code>&amp;</code>, <code>'</code>, <code>(</code>, <code>)</code>, <code>*</code>, <code>+</code>, <code>,</code>, <code>-</code>, <code>.</code>, <code>/</code>, <code>:</code>, <code>;</code>, <code>&lt;</code>, <code>=</code>, <code>&gt;</code>, <code>?</code>, <code>@</code>, <code>[</code>, <code>\</code>, <code>]</code>, <code>^</code>, <code>_</code>, <code>{</code>, <code>|</code>, <code>}</code>, and <code>~</code>
 </td>
 </tr>
 <tr class="even">
@@ -461,7 +450,7 @@
 </tr>
 <tr class="even">
 <td><code>[\~\!]</code></td>
-<td>would match <code><a href="https://rdrr.io/r/base/tilde.html">~</a></code> or <code><a href="https://rdrr.io/r/base/Logic.html">!</a></code>
+<td>would match <code>~</code> or <code>!</code>
 </td>
 </tr>
 </tbody>
@@ -469,11 +458,11 @@
 <p>Whenever we want to use a pre-built character class like <code>[:digit:]</code>, we have to wrap it in an extra set of square brackets <code>[]</code>.</p>
 <p>Thus, we can use this:</p>
 <div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"[[:digit:]]"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"[[:digit:]]"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "2 lb ground beef"</span></code></pre></div>
 <p>Or this:</p>
 <div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"[0123456789]"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">groceries</span>, <span class="st">"[0123456789]"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "2 lb ground beef"</span></code></pre></div>
 <p>To search for all items in <code>groceries</code> that have amounts provided:</p>
 </div>
@@ -511,20 +500,20 @@
 </tr>
 </tbody>
 </table></div>
-<p>Now, what if we wanted to match a pattern containing <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, or <code>\t</code>, for example?</p>
+<p>Now, what if we wanted to match a pattern containing <code>*</code>, <code>+</code>, or <code>\t</code>, for example?</p>
 <p>Consider the following list <code>spam</code>:</p>
 <div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">spam</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2*2=4"</span>, <span class="st">"raining cats and dogs"</span>, <span class="st">"they\them"</span>, <span class="st">"they/them"</span>, <span class="st">"heurex.se"</span>, <span class="st">"peanut butter"</span><span class="op">)</span></code></pre></div>
 <p>We can try to match these metacharacters as usual:</p>
 <div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_detect</span><span class="op">(</span><span class="va">spam</span>, <span class="st">"*|+|\t"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">spam</span>, <span class="st">"*|+|\t"</span><span class="op">)</span></code></pre></div>
 <p>But we get an error.</p>
 <p>In order to use these metacharacters as literal characters, we can either escape them by using <code>\\</code>:</p>
 <div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">spam</span>, <span class="st">"(\\*)|(\\+)|(\\\t)"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">spam</span>, <span class="st">"(\\*)|(\\+)|(\\\t)"</span><span class="op">)</span></code></pre></div>
 <p>Or by enclosing them between <code>\\Q</code> and <code>\\E</code>:</p>
 <div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">str_subset</span><span class="op">(</span><span class="va">spam</span>, <span class="st">"\\Q*\\E|\\Q+\\E|\\Q\t\\E"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">spam</span>, <span class="st">"\\Q*\\E|\\Q+\\E|\\Q\t\\E"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="functioning-functions" class="section level2" number="70.10">
 <h2>
@@ -581,58 +570,58 @@
 <li><a href="https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html">Roger D. Peng’s <em>R Programming for Data Science</em> section “Regular Expressions”</a></li>
 </ul>
 </div>
-<div id="exercises-96" class="section level2" number="70.12">
+<div id="exercises-83" class="section level2" number="70.12">
 <h2>
-<span class="header-section-number">70.12</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-96"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-83"><i class="fas fa-link"></i></a>
 </h2>
-<div id="question-1-66" class="section level3" number="70.12.1">
+<div id="question-1-59" class="section level3" number="70.12.1">
 <h3>
-<span class="header-section-number">70.12.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-66"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.1</span> Question 1<a class="anchor" aria-label="anchor" href="#question-1-59"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-2-65" class="section level3" number="70.12.2">
+<div id="question-2-57" class="section level3" number="70.12.2">
 <h3>
-<span class="header-section-number">70.12.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-65"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.2</span> Question 2<a class="anchor" aria-label="anchor" href="#question-2-57"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-3-64" class="section level3" number="70.12.3">
+<div id="question-3-58" class="section level3" number="70.12.3">
 <h3>
-<span class="header-section-number">70.12.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-64"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.3</span> Question 3<a class="anchor" aria-label="anchor" href="#question-3-58"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-4-59" class="section level3" number="70.12.4">
+<div id="question-4-54" class="section level3" number="70.12.4">
 <h3>
-<span class="header-section-number">70.12.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-59"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.4</span> Question 4<a class="anchor" aria-label="anchor" href="#question-4-54"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-5-58" class="section level3" number="70.12.5">
+<div id="question-5-53" class="section level3" number="70.12.5">
 <h3>
-<span class="header-section-number">70.12.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-58"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.5</span> Question 5<a class="anchor" aria-label="anchor" href="#question-5-53"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-6-58" class="section level3" number="70.12.6">
+<div id="question-6-53" class="section level3" number="70.12.6">
 <h3>
-<span class="header-section-number">70.12.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-58"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.6</span> Question 6<a class="anchor" aria-label="anchor" href="#question-6-53"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-7-57" class="section level3" number="70.12.7">
+<div id="question-7-51" class="section level3" number="70.12.7">
 <h3>
-<span class="header-section-number">70.12.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.7</span> Question 7<a class="anchor" aria-label="anchor" href="#question-7-51"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-8-57" class="section level3" number="70.12.8">
+<div id="question-8-52" class="section level3" number="70.12.8">
 <h3>
-<span class="header-section-number">70.12.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.8</span> Question 8<a class="anchor" aria-label="anchor" href="#question-8-52"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-9-57" class="section level3" number="70.12.9">
+<div id="question-9-51" class="section level3" number="70.12.9">
 <h3>
-<span class="header-section-number">70.12.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.9</span> Question 9<a class="anchor" aria-label="anchor" href="#question-9-51"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="question-10-57" class="section level3" number="70.12.10">
+<div id="question-10-51" class="section level3" number="70.12.10">
 <h3>
-<span class="header-section-number">70.12.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70.12.10</span> Question 10<a class="anchor" aria-label="anchor" href="#question-10-51"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
@@ -657,17 +646,17 @@
 <li><a class="nav-link" href="#functioning-functions"><span class="header-section-number">70.10</span> Functioning functions</a></li>
 <li><a class="nav-link" href="#additional-resources-and-references"><span class="header-section-number">70.11</span> Additional resources and references</a></li>
 <li>
-<a class="nav-link" href="#exercises-96"><span class="header-section-number">70.12</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#question-1-66"><span class="header-section-number">70.12.1</span> Question 1</a></li>
-<li><a class="nav-link" href="#question-2-65"><span class="header-section-number">70.12.2</span> Question 2</a></li>
-<li><a class="nav-link" href="#question-3-64"><span class="header-section-number">70.12.3</span> Question 3</a></li>
-<li><a class="nav-link" href="#question-4-59"><span class="header-section-number">70.12.4</span> Question 4</a></li>
-<li><a class="nav-link" href="#question-5-58"><span class="header-section-number">70.12.5</span> Question 5</a></li>
-<li><a class="nav-link" href="#question-6-58"><span class="header-section-number">70.12.6</span> Question 6</a></li>
-<li><a class="nav-link" href="#question-7-57"><span class="header-section-number">70.12.7</span> Question 7</a></li>
-<li><a class="nav-link" href="#question-8-57"><span class="header-section-number">70.12.8</span> Question 8</a></li>
-<li><a class="nav-link" href="#question-9-57"><span class="header-section-number">70.12.9</span> Question 9</a></li>
-<li><a class="nav-link" href="#question-10-57"><span class="header-section-number">70.12.10</span> Question 10</a></li>
+<a class="nav-link" href="#exercises-83"><span class="header-section-number">70.12</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#question-1-59"><span class="header-section-number">70.12.1</span> Question 1</a></li>
+<li><a class="nav-link" href="#question-2-57"><span class="header-section-number">70.12.2</span> Question 2</a></li>
+<li><a class="nav-link" href="#question-3-58"><span class="header-section-number">70.12.3</span> Question 3</a></li>
+<li><a class="nav-link" href="#question-4-54"><span class="header-section-number">70.12.4</span> Question 4</a></li>
+<li><a class="nav-link" href="#question-5-53"><span class="header-section-number">70.12.5</span> Question 5</a></li>
+<li><a class="nav-link" href="#question-6-53"><span class="header-section-number">70.12.6</span> Question 6</a></li>
+<li><a class="nav-link" href="#question-7-51"><span class="header-section-number">70.12.7</span> Question 7</a></li>
+<li><a class="nav-link" href="#question-8-52"><span class="header-section-number">70.12.8</span> Question 8</a></li>
+<li><a class="nav-link" href="#question-9-51"><span class="header-section-number">70.12.9</span> Question 9</a></li>
+<li><a class="nav-link" href="#question-10-51"><span class="header-section-number">70.12.10</span> Question 10</a></li>
 </ul>
 </li>
 </ul>
@@ -687,7 +676,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2021-10-07.</p>
+    <p>"<strong>DoSS Toolkit</strong>" was written by Ananya, Annie, Haoluan, Isaac, José, Leuven, Mariam, Marija, Matthew, Michael, Rohan, Ruijia, Sam, Shirley, Simone, Uzair, Yena, and Yiqu. It was last built on 2022-02-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -219,7 +219,7 @@ What will be the output of the following code: `count(starwars, skin_color) %>% 
 
 Use the following tibble for Questions 7 through 9:
 ```{r count-uncount-q7, echo=FALSE}
-count(starwars, skin_color, species) %>% uncount(.id = "id") %>% head(5)
+count(starwars, skin_color, species) %>% uncount(n, .id = "id") %>% head(5)
 ```
 The tibble above represents the product of manipulating the `starwars` data set using one or more functions. Which of the options below best describes the last function applied in order to produce the given output?
 
