@@ -1,0 +1,657 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(learnr)
+```
+
+# Functional programming
+
+*Written by Leuven Wang and last updated on 9/2/2022.*
+
+## Introduction
+
+In this lesson, you will learn parts of functional programming capabilities
+including:
+
+- What anonymous functions are.
+- How to create functions with parent functions.
+- The benefits of placing functions within lists.
+- Taking in functions as arguments.
+
+Prerequisites:
+
+- Familiarity with lists, vectors, and dataframes.
+- Knowledge of what R functions are.
+- Previous experience with `apply()`, `lapply()`, `sapply()`, and `tapply()`. 
+- Knowledge of common `purrr` functions.
+
+
+Functional programming expands the usages of functions beyond what you have seen
+up until this point. Whilst you may be used to functions as part of the linear
+sequence of a program, simply processing upon traditional data types like
+integers, dataframes, strings etc... as inputs or outputs, R provides the
+additional capability of treating functions themselves like data. These are
+called **first-class functions**. Let us learn some other terminology first:
+
+
+* Anonymous Functions - Functions without names.
+* Closures - Functions written by other functions.
+* Functionals - Functions that take functions as arguments and return vectors.
+* Function Factories - Functions take in vectors and create functions.
+* Function Operators - Functions that take functions as arguments and return
+functions.
+
+The central philosophy of functional programming is to avoid repetition as much
+as possible. If at any stage you have a problem where the solution involves
+copying and pasting code and slightly modifying it, there is probably a better
+solution through functional programming. Functional programming also takes
+advantage of R as a language reliant on vectors - meaning that loops,
+fundamental as they are to most programming languages, can be done away with.
+
+## Anonymous Functions
+
+As evidenced in its name, anonymous functions are simply functions without
+names. In R, even when performing regular sequential programming for a data
+analysis project, you can easily create these all the time:
+
+```{r}
+(function(x) head(x) %>% arrange(mpg))(mtcars)
+```
+In the above example, the anonymous function takes in parameter `mtcars`, a
+dataset, and rearranges it by `mpg`. Note that the parentheses surrounding the
+entire function (excluding actually calling it). Like named functions, anonymous
+functions have a formal - a list of arguments taken by the function, a body
+which stipulates what the function does, and an environment in which the
+function runs.
+
+```{r}
+formals(function(x) head(x) %>% arrange(mpg))
+body(function(x) head(x) %>% arrange(mpg))
+environment(function(x) head(x) %>% arrange(mpg))
+```
+
+
+## Closures
+ 
+Anonymous functions are great for creating closures - functions written by other
+functions. All we need to do is nest an anonymous function within another
+function. Consider the named function `linear_transform()` and the anonymous
+function enclosed within it:
+```{r}
+linear_transform <- function(b){
+  function(X){
+    X+b
+  }
+}
+```
+With `linear_transform()`, we can create infinitely many functions to suit our
+addition and subtraction needs:
+```{r}
+add_two <- linear_transform(2)
+add_two(3)
+
+subtract_three <- linear_transform(-3)
+subtract_three(3)
+```
+`linear_transform()` is an example of a **function factory** - a function that
+takes in vectors and makes new functions.
+
+## Lists of Functions
+Like numbers, strings, and whatnot, R also supports storing functions as items
+in a list. This is convenient when working with a group of functions that have
+functional similarities or should be applied en masse to the same data item. For
+example, in many of our statistics coursework, we're asked to provide a
+numerical summary of the dataset we're working with. Normally, we would approach
+the problem with something like this:
+```{r}
+mtcars_mean <- mean(mtcars$mpg)
+mtcars_sd <- sd(mtcars$mpg)
+mtcars_iqr <- IQR(mtcars$mpg)
+mtcars_median <- median(mtcars$mpg)
+mtcars_max <- max(mtcars$mpg)
+mtcars_min <- min(mtcars$mpg)
+```
+Tedious stuff. We have to call each of these functions `mean()`, `sd()`,
+`IQR()`, etc... one by one and apply them to the same variable. Why don't we
+just save them in a list instead? Like so:
+```{r}
+summary_functions <- list(mean = mean,
+                          sd = sd,
+                          iqr = IQR,
+                          median = median,
+                          max = max,
+                          min = min)
+```
+
+Then, we can apply them all in one go to the same data with `lapply()` and
+another anonymous function. Remember the structure of
+`lapply()`: `lapply(Vector, Function to be applied to each element of Vector)`.
+In this case the anonymous function simply brings in the data we're interested
+in.
+```{r}
+lapply(summary_functions, function(f) f(mtcars$mpg))
+
+```
+
+Boom. Beautiful. Not only are we saved the time and energy from having to
+manually call in our data to each function, we've also reduced the risk of
+making a mistake.
+
+## Functionals
+
+A functional takes other functions and returns a vector as output. We've just
+seen an example of such a function: `lapply()`. Functionals provide a strong
+alternative to loops. As we mentioned in the introduction, this is beneficial as
+it takes advantage of R's vectorization of data, making repetitive processes
+much faster than loops. Other similar functionals are `apply()`, `sapply()`, and
+`tapply()`. You should already be familiar with their general functions.
+
+A more generalized version of `lapply()` that allows you to work with more than
+just one type of argument is `Map()`. For instance, in calculating the mean of
+several different columns, you can easily apply `lapply()`:
+```{r}
+data <- replicate(5, rnorm(15), simplify = FALSE)
+unlist(lapply(data, mean))
+```
+But in the event that you would need to calculate weighted means with varying
+weights, `lapply()` would be intuitively inapplicable. Instead, `Map()` (with
+the help of function `weighted.mean`), would make this run easily:
+
+```{r}
+weights <- replicate(5, rnorm(15,2,1), simplify = FALSE)
+unlist(Map(weighted.mean, data, weights))
+```
+
+Note that `Map()` is capitalized, making it a different function from `map()` in
+`purrr`.
+
+
+### Matrix/Array Functionals
+
+There are three in built functionals that work well with high dimension data
+structures such as matrices or arrays. The first is the variant `apply()`.
+Recall that `apply(X, MARGIN, FUN)` has 3 required parameters: a matrix or array
+`X`, a`MARGIN` selection of either 1 for row operations or 2 for column
+operations, and a function for the operation `FUN`. A simple example summing up
+the rows of a matrix is as such:
+
+```{r}
+mx <- matrix(round(rnorm(30)), nrow= 6, ncol=5)
+mx
+apply(mx, 1, sum)
+```
+Another functional is `sweep()`. `sweep(X, MARGIN, STATS, FUN)` has a similar
+structure to `apply()`. It takes in matrix or array `X`, specifies whether the
+operation is by row or column through `MARGIN`, and a function `FUN`. The new
+`STATS` parameter should take in a vector of the same length as the dimension
+you're performing the operation on. It is the numerical summary which will be
+applied through your function. For example, if you are performing column-based
+operations upon 5 columns, your `STATS` vector should have length 5.
+
+```{r}
+sweep(head(mtcars), 2, apply(head(mtcars),2,mean), `/`)
+```
+In the above example, we calculate the mean average for each column and then
+divide all the cells by their respective result. `sweep()` is particularly
+useful for such standardization procedures. Finally, `outer()` is a functional
+which takes in two vectors/arrays `X` and `Y` and performs a function on each
+combination of them to produce a new array. For example:
+```{r}
+outer(1:10,1:10, "+")
+```
+
+### List Manipulation
+
+Some functionals work really well in manipulating lists. For example, the
+`Reduce()` functional takes in one vector and one function. Its output is a
+single value, created by performing the function upon the first two elements of
+the vector, then repeating that process with the outcome and the next element of
+the vector. This proceeds until all the elements of the vector have been
+cleared. For example, the below functional is the equivalent of summing together
+all the integers from 1 to 10. Granted, there are better ways of doings this but
+the point stands.
+
+```{r}
+Reduce("+", 1:10)
+```
+The usages of `Reduce()` are many. One area where you might find them useful is
+in performing merges between matrices. Say you have a number of separate
+dataframes all contained in a single list. The dataframes all share a common
+column. If you wanted to merge them all manually that would be a lot of
+`merge()` statements. Instead, this can be easily reduced with `Reduce()`.
+
+```{r warning=FALSE}
+data <- replicate(5, data.frame(idc=c(1:10), value = rnorm(10)),
+                  simplify = FALSE) #simulating our list of dataframes
+
+Reduce(function(...) merge(..., by = "idc"), data)
+
+```
+
+Again, note that `Reduce()` is capitalized, making it strictly different from
+`purrr::reduce()`.
+
+Another type of functional is **predicate functionals**. A predicate is simply a
+function that returns either True or False. 
+
+A predicate functional relies on a predicate to formulate its return output. The
+first noteworthy predicate functional is `Filter()` which returns values which
+match the predicate. For example, in the following database, the `Filter()`
+function only selects those that are wholly made of numeric values.
+
+```{r}
+x <- data.frame(id= c(1:20),
+                Name =sample(c("hi","bob","asdf"), 20, replace = TRUE),
+                age = round(runif(20,0,80)),
+                sex = sample(c("Male", "Female"), 20, replace = TRUE)
+                )
+
+Filter(is.numeric, x)
+```
+
+The `Find()` function is similar to `Filter()` but unlike it, it only returns
+the first element that matches the predicate. Here, it will only select the
+first column made up wholly of numeric values:
+
+```{r}
+Find(is.numeric, x)
+```
+`Position()` basically finds the index position of the result of `Find()`.
+
+```{r}
+Position(is.numeric, x)
+```
+### Mathematical Functionals
+
+Here are some functionals that maths students, especially those in calculus,
+might find useful. This section brings the term function closer to its
+mathematical context - maths functions. The first functional is `integrate()`
+which finds the definite integral of a function between two bounds. For example:
+
+```{r}
+integrate(dnorm,-Inf,Inf)
+integrate(function(x) -x^2+1, -1,1 )
+```
+
+Note that we are once again, making use of anonymous functions! Another useful
+function is `uniroot()` which finds where the function `f()` is equal to zero
+(i.e. the root) within a set interval:
+```{r}
+uniroot(function(x) -x^2+x+1, c(0,2))
+```
+Note that `uniroot()` will only find one root and so the two endpoints of the
+interval must result in opposite signs for `f()`. In the event that you specify
+a function within an interval which crosses 0 more than once, it will still only
+find one root:
+
+```{r}
+uniroot(function(x) x^3+2*x^2-1, c(-3, 1))
+```
+
+Along the same veins, `optimise()` will find the local maximum or minimum of
+`f()`. We have to specify whether we are searching for a maximum or minimum:
+```{r}
+optimize(function(x) -x^2+x+1, c(0,2), maximum = TRUE)
+optimize(function(x) x^3+2*x^2-1, c(-3, 1), maximum = FALSE)
+```
+
+
+## Function Operators
+
+Functions operators are functions that take other functions as inputs and return
+yet another function as output. In this way it is sort of like a combination of
+functionals and function factories. One useful function operator already built
+is `purrr::safely`. One of the main disadvantages of looping a list is that in
+the event the loop fails at one element, it stops executing the rest.
+Alternatively with functionals, a failure at one element means that no data is
+retained whatsoever. `purrr::safely` can solve both of these issues, recording
+errors as data, and ensuring completion of the iterative operation throughout
+all elements (assuming the final output is independent of elemental results of
+course). For example, let us say we have a list of vectors of numbers with a few
+inconsistencies:
+
+```{r}
+list_o_numbers <- list(
+  c(245,24535,3534,34645),
+  c(23,1.35),
+  "hi",
+  c(2356,898,34.67),
+  c("lol",345,732),
+  c(1,1)
+)
+```
+
+In the event that we want to sum up each list separately and independently a
+`for()` loop would quickly run into problems on the third element:
+
+```{r, error = TRUE}
+results <- rep(NA, length(list_o_numbers))
+
+for(i in 1:length(list_o_numbers)){
+  results[i] <- sum(list_o_numbers[[i]])
+  
+}
+
+  
+```
+The results only go up to the second element:
+```{r}
+results
+```
+Using the functional `Map()` doesn't work either:
+```{r error = TRUE}
+Map(sum,list_o_numbers)
+```
+Instead, we'll use `purrr::safely`. This function operator will take in the
+function we want to apply and essentially make it "error-fail" proof so that
+errors are recorded as data. Therefore, we can then apply the `Map()` function
+as we normally would:
+
+```{r}
+Map(purrr::safely(sum),list_o_numbers)
+```
+
+For each element in the list of vectors, there are two results: `result` and
+`error`. In the event that there are no errors in the computation of that
+element, only `result` will have a valid value whilst `error` will be `NULL`.
+The opposite is true for cases where there is an error. The advantage of this
+method is that we can successfully compute values for all elements where the
+function can correctly be applied. Note that `purrr::safely` is a function
+operator because it takes in a function (in this case `sum()`) and returns
+another function (in this case an error-proofed version of `sum()`).
+`purrr:safely` is an example of an output function operator because it changes
+the output of the original function. There are several other types of function
+operators including:
+
+* Behavioral Function Operators change the behavior of a function.
+* Input Function Operators change the inputs to a function.
+* Combining Function Operators combine multiple functions.
+
+We'll examine these one by one.
+
+### Behavioral Function Operators
+
+Behavioral function operators keep the inputs and outputs of a function as they
+are. So what do they do? They change the internal behavior of the function
+slightly. Such changes may be instituting delays between iterative runs, keeping
+a log or counter, and so forth.
+
+
+Consider a function operator aimed at creating a counter on the number of times
+some function `f` has been run (imagine `f` has been applied to some list by
+`lapply()` and we are tracking its progress). We can't set a counter within `f`
+because that would only exist within `f` (i.e. be deleted the moment `f`
+finishes each run). In this case, it would be useful to place `f` within a
+parent function `count_f` which would have a constant environment and be able to
+retain a counter for each call of `f`. A useful operator here is `<<-`. Instead
+of assigning values to a variable within the current function environment
+(i.e. each run of `f`), it looks for a matching name in parent environments
+(in this case, `count_f`).
+
+```{r eval = FALSE, }
+count_f <- function(f) {
+  i <- 1
+  function(...) {
+    i <<- i+1
+    f(...)
+  }
+}
+
+count_f(some_function_f_here)(parameters_of_f) #<- call to execute
+```
+
+Doing this is advantageous because now we can run `count_f` within an `lapply()`
+function. Otherwise, we would have to implement `f` within a loop with a counter
+and this would take longer to run.
+
+### Input Function Operators
+
+Input function operators changes... well the inputs of a function. One such
+useful example that is interesting is `purrr::partial()`. `partial()`
+essentially lets you partially fill out arguments to a function and save it as
+another function. This saves us space in coding and allows us to easily transfer
+pre-filled out template functions in various usages.
+
+For example, for a function `f` which has a series of parameters `x` and `y` of
+which we want to set `x` but want `y` to remain indeterminate for the moment for
+some future usage, we would usually write:
+```{r eval = FALSE}
+g <- function(y) f(y, x= values_of_x)
+```
+With `partial()` we can write:
+
+```{r eval = FALSE}
+g <- partial(f, x= values_of_x)
+```
+
+And at some later date, when you've determined the arguments of `y` which would
+be useful to you, you can call `g` as such:
+```{r eval = FALSE}
+g(y=values_of_y)
+```
+
+Note that the capabilities of `partial()` are provided for in both the `purrr`
+package and `pryr` package. See their documentation for further details.
+
+Another input function operator is `Vectorize()` which coverts a scalar function
+to a vector. Imagine if you wanted a list of vectors with their elements
+randomly drawn. For one single vector, you would use `sample()`. However,
+`sample()` couldn't generate a two dimensional list of vectors for you. Passing a
+vector into the `size` parameter doesn't achieve much:
+
+```{r}
+sample(1:10, size = c(1,2,3,4,5))
+```
+Instead, `Vectorize` provides a quick solution giving us our intended result:
+
+
+```{r}
+vector_sample <- Vectorize(sample, "size", SIMPLIFY = FALSE)
+vector_sample(1:10, size= c(1,2,3,4,5))
+```
+Lovely.
+
+## Combining Function Operators
+
+Function operators can also take in multiple functions as inputs. One convenient
+function operator that quickly tackles a problem we had encountered earlier,
+performing numerical summaries, is `plyr::each()`. This basically combines
+multiple unctions into one function which outputs a vector.
+
+
+```{r}
+summary_functions <- plyr::each(mean,sd,IQR,median,max,min)
+summary_functions(mtcars$mpg)
+```
+In mathematics, we talk about applying functions sequentially such as `f(g(x))`.
+Such actions are known as function composition. The same principle can be
+applied to R functions. One way to easily create such combinations is through
+the `pryr::compose` function operator. `compose()` takes in n functions and
+applies them from right to left.
+
+
+```{r}
+sqrt(sum(mtcars$mpg))
+
+compose(sqrt, sum)(mtcars$mpg)
+```
+
+
+## Exercises
+
+### Question 1
+
+In mathematics, a factorial represented by n! is defined as the product of all
+the positive integers less than or equal to n. In R, we can compute this using
+the function `factorial(n)`. Let us pretend this solution does not exist. Write
+your own function `factorial_2` calculating the factorial of any positive
+integer. Assume the input will be a positive integer. This should only take one
+expression.
+
+```{r question1, exercise = TRUE}
+
+```
+
+```{r question1-solution}
+factorial_2 <- function(n)
+{
+  Reduce("*",seq(n,1,-1))
+}
+```
+
+
+### Question 2
+
+The factorial takes consecutively descending integers as its factors.
+i.e. n! = n(n-1)(n-2)...1. What if we wanted a different function that descends
+by another integer y other than 1? Write a parent function `factorial_creator`
+that takes into argument a parameter y that creates child functions which can
+then calculate the product of those integer descents by y
+i.e. `factorial_y(n)` =  n(n-y)(n-2y)... The sequence should stop at th
+smallest positive integer `n-ky`.
+
+
+```{r question2, exercise = TRUE}
+
+```
+
+```{r question2-solution}
+factorial_creator <- function(y){
+  function(n){
+    
+    Reduce("*",seq(n,1,-y))
+    
+  }
+  
+}
+```
+
+
+### Question 3
+
+Consider a matrix formulated in the same method as below. Divide each value by
+the 40th percentile of its column plus 0.1. Use only one expression
+```{r question3, exercise = TRUE, exercise.eval = TRUE}
+data <- matrix(sample(rnorm(30),30), ncol = 6, nrow=5)
+data
+```
+
+```{r question3-solution}
+
+data <- matrix(sample(rnorm(30),30), ncol = 6, nrow=5)
+x1 <- sweep(data, 2, apply(data, 2, quantile,prob=0.4)+0.1, `/`)
+
+```
+
+
+
+
+
+### Question 4
+
+Write a function factory `bootstrap` that generates a function which gives the
+bootstrap distribution of any statistic for any vector `data` based on n
+resamplings of the same size size as `data` with n being a parameter of the
+parent function. `Statistic` and `n` should be parameters within the parent
+function whilst `data` should be a parameter within the enclosed inner function.
+
+
+```{r question4, exercise = TRUE}
+
+```
+
+```{r question4-solution}
+bootstrap <- function(statistic, n){
+  function(data){
+      map(1:n, ~statistic(sample(data, replace = TRUE, size=length(data))))
+  }
+}
+
+
+```
+
+### Question 5
+Using your answer to question 4,`bootstrap` , create a function
+`bootstrap_variance` where the statistic being used to create the distribution
+is each resample's variance. Leave `n` indeterminate for the time being.
+
+```{r question5, exercise = TRUE}
+
+```
+
+```{r question5-solution}
+bootstrap_variance <- partial(bootstrap, statistic = var)
+```
+
+
+### Question 6
+
+Using `bootstrap_variance`, generate the bootstrap distribution of `mtcars$mpg`
+with n as 1000, 100, 50 and 10 resamples. Save the resulting list to `results`.
+Hint: This can be done in one expression with an anonymous function.
+
+```{r question6, exercise = TRUE}
+
+```
+
+```{r question6-solution}
+results <- lapply(lapply(c(1000,100,50,10),bootstrap_variance), function(f)
+  f(mtcars$mpg))
+```
+
+### Question 7
+
+`results` is in list form but it is not particularly accessible. Use `unlist` and
+an appropriate function operator to calculate the mean of each 4 first-child
+elements of the list.
+
+```{r question7, exercise = TRUE}
+
+```
+
+
+```{r question7-solution}
+lapply(results,compose(mean,unlist))
+```
+
+
+### Question 8
+
+```{r question8}
+question("Which one of these is a good reason to use anonymous functions?", 
+         answer("You're lazy."), 
+         answer("To help write closures."),
+         answer("To write quick functions that barely take a single expression."
+                ),
+         answer("You can't come up with a name and it is not terribly important.
+                "),
+         answer("All of the above.", correct = TRUE))
+```
+
+### Question 9
+
+```{r question9}
+question("What happens if you use uniroot over an interval where there are
+         multiple roots?", 
+         answer("It will return all roots."), 
+         answer("It will return only one root.", correct = TRUE),
+         answer("An error will occur"))
+```
+
+
+### Question 10
+
+
+```{r question10}
+question("Which one of these actions would disqualify its function as a
+         behavioural function operator?", 
+         answer("A counter."), 
+         answer("Some apparatus to delay the sequential running of the input
+                function iteratively."),
+         answer("Detecting logical errors within the input function.",
+                correct = TRUE),
+         answer("Printing to console running progress of the input function."),
+         answer("Taking the time of the input function run.")
+         )
+```
+
