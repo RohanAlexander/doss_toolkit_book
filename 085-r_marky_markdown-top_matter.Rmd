@@ -9,7 +9,7 @@ library(here)
 
 # Top Matter: Title, Date, Author, Abstract
 
-*Written by Yena Joo and last updated on 7 October 2021.*
+*Written by Yena Joo and last updated on February 2022.*
 
 ## Introduction
 
@@ -121,7 +121,7 @@ c. major findings of the study
 d. all of the above  
 
 ### Question 5
-
+(True or False)
 
 ### Question 6
 
@@ -144,24 +144,4 @@ You can now create a well-formatted first page of your paper. Try adding Introdu
 
 
 
-## Exercises
 
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10

@@ -9,7 +9,7 @@ library(knitr)
 
 # Saving graphs
 
-*Written by Yena Joo and last updated on 7 October 2021.*
+*Written by Yena Joo and last updated on February 2022.*
 
 ## Introduction
 There are some situations where you may need pictures of the plots when writing on blogs or sending emails about the data you're analyzing. In that case, you would wonder how to save and upload the plots created in R.  
@@ -82,7 +82,7 @@ And these are some core arguments:
 
 - `filename`: file name of the graph you are going to save.  
 - `plot`: By default, the plot to save is the last plot displayed on your R file.  
-- path: path of the directory to save the plot. By default, it is directed to the working directory.  
+- `path`: path of the directory to save the plot. By default, it is directed to the working directory.  
 - `width`, `height`, `units`: You can set the width and height, as well as the units of those measurements.  
 
 Here are some examples. Make sure put the correct format of the file after the file name as follows: 
@@ -159,20 +159,31 @@ d. adjust the size of the final plot in feet.
 
 
 ### Question 7
-What function can you use to save plots instead of using dev.off()?  
+What function can you use to save plots instead of using `dev.off()`?  
 a. savegg()  
 b. ggsave()  
 c. plotsave()  
 d. all of the above.  
 
 ### Question 8
-
+(True or False) If you want to change the unit of the measurement, simply put "cm" at the end of either `width` or `height` arguments like the following chunk of code:  
+```
+ggsave("example.pdf", width = 20cm, height = 20cm)
+```  
+a. True  
+b. False  
 
 ### Question 9
-
+(True or False) Setting path of the directory when saving graph is not necessary, because by default, it is directed to the working directory.  
+a. True  
+b. False  
 
 ### Question 10
-
+Which file format can `ggsave()` save into (Select all that apply)?  
+a. jpeg  
+b. pdf  
+c. docx  
+d. csv  
 
 ## Next Steps
 
@@ -187,28 +198,3 @@ d. all of the above.
 
 - [How to save a ggplot](https://ggplot2.tidyverse.org/reference/ggsave.html)
 - [more information on ggsave()](https://ggplot2.tidyverse.org/reference/ggsave.html)
-
-
-
-
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10

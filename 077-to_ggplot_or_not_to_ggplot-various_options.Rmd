@@ -283,15 +283,44 @@ Good visualizations can help the audience/readers remember the information or th
 ## Exercises
 
 ### Question 4
+Which functions are appropriate to use when you want to split one plot into multiple plots (select all that apply)?  
+a. `facet_grid()`  
+b. `kable()`
+c. `facet_wrap()`  
+d. All of the above   
 
 ### Question 5
+(True or False) You can only facet with one variable.  
+a. True  
+b. False  
 
 ### Question 6
+In the `labs()` function, which argument is going to display a label on the top-left corner of the plot by default?  
+a. title  
+b. caption  
+c. subtitle  
+d. tag  
 
 ### Question 7
+(True or False) When creating a boxplot, you can choose a color to "fill" and another color to "outline" the plot.  
+a. True  
+b. False   
 
 ### Question 8
+Which statement is correct about the function `breaks_pretty()`?   
+a. It is used to split date and times.   
+b. You can break a month into 50 blocks using the function.  
+c. You can break 24 hours into 5 blocks using the function.  
+d. All of the above.   
 
 ### Question 9
+(True or False) You can use the argument `breaks = ` to set the desired number of breaks of the date/time.  
+a. True  
+b. False  
 
 ### Question 10
+What is the purpose of using the functions introduced in the lesson?   
+a. To create a simple default plot.  
+b. To provide a more visually organized plots by additional visualization and labeling.  
+c. To manipulate datasets.  
+d. None of the above.  

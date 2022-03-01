@@ -18,7 +18,7 @@ In the research papers, tables are used all the time. However, the dataframe its
 
 In this lesson, you will learn how to:  
 
-- Create Tables In LaTeX, HTML, Markdown   
+- Create Tables In  LaTeX, HTML, Markdown   
 - build common complex tables and manipulate table styles using `kableExtra`  
 
 
@@ -194,6 +194,34 @@ mt_table %>%
 mt_table
 ```
 
+
+
+## Common Mistakes & Errors  
+
+You might get the following error message sometimes:  
+```
+Error in dimnames(x) <- dn : length of 'dimnames' [2] not equal to array extent
+```
+This error message will pop up if you are trying to change the column names with different length of the vector than the number of columns. Make sure the length of the vector in your `col.names` argument matches the number of the columns in the dataset.  
+
+Also, make sure to choose the right format of kable that matches the format of the document. If you choose to put `format = "pdf"` in a HTML document output, you will get the following error:  
+```
+could not find function "kable_pdf"
+```  
+So be careful not to make these mistakes.  
+
+
+## Next Steps
+Create some fancy tables using kable & kableExtra :)
+
+## Reference  
+
+- [advanced information on kableextra()](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)   
+- [kableextra()](https://bookdown.org/yihui/rmarkdown-cookbook/kableextra.html)  
+- [more information on kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)  
+- [more information on gt Tables](https://gt.rstudio.com/articles/intro-creating-gt-tables.html)
+
+
 ## Exercises
 
 ### Question 1
@@ -243,61 +271,42 @@ c. To customize the table.
 d. All of the above. 
 
 ### Question 5
+(True or False) To make the plain HTML table created with `kable()`, you can apply themes using `kable_styling()` from the package `kableExtra`.  
+a. True  
+b. False  
 
 ### Question 6
+Which statement is incorrect about the `kableExtra` package?  
+a. It features the pipe operator, `%>%`.  
+b. You can manipulate a dataset with the package.   
+c. You can add multiple options and features to the table.  
+d. None of the above.  
 
 ### Question 7
+(True or False) You can change the column and row names by using the argument `col.row = ('column name', 'row name')`.  
+a. True  
+b. False  
 
 ### Question 8
+Which package is used to create a GT table?  
+a. `gtTable`  
+b. `gt`  
+c. `gtKable`  
+d. `gtpackage`  
 
 ### Question 9
+Which of the following code chunk would create a side-by-side tables?   
+a.  `kable(table1, table2)`
+b. `kable(list(table1, table2))`
+c. `kable(table1) + kable(table2)`
+d. None of the above.  
+Here, I will split `mtcars` dataset into two tables, and put them side by side using `kable(list(datasets))`.  
 
 ### Question 10
-
-## Common Mistakes & Errors  
-
-You might get the following error message sometimes:  
-```
-Error in dimnames(x) <- dn : length of 'dimnames' [2] not equal to array extent
-```
-This error message will pop up if you are trying to change the column names with different length of the vector than the number of columns. Make sure the length of the vector in your `col.names` argument matches the number of the columns in the dataset.  
-
-Also, make sure to choose the right format of kable that matches the format of the document. If you choose to put `format = "pdf"` in a HTML document output, you will get the following error:  
-```
-could not find function "kable_pdf"
-```  
-So be careful not to make these mistakes.  
+Which argument in kable() function do you use to change the format of the table to html?  
+a. `format = 'html'`  
+b. `html = TRUE`  
+c. `pdf = FALSE`  
+d. All of the above  
 
 
-## Next Steps
-Create some fancy tables using kable & kableExtra :)
-
-## Reference  
-
-- [advanced information on kableextra()](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)   
-- [kableextra()](https://bookdown.org/yihui/rmarkdown-cookbook/kableextra.html)  
-- [more information on kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)  
-- [more information on gt Tables](https://gt.rstudio.com/articles/intro-creating-gt-tables.html)
-
-
-## Exercises
-
-### Question 1
-
-### Question 2
-
-### Question 3
-
-### Question 4
-
-### Question 5
-
-### Question 6
-
-### Question 7
-
-### Question 8
-
-### Question 9
-
-### Question 10

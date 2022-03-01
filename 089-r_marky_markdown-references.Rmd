@@ -141,10 +141,22 @@ c. It should be placed at the very front of your document.
 d. All of the above.   
 
 ### Question 5
+(True or False) Is the following code chunk a correct way to cite an R package?   
+```
+citation(tidyverse)
+```  
+a. True  
+b. False  
 
 ### Question 6
+Which fields must be included for a book citation?   
+a. `author`   
+b. `title`   
+c. `year`   
+d. All of the above.   
 
 ### Question 7
+
 
 ### Question 8
 
