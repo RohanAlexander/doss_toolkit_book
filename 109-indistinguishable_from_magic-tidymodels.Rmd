@@ -12,11 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 Tidyverse has become an essential package for analyzing data when using a consistent interface. 
 `tidymodels` is a package created to provide a consistent interface when creating a data model that inherits the principles of `tidyverse`.  
 
-After all the chapters learning the tidyverse framework and if you feel like you are familiar with the basics, we can start building various statistical models to incorporate to your analyses.
+After going through the previous chapters learning the tidyverse framework, we can start building various statistical models to incorporate to your analyses.
 
 You'll learn key concepts such as defining model objects and creating modeling workflows.
  
-In this lesson, you will learn about:  
+In this lesson, you will learn how to:  
 - create robust models   
 - perform statistical analysis  
 - compare models   
@@ -24,20 +24,18 @@ In this lesson, you will learn about:
 - create statistical models   
 
 
-
 Install Tidymodels with: 
 ```
 install.packages("tidymodels")
 ```
 
-Note that the package loads some core `tidyverse` packages, including `dplyr`, `tidyr`, and `ggplot2`.   
-
 ```{r}
 library(tidymodels)
 ```
 You can see the list of the packages included in the tidymodels package above.  
+Note that the package loads some core `tidyverse` packages as well, including `dplyr`, `tidyr`, and `ggplot2`.    
 
-In this lesson, we will focus on the core packages in `tidymodels`, including:   
+We will focus on the core packages in `tidymodels`, including:   
 - `rsample`  
 - `recipes`  
 - `parsnip`  
@@ -51,7 +49,11 @@ In this lesson, we will focus on the core packages in `tidymodels`, including:
 
 ### Data preparation (Data resampling): `rsample`
 Every statistical analysis and modeling start with data. 
-`rsample` is a General Resampling Infrastructure for R. The package comes in handy when you want to separate a data set into training dataset and testing dataset. 
+`rsample` is a General Resampling Infrastructure for R so that models can be assessed and empirically validated. The package comes in handy when you want to separate a dataset into training dataset and testing dataset.   
+
+**What is resample?**  
+Resample is a result of a two-way split of a dataset.  
+
 
 #### Resampling Methods  
 
@@ -107,7 +109,7 @@ In bake(), the function applies the preprocessing to data sets.
 
 Here is an example: 
 
-Using the same mtcars training dataset, you can create a recipe and prep it.  
+Using the same mtcars training dataset, you can create a recipe and prep it. You can use the pipe operator `%>%` like we used in the `dplyr` package when modeling.   
 ```
 mtcars_recipe <- training_df %>% 
   recipe(Of your choice) %>%
@@ -115,7 +117,7 @@ mtcars_recipe <- training_df %>%
   prep()
 ```
 
-Then,using the function `bake()`, you can execute the preprocessing using the testing data, as we did for the training data as the following.  
+Then, by using the function `bake()`, you can execute the preprocessing using the testing data, as we did for the training data as the following.  
 
 ```
 mtcars_recipe %>% bake(testing(mtcars_split))
@@ -170,17 +172,28 @@ https://www.tidyverse.org/blog/2018/11/parsnip-0-0-1/
 
 
 ### Model Evaluation: `yardstick` 
-The `yardstick` package allows you to estimate how well models are performing using tidy data principles. For regression models, we can use R-squared or MSE to evaluate the model performnce, however classifier evaluation requires a little more than that.  
+The `yardstick` package allows you to estimate how well models are performing using tidy data principles. For regression models, we can use R-squared or MSE to evaluate the model performnce, however classifier evaluation requires a little more than that. The package automates the complex calculation process.   
 
-Using the package, you can create custom metrics to evaluate your model.  
+There are three main types of metrics in `yardstick`:   
+1. Class metrics    
+2. Class probability metrics    
+3. Numeric metrics  
+
+They all take `truth` and `estimate` as input arguments (input types vary) and return the same type of output (a tibble).  
+
+
+Aside from the usage of the existing functions, you can also create custom metrics to evaluate your models.  
 
 ```
 mtcars_prediction %>% 
 bind_cols(mtcars_testing) %>% 
 metrics(truth = Variable name, estimate = .pred_class)
+
+
 ```
-https://yardstick.tidymodels.org
-https://cran.r-project.org/web/packages/yardstick/readme/README.html
+
+For more information on `yardstick`, here is an [additional resource on yardstick package](https://yardstick.tidymodels.org) you may find helpful.   
+
 ## Exercises
 
 ### Question 1

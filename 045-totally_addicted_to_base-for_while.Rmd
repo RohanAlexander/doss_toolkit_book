@@ -8,7 +8,7 @@ library(tidyverse)
 
 # for and while
 
-*Written by Yena Joo and last updated on 7 October 2021.*
+*Written by Yena Joo and last updated on January 2022.*
 
 
 ## Introduction
@@ -183,6 +183,45 @@ So, the loop enters the body, prints 1, and i is incremented by 1 since the body
 
 
 
+## Common mistakes & errors
+
+- It is easy to forget to put curly braces after the loop statement. If you only have one statement to execute, you don't need to put the curly braces `{}`. However, if you have multiple statements, `{}` is necessary. You won't get the result you want without the curly braces.  
+
+- Be aware of your use of the iterable object. For example, `for (i in student)` would not execute the result you want in the previous example. Let's say you would want to give bonus marks to one of the courses. Then you should use `1:nrow(student)` as your iterable object as follows:  
+
+```{r}
+for (i in 1:nrow(student)) {
+  student$cs[i] = student$cs[i] + 1
+}
+head(student)
+```
+
+However, using `i in student` will iterate through the entire data, and the length of the iteration would be larger than the length of the number of the grades in the `cs` course.    
+
+```
+for (i in student) {
+  student$cs[i] = student$cs[i] + 1
+}
+student
+```
+And the code will execute the following error message, if not, similar:  
+```
+“Error: replacement has X rows, data has Y”.
+``` 
+This happens since the length of the vector you are trying to replace does not match the length of the iteration.  
+
+- Think carefully of what statement you're trying to iterate.  
+
+## Next steps
+
+- Practice how to manipulate data using `for` and `while` loops.
+
+## References  
+
+- [R for loop](https://www.datamentor.io/r-programming/for-loop/)
+- [R while loop](https://www.datamentor.io/r-programming/while-loop/)
+
+
 ## Exercises
 
 ### Question 1 
@@ -244,57 +283,54 @@ How many iterations does the while loop go through until it terminates?
   d. 6   
 
 ### Question 4 
+Which of the following is not an iterable?  
+a. vector  
+b. list  
+c. string  
+d. sequence  
 
 ### Question 5
+(True or False) Nested loops are used for bi-dimensional arrays.  
+a. True  
+b. False  
 
 ### Question 6
+(True or False) You can use `for()` even when you do not know how many iterations the code should go through.  
+a. True  
+b. False  
 
 ### Question 7
+What type of braces should you use especially when you have multiple statements in your loops?   
+a. `()`  
+b. `{}`  
+c. `[]`  
+d. You can use any kind of braces.  
 
 ### Question 8
+There is a dataset called `data`. Which of the following loop would occur an error?   
+a. `for (i in 1:nrow(data))`  
+b. `for (i in data)`  
+c. `while (i < 100)`  
+d. None of the above  
 
 ### Question 9
+What would the following code chunk return?   
+```{r}
+for(i in 1:2) {
+  for(j in 2:3) {
+    print(i+j);
+    }
+}
+```
+a. `(3 4 4 5) (3 4 4 5)`  
+b. `2 3 3 4`  
+c. `3 4 4 5`  
+d. None of the above  
+
 
 ### Question 10
-
-
-## Common mistakes & errors
-
-- It is easy to forget to put curly braces after the loop statement. If you only have one statement to execute, you don't need to put the curly braces `{}`. However, if you have multiple statements, `{}` is necessary. You won't get the result you want without the curly braces.  
-
-- Be aware of your use of the iterable object. For example, `for (i in student)` would not execute the result you want in the previous example. Let's say you would want to give bonus marks to one of the courses. Then you should use `1:nrow(student)` as your iterable object as follows:  
-
-```{r}
-for (i in 1:nrow(student)) {
-  student$cs[i] = student$cs[i] + 1
-}
-head(student)
-```
-
-However, using `i in student` will iterate through the entire data, and the length of the iteration would be larger than the length of the number of the grades in the `cs` course.    
-
-```
-for (i in student) {
-  student$cs[i] = student$cs[i] + 1
-}
-student
-```
-And the code will execute the following error message, if not, similar:  
-```
-“Error: replacement has X rows, data has Y”.
-``` 
-This happens since the length of the vector you are trying to replace does not match the length of the iteration.  
-
-- Think carefully of what statement you're trying to iterate.  
-
-## Next steps
-
-- Practice how to manipulate data using `for` and `while` loops.
-
-## References  
-
-- [R for loop](https://www.datamentor.io/r-programming/for-loop/)
-- [R while loop](https://www.datamentor.io/r-programming/while-loop/)
-
-
-
+Which statement is correct about the differences between `for` and `while` loops (select all that apply)?    
+a. Both functions do not require to code the incrementation because it is automatically incremented.   
+b. If you know how many iterations the code should go through, use `while()`.   
+c. If you know how many iterations the code should go through, use `for()`.  
+d. `while()` tests for the condition whether it is `TRUE` or `FALSE`.  
